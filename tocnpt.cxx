@@ -102,11 +102,29 @@ process_tocs_and_npt(void)
 
    temp_strm.str("");
 
-   temp_strm << "select title, words, music, words_and_music, lead_sheet, "
-	     << "partial_lead_sheet, no_page_turns, "
-	     << "no_page_turns_with_two_songbooks, arrangement_orchestra, "
-	     << "arrangement_solo_guitar, recordings, opera, operetta, musical, revue, "
-	     << "film, sort_by_production, year, copyright, notes "
+   temp_strm << "select title, "                            //  0 
+             <<        "words, "                            //  1
+             <<        "words_reverse, "                    //  2
+             <<        "music, "                            //  3
+             <<        "music_reverse, "                    //  4
+             <<        "words_and_music, "                  //  5
+             <<        "words_and_music_reverse, "          //  6
+             <<        "lead_sheet, "                       //  7
+	     <<        "partial_lead_sheet, "               //  8
+             <<        "no_page_turns, "                    //  9
+	     <<        "no_page_turns_with_two_songbooks, " // 10
+             <<        "arrangement_orchestra, "            // 11
+	     <<        "arrangement_solo_guitar, "          // 12
+             <<        "recordings, "                       // 13
+             <<        "opera, "                            // 14
+             <<        "operetta, "                         // 15
+             <<        "musical, "                          // 16
+             <<        "revue, "                            // 17
+	     <<        "film, "                             // 18
+             <<        "sort_by_production, "               // 19
+             <<        "year, "                             // 20
+             <<        "copyright, "                        // 21
+             <<        "notes "                             // 22
              << "from Songs order by title asc;";
 
    if (DEBUG) 
@@ -198,8 +216,21 @@ process_tocs_and_npt(void)
        if (curr_row[2])
 	 {
 	   if (DEBUG)
-	     cout << "`music'                            == " << curr_row[2] << endl;
-	   curr_song.music.assign(curr_row[2]);
+	     cout << "`words_reverse'                    == " << curr_row[2] << endl;
+	   curr_song.words_reverse.assign(curr_row[2]);
+
+	 }
+       else
+	 {
+	   if (DEBUG)
+	     cout << "`words_reverse'                    == NULL" << endl;
+	 }
+
+       if (curr_row[3])
+	 {
+	   if (DEBUG)
+	     cout << "`music'                            == " << curr_row[3] << endl;
+	   curr_song.music.assign(curr_row[3]);
 	 }
        else
 	 {
@@ -207,50 +238,76 @@ process_tocs_and_npt(void)
 	     cout << "`music'                            == NULL" << endl;
 	 }
 
-       if (curr_row[3])
+
+       if (curr_row[4])
 	 {
 	   if (DEBUG)
-	     cout << "`words_and_music'                  == " << curr_row[3] << endl;
-	   curr_song.words_and_music.assign(curr_row[3]);
+	     cout << "`music_reverse'                    == " << curr_row[4] << endl;
+	   curr_song.music_reverse.assign(curr_row[4]);
+	 }
+       else
+	 {
+	   if (DEBUG)
+	     cout << "`music_reverse'                    == NULL" << endl;
+	 }
+
+       if (curr_row[5])
+	 {
+	   if (DEBUG)
+	     cout << "`words_and_music'                  == " << curr_row[5] << endl;
+	   curr_song.words_and_music.assign(curr_row[5]);
 	 }
        else
 	 {
 	   if (DEBUG)
 	     cout << "`words_and_music'                  == NULL" << endl;
 	 }
-       if (DEBUG)
-	 cout << "`lead_sheet'                       == " << curr_row[4] << endl;
-       curr_song.lead_sheet = atoi(curr_row[4]);
 
-       if (DEBUG)
-	 cout << "`partial_lead_sheet'               == " << curr_row[5] << endl;
-       curr_song.partial_lead_sheet = atoi(curr_row[5]);
-
-       if (DEBUG)
-	 cout << "`no_page_turns'                    == " << curr_row[6] << endl;
-       curr_song.no_page_turns = atoi(curr_row[6]);
-
-       if (DEBUG)
-	 cout << "`no_page_turns_with_two_songbooks' == " << curr_row[7] << endl;
-       curr_song.no_page_turns_with_two_songbooks = atoi(curr_row[7]);
-
-       if (DEBUG)
-	 cout << "`arrangement_orchestra'            == " << curr_row[8] << endl;
-       curr_song.arrangement_orchestra = atoi(curr_row[8]);
-
-       if (DEBUG)
-	 cout << "`arrangement_solo_guitar'          == " << curr_row[9] << endl;
-       curr_song.arrangement_solo_guitar = atoi(curr_row[9]);
-
-       if (DEBUG)
-	 cout << "`recordings'                       == " << curr_row[10] << endl;
-       curr_song.recordings = atoi(curr_row[10]);
-	   
-       if (curr_row[11])
+       if (curr_row[6])
 	 {
 	   if (DEBUG)
-	     cout << "`opera'                            == " << curr_row[11] << endl;
-	   curr_song.opera.assign(curr_row[11]);	   
+	     cout << "`words_and_music_reverse'          == " << curr_row[6] << endl;
+	   curr_song.words_and_music_reverse.assign(curr_row[6]);
+	 }
+       else
+	 {
+	   if (DEBUG)
+	     cout << "`words_and_music_reverse'          == NULL" << endl;
+	 }
+
+       if (DEBUG)
+	 cout << "`lead_sheet'                       == " << curr_row[7] << endl;
+       curr_song.lead_sheet = atoi(curr_row[7]);
+
+       if (DEBUG)
+	 cout << "`partial_lead_sheet'               == " << curr_row[8] << endl;
+       curr_song.partial_lead_sheet = atoi(curr_row[8]);
+
+       if (DEBUG)
+	 cout << "`no_page_turns'                    == " << curr_row[9] << endl;
+       curr_song.no_page_turns = atoi(curr_row[9]);
+
+       if (DEBUG)
+	 cout << "`no_page_turns_with_two_songbooks' == " << curr_row[10] << endl;
+       curr_song.no_page_turns_with_two_songbooks = atoi(curr_row[10]);
+
+       if (DEBUG)
+	 cout << "`arrangement_orchestra'            == " << curr_row[11] << endl;
+       curr_song.arrangement_orchestra = atoi(curr_row[11]);
+
+       if (DEBUG)
+	 cout << "`arrangement_solo_guitar'          == " << curr_row[12] << endl;
+       curr_song.arrangement_solo_guitar = atoi(curr_row[12]);
+
+       if (DEBUG)
+	 cout << "`recordings'                       == " << curr_row[13] << endl;
+       curr_song.recordings = atoi(curr_row[13]);
+	   
+       if (curr_row[14])
+	 {
+	   if (DEBUG)
+	     cout << "`opera'                            == " << curr_row[14] << endl;
+	   curr_song.opera.assign(curr_row[14]);	   
 	 }
        else
 	 {
@@ -258,33 +315,33 @@ process_tocs_and_npt(void)
 	     cout << "`opera'                            == NULL" << endl;
 	 }
 
-       if (curr_row[12])
+       if (curr_row[15])
 	 {
 	   if (DEBUG)
-	     cout << "`operetta'                         == " << curr_row[12] << endl;
-	   curr_song.operetta.assign(curr_row[12]);	   
+	     cout << "`operetta'                         == " << curr_row[15] << endl;
+	   curr_song.operetta.assign(curr_row[15]);	   
 	 }
        else
 	 {   if (DEBUG)
 	     cout << "`operetta'                         == NULL" << endl;
 	 }
 
-       if (curr_row[13])
+       if (curr_row[16])
 	 {
 	   if (DEBUG)
-	     cout << "`musical'                          == " << curr_row[13] << endl;
-	   curr_song.musical.assign(curr_row[13]);	   
+	     cout << "`musical'                          == " << curr_row[16] << endl;
+	   curr_song.musical.assign(curr_row[16]);	   
 	 }
        else
 	 {   if (DEBUG)
 	     cout << "`musical'                          == NULL" << endl;
 	 }  
 
-       if (curr_row[14])
+       if (curr_row[17])
 	 {
 	   if (DEBUG)
-	     cout << "`revue'                            == " << curr_row[14] << endl;
-	   curr_song.revue.assign(curr_row[14]);
+	     cout << "`revue'                            == " << curr_row[17] << endl;
+	   curr_song.revue.assign(curr_row[17]);
 	 }
        else
 	 {
@@ -292,11 +349,11 @@ process_tocs_and_npt(void)
 	     cout << "`revue'                            == NULL" << endl;
 	 }
 
-       if (curr_row[15])
+       if (curr_row[18])
 	 {
 	   if (DEBUG)
-	     cout << "`film'                             == " << curr_row[15] << endl;
-	   curr_song.film.assign(curr_row[15]);	   
+	     cout << "`film'                             == " << curr_row[18] << endl;
+	   curr_song.film.assign(curr_row[18]);	   
 	 }
        else
 	 {
@@ -305,10 +362,10 @@ process_tocs_and_npt(void)
 	 }
 
        if (DEBUG)
-	 cout << "`sort_by_production'               == " << curr_row[16] << endl;
-       curr_song.sort_by_production = atoi(curr_row[16]);
+	 cout << "`sort_by_production'               == " << curr_row[19] << endl;
+       curr_song.sort_by_production = atoi(curr_row[19]);
 
-       status = atoi(curr_row[16]);
+       status = atoi(curr_row[19]);
 
        if (status > 0)
 	 {
@@ -316,11 +373,11 @@ process_tocs_and_npt(void)
 	     cout << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
 	 }
 
-       if (curr_row[17])
+       if (curr_row[20])
 	 {
 	   if (DEBUG)
-	     cout << "`year'                             == " << curr_row[17] << endl;
-	   curr_song.year = atoi(curr_row[17]);
+	     cout << "`year'                             == " << curr_row[20] << endl;
+	   curr_song.year = atoi(curr_row[20]);
 	 }
        else
 	 {
@@ -330,11 +387,11 @@ process_tocs_and_npt(void)
 	 }
 
 
-       if (curr_row[18])
+       if (curr_row[21])
 	 {
 	   if (DEBUG)
-	     cout << "`copyright'                        == " << curr_row[18] << endl;
-	   curr_song.copyright.assign(curr_row[18]);
+	     cout << "`copyright'                        == " << curr_row[21] << endl;
+	   curr_song.copyright.assign(curr_row[21]);
 	 }
        else
 	 {
@@ -343,11 +400,11 @@ process_tocs_and_npt(void)
 	 }
 
 
-       if (curr_row[19])
+       if (curr_row[22])
 	 {
 	   if (DEBUG)
-	     cout << "`notes'                            == " << curr_row[19] << endl;
-	   curr_song.notes.assign(curr_row[19]);
+	     cout << "`notes'                            == " << curr_row[22] << endl;
+	   curr_song.notes.assign(curr_row[22]);
 	 }
        else
 	 {
@@ -1394,3 +1451,23 @@ process_tocs_and_npt(void)
    return 0;
    
 }  /* End of |process_tocs_and_npt| definition  */
+
+/* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
+/*       GNU Emacs editor.  The local variable list is not evaluated when an */
+/*   	 indirect buffer is visited, so it's necessary to evaluate the       */
+/*   	 following s-expression in order to use the facilities normally      */
+/*   	 accessed via the local variables list.                              */
+/*   	 \initials{LDF 2004.02.12}.                                          */
+/*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
+
+/* * Local variables for Emacs.*/
+/* Local Variables: */
+/* mode:CWEB */
+/* eval:(display-time) */
+/* eval:(read-abbrev-file) */
+/* indent-tabs-mode:nil */
+/* eval:(outline-minor-mode) */
+/* fill-column:80 */
+/* End: */
+
+

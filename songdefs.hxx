@@ -49,8 +49,11 @@ class Song
     int song_ctr;
     string title;
     string words;
+    string words_reverse;
     string music;
+    string music_reverse;
     string words_and_music;
+    string words_and_music_reverse;
     bool lead_sheet;
     bool partial_lead_sheet;
     bool no_page_turns;
@@ -80,8 +83,11 @@ class Song
     {
          title = "";
 	 words = "";
+	 words_reverse = "";
 	 music = "";
+	 music_reverse = "";
 	 words_and_music = "";
+	 words_and_music_reverse = "";
     	 lead_sheet = false;
 	 partial_lead_sheet = false;
 	 no_page_turns = false;
@@ -109,8 +115,11 @@ class Song
     {
       title = s.title;
       words = s.words;
+      words_reverse = s.words_reverse;
       music = s.music;
+      music_reverse = s.music_reverse;
       words_and_music = s.words_and_music;
+      words_and_music_reverse = s.words_and_music_reverse;
       lead_sheet = s.lead_sheet;
       partial_lead_sheet = s.partial_lead_sheet;
       no_page_turns = s.no_page_turns;
@@ -142,9 +151,26 @@ class Song
 
 typedef Song Production;
 
+extern vector<Song> song_vector;
 
 
-/* Local Variables:   */
-/* mode:C             */
-/* mode:show-paren    */
-/* End:               */
+/* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
+/*       GNU Emacs editor.  The local variable list is not evaluated when an */
+/*   	 indirect buffer is visited, so it's necessary to evaluate the       */
+/*   	 following s-expression in order to use the facilities normally      */
+/*   	 accessed via the local variables list.                              */
+/*   	 \initials{LDF 2004.02.12}.                                          */
+/*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
+
+/* * Local variables for Emacs.*/
+/* Local Variables: */
+/* mode:CWEB */
+/* eval:(display-time) */
+/* eval:(read-abbrev-file) */
+/* indent-tabs-mode:nil */
+/* eval:(outline-minor-mode) */
+/* fill-column:80 */
+/* End: */
+
+
+

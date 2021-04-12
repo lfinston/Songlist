@@ -47,7 +47,7 @@ create table Songs
     film  varchar(64) default null,
     sort_by_production boolean not null default false,
     year int default null,
-    copyright varchar(128) default null,
+    copyright varchar(256) default null,
     notes varchar (512) default null
 );
 
@@ -59,6 +59,8 @@ alter table Songs add column words_reverse varchar(128) default null after words
 alter table Songs add column music_reverse varchar(128) default null after music;
 alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
 
+alter table Songs modify column copyright varchar(256) default null;
+
 show columns from Songs.Songs;
 
 delete from Songs;
@@ -66,6 +68,8 @@ delete from Songs;
 /* Replace into `Songs'  */
 
 /* ***************************************************** */
+
+/* A  */
 
 replace into Songs (title, music, music_reverse, lead_sheet, recordings)
 values
@@ -661,7 +665,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
-("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Ellington, Duke", true);
+("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Duke Ellington", "Ellington, Duke", true);
 
 /* ***************************************************** */
 
@@ -1025,9 +1029,13 @@ values
 "Billy Meyers and Elmer Schoebel", "Meyers, Billy and Schoebel, Elmer", 
 true);
 
+select "!!! N";
+
 /* O   */
 
 /* ***************************************************** */
+
+select "!!! O";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
@@ -1071,9 +1079,13 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Over the Rainbow", "E.Y.~``Yip'' Harburg", "Harburg, E.Y.~``Yip''", "Harold Arlen", "Arlen, Harold", true, "Wizard of Oz, The");
 
+select "!!! End O";
+
 /* P   */
 
 /* ***************************************************** */
+
+select "!!! P";
 
 replace into Songs (title, music, music_reverse, lead_sheet)
 values
@@ -1159,15 +1171,23 @@ replace into Songs (title, music, music_reverse, lead_sheet, recordings)
 values
 ("Put on a Happy Face", "Charles Strouse", "Strouse, Charles", true, 1);
 
+select "!!! End P";
+
 /* Q   */
 
 /* ***************************************************** */
+
+select "!!! Q";
 
 replace into Songs (title, no_page_turns)
 values
 ("Quizas, Quizas, Quizas", true);
 
+select "!!! End Q";
+
 /* R   */
+
+select "!!! R";
 
 /* ***************************************************** */
 
@@ -1194,7 +1214,11 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l ", true);
 
+select "!!! End R";
+
 /* S   */
+
+select "!!! S";
 
 /* ***************************************************** */
 
@@ -1277,7 +1301,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("Somethin' Stupid", "C.~Carson Parks", true, 1966);
+("Somethin' Stupid", "C.~Carson Parks", "Parks, C.~Carson", true, 1966);
 
 /* ***************************************************** */
 
@@ -1357,7 +1381,11 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Sure Thing", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", true, "Cover Girl", 1944);
 
+select "!!! End S";
+
 /* T   */
+
+select "!!! T";
 
 /* ***************************************************** */
 
@@ -1453,7 +1481,11 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Top of the World", "John Bettis", "Bettis, John", "Richard Carpenter", "Carpenter, Richard", true);
 
+select "!!! End T";
+
 /*  U  */
+
+select "!!! U";
 
 /* ***************************************************** */
 
@@ -1467,11 +1499,19 @@ replace into Songs (title, words_and_music, words_and_music_reverse, no_page_tur
 values
 ("Unforgettable", "Irving Gordon", "Gordon, Irving", true, 1951);
 
+select "!!! End U";
+
 /* ***************************************************** */
 
 /*  V  */
 
+select "!!! V";
+
+select "!!! End V";
+
 /*  W  */
+
+select "!!! W";
 
 /* ***************************************************** */
 
@@ -1500,9 +1540,18 @@ replace into Songs (title, lead_sheet)
 values
 ("Wrap Your Troubles in Dreams", true);
 
+select "!!! End W";
+
 /*  X  */
 
+select "!!! X";
+
+select "!!! End X";
+
+
 /*  Y  */
+
+select "!!! Y";
 
 /* ***************************************************** */
 
@@ -1544,7 +1593,11 @@ values
 /* mark_blue  */
 /* words: Frank Loesser (Check!)  */
 
+select "!!! End Y";
+
 /*  Z  */
+
+select "!!! Z";
 
 /* ***************************************************** */
 
@@ -1552,6 +1605,8 @@ replace into Songs (title, music, music_reverse, lead_sheet)
 values
 ("Zwei M{\\\"a}rchenaugen", "Emmerich K{\\'a}lm{\\'a}n", 
 "K{\\'a}lm{\\'a}n, Emmerich", true);
+
+select "!!! End Z";
 
 /* ***************************************************** */
 

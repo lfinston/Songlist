@@ -121,7 +121,7 @@ main(int argc, char **argv)
 
    }
  
-/* * Initialize  |mysql|  */
+/* ** (2) Initialize  |mysql|  */
 
    mysql = mysql_init(0);
 
@@ -176,10 +176,14 @@ main(int argc, char **argv)
             << endl;
      }
    
-   /*  */
+
+
+/* *** (3)  Print out list of songs, ordered by composer  */
+
+
+
 
 /* *** (3)  */
-
 
    /* Close connection to database.  */
 

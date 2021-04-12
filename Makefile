@@ -96,6 +96,15 @@ songlist_out.tex: songlist input.txt
 	./songlist 
 # --banjo --accordeon --zither
 
+
+.PHONY: dvi
+
+dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi
+
+.PHONY: ps
+
+ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps
+
 .PHONY: pdf
 
 pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf
