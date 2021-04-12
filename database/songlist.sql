@@ -98,11 +98,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Amour est bleu, L'", 
-/* '  */
-true);
+("Amour est bleu, L'", "Pierre Cour", "Cour, Pierre", "Andr{\\'e} Popp", "Popp, Andr{\\'e}", 
+true, 1967);
 
 replace into Songs (title, words_and_music, words_and_music_reverse, notes)
 values
@@ -215,9 +214,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, no_page_turns, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year)
 values
-("Capri Fischer", true, 1);
+("Capri Fischer", "Ralph Maria Siegel", "Siegel, Ralph Maria", "Gerhard Winkler", "Winkler, Gerhard", 
+true, 1, 1943);
 
 /* ***************************************************** */
 
@@ -285,9 +285,9 @@ true,
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Cocktails for Two", true);
+("Cocktails for Two", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", true, 1934);
 
 /* ***************************************************** */
 
@@ -348,9 +348,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, copyright)
 values
-("Dream a Little Dream of Me", true, 1);
+("Dream a Little Dream of Me", "Gus Kahn", "Kahn, Gus",
+"Fabian Andre and Wilbur Schwandt", "Andre, Fabian and Schwandt, Wilbur", true, 1, 1931,
+"{\\copyright} 1931 Davis, Coots and Engel");
 
 /* ***************************************************** */
 
@@ -410,9 +412,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Fine and Dandy", true);
+("Fine and Dandy", "Paul James (James Paul Warburg)", "James, Paul (Warburg, James Paul)",
+"Kay Swift", "Swift, Kay", true, 1930);
 
 /* ***************************************************** */
 
@@ -483,9 +486,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Heartaches", true);
+("Heartaches", "John Klenner", "Klenner, John", "Al Hoffmann", "Hoffmann, Al", true, 1931);
 
 /* ***************************************************** */
 
@@ -550,9 +553,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("I Don't Know Why (I Just Do)", true);
+("I Don't Know Why (I Just Do)", "Roy Turk", "Turk, Roy", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1931);
 
 /* ***************************************************** */
 
@@ -688,9 +691,9 @@ values
  
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("It's a Pity to Say Goodnight", true);
+("It's a Pity to Say Goodnight", "Billy Reid", "Reid, Billy", true);
 
 /* ***************************************************** */
 
@@ -1004,9 +1007,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, copyright)
 values
-("Nevertheless (I'm In Love With You)", true, 1);
+("Nevertheless (I'm In Love With You)", "Bert Kalmar", "Kalmar, Bert", "Harry Ruby", "Ruby, Harry", true, 1,
+1931,
+"{\\copyright} 1931 DeSylva, Brown and Henderson");
 
 /* ***************************************************** */
 
@@ -1314,9 +1319,9 @@ true, 1933);
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("South of the Border", true);
+("South of the Border", "Jimmy Kennedy", "Kennedy, Jimmy", "Michael Carr", "Carr, Michael", true, 1939);
 
 /* ***************************************************** */
 
@@ -1359,9 +1364,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("Stars Fell on Alabama", true, "Banjo chord melody");
+("Stars Fell on Alabama", "Mitchell Parish", "Parish, Mitchell", "Frank Perkins", "Perkins, Frank", 
+true, 1934, "Banjo chord melody");
 
 /* ***************************************************** */
 
@@ -1465,9 +1471,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Tico Tico no Fuba", true);
+("Tico Tico no Fuba", "Aloysio de Oliveira", "Oliveira, Aloysio de",
+"Zequinha de Abreu", "Abreu, Zequinha de", true, 1917);
 
 /* ***************************************************** */
 
@@ -1536,9 +1543,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Wrap Your Troubles in Dreams", true);
+("Wrap Your Troubles in Dreams", "Ted Koehler and Billy Moll", "Koehler, Ted and Moll, Billy",
+"Harry Barris", "Barris, Harry", true, 1931);
 
 select "!!! End W";
 
@@ -1555,9 +1563,10 @@ select "!!! Y";
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
-("You Go to My Head", true);
+("You Go to My Head", "Haven Gillespie", "Gillespie, Haven", "J.~Fred Coots", "Coots, J.~Fred", true,
+1938, "{\\copyright} 1938 Remick Music");
 
 /* ***************************************************** */
 
