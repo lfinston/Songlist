@@ -22,54 +22,16 @@
 
 %% Please send bug reports to Laurence.Finston@gmx.de
 
-Entering `main'.
-In `main':  `process_command_line_options' succeeded, returning 0.
-mysql_init succeeded.
-In `main':  `process_tocs_and_npt' succeeded, returning 0.
-In `main':  `song_vector.size()' == 218
-Showing `song_vector'.
-Composer(s) not listed:
-   Title: Amour est bleu, L'
-Composer(s) not listed:
-   Title: Blue Velvet
-Composer(s) not listed:
-   Title: Buenos Noches Mon Amour
-Composer(s) not listed:
-   Title: Capri Fischer
-Composer(s) not listed:
-   Title: Cocktails for Two
-Composer(s) not listed:
-   Title: Dream a Little Dream of Me
-Composer(s) not listed:
-   Title: Fine and Dandy
-Composer(s) not listed:
-   Title: Heartaches
-Composer(s) not listed:
-   Title: I Don't Know Why (I Just Do)
-Composer(s) not listed:
-   Title: It's a Pity to Say Goodnight
-Composer(s) not listed:
-   Title: Moonglow
-Composer(s) not listed:
-   Title: Nevertheless (I'm In Love With You)
-Composer(s) not listed:
-   Title: Quizas, Quizas, Quizas
-Composer(s) not listed:
-   Title: South of the Border
-Composer(s) not listed:
-   Title: Stars Fell on Alabama
-Composer(s) not listed:
+Composer(s):                 Abreu, Zequinha de
    Title: Tico Tico no Fuba
-Composer(s) not listed:
-   Title: {\'U}ltima Noche, La
-Composer(s) not listed:
-   Title: Wrap Your Troubles in Dreams
-Composer(s) not listed:
-   Title: You Go to My Head
+Composer(s):                 Ahlert, Fred E.
+   Title: I Don't Know Why (I Just Do)
 Composer(s):                 Allen, Robert
    Title: Chances Are
 Composer(s):                 Allen, Robert
    Title: It's Not For Me to Say
+Composer(s):                 Andre, Fabian and Schwandt, Wilbur
+   Title: Dream a Little Dream of Me
 Composer(s):                 Arlen, Harold
    Title: Between the Devil and the Deep Blue Sea
 Composer(s):                 Arlen, Harold
@@ -86,6 +48,8 @@ Composer(s):                 Bacharach, Burt
    Title: I Say a Little Prayer
 Composer(s):                 Bacharach, Burt
    Title: I'll Never Fall in Love Again
+Composer(s):                 Barris, Harry
+   Title: Wrap Your Troubles in Dreams
 Composer(s) and Lyricist(s): Bart, Lionel
    Title: Consider Yourself
 Composer(s) and Lyricist(s): Berlin, Irving
@@ -138,10 +102,16 @@ Composer(s):                 Carmichael, Hoagy
    Title: Stardust
 Composer(s):                 Carpenter, Richard
    Title: Top of the World
+Composer(s):                 Carr, Michael
+   Title: South of the Border
+Composer(s) and Lyricist(s): Collazo, Roberto (Bobby)
+   Title: {\'U}ltima Noche, La
 Composer(s):                 Columbo, Russ and Gaskill, Clarence
    Title: Prisoner of Love
 Composer(s):                 Conrad, Con
    Title: Continental, The
+Composer(s):                 Coots, J.~Fred
+   Title: You Go to My Head
 Composer(s) and Lyricist(s): Coward, No{\"e}l
    Title: If Love Were All
 Composer(s) and Lyricist(s): Coward, No{\"e}l
@@ -188,6 +158,8 @@ Composer(s):                 Evans, Tolchard
    Title: Lady of Spain
 Composer(s):                 Fain, Sammy
    Title: By a Waterfall
+Composer(s) and Lyricist(s): Farres, Osvaldo
+   Title: Quizas, Quizas, Quizas
 Composer(s) and Lyricist(s): Fisher, Fred
    Title: Chicago (That Toddling Town)
 Composer(s) and Lyricist(s): Frank, Loesser
@@ -208,6 +180,8 @@ Composer(s):                 Gershwin, George
    Title: Someone to Watch Over Me
 Composer(s):                 Gifford, H.~Eugene 
    Title: Smoke Rings
+Composer(s):                 Giraud, Hubert
+   Title: Buenos Noches Mon Amour
 Composer(s) and Lyricist(s): Gordon, Irving
    Title: Unforgettable
 Composer(s):                 Green, John W.
@@ -232,18 +206,24 @@ Composer(s):                 Heusen, Jimmy van
    Title: Nancy with the Laughing Face
 Composer(s):                 Heusen, Jimmy van
    Title: Oh! You Crazy Moon
+Composer(s):                 Hoffmann, Al
+   Title: Heartaches
 Composer(s):                 Hollaender, Friedrich
    Title: Illusions
 Composer(s):                 Hollaender, Friedrich
    Title: You've Got That Look
 Composer(s) and Lyricist(s): Howard, Bart
    Title: Fly Me to the Moon
+Composer(s):                 Hudson, Will and Mills, Irving
+   Title: Moonglow
 Composer(s) and Lyricist(s): Hupfeld, Herman
    Title: As Time Goes By
 Composer(s):                 Jobim, Antonio Carlos
    Title: Chega de Saudade
 Composer(s) and Lyricist(s): Jobim, Antonio Carlos
    Title: Samba do Avi{\~a}o
+Composer(s):                 Johnston, Arthur
+   Title: Cocktails for Two
 Composer(s):                 Johnston, Arthur
    Title: Pennies from Heaven
 Composer(s):                 Jones, Isham
@@ -356,6 +336,10 @@ Composer(s):                 Paul, Gene de
    Title: I'll Remember April
 Composer(s):                 P{\'e}rez Prado, D{\'a}maso
    Title: Mambo {\#}5
+Composer(s):                 Perkins, Frank
+   Title: Stars Fell on Alabama
+Composer(s):                 Popp, Andr{\'e}
+   Title: Amour est bleu, L'
 Composer(s):                 Portela, Raul and Vale, Amadeu do
    Title: Lisboa Antiga
 Composer(s) and Lyricist(s): Porter, Cole
@@ -378,6 +362,8 @@ Composer(s):                 Raksin, David
    Title: Laura
 Composer(s) and Lyricist(s): Reid, Billy
    Title: I'll Close My Eyes
+Composer(s) and Lyricist(s): Reid, Billy
+   Title: It's a Pity to Say `Goodnight'
 Composer(s):                 Revaux, Jacques and Fran{\c c}ois, Claude
    Title: Comme d'Habitude
 Composer(s):                 Rodgers, Richard
@@ -400,6 +386,8 @@ Composer(s):                 Rodgers, Richard
    Title: You Took Advantage of Me
 Composer(s):                 Rota, Nino
    Title: Speak Softly, Love
+Composer(s):                 Ruby, Harry
+   Title: Nevertheless (I'm In Love With You)
 Composer(s):                 Schertzinger, Victor
    Title: Tangerine
 Composer(s):                 Schwartz, Arthur
@@ -418,6 +406,8 @@ Composer(s):                 Strau{\ss} (Sohn), Johann
    Title: Mein Herr Marquis
 Composer(s):                 Strouse, Charles
    Title: Put on a Happy Face
+Composer(s):                 Swift, Kay
+   Title: Fine and Dandy
 Composer(s):                 Waller, Thomas ``Fats''
    Title: Ain't Misbehavin'
 Composer(s):                 Warren, Harry
@@ -436,6 +426,8 @@ Composer(s):                 Warren, Harry
    Title: Young and Healthy
 Composer(s):                 Warren, Harry
    Title: You're Getting to Be a Habit With Me
+Composer(s) and Lyricist(s): Wayne, Bernie and Morris, Lee
+   Title: Blue Velvet
 Composer(s):                 Weill, Kurt
    Title: Lost in the Stars
 Composer(s):                 Weill, Kurt
@@ -454,6 +446,8 @@ Composer(s):                 Williams, Hugh
    Title: Harbour Lights
 Composer(s):                 Williams, Hugh
    Title: Red Sails in the Sunset
+Composer(s):                 Winkler, Gerhard
+   Title: Capri Fischer
 Composer(s):                 Wrubel, Allie
    Title: Lady in Red, The
 Composer(s) and Lyricist(s): Wynette, Tammy and Sherrill, Billy

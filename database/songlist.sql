@@ -954,9 +954,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
-("Moonglow", true);
+("Moonglow", "Eddie DeLange", "DeLange, Eddie", "Will Hudson and Irving Mills", "Hudson, Will and Mills, Irving", 
+true, 1934, "{\\copyright} 1934 Mills Music");
 
 /* ***************************************************** */
 
