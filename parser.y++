@@ -1,0 +1,415 @@
+/*  parser.y++                    */
+
+/* * Copyright and License.*/
+
+/* This file is part of songlist, a package for keeping track of songs. */
+/* Copyright (C) 2021 Laurence D. Finston */
+
+/* songlist is free software; you can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 3 of the License, or */
+/* (at your option) any later version. */
+
+/* songlist is distributed in the hope that it will be useful, */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
+/* GNU General Public License for more details. */
+
+/* You should have received a copy of the GNU General Public License */
+/* along with songlist; if not, write to the Free Software */
+/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+
+/* Please send bug reports to Laurence.Finston@gmx.de */
+
+%{
+
+/*  ** (2) Include files.  */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+
+#include <fstream>
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <iterator>
+#include <sstream>   
+#include <vector>
+
+#if 0
+#include <stdarg.h>
+#include <limits.h>
+#include <ctype.h>
+#include <algorithm>
+#include <bitset>
+#include <time.h>
+#include <math.h>
+#include <map>
+#include <deque>
+#include <stack>
+#include <set>
+#endif
+
+#if HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+
+#define YYDEBUG 1
+
+typedef void* yyscan_t;
+
+#include "parser.h++" 
+#include "scanner.h++"
+
+#include "songdefs.hxx"
+
+using namespace std;
+
+static int status;
+
+static string temp_str;
+
+extern vector<Song> song_vector;
+
+extern bool parser_trace;
+
+/*  ** (2) Declarations of additional functions.*/
+
+int 
+yylex(YYSTYPE* lvalp, yyscan_t parameter);
+
+int
+yywrap(void);
+
+int
+yyerror(void* v, char const* s);
+
+
+
+%}
+
+/*  ** (2) Options.*/
+
+%verbose
+%pure-parser
+%parse-param {yyscan_t parameter}
+%lex-param {yyscan_t parameter}
+%debug
+
+/*  ** (2) |union| declaration.*/
+
+%union {
+
+  int int_value;
+  unsigned int uint_value;
+  unsigned long int ulint_value;
+  float float_value;
+  char string_value[1024];
+  void *pointer_value;
+
+}
+
+/*  ** (2) Token and type declarations.*/
+
+%token<int_value>    TITLE
+%token<int_value>    WORDS
+%token<int_value>    MUSIC
+%token<int_value>    WORDS_AND_MUSIC
+%token<int_value>    LEAD_SHEET
+%token<int_value>    SCORE
+%token<int_value>    SCORE_MELODY_OCTAVE_HIGHER
+%token<int_value>    ARRANGEMENT
+%token<int_value>    SOLO
+%token<int_value>    DUO
+%token<int_value>    TWO
+%token<int_value>    ACCORDEON
+%token<int_value>    BANJO
+%token<int_value>    GUITAR
+%token<int_value>    ZITHER
+%token<int_value>    CHORDS
+%token<int_value>    ACCOMPANIMENT
+%token<int_value>    MELODY
+%token<int_value>    RECORDING
+%token<int_value>    COPYRIGHT
+%token<int_value>    NOTES
+%token<int_value>    PUBLISHED_VERSION
+%token<int_value>    END
+%token<int_value>    INTEGER
+%token<int_value>    MARK_BLUE
+
+%token<string_value> STRING
+
+%%
+/*  Rules */
+
+/*  *** (3) Program.  */
+
+program: statement_list END
+{
+
+    cerr << "program: statement_list END" << endl;
+ 
+    return 0;
+
+};
+
+/*  *** (3) statement_list  */
+
+/*  **** (4) statement_list --> EMPTY  */
+
+statement_list: /* Empty  */  
+{
+
+    cerr << "statement_list (Empty)" << endl;
+
+};
+
+/*  **** (4) statement_list --> statement_list statement  */
+
+statement_list: statement_list statement
+{
+
+    cerr << "statement_list: statement_list statement" << endl;
+
+};
+
+
+/*  **** (4) statement --> TITLE STRING  */
+
+statement: TITLE STRING 
+{
+
+    cerr << "statement: TITLE STRING" << endl;
+ 
+    song_vector.push_back(Song());
+
+    song_vector.back().title = $2;
+
+    cerr << "`song_vector.back().title' == " << song_vector.back().title
+         << endl;
+    
+    // song_vector.back().show();
+
+
+};
+
+/*  **** (4) statement --> WORDS STRING  */
+
+statement: WORDS STRING 
+{
+
+    cerr << "statement: WORDS STRING" << endl;
+
+    song_vector.back().authors.push_back(make_pair(1, $2));
+
+    cerr << "`song_vector.back().authors.back()' == (" 
+         << song_vector.back().authors.back().first << ", "
+         << song_vector.back().authors.back().second << ")" << endl;
+
+};
+
+/*  **** (4) statement --> MUSIC STRING  */
+
+statement: MUSIC STRING
+{
+
+    cerr << "statement: MUSIC STRING" << endl;
+
+    song_vector.back().authors.push_back(make_pair(2, $2));
+
+    cerr << "`song_vector.back().authors.back()' == (" 
+         << song_vector.back().authors.back().first << ", "
+         << song_vector.back().authors.back().second << ")" << endl;
+
+
+};
+
+/*  **** (4) statement --> WORDS_AND_MUSIC STRING  */
+
+statement: WORDS_AND_MUSIC STRING
+{
+
+    cerr << "statement: WORDS_AND_MUSIC STRING" << endl;
+
+    song_vector.back().authors.push_back(make_pair(3, $2));
+
+    cerr << "`song_vector.back().authors.back()' == (" 
+         << song_vector.back().authors.back().first << ", "
+         << song_vector.back().authors.back().second << ")" << endl;
+
+
+};
+
+
+/*  **** (4) statement --> LEAD_SHEET */
+
+statement: LEAD_SHEET
+{
+
+    cerr << "statement: LEAD_SHEET" << endl;
+ 
+    song_vector.back().lead_sheet = $1;
+
+    cerr << "`song_vector.back().lead_sheet' == " << song_vector.back().lead_sheet
+         << endl;
+
+    // song_vector.back().show();
+
+};
+
+/*  **** (4) statement --> SCORE */
+
+statement: SCORE
+{
+
+    cerr << "statement: SCORE" << endl;
+ 
+    song_vector.back().score = $1;
+
+    cerr << "`song_vector.back().score' == " << song_vector.back().score
+         << endl;
+
+    // song_vector.back().show();
+
+};
+
+/*  **** (4) statement --> RECORDING */
+
+statement: RECORDING 
+{
+
+    cerr << "statement: RECORDING"  << endl;
+ 
+    song_vector.back().recordings_ctr = $1;
+
+    cerr << "`song_vector.back().recordings_ctr' == " 
+         << song_vector.back().recordings_ctr
+         << endl;
+
+};
+
+/*  **** (4) statement --> ARRANGEMENT SOLO GUITAR */
+
+statement: ARRANGEMENT SOLO GUITAR
+{
+
+    cerr << "statement: ARRANGEMENT SOLO GUITAR" << endl
+         << "$3 == " << $3 << endl;
+ 
+    song_vector.back().arrangement_solo_guitar = $3;
+
+    cerr << "`song_vector.back().arrangement_solo_guitar' == " 
+         << song_vector.back().arrangement_solo_guitar
+         << endl;
+
+};
+
+/*  **** (4) statement --> BANJO CHORDS ACCOMPANIMENT */
+
+statement: BANJO CHORDS ACCOMPANIMENT
+{
+
+    cerr << "statement: BANJO CHORDS ACCOMPANIMENT" << endl
+         << "$3 == " << $3 << endl;
+ 
+    song_vector.back().banjo_chords_accompaniment = $3;
+
+    cerr << "`song_vector.back().banjo_chords_accompaniment' == " 
+         << song_vector.back().banjo_chords_accompaniment
+         << endl;
+
+};
+
+/*  **** (4) statement --> BANJO CHORDS MELODY */
+
+/* CHORDS is used instead of CHORD because "chord" and "chords" are treated 
+   as synonyms by the scanner.
+*/
+
+statement: BANJO CHORDS MELODY
+{
+
+    cerr << "statement: BANJO CHORDS MELODY" << endl
+         << "$3 == " << $3 << endl;
+ 
+    song_vector.back().banjo_chord_melody = $3;
+
+    cerr << "`song_vector.back().banjo_chord_melody' == " 
+         << song_vector.back().banjo_chord_melody
+         << endl;
+
+};
+
+
+/*  **** (4) statement --> COPYRIGHT STRING  */
+
+statement: COPYRIGHT STRING 
+{
+
+    cerr << "statement: COPYRIGHT STRING" << endl;
+
+    if (song_vector.back().copyright.length() > 0)
+       song_vector.back().copyright += '\n';
+
+    song_vector.back().copyright = $2;
+
+    cerr << "`song_vector.back().copyright' == " << song_vector.back().copyright 
+         << endl;
+
+};
+
+/*  **** (4) statement --> NOTES STRING  */
+
+statement: NOTES STRING 
+{
+
+    cerr << "statement: NOTES STRING" << endl;
+
+    if (song_vector.back().notes.length() > 0)
+       song_vector.back().notes += '\n';
+
+    song_vector.back().notes += $2;
+
+    cerr << "`song_vector.back().notes' == " << song_vector.back().notes 
+         << endl;
+
+};
+
+/*  **** (4) statement --> MARK_BLUE */
+
+statement: MARK_BLUE
+{
+
+    cerr << "statement: MARK_BLUE" << endl;
+ 
+    song_vector.back().mark_blue = $1;
+
+    cerr << "`song_vector.back().mark_blue' == " << song_vector.back().mark_blue
+         << endl;
+
+    // song_vector.back().show();
+
+};
+
+
+
+/*  * (1) Emacs-Lisp code for use in indirect buffers  */
+
+/*  (progn (cweb-mode) (outline-minor-mode) (setq abbrev-mode t)        */
+
+/*  * (1) Local variables for Emacs */
+
+/*  eval:(read-abbrev-file) */
+
+/*  * Local variables for Emacs.*/
+/*  Local Variables: */
+/*  mode:Text */
+/*  eval:(display-time) */
+/*  abbrev-mode:t */
+/*  indent-tabs-mode:nil */
+/*  eval:(outline-minor-mode) */
+/*  fill-column:80 */
+/*  End: */
+

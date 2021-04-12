@@ -1,0 +1,57 @@
+%% 00TODO
+
+%% * Copyright and License.
+
+%% This file is part of songlist, a package for keeping track of songs. 
+%% Copyright (C) 2021 Laurence D. Finston 
+
+%% songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% Please send bug reports to Laurence.Finston@gmx.de 
+
+%% * (1)
+
+%% ** (2)
+
+2017.12.30.
+
+Add code to make it possible to put multiple circles with gray letters next to each other.
+
+Revise the \song macro so that it uses registers instead of arguments.
+
+%% ** (2)
+
+2017.11.08.
+
+Program something for authors.
+
+vector<int> authors_words
+vector<int> authors_music
+
+Add string for outputting names differently from 
+the way they're stored in database, e.g., "Jimmy Johnson" for
+"James P. Johnson".
+
+1.  Determine if single author wrote words and music.
+
+2. Determine if multiple authors all wrote words and music, i.e.,
+   vectors for words and music for a given song are identical.
+
+   This case usually means words and music are not specified separately
+   for a given song.
+
+3.  Otherwise, output separately.
+
+%% * (1)

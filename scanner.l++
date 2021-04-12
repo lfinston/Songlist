@@ -1,0 +1,591 @@
+/* scanner.l++ */
+
+/* * Copyright and License.*/
+
+/* This file is part of songlist, a package for keeping track of songs. */
+/* Copyright (C) 2021 Laurence D. Finston */
+
+/* songlist is free software; you can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 3 of the License, or */
+/* (at your option) any later version. */
+
+/* songlist is distributed in the hope that it will be useful, */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
+/* GNU General Public License for more details. */
+
+/* You should have received a copy of the GNU General Public License */
+/* along with songlist; if not, write to the Free Software */
+/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+
+/* Please send bug reports to Laurence.Finston@gmx.de */
+
+%{
+
+/* Include files  */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fstream>
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <string>
+#include <sstream>   
+#include <vector>
+#include <map>
+
+#if 0
+#include <time.h>
+#include <math.h>
+#include <limits.h>
+#include <deque>
+#include <stack>
+#include <set>
+#endif
+
+#if HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include "parser.h++"
+
+using namespace std;
+
+extern map<string, string> special_char_map;
+
+extern bool scanner_trace;
+
+int get_number(const char *text, int erase_length, bool is_bool = false); 
+
+%}
+
+/* ** (2) Start conditions. */
+
+%x READSTRING
+
+/* ** (2) Options.  */
+
+%option header-file="scanner.h++"
+%option bison-bridge
+%option reentrant
+
+/* Name definitions  */
+
+
+%%
+%{
+
+bool SCANNER_DEBUG = true;  /* |false|  */
+
+string temp_str;
+string temp_str_1;
+size_t pos;
+size_t pos_1;
+
+
+
+%}
+
+   /* Rules */
+
+   /* **** (4) Title.  */
+
+^[[:space:]]*(?i:title):? {
+
+       cerr << "In `yylex':  " << yytext << " (title:)" << endl;
+
+       BEGIN(READSTRING);
+
+       return TITLE; 
+
+}
+   /* **** (4) Words.  */
+
+^[[:space:]]*(?i:words):? {
+
+       cerr << "In `yylex':  " << yytext << " (words:)" << endl;
+ 
+       BEGIN(READSTRING);
+
+       return WORDS; 
+
+}
+
+   /* **** (4) Music.  */
+
+^[[:space:]]*(?i:music):? {
+
+       cerr << "In `yylex':  " << yytext << " (music:)" << endl;
+
+       BEGIN(READSTRING);
+ 
+       return MUSIC; 
+
+}
+
+
+   /* **** (4) Words and Music.  */
+
+^[[:space:]]*(?i:words)[[:blank:]]+(?i:and)[[:blank:]]+(?i:music):? {
+
+       cerr << "In `yylex':  " << yytext << " (words and music:)" << endl;
+
+       BEGIN(READSTRING);
+ 
+       return WORDS_AND_MUSIC; 
+
+}
+
+
+   /* **** (4) LEAD_SHEET (None)  */
+
+^[[:space:]]*(?i:lead)[[:blank:]]+(?i:sheet):?[[:blank:]]+[0oO] {
+
+       cerr << "In `yylex':  " << yytext << " (no lead sheet)" << endl;
+
+       yylval->int_value = 0;
+
+       return LEAD_SHEET; 
+
+}
+
+
+   /* **** (4) LEAD_SHEET  */
+
+^[[:space:]]*(?i:lead)[[:blank:]]+(?i:sheet):?([[:blank:]]+[1xX])* {
+
+       cerr << "In `yylex':  " << yytext << " (lead sheet present)" << endl;
+
+       yylval->int_value = 1;
+
+       return LEAD_SHEET; 
+
+}
+
+   /* **** (4) SCORE (None)  */
+
+^[[:space:]]*(?i:score):?[[:blank:]]+[0oO] {
+
+       cerr << "In `yylex':  " << yytext << " (no score)" << endl;
+
+       yylval->int_value = 0;
+
+       return SCORE; 
+
+}
+
+   /* **** (4) SCORE  */
+
+^[[:space:]]*(?i:score):?([[:blank:]]+[1xX])* {
+
+       cerr << "In `yylex':  " << yytext << " (score present)" << endl;
+
+       yylval->int_value = 1;
+
+       return SCORE; 
+
+}
+
+   /* **** (4) RECORDING or RECORDINGS  */
+
+^[[:space:]]*(?i:recording)[sS]?([[:blank:]]+[[:digit:]]+)? {
+
+       cerr << "In `yylex':  `yytext' == \"" << yytext << "\" (RECORDING)" 
+            << endl;
+
+       temp_str = yytext;
+
+       size_t pos = temp_str.find_first_of("0123456789");
+
+       if (pos != string::npos)
+       {
+          temp_str.erase(0, pos - 1);
+
+          cerr << "`temp_str' == " << temp_str << endl;
+
+          yylval->int_value = atoi(temp_str.c_str());
+
+          cerr << "`yylval->int_value' == " << yylval->int_value << endl;
+
+
+       }
+       else 
+       {
+          cerr << "No digits found.  Assuming 1." << endl;
+
+          yylval->int_value = 1;
+
+          cerr << "`yylval->int_value' == " << yylval->int_value << endl;
+
+       }
+
+
+       BEGIN(INITIAL);
+
+       return RECORDING; 
+
+}
+
+   /* **** (4) ACCOMPANIMENT  */
+
+(?i:accomp)(?i:animent)?([[:blank:]]*[0-1xXoO])* {
+
+       cerr << "In `yylex':  " << yytext << " (ACCOMPANIMENT)" << endl;
+
+       yylval->int_value = get_number(yytext, strlen("accomp"), true);
+
+       cerr << "yylval->int_value == " << yylval->int_value << endl;
+
+       return ACCOMPANIMENT; 
+
+}
+
+
+
+   /* **** (4) MELODY  */
+
+(?i:mel?)(\.|(?i:ody))?([[:blank:]]*[0-1xXoO])* {
+
+       cerr << "In `yylex':  " << yytext << " (MELODY)" << endl;
+
+       temp_str = yytext;
+
+       pos = temp_str.find_first_of("dD");
+
+       if (pos != string::npos)
+       {
+          temp_str.erase(pos - 1, 3);
+          cerr << "temp_str == " << temp_str << endl;
+       }
+
+       yylval->int_value = get_number(temp_str.c_str(), 3, true);
+
+       cerr << "yylval->int_value == " << yylval->int_value << endl;
+
+       return MELODY; 
+
+}
+
+
+   /* **** (4) ARRANGEMENT  */
+
+(?i:arr)(\.|(?i:angement))? {
+
+       cerr << "In `yylex':  " << yytext << " (ARRANGEMENT)" << endl;
+
+       return ARRANGEMENT; 
+
+}
+
+   /* **** (4) SOLO  */
+
+(?i:solo) {
+
+       cerr << "In `yylex':  " << yytext << " (SOLO)" << endl;
+
+       return SOLO; 
+
+}
+
+   /* **** (4) CHORD or CHORDS */
+
+(?i:chords?) {
+
+       cerr << "In `yylex':  " << yytext << " (CHORDS)" << endl;
+
+       return CHORDS; 
+
+}
+
+
+   /* **** (4) GUIT, GUIT., GUITAR or GUITARS  */
+
+(((?i:guit)\.?)|(?i:guitars))([[:blank:]]*[0-9])* {
+
+       cerr << "In `yylex':  " << yytext << " (GUITAR)" << endl;
+
+       temp_str = yytext;
+
+       pos = temp_str.find_first_of("0123456789");
+
+       if (pos == string::npos)
+       {
+           yylval->int_value = 1;
+       }
+       else
+       {
+           temp_str.erase(0, pos);
+           yylval->int_value = atoi(temp_str.c_str());
+       }
+
+       cerr << "yylval->int_value == " << yylval->int_value << endl;
+
+
+       return GUITAR; 
+
+}
+
+   /* **** (4) BANJO or BANJOS  */
+
+(?i:banjos?)([[:blank:]]*[0-1xXoO])* {
+
+       cerr << "In `yylex':  " << yytext << " (BANJO)" << endl;
+
+       yylval->int_value = get_number(yytext, strlen("banjo"), true);       
+
+       cerr << "yylval->int_value == " << yylval->int_value << endl;
+
+       return BANJO; 
+
+}
+
+
+
+   /* **** (4) Copyright.  */
+
+^[[:space:]]*(?i:copyright):? {
+
+       cerr << "In `yylex':  " << yytext << " (copyright:)" << endl;
+ 
+       BEGIN(READSTRING);
+
+       return COPYRIGHT; 
+
+}
+
+   /* **** (4) Note(s).  */
+
+^[[:space:]]*(?i:notes?):? {
+
+       cerr << "In `yylex':  " << yytext << " (notes:)" << endl;
+ 
+       BEGIN(READSTRING);
+
+       return NOTES; 
+
+}
+
+   /* **** (4) MARK_BLUE (unmark)  */
+
+^[[:space:]]*(?i:mark)[[:blank:]]+(?i:blue):?([[:blank:]]+[0oO]) {
+
+       cerr << "In `yylex':  " << yytext << " (mark blue:  unmark)" << endl;
+
+       yylval->int_value = 0;
+
+       return MARK_BLUE; 
+
+}
+
+   /* **** (4) MARK_BLUE  */
+
+^[[:space:]]*(?i:mark)[[:blank:]]+(?i:blue):?([[:blank:]]+[1xX])* {
+
+       cerr << "In `yylex':  " << yytext << " (mark blue)" << endl;
+
+       yylval->int_value = 1;
+
+       return MARK_BLUE; 
+
+}
+
+
+   /* **** (4) End.  */
+
+^[[:space:]]*(?i:end) {
+
+       cerr << "In `yylex':  " << yytext << " (end)" << endl;
+ 
+       return END; 
+
+}
+
+    /* **** (4)  Undelimited STRING  */
+
+<READSTRING>[[:alnum:]!ä\\]+[[:alnum:][:blank:]!\^\&\?\-`()':~.,;\\{}äöüÄÖÜß]* {
+
+   cerr << "In `yylex':  Undelimited string == " << yytext
+        << endl
+        << "Returning `STRING'."
+        << endl;
+
+   size_t special_strlen = strlen("ä");
+
+   temp_str = yytext;
+
+   pos = 0;
+
+   while (   (pos = temp_str.find_first_of("äöüÄÖÜß", pos)) != string::npos
+          && pos < temp_str.length())
+   {
+       cerr << "Found special char in temp_str." << endl
+            << "temp_str == " << temp_str << endl
+            << "temp_str.substr(pos) == " << temp_str.substr(pos) << endl
+            << "temp_str.substr(pos, 2) == " << temp_str.substr(pos, 2) << endl;
+
+       temp_str.replace(pos, 
+                        special_strlen, 
+                        special_char_map[temp_str.substr(pos, special_strlen)]);
+
+
+   }
+
+  pos  = temp_str.find_last_not_of(" \t\f\v\n\r");
+
+  if (pos != std::string::npos)
+    temp_str.erase(pos + 1);
+
+   strcpy(yylval->string_value, temp_str.c_str());
+
+   BEGIN(INITIAL);
+
+   return STRING;
+
+}
+
+    /* **** (4)  Delimited STRING  */
+
+<READSTRING>\"[[:graph:][:space:]]*\" {
+
+   temp_str = "";
+   
+   temp_str = yytext;
+
+   temp_str_1 = temp_str.substr(1, strlen(yytext) - 2);
+   
+   strcpy(yylval->string_value, temp_str_1.c_str());
+
+
+   cerr << "In `yylex':  Delimited string == " << yytext
+        << endl
+        << "`yylval->string_value' == " << yylval->string_value
+        << endl
+        << "Returning `STRING'."
+        << endl;
+
+   BEGIN(INITIAL);
+
+   return STRING;
+
+}
+
+    /* Comment  */
+
+<*>^[[:space:]]*#[[:graph:][:blank:]]*\n {
+
+   cerr << "In `yylex':  Comment:  " << yytext
+        << endl
+        << "Ignoring."
+        << endl;
+
+
+
+
+
+   /* Ignore  */
+}
+
+    /* Whitespace.  */
+
+[[:space:]\x0d]+ {
+
+}
+
+
+
+%%
+
+/* User code  */
+
+int
+yywrap(yyscan_t parameter)
+{
+    return 1;
+}
+
+int
+yyerror(void* v, char const* s)
+{
+    return 0;
+}
+
+int
+get_number(const char *text, int erase_length, bool is_bool)
+{
+    int result;
+
+    size_t pos;
+
+    string s = text;
+
+    pos = s.find_first_of("0123456789");
+
+    if (pos == string::npos)
+    {
+        cerr << "No number found.  Checking for o, O, x, X, 0 or 1." << endl;
+
+        s.erase(0, erase_length);
+
+        cerr << "Erased first part of string.  s == " << s << endl;
+
+        if (s.empty())
+        {
+           result = 1;
+        }
+        else
+        {
+         
+           pos = s.find_first_of("oOxX10");
+
+           if (pos != string::npos)
+           {
+              cerr << "o, O, x, X, 1 or 0 found:  s.substr(pos) == " << s.substr(pos)
+                   << endl;
+
+              if (s[pos] == 'o' || s[pos] == 'O' || s[pos] == '0')
+                 result = 0;
+              else
+                 result = 1;
+           }
+           else 
+           {
+
+              cerr << "o, O, x, X, 1 or 0 not found:  s == " << s
+                   << endl
+                   << "Setting result to 1."
+                   << endl;
+
+              result = 1;
+           }  
+        }
+    }
+    else 
+    {
+        s.erase(0, pos);
+        result = atoi(s.c_str());
+
+        if (is_bool && result > 1)
+           result = 1;
+        
+    }
+    
+    return result;
+
+}  /* |get_number| definition  */
+
+/* mode:CWEB */
+/* eval:(read-abbrev-file) */
+ 
+/* * Local variables for Emacs.*/
+
+/* Local Variables: */
+/* eval:(display-time) */
+/* abbrev-mode:t */
+/* indent-tabs-mode:nil */
+/* eval:(outline-minor-mode) */
+/* fill-column:80 */
+/* End: */
+

@@ -1,0 +1,460 @@
+%% /home/laurence/songlist/songlist_bot.tex
+
+%% * Copyright and License.
+
+%% This file is part of songlist, a package for keeping track of songs. 
+%% Copyright (C) 2021 Laurence D. Finston 
+
+%% songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% Please send bug reports to Laurence.Finston@gmx.de 
+
+%\input eplain
+
+%% Uncomment for A4 portrait
+\special{papersize=210mm, 297mm}
+\hsize=210mm
+\vsize=297mm
+
+\parindent=0pt
+
+\def\epsfsize#1#2{#1}
+
+\advance\vsize by -3cm
+
+\advance\voffset by -1in
+\advance\hoffset by -1in
+
+\advance\voffset by 1.5cm
+\advance\hoffset by 1.5cm
+
+\noindent
+%\nopagenumbers
+\pageno=1
+
+%\hskip.5\hsize
+
+\headline={{\huge \firstmark}\hskip\hsize\hskip-3cm
+          {\huge \botmark}\hss}
+
+\footline={\hskip-2cm\hskip105mm\folio\hss}
+
+
+
+\font\small=cmr8
+\font\smalltt=cmtt8
+\font\large=cmr12
+\font\largebx=cmbx12
+\font\largeit=cmti12
+\font\largett=cmtt12
+\font\huge=cmr12 scaled \magstep2
+\font\hugebx=cmbx12 scaled \magstep2
+
+\large
+
+%\def\heading#1{\vskip2.5pt\leftline{{\huge #1}}\vskip\baselineskip}
+
+\newskip\notesskip
+\notesskip=40pt plus 8pt minus 8pt
+
+\newskip\notesindent
+
+\setbox0=\hbox{{\largebx Notes: }}
+\notesindent=\wd0
+
+\newbox\songboxone
+\newbox\songboxtwo
+\newbox\songboxthree
+\newbox\songboxfour
+\newbox\songboxfive
+\newbox\songboxsix
+\newbox\songboxseven
+\newbox\songboxeight
+
+\newbox\dotbox
+\setbox\dotbox=\hbox{\hskip.25pt .\hskip.25pt}
+
+%% *** (3) \song definition
+
+\xdef\song#1#2#3#4#5#6#7#8#9{%
+\hbox to 7cm{\vbox{\valign{%
+%% 1. Song title
+\vrule height 12pt depth 2pt width 0pt {\largebx ##}\vskip2pt&
+%% 2. Lead Sheet
+\vrule height 12pt depth 2pt width 0pt \hskip1em
+\hbox to 5cm{##\leaders\copy\dotbox\hss}#2&
+%% 3. Score
+\vrule height 12pt depth 2pt width 0pt \hskip1em\hbox to 5cm{##\leaders\copy\dotbox\hss}#3&
+%% 4. Score:  Guit. Mel.
+\vrule height 12pt depth 2pt width 0pt \hskip1em\hbox to 5cm{##\leaders\copy\dotbox\hss}#4&
+%% 5. Arr. Solo Guit.
+\vrule height 12pt depth 2pt width 0pt \hskip1em\hbox to 5cm{##\leaders\copy\dotbox\hss}#5&
+%% 6. Recordings
+\vrule height 12pt depth 2pt width 0pt \hskip1em\hbox to 5cm{##\leaders\copy\dotbox\hss}#6&
+%% 7. Author(s)
+\vrule height 12pt depth 12pt width 0pt \hskip1em 
+## \hbox to 2cm{\vtop to 0pt{#7\vss}\hss}& 
+%% 8. Copyright
+\vrule height 12pt depth 2pt width 0pt \hskip1em 
+## #8\vtop to 18pt{\vfil}&
+%%
+%% 9. Notes
+\vrule height 12pt depth 2pt width 0pt \hskip1em ## 
+\hbox to 2cm{\vtop to 0pt{#9\vss}\hss} \cr
+%% End of template
+#1&Lead Sheet&Score&%
+Score: Guit.~Mel.&Arr.~Solo Guit.:&Recordings:&Author(s):&Copyright:%
+&{\largebx Notes:}\cr}\vskip\notesskip\vss}\hss}}
+
+%% *** (3) \songpage definition
+
+\def\songpage{\line{\vbox to .5\vsize
+     {\box\songboxone
+      \box\songboxtwo
+      \box\songboxthree
+      \box\songboxfour
+\vss}\hskip 3cm
+\vbox to .5\vsize
+{\box\songboxfive
+ \box\songboxsix
+ \box\songboxseven
+ \box\songboxeight
+\vss}\hss}\vfil\eject}
+
+%% *** (3)
+
+%% ** (2)
+
+
+%% * (1) Page 1
+
+\centerline{{\hugebx Song List}\quad {\large (2017.10.09)}\hskip1em
+{\largett recording{\vrule height .5pt depth 0pt width 1ex}%
+list{\vrule height .5pt depth 0pt width 1ex}1.tex}}
+
+\vskip\baselineskip
+
+\mark{A}
+\mark{C}
+
+\setbox\songboxone=\song{Abends in der Taverna}{X}{X}{X}{O}{Abends01}%
+           {Music:  Werner Bochmann}{}{}
+
+\setbox\songboxtwo=\song{All God's Children (All God's Chillun)}{X}{X}{X}{X}%
+          {Allgds01, 02, 03}
+          {Music:  Walter Jurmann}{}{}
+
+\setbox\songboxthree=\song{L'amour est bleu}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxfour=\song{As Time Goes By}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxfive=\song{Bel Ami}{X}{X}{X}{O}{belami01, 02}{}{}{}
+
+\setbox\songboxsix=\song{Blue Velvet}{X}{X}{X}{O}{bluevlv1--3}{}{}{}
+
+\setbox\songboxseven=\song{By a Waterfall}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxeight=\song{Capri Fischer}{O}{O}{O}{O}{Capri001, 002}{}{}{}
+
+
+\songpage
+
+
+%% ** (2) Page 2
+
+\mark{C}
+\mark{H}
+
+\setbox\songboxone=\song{Cocktails for Two}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxtwo=\song{Dream a Little Dream of Me}{X}{O}{O}{O}%
+{dream001}{}{}{}
+
+\setbox\songboxthree=\song{Es leuchten die Sterne}{O}{O}{O}{O}{leucht01}{}{}{}
+
+\setbox\songboxfour=\song{Fine and Dandy}{X}{X}{X}{O}{}{}{}{}{}
+
+\setbox\songboxfive=\song{Frauen sind keine Engel}{O}{O}{O}{O}%
+                          {frau001, 002, 003}{Music:  Theo Mackeben}{}{}{}
+
+\setbox\songboxsix=\song{Georgia on my Mind}{X}{X}{X}{O}{Georgia1, 2}%
+      {\hbox{Music:  Hoagy Carmichael}%
+       \hbox{Words:  Stuart Gorrell}}%
+      {}{}
+
+\setbox\songboxseven=\song{Heartaches}{X}{X}{X}{O}{}{}{}{}{}
+
+\setbox\songboxeight=\song{Heute Nacht oder nie}{O}{O}{O}{O}{Heute001}{}{}{}
+
+\songpage
+
+
+%% ** (2) Page 3
+
+\mark{I}
+\mark{J}
+
+\setbox\songboxone=\song{I Could Have Danced All Night}{X}{X}{X}{O}%
+                        {Danced01}{}{}{}
+
+\setbox\songboxtwo=\song{I Cover the Waterfront}{X}{X}{X}{O}{water001}{}{}{}
+
+\setbox\songboxthree=\song{I Don't Know Why (I Just Do)}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxfour=\song{Illusions}{O}{X}{O}{X}{}{}{}{}
+
+\setbox\songboxfive=\song{It Could Happen to You}{X}{X}{X}{O}{}{}{}{}
+
+
+\setbox\songboxsix=\song{Ja und Nein}{X}{X}{X}{O}{Janein01, 02}{}{}{}
+
+\setbox\songboxseven=\song{Japanese Sandman}{X}{O}{O}{O}{}{}{}%
+           {\hbox{Verse only!}\vskip2pt
+           \hskip-\notesindent
+\hbox{Verse not in {\largeit 100 Years of Popular Music, 1900s}.}}
+      
+
+\setbox\songboxeight=\song{Jeepers Creepers}{X}{X}{X}{O}{}
+           {\hbox{Music:  Harry Warren}\hbox{Words:  Johnny Mercer}}
+           {}{}
+
+
+\songpage
+
+
+%% ** (2) Page 4
+
+\mark{L}
+\mark{M}
+
+\setbox\songboxone=\song{Lady in Red, The}{X}{X}{X}{O}{}{}{}{}            
+
+\setbox\songboxtwo=\song{Lady is a Tramp, The}{X}{X}{X}{O}{}{}{}{}        
+
+\setbox\songboxthree=\song{Love for Sale}{X}{O}{O}{O}{}
+                          {\hbox{Words and Music:}\hbox{Cole Porter}}{}{}        
+
+\setbox\songboxfour=\song{Lulu's Back in Town}{X}{X}{X}{O}{lulu0001}{}{}{} 
+
+\setbox\songboxfive=\song{Moonglow}{X}{X}{X}{O}{}{}{}{}                      
+                         
+\setbox\songboxsix=\song{Moonlight Becomes You}{X}{X}{X}{O}{}{}{}{}            
+                         
+\setbox\songboxseven=\song{My Baby Just Cares for Me}{X}{X}{X}{O}{}{}{}{}   
+
+\setbox\songboxeight=\song{Nancy with the Laughing Face}{X}{X}{X}{O}{Nancy001}{}{}{}              
+
+
+\songpage
+
+
+
+
+%% ** (2) Page 5
+
+
+\mark{N}
+\mark{P}
+
+\setbox\songboxone=\song{Nevertheless (I'm In Love With You)}{X}{X}{X}{O}{never0001--0004}{}{}{}  
+
+\setbox\songboxtwo=\song{On a Clear Day}{X}{X}{X}{O}{}{}{}{}   
+
+\setbox\songboxseven=\song{On the Sunny Side of the Street}{X}{X}{X}{O}{Sunny01}{}{}{}  
+
+\setbox\songboxthree=\song{Para Vigo me voy (Say ``Si, Si'')}{X}{O}{O}{O}{}{Music:  Ernesto Lecuona}{}{}
+
+\setbox\songboxfour=\song{Paris in New York}{X}{X}{X}{O}{}{Words and Music:  Vernon Duke}{}{}
+
+\setbox\songboxfive=\song{Perfidia}{X}{O}{O}{O}{}{Music:  Alberto Dom{\'\i}nguez Borr\'as}{}{}
+
+\setbox\songboxsix=\song{Pretty Girl is Like a Melody, A}{X}{X}{X}{O}{}{}{}{}
+
+\setbox\songboxeight=\song{Put on a Happy Face}{X}{X}{X}{O}{Putface1}{Words:  Charles Strouse}{}{}
+
+\songpage
+
+%% ** (2) Page 6
+
+
+\mark{S}
+\mark{S}
+
+\setbox\songboxone=\song{September in the Rain}{X}{X}{X}{O}{Sptrain1}
+                          {\hbox{Words:  Al Dubin}\hbox{Music:  Harry Warren}}{}{}
+
+\setbox\songboxtwo=\song{Shadow of Your Smile, The}{X}{X}{X}{O}{shadow01}{Music:  Johnny Mandel}{}{}
+
+\setbox\songboxthree=\song{Siempre en mi Coraz{\'o}n}{X}{X}{X}{O}{siempre1}{Music:  Ernesto Lecuona}{}{}
+
+\setbox\songboxfour= \song{South of the Border}{X}{X}{X}{O}{south001, 002}{}{}{}
+
+\setbox\songboxfive=\song{Speak Softly, Love}{O}{O}{O}{O}{Spksft01, 02}
+                          {\hbox{Words:  Larry Kusik}\hbox{Music:  Nino Rota}}{}{}
+
+\setbox\songboxsix=\song{Standing on the Corner}{X}{X}{X}{O}{}
+                        {\hbox{Words and Music:}\hbox{Frank Loesser}}{}{}
+
+\setbox\songboxseven=\song{Stardust}{X}{X}{X}{O}{Stardst1}
+                          {\hbox{Words:  Mitchell Parish}\hbox{Music:  Hoagy Carmichael}}
+                          {}{} 
+
+\setbox\songboxeight\song{Stars Fell on Alabama}{X}{X}{X}{O}{}{}{}{Banjo chord melody.} 
+
+
+\songpage
+
+% ** (2) Page 6
+
+\mark{T}
+\mark{Y}
+
+\setbox\songboxone=\song{Tea for Two}{X}{X}{X}{O}{}
+                         {\hbox{Words:  Irving Caesar}\hbox{Music:  Vincent Youmans}}{}{}
+
+\setbox\songboxtwo=\song{They Say it's Wonderful}{X}{X}{X}{O}{}
+                        {\hbox{Words and Music:}\hbox{Irving Berlin}}{}{}
+
+\setbox\songboxthree=\song{This Can't be Love}{X}{X}{X}{O}{}{}{}
+                         {\hbox{Verse incomplete on lead sheet and score.}}
+
+\setbox\songboxfour=\song{Tico Tico no Fuba}{X}{X}{X}{O}{}{}{}{}             
+\setbox\songboxfive=\song{Tiptoe Through the Tulips}{X}{X}{X}{O}{}{}{}{}     
+\setbox\songboxsix=\song{Top of the World}{X}{X}{X}{O}{}{}{}{}              
+\setbox\songboxseven=\song{Wrap Your Troubles in Dreams}{X}{X}{X}{O}{}{}{}{}  
+\setbox\songboxeight=\song{You Go to My Head}{X}{X}{X}{O}{}{}{}{}             
+
+\songpage
+
+%% ** (2) Page 7
+
+\mark{Y}
+\mark{Y}
+
+\setbox\songboxone=\song{You Took Advantage of Me}{X}{X}{X}{X}{}{}{}{}      
+\setbox\songboxtwo=\song{You've Got That Look}{X}{X}{X}{O}{}{}{}{Too low.  Must transpose!}
+
+% \setbox\songboxthree=
+
+% \setbox\songboxfour=
+
+% \setbox\songboxfive=
+
+
+% \setbox\songboxsix=
+
+% \setbox\songboxseven=
+
+% \setbox\songboxeight=
+
+\songpage
+
+\bye
+
+
+
+% ** (2) Page 8
+
+
+\mark{}
+\mark{}
+
+\setbox\songboxone=
+
+\setbox\songboxtwo=
+
+\setbox\songboxthree=
+
+\setbox\songboxfour=
+
+\setbox\songboxfive=
+
+
+\setbox\songboxsix=
+
+\setbox\songboxseven=
+
+\setbox\songboxeight=
+
+\songpage
+
+
+
+
+
+%% ** (2) Page 9
+
+\mark{}
+\mark{}
+
+
+\songpage
+
+
+\bye
+
+
+
+
+
+
+
+% ** (2) Page 10
+
+
+\mark{}
+\mark{}
+
+\setbox\songboxone=
+
+\setbox\songboxtwo=
+
+\setbox\songboxthree=
+
+\setbox\songboxfour=
+
+\setbox\songboxfive=
+
+
+\setbox\songboxsix=
+
+\setbox\songboxseven=
+
+\setbox\songboxeight=
+
+\songpage
+
+
+
+
+\vfil\eject
+
+
+\bye
+
+
+%% ** (2) Page 11
+
+
+%% * (2)
+
+
+%% * (1)
+
+\bye
+
+
+
+
