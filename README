@@ -1,0 +1,35 @@
+#### /home/laurence/songlist_new/Songlist/README
+
+#### Created by Laurence D. Finston (LDF) Mon 12 Apr 2021 05:12:46 PM CEST
+
+## * Copyright and License.
+
+## This file is part of Songlist, a package for keeping track of songs. 
+## Copyright (C) 2021 Laurence D. Finston 
+
+## songlist is free software; you can redistribute it and/or modify 
+## it under the terms of the GNU General Public License as published by 
+## the Free Software Foundation; either version 3 of the License, or 
+## (at your option) any later version. 
+
+## songlist is distributed in the hope that it will be useful, 
+## but WITHOUT ANY WARRANTY; without even the implied warranty of 
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+## GNU General Public License for more details. 
+
+## You should have received a copy of the GNU General Public License 
+## along with songlist; if not, write to the Free Software 
+## Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+## Please send bug reports to Laurence.Finston@gmx.de
+
+Songlist is a database application for keeping track of songs.
+
+It includes code for setting up a MySQL database and a C++ program for
+generating text output.  The output format it uses is (plain) TeX.
+
+It is designed specifically for the needs of the author, but it
+might be useful for other people and could be easily adapted, so
+I've decided to make it publicly available at GitHub.
+
+Please contact the author with any questions.
