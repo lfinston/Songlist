@@ -2,7 +2,7 @@
 
 /* * Copyright and License.*/
 
-/* This file is part of songlist, a package for keeping track of songs. */
+/* This file is part of Songlist, a package for keeping track of songs. */
 /* Copyright (C) 2021 Laurence D. Finston */
 
 /* songlist is free software; you can redistribute it and/or modify */
