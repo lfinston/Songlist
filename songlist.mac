@@ -1,0 +1,79 @@
+%% songlist.mac
+%% Created by Laurence D. Finston Thu Nov 9 12:21:14 2017 +0100
+
+%% * Copyright and License.
+
+%% This file is part of songlist, a package for keeping track of songs. 
+%% Copyright (C) 2021 Laurence D. Finston 
+
+%% songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% Please send bug reports to Laurence.Finston@gmx.de 
+
+\input eplain
+
+\input epsf
+
+%% Uncomment for A4 portrait
+
+
+\special{papersize=210mm, 297mm}
+\hsize=210mm
+\vsize=297mm
+
+\parindent=0pt
+
+\advance\vsize by -3cm
+
+\advance\voffset by -1in
+\advance\hoffset by -1in
+
+\advance\voffset by 1.5cm
+\advance\hoffset by 1cm
+
+\advance\hsize by -2cm
+
+%\def\epsfsize#1#2{#1}
+
+\noindent
+%\nopagenumbers
+\pageno=1
+
+\font\small=cmr8
+\font\smalltt=cmtt8
+\font\medium=cmr10 scaled \magstephalf
+\font\mediumbx=cmbx10 scaled \magstephalf
+\font\mediumit=cmti10 scaled \magstephalf
+\font\mediumtt=cmtt10 scaled \magstephalf
+\font\large=cmr12
+\font\largebx=cmbx12
+\font\largeit=cmti12
+\font\largett=cmtt12
+\font\huge=cmr12 scaled \magstep2
+\font\hugebx=cmbx12 scaled \magstep2
+\font\mediumsy=cmsy10 scaled \magstephalf
+
+\medium
+
+%% *** (3)
+
+%% ** (2)
+
+%% Local Variables:   
+%% mode:Text          
+%% mode:show-paren
+%% eval:(outline-minor-mode)
+%% End:               
+
