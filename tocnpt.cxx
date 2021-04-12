@@ -84,7 +84,7 @@ int
 process_tocs_and_npt(void)
 {
 
-  bool DEBUG = true; /* |false|  */
+  bool DEBUG = false; /* |true|  */
 
   int status;
   

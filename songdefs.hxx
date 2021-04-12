@@ -30,6 +30,8 @@ bool compare_titles(const Song&, const Song&);
 
 bool compare_authors(const Song&, const Song&);
 
+bool compare_composers(const Song&, const Song&);
+
 bool compare_strings(string, string);
 
 int process_tocs_and_npt(void);
@@ -43,6 +45,8 @@ class Song
     friend bool compare_titles(const Song&, const Song&);
 
     friend bool compare_authors(const Song&, const Song&);
+
+    friend bool compare_composers(const Song&, const Song&);
 
     friend int process_tocs_and_npt(void);
 

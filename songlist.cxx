@@ -85,7 +85,7 @@ main(int argc, char **argv)
 {
 /* *** (3)   */
 
-   bool DEBUG = false; /* |true|  */
+   bool DEBUG = true; /* |false|  */
 
    int status;
 
@@ -176,12 +176,46 @@ main(int argc, char **argv)
             << endl;
      }
    
-
-
 /* *** (3)  Print out list of songs, ordered by composer  */
 
+     if (DEBUG)
+     {
+         cerr << "In `main':  `song_vector.size()' == " << song_vector.size()
+              << endl;
+     }
 
+     stable_sort(song_vector.begin(), song_vector.end(), compare_composers);
 
+     if (DEBUG)
+     { 
+        if (song_vector.size() > 0)
+           cerr << "Showing `song_vector'." << endl;
+     } 
+
+     for (vector<Song>::iterator iter = song_vector.begin();
+          iter != song_vector.end();
+          ++iter)
+     {
+        if (DEBUG)
+        { 
+
+                 if (iter->music_reverse == "" && iter->words_and_music_reverse == "")
+               cerr << "Composer(s) not listed:" << endl 
+                    << "   Title: " << iter->title << endl;
+            else if (iter->music_reverse != "")
+               cerr << "Composer(s):                 " << iter->music_reverse << endl 
+                    << "   Title: " << iter->title << endl;
+            else if (iter->words_and_music_reverse != "")
+               cerr << "Composer(s) and Lyricist(s): " << iter->words_and_music_reverse << endl 
+                    << "   Title: " << iter->title << endl;
+#if 0
+            iter->show("Song:");
+#endif
+        }  /* if (DEBUG)  */   
+
+         /* !!START HERE  LDF 2021.04.12.  */ 
+
+     }  /* for  */
 
 /* *** (3)  */
 
@@ -212,8 +246,11 @@ Song::show(string s)
  
   cout << "title:                            " << title << endl
        << "words:                            " << words << endl
+       << "words_reverse:                    " << words_reverse << endl
        << "music:                            " << music << endl
+       << "music_reverse:                    " << music_reverse << endl
        << "words_and_music:                  " << words_and_music << endl
+       << "words_and_music_reverse:          " << words_and_music_reverse << endl
        << "lead_sheet:                       " << lead_sheet << endl
        << "partial_lead_sheet:               " << partial_lead_sheet << endl
        << "no_page_turns:                    " << no_page_turns << endl
@@ -244,7 +281,7 @@ Song::show(string s)
   cout << "title:                            " << *iter << endl;
   }
 
-  cout << endl << endl;
+  cout << endl;
   
   return;
 
@@ -258,8 +295,11 @@ Song::clear(void)
     song_ctr = 0;
     title = "";
     words = "";
+    words_reverse = "";
     music = "";
+    music_reverse = "";
     words_and_music = "";
+    words_and_music_reverse = "";
     lead_sheet = 0;
     partial_lead_sheet = 0;
     no_page_turns = 0;
@@ -437,9 +477,7 @@ compare_titles(const Song& t, const Song& s)
 
 }  /* |end of compare_titles| definition */
 
-/* |compare_strings| definition */
-
-/* |compare_authors| definition */
+/* * (1) |compare_authors| definition */
 
 bool
 compare_authors(const Song& t, const Song& s)
@@ -452,7 +490,33 @@ compare_authors(const Song& t, const Song& s)
 
 }  /* |end of compare_authors| definition */
 
-/* |compare_authors| definition */
+
+/* * (1) |compare_composers| definition */
+
+bool
+compare_composers(const Song& s, const Song& t)
+{
+   string ss;
+   string tt;
+
+   if (s.music_reverse != "")
+      ss = s.music_reverse;
+   else if (s.words_and_music_reverse != "")
+      ss = s.words_and_music_reverse;
+
+   if (t.music_reverse != "")
+      tt = t.music_reverse;
+   else if (t.words_and_music_reverse != "")
+      tt = t.words_and_music_reverse;
+
+   return compare_strings(ss, tt);
+ 
+}  /* |end of compare_composers| definition */
+
+
+
+
+/* * (1) |compare_strings| definition */
 
 bool
 compare_strings(string t, string s)
@@ -572,7 +636,7 @@ compare_strings(string t, string s)
 
   return t < s;
   
-}  /* |compare_strings| definition  */
+}  /* End of |compare_strings| definition  */
 
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
