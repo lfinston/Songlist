@@ -732,9 +732,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("I've Got the World on a String", /* ' */ "Ted Koehler", "Koehler, Ted", "David Raksin", "Raksin, David", true);
+("I've Got the World on a String", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold",
+true, 1932);
 
 /* J   */
 
@@ -1250,7 +1251,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l ", true);
+("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
 
 select "!!! End R";
 
@@ -1360,10 +1361,12 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
 values
-("Spanish Eyes (Moon Over Naples", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie", 
+("Spanish Eyes (Moon Over Naples)", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie", 
 "Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert", 1964);
 
-/* delete from Songs where title = "Spanish Eyes";  */
+/* delete from Songs where title = ""Spanish Eyes (Moon Over Naples";  */
+
+/* select title from Songs\G  */
 
 /* ***************************************************** */
 
