@@ -28,7 +28,7 @@ class Song;
 
 bool compare_titles(const Song&, const Song&);
 
-bool compare_authors(const Song&, const Song&);
+bool compare_lyricists(const Song&, const Song&);
 
 bool compare_composers(const Song&, const Song&);
 
@@ -44,7 +44,7 @@ class Song
     
     friend bool compare_titles(const Song&, const Song&);
 
-    friend bool compare_authors(const Song&, const Song&);
+    friend bool compare_lyricists(const Song&, const Song&);
 
     friend bool compare_composers(const Song&, const Song&);
 

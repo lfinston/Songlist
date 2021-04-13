@@ -1126,8 +1126,8 @@ values
 
 replace into Songs (title, music, music_reverse, lead_sheet)
 values
-("Perfidia", "Alberto Dom{\\\\'\\\\i}nguez Borr{\\\\'a}s", 
-"Dom{\\\\'\\\\i}nguez Borr{\\\\'a}s, Alberto", 
+("Perfidia", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", 
+"Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", 
 true);
 
 /* ***************************************************** */
