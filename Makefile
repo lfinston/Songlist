@@ -124,6 +124,12 @@ toc_ls_i_o.pdf: toc_ls_i_o.tex
 toc_ls_p_z.pdf: toc_ls_p_z.tex 
 	pdftex toc_ls_p_z.tex
 
+toc_npt.ps: toc_npt.tex 
+	dvips -o toc_npt.ps toc_npt.dvi
+
+toc_ls.ps: toc_ls.dvi
+	dvips -o toc_ls.ps toc_ls.dvi
+
 toc_ls_a_h.ps: toc_ls_a_h.dvi
 	dvips -o toc_ls_a_h.ps toc_ls_a_h.dvi
 
