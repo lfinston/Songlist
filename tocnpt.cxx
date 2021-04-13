@@ -129,7 +129,7 @@ process_tocs_and_npt(void)
              << "from Songs order by title asc;";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
    status = submit_mysql_query(temp_strm.str());
 
@@ -150,7 +150,7 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-       cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl;
      }
    
    /*  Process the contents of |curr_row|  */
@@ -166,7 +166,7 @@ process_tocs_and_npt(void)
        if (curr_row == 0)
 	 {
 	   if (DEBUG) 
-	     cout << "`mysql_fetch_row' returned NULL:" 
+	     cerr << "`mysql_fetch_row' returned NULL:" 
 		  << endl;
 
 	   if (*mysql_error(mysql))
@@ -186,7 +186,7 @@ process_tocs_and_npt(void)
 	     }
 	   else if (DEBUG)
 	     {
-	       cout << "No more rows." << endl;
+	       cerr << "No more rows." << endl;
 	     }
 
 	   break;
@@ -194,176 +194,176 @@ process_tocs_and_npt(void)
 	 }  /* |if (curr_row == 0)|  */
 
        if (DEBUG)
-	 cout << "`title'                            == " << curr_row[0] << endl;
+	 cerr << "`title'                            == " << curr_row[0] << endl;
 
        curr_song.title.assign(curr_row[0]);
 
        if (DEBUG) 
-	 cout << "curr_song.title == " << curr_song.title << endl;
+	 cerr << "curr_song.title == " << curr_song.title << endl;
        
        if (curr_row[1])
 	 {
 	   if (DEBUG)
-	     cout << "`words'                            == " << curr_row[1] << endl;
+	     cerr << "`words'                            == " << curr_row[1] << endl;
 	   curr_song.words.assign(curr_row[1]);
 
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`words'                            == NULL" << endl;
+	     cerr << "`words'                            == NULL" << endl;
 	 }
 
        if (curr_row[2])
 	 {
 	   if (DEBUG)
-	     cout << "`words_reverse'                    == " << curr_row[2] << endl;
+	     cerr << "`words_reverse'                    == " << curr_row[2] << endl;
 	   curr_song.words_reverse.assign(curr_row[2]);
 
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`words_reverse'                    == NULL" << endl;
+	     cerr << "`words_reverse'                    == NULL" << endl;
 	 }
 
        if (curr_row[3])
 	 {
 	   if (DEBUG)
-	     cout << "`music'                            == " << curr_row[3] << endl;
+	     cerr << "`music'                            == " << curr_row[3] << endl;
 	   curr_song.music.assign(curr_row[3]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`music'                            == NULL" << endl;
+	     cerr << "`music'                            == NULL" << endl;
 	 }
 
 
        if (curr_row[4])
 	 {
 	   if (DEBUG)
-	     cout << "`music_reverse'                    == " << curr_row[4] << endl;
+	     cerr << "`music_reverse'                    == " << curr_row[4] << endl;
 	   curr_song.music_reverse.assign(curr_row[4]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`music_reverse'                    == NULL" << endl;
+	     cerr << "`music_reverse'                    == NULL" << endl;
 	 }
 
        if (curr_row[5])
 	 {
 	   if (DEBUG)
-	     cout << "`words_and_music'                  == " << curr_row[5] << endl;
+	     cerr << "`words_and_music'                  == " << curr_row[5] << endl;
 	   curr_song.words_and_music.assign(curr_row[5]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`words_and_music'                  == NULL" << endl;
+	     cerr << "`words_and_music'                  == NULL" << endl;
 	 }
 
        if (curr_row[6])
 	 {
 	   if (DEBUG)
-	     cout << "`words_and_music_reverse'          == " << curr_row[6] << endl;
+	     cerr << "`words_and_music_reverse'          == " << curr_row[6] << endl;
 	   curr_song.words_and_music_reverse.assign(curr_row[6]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`words_and_music_reverse'          == NULL" << endl;
+	     cerr << "`words_and_music_reverse'          == NULL" << endl;
 	 }
 
        if (DEBUG)
-	 cout << "`lead_sheet'                       == " << curr_row[7] << endl;
+	 cerr << "`lead_sheet'                       == " << curr_row[7] << endl;
        curr_song.lead_sheet = atoi(curr_row[7]);
 
        if (DEBUG)
-	 cout << "`partial_lead_sheet'               == " << curr_row[8] << endl;
+	 cerr << "`partial_lead_sheet'               == " << curr_row[8] << endl;
        curr_song.partial_lead_sheet = atoi(curr_row[8]);
 
        if (DEBUG)
-	 cout << "`no_page_turns'                    == " << curr_row[9] << endl;
+	 cerr << "`no_page_turns'                    == " << curr_row[9] << endl;
        curr_song.no_page_turns = atoi(curr_row[9]);
 
        if (DEBUG)
-	 cout << "`no_page_turns_with_two_songbooks' == " << curr_row[10] << endl;
+	 cerr << "`no_page_turns_with_two_songbooks' == " << curr_row[10] << endl;
        curr_song.no_page_turns_with_two_songbooks = atoi(curr_row[10]);
 
        if (DEBUG)
-	 cout << "`arrangement_orchestra'            == " << curr_row[11] << endl;
+	 cerr << "`arrangement_orchestra'            == " << curr_row[11] << endl;
        curr_song.arrangement_orchestra = atoi(curr_row[11]);
 
        if (DEBUG)
-	 cout << "`arrangement_solo_guitar'          == " << curr_row[12] << endl;
+	 cerr << "`arrangement_solo_guitar'          == " << curr_row[12] << endl;
        curr_song.arrangement_solo_guitar = atoi(curr_row[12]);
 
        if (DEBUG)
-	 cout << "`recordings'                       == " << curr_row[13] << endl;
+	 cerr << "`recordings'                       == " << curr_row[13] << endl;
        curr_song.recordings = atoi(curr_row[13]);
 	   
        if (curr_row[14])
 	 {
 	   if (DEBUG)
-	     cout << "`opera'                            == " << curr_row[14] << endl;
+	     cerr << "`opera'                            == " << curr_row[14] << endl;
 	   curr_song.opera.assign(curr_row[14]);	   
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`opera'                            == NULL" << endl;
+	     cerr << "`opera'                            == NULL" << endl;
 	 }
 
        if (curr_row[15])
 	 {
 	   if (DEBUG)
-	     cout << "`operetta'                         == " << curr_row[15] << endl;
+	     cerr << "`operetta'                         == " << curr_row[15] << endl;
 	   curr_song.operetta.assign(curr_row[15]);	   
 	 }
        else
 	 {   if (DEBUG)
-	     cout << "`operetta'                         == NULL" << endl;
+	     cerr << "`operetta'                         == NULL" << endl;
 	 }
 
        if (curr_row[16])
 	 {
 	   if (DEBUG)
-	     cout << "`musical'                          == " << curr_row[16] << endl;
+	     cerr << "`musical'                          == " << curr_row[16] << endl;
 	   curr_song.musical.assign(curr_row[16]);	   
 	 }
        else
 	 {   if (DEBUG)
-	     cout << "`musical'                          == NULL" << endl;
+	     cerr << "`musical'                          == NULL" << endl;
 	 }  
 
        if (curr_row[17])
 	 {
 	   if (DEBUG)
-	     cout << "`revue'                            == " << curr_row[17] << endl;
+	     cerr << "`revue'                            == " << curr_row[17] << endl;
 	   curr_song.revue.assign(curr_row[17]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`revue'                            == NULL" << endl;
+	     cerr << "`revue'                            == NULL" << endl;
 	 }
 
        if (curr_row[18])
 	 {
 	   if (DEBUG)
-	     cout << "`film'                             == " << curr_row[18] << endl;
+	     cerr << "`film'                             == " << curr_row[18] << endl;
 	   curr_song.film.assign(curr_row[18]);	   
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`film'                             == NULL" << endl;
+	     cerr << "`film'                             == NULL" << endl;
 	 }
 
        if (DEBUG)
-	 cout << "`sort_by_production'               == " << curr_row[19] << endl;
+	 cerr << "`sort_by_production'               == " << curr_row[19] << endl;
        curr_song.sort_by_production = atoi(curr_row[19]);
 
        status = atoi(curr_row[19]);
@@ -371,19 +371,19 @@ process_tocs_and_npt(void)
        if (status > 0)
 	 {
 	   if (DEBUG)
-	     cout << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
+	     cerr << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
 	 }
 
        if (curr_row[20])
 	 {
 	   if (DEBUG)
-	     cout << "`year'                             == " << curr_row[20] << endl;
+	     cerr << "`year'                             == " << curr_row[20] << endl;
 	   curr_song.year = atoi(curr_row[20]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`year'                             == NULL" << endl;
+	     cerr << "`year'                             == NULL" << endl;
 	   curr_song.year = 0;
 	 }
 
@@ -391,26 +391,26 @@ process_tocs_and_npt(void)
        if (curr_row[21])
 	 {
 	   if (DEBUG)
-	     cout << "`copyright'                        == " << curr_row[21] << endl;
+	     cerr << "`copyright'                        == " << curr_row[21] << endl;
 	   curr_song.copyright.assign(curr_row[21]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`copyright'                        == NULL" << endl;
+	     cerr << "`copyright'                        == NULL" << endl;
 	 }
 
 
        if (curr_row[22])
 	 {
 	   if (DEBUG)
-	     cout << "`notes'                            == " << curr_row[22] << endl;
+	     cerr << "`notes'                            == " << curr_row[22] << endl;
 	   curr_song.notes.assign(curr_row[22]);
 	 }
        else
 	 {
 	   if (DEBUG)
-	     cout << "`notes'                            == NULL" << endl << endl;
+	     cerr << "`notes'                            == NULL" << endl << endl;
 	 }
 
        if (DEBUG)
@@ -419,7 +419,7 @@ process_tocs_and_npt(void)
        song_vector.push_back(curr_song);
 
        if (DEBUG) 
-	 cout << "song_vector.back().title == " << song_vector.back().title << endl;
+	 cerr << "song_vector.back().title == " << song_vector.back().title << endl;
 
    } while (curr_row != 0);
 
@@ -447,7 +447,7 @@ process_tocs_and_npt(void)
  
    }
    else if (DEBUG)
-     cout << "`song_vector.size()' == " << song_vector.size() << "."
+     cerr << "`song_vector.size()' == " << song_vector.size() << "."
 	  << endl << endl;
 
 
@@ -466,7 +466,6 @@ process_tocs_and_npt(void)
 	 }
      }
 
-
    /* Query database for productions (i.e., musicals, operas, $\ldots$.  */
 
    /* Musicals  */
@@ -477,7 +476,7 @@ process_tocs_and_npt(void)
              << "and sort_by_production is true and lead_sheet is true order by musical;";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
    status = submit_mysql_query(temp_strm.str());
 
@@ -498,7 +497,9 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-	 cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+	 cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+              << "`row_ctr'   == " << row_ctr << endl
+              << "`field_ctr' == " << field_ctr << endl;
      }
    
    /*  Process the contents of |result|  */
@@ -516,7 +517,7 @@ process_tocs_and_npt(void)
 	   if (curr_row == 0)
 	     {
 	       if (DEBUG) 
-		 cout << "`mysql_fetch_row' returned NULL:" 
+		 cerr << "`mysql_fetch_row' returned NULL:" 
 		      << endl;
 
 	       if (*mysql_error(mysql))
@@ -536,7 +537,7 @@ process_tocs_and_npt(void)
 		 }
 	       else if (DEBUG)
 		 {
-		   cout << "No more rows." << endl;
+		   cerr << "No more rows." << endl;
 		 }
 
 	       break;
@@ -544,7 +545,7 @@ process_tocs_and_npt(void)
 	     }  /* |if (curr_row == 0)|  */
 
 	   if (DEBUG)
-	     cout << "`musical' == " << curr_row[0] << endl;
+	     cerr << "`musical' == " << curr_row[0] << endl;
 
 	   curr_production.title.assign(curr_row[0]);
 	   curr_production.musical.assign(curr_row[0]);
@@ -572,7 +573,7 @@ process_tocs_and_npt(void)
              << "and sort_by_production is true and lead_sheet is true order by opera;";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
    
    status = submit_mysql_query(temp_strm.str());
 
@@ -593,7 +594,9 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-       cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+            << "`row_ctr'   == " << row_ctr << endl
+            << "`field_ctr' == " << field_ctr << endl;
      }
    
    /*  Process the contents of |result|  */
@@ -611,7 +614,7 @@ process_tocs_and_npt(void)
 	   if (curr_row == 0)
 	     {
 	       if (DEBUG) 
-		 cout << "`mysql_fetch_row' returned NULL:" 
+		 cerr << "`mysql_fetch_row' returned NULL:" 
 		      << endl;
 
 	       if (*mysql_error(mysql))
@@ -631,7 +634,7 @@ process_tocs_and_npt(void)
 		 }
 	       else if (DEBUG)
 		 {
-		   cout << "No more rows." << endl;
+		   cerr << "No more rows." << endl;
 		 }
 
 	       break;
@@ -639,7 +642,7 @@ process_tocs_and_npt(void)
 	     }  /* |if (curr_row == 0)|  */
 
 	   if (DEBUG)
-	     cout << "`opera' == " << curr_row[0] << endl;
+	     cerr << "`opera' == " << curr_row[0] << endl;
 
 	   curr_production.title.assign(curr_row[0]);
 	   curr_production.opera.assign(curr_row[0]);
@@ -667,7 +670,7 @@ process_tocs_and_npt(void)
              << "and sort_by_production is true and lead_sheet is true order by operetta;";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
    
    status = submit_mysql_query(temp_strm.str());
 
@@ -688,7 +691,9 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-       cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+            << "`row_ctr'   == " << row_ctr << endl
+            << "`field_ctr' == " << field_ctr << endl;
      }
    
    /*  Process the contents of |result|  */
@@ -706,7 +711,7 @@ process_tocs_and_npt(void)
 	   if (curr_row == 0)
 	     {
 	       if (DEBUG) 
-		 cout << "`mysql_fetch_row' returned NULL:" 
+		 cerr << "`mysql_fetch_row' returned NULL:" 
 		      << endl;
 
 	       if (*mysql_error(mysql))
@@ -726,7 +731,7 @@ process_tocs_and_npt(void)
 		 }
 	       else if (DEBUG)
 		 {
-		   cout << "No more rows." << endl;
+		   cerr << "No more rows." << endl;
 		 }
 
 	       break;
@@ -734,7 +739,7 @@ process_tocs_and_npt(void)
 	     }  /* |if (curr_row == 0)|  */
 
 	   if (DEBUG)
-	     cout << "`operetta' == " << curr_row[0] << endl;
+	     cerr << "`operetta' == " << curr_row[0] << endl;
 
 	   curr_production.title.assign(curr_row[0]);
 	   curr_production.operetta.assign(curr_row[0]);
@@ -762,7 +767,7 @@ process_tocs_and_npt(void)
              << "and sort_by_production is true and lead_sheet is true order by revue";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
    
    status = submit_mysql_query(temp_strm.str());
 
@@ -783,11 +788,12 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-       cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+            << "`row_ctr'   == " << row_ctr << endl
+            << "`field_ctr' == " << field_ctr << endl;
      }
    
    /*  Process the contents of |result|  */
-
 
    curr_row = 0;
 
@@ -802,7 +808,7 @@ process_tocs_and_npt(void)
 	   if (curr_row == 0)
 	     {
 	       if (DEBUG) 
-		 cout << "`mysql_fetch_row' returned NULL:" 
+		 cerr << "`mysql_fetch_row' returned NULL:" 
 		      << endl;
 
 	       if (*mysql_error(mysql))
@@ -822,7 +828,7 @@ process_tocs_and_npt(void)
 		 }
 	       else if (DEBUG)
 		 {
-		   cout << "No more rows." << endl;
+		   cerr << "No more rows." << endl;
 		 }
 
 	       break;
@@ -830,7 +836,7 @@ process_tocs_and_npt(void)
 	     }  /* |if (curr_row == 0)|  */
 
 	   if (DEBUG)
-	     cout << "`revue' == " << curr_row[0] << endl;
+	     cerr << "`revue' == " << curr_row[0] << endl;
 
 	   curr_production.title.assign(curr_row[0]);
 	   curr_production.revue.assign(curr_row[0]);
@@ -859,7 +865,7 @@ process_tocs_and_npt(void)
              << "and sort_by_production is true and lead_sheet is true order by film;";
 
    if (DEBUG) 
-     cout << "temp_strm.str() == " << temp_strm.str() << endl;
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
    status = submit_mysql_query(temp_strm.str());
 
@@ -880,7 +886,9 @@ process_tocs_and_npt(void)
      }
    else if (DEBUG)
      {
-       cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+            << "`row_ctr'   == " << row_ctr << endl
+            << "`field_ctr' == " << field_ctr << endl;
      }
    
    /*  Process the contents of |result|  */
@@ -898,7 +906,7 @@ process_tocs_and_npt(void)
 	   if (curr_row == 0)
 	     {
 	       if (DEBUG) 
-		 cout << "`mysql_fetch_row' returned NULL:" 
+		 cerr << "`mysql_fetch_row' returned NULL:" 
 		      << endl;
 
 	       if (*mysql_error(mysql))
@@ -918,7 +926,7 @@ process_tocs_and_npt(void)
 		 }
 	       else if (DEBUG)
 		 {
-		   cout << "No more rows." << endl;
+		   cerr << "No more rows." << endl;
 		 }
 
 	       break;
@@ -926,7 +934,7 @@ process_tocs_and_npt(void)
 	     }  /* |if (curr_row == 0)|  */
 
 	   if (DEBUG)
-	     cout << "`film' == " << curr_row[0] << endl;
+	     cerr << "`film' == " << curr_row[0] << endl;
 
 	   curr_production.title.assign(curr_row[0]);
 	   curr_production.film.assign(curr_row[0]);
@@ -953,9 +961,9 @@ process_tocs_and_npt(void)
    if (DEBUG)
      {
        if (production_vector.size() > 0)
-	 cout << "production_vector:" << endl;
+	 cerr << "production_vector:" << endl;
        else
-	 cout << "production_vector is empty." << endl;
+	 cerr << "production_vector is empty." << endl;
        
        for (vector<Production>::iterator iter = production_vector.begin();
 	    iter != production_vector.end();
@@ -993,7 +1001,7 @@ process_tocs_and_npt(void)
        temp_strm << "order by title;";
 
        if (DEBUG)
-	 cout << "temp_strm.str() == " << temp_strm.str() << endl;
+	 cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
        status = submit_mysql_query(temp_strm.str());
 
@@ -1014,7 +1022,9 @@ process_tocs_and_npt(void)
 	 }
        else if (DEBUG)
 	 {
-	   cout << "`submit_mysql_query' succeeded, returning 0." << endl;
+	   cerr << "ZZZ `submit_mysql_query' succeeded, returning 0." << endl
+                << "`row_ctr'   == " << row_ctr << endl
+                << "`field_ctr' == " << field_ctr << endl;
 	 }
 
        /*  Process the contents of |result|  */
@@ -1031,7 +1041,7 @@ process_tocs_and_npt(void)
 	       if (curr_row == 0)
 		 {
 		   if (DEBUG) 
-		     cout << "`mysql_fetch_row' returned NULL:" 
+		     cerr << "`mysql_fetch_row' returned NULL:" 
 			  << endl;
 
 		   if (*mysql_error(mysql))
@@ -1051,7 +1061,7 @@ process_tocs_and_npt(void)
 		     }
 		   else if (DEBUG)
 		     {
-		       cout << "No more rows." << endl;
+		       cerr << "No more rows." << endl;
 		     }
 
 		   break;
@@ -1079,20 +1089,23 @@ process_tocs_and_npt(void)
      }  /* |for|  */
 
    if (DEBUG)
-     {
+   {
        if (production_vector.size() > 0)
-	 cout << "production_vector:" << endl;
+	 cerr << "production_vector:" << endl;
        else
-	 cout << "production_vector is empty." << endl;
+	 cerr << "production_vector is empty." << endl;
        
        for (vector<Production>::iterator iter = production_vector.begin();
 	    iter != production_vector.end();
 	    ++iter)
-	 {
-	   iter->show("Production:");
-	 }
-     }
+       {       
+           iter->show("Production:");
+       }
 
+cerr << "YYY Enter <RETURN> to continue: ";
+getchar(); 
+
+   } 
 
    song_vector.insert(song_vector.begin(), production_vector.begin(), production_vector.end());
 
@@ -1112,7 +1125,7 @@ process_tocs_and_npt(void)
    status = get_datestamp(datestamp, datestamp_short);
 
    if (DEBUG) 
-     cout << "datestamp == \"" << datestamp << "\"" << endl
+     cerr << "datestamp == \"" << datestamp << "\"" << endl
 	  << "datestamp_short == \"" << datestamp_short << "\"" 
 	  << endl;
    

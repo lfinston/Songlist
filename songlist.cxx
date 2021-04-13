@@ -88,17 +88,17 @@ main(int argc, char **argv)
 {
 /* *** (3)   */
 
-   bool DEBUG = true; /* |false|  */
+   bool DEBUG = false; /* |true|  */
 
    int status;
 
    
    stringstream temp_strm;
 
-   cout << "This is `songlist'." << endl;
+   cerr << "This is `songlist'." << endl;
    
    if (DEBUG)
-     cout << "Entering `main'." << endl;
+     cerr << "Entering `main'." << endl;
 
 /* ***** (5) Process command-line options.  */
 
@@ -119,7 +119,7 @@ main(int argc, char **argv)
    }
    else if (DEBUG)
    {
-       cout << "In `main':  `process_command_line_options' succeeded, returning 0." 
+       cerr << "In `main':  `process_command_line_options' succeeded, returning 0." 
             << endl;
 
    }
@@ -131,11 +131,11 @@ main(int argc, char **argv)
    if (mysql != 0)
      {
        if (DEBUG) 
-	 cout << "mysql_init succeeded." << endl;
+	 cerr << "mysql_init succeeded." << endl;
      }
    else
      {
-       cout << "ERROR!  In `main': `mysql_init failed'." << endl
+       cerr << "ERROR!  In `main': `mysql_init failed'." << endl
 	    << "Exiting `songlist' unsuccessfully with exit status 1."
 	    << endl;
 
@@ -160,7 +160,7 @@ main(int argc, char **argv)
    status = get_datestamp(datestamp, datestamp_short);
 
    if (DEBUG) 
-     cout << "datestamp == \"" << datestamp << "\"" << endl
+     cerr << "datestamp == \"" << datestamp << "\"" << endl
 	  << "datestamp_short == \"" << datestamp_short << "\"" 
 	  << endl;
 
@@ -402,7 +402,7 @@ main(int argc, char **argv)
 
    /* Exit  */
 
-   cout << "Exiting `songlist' successfully with exit status 0." << endl;
+   cerr << "Exiting `songlist' successfully with exit status 0." << endl;
    
    exit(0);
 
@@ -416,11 +416,11 @@ void
 Song::show(string s)
 {
   if (s == "")
-     cout << "Song:" << endl;
+     cerr << "Song:" << endl;
   else                 
-     cout << s << endl;
+     cerr << s << endl;
  
-  cout << "title:                            " << title << endl
+  cerr << "title:                            " << title << endl
        << "words:                            " << words << endl
        << "words_reverse:                    " << words_reverse << endl
        << "music:                            " << music << endl
@@ -446,18 +446,18 @@ Song::show(string s)
        << "is_production:                    " << is_production << endl;      
 
   if (title_vector.size() > 0)
-    cout << "title_vector:" << endl;
+    cerr << "title_vector:" << endl;
   else
-        cout << "title_vector is empty" << endl;
+        cerr << "title_vector is empty" << endl;
   
   for (vector<string>::iterator iter = title_vector.begin();
        iter != title_vector.end();
        ++iter)
   {
-  cout << "title:                            " << *iter << endl;
+  cerr << "title:                            " << *iter << endl;
   }
 
-  cout << endl;
+  cerr << endl;
   
   return;
 
@@ -559,7 +559,7 @@ get_datestamp(string &datestamp, string &datestamp_short)
 
     if (DEBUG) 
     {
-        cout << "Result strings are:" << endl
+        cerr << "Result strings are:" << endl
              << "`datestamp'       == " << datestamp << endl
              << "`datestamp_short' == " << datestamp_short << endl;
 
@@ -576,64 +576,70 @@ submit_mysql_query(string query_str)
   int status = 0;
 
   bool DEBUG = false;  /* |true|  */
+
+  if (DEBUG)
+  { 
+      cerr << "Entering `submit_mysql_query'." << endl;
+  } 
   
   mysql_query(mysql, query_str.c_str());
 
    if (status != 0)
-     {
-          
-       cerr  << "ERROR!  In `submit_mysql_query':"
-	     << endl 
-	     << "`mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "Error:  " << mysql_error(mysql)
-	     << endl 
-	     << "Error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting function unsuccessfully with return value 1." 
-	     << endl;
-          
+   {
+        
+     cerr  << "ERROR!  In `submit_mysql_query':"
+           << endl 
+           << "`mysql_query' failed, returning " << status << ":"
+           << endl 
+           << "Error:  " << mysql_error(mysql)
+           << endl 
+           << "Error number:  " << mysql_errno(mysql)
+           << endl 
+           << "Exiting function unsuccessfully with return value 1." 
+           << endl;
+        
 
-       return 1;
-         
-     }  /* |if| (|mysql_query| failed.)  */
+     return 1;
+       
+   }  /* |if| (|mysql_query| failed.)  */
 
    result = mysql_store_result(mysql);        
 
-   if (result)
-     {
-       if (DEBUG)
-	 cout << endl 
-	      << "`mysql_store_result' returned 0."
-	      << endl
-	      << "Exiting function with return value 0."
-	      << endl;
+   if (result == 0)
+   {
+     if (DEBUG)
+       cerr << endl 
+            << "`mysql_store_result' returned 0."
+            << endl
+            << "Exiting function with return value 0." 
+            << endl;
 
-       return 0;
-            
-     }  /* |if| (No result)  */
+     return 0;
+          
+   }  /* |if| (No result)  */
    
    row_ctr   = mysql_num_rows(result);
    field_ctr = mysql_num_fields(result);
 
    if (DEBUG)
-     {
-       cout << "`row_ctr' == " << row_ctr 
-	    << endl
-	    << "`field_ctr' == " << field_ctr 
-	    << endl;
-                 
+   {
+     cerr << "`row_ctr' == " << row_ctr 
+          << endl
+          << "`field_ctr' == " << field_ctr 
+          << endl;
 
-     }  /* |if (DEBUG)|  */
+   }  /* |if (DEBUG)|  */
    
    affected_rows = (long) mysql_affected_rows(mysql);
 
    if (DEBUG)
-     {
-       
-       cout << "`affected_rows' == " << affected_rows
-	    << endl;
-     }
+   {
+     
+     cerr << "`affected_rows' == " << affected_rows
+          << endl
+          << "Exiting function with return value 0."
+          << endl;
+   }
 
    return 0;
    
@@ -824,7 +830,7 @@ compare_strings(string t, string s)
 
 #if 0 
   if (found_flag)
-    cout << "t == " << t << endl
+    cerr << "t == " << t << endl
 	 << "s == " << s << endl << endl;
 #endif
 
@@ -835,8 +841,8 @@ compare_strings(string t, string s)
   strncpy(sc, s.c_str(), s.length());
 
 #if 0 
-  cout << "tc == " << tc << endl;
-  cout << "sc == " << sc << endl;
+  cerr << "tc == " << tc << endl;
+  cerr << "sc == " << sc << endl;
 #endif
   
   t = "";
@@ -854,11 +860,11 @@ compare_strings(string t, string s)
       s += tolower(sc[i]);
     }
 #if 0 
-  cout << "tolower(t[0]) == " << tolower(t[0]) << endl
+  cerr << "tolower(t[0]) == " << tolower(t[0]) << endl
        << "tolower(s[0]) == " << tolower(s[0]) << endl;
 
-  cout << "t  == " << t << endl;
-  cout << "s  == " << s << endl;
+  cerr << "t  == " << t << endl;
+  cerr << "s  == " << s << endl;
 #endif 
 
   return t < s;
