@@ -47,7 +47,16 @@ clean:
 
 
 
-all: run run-c toc combined
+all: run run-c toc combined all.dvi all.ps all.pdf
+
+all.dvi: toc_ls.dvi composers.dvi lyricists.dvi
+	dviconcat -o all.dvi toc_ls.dvi composers.dvi lyricists.dvi 
+
+all.ps: all.dvi
+	dvips -o all.ps all.dvi
+
+all.pdf: all.ps 
+	ps2pdf all.ps
 
 combined: combined.pdf
 
