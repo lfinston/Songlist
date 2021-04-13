@@ -178,6 +178,10 @@ main(int argc, char **argv)
    
 /* *** (3)  Print out list of songs, ordered by composer  */
 
+     ofstream composers_file;
+
+     composers_file.open("composers.tex");
+
      if (DEBUG)
      {
          cerr << "In `main':  `song_vector.size()' == " << song_vector.size()
@@ -192,30 +196,50 @@ main(int argc, char **argv)
            cerr << "Showing `song_vector'." << endl;
      } 
 
+     string previous_composer = "";
+
      for (vector<Song>::iterator iter = song_vector.begin();
           iter != song_vector.end();
           ++iter)
      {
-        if (DEBUG)
-        { 
-
-                 if (iter->music_reverse == "" && iter->words_and_music_reverse == "")
+            if (iter->music_reverse == "" && iter->words_and_music_reverse == "")
+            {
                cerr << "Composer(s) not listed:" << endl 
                     << "   Title: " << iter->title << endl;
+               previous_composer = "";
+            }
             else if (iter->music_reverse != "")
-               cerr << "Composer(s):                 " << iter->music_reverse << endl 
-                    << "   Title: " << iter->title << endl;
+            {
+
+/* !!START HERE  */ 
+
+               if (DEBUG)
+               {      
+                  cerr << "Composer(s):                 " << iter->music_reverse << endl 
+                       << "   Title: " << iter->title << endl;
+               }
+               previous_composer = iter->music_reverse;
+            }
             else if (iter->words_and_music_reverse != "")
-               cerr << "Composer(s) and Lyricist(s): " << iter->words_and_music_reverse << endl 
-                    << "   Title: " << iter->title << endl;
+            {
+               if (DEBUG)
+               {      
+                  cerr << "Composer(s) and Lyricist(s): " << iter->words_and_music_reverse << endl 
+                       << "   Title: " << iter->title << endl;
+               }
+               previous_composer = iter->words_and_music_reverse;
+            }
 #if 0
+        if (DEBUG)
+        { 
             iter->show("Song:");
 #endif
         }  /* if (DEBUG)  */   
 
-         /* !!START HERE  LDF 2021.04.12.  */ 
 
      }  /* for  */
+
+     composers_file.close();
 
 /* *** (3)  */
 
