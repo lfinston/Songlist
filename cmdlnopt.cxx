@@ -57,6 +57,8 @@
 
 using namespace std;
 
+// #include "glblvars.hxx"
+
 /*  * (0) Command-Line Options Processing.   */
 
 /*  ** (2) Process Command Line Options  */

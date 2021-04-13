@@ -47,7 +47,7 @@ clean:
 
 
 
-#all: run run-c toc combined
+all: run run-c toc combined
 
 combined: combined.pdf
 
@@ -78,6 +78,7 @@ cmdlnopt.o: cmdlnopt.cxx
 
 run: songlist
 	./songlist
+
 
 songlist_out.pdf: songlist_out.ps
 	ps2pdf songlist_out.ps
