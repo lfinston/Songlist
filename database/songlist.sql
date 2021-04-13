@@ -71,15 +71,17 @@ delete from Songs;
 
 /* A  */
 
-replace into Songs (title, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Abends in der Taverna", "Werner Bochmann", "Bochmann, Werner", true, 1);
+("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Ain't Misbehavin'", "Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''", true);
+("Ain't Misbehavin'", "Andy Razaf", "Razaf, Andy",
+"Thomas ``Fats'' Waller and Harry Brooks", "Waller, Thomas ``Fats'' and Brooks, Harry",
+true, 1929);
 
 /* ***************************************************** */
 
@@ -123,11 +125,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("Autumn in New York", "Vernon Duke", "Duke, Vernon", true);
-
-/* Also words?  */
+("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934);
 
 /* ******************************************************/
 
@@ -139,15 +139,16 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, opera)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, opera, year)
 values
-("Barcarole", "Jacques Offenbach", "Offenbach, Jacques", true, "Les contes d'Hoffmann");
+("Barcarole", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
+"Les contes d'Hoffmann", 1881);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, recordings, no_page_turns)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, no_page_turns, year)
 values
-("Bel Ami", "Theo Mackeben", "Mackeben, Theo", true, 1, true);
+("Bel Ami", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", true, 1, true, 1939);
 
 /* ***************************************************** */
 
@@ -198,9 +199,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, recordings, arrangement_solo_guitar)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, arrangement_solo_guitar, year)
 values
-("By a Waterfall", "Sammy Fain", "Fain, Sammy", true, 1, true);
+("By a Waterfall", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true, 1, true, 1933);
 
 /* C   */
 
@@ -322,9 +323,10 @@ true, 1935,
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, operetta, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
 values
-("Da geh ich zu Maxim", "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz ", true, "Lustige Witwe, Die", true);
+("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz ", true, "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
 
@@ -728,17 +730,18 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, recordings, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Ja und Nein", "Franz Grothe", "Grothe, Franz", true, 1,
- "\\hbox{Verse not in}\\hbox{{\\largeit 100 Years of Popular Music, Music_reverse, 1900s.}}");
+("Ja und Nein", "Willy Dehmel", "Dehmel, Willy", "Franz Grothe", "Grothe, Franz", true, 1, 1939);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, copyright)
+/* Instrumental.  Words added later.  */
+
+replace into Songs (title, music, music_reverse, lead_sheet, copyright, year)  
 values
 ("Jalousie ``Tango Tzigane'' (Jealousy)", "Jacob Gade", "Gade, Jacob", true,
-"{\\copyright} 1925.  Public Domain.");
+"{\\copyright} 1925.  Public Domain.", 1925);
 
 #words: Vera Bloom (Engl.)
 
@@ -764,13 +767,16 @@ values
 
 /* K   */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Komm, Zigany", "Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true);
+("Komm, Zigany",
+"Julius Brammer und Alfred Gr{\\\"u}nwald",
+"Brammer, Julius und Gr{\\\"u}nwald, Alfred",
+"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, 1932);
 
-/* Film-Operetta:  Gr{\"a}fin Mariza (possibly.  Check!!!) */
-
+/* Film-Operetta:  Gr{\\\"a}fin Mariza using melodies by K\\'alman.         */
 /* comment: (ungarisch: K{\\'a}lm{\\'a}n Imre;  eigentlich: Imre Koppstein  */
+/* Copyright 1957                                                           */
 
 /* L  */
 
@@ -784,23 +790,26 @@ true, "Don Giovanni");
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Lady in Red, The", "Allie Wrubel", "Wrubel, Allie", true);
+("Lady in Red, The", "Mort Dixon", "Dixon, Mort", "Allie Wrubel", "Wrubel, Allie", true, 1935);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
-("Lady is a Tramp, The", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true);
+("Lady is a Tramp, The", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, "Babes in Arms", 1937);
 
 /* ***************************************************** */
 
 /*  !!! Get lyricists!  */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("Lady of Spain", "Tolchard Evans", "Evans, Tolchard", true);
+("Lady of Spain",
+"Erell Reaves and Henry Tilsley", "Reaves, Erell and Tilsley, Henry",
+"Tolchard Evans", "Evans, Tolchard", true, 1931,
+"\"Erell Reaves\" is a pseudonym of Stanley J.~Damerell and Robert Hargreaves");
 
 /* ***************************************************** */
 
@@ -837,17 +846,21 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, operetta, notes, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, notes, sort_by_production, year)
 values
-("Lippen schweigen", "Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, "Lustige Witwe, Die",
-"English title:  The Merry Widow Waltz", true);
+("Lippen schweigen", 
+"Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+"Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, "Lustige Witwe, Die",
+"English title:  The Merry Widow Waltz", true, 1905);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, operetta, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
 values
-("Lied vom dummen Reiter, Das", "Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, 
-"Lustige Witwe, Die", true);
+("Lied vom dummen Reiter, Das", 
+"Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+"Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, 
+"Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
 
@@ -979,9 +992,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Mr.~Lucky", "Henry Mancini", "Mancini, Henry", true);
+("Mr.~Lucky", "Jay Livingston and Ray Evans", "Livingston, Jay and Evans, Ray", 
+"Henry Mancini", "Mancini, Henry", true, 1960);
 
 /* words?  */
 
@@ -1099,9 +1113,10 @@ select "!!! End O";
 
 select "!!! P";
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Para Vigo me voy (Say ``Si, Si'')", "Ernesto Lecuona", "Lecuona, Ernesto", true);
+("Para Vigo me voy (Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
+true, 1935);
 
 #/* ***************************************************** */
 
@@ -1130,11 +1145,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
 ("Perfidia", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", 
 "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", 
-true);
+true, 1939);
 
 /* ***************************************************** */
 
@@ -1179,9 +1194,10 @@ true, 1931);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Put on a Happy Face", "Charles Strouse", "Strouse, Charles", true, 1);
+("Put on a Happy Face", "Lee Adams", "Adams, Lee", 
+"Charles Strouse", "Strouse, Charles", true, 1, 1960);
 
 select "!!! End P";
 
@@ -1621,10 +1637,14 @@ select "!!! Z";
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, year)
 values
-("Zwei M{\\\"a}rchenaugen", "Emmerich K{\\'a}lm{\\'a}n", 
-"K{\\'a}lm{\\'a}n, Emmerich", true);
+("Zwei M{\\\"a}rchenaugen",
+"Julius Brammer und Alfred Gr{\\\"u}nwald",
+"Brammer, Julius und Gr{\\\"u}nwald, Alfred",
+"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Die Zirkusprinzessin", 1926);
+
+/* Copyright 1951  */
 
 select "!!! End Z";
 
