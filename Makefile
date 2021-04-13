@@ -35,7 +35,7 @@ ttemp: ttemp.o cmdlnopt.o
             -lpthread -lz -lm -lrt \
            -lssl -lcrypto -ldl -lresolv
 
-ttemp.o: ttemp.cxx cmdlnopt.hxx glblvars.hxx songdefs.hxx 
+ttemp.o: ttemp.cxx cmdlnopt.hxx songdefs.hxx 
 	g++ -c -g -I/usr/include/mysql -o ttemp.o ttemp.cxx
 
 .PHONY: clean
@@ -59,7 +59,7 @@ combined.pdf: songlist_out.pdf toc_ls.pdf toc_scores.pdf toc_all.pdf
 tocnpt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx
 
-songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx glblvars.hxx 
+songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx 
 	g++ -c -g -I/usr/include/mysql -o songlist.o songlist.cxx
 
 songlist: songlist.o cmdlnopt.o tocnpt.o

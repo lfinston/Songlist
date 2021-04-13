@@ -57,16 +57,16 @@
 #endif
 
 #include "songdefs.hxx"
-#include "glblvars.hxx"
+// #include "glblvars.hxx"
 #include "cmdlnopt.hxx"
 
-MYSQL_RES *result = 0;
-MYSQL_ROW curr_row = 0;
+MYSQL_RES *result;
+MYSQL_ROW curr_row;
 MYSQL *mysql;
   
-unsigned int row_ctr = 0; 
-unsigned int field_ctr = 0;
-long affected_rows = 0;
+unsigned int row_ctr; 
+unsigned int field_ctr;
+long affected_rows;
 
 /* Function declarations  */
 
