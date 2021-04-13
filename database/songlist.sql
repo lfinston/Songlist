@@ -25,6 +25,15 @@
 
 use Songs;
 
+/* * (1) As a user with the privilege of creating users and granting privileges (possibly `root')  */
+/*       create user `songlist' and grant privileges on database `Songs' to it.                    */
+
+create user 'songlist'@'localhost;
+
+GRANT ALL ON Songs TO 'songlist'@'localhost';
+
+/* * (1) Create table `Songs'.  */
+
 drop table Songs;
 
 create table Songs
