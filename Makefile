@@ -88,7 +88,7 @@ songlist_out.ps: songlist_out.dvi
 
 # | grep "Overfull"	
 
-songlist_out.dvi: songlist_out.tex songlist.mac
+songlist_out.dvi: songlist_out.tex songlist.mac 
 	tex songlist_out.tex 
 
 
@@ -99,16 +99,15 @@ songlist_out.tex: songlist input.txt
 
 .PHONY: dvi
 
-dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi
+dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi composers.dvi lyricists.dvi
 
 .PHONY: ps
 
-ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps
+ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps composers.ps lyricists.ps
 
 .PHONY: pdf
 
-pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf
-
+pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf composers.pdf lyricists.pdf
 
 toc_npt.pdf: toc_npt.tex 
 	pdftex toc_npt.tex
@@ -161,6 +160,29 @@ toc_scores.dvi: toc_scores.tex
 toc_scores.tex: songlist
 	make run
 
+composers.pdf: composers.ps
+	ps2pdf composers.ps
+
+composers.ps: composers.dvi
+	dvips -o composers.ps composers.dvi
+
+composers.dvi: composers.tex
+	tex composers.tex
+
+lyricists.pdf: lyricists.ps
+	ps2pdf lyricists.ps
+
+lyricists.ps: lyricists.dvi
+	dvips -o lyricists.ps lyricists.dvi
+
+lyricists.dvi: lyricists.tex
+	tex lyricists.tex
+
+composers.tex: ./songlist database/songlist.sql
+	$(MAKE) run
+
+lyricists.tex: ./songlist database/songlist.sql
+	$(MAKE) run
 
 .PHONY: run-c
 

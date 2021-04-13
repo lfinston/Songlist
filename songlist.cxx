@@ -234,6 +234,8 @@ main(int argc, char **argv)
                 cerr << "WARNING!  Composer(s) not listed:" << endl 
                      << "   Title: " << iter->title << endl;
                 previous_composer = "";
+
+                continue;
             }
             else if (iter->music_reverse != "")
             {
@@ -287,9 +289,9 @@ main(int argc, char **argv)
 
 /* *** (3)  Print out list of songs, ordered by lyricist  */
 
-#if 0 
+     sort(song_vector.begin(), song_vector.end(), compare_titles);
 
-/* !!START HERE  */ 
+     stable_sort(song_vector.begin(), song_vector.end(), compare_lyricists);
 
      ofstream lyricists_file;
 
@@ -337,6 +339,8 @@ main(int argc, char **argv)
                 cerr << "WARNING!  Lyricist(s) not listed:" << endl 
                      << "   Title: " << iter->title << endl;
                 previous_lyricist = "";
+                
+                continue;
             }
             else if (iter->words_reverse != "")
             {
@@ -368,6 +372,7 @@ main(int argc, char **argv)
                {
                   if (!first_time)
                      lyricists_file << "}\\vskip\\parskip" << endl;
+
                   lyricists_file << "\\vbox{\\hbox{{\\mediumbx " << iter->words_and_music_reverse << "}}" 
                                  << endl; 
                }
@@ -387,8 +392,6 @@ main(int argc, char **argv)
                     << endl << "\\bye" << endl;
 
      lyricists_file.close();
-
-#endif 
 
 /* *** (3)  */
 

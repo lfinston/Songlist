@@ -92,9 +92,9 @@ true, 1, true, "A Day at the Races");
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
-("All the Things You Are", "Jerome Kern", "Kern, Jerome", true);
+("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true);
 
 /* ***************************************************** */
 
@@ -227,9 +227,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Carioca", "Vincent Youmans", "Youmans, Vincent", true);
+("Carioca", "Edward Eliscu and Gus Kahn", "Eliscu, Edward and Kahn, Gus", "Vincent Youmans", "Youmans, Vincent", true, 1933);
 
 /* ***************************************************** */
 
@@ -356,9 +356,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, year, no_page_turns, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, no_page_turns, notes)
 values
-("Du sollst der Kaiser meiner Seele sein", "Robert Stolz", "Stolz, Robert", true, 1916, true,
+("Du sollst der Kaiser meiner Seele sein",
+"Fritz Gr{\\\"u}nbaum und Wilhelm Sterk", "Gr{\\\"u}nbaum, Fritz und Sterk, Wilhelm",
+"Robert Stolz", "Stolz, Robert",
+true, 1916, true,
 "Source:  Das neue Operettenbuch, Buch 1");
 
 /* ***************************************************** */
@@ -440,13 +443,13 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year)
 values
-("Frauen sind keine Engel", "Theo Mackeben", "Mackeben, Theo", true, 1);
+("Frauen sind keine Engel", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", true, 1, 1944);
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse)
+replace into Songs (title, words_and_music, words_and_music_reverse)
 values
 ("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto");
 
@@ -499,9 +502,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year)
 values
-("Heute Nacht oder nie", "Mischa Spoliansky", "Spoliansky, Mischa", true);
+("Heute Nacht oder nie", "Marcellus Schiffer", "Schiffer, Marcellus", "Mischa Spoliansky", "Spoliansky, Mischa", true, 1932);
 
 /* recordings 1 ? Not found. */
 
@@ -543,7 +546,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
 values
-("I Could Have Danced All Night", "Alan Jay Lerner", "Alan Lerner, Jay", "Frederick Loewe", "Loewe, Frederick", true, 1);
+("I Could Have Danced All Night", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 1);
 
 /* ***************************************************** */
 
@@ -640,9 +643,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, notes, arrangement_solo_guitar)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, notes, arrangement_solo_guitar, year)
 values
-("Illusions", "Friedrich Hollaender", "Hollaender, Friedrich", true, "Score but no lead sheet!", true);
+("Illusions", "Friedrich Hollaender", "Hollaender, Friedrich", true, "Score but no lead sheet!", true, 1948);
 
 /* mark_blue  */
 
@@ -654,9 +657,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("I'm Shooting High", "Harold Arlen", "Arlen, Harold", true);
+("I'm Shooting High", "Ted Koehler and Charles Wilmott", "Koehler, Ted and Wilmott, Charles",
+"Jimmy McHugh", "McHugh, Jimmy", true, 1935, "Additional words by Charles Wilmott");
 
 /* ***************************************************** */
 
@@ -826,9 +830,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
 values
-("Let's Fall in Love", "Harold Arlen", "Arlen, Harold", true, "Source: The Harold Arlen Songbook");
+("Let's Fall in Love", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold", true, "Source: The Harold Arlen Songbook", 
+1933);
 
 /* ***************************************************** */
 
@@ -907,9 +912,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns_with_two_songbooks)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns_with_two_songbooks, year)
 values
-("Mambo {\\#}5", "D{\\'a}maso P{\\'e}rez Prado", "P{\\'e}rez Prado, D{\\'a}maso", true);
+("Mambo {\\#}5", "D{\\'a}maso P{\\'e}rez Prado", "P{\\'e}rez Prado, D{\\'a}maso", true, 1948);
 
 /* ***************************************************** */
 
@@ -927,10 +932,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, partial_lead_sheet, operetta)
+replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, operetta, year)
 values
-("Mein Herr Marquis", "Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Die Fledermaus");
-
+("Mein Herr Marquis", "Karl Haffner, Richard Gen{\\'e}e", "Haffner, Karl und Gen{\\'e}e, Richard", 
+"Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Die Fledermaus", 1874);
+ 	
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, notes)
@@ -1326,9 +1332,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
 values
-("Spanish Eyes", "Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert");
+("Spanish Eyes (Moon Over Naples", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie", 
+"Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert", 1964);
+
+/* delete from Songs where title = "Spanish Eyes";  */
 
 /* ***************************************************** */
 
@@ -1378,9 +1387,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, music, music_reverse, no_page_turns, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
 values
-("Strangers in the Night", "Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert");
+("Strangers in the Night", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie",
+"Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert", 1965);
 
 /* ***************************************************** */
 
