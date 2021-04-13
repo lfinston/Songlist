@@ -188,7 +188,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
-("Body and Soul", "Edward Heymann, Frank Eyton und Robert Sour", "Heymann, Edward; Eyton Frank; and Sour, Robert", 
+("Body and Soul", "Edward Heymann, Frank Eyton und Robert Sour", 
+"\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip-2pt\\hbox{and Sour, Robert}}", 
 "John W.~Green", "Green, John W.", true);
 
 /* ***************************************************** */
@@ -921,7 +922,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
-("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar ", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true);
+("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true);
 
 /* ***************************************************** */
 
@@ -940,7 +941,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
-("Many a New Day", "Oscar Hammerstein II", "Hammerstein II, Oscar ", "Richard Rodgers", "Rodgers, Richard", true,
+("Many a New Day", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
 "Oklahoma!", true);
 
 /* ***************************************************** */
@@ -1140,7 +1141,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
-("People Will Say We're in Love", "Oscar Hammerstein II", "Hammerstein II, Oscar ", "Richard Rodgers", "Rodgers, Richard", true, 
+("People Will Say We're in Love", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true, 
 "Oklahoma!", true);
 
 /* ***************************************************** */

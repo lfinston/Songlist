@@ -750,6 +750,52 @@ compare_strings(string t, string s)
 
   while (found_t != string::npos || found_s != string::npos);
 
+  /* Delete ``\\vbox{''  */
+
+  do
+    {
+      found_t = t.find("\\vbox{");
+      if (found_t != string::npos)
+	{
+	  found_flag = true;
+	  t.erase(found_t, 6);
+
+	}
+
+      found_s = s.find("\\vbox{");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.erase(found_s, 6);
+	}
+    }
+
+  while (found_t != string::npos || found_s != string::npos);
+
+  /* Delete ``\\hbox{''  */
+
+  do
+    {
+      found_t = t.find("\\hbox{");
+      if (found_t != string::npos)
+	{
+	  found_flag = true;
+	  t.erase(found_t, 6);
+
+	}
+
+      found_s = s.find("\\hbox{");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.erase(found_s, 6);
+	}
+    }
+
+  while (found_t != string::npos || found_s != string::npos);
+
+  while (found_t != string::npos || found_s != string::npos);
+
   char tc[64];
   char sc[64];
   memset(tc, 0, 64);
