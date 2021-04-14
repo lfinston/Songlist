@@ -1753,459 +1753,936 @@ select title, words_reverse, music_reverse, words_and_music_reverse
 from Songs where words_reverse is not null or music_reverse is not null or words_and_music_reverse is not null
 order by words_reverse, music_reverse, words_and_music_reverse\G
 
-+-------------------------------------------+--------------------------------------------+
-| music_reverse                             | title                                      |
-+-------------------------------------------+--------------------------------------------+
-| Abreu, Zequinha de                        | Tico Tico no Fuba                          |
-| Ahlert, Fred E.                           | I Don't Know Why (I Just Do)               |
-| Allen, Robert                             | It's Not For Me to Say                     |
-| Allen, Robert                             | Chances Are                                |
-| Andre, Fabian                             | Dream a Little Dream of Me                 |
-| Schwandt, Wilbur                          | Dream a Little Dream of Me                 |
-| Arlen, Harold                             | Between the Devil and the Deep Blue Sea    |
-| Arlen, Harold                             | Let's Fall in Love                         |
-| Arlen, Harold                             | I've Got the World on a String             |
-| Arlen, Harold                             | Over the Rainbow                           |
-| Bacharach, Burt                           | I'll Never Fall in Love Again              |
-| Bacharach, Burt                           | I Say a Little Prayer                      |
-| Bacharach, Burt                           | Do You Know the Way to San Jose?           |
-| Bacharach, Burt                           | Close to You                               |
-| Barris, Harry                             | Wrap Your Troubles in Dreams               |
-| Bernstein, Leonard                        | I Feel Pretty                              |
-| Bloom, Rube                               | Fools Rush In (Where Angels Fear to Tread) |
-| Bochmann, Werner                          | Abends in der Taverna                      |
-| Bonf{\\'a}, Luiz                          | Manh{\\~a} da Carnaval                     |
-| Burke, Joe                                | Tiptoe Through the Tulips With Me          |
-| Burnett, Ernie                            | My Melancholy Baby                         |
-| Carl Maria Weber, von                     | Durch die W{\\"a}lder, durch die Auen      |
-| Carmichael, Hoagy                         | Heart and Soul                             |
-| Carmichael, Hoagy                         | Georgia on my Mind                         |
-| Carmichael, Hoagy                         | Skylark                                    |
-| Carmichael, Hoagy                         | Stardust                                   |
-| Carpenter, Richard                        | Top of the World                           |
-| Carr, Michael                             | South of the Border                        |
-| Columbo, Russ                             | Prisoner of Love                           |
-| Gaskill, Clarence                         | Prisoner of Love                           |
-| Conrad, Con                               | Continental, The                           |
-| Coots, J.~Fred                            | You Go to My Head                          |
-| Dale, Jim                                 | Georgy  Girl                               |
-| DeRose, Peter                             | Deep Purple                                |
-| Donaldson, Walter                         | Carolina in the Morning                    |
-| Donaldson, Walter                         | Love Me or Leave Me                        |
-| Donaldson, Walter                         | My Blue Heaven                             |
-| Donaldson, Walter                         | My Baby Just Cares for Me                  |
-| Duke, Vernon                              | Taking a Chance on Love                    |
-| Duke, Vernon                              | I Can't Get Started                        |
-| Ellington, Duke                           | Prelude to a Kiss                          |
-| Ellington, Duke                           | Sophisticated Lady                         |
-| Ellington, Duke                           | In a Sentimental Mood                      |
-| Ellington, Duke                           | Caravan                                    |
-| Tizol, Juan                               | Caravan                                    |
-| Evans, Tolchard                           | Lady of Spain                              |
-| Fain, Sammy                               | I Can Dream, Can't I?                      |
-| Fain, Sammy                               | By a Waterfall                             |
-| Gade, Jacob                               | Jalousie ``Tango Tzigane'' (Jealousy)      |
-| Garner, Errol                             | Misty                                      |
-| Gershwin, George                          | Someone to Watch Over Me                   |
-| Gershwin, George                          | Let's Call the Whole Thing Off             |
-| Gershwin, George                          | Liza (All the Clouds'll Roll Away)         |
-| Gershwin, George                          | Somebody Loves Me                          |
-| Gershwin, George                          | Embraceable You                            |
-| Gifford, H.~Eugene                        | Smoke Rings                                |
-| Giraud, Hubert                            | Buenos Noches Mon Amour                    |
-| Green, John W.                            | I Cover the Waterfront                     |
-| Green, John W.                            | Body and Soul                              |
-| Green, John W.                            | Out of Nowhere                             |
-| Green, John W.                            | Coquette                                   |
-| Lombardo, Carmen                          | Coquette                                   |
-| Grothe, Franz                             | Ja und Nein                                |
-| Heusen, Jimmy van                         | Moonlight Becomes You                      |
-| Heusen, Jimmy van                         | Nancy with the Laughing Face               |
-| Heusen, Jimmy van                         | It Could Happen to You                     |
-| Heusen, Jimmy van                         | Imagination                                |
-| Heusen, Jimmy van                         | Oh! You Crazy Moon                         |
-| Hoffmann, Al                              | Heartaches                                 |
-| Hollaender, Friedrich                     | You've Got That Look                       |
-| Hudson, Will                              | Moonglow                                   |
-| Mills, Irving                             | Moonglow                                   |
-| Jobim, Antonio Carlos                     | Chega de Saudade                           |
-| Johnston, Arthur                          | Cocktails for Two                          |
-| Johnston, Arthur                          | Pennies from Heaven                        |
-| Jones, Isham                              | I'll See You in My Dreams                  |
-| Jurmann, Walter                           | All God's Children                         |
-| Kaper, Bronislaw                          | All God's Children                         |
-| Jurmann, Walter                           | Cosi Cosa                                  |
-| Kaper, Bronislaw                          | Cosi Cosa                                  |
-| Jurmann, Walter                           | Message From the Man in the Moon, A        |
-| Kaper, Bronislaw                          | Message From the Man in the Moon, A        |
-| K{\\'a}lm{\\'a}n, Emmerich                | Komm, Zigany                               |
-| K{\\'a}lm{\\'a}n, Emmerich                | Zwei M{\\"a}rchenaugen                     |
-| Kaempfert, Bert                           | Strangers in the Night                     |
-| Kaempfert, Bert                           | Spanish Eyes (Moon Over Naples)            |
-| Kern, Jerome                              | All the Things You Are                     |
-| Kern, Jerome                              | Make Believe                               |
-| Kern, Jerome                              | Way You Look Tonight, The                  |
-| Kern, Jerome                              | Long Ago (and Far Away)                    |
-| Kern, Jerome                              | Fine Romance, A                            |
-| Kern, Jerome                              | Pick Yourself Up                           |
-| Kern, Jerome                              | Bill                                       |
-| Kern, Jerome                              | Smoke Gets in Your Eyes                    |
-| Kern, Jerome                              | Sure Thing                                 |
-| Kosma, Joseph                             | Feuilles Mortes, Les                       |
-| Lai, Francis                              | Homme et une femme, Un                     |
-| Lane, Burton                              | On a Clear Day                             |
-| Lane, Burton                              | How About You?                             |
-| Lecuona, Ernesto                          | Para Vigo me voy (Say ``Si, Si'')          |
-| Leh{\\'a}r  Franz                         | Lied vom dummen Reiter, Das                |
-| Leh{\\'a}r  Franz                         | Lippen schweigen                           |
-| Leh{\\'a}r, Franz                         | Da geh ich zu Maxim                        |
-| Leux, Leo                                 | Es leuchten die Sterne                     |
-| Livingston, Jay                           | Tammy                                      |
-| Loewe, Frederick                          | They Call the Wind Maria                   |
-| Loewe, Frederick                          | I Talk to the Trees                        |
-| Loewe, Frederick                          | Wouldn't It Be Loverly?                    |
-| Loewe, Frederick                          | If I Should Ever Leave You                 |
-| Loewe, Frederick                          | Camelot                                    |
-| Loewe, Frederick                          | I Could Have Danced All Night              |
-| Loewe, Frederick                          | Gigi                                       |
-| Loewe, Frederick                          | On the Street Where You Live               |
-| Mackeben, Theo                            | Bel Ami                                    |
-| Mackeben, Theo                            | Frauen sind keine Engel                    |
-| Mancini, Henry                            | Mr.~Lucky                                  |
-| Mandel, Johnny                            | Shadow of Your Smile, The                  |
-| McHugh, Jimmy                             | I'm Shooting High                          |
-| McHugh, Jimmy                             | I'm in the Mood for Love                   |
-| McHugh, Jimmy                             | On the Sunny Side of the Street            |
-| Meyers, Billy                             | Nobody's Sweetheart                        |
-| Schoebel, Elmer                           | Nobody's Sweetheart                        |
-| Miller, Glenn                             | Moonlight Serenade                         |
-| Monaco, James                             | You Made Me Love You                       |
-| Monaco, James V.                          | I've Got a Pocketful of Dreams             |
-| Mozart, Wolfgang Amadeus                  | L{\\`a} ci darem la mano                   |
-| Nacio Brown, Herb                         | Wedding of the Painted Doll, The           |
-| Offenbach, Jacques                        | Barcarole                                  |
-| Paul, Gene de                             | I'll Remember April                        |
-| Perkins, Frank                            | Stars Fell on Alabama                      |
-| Popp, Andr{\\'e}                          | Amour est bleu, L'                         |
-| Portela, Raul                             | Lisboa Antiga                              |
-| Vale, Amadeu do                           | Lisboa Antiga                              |
-| Rainger, Ralph                            | Thanks for the Memory                      |
-| Rainger, Ralph                            | June in Janury                             |
-| Raksin, David                             | Laura                                      |
-| Revaux, Jacques                           | Comme d'Habitude                           |
-| Fran{\\c c}ois, Claude                    | Comme d'Habitude                           |
-| Rodgers, Richard                          | Lady is a Tramp, The                       |
-| Rodgers, Richard                          | You Took Advantage of Me                   |
-| Rodgers, Richard                          | Ten Cents a Dance                          |
-| Rodgers, Richard                          | Isn't It Romantic?                         |
-| Rodgers, Richard                          | This Can't be Love                         |
-| Rodgers, Richard                          | Blue Moon                                  |
-| Rodgers, Richard                          | People Will Say We're in Love              |
-| Rodgers, Richard                          | I Married an Angel                         |
-| Rodgers, Richard                          | Many a New Day                             |
-| Rota, Nino                                | Speak Softly, Love                         |
-| Ruby, Harry                               | Nevertheless (I'm In Love With You)        |
-| Schertzinger, Victor                      | Tangerine                                  |
-| Schwartz, Arthur                          | Rainy Night in Rio, A                      |
-| Schwarz, Jean                             | Rock-a-Bye Your Baby (With a Dixie Melody) |
-| Silvers, Louis                            | April Showers                              |
-| Spoliansky, Mischa                        | Heute Nacht oder nie                       |
-| Stolz, Robert                             | Du sollst der Kaiser meiner Seele sein     |
-| Strachey, Jack                            | These Foolish Things                       |
-| Strau{\\ss} (Sohn), Johann                | Mein Herr Marquis                          |
-| Strouse, Charles                          | Put on a Happy Face                        |
-| Swift, Kay                                | Fine and Dandy                             |
-| Waller, Thomas ``Fats''                   | Ain't Misbehavin'                          |
-| Brooks, Harry                             | Ain't Misbehavin'                          |
-| Warren, Harry                             | Young and Healthy                          |
-| Warren, Harry                             | Jeepers Creepers                           |
-| Warren, Harry                             | Shuffle Off to Buffalo                     |
-| Warren, Harry                             | September in the Rain                      |
-| Warren, Harry                             | You're Getting to Be a Habit With Me       |
-| Warren, Harry                             | I'll String Along With You                 |
-| Warren, Harry                             | I Only Have Eyes for You                   |
-| Warren, Harry                             | Lulu's Back in Town                        |
-| Weill, Kurt                               | Speak Low                                  |
-| Weill, Kurt                               | September Song                             |
-| Weill, Kurt                               | Lost in the Stars                          |
-| Weill, Kurt                               | Moon-Faced, Starry-Eyed                    |
-| Whiting, Richard A.                       | Hooray For Hollywood                       |
-| Whiting, Richard A.                       | Japanese Sandman                           |
-| Williams, Hugh                            | Harbour Lights                             |
-| Williams, Hugh                            | Red Sails in the Sunset                    |
-| Winkler, Gerhard                          | Capri Fischer                              |
-| Wrubel, Allie                             | Lady in Red, The                           |
-| Youmans, Vincent                          | Carioca                                    |
-| Youmans, Vincent                          | Tea for Two                                |
-| Young, Victor                             | Stella By Starlight                        |
-+-------------------------------------------+--------------------------------------------+
-170 rows in set (0.00 sec)
+/* * (1)  */
 
-+------------------------------------------------------------------------------+--------------------------------------------+
-| words_reverse                                                                | title                                      |
-+------------------------------------------------------------------------------+--------------------------------------------+
-| Heymann, Edward                                                              | Body and Soul                              |
-| Eyton Frank                                                                  | Body and Soul                              |
-| Sour, Robert                                                                 | Body and Soul                              |
-| Adams, Lee                                                                   | Put on a Happy Face                        |
-| Anderson, Maxwell                                                            | Lost in the Stars                          |
-| Anderson, Maxwell                                                            | September Song                             |
-| Balz, Bruno                                                                  | Es leuchten die Sterne                     |
-| Barbier, Jules                                                               | Barcarole                                  |
-| Barouh, Pierre                                                               | Homme et une femme, Un                     |
-| Beckmann, Hans Fritz                                                         | Bel Ami                                    |
-| Beckmann, Hans Fritz                                                         | Frauen sind keine Engel                    |
-| Bettis, John                                                                 | Top of the World                           |
-| Brammer, Julius                                                              | Zwei M{\\"a}rchenaugen                      |
-| Gr{\\"u}nwald, Alfred                                                        | Zwei M{\\"a}rchenaugen                      |
-| Brammer, Julius                                                              | Komm, Zigany                               |
-| Gr{\\"u}nwald, Alfred                                                        | Komm, Zigany                               |
-| Burke, Johnny                                                                | Misty                                      |
-| Burke, Johnny                                                                | Moonlight Becomes You                      |
-| Burke, Johnny                                                                | Oh! You Crazy Moon                         |
-| Burke, Johnny                                                                | Pennies from Heaven                        |
-| Burke, Johnny                                                                | It Could Happen to You                     |
-| Burke, Johnny                                                                | I've Got a Pocketful of Dreams             |
-| Burke, Johnny                                                                | Imagination                                |
-| Caesar, Irving                                                               | Tea for Two                                |
-| Coslow, Sam                                                                  | Cocktails for Two                          |
-| Cour, Pierre                                                                 | Amour est bleu, L'                         |
-| Da Ponte, Lorenzo                                                            | L{\\`a} ci darem la mano                    |
-| David, Hal                                                                   | Close to You                               |
-| David, Hal                                                                   | I'll Never Fall in Love Again              |
-| David, Hal                                                                   | Do You Know the Way to San Jose?           |
-| David, Hal                                                                   | I Say a Little Prayer                      |
-| De Sylva, Buddy G.                                                           | April Showers                              |
-| Dehmel, Willy                                                                | Ja und Nein                                |
-| DeLange, Eddie                                                               | Moonglow                                   |
-| Dixon, Mort                                                                  | Lady in Red, The                           |
-| Dubin, Al                                                                    | I'll String Along With You                 |
-| Dubin, Al                                                                    | I Only Have Eyes for You                   |
-| Dubin, Al                                                                    | Lulu's Back in Town                        |
-| Dubin, Al                                                                    | Tiptoe Through the Tulips With Me          |
-| Dubin, Al                                                                    | September in the Rain                      |
-| Dubin, Al                                                                    | Shuffle Off to Buffalo                     |
-| Dubin, Al                                                                    | Young and Healthy                          |
-| Dubin, Al                                                                    | You're Getting to Be a Habit With Me       |
-| Egan, Raymond B.                                                             | Japanese Sandman                           |
-| Eliscu, Edward                                                               | Carioca                                    |
-| Kahn, Gus                                                                    | Carioca                                    |
-| Evans, Ray                                                                   | Tammy                                      |
-| Fields, Dorothy                                                              | On the Sunny Side of the Street            |
-| Fields, Dorothy                                                              | I'm in the Mood for Love                   |
-| Fields, Dorothy                                                              | Way You Look Tonight, The                  |
-| Fields, Dorothy                                                              | Fine Romance, A                            |
-| Fields, Dorothy                                                              | Pick Yourself Up                           |
-| Fontenoy, Marc                                                               | Buenos Noches Mon Amour                    |
-| Freed, Arthur                                                                | Wedding of the Painted Doll, The           |
-| Freed, Ralph                                                                 | How About You?                             |
-| Galhardo, Jos{\\'e}                                                          | Lisboa Antiga                              |
-| Gershwin, Ira                                                                | Let's Call the Whole Thing Off             |
-| Gershwin, Ira                                                                | Sure Thing                                 |
-| Gershwin, Ira                                                                | Someone to Watch Over Me                   |
-| Gershwin, Ira                                                                | Long Ago (and Far Away)                    |
-| Gershwin, Ira                                                                | Embraceable You                            |
-| Gershwin, Ira                                                                | I Can't Get Started                        |
-| Gershwin, Ira                                                                | Liza (All the Clouds'll Roll Away)         |
-| Kahn, Gus                                                                    | Liza (All the Clouds'll Roll Away)         |
-| Gillespie, Haven                                                             | You Go to My Head                          |
-| Gordon, Irving                                                               | Prelude to a Kiss                          |
-| Mills, Irving                                                                | Prelude to a Kiss                          |
-| Gorrell, Stuart                                                              | Georgia on my Mind                         |
-| Gr{\\"u}nbaum, Fritz                                                         | Du sollst der Kaiser meiner Seele sein     |
-| Sterk, Wilhelm                                                               | Du sollst der Kaiser meiner Seele sein     |
-| Haffner, Karl                                                                | Mein Herr Marquis                          |
-| Gen{\\'e}e, Richard                                                          | Mein Herr Marquis                          |
-| Hammerstein II, Oscar                                                        | All the Things You Are                     |
-| Hammerstein II, Oscar                                                        | People Will Say We're in Love              |
-| Hammerstein II, Oscar                                                        | Many a New Day                             |
-| Hammerstein II, Oscar                                                        | Make Believe                               |
-| Harbach, Otto                                                                | Smoke Gets in Your Eyes                    |
-| Harburg, E.Y.~``Yip''                                                        | Over the Rainbow                           |
-| Hart, Lorenz                                                                 | Blue Moon                                  |
-| Hart, Lorenz                                                                 | This Can't be Love                         |
-| Hart, Lorenz                                                                 | Lady is a Tramp, The                       |
-| Hart, Lorenz                                                                 | Ten Cents a Dance                          |
-| Hart, Lorenz                                                                 | I Married an Angel                         |
-| Hart, Lorenz                                                                 | You Took Advantage of Me                   |
-| Hart, Lorenz                                                                 | Isn't It Romantic?                         |
-| Heyman, Edward                                                               | Out of Nowhere                             |
-| Heyman, Edward                                                               | I Cover the Waterfront                     |
-| Hughes, Langston                                                             | Moon-Faced, Starry-Eyed                    |
-| James, Paul (Warburg, James Paul)                                            | Fine and Dandy                             |
-| Johnston, Patricia                                                           | I'll Remember April                        |
-| Raye, Don                                                                    | I'll Remember April                        |
-| Kahal, Irving                                                                | I Can Dream, Can't I?                      |
-| Kahal, Irving                                                                | By a Waterfall                             |
-| Kahn, Gus                                                                    | Love Me or Leave Me                        |
-| Kahn, Gus                                                                    | Coquette                                   |
-| Kahn, Gus                                                                    | I'll See You in My Dreams                  |
-| Kahn, Gus                                                                    | My Baby Just Cares for Me                  |
-| Kahn, Gus                                                                    | Message From the Man in the Moon, A        |
-| Kahn, Gus                                                                    | All God's Children                         |
-| Kahn, Gus                                                                    | Carolina in the Morning                    |
-| Kahn, Gus                                                                    | Dream a Little Dream of Me                 |
-| Kahn, Gus                                                                    | Nobody's Sweetheart                        |
-| Erdman, Ernest                                                               | Nobody's Sweetheart                        |
-| Kalmar, Bert                                                                 | Nevertheless (I'm In Love With You)        |
-| Kennedy, Jimmy                                                               | Harbour Lights                             |
-| Kennedy, Jimmy                                                               | Red Sails in the Sunset                    |
-| Kennedy, Jimmy                                                               | South of the Border                        |
-| Kind, Friedrich                                                              | Durch die W{\\"a}lder, durch die Auen       |
-| Klenner, John                                                                | Heartaches                                 |
-| Koehler, Ted                                                                 | Let's Fall in Love                         |
-| Koehler, Ted                                                                 | I've Got the World on a String             |
-| Koehler, Ted                                                                 | Between the Devil and the Deep Blue Sea    |
-| Koehler, Ted                                                                 | Wrap Your Troubles in Dreams               |
-| Moll, Billy                                                                  | Wrap Your Troubles in Dreams               |
-| Koehler, Ted                                                                 | I'm Shooting High                          |
-| Wilmott, Charles                                                             | I'm Shooting High                          |
-| Kurtz, Manny                                                                 | In a Sentimental Mood                      |
-| Mills, Irving                                                                | In a Sentimental Mood                      |
-| Kusik, Larry                                                                 | Speak Softly, Love                         |
-| L{\\'e}on, Victor                                                            | Da geh ich zu Maxim                        |
-| Stein, Leo                                                                   | Da geh ich zu Maxim                        |
-| L{\\'e}on, Victor                                                            | Lied vom dummen Reiter, Das                |
-| Stein, Leo                                                                   | Lied vom dummen Reiter, Das                |
-| L{\\'e}on, Victor                                                            | Lippen schweigen                           |
-| Stein, Leo                                                                   | Lippen schweigen                           |
-| La Touche, John                                                              | Taking a Chance on Love                    |
-| Fetter, Ted                                                                  | Taking a Chance on Love                    |
-| Lerner, Alan Jay                                                             | Camelot                                    |
-| Lerner, Alan Jay                                                             | Gigi                                       |
-| Lerner, Alan Jay                                                             | If I Should Ever Leave You                 |
-| Lerner, Alan Jay                                                             | Wouldn't It Be Loverly?                    |
-| Lerner, Alan Jay                                                             | They Call the Wind Maria                   |
-| Lerner, Alan Jay                                                             | On a Clear Day                             |
-| Lerner, Alan Jay                                                             | On the Street Where You Live               |
-| Lerner, Alan Jay                                                             | I Talk to the Trees                        |
-| Lerner, Alan Jay                                                             | I Could Have Danced All Night              |
-| Lewis, Sam M.                                                                | Rock-a-Bye Your Baby (With a Dixie Melody) |
-| Young, Joe                                                                   | Rock-a-Bye Your Baby (With a Dixie Melody) |
-| Livingston, Jay                                                              | Mr.~Lucky                                  |
-| Evans, Ray                                                                   | Mr.~Lucky                                  |
-| Loesser, Frank                                                               | Heart and Soul                             |
-| Loesser, Frank                                                               | You've Got That Look                       |
-| Luban, Francia                                                               | Para Vigo me voy (Say ``Si, Si'')          |
-| MacDonald, Ballard                                                           | Somebody Loves Me                          |
-| DeSylva, Buddy                                                               | Somebody Loves Me                          |
-| Magidson, Herb                                                               | Continental, The                           |
-| Maria, Ant{\\^o}nio                                                          | Manh{\\~a} da Carnaval                      |
-| Marvell, Holt (Maschwitz, Eric)                                              | These Foolish Things                       |
-| McCarthy, Joe                                                                | You Made Me Love You                       |
-| Mercer, Johnny                                                               | Jeepers Creepers                           |
-| Mercer, Johnny                                                               | Skylark                                    |
-| Mercer, Johnny                                                               | Hooray For Hollywood                       |
-| Mercer, Johnny                                                               | Tangerine                                  |
-| Mercer, Johnny                                                               | Laura                                      |
-| Mercer, Johnny                                                               | Fools Rush In (Where Angels Fear to Tread) |
-| Mills, Irving                                                                | Caravan                                    |
-| Moraes, Vin{\\'i}cius de                                                      | Chega de Saudade                           |
-| Nash, Ogden                                                                  | Speak Low                                  |
-| None                                                                         | Jalousie ``Tango Tzigane'' (Jealousy)      |
-| Norton, George A.                                                            | My Melancholy Baby                         |
-| Oliveira, Aloysio de                                                         | Tico Tico no Fuba                          |
-| Parish, Mitchell                                                             | Deep Purple                                |
-| Parish, Mitchell                                                             | Stars Fell on Alabama                      |
-| Parish, Mitchell                                                             | Stardust                                   |
-| Parish, Mitchell                                                             | Moonlight Serenade                         |
-| Parish, Mitchell                                                             | Sophisticated Lady                         |
-| Mills, Irving                                                                | Sophisticated Lady                         |
-| Pinelli, Aldo von                                                            | Abends in der Taverna                      |
-| Prevert, Jacques                                                             | Feuilles Mortes, Les                       |
-| Razaf, Andy                                                                  | Ain't Misbehavin'                          |
-| Reaves, Erell                                                                | Lady of Spain                              |
-| Tilsley, Henry                                                               | Lady of Spain                              |
-| Robin, Leo                                                                   | June in Janury                             |
-| Robin, Leo                                                                   | Thanks for the Memory                      |
-| Robin, Leo                                                                   | Rainy Night in Rio, A                      |
-| Robin, Leo                                                                   | Prisoner of Love                           |
-| Schiffer, Marcellus                                                          | Heute Nacht oder nie                       |
-| Siegel, Ralph Maria                                                          | Capri Fischer                              |
-| Silvers, Phil                                                                | Nancy with the Laughing Face               |
-| Singleton, Charles                                                           | Spanish Eyes (Moon Over Naples)            |
-| Snyder, Eddie                                                                | Spanish Eyes (Moon Over Naples)            |
-| Singleton, Charles                                                           | Strangers in the Night                     |
-| Snyder, Eddie                                                                | Strangers in the Night                     |
-| Sondheim, Stephen                                                            | I Feel Pretty                              |
-| Springfield, Tom                                                             | Georgy  Girl                               |
-| Stillman, Al                                                                 | Chances Are                                |
-| Stillman, Al                                                                 | It's Not For Me to Say                     |
-| Thibaut, Gille                                                               | Comme d'Habitude                           |
-| Turk, Roy                                                                    | I Don't Know Why (I Just Do)               |
-| Washington, Ned                                                              | Cosi Cosa                                  |
-| Washington, Ned                                                              | Smoke Rings                                |
-| Washington, Ned                                                              | Stella By Starlight                        |
-| Webster, Paul Francis                                                        | Shadow of Your Smile, The                  |
-| Whiting, George A.                                                           | My Blue Heaven                             |
-| Wodehouse, P.G.                                                              | Bill                                       |
-| Hammerstein, Oscar II                                                        | Bill                                       |
-+------------------------------------------------------------------------------+--------------------------------------------+
-170 rows in set (0.00 sec)
+replace	into Composers_Songs (composer, title) values ("Abreu, Zequinha de", "Tico Tico no Fuba");
 
-mysql> 
+replace into Composers_Songs (composer, title) values ("Ahlert, Fred E.", "I Don't Know Why (I Just Do)");
 
-+------------------------------------+-------------------------------------------------+
-| words_and_music_reverse            | title                                           |
-+------------------------------------+-------------------------------------------------+
-| Ballard, Pat                       | Mister Sandman                                  |
-| Bart, Lionel                       | Consider Yourself                               |
-| Berlin, Irving                     | No Strings                                      |
-| Berlin, Irving                     | Pretty A Girl is Like a Melody, A               |
-| Berlin, Irving                     | Heat Wave                                       |
-| Berlin, Irving                     | Piccolino, The                                  |
-| Berlin, Irving                     | There's No Business Like Show Business          |
-| Berlin, Irving                     | Isn't This a Lovely Day?                        |
-| Berlin, Irving                     | Cheek to Cheek                                  |
-| Berlin, Irving                     | Change Partners                                 |
-| Berlin, Irving                     | They Say it's Wonderful                         |
-| Berlin, Irving                     | Blue Skies                                      |
-| Berlin, Irving                     | Let's Face the Music and Dance                  |
-| Borodin, Alexander                 | Polowetzer T{\\"a}nze (``Stranger in Paradise'') |
-| Bowman, Brooks                     | East of the Sun (and West of the Moon)          |
-| Collazo, Roberto (Bobby)           | {\\'U}ltima Noche, La                            |
-| Coward, No{\\"e}l                   | Parisian Pierrot                                |
-| Coward, No{\\"e}l                   | Room With a View, A                             |
-| Coward, No{\\"e}l                   | If Love Were All                                |
-| Denver, John                       | Annie's Song                                    |
-| Dom{\\'\\i}nguez Borr{\\'a}s, Alberto | Frenesi                                         |
-| Dom{\\'\\i}nguez Borr{\\'a}s, Alberto | Perfidia                                        |
-| Donaldson, Walter                  | Little White Lies                               |
-| Duke, Vernon                       | Paris in New York                               |
-| Duke, Vernon                       | Autumn in New York                              |
-| Farr{\\'e}s, Osvaldo                | Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s              |
-| Fisher, Fred                       | Chicago (That Toddling Town)                    |
-| Frank, Loesser                     | Baby, It's Cold Outside                         |
-| Gordon, Irving                     | Unforgettable                                   |
-| Hatch, Tony                        | Downtown                                        |
-| Hollaender, Friedrich              | Illusions                                       |
-| Howard, Bart                       | Fly Me to the Moon                              |
-| Hupfeld, Herman                    | As Time Goes By                                 |
-| Jobim, Antonio Carlos              | Samba do Avi{\\~a}o                              |
-| Lecuona, Ernesto                   | Siempre en mi Coraz{\\'o}n                       |
-| Lecuona, Ernesto                   | Siboney                                         |
-| Loesser, Frank                     | Standing on the Corner                          |
-| Loesser, Frank                     | On a Slow Boat to China                         |
-| P{\\'e}rez Prado, D{\\'a}maso        | Mambo {\\#}5                                     |
-| Parks, C.~Carson                   | Somethin' Stupid                                |
-| Porter, Cole                       | Love for Sale                                   |
-| Porter, Cole                       | Every Time We Say Goodbye                       |
-| Porter, Cole                       | I Get a Kick Out of You                         |
-| Porter, Cole                       | Night and Day                                   |
-| Porter, Cole                       | It's All Right With Me                          |
-| Reid, Billy                        | I'll Close My Eyes                              |
-| Reid, Billy                        | It's a Pity to Say `Goodnight'                  |
-| Wayne, Bernie                      | Blue Velvet                                     |
-| Morris, Lee                        | Blue Velvet                                     |
-| Williams, Hank                     | Hey, Good Lookin'                               |
-| Wynette, Tammy                     | Stand By Your Man                               |
-| Sherrill, Billy                    | Stand By Your Man                               |
-+------------------------------------+-------------------------------------------------+
-49 rows in set (0.00 sec)
+replace into Composers_Songs (composer, title) values ("Allen, Robert", "It's Not For Me to Say");
 
-mysql> 
+replace into Composers_Songs (composer, title) values ("Allen, Robert", "Chances Are");
+
+replace into Composers_Songs (composer, title) values ("Andre, Fabian", "Dream a Little Dream of Me");
+
+replace into Composers_Songs (composer, title) values ("Schwandt, Wilbur", "Dream a Little Dream of Me");
+
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Between the Devil and the Deep Blue Sea");
+
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Let's Fall in Love");
+
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "I've Got the World on a String");
+
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Over the Rainbow");
+
+replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "I'll Never Fall in Love Again");
+
+replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "I Say a Little Prayer");
+
+replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Do You Know the Way to San Jose?");
+
+replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Close to You");
+
+replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Your Troubles in Dreams");
+
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
+
+replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rush In (Where Angels Fear to Tread)");
+
+replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Abends in der Taverna");
+
+replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
+
+replace into Composers_Songs (composer, title) values ("Burke, Joe", "Tiptoe Through the Tulips With Me");
+
+replace into Composers_Songs (composer, title) values ("Burnett, Ernie", "My Melancholy Baby");
+
+replace into Composers_Songs (composer, title) values ("Carl Maria Weber, von", "Durch die W{\\\"a}lder, durch die Auen");
+
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Heart and Soul");
+
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Georgia on my Mind");
+
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Skylark");
+
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Stardust");
+
+replace into Composers_Songs (composer, title) values ("Carpenter, Richard", "Top of the World");
+
+replace into Composers_Songs (composer, title) values ("Carr, Michael", "South of the Border");
+
+replace into Composers_Songs (composer, title) values ("Columbo, Russ", "Prisoner of Love");
+
+replace into Composers_Songs (composer, title) values ("Gaskill, Clarence", "Prisoner of Love");
+
+replace into Composers_Songs (composer, title) values ("Conrad, Con", "Continental, The");
+
+replace into Composers_Songs (composer, title) values ("Coots, J.~Fred", "You Go to My Head");
+
+replace into Composers_Songs (composer, title) values ("Dale, Jim", "Georgy  Girl");
+
+replace into Composers_Songs (composer, title) values ("DeRose, Peter", "Deep Purple");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Carolina in the Morning");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Love Me or Leave Me");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Blue Heaven");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Baby Just Cares for Me");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't Get Started");
+
+replace into Composers_Songs (composer, title) values ("Ellington, Duke", "Prelude to a Kiss");
+
+replace into Composers_Songs (composer, title) values ("Ellington, Duke", "Sophisticated Lady");
+
+replace into Composers_Songs (composer, title) values ("Ellington, Duke", "In a Sentimental Mood");
+
+replace into Composers_Songs (composer, title) values ("Ellington, Duke", "Caravan");
+
+replace into Composers_Songs (composer, title) values ("Tizol, Juan", "Caravan");
+
+replace into Composers_Songs (composer, title) values ("Evans, Tolchard", "Lady of Spain");
+
+replace into Composers_Songs (composer, title) values ("Fain, Sammy", "I Can Dream, Can't I?");
+
+replace into Composers_Songs (composer, title) values ("Fain, Sammy", "By a Waterfall");
+
+replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie ``Tango Tzigane'' (Jealousy)");
+
+replace into Composers_Songs (composer, title) values ("Garner, Errol", "Misty");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Let's Call the Whole Thing Off");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Liza (All the Clouds'll Roll Away)");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Somebody Loves Me");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Embraceable You");
+
+replace into Composers_Songs (composer, title) values ("Gifford, H.~Eugene", "Smoke Rings");
+
+replace into Composers_Songs (composer, title) values ("Giraud, Hubert", "Buenos Noches Mon Amour");
+
+replace into Composers_Songs (composer, title) values ("Green, John W.", "I Cover the Waterfront");
+
+replace into Composers_Songs (composer, title) values ("Green, John W.", "Body and Soul");
+
+replace into Composers_Songs (composer, title) values ("Green, John W.", "Out of Nowhere");
+
+replace into Composers_Songs (composer, title) values ("Green, John W.", "Coquette");
+
+replace into Composers_Songs (composer, title) values ("Lombardo, Carmen", "Coquette");
+
+replace into Composers_Songs (composer, title) values ("Grothe, Franz", "Ja und Nein");
+
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Moonlight Becomes You");
+
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Nancy with the Laughing Face");
+
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "It Could Happen to You");
+
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Imagination");
+
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Oh! You Crazy Moon");
+
+replace into Composers_Songs (composer, title) values ("Hoffmann, Al", "Heartaches");
+
+replace into Composers_Songs (composer, title) values ("Hollaender, Friedrich", "You've Got That Look");
+
+replace into Composers_Songs (composer, title) values ("Hudson, Will", "Moonglow");
+
+replace into Composers_Songs (composer, title) values ("Mills, Irving", "Moonglow");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Chega de Saudade");
+
+replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
+
+replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Pennies from Heaven");
+
+replace into Composers_Songs (composer, title) values ("Jones, Isham", "I'll See You in My Dreams");
+
+replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "All God's Children");
+
+replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "All God's Children");
+
+replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "Cosi Cosa");
+
+replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Cosi Cosa");
+
+replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "Message From the Man in the Moon, A");
+
+replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Message From the Man in the Moon, A");
+
+replace into Composers_Songs (composer, title) values ("K{\\'a}lm{\\'a}n, Emmerich", "Komm, Zigany");
+
+replace into Composers_Songs (composer, title) values ("K{\\'a}lm{\\'a}n, Emmerich", "Zwei M{\\\"a}rchenaugen");
+
+replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Strangers in the Night");
+
+replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Spanish Eyes (Moon Over Naples)");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "All the Things You Are");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Make Believe");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Way You Look Tonight, The");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Long Ago (and Far Away)");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Fine Romance, A");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Pick Yourself Up");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Bill");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Smoke Gets in Your Eyes");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Sure Thing");
+
+replace into Composers_Songs (composer, title) values ("Kosma, Joseph", "Feuilles Mortes, Les");
+
+replace into Composers_Songs (composer, title) values ("Lai, Francis", "Homme et une femme, Un");
+
+replace into Composers_Songs (composer, title) values ("Lane, Burton", "On a Clear Day");
+
+replace into Composers_Songs (composer, title) values ("Lane, Burton", "How About You?");
+
+replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Para Vigo me voy (Say ``Si, Si'')");
+
+replace into Composers_Songs (composer, title) values ("Leh{\\'a}r  Franz", "Lied vom dummen Reiter, Das");
+
+replace into Composers_Songs (composer, title) values ("Leh{\\'a}r  Franz", "Lippen schweigen");
+
+replace into Composers_Songs (composer, title) values ("Leh{\\'a}r, Franz", "Da geh ich zu Maxim");
+
+replace into Composers_Songs (composer, title) values ("Leux, Leo", "Es leuchten die Sterne");
+
+replace into Composers_Songs (composer, title) values ("Livingston, Jay", "Tammy");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "They Call the Wind Maria");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "I Talk to the Trees");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "Wouldn't It Be Loverly?");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "If I Should Ever Leave You");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "Camelot");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "I Could Have Danced All Night");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "Gigi");
+
+replace into Composers_Songs (composer, title) values ("Loewe, Frederick", "On the Street Where You Live");
+
+replace into Composers_Songs (composer, title) values ("Mackeben, Theo", "Bel Ami");
+
+replace into Composers_Songs (composer, title) values ("Mackeben, Theo", "Frauen sind keine Engel");
+
+replace into Composers_Songs (composer, title) values ("Mancini, Henry", "Mr.~Lucky");
+
+replace into Composers_Songs (composer, title) values ("Mandel, Johnny", "Shadow of Your Smile, The");
+
+replace into Composers_Songs (composer, title) values ("McHugh, Jimmy", "I'm Shooting High");
+
+replace into Composers_Songs (composer, title) values ("McHugh, Jimmy", "I'm in the Mood for Love");
+
+replace into Composers_Songs (composer, title) values ("McHugh, Jimmy", "On the Sunny Side of the Street");
+
+replace into Composers_Songs (composer, title) values ("Meyers, Billy", "Nobody's Sweetheart");
+
+replace into Composers_Songs (composer, title) values ("Schoebel, Elmer", "Nobody's Sweetheart");
+
+replace into Composers_Songs (composer, title) values ("Miller, Glenn", "Moonlight Serenade");
+
+replace into Composers_Songs (composer, title) values ("Monaco, James", "You Made Me Love You");
+
+replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've Got a Pocketful of Dreams");
+
+replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
+
+replace into Composers_Songs (composer, title) values ("Nacio Brown, Herb", "Wedding of the Painted Doll, The");
+
+replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole");
+
+replace into Composers_Songs (composer, title) values ("Paul, Gene de", "I'll Remember April");
+
+replace into Composers_Songs (composer, title) values ("Perkins, Frank", "Stars Fell on Alabama");
+
+replace into Composers_Songs (composer, title) values ("Popp, Andr{\\'e}", "Amour est bleu, L'");
+
+replace into Composers_Songs (composer, title) values ("Portela, Raul", "Lisboa Antiga");
+
+replace into Composers_Songs (composer, title) values ("Vale, Amadeu do", "Lisboa Antiga");
+
+replace into Composers_Songs (composer, title) values ("Rainger, Ralph", "Thanks for the Memory");
+
+replace into Composers_Songs (composer, title) values ("Rainger, Ralph", "June in Janury");
+
+replace into Composers_Songs (composer, title) values ("Raksin, David", "Laura");
+
+replace into Composers_Songs (composer, title) values ("Revaux, Jacques", "Comme d'Habitude");
+
+replace into Composers_Songs (composer, title) values ("Fran{\\c c}ois, Claude", "Comme d'Habitude");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady is a Tramp, The");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "You Took Advantage of Me");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Ten Cents a Dance");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Isn't It Romantic?");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "This Can't be Love");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Blue Moon");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "People Will Say We're in Love");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "I Married an Angel");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Many a New Day");
+
+replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Softly, Love");
+
+replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Nevertheless (I'm In Love With You)");
+
+replace into Composers_Songs (composer, title) values ("Schertzinger, Victor", "Tangerine");
+
+replace into Composers_Songs (composer, title) values ("Schwartz, Arthur", "Rainy Night in Rio, A");
+
+replace into Composers_Songs (composer, title) values ("Schwarz, Jean", "Rock-a-Bye Your Baby (With a Dixie Melody)");
+
+replace into Composers_Songs (composer, title) values ("Silvers, Louis", "April Showers");
+
+replace into Composers_Songs (composer, title) values ("Spoliansky, Mischa", "Heute Nacht oder nie");
+
+replace into Composers_Songs (composer, title) values ("Stolz, Robert", "Du sollst der Kaiser meiner Seele sein");
+
+replace into Composers_Songs (composer, title) values ("Strachey, Jack", "These Foolish Things");
+
+replace into Composers_Songs (composer, title) values ("Strau{\\ss} (Sohn), Johann", "Mein Herr Marquis");
+
+replace into Composers_Songs (composer, title) values ("Strouse, Charles", "Put on a Happy Face");
+
+replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
+
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
+
+replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young and Healthy");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Jeepers Creepers");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Shuffle Off to Buffalo");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "September in the Rain");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "You're Getting to Be a Habit With Me");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "I'll String Along With You");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "I Only Have Eyes for You");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Speak Low");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "September Song");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Lost in the Stars");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Moon-Faced, Starry-Eyed");
+
+replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Hooray For Hollywood");
+
+replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Japanese Sandman");
+
+replace into Composers_Songs (composer, title) values ("Williams, Hugh", "Harbour Lights");
+
+replace into Composers_Songs (composer, title) values ("Williams, Hugh", "Red Sails in the Sunset");
+
+replace into Composers_Songs (composer, title) values ("Winkler, Gerhard", "Capri Fischer");
+
+replace into Composers_Songs (composer, title) values ("Wrubel, Allie", "Lady in Red, The");
+
+replace into Composers_Songs (composer, title) values ("Youmans, Vincent", "Carioca");
+
+replace into Composers_Songs (composer, title) values ("Youmans, Vincent", "Tea for Two");
+
+replace into Composers_Songs (composer, title) values ("Young, Victor", "Stella By Starlight");
+
+/* * (1)  */
+
+replace into Lyricists_Songs (lyricist, title) values ("Heymann, Edward", "Body and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Eyton Frank", "Body and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sour, Robert", "Body and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Adams, Lee", "Put on a Happy Face");
+
+replace into Lyricists_Songs (lyricist, title) values ("Anderson, Maxwell", "Lost in the Stars");
+
+replace into Lyricists_Songs (lyricist, title) values ("Anderson, Maxwell", "September Song");
+
+replace into Lyricists_Songs (lyricist, title) values ("Balz, Bruno", "Es leuchten die Sterne");
+
+replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Barcarole");
+
+replace into Lyricists_Songs (lyricist, title) values ("Barouh, Pierre", "Homme et une femme, Un");
+
+replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Bel Ami");
+
+replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Frauen sind keine Engel");
+
+replace into Lyricists_Songs (lyricist, title) values ("Bettis, John", "Top of the World");
+
+replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Zwei M{\\\"a}rchenaugen");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nwald, Alfred", "Zwei M{\\\"a}rchenaugen");
+
+replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Komm, Zigany");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nwald, Alfred", "Komm, Zigany");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Misty");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Moonlight Becomes You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Oh! You Crazy Moon");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Pennies from Heaven");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "It Could Happen to You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Got a Pocketful of Dreams");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagination");
+
+replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Cour, Pierre", "Amour est bleu, L'");
+
+replace into Lyricists_Songs (lyricist, title) values ("Da Ponte, Lorenzo", "L{\\`a} ci darem la mano");
+
+replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "Close to You");
+
+replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "I'll Never Fall in Love Again");
+
+replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "Do You Know the Way to San Jose?");
+
+replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "I Say a Little Prayer");
+
+replace into Lyricists_Songs (lyricist, title) values ("De Sylva, Buddy G.", "April Showers");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dehmel, Willy", "Ja und Nein");
+
+replace into Lyricists_Songs (lyricist, title) values ("DeLange, Eddie", "Moonglow");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dixon, Mort", "Lady in Red, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I'll String Along With You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I Only Have Eyes for You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lulu's Back in Town");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Tiptoe Through the Tulips With Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "September in the Rain");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Shuffle Off to Buffalo");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Young and Healthy");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "You're Getting to Be a Habit With Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Egan, Raymond B.", "Japanese Sandman");
+
+replace into Lyricists_Songs (lyricist, title) values ("Eliscu, Edward", "Carioca");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Carioca");
+
+replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Tammy");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "On the Sunny Side of the Street");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "I'm in the Mood for Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Way You Look Tonight, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Fine Romance, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Pick Yourself Up");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fontenoy, Marc", "Buenos Noches Mon Amour");
+
+replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "Wedding of the Painted Doll, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Freed, Ralph", "How About You?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Galhardo, Jos{\\'e}", "Lisboa Antiga");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Let's Call the Whole Thing Off");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Thing");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Someone to Watch Over Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Long Ago (and Far Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Embraceable You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Can't Get Started");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Liza (All the Clouds'll Roll Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gillespie, Haven", "You Go to My Head");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Prelude to a Kiss");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Prelude to a Kiss");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gorrell, Stuart", "Georgia on my Mind");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nbaum, Fritz", "Du sollst der Kaiser meiner Seele sein");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sterk, Wilhelm", "Du sollst der Kaiser meiner Seele sein");
+
+replace into Lyricists_Songs (lyricist, title) values ("Haffner, Karl", "Mein Herr Marquis");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gen{\\'e}e, Richard", "Mein Herr Marquis");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "All the Things You Are");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "People Will Say We're in Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Many a New Day");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Make Believe");
+
+replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
+
+replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.~``Yip''", "Over the Rainbow");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moon");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Lady is a Tramp, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Ten Cents a Dance");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "I Married an Angel");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took Advantage of Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It Romantic?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of Nowhere");
+
+replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "Moon-Faced, Starry-Eyed");
+
+replace into Lyricists_Songs (lyricist, title) values ("James, Paul (Warburg, James Paul)", "Fine and Dandy");
+
+replace into Lyricists_Songs (lyricist, title) values ("Johnston, Patricia", "I'll Remember April");
+
+replace into Lyricists_Songs (lyricist, title) values ("Raye, Don", "I'll Remember April");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I Can Dream, Can't I?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "By a Waterfall");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Love Me or Leave Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Coquette");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "I'll See You in My Dreams");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "My Baby Just Cares for Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Message From the Man in the Moon, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "All God's Children");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Carolina in the Morning");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Dream a Little Dream of Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Nobody's Sweetheart");
+
+replace into Lyricists_Songs (lyricist, title) values ("Erdman, Ernest", "Nobody's Sweetheart");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kalmar, Bert", "Nevertheless (I'm In Love With You)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "Harbour Lights");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "Red Sails in the Sunset");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "South of the Border");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kind, Friedrich", "Durch die W{\\\"a}lder, durch die Auen");
+
+replace into Lyricists_Songs (lyricist, title) values ("Klenner, John", "Heartaches");
+
+replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "Let's Fall in Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "I've Got the World on a String");
+
+replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "Between the Devil and the Deep Blue Sea");
+
+replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "Wrap Your Troubles in Dreams");
+
+replace into Lyricists_Songs (lyricist, title) values ("Moll, Billy", "Wrap Your Troubles in Dreams");
+
+replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "I'm Shooting High");
+
+replace into Lyricists_Songs (lyricist, title) values ("Wilmott, Charles", "I'm Shooting High");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kurtz, Manny", "In a Sentimental Mood");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "In a Sentimental Mood");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kusik, Larry", "Speak Softly, Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("L{\\'e}on, Victor", "Da geh ich zu Maxim");
+
+replace into Lyricists_Songs (lyricist, title) values ("Stein, Leo", "Da geh ich zu Maxim");
+
+replace into Lyricists_Songs (lyricist, title) values ("L{\\'e}on, Victor", "Lied vom dummen Reiter, Das");
+
+replace into Lyricists_Songs (lyricist, title) values ("Stein, Leo", "Lied vom dummen Reiter, Das");
+
+replace into Lyricists_Songs (lyricist, title) values ("L{\\'e}on, Victor", "Lippen schweigen");
+
+replace into Lyricists_Songs (lyricist, title) values ("Stein, Leo", "Lippen schweigen");
+
+replace into Lyricists_Songs (lyricist, title) values ("La Touche, John", "Taking a Chance on Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Fetter, Ted", "Taking a Chance on Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "Camelot");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "Gigi");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "If I Should Ever Leave You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "Wouldn't It Be Loverly?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "They Call the Wind Maria");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "On a Clear Day");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "On the Street Where You Live");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "I Talk to the Trees");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "I Could Have Danced All Night");
+
+replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "Rock-a-Bye Your Baby (With a Dixie Melody)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "Rock-a-Bye Your Baby (With a Dixie Melody)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Livingston, Jay", "Mr.~Lucky");
+
+replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Mr.~Lucky");
+
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Heart and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "You've Got That Look");
+
+replace into Lyricists_Songs (lyricist, title) values ("Luban, Francia", "Para Vigo me voy (Say ``Si, Si'')");
+
+replace into Lyricists_Songs (lyricist, title) values ("MacDonald, Ballard", "Somebody Loves Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("DeSylva, Buddy", "Somebody Loves Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Magidson, Herb", "Continental, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "Manh{\\~a} da Carnaval");
+
+replace into Lyricists_Songs (lyricist, title) values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
+
+replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Jeepers Creepers");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Skylark");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Hooray For Hollywood");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Tangerine");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Laura");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Fools Rush In (Where Angels Fear to Tread)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Caravan");
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'i}cius de", "Chega de Saudade");
+
+replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
+
+replace into Lyricists_Songs (lyricist, title) values ("None", "Jalousie ``Tango Tzigane'' (Jealousy)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Norton, George A.", "My Melancholy Baby");
+
+replace into Lyricists_Songs (lyricist, title) values ("Oliveira, Aloysio de", "Tico Tico no Fuba");
+
+replace into Lyricists_Songs (lyricist, title) values ("Parish, Mitchell", "Deep Purple");
+
+replace into Lyricists_Songs (lyricist, title) values ("Parish, Mitchell", "Stars Fell on Alabama");
+
+replace into Lyricists_Songs (lyricist, title) values ("Parish, Mitchell", "Stardust");
+
+replace into Lyricists_Songs (lyricist, title) values ("Parish, Mitchell", "Moonlight Serenade");
+
+replace into Lyricists_Songs (lyricist, title) values ("Parish, Mitchell", "Sophisticated Lady");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Sophisticated Lady");
+
+replace into Lyricists_Songs (lyricist, title) values ("Pinelli, Aldo von", "Abends in der Taverna");
+
+replace into Lyricists_Songs (lyricist, title) values ("Prevert, Jacques", "Feuilles Mortes, Les");
+
+replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Ain't Misbehavin'");
+
+replace into Lyricists_Songs (lyricist, title) values ("Reaves, Erell", "Lady of Spain");
+
+replace into Lyricists_Songs (lyricist, title) values ("Tilsley, Henry", "Lady of Spain");
+
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "June in Janury");
+
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Thanks for the Memory");
+
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Rainy Night in Rio, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner of Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Schiffer, Marcellus", "Heute Nacht oder nie");
+
+replace into Lyricists_Songs (lyricist, title) values ("Siegel, Ralph Maria", "Capri Fischer");
+
+replace into Lyricists_Songs (lyricist, title) values ("Silvers, Phil", "Nancy with the Laughing Face");
+
+replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "Spanish Eyes (Moon Over Naples)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Spanish Eyes (Moon Over Naples)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "Strangers in the Night");
+
+replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Strangers in the Night");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "I Feel Pretty");
+
+replace into Lyricists_Songs (lyricist, title) values ("Springfield, Tom", "Georgy  Girl");
+
+replace into Lyricists_Songs (lyricist, title) values ("Stillman, Al", "Chances Are");
+
+replace into Lyricists_Songs (lyricist, title) values ("Stillman, Al", "It's Not For Me to Say");
+
+replace into Lyricists_Songs (lyricist, title) values ("Thibaut, Gille", "Comme d'Habitude");
+
+replace into Lyricists_Songs (lyricist, title) values ("Turk, Roy", "I Don't Know Why (I Just Do)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Cosi Cosa");
+
+replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Smoke Rings");
+
+replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Stella By Starlight");
+
+replace into Lyricists_Songs (lyricist, title) values ("Webster, Paul Francis", "Shadow of Your Smile, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Whiting, George A.", "My Blue Heaven");
+
+replace into Lyricists_Songs (lyricist, title) values ("Wodehouse, P.G.", "Bill");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein, Oscar II", "Bill");
+
+/* * (1)  */
+
+replace into Composers_Songs (composer, title) values ("Ballard, Pat", "Mister Sandman");
+replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister Sandman");
+
+replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Consider Yourself");
+replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Consider Yourself");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "No Strings");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Strings");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Heat Wave");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Heat Wave");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Piccolino, The");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Piccolino, The");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "There's No Business Like Show Business");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "There's No Business Like Show Business");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Cheek to Cheek");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Cheek to Cheek");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Change Partners");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Change Partners");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "They Say it's Wonderful");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "They Say it's Wonderful");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Blue Skies");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Blue Skies");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
+
+replace into Composers_Songs (composer, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
+replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
+
+replace into Composers_Songs (composer, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
+replace into Lyricists_Songs (lyricist, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
+
+replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
+replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
+
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
+
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
+
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "If Love Were All");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "If Love Were All");
+
+replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
+replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");
+
+replace into Composers_Songs (composer, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Frenesi");
+replace into Lyricists_Songs (lyricist, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Frenesi");
+
+replace into Composers_Songs (composer, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Perfidia");
+replace into Lyricists_Songs (lyricist, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Perfidia");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Little White Lies");
+replace into Lyricists_Songs (lyricist, title) values ("Donaldson, Walter", "Little White Lies");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Paris in New York");
+replace into Lyricists_Songs (lyricist, title) values ("Duke, Vernon", "Paris in New York");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Autumn in New York");
+replace into Lyricists_Songs (lyricist, title) values ("Duke, Vernon", "Autumn in New York");
+
+replace into Composers_Songs (composer, title) values ("Farr{\\'e}s, Osvaldo", "Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s");
+replace into Lyricists_Songs (lyricist, title) values ("Farr{\\'e}s, Osvaldo", "Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s");
+
+replace into Composers_Songs (composer, title) values ("Fisher, Fred", "Chicago (That Toddling Town)");
+replace into Lyricists_Songs (lyricist, title) values ("Fisher, Fred", "Chicago (That Toddling Town)");
+
+replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
+replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
+
+replace into Composers_Songs (composer, title) values ("Gordon, Irving", "Unforgettable");
+replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Unforgettable");
+
+replace into Composers_Songs (composer, title) values ("Hatch, Tony", "Downtown");
+replace into Lyricists_Songs (lyricist, title) values ("Hatch, Tony", "Downtown");
+
+replace into Composers_Songs (composer, title) values ("Hollaender, Friedrich", "Illusions");
+replace into Lyricists_Songs (lyricist, title) values ("Hollaender, Friedrich", "Illusions");
+
+replace into Composers_Songs (composer, title) values ("Howard, Bart", "Fly Me to the Moon");
+replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me to the Moon");
+
+replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
+replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
+
+replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
+replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
+
+replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Siboney");
+replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siboney");
+
+replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Standing on the Corner");
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standing on the Corner");
+
+replace into Composers_Songs (composer, title) values ("Loesser, Frank", "On a Slow Boat to China");
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "On a Slow Boat to China");
+
+replace into Composers_Songs (composer, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
+replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
+
+replace into Composers_Songs (composer, title) values ("Parks, C.~Carson", "Somethin' Stupid");
+replace into Lyricists_Songs (lyricist, title) values ("Parks, C.~Carson", "Somethin' Stupid");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Love for Sale");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Love for Sale");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Every Time We Say Goodbye");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Every Time We Say Goodbye");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "I Get a Kick Out of You");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I Get a Kick Out of You");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Night and Day");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Night and Day");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's All Right With Me");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's All Right With Me");
+
+replace into Composers_Songs (composer, title) values ("Reid, Billy", "I'll Close My Eyes");
+replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "I'll Close My Eyes");
+
+replace into Composers_Songs (composer, title) values ("Reid, Billy", "It's a Pity to Say `Goodnight'");
+replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "It's a Pity to Say `Goodnight'");
+
+replace into Composers_Songs (composer, title) values ("Wayne, Bernie", "Blue Velvet");
+replace into Lyricists_Songs (lyricist, title) values ("Wayne, Bernie", "Blue Velvet");
+
+replace into Composers_Songs (composer, title) values ("Morris, Lee", "Blue Velvet");
+replace into Lyricists_Songs (lyricist, title) values ("Morris, Lee", "Blue Velvet");
+
+replace into Composers_Songs (composer, title) values ("Williams, Hank", "Hey, Good Lookin'");
+replace into Lyricists_Songs (lyricist, title) values ("Williams, Hank", "Hey, Good Lookin'");
+
+replace into Composers_Songs (composer, title) values ("Wynette, Tammy", "Stand By Your Man");
+replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand By Your Man");
+
+replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
+replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
+
+/* * (1)  */
+
+delete from Composers_Songs;
+delete from Lyricists_Songs;
 
 
+select * from Composers_Songs order by composer, title;
+
+select * from Lyricists_Songs order by lyricist, title;
+
+
+/* * (1)  */
 
 
 /* Local Variables: */
