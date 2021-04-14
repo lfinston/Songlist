@@ -550,9 +550,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, copyright)
 values
-("I Can Dream, Can't I?", "Ira Gershwin", "Gershwin, Ira", "Vernon Duke", "Duke, Vernon", true);
+("I Can Dream, Can't I?", "Irving Kahal", "Kahal, Irving", "Sammy Fain, Ira", "Fain, Sammy", true,
+""Right This Way", 1937, "{\\copyright} 1937 by Chappell \\& Co. Copyright Renewed");
 
 /* ***************************************************** */
 
