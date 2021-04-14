@@ -60,6 +60,7 @@ create table Songs
     notes varchar (512) default null
 );
 
+
 alter table Songs add column operetta varchar(64) default null after opera;
 
 alter table Songs add column source varchar(128) default null after notes;
@@ -74,7 +75,31 @@ show columns from Songs.Songs;
 
 delete from Songs;
 
-/* Replace into `Songs'  */
+/* ** (2) Composers_Songs */
+
+create table Composers_Songs
+(
+   composer varchar(128) not null default "",
+   title varchar(128) not null default ""
+
+);
+
+show columns from Composers_Songs;
+
+/* ** (2) Lyricists_Songs */
+
+create table Lyricists_Songs
+(
+   lyricist varchar(128) not null default "",
+
+   title varchar(128) not null default ""
+
+);
+
+show columns from Lyricists_Songs;
+
+
+/* * (1)  Replace into `Songs'  */
 
 /* ***************************************************** */
 
@@ -83,7 +108,6 @@ delete from Songs;
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940);
-
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
@@ -978,6 +1002,12 @@ true, "A Day at the Races", "Cut from film");
 
 /* ***************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, year)
+values
+("Mister Sandman", "Pat Ballard", "Ballard, Pat", true, 1954);
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Misty", "Johnny Burke", "Burke, Johnny", "Errol Garner", "Garner, Errol", true);
@@ -1225,9 +1255,9 @@ select "!!! End P";
 
 select "!!! Q";
 
-replace into Songs (title, no_page_turns)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year)
 values
-("Quizas, Quizas, Quizas", true);
+("Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s", "Osvaldo Farr{\\'e}s", "Farr{\\'e}s, Osvaldo", true, 1947);
 
 select "!!! End Q";
 
@@ -1722,6 +1752,460 @@ select title from Songs where words_and_music = "Irving Berlin"\G
 select title, words_reverse, music_reverse, words_and_music_reverse
 from Songs where words_reverse is not null or music_reverse is not null or words_and_music_reverse is not null
 order by words_reverse, music_reverse, words_and_music_reverse\G
+
++-------------------------------------------+--------------------------------------------+
+| music_reverse                             | title                                      |
++-------------------------------------------+--------------------------------------------+
+| Abreu, Zequinha de                        | Tico Tico no Fuba                          |
+| Ahlert, Fred E.                           | I Don't Know Why (I Just Do)               |
+| Allen, Robert                             | It's Not For Me to Say                     |
+| Allen, Robert                             | Chances Are                                |
+| Andre, Fabian                             | Dream a Little Dream of Me                 |
+| Schwandt, Wilbur                          | Dream a Little Dream of Me                 |
+| Arlen, Harold                             | Between the Devil and the Deep Blue Sea    |
+| Arlen, Harold                             | Let's Fall in Love                         |
+| Arlen, Harold                             | I've Got the World on a String             |
+| Arlen, Harold                             | Over the Rainbow                           |
+| Bacharach, Burt                           | I'll Never Fall in Love Again              |
+| Bacharach, Burt                           | I Say a Little Prayer                      |
+| Bacharach, Burt                           | Do You Know the Way to San Jose?           |
+| Bacharach, Burt                           | Close to You                               |
+| Barris, Harry                             | Wrap Your Troubles in Dreams               |
+| Bernstein, Leonard                        | I Feel Pretty                              |
+| Bloom, Rube                               | Fools Rush In (Where Angels Fear to Tread) |
+| Bochmann, Werner                          | Abends in der Taverna                      |
+| Bonf{\\'a}, Luiz                          | Manh{\\~a} da Carnaval                     |
+| Burke, Joe                                | Tiptoe Through the Tulips With Me          |
+| Burnett, Ernie                            | My Melancholy Baby                         |
+| Carl Maria Weber, von                     | Durch die W{\\"a}lder, durch die Auen      |
+| Carmichael, Hoagy                         | Heart and Soul                             |
+| Carmichael, Hoagy                         | Georgia on my Mind                         |
+| Carmichael, Hoagy                         | Skylark                                    |
+| Carmichael, Hoagy                         | Stardust                                   |
+| Carpenter, Richard                        | Top of the World                           |
+| Carr, Michael                             | South of the Border                        |
+| Columbo, Russ                             | Prisoner of Love                           |
+| Gaskill, Clarence                         | Prisoner of Love                           |
+| Conrad, Con                               | Continental, The                           |
+| Coots, J.~Fred                            | You Go to My Head                          |
+| Dale, Jim                                 | Georgy  Girl                               |
+| DeRose, Peter                             | Deep Purple                                |
+| Donaldson, Walter                         | Carolina in the Morning                    |
+| Donaldson, Walter                         | Love Me or Leave Me                        |
+| Donaldson, Walter                         | My Blue Heaven                             |
+| Donaldson, Walter                         | My Baby Just Cares for Me                  |
+| Duke, Vernon                              | Taking a Chance on Love                    |
+| Duke, Vernon                              | I Can't Get Started                        |
+| Ellington, Duke                           | Prelude to a Kiss                          |
+| Ellington, Duke                           | Sophisticated Lady                         |
+| Ellington, Duke                           | In a Sentimental Mood                      |
+| Ellington, Duke                           | Caravan                                    |
+| Tizol, Juan                               | Caravan                                    |
+| Evans, Tolchard                           | Lady of Spain                              |
+| Fain, Sammy                               | I Can Dream, Can't I?                      |
+| Fain, Sammy                               | By a Waterfall                             |
+| Gade, Jacob                               | Jalousie ``Tango Tzigane'' (Jealousy)      |
+| Garner, Errol                             | Misty                                      |
+| Gershwin, George                          | Someone to Watch Over Me                   |
+| Gershwin, George                          | Let's Call the Whole Thing Off             |
+| Gershwin, George                          | Liza (All the Clouds'll Roll Away)         |
+| Gershwin, George                          | Somebody Loves Me                          |
+| Gershwin, George                          | Embraceable You                            |
+| Gifford, H.~Eugene                        | Smoke Rings                                |
+| Giraud, Hubert                            | Buenos Noches Mon Amour                    |
+| Green, John W.                            | I Cover the Waterfront                     |
+| Green, John W.                            | Body and Soul                              |
+| Green, John W.                            | Out of Nowhere                             |
+| Green, John W.                            | Coquette                                   |
+| Lombardo, Carmen                          | Coquette                                   |
+| Grothe, Franz                             | Ja und Nein                                |
+| Heusen, Jimmy van                         | Moonlight Becomes You                      |
+| Heusen, Jimmy van                         | Nancy with the Laughing Face               |
+| Heusen, Jimmy van                         | It Could Happen to You                     |
+| Heusen, Jimmy van                         | Imagination                                |
+| Heusen, Jimmy van                         | Oh! You Crazy Moon                         |
+| Hoffmann, Al                              | Heartaches                                 |
+| Hollaender, Friedrich                     | You've Got That Look                       |
+| Hudson, Will                              | Moonglow                                   |
+| Mills, Irving                             | Moonglow                                   |
+| Jobim, Antonio Carlos                     | Chega de Saudade                           |
+| Johnston, Arthur                          | Cocktails for Two                          |
+| Johnston, Arthur                          | Pennies from Heaven                        |
+| Jones, Isham                              | I'll See You in My Dreams                  |
+| Jurmann, Walter                           | All God's Children                         |
+| Kaper, Bronislaw                          | All God's Children                         |
+| Jurmann, Walter                           | Cosi Cosa                                  |
+| Kaper, Bronislaw                          | Cosi Cosa                                  |
+| Jurmann, Walter                           | Message From the Man in the Moon, A        |
+| Kaper, Bronislaw                          | Message From the Man in the Moon, A        |
+| K{\\'a}lm{\\'a}n, Emmerich                | Komm, Zigany                               |
+| K{\\'a}lm{\\'a}n, Emmerich                | Zwei M{\\"a}rchenaugen                     |
+| Kaempfert, Bert                           | Strangers in the Night                     |
+| Kaempfert, Bert                           | Spanish Eyes (Moon Over Naples)            |
+| Kern, Jerome                              | All the Things You Are                     |
+| Kern, Jerome                              | Make Believe                               |
+| Kern, Jerome                              | Way You Look Tonight, The                  |
+| Kern, Jerome                              | Long Ago (and Far Away)                    |
+| Kern, Jerome                              | Fine Romance, A                            |
+| Kern, Jerome                              | Pick Yourself Up                           |
+| Kern, Jerome                              | Bill                                       |
+| Kern, Jerome                              | Smoke Gets in Your Eyes                    |
+| Kern, Jerome                              | Sure Thing                                 |
+| Kosma, Joseph                             | Feuilles Mortes, Les                       |
+| Lai, Francis                              | Homme et une femme, Un                     |
+| Lane, Burton                              | On a Clear Day                             |
+| Lane, Burton                              | How About You?                             |
+| Lecuona, Ernesto                          | Para Vigo me voy (Say ``Si, Si'')          |
+| Leh{\\'a}r  Franz                         | Lied vom dummen Reiter, Das                |
+| Leh{\\'a}r  Franz                         | Lippen schweigen                           |
+| Leh{\\'a}r, Franz                         | Da geh ich zu Maxim                        |
+| Leux, Leo                                 | Es leuchten die Sterne                     |
+| Livingston, Jay                           | Tammy                                      |
+| Loewe, Frederick                          | They Call the Wind Maria                   |
+| Loewe, Frederick                          | I Talk to the Trees                        |
+| Loewe, Frederick                          | Wouldn't It Be Loverly?                    |
+| Loewe, Frederick                          | If I Should Ever Leave You                 |
+| Loewe, Frederick                          | Camelot                                    |
+| Loewe, Frederick                          | I Could Have Danced All Night              |
+| Loewe, Frederick                          | Gigi                                       |
+| Loewe, Frederick                          | On the Street Where You Live               |
+| Mackeben, Theo                            | Bel Ami                                    |
+| Mackeben, Theo                            | Frauen sind keine Engel                    |
+| Mancini, Henry                            | Mr.~Lucky                                  |
+| Mandel, Johnny                            | Shadow of Your Smile, The                  |
+| McHugh, Jimmy                             | I'm Shooting High                          |
+| McHugh, Jimmy                             | I'm in the Mood for Love                   |
+| McHugh, Jimmy                             | On the Sunny Side of the Street            |
+| Meyers, Billy                             | Nobody's Sweetheart                        |
+| Schoebel, Elmer                           | Nobody's Sweetheart                        |
+| Miller, Glenn                             | Moonlight Serenade                         |
+| Monaco, James                             | You Made Me Love You                       |
+| Monaco, James V.                          | I've Got a Pocketful of Dreams             |
+| Mozart, Wolfgang Amadeus                  | L{\\`a} ci darem la mano                   |
+| Nacio Brown, Herb                         | Wedding of the Painted Doll, The           |
+| Offenbach, Jacques                        | Barcarole                                  |
+| Paul, Gene de                             | I'll Remember April                        |
+| Perkins, Frank                            | Stars Fell on Alabama                      |
+| Popp, Andr{\\'e}                          | Amour est bleu, L'                         |
+| Portela, Raul                             | Lisboa Antiga                              |
+| Vale, Amadeu do                           | Lisboa Antiga                              |
+| Rainger, Ralph                            | Thanks for the Memory                      |
+| Rainger, Ralph                            | June in Janury                             |
+| Raksin, David                             | Laura                                      |
+| Revaux, Jacques                           | Comme d'Habitude                           |
+| Fran{\\c c}ois, Claude                    | Comme d'Habitude                           |
+| Rodgers, Richard                          | Lady is a Tramp, The                       |
+| Rodgers, Richard                          | You Took Advantage of Me                   |
+| Rodgers, Richard                          | Ten Cents a Dance                          |
+| Rodgers, Richard                          | Isn't It Romantic?                         |
+| Rodgers, Richard                          | This Can't be Love                         |
+| Rodgers, Richard                          | Blue Moon                                  |
+| Rodgers, Richard                          | People Will Say We're in Love              |
+| Rodgers, Richard                          | I Married an Angel                         |
+| Rodgers, Richard                          | Many a New Day                             |
+| Rota, Nino                                | Speak Softly, Love                         |
+| Ruby, Harry                               | Nevertheless (I'm In Love With You)        |
+| Schertzinger, Victor                      | Tangerine                                  |
+| Schwartz, Arthur                          | Rainy Night in Rio, A                      |
+| Schwarz, Jean                             | Rock-a-Bye Your Baby (With a Dixie Melody) |
+| Silvers, Louis                            | April Showers                              |
+| Spoliansky, Mischa                        | Heute Nacht oder nie                       |
+| Stolz, Robert                             | Du sollst der Kaiser meiner Seele sein     |
+| Strachey, Jack                            | These Foolish Things                       |
+| Strau{\\ss} (Sohn), Johann                | Mein Herr Marquis                          |
+| Strouse, Charles                          | Put on a Happy Face                        |
+| Swift, Kay                                | Fine and Dandy                             |
+| Waller, Thomas ``Fats''                   | Ain't Misbehavin'                          |
+| Brooks, Harry                             | Ain't Misbehavin'                          |
+| Warren, Harry                             | Young and Healthy                          |
+| Warren, Harry                             | Jeepers Creepers                           |
+| Warren, Harry                             | Shuffle Off to Buffalo                     |
+| Warren, Harry                             | September in the Rain                      |
+| Warren, Harry                             | You're Getting to Be a Habit With Me       |
+| Warren, Harry                             | I'll String Along With You                 |
+| Warren, Harry                             | I Only Have Eyes for You                   |
+| Warren, Harry                             | Lulu's Back in Town                        |
+| Weill, Kurt                               | Speak Low                                  |
+| Weill, Kurt                               | September Song                             |
+| Weill, Kurt                               | Lost in the Stars                          |
+| Weill, Kurt                               | Moon-Faced, Starry-Eyed                    |
+| Whiting, Richard A.                       | Hooray For Hollywood                       |
+| Whiting, Richard A.                       | Japanese Sandman                           |
+| Williams, Hugh                            | Harbour Lights                             |
+| Williams, Hugh                            | Red Sails in the Sunset                    |
+| Winkler, Gerhard                          | Capri Fischer                              |
+| Wrubel, Allie                             | Lady in Red, The                           |
+| Youmans, Vincent                          | Carioca                                    |
+| Youmans, Vincent                          | Tea for Two                                |
+| Young, Victor                             | Stella By Starlight                        |
++-------------------------------------------+--------------------------------------------+
+170 rows in set (0.00 sec)
+
++------------------------------------------------------------------------------+--------------------------------------------+
+| words_reverse                                                                | title                                      |
++------------------------------------------------------------------------------+--------------------------------------------+
+| Heymann, Edward                                                              | Body and Soul                              |
+| Eyton Frank                                                                  | Body and Soul                              |
+| Sour, Robert                                                                 | Body and Soul                              |
+| Adams, Lee                                                                   | Put on a Happy Face                        |
+| Anderson, Maxwell                                                            | Lost in the Stars                          |
+| Anderson, Maxwell                                                            | September Song                             |
+| Balz, Bruno                                                                  | Es leuchten die Sterne                     |
+| Barbier, Jules                                                               | Barcarole                                  |
+| Barouh, Pierre                                                               | Homme et une femme, Un                     |
+| Beckmann, Hans Fritz                                                         | Bel Ami                                    |
+| Beckmann, Hans Fritz                                                         | Frauen sind keine Engel                    |
+| Bettis, John                                                                 | Top of the World                           |
+| Brammer, Julius                                                              | Zwei M{\\"a}rchenaugen                      |
+| Gr{\\"u}nwald, Alfred                                                        | Zwei M{\\"a}rchenaugen                      |
+| Brammer, Julius                                                              | Komm, Zigany                               |
+| Gr{\\"u}nwald, Alfred                                                        | Komm, Zigany                               |
+| Burke, Johnny                                                                | Misty                                      |
+| Burke, Johnny                                                                | Moonlight Becomes You                      |
+| Burke, Johnny                                                                | Oh! You Crazy Moon                         |
+| Burke, Johnny                                                                | Pennies from Heaven                        |
+| Burke, Johnny                                                                | It Could Happen to You                     |
+| Burke, Johnny                                                                | I've Got a Pocketful of Dreams             |
+| Burke, Johnny                                                                | Imagination                                |
+| Caesar, Irving                                                               | Tea for Two                                |
+| Coslow, Sam                                                                  | Cocktails for Two                          |
+| Cour, Pierre                                                                 | Amour est bleu, L'                         |
+| Da Ponte, Lorenzo                                                            | L{\\`a} ci darem la mano                    |
+| David, Hal                                                                   | Close to You                               |
+| David, Hal                                                                   | I'll Never Fall in Love Again              |
+| David, Hal                                                                   | Do You Know the Way to San Jose?           |
+| David, Hal                                                                   | I Say a Little Prayer                      |
+| De Sylva, Buddy G.                                                           | April Showers                              |
+| Dehmel, Willy                                                                | Ja und Nein                                |
+| DeLange, Eddie                                                               | Moonglow                                   |
+| Dixon, Mort                                                                  | Lady in Red, The                           |
+| Dubin, Al                                                                    | I'll String Along With You                 |
+| Dubin, Al                                                                    | I Only Have Eyes for You                   |
+| Dubin, Al                                                                    | Lulu's Back in Town                        |
+| Dubin, Al                                                                    | Tiptoe Through the Tulips With Me          |
+| Dubin, Al                                                                    | September in the Rain                      |
+| Dubin, Al                                                                    | Shuffle Off to Buffalo                     |
+| Dubin, Al                                                                    | Young and Healthy                          |
+| Dubin, Al                                                                    | You're Getting to Be a Habit With Me       |
+| Egan, Raymond B.                                                             | Japanese Sandman                           |
+| Eliscu, Edward                                                               | Carioca                                    |
+| Kahn, Gus                                                                    | Carioca                                    |
+| Evans, Ray                                                                   | Tammy                                      |
+| Fields, Dorothy                                                              | On the Sunny Side of the Street            |
+| Fields, Dorothy                                                              | I'm in the Mood for Love                   |
+| Fields, Dorothy                                                              | Way You Look Tonight, The                  |
+| Fields, Dorothy                                                              | Fine Romance, A                            |
+| Fields, Dorothy                                                              | Pick Yourself Up                           |
+| Fontenoy, Marc                                                               | Buenos Noches Mon Amour                    |
+| Freed, Arthur                                                                | Wedding of the Painted Doll, The           |
+| Freed, Ralph                                                                 | How About You?                             |
+| Galhardo, Jos{\\'e}                                                          | Lisboa Antiga                              |
+| Gershwin, Ira                                                                | Let's Call the Whole Thing Off             |
+| Gershwin, Ira                                                                | Sure Thing                                 |
+| Gershwin, Ira                                                                | Someone to Watch Over Me                   |
+| Gershwin, Ira                                                                | Long Ago (and Far Away)                    |
+| Gershwin, Ira                                                                | Embraceable You                            |
+| Gershwin, Ira                                                                | I Can't Get Started                        |
+| Gershwin, Ira                                                                | Liza (All the Clouds'll Roll Away)         |
+| Kahn, Gus                                                                    | Liza (All the Clouds'll Roll Away)         |
+| Gillespie, Haven                                                             | You Go to My Head                          |
+| Gordon, Irving                                                               | Prelude to a Kiss                          |
+| Mills, Irving                                                                | Prelude to a Kiss                          |
+| Gorrell, Stuart                                                              | Georgia on my Mind                         |
+| Gr{\\"u}nbaum, Fritz                                                         | Du sollst der Kaiser meiner Seele sein     |
+| Sterk, Wilhelm                                                               | Du sollst der Kaiser meiner Seele sein     |
+| Haffner, Karl                                                                | Mein Herr Marquis                          |
+| Gen{\\'e}e, Richard                                                          | Mein Herr Marquis                          |
+| Hammerstein II, Oscar                                                        | All the Things You Are                     |
+| Hammerstein II, Oscar                                                        | People Will Say We're in Love              |
+| Hammerstein II, Oscar                                                        | Many a New Day                             |
+| Hammerstein II, Oscar                                                        | Make Believe                               |
+| Harbach, Otto                                                                | Smoke Gets in Your Eyes                    |
+| Harburg, E.Y.~``Yip''                                                        | Over the Rainbow                           |
+| Hart, Lorenz                                                                 | Blue Moon                                  |
+| Hart, Lorenz                                                                 | This Can't be Love                         |
+| Hart, Lorenz                                                                 | Lady is a Tramp, The                       |
+| Hart, Lorenz                                                                 | Ten Cents a Dance                          |
+| Hart, Lorenz                                                                 | I Married an Angel                         |
+| Hart, Lorenz                                                                 | You Took Advantage of Me                   |
+| Hart, Lorenz                                                                 | Isn't It Romantic?                         |
+| Heyman, Edward                                                               | Out of Nowhere                             |
+| Heyman, Edward                                                               | I Cover the Waterfront                     |
+| Hughes, Langston                                                             | Moon-Faced, Starry-Eyed                    |
+| James, Paul (Warburg, James Paul)                                            | Fine and Dandy                             |
+| Johnston, Patricia                                                           | I'll Remember April                        |
+| Raye, Don                                                                    | I'll Remember April                        |
+| Kahal, Irving                                                                | I Can Dream, Can't I?                      |
+| Kahal, Irving                                                                | By a Waterfall                             |
+| Kahn, Gus                                                                    | Love Me or Leave Me                        |
+| Kahn, Gus                                                                    | Coquette                                   |
+| Kahn, Gus                                                                    | I'll See You in My Dreams                  |
+| Kahn, Gus                                                                    | My Baby Just Cares for Me                  |
+| Kahn, Gus                                                                    | Message From the Man in the Moon, A        |
+| Kahn, Gus                                                                    | All God's Children                         |
+| Kahn, Gus                                                                    | Carolina in the Morning                    |
+| Kahn, Gus                                                                    | Dream a Little Dream of Me                 |
+| Kahn, Gus                                                                    | Nobody's Sweetheart                        |
+| Erdman, Ernest                                                               | Nobody's Sweetheart                        |
+| Kalmar, Bert                                                                 | Nevertheless (I'm In Love With You)        |
+| Kennedy, Jimmy                                                               | Harbour Lights                             |
+| Kennedy, Jimmy                                                               | Red Sails in the Sunset                    |
+| Kennedy, Jimmy                                                               | South of the Border                        |
+| Kind, Friedrich                                                              | Durch die W{\\"a}lder, durch die Auen       |
+| Klenner, John                                                                | Heartaches                                 |
+| Koehler, Ted                                                                 | Let's Fall in Love                         |
+| Koehler, Ted                                                                 | I've Got the World on a String             |
+| Koehler, Ted                                                                 | Between the Devil and the Deep Blue Sea    |
+| Koehler, Ted                                                                 | Wrap Your Troubles in Dreams               |
+| Moll, Billy                                                                  | Wrap Your Troubles in Dreams               |
+| Koehler, Ted                                                                 | I'm Shooting High                          |
+| Wilmott, Charles                                                             | I'm Shooting High                          |
+| Kurtz, Manny                                                                 | In a Sentimental Mood                      |
+| Mills, Irving                                                                | In a Sentimental Mood                      |
+| Kusik, Larry                                                                 | Speak Softly, Love                         |
+| L{\\'e}on, Victor                                                            | Da geh ich zu Maxim                        |
+| Stein, Leo                                                                   | Da geh ich zu Maxim                        |
+| L{\\'e}on, Victor                                                            | Lied vom dummen Reiter, Das                |
+| Stein, Leo                                                                   | Lied vom dummen Reiter, Das                |
+| L{\\'e}on, Victor                                                            | Lippen schweigen                           |
+| Stein, Leo                                                                   | Lippen schweigen                           |
+| La Touche, John                                                              | Taking a Chance on Love                    |
+| Fetter, Ted                                                                  | Taking a Chance on Love                    |
+| Lerner, Alan Jay                                                             | Camelot                                    |
+| Lerner, Alan Jay                                                             | Gigi                                       |
+| Lerner, Alan Jay                                                             | If I Should Ever Leave You                 |
+| Lerner, Alan Jay                                                             | Wouldn't It Be Loverly?                    |
+| Lerner, Alan Jay                                                             | They Call the Wind Maria                   |
+| Lerner, Alan Jay                                                             | On a Clear Day                             |
+| Lerner, Alan Jay                                                             | On the Street Where You Live               |
+| Lerner, Alan Jay                                                             | I Talk to the Trees                        |
+| Lerner, Alan Jay                                                             | I Could Have Danced All Night              |
+| Lewis, Sam M.                                                                | Rock-a-Bye Your Baby (With a Dixie Melody) |
+| Young, Joe                                                                   | Rock-a-Bye Your Baby (With a Dixie Melody) |
+| Livingston, Jay                                                              | Mr.~Lucky                                  |
+| Evans, Ray                                                                   | Mr.~Lucky                                  |
+| Loesser, Frank                                                               | Heart and Soul                             |
+| Loesser, Frank                                                               | You've Got That Look                       |
+| Luban, Francia                                                               | Para Vigo me voy (Say ``Si, Si'')          |
+| MacDonald, Ballard                                                           | Somebody Loves Me                          |
+| DeSylva, Buddy                                                               | Somebody Loves Me                          |
+| Magidson, Herb                                                               | Continental, The                           |
+| Maria, Ant{\\^o}nio                                                          | Manh{\\~a} da Carnaval                      |
+| Marvell, Holt (Maschwitz, Eric)                                              | These Foolish Things                       |
+| McCarthy, Joe                                                                | You Made Me Love You                       |
+| Mercer, Johnny                                                               | Jeepers Creepers                           |
+| Mercer, Johnny                                                               | Skylark                                    |
+| Mercer, Johnny                                                               | Hooray For Hollywood                       |
+| Mercer, Johnny                                                               | Tangerine                                  |
+| Mercer, Johnny                                                               | Laura                                      |
+| Mercer, Johnny                                                               | Fools Rush In (Where Angels Fear to Tread) |
+| Mills, Irving                                                                | Caravan                                    |
+| Moraes, Vin{\\'i}cius de                                                      | Chega de Saudade                           |
+| Nash, Ogden                                                                  | Speak Low                                  |
+| None                                                                         | Jalousie ``Tango Tzigane'' (Jealousy)      |
+| Norton, George A.                                                            | My Melancholy Baby                         |
+| Oliveira, Aloysio de                                                         | Tico Tico no Fuba                          |
+| Parish, Mitchell                                                             | Deep Purple                                |
+| Parish, Mitchell                                                             | Stars Fell on Alabama                      |
+| Parish, Mitchell                                                             | Stardust                                   |
+| Parish, Mitchell                                                             | Moonlight Serenade                         |
+| Parish, Mitchell                                                             | Sophisticated Lady                         |
+| Mills, Irving                                                                | Sophisticated Lady                         |
+| Pinelli, Aldo von                                                            | Abends in der Taverna                      |
+| Prevert, Jacques                                                             | Feuilles Mortes, Les                       |
+| Razaf, Andy                                                                  | Ain't Misbehavin'                          |
+| Reaves, Erell                                                                | Lady of Spain                              |
+| Tilsley, Henry                                                               | Lady of Spain                              |
+| Robin, Leo                                                                   | June in Janury                             |
+| Robin, Leo                                                                   | Thanks for the Memory                      |
+| Robin, Leo                                                                   | Rainy Night in Rio, A                      |
+| Robin, Leo                                                                   | Prisoner of Love                           |
+| Schiffer, Marcellus                                                          | Heute Nacht oder nie                       |
+| Siegel, Ralph Maria                                                          | Capri Fischer                              |
+| Silvers, Phil                                                                | Nancy with the Laughing Face               |
+| Singleton, Charles                                                           | Spanish Eyes (Moon Over Naples)            |
+| Snyder, Eddie                                                                | Spanish Eyes (Moon Over Naples)            |
+| Singleton, Charles                                                           | Strangers in the Night                     |
+| Snyder, Eddie                                                                | Strangers in the Night                     |
+| Sondheim, Stephen                                                            | I Feel Pretty                              |
+| Springfield, Tom                                                             | Georgy  Girl                               |
+| Stillman, Al                                                                 | Chances Are                                |
+| Stillman, Al                                                                 | It's Not For Me to Say                     |
+| Thibaut, Gille                                                               | Comme d'Habitude                           |
+| Turk, Roy                                                                    | I Don't Know Why (I Just Do)               |
+| Washington, Ned                                                              | Cosi Cosa                                  |
+| Washington, Ned                                                              | Smoke Rings                                |
+| Washington, Ned                                                              | Stella By Starlight                        |
+| Webster, Paul Francis                                                        | Shadow of Your Smile, The                  |
+| Whiting, George A.                                                           | My Blue Heaven                             |
+| Wodehouse, P.G.                                                              | Bill                                       |
+| Hammerstein, Oscar II                                                        | Bill                                       |
++------------------------------------------------------------------------------+--------------------------------------------+
+170 rows in set (0.00 sec)
+
+mysql> 
+
++------------------------------------+-------------------------------------------------+
+| words_and_music_reverse            | title                                           |
++------------------------------------+-------------------------------------------------+
+| Ballard, Pat                       | Mister Sandman                                  |
+| Bart, Lionel                       | Consider Yourself                               |
+| Berlin, Irving                     | No Strings                                      |
+| Berlin, Irving                     | Pretty A Girl is Like a Melody, A               |
+| Berlin, Irving                     | Heat Wave                                       |
+| Berlin, Irving                     | Piccolino, The                                  |
+| Berlin, Irving                     | There's No Business Like Show Business          |
+| Berlin, Irving                     | Isn't This a Lovely Day?                        |
+| Berlin, Irving                     | Cheek to Cheek                                  |
+| Berlin, Irving                     | Change Partners                                 |
+| Berlin, Irving                     | They Say it's Wonderful                         |
+| Berlin, Irving                     | Blue Skies                                      |
+| Berlin, Irving                     | Let's Face the Music and Dance                  |
+| Borodin, Alexander                 | Polowetzer T{\\"a}nze (``Stranger in Paradise'') |
+| Bowman, Brooks                     | East of the Sun (and West of the Moon)          |
+| Collazo, Roberto (Bobby)           | {\\'U}ltima Noche, La                            |
+| Coward, No{\\"e}l                   | Parisian Pierrot                                |
+| Coward, No{\\"e}l                   | Room With a View, A                             |
+| Coward, No{\\"e}l                   | If Love Were All                                |
+| Denver, John                       | Annie's Song                                    |
+| Dom{\\'\\i}nguez Borr{\\'a}s, Alberto | Frenesi                                         |
+| Dom{\\'\\i}nguez Borr{\\'a}s, Alberto | Perfidia                                        |
+| Donaldson, Walter                  | Little White Lies                               |
+| Duke, Vernon                       | Paris in New York                               |
+| Duke, Vernon                       | Autumn in New York                              |
+| Farr{\\'e}s, Osvaldo                | Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s              |
+| Fisher, Fred                       | Chicago (That Toddling Town)                    |
+| Frank, Loesser                     | Baby, It's Cold Outside                         |
+| Gordon, Irving                     | Unforgettable                                   |
+| Hatch, Tony                        | Downtown                                        |
+| Hollaender, Friedrich              | Illusions                                       |
+| Howard, Bart                       | Fly Me to the Moon                              |
+| Hupfeld, Herman                    | As Time Goes By                                 |
+| Jobim, Antonio Carlos              | Samba do Avi{\\~a}o                              |
+| Lecuona, Ernesto                   | Siempre en mi Coraz{\\'o}n                       |
+| Lecuona, Ernesto                   | Siboney                                         |
+| Loesser, Frank                     | Standing on the Corner                          |
+| Loesser, Frank                     | On a Slow Boat to China                         |
+| P{\\'e}rez Prado, D{\\'a}maso        | Mambo {\\#}5                                     |
+| Parks, C.~Carson                   | Somethin' Stupid                                |
+| Porter, Cole                       | Love for Sale                                   |
+| Porter, Cole                       | Every Time We Say Goodbye                       |
+| Porter, Cole                       | I Get a Kick Out of You                         |
+| Porter, Cole                       | Night and Day                                   |
+| Porter, Cole                       | It's All Right With Me                          |
+| Reid, Billy                        | I'll Close My Eyes                              |
+| Reid, Billy                        | It's a Pity to Say `Goodnight'                  |
+| Wayne, Bernie                      | Blue Velvet                                     |
+| Morris, Lee                        | Blue Velvet                                     |
+| Williams, Hank                     | Hey, Good Lookin'                               |
+| Wynette, Tammy                     | Stand By Your Man                               |
+| Sherrill, Billy                    | Stand By Your Man                               |
++------------------------------------+-------------------------------------------------+
+49 rows in set (0.00 sec)
+
+mysql> 
+
+
 
 
 /* Local Variables: */
