@@ -200,7 +200,8 @@ main(int argc, char **argv)
                     << "\\parskip=.75\\baselineskip" << endl 
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Composer}\\fi"   
-                    << "\\hfil{\\tt \\timestamp}\\quad}" << endl                         
+                    << "\\hfil{\\tt \\timestamp}\\quad}" << endl
+                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl                          
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -225,10 +226,22 @@ main(int argc, char **argv)
 
      bool first_time = true;
 
+     int ctr = 1;
+     
+     vector<Song>::iterator next;
+
+     next = song_vector.begin();
+     ++next;
+
      for (vector<Song>::iterator iter = song_vector.begin();
           iter != song_vector.end();
-          ++iter)
+          ++iter, ++next)
      {
+            if (next != song_vector.end())
+               cerr << "`next->music_reverse' == " << next->music_reverse << endl
+                    << "`next->words_and_music_reverse' == " << next->words_and_music_reverse 
+                    << endl;
+
             if (iter->is_production)
             {
                 continue;
@@ -257,7 +270,24 @@ main(int argc, char **argv)
                   composers_file << "\\vbox{\\hbox{{\\mediumbx " << iter->music_reverse << "}}" 
                                  << endl; 
                }
-               composers_file << "\\hbox{\\hskip1.5em " << iter->title << "}" << endl;
+
+
+               composers_file << "\\hbox{\\hskip1.5em ";
+
+               if (   (next != song_vector.end() && (next->music_reverse == iter->music_reverse || ctr > 1))
+                   || (next == song_vector.end() && ctr > 1))
+               {
+                    composers_file << "\\hbox to \\dimen0{";
+                    if (ctr < 10)
+                       composers_file << "\\hfil ";
+
+                    composers_file << ctr++ << "}. ";
+               }
+
+               if (next != song_vector.end() && next->music_reverse != iter->music_reverse)
+                  ctr = 1;  
+
+               composers_file << iter->title << "}" << endl;
 
                previous_composer = iter->music_reverse;
 
@@ -274,9 +304,26 @@ main(int argc, char **argv)
                   composers_file << "\\vbox{\\hbox{{\\mediumbx " << iter->words_and_music_reverse << "}}" 
                                  << endl; 
                }
-               composers_file << "\\hbox{\\hskip1.5em " << iter->title << "}" << endl;
-    
 
+               composers_file << "\\hbox{\\hskip1.5em ";
+
+
+               if (   (next != song_vector.end() && (next->words_and_music_reverse == iter->words_and_music_reverse || ctr > 1))
+                   || (next == song_vector.end() && ctr > 1))
+               {
+
+                    composers_file << "\\hbox to \\dimen0{";
+                    if (ctr < 10)
+                       composers_file << "\\hfil ";
+
+                    composers_file << ctr++ << "}. ";
+               }
+
+               if (next != song_vector.end() && next->words_and_music_reverse != iter->words_and_music_reverse)
+                  ctr = 1;  
+
+               composers_file << iter->title << "}" << endl;
+    
                previous_composer = iter->words_and_music_reverse;
             }
 #if 0
@@ -334,9 +381,14 @@ main(int argc, char **argv)
 
      first_time = true;
 
+     ctr = 1;
+
+     next = song_vector.begin();
+     ++next;
+
      for (vector<Song>::iterator iter = song_vector.begin();
           iter != song_vector.end();
-          ++iter)
+          ++iter, ++next)
      {
             if (iter->is_production)
             {
@@ -368,7 +420,15 @@ main(int argc, char **argv)
                   lyricists_file << "\\vbox{\\hbox{{\\mediumbx " << iter->words_reverse << "}}" 
                                  << endl; 
                }
-               lyricists_file << "\\hbox{\\hskip1.5em " << iter->title << "}" << endl;
+
+               lyricists_file << "\\hbox{\\hskip1.5em ";
+
+               if (next != song_vector.end() && next->words_reverse == iter->words_reverse)
+                  lyricists_file << ctr++ << ". ";
+               else
+                  ctr = 1;  
+
+               lyricists_file << iter->title << "}" << endl;
 
                previous_lyricist = iter->words_reverse;
 
@@ -386,8 +446,15 @@ main(int argc, char **argv)
                   lyricists_file << "\\vbox{\\hbox{{\\mediumbx " << iter->words_and_music_reverse << "}}" 
                                  << endl; 
                }
-               lyricists_file << "\\hbox{\\hskip1.5em " << iter->title << "}" << endl;
-    
+             
+               lyricists_file << "\\hbox{\\hskip1.5em ";
+
+               if (next != song_vector.end() && next->words_and_music_reverse == iter->words_and_music_reverse)
+                  lyricists_file << ctr++ << ". ";
+               else
+                  ctr = 1;  
+
+               lyricists_file << iter->title << "}" << endl;
 
                previous_lyricist = iter->words_and_music_reverse;
             }
@@ -838,7 +905,7 @@ compare_strings(string t, string s)
 	}
     } while (found_s != string::npos);
 
-#if 1 
+#if 0 
   if (found_flag)
     cerr << "t == " << t << endl
 	 << "s == " << s << endl << endl;
