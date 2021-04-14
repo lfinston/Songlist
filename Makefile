@@ -22,12 +22,16 @@
 
 ## Please send bug reports to Laurence.Finston@gmx.de 
 
-.PHONY: all
+# ** Variables.
 
-.PHONY: run
+#### Automatic Variables.  For more, see Section 10.5.3, "Automatic Variables"
+#### of the Make info manual.
+#### LDF 2009.12.29.
 
-#run: ttemp
-#	./ttemp
+#### $@:  Target
+#### $<:  First prerequisite
+#### $^:  The names of all the prerequisites, with spaces between them.
+#### $*:  The stem with which an implicit rule matches
 
 ttemp: ttemp.o cmdlnopt.o 
 	g++ -o ttemp ttemp.o cmdlnopt.o -L/usr/lib/mysql -L/usr/lib/mysql/plugin \
@@ -43,15 +47,27 @@ ttemp.o: ttemp.cxx cmdlnopt.hxx songdefs.hxx
 clean:  
 	rm -f *.o *.dvi *.ps *.pdf *.log toc_ls.tex toc_scores.tex \
               circles.mpx circles.1 circles.2 circles.3 \
-              songlist songlist_out.tex ttemp.o ttemp
+              songlist songlist_out.tex ttemp.o ttemp \
+              toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+              lyricists.tex composers.tex
 
-all: run all.dvi all.ps all.pdf toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
-      lyricists.tex composers.tex
+.PHONY: all
 
-all.dvi: toc_ls.dvi composers.dvi lyricists.dvi
-	dviconcat -o all.dvi toc_ls.dvi composers.dvi lyricists.dvi 
+all:  songlist$(EXEEXT) toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+      lyricists.tex composers.tex \
+      toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_ls.dvi toc_npt.dvi \
+      lyricists.dvi composers.dvi \
+      toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_ls.ps toc_npt.ps \
+      lyricists.ps composers.ps \
+      toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_ls.pdf toc_npt.pdf \
+      lyricists.pdf composers.pdf \
+      all.dvi all.ps all.pdf 
 
-all.ps: all.dvi
+
+all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi
+	dviconcat -o $@ $^
+
+all.ps: all.dvi 
 	dvips -o all.ps all.dvi
 
 all.pdf: all.ps 
@@ -84,8 +100,8 @@ cmdlnopt.o: cmdlnopt.cxx
 
 # ./songlist
 
-run: songlist
-	./songlist
+run: songlist$(EXEEXT) 
+	./songlist$(EXEEXT) 
 
 
 songlist_out.pdf: songlist_out.ps
