@@ -201,7 +201,7 @@ main(int argc, char **argv)
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Composer}\\fi"   
                     << "\\hfil{\\tt \\timestamp}\\quad}" << endl
-                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl                          
+                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -357,6 +357,7 @@ main(int argc, char **argv)
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
                     << "\\hfil{\\tt \\timestamp}\\quad}" << endl                         
+                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -421,11 +422,20 @@ main(int argc, char **argv)
                                  << endl; 
                }
 
+
                lyricists_file << "\\hbox{\\hskip1.5em ";
 
-               if (next != song_vector.end() && next->words_reverse == iter->words_reverse)
-                  lyricists_file << ctr++ << ". ";
-               else
+               if (   (next != song_vector.end() && (next->words_reverse == iter->words_reverse || ctr > 1))
+                   || (next == song_vector.end() && ctr > 1))
+               {
+                    lyricists_file << "\\hbox to \\dimen0{";
+                    if (ctr < 10)
+                       lyricists_file << "\\hfil ";
+
+                    lyricists_file << ctr++ << "}. ";
+               }
+
+               if (next != song_vector.end() && next->words_reverse != iter->words_reverse)
                   ctr = 1;  
 
                lyricists_file << iter->title << "}" << endl;
@@ -449,9 +459,17 @@ main(int argc, char **argv)
              
                lyricists_file << "\\hbox{\\hskip1.5em ";
 
-               if (next != song_vector.end() && next->words_and_music_reverse == iter->words_and_music_reverse)
-                  lyricists_file << ctr++ << ". ";
-               else
+               if (   (next != song_vector.end() && (next->words_and_music_reverse == iter->words_and_music_reverse || ctr > 1))
+                   || (next == song_vector.end() && ctr > 1))
+               {
+                    lyricists_file << "\\hbox to \\dimen0{";
+                    if (ctr < 10)
+                       lyricists_file << "\\hfil ";
+
+                    lyricists_file << ctr++ << "}. ";
+               }
+
+               if (next != song_vector.end() && next->words_and_music_reverse != iter->words_and_music_reverse)
                   ctr = 1;  
 
                lyricists_file << iter->title << "}" << endl;
