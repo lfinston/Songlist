@@ -2681,6 +2681,12 @@ select * from Composers_Songs order by composer, title;
 
 select * from Lyricists_Songs order by lyricist, title;
 
+select distinct composer from Composers_Songs order by composer;
+
+select distinct lyricist from Lyricists_Songs order by lyricist;
+
+
+
 
 /* * (1)  */
 
