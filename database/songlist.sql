@@ -335,7 +335,7 @@ true, 1935,
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
 values
-("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz ", true, "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
@@ -547,6 +547,12 @@ values
 /* banjo chords accomp.  */
 
 /* I   */
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+values
+("I Can Dream, Can't I?", "Ira Gershwin", "Gershwin, Ira", "Vernon Duke", "Duke, Vernon", true);
 
 /* ***************************************************** */
 
@@ -860,7 +866,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, notes, sort_by_production, year)
 values
 ("Lippen schweigen", 
-"Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+"Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, "Lustige Witwe, Die",
 "English title:  The Merry Widow Waltz", true, 1905);
 
@@ -869,7 +875,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
 values
 ("Lied vom dummen Reiter, Das", 
-"Victor L{\\'e}on und Leo Stein", " L{\\'e}on, Victor und Stein, Leo",
+"Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, 
 "Lustige Witwe, Die", true, 1905);
 

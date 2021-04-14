@@ -838,7 +838,7 @@ compare_strings(string t, string s)
 	}
     } while (found_s != string::npos);
 
-#if 0 
+#if 1 
   if (found_flag)
     cerr << "t == " << t << endl
 	 << "s == " << s << endl << endl;
