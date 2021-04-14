@@ -749,9 +749,9 @@ values
 
 /* Instrumental.  Words added later.  */
 
-replace into Songs (title, music, music_reverse, lead_sheet, copyright, year)  
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright, year)  
 values
-("Jalousie ``Tango Tzigane'' (Jealousy)", "Jacob Gade", "Gade, Jacob", true,
+("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
 "{\\copyright} 1925.  Public Domain.", 1925);
 
 #words: Vera Bloom (Engl.)

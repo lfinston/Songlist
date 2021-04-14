@@ -147,7 +147,7 @@ main(int argc, char **argv)
    // mysql_options(mysql, MYSQL_OPT_RECONNECT, 0);
    mysql_options(mysql, MYSQL_OPT_CONNECT_TIMEOUT, &mysql_timeout); 
   
-   if (!mysql_real_connect(mysql,"localhost","laurence",0,"Songs",0,NULL,0))
+   if (!mysql_real_connect(mysql,"localhost","songlist",0,"Songs",0,NULL,0))
      {
        fprintf(stderr, "Failed to connect to database: Error: %s\n",
 	       mysql_error(mysql));
@@ -229,7 +229,11 @@ main(int argc, char **argv)
           iter != song_vector.end();
           ++iter)
      {
-            if (iter->music_reverse == "" && iter->words_and_music_reverse == "")
+            if (iter->is_production)
+            {
+                continue;
+            }
+            else if (iter->music_reverse == "" && iter->words_and_music_reverse == "")
             {  
                 cerr << "WARNING!  Composer(s) not listed:" << endl 
                      << "   Title: " << iter->title << endl;
@@ -246,7 +250,7 @@ main(int argc, char **argv)
                if (iter->music_reverse != previous_composer)
                {
                   if (!first_time)
-                  {
+                  { 
                      composers_file << "}\\vskip\\parskip" << endl;
                   }
                   
@@ -334,7 +338,11 @@ main(int argc, char **argv)
           iter != song_vector.end();
           ++iter)
      {
-            if (iter->words_reverse == "" && iter->words_and_music_reverse == "")
+            if (iter->is_production)
+            {
+                continue;
+            }
+            else if (iter->words_reverse == "" && iter->words_and_music_reverse == "")
             {  
                 cerr << "WARNING!  Lyricist(s) not listed:" << endl 
                      << "   Title: " << iter->title << endl;
@@ -352,6 +360,8 @@ main(int argc, char **argv)
                {
                   if (!first_time)
                   {
+                     composers_file << "}\\vskip\\parskip" << endl;
+
                      lyricists_file << "}\\vskip\\parskip" << endl;
                   }
                   
