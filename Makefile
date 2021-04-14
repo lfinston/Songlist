@@ -45,9 +45,8 @@ clean:
               circles.mpx circles.1 circles.2 circles.3 \
               songlist songlist_out.tex ttemp.o ttemp
 
-
-
-all: run run-c toc combined all.dvi all.ps all.pdf
+all: run all.dvi all.ps all.pdf toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+      lyricists.tex composers.tex
 
 all.dvi: toc_ls.dvi composers.dvi lyricists.dvi
 	dviconcat -o all.dvi toc_ls.dvi composers.dvi lyricists.dvi 

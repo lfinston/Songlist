@@ -134,16 +134,9 @@ values
 
 /* ***************************************************** */
 
-/* !! PLEASE NOTE:  It doesn't work to use `words_and_music' here for Vernon Duke          */
-/* because he is just the composer of other songs.  If he's listed under `words_and_music' */
-/* here, numbering the titles in `composers.tex' doesn't work correctly.  Therefore,       */
-/* he must be listed separately under `words' and `music' (and the `reverse' variants,     */
-/* too, of course.                                                                         */
-
-
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("Autumn in New York", "Vernon Duke", "Duke, Vernon", "Vernon Duke", "Duke, Vernon", true, 1934);
+("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934);
 
 /* ******************************************************/
 
@@ -559,8 +552,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, copyright)
 values
-("I Can Dream, Can't I?", "Irving Kahal", "Kahal, Irving", "Sammy Fain, Ira", "Fain, Sammy", true,
-""Right This Way", 1937, "{\\copyright} 1937 by Chappell \\& Co. Copyright Renewed");
+("I Can Dream, Can't I?", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true,
+"Right This Way", 1937, "{\\copyright} 1937 by Chappell \\& Co. Copyright Renewed");
 
 /* ***************************************************** */
 
@@ -898,15 +891,9 @@ values
 
 /* ***************************************************** */
 
-/* !! PLEASE NOTE:  It doesn't work to use `words_and_music' here for Walter Donaldson     */
-/* because he is just the composer of other songs.  If he's listed under `words_and_music' */
-/* here, numbering the titles in `composers.tex' doesn't work correctly.  Therefore,       */
-/* he must be listed separately under `words' and `music' (and the `reverse' variants,     */
-/* too, of course.                                                                         */
-
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("Little White Lies", "Walter Donaldson", "Donaldson, Walter", "Walter Donaldson", "Donaldson, Walter", true);
+("Little White Lies", "Walter Donaldson", "Donaldson, Walter", true);
 
 /* ***************************************************** */
 
@@ -1151,15 +1138,9 @@ true, 1935);
 
 #/* ***************************************************** */
 
-/* !! PLEASE NOTE:  It doesn't work to use `words_and_music' here for Vernon Duke          */
-/* because he is just the composer of other songs.  If he's listed under `words_and_music' */
-/* here, numbering the titles in `composers.tex' doesn't work correctly.  Therefore,       */
-/* he must be listed separately under `words' and `music' (and the `reverse' variants,     */
-/* too, of course.                                                                         */
-
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("Paris in New York", "Vernon Duke", "Duke, Vernon", "Vernon Duke", "Duke, Vernon", true);
+("Paris in New York", "Vernon Duke", "Duke, Vernon", true);
 
 /* ***************************************************** */
 
