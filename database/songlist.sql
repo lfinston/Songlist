@@ -179,6 +179,13 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+values
+("Begin the Beguine", "Cole Porter", "Porter, Cole", true, 1935, 
+"{\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, no_page_turns, year)
 values
 ("Bel Ami", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", true, 1, true, 1939);
@@ -767,6 +774,13 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("I've Got the World on a String", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold",
 true, 1932);
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+values
+("I've Got You Under My Skin", "Cole Porter", "Porter, Cole", true, 1936, 
+"{\\copyright} 1936 by Chappell {\\&} Co.~ (Renewed)", "{\\bf The Best of Cole Porter}");
 
 /* J   */
 
@@ -2634,6 +2648,12 @@ replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a
 
 replace into Composers_Songs (composer, title) values ("Parks, C.~Carson", "Somethin' Stupid");
 replace into Lyricists_Songs (lyricist, title) values ("Parks, C.~Carson", "Somethin' Stupid");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Begin the Beguine");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Begin the Beguine");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "I've Got You Under My Skin");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I've Got You Under My Skin");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Love for Sale");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Love for Sale");
