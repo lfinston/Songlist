@@ -367,7 +367,7 @@ true, 1935,
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
 values
 ("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz ", true, "Lustige Witwe, Die", true, 1905);
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
 
@@ -413,7 +413,7 @@ delete from Songs where title = "Durch die Wälder, durch die Auen";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright, opera)
 values
-("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", "Carl Maria von Weber", "Carl Maria Weber, von",
+("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", "Carl Maria von Weber", "Weber, Carl Maria von",
 true, "Public Domain", "Freisch{\\\"u}tz, Der");
 
 /* ***************************************************** */
@@ -906,7 +906,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Lippen schweigen", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, "Lustige Witwe, Die",
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, "Lustige Witwe, Die",
 "English title:  The Merry Widow Waltz", true, 1905);
 
 /* ***************************************************** */
@@ -915,7 +915,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Lied vom dummen Reiter, Das", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r  Franz", true, 
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, 
 "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
@@ -1811,7 +1811,7 @@ replace into Composers_Songs (composer, title) values ("Burke, Joe", "Tiptoe Thr
 
 replace into Composers_Songs (composer, title) values ("Burnett, Ernie", "My Melancholy Baby");
 
-replace into Composers_Songs (composer, title) values ("Carl Maria Weber, von", "Durch die W{\\\"a}lder, durch die Auen");
+replace into Composers_Songs (composer, title) values ("Weber, Carl Maria von", "Durch die W{\\\"a}lder, durch die Auen");
 
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Heart and Soul");
 
