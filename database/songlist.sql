@@ -399,13 +399,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, no_page_turns, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, year, no_page_turns, source)
 values
 ("Du sollst der Kaiser meiner Seele sein",
 "Fritz Gr{\\\"u}nbaum und Wilhelm Sterk", "Gr{\\\"u}nbaum, Fritz und Sterk, Wilhelm",
 "Robert Stolz", "Stolz, Robert",
-true, 1916, true,
-"Source:  Das neue Operettenbuch, Buch 1");
+1916, true, "Das neue Operettenbuch, Buch 1");
 
 /* ***************************************************** */
 
@@ -2726,7 +2725,7 @@ select distinct composer from Composers_Songs order by composer;
 select distinct lyricist from Lyricists_Songs order by lyricist;
 
 
-
+select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
 
 /* * (1)  */
 
