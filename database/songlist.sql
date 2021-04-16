@@ -661,6 +661,13 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, copyright)
+values
+("I'll Be Seeing You", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true,
+"Right This Way", 1938, "{\\copyright} 1938 by Williamson Music Co.~(Renewed).");
+
+/* ***************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year)
 values
 ("I'll Close My Eyes", "Billy Reid", "Reid, Billy", true, "{\\copyright} 1945.", 1945);
@@ -1526,6 +1533,11 @@ values
 ("Thanks for the Memory", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true,
 "The Big Broadcast of 1938", 1938);
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, copyright)
+values
+("That Old Feeling", "Lew Brown", "Brown, Lew", "Sammy Fain", "Fain, Sammy", true,
+"Vogues of 1938", 1937, "{\\copyright} 1937, Renewed 1965.");
+
 /* ***************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production)
@@ -1863,6 +1875,10 @@ replace into Composers_Songs (composer, title) values ("Evans, Tolchard", "Lady 
 
 replace into Composers_Songs (composer, title) values ("Fain, Sammy", "I Can Dream, Can't I?");
 
+replace into Composers_Songs (composer, title) values ("Fain, Sammy", "I'll Be Seeing You");
+
+replace into Composers_Songs (composer, title) values ("Fain, Sammy", "That Old Feeling");
+
 replace into Composers_Songs (composer, title) values ("Fain, Sammy", "By a Waterfall");
 
 replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie ``Tango Tzigane'' (Jealousy)");
@@ -2161,6 +2177,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Bettis, John", "Top of t
 
 replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Zwei M{\\\"a}rchenaugen");
 
+replace into Lyricists_Songs (lyricist, title) values ("Brown, Lew", "That Old Feeling");
+
 replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nwald, Alfred", "Zwei M{\\\"a}rchenaugen");
 
 replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Komm, Zigany");
@@ -2317,9 +2335,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Johnston, Patricia", "I'
 
 replace into Lyricists_Songs (lyricist, title) values ("Raye, Don", "I'll Remember April");
 
+replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "By a Waterfall");
+
 replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I Can Dream, Can't I?");
 
-replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "By a Waterfall");
+replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I'll Be Seeing You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Love Me or Leave Me");
 
