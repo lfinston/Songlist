@@ -301,7 +301,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
-("Chega de Saudade", "Vin{\\'i}cius de Moraes", "Moraes, Vin{\\'i}cius de",  
+("Chega de Saudade", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true);
 
 /* ***************************************************** */
@@ -684,6 +684,13 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("I'll Remember April", "Patricia Johnston and Don Raye", "Johnston, Patricia and Raye, Don", 
 "Gene de Paul", "Paul, Gene de", true, 1);
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+values
+("I'll See You Again", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, "{\\copyright} 1929 (Renewed).",
+"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34");
 
 /* ***************************************************** */
 
@@ -2466,7 +2473,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Fools 
 
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Caravan");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'i}cius de", "Chega de Saudade");
+/* select * from Lyricists_Songs where title = "Chega de Saudade";  */
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Chega de Saudade");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
 
@@ -2596,14 +2605,18 @@ replace into Lyricists_Songs (lyricist, title) values ("Bowman, Brooks", "East o
 replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "If Love Were All");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "If Love Were All");
+
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
+
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
 
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "If Love Were All");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "If Love Were All");
 
 replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
 replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");
