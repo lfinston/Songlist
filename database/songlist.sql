@@ -68,6 +68,7 @@ alter table Songs add column source varchar(128) default null after notes;
 alter table Songs add column words_reverse varchar(128) default null after words;
 alter table Songs add column music_reverse varchar(128) default null after music;
 alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
+alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
 
 alter table Songs modify column copyright varchar(256) default null;
 
@@ -364,10 +365,10 @@ true, 1935,
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, operetta, sort_by_production, year)
 values
 ("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, "Lustige Witwe, Die", true, 1905);
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
 
@@ -807,9 +808,9 @@ values
 
 /* Instrumental.  Words added later.  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright, year)  
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, copyright, year)  
 values
-("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
+("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true, true,
 "{\\copyright} 1925.  Public Domain.", 1925);
 
 #words: Vera Bloom (Engl.)
@@ -915,20 +916,20 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, notes, sort_by_production, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, operetta, notes, sort_by_production, year)
 values
 ("Lippen schweigen", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, "Lustige Witwe, Die",
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "Lustige Witwe, Die",
 "English title:  The Merry Widow Waltz", true, 1905);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, sort_by_production, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, operetta, sort_by_production, year)
 values
 ("Lied vom dummen Reiter, Das", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, 
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true,
 "Lustige Witwe, Die", true, 1905);
 
 /* ***************************************************** */
@@ -977,6 +978,16 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Love Me or Leave Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928);
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+operetta, year, copyright, source)
+values
+("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
+"Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
+"{\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
+"{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152");
 
 /* ***************************************************** */
 
@@ -1089,9 +1100,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, year)
 values
-("My Melancholy Baby", "George A. Norton", "Norton, George A.", "Ernie Burnett", "Burnett, Ernie", true, 1912);
+("My Melancholy Baby", "George A. Norton", "Norton, George A.", "Ernie Burnett", "Burnett, Ernie", true, true, 1912);
 
 /* N   */
 
@@ -1692,9 +1703,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned)
 values
-("You Made Me Love You", "Joe McCarthy", "McCarthy, Joe", "James Monaco", "Monaco, James", true);
+("You Made Me Love You", "Joe McCarthy", "McCarthy, Joe", "James Monaco", "Monaco, James", true, true);
 
 /* ***************************************************** */
 
@@ -2033,6 +2044,8 @@ replace into Composers_Songs (composer, title) values ("McHugh, Jimmy", "On the 
 
 replace into Composers_Songs (composer, title) values ("Meyers, Billy", "Nobody's Sweetheart");
 
+replace into Composers_Songs (composer, title) values ("Romberg, Sigmund", "Lover Come Back to Me");
+
 replace into Composers_Songs (composer, title) values ("Schoebel, Elmer", "Nobody's Sweetheart");
 
 replace into Composers_Songs (composer, title) values ("Miller, Glenn", "Moonlight Serenade");
@@ -2304,6 +2317,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Haffner, Karl", "Mein He
 replace into Lyricists_Songs (lyricist, title) values ("Gen{\\'e}e, Richard", "Mein Herr Marquis");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "All the Things You Are");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Lover Come Back to Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "People Will Say We're in Love");
 

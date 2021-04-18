@@ -53,7 +53,7 @@ clean:
 
 .PHONY: all
 
-all:  songlist$(EXEEXT) toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+all:  songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
       lyricists.tex composers.tex \
       toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_ls.dvi toc_npt.dvi \
       lyricists.dvi composers.dvi \
