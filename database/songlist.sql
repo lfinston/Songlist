@@ -2961,6 +2961,8 @@ values ("Isham Edgar Jones", "Jones, Isham Edgar",  '1894-01-31', '1956-10-19');
 replace into Composers (name, name_reverse, birth_date, death_date) 
 values ("Jean Schwartz", "Schwartz, Jean",  '1878-11-4', '1956-11-30');
 
+delete from Lyricists where name = "Sam M. Lewis";
+
 replace into Lyricists (name, name_reverse, birth_date, death_date) 
 values ("Sam M. Lewis", " Lewis, Sam M.",  '1885-10-25', '1959-11-22'); 
 
@@ -3030,21 +3032,15 @@ values ("James Vincent Monaco", "Monaco, James Vincent",  '1885-01-13', '1945-10
 replace into Lyricists (name, name_reverse, birth_date, death_date) 
 values ("Joseph McCarthy", "McCarthy, Joseph",  '1885-09-27', '1943-12-18'); 
 
+**********************************************************************************************
 
+/* * (1)  */
 
-
-select name_reverse, name, alternative_name, birth_date, death_date 
+select name_reverse, name, alternative_name, birth_date, death_date, notes
 from Composers order by name_reverse\G
 
-/* * (1)  Lyricists */
-
-replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse, 
-birth_date, death_date) 
-values ('Jack Selig Yellen', 'Yellen, Jack Selig', 'Jacek Jele{\\\'n}', 'Jele{\\\'n}, Jacek', 
-'1892-07-06', '1991-04-17');
-
 select name_reverse, name, alternative_name, alternative_name_reverse,
-birth_date, death_date from Lyricists order by name_reverse\G
+birth_date, death_date, notes from Lyricists order by name_reverse\G
 
 
 /* * (1)  */
