@@ -32,7 +32,7 @@ create user 'songlist'@'localhost;
 
 GRANT ALL ON Songs TO 'songlist'@'localhost';
 
-/* * (1) Create table `Songs'.  */
+/* ** (2) Create table `Songs'.  */
 
 drop table Songs;
 
@@ -75,6 +75,41 @@ alter table Songs modify column copyright varchar(256) default null;
 show columns from Songs.Songs;
 
 delete from Songs;
+
+/* ** (2) Composers */
+
+drop table Composers;
+
+create table Composers
+(
+   name varchar(128) unique not null,
+   name_reverse varchar(128) unique not null,
+   alternative_name varchar(128) default null,
+   alternative_name_reverse varchar(128) default null,
+   birth_date date default null,
+   death_date date default null,
+   notes varchar(356) default null
+);
+
+show columns from Composers;
+
+
+/* ** (2) Lyricists */
+
+drop table Lyricists;
+
+create table Lyricists
+(
+   name varchar(128) unique not null,
+   name_reverse varchar(128) unique not null,
+   alternative_name varchar(128) default null,
+   alternative_name_reverse varchar(128) default null,
+   birth_date date default null,
+   death_date date default null,
+   notes varchar(356) default null
+);
+
+show columns from Lyricists;
 
 /* ** (2) Composers_Songs */
 
@@ -147,9 +182,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("April Showers", "Buddy G.~De Sylva", "De Sylva, Buddy G.", "Louis Silvers", "Silvers, Louis", true, 1);
+("April Showers", "Buddy G.~De Sylva", "De Sylva, Buddy G.", "Louis Silvers", "Silvers, Louis",
+true, 1, 1921);
 
 /* ***************************************************** */
 
@@ -272,13 +308,15 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Carioca", "Edward Eliscu and Gus Kahn", "Eliscu, Edward and Kahn, Gus", "Vincent Youmans", "Youmans, Vincent", true, 1933);
+("Carioca", "Edward Eliscu and Gus Kahn", "Eliscu, Edward and Kahn, Gus", 
+"Vincent Youmans", "Youmans, Vincent", true, 1933);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Carolina in the Morning", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true);
+("Carolina in the Morning", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", 
+true, 1922);
 
 /* ***************************************************** */
 
@@ -307,9 +345,9 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true);
+("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922);
 
 /* ***************************************************** */
 
@@ -2738,6 +2776,277 @@ replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand 
 replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
 replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
 
+/* * (1)  Composers and Lyricists */
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date)
+values ("Joseph-McCarthy", "McCarthy, Joseph", '1885-09-27', '1943-12-18');
+
+replace into Composers (name, name_reverse, birth_date, death_date)
+values ("Harry Austin Tierney", "Tierney, Harry Austin", '1890-05-21', '1965-03-22');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Louis \"Lou\" Silvers", "Silvers, Louis \"Lou\"",
+'1889-09-6',  '1954-03-26');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("George Gard \"Buddy\" DeSylva", "DeSylva, George Gard \"Buddy\"",
+'1895-01-27', '1950-07-11');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, alternative_name, alternative_name_reverse,
+birth_date, death_date) 
+values ("Fred Fisher", "Fisher, Fred", "Alfred Breitenbach", "Breitenbach, Alfred",
+'1875-09-3', '1942-01-14');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Gustav \"Gus\" Gerson Kahn", "Kahn, Gustav \"Gus\" Gerson",
+'1886-11-6', '1941-10-8');
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Walter Donaldson", "Donaldson, Walter",
+'1893-02-15', '1947-07-15');
+
+**********************************************************************************************
+
+"The Charleston" is a jazz composition that was written to accompany
+the Charleston dance. It was composed in 1923, with lyrics by Cecil
+Mack and music by James P. Johnson,
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Cecil Mack", "Mack, Cecil", '1873-11-6', '1944-08-1')
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("James Price Johnson", "Johnson, James Price",
+'1894-02-1', '1955-11-17'); 
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Joseph Meyer", "Meyer, Joseph", '1894-03-12', '1987-06-22');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Alexander \"Al\" Dubin", "Dubin, Alexander \"Al\"", '1891-06-10', '1945-02-11');
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Billy Rose", "Rose, Billy", "William Samuel Rosenberg", "Rosenberg, William Samuel",
+'1899-09-6', '1966-02-10');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Lew Brown", "Brown, Lew", "Louis Brownstein", "Brownstein, Louis", 
+'1893-12-10', '1958-02-05');
+
+replace into Composers (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Ray Henderson", "Henderson, Ray", "Raymond Brost", "Brost, Raymond", 
+'1896-12-01', '1970-12-31');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Sam M. Lewis", "Lewis, Sam M.", '1885-10-25', '1959-11-22'); 
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Joe Young", "Young, Joe", '1889-07-04', '1939-04-21');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Noble Lee Sissle", "Sissle, Noble Lee", '1889-07-10', '1975-12-17');
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("James Hubert \"Eubie\" Blake", "Blake, James Hubert \"Eubie\"",
+'1887-02-07', '1983-02-12');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date, notes) 
+values ("Benny Davis", "Davis, Benny", '1895-08-21', '1979-12-20',
+"Not sure whether Benny Davis is composer, lyricist or both.");
+
+replace into Lyricists (name, name_reverse, birth_date, death_date, notes) 
+values ("Benny Davis", "Davis, Benny", '1895-08-21', '1979-12-20',
+"Not sure whether Benny Davis is composer, lyricist or both.");
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Milton Ager", "Ager, Milton", '1893-10-6', '1979-05-6');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Jack Selig Yellen", Jacek Jeleń; '1892-07-6', '1991-04-17');
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Lester Santly", "Santly, Lester", null, null);
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Charles Rudolf Friml", "Friml, Charles Rudolf",
+'1879-12-7', '1972-11-12');
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Herbert Pope Stothart", "Stothart, Herbert Pope",  '1885-09-11', '1949-02-1');
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse,
+birth_date, death_date) 
+values ("Otto Abels Harbach", "Harbach, Otto Abels", 
+"Otto Abels Hauerbach", "Hauerbach, Otto Abels",  '1873-08-18', '1963-01-24');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Oscar Greeley Clendenning Hammerstein II", "Hammerstein II, Oscar Greeley Clendenning",
+'1895-07-12', '1960-08-23');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Isham Edgar Jones", "Jones, Isham Edgar",  '1894-01-31', '1956-10-19');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, alternative_name, alternative_name_reverse,
+birth_date, death_date) 
+values ("George Gershwin", "Gershwin, George",
+"Jacob Bruskin Gershowitz", "Gershowitz, Jacob Bruskin",
+'1898-09-26', '1937-07-11');
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse,
+birth_date, death_date) 
+values ("Ira Gershwin", "Gershwin, Ira",  "Israel Gershowitz", "Gershowitz, Israel",
+'1896-12-6', '1983-08-17');
+ 
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Richard Charles Rodgers", "Rodgers, Richard Charles",  '1902-06-28', '1979-12-30');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Lorenz Milton Hart", "Hart, Lorenz Milton",  '1895-05-2', '1943-11-22');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Edward Madden", "Madden, Edward",  '1878-07-17', '1952-03-11'); 
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Percy Wenrich", "Wenrich, Percy",  '1887-01-23', '1952-03-17'); 
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse) 
+values ("Ernie Erdman", "Erdman, Ernie");
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Elmer Schoebel", "Schoebel, Elmer",  '1896-09-8', '1970-12-14');
+
+replace into Composers (name, name_reverse)
+values ("Billy Meyers", "Meyers, Billy"); 
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Isham Edgar Jones", "Jones, Isham Edgar",  '1894-01-31', '1956-10-19');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Jean Schwartz", "Schwartz, Jean",  '1878-11-4', '1956-11-30');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Sam M. Lewis", " Lewis, Sam M.",  '1885-10-25', '1959-11-22'); 
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Joe Young", "Young, Joe",  '1889-07-4', '1939-04-21'); 
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Harry Bache Smith", "Smith, Harry Bache",  '1860-12-28', '1936-01-1');
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Theodore Frank Snyder", "Snyder, Theodore Frank",  
+'1881-08-15', '1965-07-16');
+
+replace into Lyricists (name, name_reverse) 
+values ("Francis Wheeler", "Wheeler, Francis");
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Vincent Millie Youmans", "Youmans, Vincent Millie",  '1898-09-27', '1946-04-5');
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Irving Caesar", "Caesar, Irving",  "Isidor Keiser", "Keiser, Isidor",  
+'1895-07-4', '1996-12-18');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Jos{\\\'e} Gomes de Abreu", "Abreu, Jos{\\\'e} Gomes de",  
+"Zequinha de Abreu", "Abreu, Zequinha de", 
+'1880-09-19', '1935-01-22');
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date, notes) 
+values ("Dan \"Danny\" Russo", "Russo, Dan \"Danny\"",
+'1885-10-13', '1944-12-15', "I think Danny Russo was a composer, but I'm not sure.");
+
+replace into Lyricists (name, name_reverse) 
+values ("Ernie Erdman", "Erdman, Ernie");
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("Cole Albert Porter", "Porter, Cole Albert",  '1891-06-9', '1964-10-15');
+
+**********************************************************************************************
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Edwin Eugene Lockhart", "Lockhart, Edwin Eugene",  '1891-07-18', '1957-03-31');
+
+replace into Composers (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ("Ernest Joseph Seitz", "Seitz, Ernest Joseph",  "Raymond Roberts", "Roberts, Raymond",  
+'1892-02-29', '1978-09-10'); 
+
+
+**********************************************************************************************
+
+replace into Composers (name, name_reverse, birth_date, death_date) 
+values ("James Vincent Monaco", "Monaco, James Vincent",  '1885-01-13', '1945-10-16');
+
+replace into Lyricists (name, name_reverse, birth_date, death_date) 
+values ("Joseph McCarthy", "McCarthy, Joseph",  '1885-09-27', '1943-12-18'); 
+
+
+
+
+select name_reverse, name, alternative_name, birth_date, death_date 
+from Composers order by name_reverse\G
+
+/* * (1)  Lyricists */
+
+replace into Lyricists (name, name_reverse, alternative_name, alternative_name_reverse, 
+birth_date, death_date) 
+values ('Jack Selig Yellen', 'Yellen, Jack Selig', 'Jacek Jele{\\\'n}', 'Jele{\\\'n}, Jacek', 
+'1892-07-06', '1991-04-17');
+
+select name_reverse, name, alternative_name, alternative_name_reverse,
+birth_date, death_date from Lyricists order by name_reverse\G
+
+
 /* * (1)  */
 
 delete from Composers_Songs;
@@ -2761,4 +3070,5 @@ select title, lead_sheet, year, copyright from Songs where year <= 1924 order by
 /* Local Variables: */
 /* mode:SQL */
 /* outline-minor-mode:t */
+/* outline-regexp:"/\\\* \\\*+"  */
 /* End: */
