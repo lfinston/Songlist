@@ -399,6 +399,13 @@ values
 true, 1935,
 "Night at the Opera, A", true);
 
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+values
+("Cup of Coffee, a Sandwich and You, A", "Al Dubin and Billy Rose", "Dubin, Al and Rose, Billy",
+"Joseph Meyer", "Meyer, Joseph", true, 1925);
+
 /* D */
 
 /* ***************************************************** */
@@ -793,6 +800,13 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("It Could Happen to You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
+
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+values
+("It Had to be You", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true, 1924);
 
  
 /* ***************************************************** */
