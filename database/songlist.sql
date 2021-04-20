@@ -23,6 +23,20 @@
 
 /* Please send bug reports to Laurence.Finston@gmx.de */
 
+
+/* * (1)  Instructions  */
+
+/* !! PLEASE NOTE:  It is not intended that this file be loaded using the  */
+/* mysql `source' command (`\.')!                                          */
+/* The MySQL statements in this file should be executed individually or    */
+/* in groups.  The author uses Emacs and the various Emacs commands        */
+/* in "SQL mode".  Of course, `mysql' could be used directly from the      */
+/* command line, but this would be much more inconvenient.  There are      */
+/* surely other ways of accessing `mysql', but the author is not familiar  */
+/* with them.                                                              */
+
+/* * (1)  */
+
 use Songs;
 
 /* * (1) As a user with the privilege of creating users and granting privileges (possibly `root')  */
