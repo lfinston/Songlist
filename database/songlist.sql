@@ -1132,6 +1132,13 @@ true, 1934, "{\\copyright} 1934 Mills Music");
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("Moonlight Bay", "Edward Madden", "Madden, Edward", "Percy Wenrich", "Wenrich, Percy", true, 1912,
+"{\bf 100 Years of Popular Music, 1900s}");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Moonlight Becomes You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
@@ -1141,6 +1148,8 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Moonlight Serenade", "Mitchell Parish", "Parish, Mitchell", "Glenn Miller", "Miller, Glenn", true);
+
+
 
 /* ***************************************************** */
 
