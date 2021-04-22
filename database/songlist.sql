@@ -1649,6 +1649,16 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Ten Cents a Dance", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1930);
 
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
+year, source)
+values
+("Tenderly", "Jack Lawrence", "Lawrence, Jack", "Walter Gross", "Gross, Walter", 
+true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1, p.~212}");
+
+
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
@@ -2032,6 +2042,8 @@ replace into Composers_Songs (composer, title) values ("Green, John W.", "Out of
 replace into Composers_Songs (composer, title) values ("Green, John W.", "Coquette");
 
 replace into Composers_Songs (composer, title) values ("Lombardo, Carmen", "Coquette");
+
+replace into Composers_Songs (composer, title) values ("Gross, Walter", "Tenderly");
 
 replace into Composers_Songs (composer, title) values ("Grothe, Franz", "Ja und Nein");
 
@@ -2573,11 +2585,14 @@ replace into Lyricists_Songs (lyricist, title) values ("MacDonald, Ballard", "So
 
 replace into Lyricists_Songs (lyricist, title) values ("DeSylva, Buddy", "Somebody Loves Me");
 
+replace into Lyricists_Songs (lyricist, title) values ("Lawrence, Jack", "Tenderly");
+
 replace into Lyricists_Songs (lyricist, title) values ("Magidson, Herb", "Continental, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "Manh{\\~a} da Carnaval");
 
-replace into Lyricists_Songs (lyricist, title) values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
+replace into Lyricists_Songs (lyricist, title) 
+values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
 
