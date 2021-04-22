@@ -562,7 +562,7 @@ delete from Songs where music = "Ray Henderson";
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
-"Sam M.~Lewis and Joe Widow Young", "Lewis, Sam M.~and Young, Joe Widow",
+"Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Ray Henderson", "Henderson, Ray", true, 1925); 
 
 /* ***************************************************** */
