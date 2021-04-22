@@ -534,11 +534,30 @@ replace into Songs (title, words_and_music, words_and_music_reverse, no_page_tur
 values
 ("Fly Me to the Moon", "Bart Howard", "Howard, Bart", true);
 
+/*  delete from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";  */
+
+/* delete from Songs where title = 
+"\\hbox{Five Foot Two, Eyes Of Blue}\\break\\S (Has Anybody Seen My Girl?)";  */
+
+select * from Songs where words = "Sam M.~Lewis and Joe Widow Young";
+select * from Songs where music = "Ray Henderson";
+
+select * from Songs where music = "Ray Henderson"\G
+
+delete from Songs where music = "Ray Henderson";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+values
+("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
+"Sam M.~Lewis and Joe Widow Young", "Lewis, Sam M.~and Young, Joe Widow",
+"Ray Henderson", "Henderson, Ray", true, 1925); 
+
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright)
 values
-("Fools Rush In (Where Angels Fear to Tread)", "Johnny Mercer", "Mercer, Johnny", "Rube Bloom", "Bloom, Rube", true,
+("Fools Rush In (Where Angels Fear to Tread)", "Johnny Mercer", "Mercer, Johnny",
+"Rube Bloom", "Bloom, Rube", true,
 "{\\copyright} 1940 WB Music Corp.~(Renewed)");
 
 /* ***************************************************** */

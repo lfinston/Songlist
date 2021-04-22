@@ -1286,16 +1286,16 @@ getchar();
 
        if (iter->is_production && iter->title_vector.size() > 0)
 	 {
-	   toc_ls_file << "\\S " << iter->title << endl;
+	   toc_ls_file << "\\S\\ " << iter->title << endl;
 
 	   if (iter->title == "42nd Street")
-	     toc_ls_a_h_file << "\\S " << iter->title << endl;
+	     toc_ls_a_h_file << "\\S\\ " << iter->title << endl;
 	   else if (temp_char <= 'h')
-	     toc_ls_a_h_file << "\\S " << iter->title << endl;
+	     toc_ls_a_h_file << "\\S\\ " << iter->title << endl;
 	   else if (temp_char <= 'o')
-	     toc_ls_i_o_file << "\\S " << iter->title << endl;
+	     toc_ls_i_o_file << "\\S\\ " << iter->title << endl;
 	   else 
-	     toc_ls_p_z_file << "\\S " << iter->title << endl;
+	     toc_ls_p_z_file << "\\S\\ " << iter->title << endl;
 
 	   for (vector<string>::iterator t_iter = iter->title_vector.begin();
 		t_iter != iter->title_vector.end();
