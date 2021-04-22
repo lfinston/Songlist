@@ -534,6 +534,19 @@ replace into Songs (title, words_and_music, words_and_music_reverse, no_page_tur
 values
 ("Fly Me to the Moon", "Bart Howard", "Howard, Bart", true);
 
+/* ***************************************************** */
+
+/* Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?) */
+
+/*  It's not possible to get the full title (with subtitle) to print on two lines  */
+/*  In both the TOC for lead sheets on the one hand and `composers.tex' and        */
+/*  `lyricists.tex' on the other, the way they are programmed now.                 */
+/*  in `toc_ls.tex', it works to insert `\par\S ', but this doesn't work           */
+/*  in the other files, because the title is in an `\hbox' and \par produces a     */
+/*  paragraph symbol.  I find this somewhat strange and I didn't know this would   */
+/*  happen.  It makes some sense, because `\par' doesn't make any sense inside of  */
+/*  an `\hbox'.                                                                    */
+
 /*  delete from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";  */
 
 /* delete from Songs where title = 
