@@ -29,7 +29,8 @@ TAGS
 *.log
 *.o
 *#*
-ttemp*
 circles.dvi
 circles.mpx
 circles.ps
+texput*
+ttemp*
