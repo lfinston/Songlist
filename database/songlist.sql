@@ -237,33 +237,40 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, no_page_turns, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+recordings, no_page_turns, year)
 values
-("Bel Ami", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", true, 1, true, 1939);
+("Bel Ami", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", 
+true, 1, true, 1939);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, 
+lead_sheet, year)
 values
-("Between the Devil and the Deep Blue Sea", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold", true, 1931);
+("Between the Devil and the Deep Blue Sea", "Ted Koehler", "Koehler, Ted", 
+"Harold Arlen", "Arlen, Harold", true, 1931);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, musical, lead_sheet, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
+lead_sheet, sort_by_production)
 values
-("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", "Wodehouse, P.G. and Hammerstein, Oscar II", "Jerome Kern", "Kern, Jerome",
+("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", 
+"Wodehouse, P.G. and Hammerstein, Oscar II", 
+"Jerome Kern", "Kern, Jerome",
 "Showboat", true, true);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+replace into Songs (title, words, words_reverse, music, music_reverse, 
 no_page_turns_with_two_songbooks)
 values
-("Blue Moon", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, true);
+("Blue Moon", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true);
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns)
 values
 ("Blue Skies", "Irving Berlin", "Berlin, Irving", true);
 
