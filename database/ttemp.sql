@@ -379,7 +379,8 @@ replace into Songs (title, source) values
 ("Fine Romance, A", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
+"{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("Floral Dance, The", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -478,10 +479,10 @@ replace into Songs (title, source) values
 ("Hello! My Baby", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("He'd Have To Get Under–Get Out And Get Under (To Fix Up His Automobile)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("He'd Have To Get Under–Get Out And Get Under (To Fix Up His Automobile)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("Hinky Dinky Parley-Voo  (Mademoiselle From Armentieres)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Hinky Dinky Parley-Voo  (Mademoiselle From Armentieres)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Hometown", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -490,7 +491,7 @@ replace into Songs (title, source) values
 ("How About You", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("How Are Things In Glocca Morra?", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("How Are Things In Glocca Morra?", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("How Can You Buy Killarney", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -499,7 +500,7 @@ replace into Songs (title, source) values
 ("How High The Moon", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("How Long Has This Been Going On?", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("How Long Has This Been Going On?", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("I Apologise", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -514,10 +515,10 @@ replace into Songs (title, source) values
 ("I Can't Get Started", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("I Can't Give You Anything But Love", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("I Can't Give You Anything But Love", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("I Couldn't Sleep A Wink Last Night", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("I Couldn't Sleep A Wink Last Night", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("I Cried For You", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
@@ -532,13 +533,13 @@ replace into Songs (title, source) values
 ("I Don't Know Why (I Just Do!)", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("I Don't Stand A Ghost Of A Chance", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("I Don't Stand A Ghost Of A Chance", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("I Don't Want to Set the World on Fire", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("I Don't Want to Set the World on Fire", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("I Don't Want to Walk Without You", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("I Don't Want to Walk Without You", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("I Get A Kick Out Of You", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
@@ -547,7 +548,7 @@ replace into Songs (title, source) values
 ("I Got A Gal In Kalamazoo", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("I Got It Bad (And That Ain't Good)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("I Got It Bad (And That Ain't Good)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("I Got Rhythm", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -556,7 +557,7 @@ replace into Songs (title, source) values
 ("I Gotta Right To Sing The Blues", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("I Guess I'll Have To Change My Plan", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");}
+("I Guess I'll Have To Change My Plan", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
 ("I Had The Craziest Dream", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
@@ -574,7 +575,7 @@ replace into Songs (title, source) values
 ("I Love The Moon", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("I Love You For Sentimental Reasons", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("I Love You For Sentimental Reasons", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("I Love You Truly", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -592,7 +593,7 @@ replace into Songs (title, source) values
 ("I Wanna Be Loved By You", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("I Want A Girl (Just Like The Girl That Married  Dear Old Dad)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("I Want A Girl (Just Like The Girl That Married  Dear Old Dad)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("I Want To Be Happy", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
@@ -601,10 +602,10 @@ replace into Songs (title, source) values
 ("I Went To A Marvellous Party", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("I Wish I Could Shimmy Like My Sisters Kate", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("I Wish I Could Shimmy Like My Sisters Kate", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("I Wonder Where My Baby Is Tonight", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("I Wonder Where My Baby Is Tonight", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("I Wonder Who's Kissing Her Now", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -613,7 +614,7 @@ replace into Songs (title, source) values
 ("I Won't Dance", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("I, Yi, Yi, Yi, Yi Like You Very Much", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("I, Yi, Yi, Yi, Yi Like You Very Much", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("Ida, Sweet As Apple Cider", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -682,7 +683,7 @@ replace into Songs (title, source) values
 ("It Could Happen To You", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("It Don't Mean A Thing (If It Ain't Got That Swing)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("It Don't Mean A Thing (If It Ain't Got That Swing)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("It Had To Be You", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
@@ -724,7 +725,7 @@ replace into Songs (title, source) values
 ("I'll Be Seeing You", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("I'll Be With You In Apple Blossom Time", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("I'll Be With You In Apple Blossom Time", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("I'll Close My Eyes", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -760,7 +761,7 @@ replace into Songs (title, source) values
 ("I'm Forever Blowing Bubbles ", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("I'm Going To Get Lit-Up (When The Lights Go-Up In London)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("I'm Going To Get Lit-Up (When The Lights Go-Up In London)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("I'm Going To See You Today", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
@@ -772,13 +773,13 @@ replace into Songs (title, source) values
 ("I'm Just Wild About Harry", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("I'm Looking Over A Four Leaf Clover", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("I'm Looking Over A Four Leaf Clover", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("I'm Nobody's Baby", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("I'm Putting All My Eggs In One Basket", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("I'm Putting All My Eggs In One Basket", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("I'm Shy Marry Ellen, I'm Shy", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -799,7 +800,7 @@ replace into Songs (title, source) values
 ("I've Got A Crush On You", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("I've Got My Love To Keep Me Warm", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("I've Got My Love To Keep Me Warm", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("I've Got Rings On My Fingers", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -814,7 +815,7 @@ replace into Songs (title, source) values
 ("I've Heard That Song Before", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("I've Never Seen A Straight Banana", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("I've Never Seen A Straight Banana", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("I've Told Ev'ry Little Star", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -844,7 +845,7 @@ replace into Songs (title, source) values
 ("Just A-Sittin' And A-Rockin'", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("Just Because She Made Dem Goo-Goo Eyes", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Just Because She Made Dem Goo-Goo Eyes", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Just One More Chance", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -964,7 +965,7 @@ replace into Songs (title, source) values
 ("Lovely Lady", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("Lovely Way To Spend An Evening, A", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("Lovely Way To Spend An Evening, A", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("Lover Come Back To Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
@@ -1012,7 +1013,7 @@ replace into Songs (title, source) values
 ("Mary's A Grand Old Name", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("Maybe It's Because I'm A Londoner", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("Maybe It's Because I'm A Londoner", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("Me And My Shadow", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
@@ -1030,7 +1031,7 @@ replace into Songs (title, source) values
 ("Mexicali Rose", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("Minnie The Moocher (The Ho-De-Ho Song)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("Minnie The Moocher (The Ho-De-Ho Song)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("Miss Annabelle Lee", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
@@ -1069,7 +1070,7 @@ replace into Songs (title, source) values
 ("More Than You Know", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("M-O-T-H-E-R (A Word That Means The World To Me)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("M-O-T-H-E-R (A Word That Means The World To Me)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Mother Machree", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1141,10 +1142,10 @@ replace into Songs (title, source) values
 ("Night And Day", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("Nightingale Sang In Berkeley Square, A", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("Nightingale Sang In Berkeley Square, A", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("Nobody Knows The Trouble I've Seen", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("Nobody Knows The Trouble I've Seen", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("Nobody's Sweetheart", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
@@ -1177,7 +1178,7 @@ replace into Songs (title, source) values
 ("On Mother Kelly's Doorstep", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("On The Atchison, Topeka And The Santa Fe", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("On The Atchison, Topeka And The Santa Fe", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("On The Road To Mandalay", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1192,10 +1193,10 @@ replace into Songs (title, source) values
 ("Once In A While", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("One For My Baby (And One More For The Road)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("One For My Baby (And One More For The Road)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("One I Love Belongs To Somebody Else, The", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("One I Love Belongs To Somebody Else, The", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("Only A Rose", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
@@ -1210,10 +1211,10 @@ replace into Songs (title, source) values
 ("Over There", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("Pack Up Your Troubles In Your Old Kit Bag  and Smile, Smile, Smile", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Pack Up Your Troubles In Your Old Kit Bag  and Smile, Smile, Smile", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("Painting The Clouds With Sunshine", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("Painting The Clouds With Sunshine", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("Paper Doll", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -1246,7 +1247,7 @@ replace into Songs (title, source) values
 ("Pistol Packin' Mama", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("Please Don't Talk About Me When I'm Gone", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");}
+("Please Don't Talk About Me When I'm Gone", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
 ("Poor Butterfly", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1270,7 +1271,7 @@ replace into Songs (title, source) values
 ("Red Sails In The Sunset", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("Rock-A-Bye Your Baby (With A Dixie Melody)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Rock-A-Bye Your Baby (With A Dixie Melody)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Room Five-Hundred-And-Four", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -1318,7 +1319,7 @@ replace into Songs (title, source) values
 ("Scarlet Ribbons", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("School Days (When We Were A Couple Of Kids)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("School Days (When We Were A Couple Of Kids)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Sea, The (La Mer)", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -1357,7 +1358,7 @@ replace into Songs (title, source) values
 ("Side By Side", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("Sidewalks Of New York, The (East Side, West Side)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Sidewalks Of New York, The (East Side, West Side)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Sing As We Go", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
@@ -1483,7 +1484,7 @@ replace into Songs (title, source) values
 ("Ta-Ra-Ra Boom-de-ay", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("'Tain't Nobody's Biz-Ness if I Do", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("'Tain't Nobody's Biz-Ness if I Do", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("Take Me Out To The Ballgame", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1519,7 +1520,7 @@ replace into Songs (title, source) values
 ("That Old Black Magic", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("That Old Fashioned Mother Of Mine", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("That Old Fashioned Mother Of Mine", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("There Goes That Song Again", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -1528,22 +1529,22 @@ replace into Songs (title, source) values
 ("There Must Be A Way", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("There's A Blue Ridge In My Heart Virginia", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("There's A Blue Ridge In My Heart Virginia", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("There's A Rainbow 'Round My Shoulder", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("There's A Rainbow 'Round My Shoulder", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("There's A Small Hotel", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
-("They Can't Take That Away From Me", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("They Can't Take That Away From Me", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("They're Changing The Guard at Buckingham Palace", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("They're Changing The Guard at Buckingham Palace", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("Things We Did Last Summer, The", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("Things We Did Last Summer, The", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("This Can't Be Love", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
@@ -1570,7 +1571,7 @@ replace into Songs (title, source) values
 ("Time After Time", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("Tip Toe Through The Tulips With Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("Tip Toe Through The Tulips With Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("To Each His Own", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
@@ -1582,7 +1583,7 @@ replace into Songs (title, source) values
 ("Too Marvellous For Words", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("Too-Ra-Loo-Ra-Loo-Ral (That's An Irish Lullaby)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Too-Ra-Loo-Ra-Loo-Ral (That's An Irish Lullaby)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Toot Toot Toosie Goodbye", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
@@ -1618,7 +1619,7 @@ replace into Songs (title, source) values
 ("Waltzing In The Clouds", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("Way Down Yonder In New Orleans", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
+("Way Down Yonder In New Orleans", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
 ("Way You Look Tonight, The", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -1633,7 +1634,7 @@ replace into Songs (title, source) values
 ("We'll Keep A Welcome", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("We're In The Money (The Gold Digger's Song)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("We're In The Money (The Gold Digger's Song)", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("What A Difference A Day Made", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -1657,7 +1658,7 @@ replace into Songs (title, source) values
 ("When Irish Eyes Are Smiling", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
-("When It's Apple Blossom Time In Normandy", "{\\bf 100 Years of Popular Music, 1900s}");}
+("When It's Apple Blossom Time In Normandy", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("When I'm Cleaning Windows", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
@@ -1666,13 +1667,13 @@ replace into Songs (title, source) values
 ("When My Baby Smiles At Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("When My Sugar Walks Down The Street", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("When My Sugar Walks Down The Street", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("When Somebody Thinks You're Wonderful", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("When Somebody Thinks You're Wonderful", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
-("When The Red, Red Robin Comes Bob, Bob Bobbin' Along", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("When The Red, Red Robin Comes Bob, Bob Bobbin' Along", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("When The Saints Go Marching In", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1681,13 +1682,13 @@ replace into Songs (title, source) values
 ("When You Wish Upon A Star", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("When You Wore A Tulip and I Wore A Big Red Rose", "{\\bf 100 Years of Popular Music, 1900s}");}
+("When You Wore A Tulip and I Wore A Big Red Rose", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("When You and I Were Seventeen", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("When Your Old Wedding Ring Was New", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");}
+("When Your Old Wedding Ring Was New", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
 
 replace into Songs (title, source) values
 ("When You're Smiling", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
@@ -1720,7 +1721,7 @@ replace into Songs (title, source) values
 ("Why Do I Love You", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("Will You Love Me In December  (As You Do In May?)", "{\\bf 100 Years of Popular Music, 1900s}");}
+("Will You Love Me In December  (As You Do In May?)", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Wind, Tell My Sweetheart", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1738,7 +1739,7 @@ replace into Songs (title, source) values
 ("Wonderful One", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("World Is Waiting For The Sunrise, The", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");}
+("World Is Waiting For The Sunrise, The", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
 ("Yankee Doodle Boy, The", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1753,7 +1754,7 @@ replace into Songs (title, source) values
 ("Yes! We Have No Bananas", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("You Came Along (From Out Nowhere)", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");}
+("You Came Along (From Out Nowhere)", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
 ("You Can't Stop The Yanks", "{\\bf 100 Years of Popular Music, 1900s}");
@@ -1762,7 +1763,7 @@ replace into Songs (title, source) values
 ("You Do Something To Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");
 
 replace into Songs (title, source) values
-("You Don't Have To Tell Me (I Know)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");}
+("You Don't Have To Tell Me (I Know)", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
 ("You Go To My Head", "{\\bf 100 Years of Popular Music, 1930s, Volume 2");
@@ -1774,13 +1775,13 @@ replace into Songs (title, source) values
 ("You Make Me Feel So Young", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("You Must Have Been A Beautiful Baby", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");}
+("You Must Have Been A Beautiful Baby", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
 
 replace into Songs (title, source) values
 ("You Stepped Out Of A Dream", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("You Tell Me Your Dream, I'll Tell You Mine", "{\\bf 100 Years of Popular Music, 1900s}");}
+("You Tell Me Your Dream, I'll Tell You Mine", "{\\bf 100 Years of Popular Music, 1900s}");
 
 replace into Songs (title, source) values
 ("Young And Healthy", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -1792,7 +1793,7 @@ replace into Songs (title, source) values
 ("Yours", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
-("You'd Be So Nice To Come Home To", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("You'd Be So Nice To Come Home To", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("You'll Never Know", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
@@ -1804,7 +1805,7 @@ replace into Songs (title, source) values
 ("You're Breaking My Heart", "{\\bf 100 Years of Popular Music, 1940s, Volume 2");
 
 replace into Songs (title, source) values
-("You're In Kentucky Sure As You're Born", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}}
+("You're In Kentucky Sure As You're Born", "{\\bf 100 Years of Popular Music, 1920s, Volume 2");}
 
 replace into Songs (title, source) values
 ("You're My Everything", "{\\bf 100 Years of Popular Music, 1930s, Volume 1");
@@ -1813,7 +1814,7 @@ replace into Songs (title, source) values
 ("You're The Cream In My Coffee", "{\\bf 100 Years of Popular Music, 1920s, Volume 1");
 
 replace into Songs (title, source) values
-("You've Done Something To My Heart", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");}
+("You've Done Something To My Heart", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
 
 replace into Songs (title, source) values
 ("Zip-A-Dee-Doo-Dah.", "{\\bf 100 Years of Popular Music, 1940s, Volume 1");
