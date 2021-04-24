@@ -1,10 +1,47 @@
 /* /home/laurence/Songlist/database/ttemp.sql  */
 /* Created by Laurence D. Finston (LDF) Sat 24 Apr 2021 01:54:06 PM CEST  */
 
-/* !! PLEASE NOTE:  The arguments for the `source' field in the `update' */
-/* contain the additional "source" information from `songlist.sql';      */
-/* the ones in the `insert' commmands don't.                             */
-/* Therefore, the `update' commands must always be executed.             */
+/* * Copyright and License.*/
+
+/* This file is part of songlist, a package for keeping track of songs. */
+/* Copyright (C) 2021 Laurence D. Finston */
+
+/* songlist is free software; you can redistribute it and/or modify */
+/* it under the terms of the GNU General Public License as published by */
+/* the Free Software Foundation; either version 3 of the License, or */
+/* (at your option) any later version. */
+
+/* songlist is distributed in the hope that it will be useful, */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
+/* GNU General Public License for more details. */
+
+/* You should have received a copy of the GNU General Public License */
+/* along with songlist; if not, write to the Free Software */
+/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+
+/* Please send bug reports to Laurence.Finston@gmx.de */
+
+/* The SQL code in this file is meant to be executed after the code in the */
+/* file `songlist.sql' in this directory.                                  */
+
+/* This file contains database entries for all of the songs in the series        */
+/* _100 Years of Popular Music_ published by Faber, but only from the following  */
+/* volumes: 1900, 1920s Vol. 1 and 2, 1930s Vol. 1 and 2 and 1940s Vol. 1 and 2. */
+
+/* !! PLEASE NOTE:  The arguments for the `source' field in the `update'   */
+/* contain the additional "source" information from `songlist.sql';        */
+/* the ones in the `insert' commmands don't.                               */
+/* Therefore, the `update' commands must always be executed.               */
+/* The `insert' commands ensure that a database entry exists.              */
+/* Database entries for some songs were created by `replace' commands      */ 
+/* in the file `songlist.sql'.  These are for songs 1. for which I've      */
+/* written lead sheets or partial lead sheets (PLS) or 2. where there      */
+/* are no page turns in one or more printed editions (NPT) or              */
+/* 3. where I have the same song in two songbooks and can use them to      */
+/* play them without having to turn pages (WTS = "with two songbooks").    */
+/* Of course, "PLS", "NPT" and "WTS" are only useful to the author or      */
+/* people who happen to own the same songbooks that I do.                  */
 /* LDF 2021.04.24.  */
 
 /* A  */
