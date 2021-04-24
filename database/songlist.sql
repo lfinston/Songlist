@@ -35,6 +35,16 @@
 /* surely other ways of accessing `mysql', but the author is not familiar  */
 /* with them.                                                              */
 
+/* !! PLEASE NOTE:  The file `songlist_1.sql' contains `insert' commands         */
+/* with the (`ignore' keyword) and `update' commands that set the `Songs:source' */
+/* field.  The arguments for the `source' field in `replace' commands in this    */
+/* file may be out-of-date.                                                      */
+/*                                                                               */
+/* When and if this file and `songlist_1.sql' are set up to be read in `mysql'   */
+/* using the `source' command (or `\.'), then this file should be read first and */
+/* then `songlist_1.sql'.  As of this date, this is not yet the case.            */
+/* LDF 2021.04.24.  */
+
 /* * (1)  */
 
 use Songs;
@@ -802,7 +812,8 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
-("I'll See You Again", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, "{\\copyright} 1929 (Renewed).",
+("I'll See You Again", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, 
+"{\\copyright} 1929 (Renewed).",
 "{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34");
 
 /* ***************************************************** */
@@ -1030,7 +1041,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
 values
-("Let's Fall in Love", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold", true, "Source: The Harold Arlen Songbook", 
+("Let's Fall in Love", "Ted Koehler", "Koehler, Ted", "Harold Arlen", "Arlen, Harold", true, 
+"{\\bf The Harold Arlen Songbook}", 
 1933);
 
 /* ***************************************************** */
@@ -1677,8 +1689,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 year, source)
 values
 ("Tenderly", "Jack Lawrence", "Lawrence, Jack", "Walter Gross", "Gross, Walter", 
-true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1, p.~212}");
-
+true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1}, p.~212");
 
 /* ***************************************************** */
 

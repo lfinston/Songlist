@@ -1,8 +1,11 @@
 /* /home/laurence/Songlist/database/ttemp.sql  */
 /* Created by Laurence D. Finston (LDF) Sat 24 Apr 2021 01:54:06 PM CEST  */
 
-/* !! START HERE:  Get "source" from the database entries in `songlist.sql' */
-/* and modify entries accordingly.                                          */
+/* !! PLEASE NOTE:  The arguments for the `source' field in the `update' */
+/* contain the additional "source" information from `songlist.sql';      */
+/* the ones in the `insert' commmands don't.                             */
+/* Therefore, the `update' commands must always be executed.             */
+/* LDF 2021.04.24.  */
 
 /* A  */
 
@@ -1381,7 +1384,12 @@ update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}" w
 insert ignore into Songs (title, source) values
 ("I'll See You Again", "{\\bf 100 Years of Popular Music, 1920s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 1}" where title = "I'll See You Again";
+update Songs set source = 
+"{\\bf 100 Years of Popular Music, 1920s, Volume 1} and "
+"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34" 
+where title = "I'll See You Again";
+
+select * from Songs where title = "I'll See You Again"\G
 
 insert ignore into Songs (title, source) values
 ("I'll See You In My Dreams", "{\\bf 100 Years of Popular Music, 1920s, Volume 1}");
@@ -1499,14 +1507,17 @@ insert ignore into Songs (title, source) values
 update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" where title = "I've Got The World On A String";
 
 insert ignore into Songs (title, source) values
-("I've Got You Under My Skin", "{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
+("I've Got You Under My Skin",
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" where title = "I've Got You Under My Skin";
+update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1} and {\\bf The Best of Cole Porter}"
+where title = "I've Got You Under My Skin";
 
 insert ignore into Songs (title, source) values
 ("I've Heard That Song Before", "{\\bf 100 Years of Popular Music, 1940s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}" where title = "I've Heard That Song Before";
+update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}"
+where title = "I've Heard That Song Before";
 
 insert ignore into Songs (title, source) values
 ("I've Never Seen A Straight Banana", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
@@ -1672,7 +1683,9 @@ update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 2}" w
 insert ignore into Songs (title, source) values
 ("Let's Fall In Love", "{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" where title = "Let's Fall In Love";
+update Songs set source =
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1} and {\\bf The Harold Arlen Songbook}"
+where title = "Let's Fall In Love";
 
 insert ignore into Songs (title, source) values
 ("Let's Misbehave", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
@@ -1772,7 +1785,8 @@ update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}" w
 insert ignore into Songs (title, source) values
 ("Lover Come Back To Me", "{\\bf 100 Years of Popular Music, 1920s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 1}" where title = "Lover Come Back To Me";
+update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 1}, p.~152" 
+where title = "Lover Come Back To Me";
 
 insert ignore into Songs (title, source) values
 ("Love's Last Word Is Spoken", "{\\bf 100 Years of Popular Music, 1930s, Volume 2}");
@@ -2683,7 +2697,8 @@ update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" w
 insert ignore into Songs (title, source) values
 ("Tenderly", "{\\bf 100 Years of Popular Music, 1940s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}" where title = "Tenderly";
+update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}, p.~212" 
+where title = "Tenderly";
 
 insert ignore into Songs (title, source) values
 ("Thanks For The Memory", "{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
