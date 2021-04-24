@@ -168,18 +168,21 @@ true, 1929);
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, arrangement_solo_guitar,
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+recordings, arrangement_solo_guitar,
 film)
 values
 ("All God's Children", /* '  */
-"Gus Kahn", "Kahn, Gus", "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
+"Gus Kahn", "Kahn, Gus",
+"Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
 true, 1, true, "A Day at the Races");
 
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
-("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true);
+("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar",
+"Jerome Kern", "Kern, Jerome", true);
 
 /* ***************************************************** */
 
@@ -562,9 +565,20 @@ values
 select * from Songs where words = "Sam M.~Lewis and Joe Widow Young";
 select * from Songs where music = "Ray Henderson";
 
+
+
+insert ignore into Songs (title, source) values
+("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
+"{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
+
 select * from Songs where music = "Ray Henderson"\G
 
+select * from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)"\G
+
 delete from Songs where music = "Ray Henderson";
+
+update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 2}"
+where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
