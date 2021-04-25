@@ -788,6 +788,16 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, musical, source)
+values
+("I Wonder Who's Kissing Her Now", 
+"Will M.~Hough and Frank R.~Adams", "Hough, Will M.~and Adams, Frank R.",
+"Harold Orlob", "Orlob, Harold", false, 1909, "The Prince of To-Night",
+"{\\bf 100 Years of Popular Music, 1900}");
+
+/* ***************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright)
 values
 ("If Love Were All", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, "{\\copyright} 1929 (Renewed).");
@@ -2242,9 +2252,12 @@ replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've
 
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
 
-replace into Composers_Songs (composer, title) values ("Nacio Brown, Herb", "Wedding of the Painted Doll, The");
+replace into Composers_Songs (composer, title) values
+("Nacio Brown, Herb", "Wedding of the Painted Doll, The");
 
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole");
+
+replace into Composers_Songs (composer, title) values ("Orlob, Harold", "I Wonder Who's Kissing Her Now");
 
 replace into Composers_Songs (composer, title) values ("Paul, Gene de", "I'll Remember April");
 
@@ -2533,6 +2546,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of Nowhere");
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
+
+delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
+
+replace into Lyricists_Songs (lyricist, title) values 
+("Hough, Will M.", "I Wonder Who's Kissing Her Now");
+
+replace into Lyricists_Songs (lyricist, title) values 
+("Adams, Frank R.", "I Wonder Who's Kissing Her Now");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "Moon-Faced, Starry-Eyed");
 
