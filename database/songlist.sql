@@ -1308,16 +1308,26 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
+sort_by_production)
 values
-("On the Street Where You Live", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true,  "My Fair Lady",
+("On the Street Where You Live", "Alan Jay Lerner", "Lerner, Alan Jay",
+"Frederick Loewe", "Loewe, Frederick", true,  "My Fair Lady",
 true);
 
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
 values
-("On the Sunny Side of the Street", "Dorothy Fields", "Fields, Dorothy", "Jimmy McHugh", "McHugh, Jimmy", true, 1);
+("On the Sunny Side of the Street", "Dorothy Fields", "Fields, Dorothy",
+"Jimmy McHugh", "McHugh, Jimmy", true, 1);
+
+replace into Songs (title, words_and_music, words_and_music_reverse,
+lead_sheet, year, copyright, musical, source)
+values
+("Once in Love with Amy", "Frank Loesser", "Loesser, Frank", true, 1948,
+"Copyright {\\copyright} 1948 (Renewed) Frank Music Corp.",
+"Where's Charlie?", "The Frank Loesser Songbook, p.~175");
 
 /* ***************************************************** */
 
