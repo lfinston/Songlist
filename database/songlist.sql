@@ -2107,6 +2107,13 @@ replace into Composers_Songs (composer, title) values ("Gross, Walter", "Tenderl
 
 replace into Composers_Songs (composer, title) values ("Grothe, Franz", "Ja und Nein");
 
+replace into Composers_Songs (composer, title) values 
+("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
+"Henderson, Ray");
+
+"Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
+"Ray Henderson", , true, 1925); 
+
 replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Moonlight Becomes You");
 
 replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Nancy with the Laughing Face");
@@ -2630,6 +2637,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Lerner, Alan Jay", "I Co
 replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "Rock-a-Bye Your Baby (With a Dixie Melody)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "Rock-a-Bye Your Baby (With a Dixie Melody)");
+
+replace into Lyricists_Songs (lyricist, title) values 
+("Lewis, Sam M.", "Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)");
+
+replace into Lyricists_Songs (lyricist, title) values 
+("Young, Joe", "Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Livingston, Jay", "Mr.~Lucky");
 
