@@ -406,9 +406,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+musical, sort_by_production, year, copyright, source)
 values
-("Consider Yourself", "Lionel Bart", "Bart, Lionel", true, "Oliver!", true);
+("Consider Yourself", "Lionel Bart", "Bart, Lionel", true,
+"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~30.");
 
 /* ***************************************************** */
 
@@ -575,8 +578,6 @@ values
 select * from Songs where words = "Sam M.~Lewis and Joe Widow Young";
 select * from Songs where music = "Ray Henderson";
 
-
-
 insert ignore into Songs (title, source) values
 ("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
 "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
@@ -595,6 +596,15 @@ values
 ("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Ray Henderson", "Henderson, Ray", true, 1925); 
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+musical, sort_by_production, year, copyright, source)
+values
+("Food, Glorious Food", "Lionel Bart", "Bart, Lionel", true,
+"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~18.");
 
 /* ***************************************************** */
 
@@ -2637,6 +2647,8 @@ replace into Lyricists_Songs (lyricist, title) values ("DeSylva, Buddy", "Somebo
 
 replace into Lyricists_Songs (lyricist, title) values ("Lawrence, Jack", "Tenderly");
 
+replace into Lyricists_Songs (lyricist, title) values ("Madden, Edward", "Moonlight Bay");
+
 replace into Lyricists_Songs (lyricist, title) values ("Magidson, Herb", "Continental, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "Manh{\\~a} da Carnaval");
@@ -2750,6 +2762,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister S
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Consider Yourself");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Consider Yourself");
 
+replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Food, Glorious Food");
+replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Food, Glorious Food");
+
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "No Strings");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Strings");
 
@@ -2831,6 +2846,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Fisher, Fred", "Chicago 
 
 replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
 replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
+
+replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Once in Love with Amy");
+replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Once in Love with Amy");
+
+replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Guys and Dolls");
+replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Guys and Dolls");
 
 replace into Composers_Songs (composer, title) values ("Gordon, Irving", "Unforgettable");
 replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Unforgettable");
