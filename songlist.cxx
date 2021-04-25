@@ -269,8 +269,10 @@ main(int argc, char **argv)
                   next_composer = next->music_reverse;
                else if (next->words_and_music_reverse != "")
                   next_composer = next->words_and_music_reverse;
-
-               cerr << "`next_composer' == " << next_composer << endl;
+               if (DEBUG)
+               {
+                  cerr << "`next_composer' == " << next_composer << endl; 
+               } 
             }
 
             if (DEBUG)
@@ -402,7 +404,10 @@ main(int argc, char **argv)
                else if (next->words_and_music_reverse != "")
                   next_lyricist = next->words_and_music_reverse;
 
-               cerr << "`next_lyricist' == " << next_lyricist << endl;
+               if (DEBUG)
+               {
+                  cerr << "`next_lyricist' == " << next_lyricist << endl;
+               } 
             }
 
             if (DEBUG)
