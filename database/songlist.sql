@@ -604,7 +604,7 @@ musical, sort_by_production, year, copyright, source)
 values
 ("Food, Glorious Food", "Lionel Bart", "Bart, Lionel", true,
 "Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
-"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~18.");
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~9.");
 
 /* ***************************************************** */
 
