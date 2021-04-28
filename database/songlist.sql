@@ -1365,9 +1365,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
+copyright, source)
 values
-("Over the Rainbow", "E.Y.~``Yip'' Harburg", "Harburg, E.Y.~``Yip''", "Harold Arlen", "Arlen, Harold", true, "Wizard of Oz, The");
+("Over the Rainbow", "E.Y.~Harburg", "Harburg, E.Y.", "Harold Arlen", "Arlen, Harold", 
+true, "Wizard of Oz, The", 1938, "Copyright {\\copyright} 1938, 1939 (Renewed)",
+"{\\bf The Harold Arlen Songbook}, p.~112");
 
 select "!!! End O";
 
@@ -2527,7 +2530,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
 
-replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.~``Yip''", "Over the Rainbow");
+delete from Lyricists_Songs where title = "Over the Rainbow";
+
+replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moon");
 
