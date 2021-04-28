@@ -1366,11 +1366,11 @@ values
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
-copyright, source)
+copyright, source, notes)
 values
 ("Over the Rainbow", "E.Y.~Harburg", "Harburg, E.Y.", "Harold Arlen", "Arlen, Harold", 
 true, "Wizard of Oz, The", 1938, "Copyright {\\copyright} 1938, 1939 (Renewed)",
-"{\\bf The Harold Arlen Songbook}, p.~112");
+"{\\bf The Harold Arlen Songbook}, p.~112", "Accidentally wrote out lead sheet twice.");
 
 select "!!! End O";
 
