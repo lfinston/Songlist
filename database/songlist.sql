@@ -766,13 +766,15 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
 values
-("I Married an Angel", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, "I Married an Angel");
+("I Married an Angel", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
+true, "I Married an Angel");
 
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
 values
-("I Only Have Eyes for You", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "Dames");
+("I Only Have Eyes for You", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
+true, "Dames");
 
 /* ***************************************************** */
 
@@ -793,8 +795,8 @@ lead_sheet, year, musical, source)
 values
 ("I Wonder Who's Kissing Her Now", 
 "Will M.~Hough and Frank R.~Adams", "Hough, Will M.~and Adams, Frank R.",
-"Harold Orlob", "Orlob, Harold", false, 1909, "The Prince of To-Night",
-"{\\bf 100 Years of Popular Music, 1900}");
+"Harold Orlob", "Orlob, Harold", true, 1909, "The Prince of To-Night",
+"{\\bf 100 Years of Popular Music, 1900}, p.~144.");
 
 /* ***************************************************** */
 
