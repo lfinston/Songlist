@@ -932,7 +932,6 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("It Had to be You", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true, 1924);
 
- 
 /* ***************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
