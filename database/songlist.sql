@@ -1179,6 +1179,16 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+copyright, musical, source)
+values
+("Manhattan", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
+1925, "Copyright {\\copyright} 1925 by Edward B.~Marks Music Company.  Copyright Renewed.",
+"Garrick Gaities", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~106.");
+
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
 ("Many a New Day", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
@@ -2286,6 +2296,8 @@ replace into Composers_Songs (composer, title) values ("Fran{\\c c}ois, Claude",
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady is a Tramp, The");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Manhattan");
+
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "You Took Advantage of Me");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Ten Cents a Dance");
@@ -2541,6 +2553,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moo
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Lady is a Tramp, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Manhattan");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Ten Cents a Dance");
 
