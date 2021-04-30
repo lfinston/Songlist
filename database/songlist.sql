@@ -582,20 +582,22 @@ insert ignore into Songs (title, source) values
 ("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
 "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
 
-select * from Songs where music = "Ray Henderson"\G
+-- select * from Songs where music = "Ray Henderson"\G
 
-select * from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)"\G
+-- select * from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)"\G
 
-delete from Songs where music = "Ray Henderson";
+-- select * from Songs where title = "Five Foot Two, Eyes Of Blue"\G
+
+-- delete from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
 update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 2}"
 where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
+("Five Foot Two, Eyes Of Blue",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
-"Ray Henderson", "Henderson, Ray", true, 1925); 
+"Ray Henderson", "Henderson, Ray", true, 1925, "Subtitle:  Has Anybody Seen My Girl?"); 
 
 /* ***************************************************** */
 
@@ -716,6 +718,20 @@ values
 ("How About You?", "Ralph Freed", "Freed, Ralph", "Burton Lane", "Lane, Burton", true);
 
 /* banjo chords accomp.  */
+
+/* ***************************************************** */
+
+/* select * from Songs where music = "Walter Donaldson"\G  */
+
+/* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
+year, source, notes)
+values
+("How 'Ya Gonna Keep 'Em Down on the Farm?",
+"Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
+"Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
+"Subtitle:  After They've Seen Paree"); 
 
 /* I   */
 
@@ -2070,11 +2086,15 @@ replace into Composers_Songs (composer, title) values ("DeRose, Peter", "Deep Pu
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Carolina in the Morning");
 
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Little White Lies");
+
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Love Me or Leave Me");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Baby Just Cares for Me");
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Blue Heaven");
 
-replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Baby Just Cares for Me");
+-- select * from Composers_Songs where composer = "Donaldson, Walter";
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
 
@@ -2135,9 +2155,6 @@ replace into Composers_Songs (composer, title) values ("Grothe, Franz", "Ja und 
 replace into Composers_Songs (composer, title) values 
 ("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
 "Henderson, Ray");
-
-"Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
-"Ray Henderson", , true, 1925); 
 
 replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Moonlight Becomes You");
 
@@ -2680,11 +2697,23 @@ replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "Rock-a-
 
 replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "Rock-a-Bye Your Baby (With a Dixie Melody)");
 
-replace into Lyricists_Songs (lyricist, title) values 
-("Lewis, Sam M.", "Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)");
+replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "How 'Ya Gonna Keep 'Em Down on the Farm?");
 
-replace into Lyricists_Songs (lyricist, title) values 
-("Young, Joe", "Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)");
+replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "How 'Ya Gonna Keep 'Em Down on the Farm?");
+
+select * from Songs where music = "Ray Henderson"\G
+
+-- select * from Lyricists_Songs where lyricist = "Young, Joe"\G
+
+-- delete from Lyricists_Songs where lyricist = "Young, Joe"\G
+
+-- select * from Lyricists_Songs where lyricist = "Lewis, Sam M."\G
+
+-- delete from Lyricists_Songs where lyricist = "Lewis, Sam M."\G
+
+replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "Five Foot Two, Eyes Of Blue");
+
+replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "Five Foot Two, Eyes Of Blue");
 
 replace into Lyricists_Songs (lyricist, title) values ("Livingston, Jay", "Mr.~Lucky");
 
