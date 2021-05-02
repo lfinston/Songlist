@@ -1729,7 +1729,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, film)
 values
-("Tammy", "Ray Evans", "Evans, Ray", "Jay Livingston", "Livingston, Jay", true, 1957, "Tammy and the Bachelor");
+("Tammy", "Ray Evans", "Evans, Ray", "Jay Livingston", "Livingston, Jay", true, 
+1957, "Tammy and the Bachelor");
 
 /* ***************************************************** */
 
@@ -1805,6 +1806,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("This Can't be Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
 "\\hbox{}\\hbox{\\hskip-\\noteswd Verse incomplete on lead sheet and score.\\hss}");
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, musical, source)
+values
+("Thou Swell", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1927,
+"Connecticut Yankee, A", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~82");
 
 /* ***************************************************** */
 
@@ -2330,6 +2339,8 @@ replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "I Ma
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Many a New Day");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Thou Swell");
+
 replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Softly, Love");
 
 replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Nevertheless (I'm In Love With You)");
@@ -2579,6 +2590,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "I Marrie
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took Advantage of Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It Romantic?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Thou Swell");
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of Nowhere");
 
