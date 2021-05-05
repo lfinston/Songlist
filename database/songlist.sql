@@ -1269,8 +1269,6 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Moonlight Serenade", "Mitchell Parish", "Parish, Mitchell", "Glenn Miller", "Miller, Glenn", true);
 
-
-
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
@@ -2341,6 +2339,8 @@ replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Many
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Thou Swell");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "My Heart Stood Still");
+
 replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Softly, Love");
 
 replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Nevertheless (I'm In Love With You)");
@@ -2592,6 +2592,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It Romantic?");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Thou Swell");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "My Heart Stood Still");
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of Nowhere");
 
