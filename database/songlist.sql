@@ -283,15 +283,15 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year)
 values
-("Blue Skies", "Irving Berlin", "Berlin, Irving", true);
+("Blue Skies", "Irving Berlin", "Berlin, Irving", true, 1926);
 
 /* ***************************************************** */
 
-replace into Songs (title, lead_sheet, recordings)
+replace into Songs (title, lead_sheet, recordings, year)
 values
-("Blue Velvet", true, 1);
+("Blue Velvet", true, 1, 1951);
 
 /* banjo_chord_melody present */
 
@@ -553,7 +553,7 @@ values
 
 /* ***************************************************** */
 
-delete from Songs where title = "Fly Me to the Moon";
+-- delete from Songs where title = "Fly Me to the Moon";
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
