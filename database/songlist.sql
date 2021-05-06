@@ -535,6 +535,13 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, source)
+values
+("Falling in Love With Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
+true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Selection}, p.~3.");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year)
 values
 ("Feuilles Mortes, Les", "Jacques Prevert", "Prevert, Jacques", "Joseph Kosma", "Kosma, Joseph", true, 1947);
