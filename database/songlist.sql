@@ -902,9 +902,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns_with_two_songbooks)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
 values
-("Imagination", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
+("Imagination", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1939,
+"{\\bf Classic Songs of Johnny Burke}, p.~44.", true);
 
 /* ***************************************************** */
 
