@@ -1251,12 +1251,19 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, copyright, film, source)
+values
+("Moon River", "Johnny Mercer", "Mercer, Johnny", "Henry Mancini", "Mancini, Henry", true,
+1961, "Copyright {\\copyright} 1961 (Renewed 1989) by FAMOUS MUSIC CORPORATION, New York, N.Y.",
+"Breakfast at Tiffany's", 
+"{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~180.");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical)
 values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
 "Street Scene");
-
-/* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
@@ -1605,11 +1612,12 @@ values
 
 /* ***************************************************** */
 
-/*  Words Johnny Mercer??  */
-
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
 values
-("Skylark", "Hoagy Carmichael", "Carmichael, Hoagy", true);
+("Skylark", "Johnny Mercer", "Mercer, Johnny", "Hoagy Carmichael", "Carmichael, Hoagy", true,
+1941, "Copyright {\\copyright} 1941, 1942 GEORGE SIMON, INC.  Copyrights Renewed (1969, 1970) "
+"and Assigned to WB MUSIC CORP.~and FRANK MUSIC CORP.",
+"{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~93.");
 
 /* ***************************************************** */
 
