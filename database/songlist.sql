@@ -556,10 +556,10 @@ values
 
 -- delete from Songs where title = "Fly Me to the Moon";
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, scanned, source)
 values
 ("Fly Me to the Moon (In Other Words)", "Bart Howard", "Howard, Bart", true, 1954, 
-"Copyright {\\copyright} 1954 (Renewed)", "{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~65.");
+"Copyright {\\copyright} 1954 (Renewed)", true, "{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~65.");
 
 /* ***************************************************** */
 
