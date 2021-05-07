@@ -680,9 +680,13 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns_with_two_songbooks)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, copyright, source)
 values
-("Heart and Soul", "Frank Loesser", "Loesser, Frank", "Hoagy Carmichael", "Carmichael, Hoagy", true);
+("Heart and Soul", "Frank Loesser", "Loesser, Frank", 
+"Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
+"Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
+"{\\bf The Hoagy Carmichael Songbook}, p.~28.");
 
 /* ***************************************************** */
 
