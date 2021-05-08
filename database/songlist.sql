@@ -167,6 +167,7 @@ show columns from Lyricists_Songs;
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940);
+
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
@@ -192,6 +193,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Jerome Kern", "Kern, Jerome", true);
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
+values
+("Alone Again (Naturally)", "Gilbert O'Sullivan", "O'Sullivan, Gilbert", false, 
+1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~16.",
+"Authors real name:  Ray Gilbert.");
 
 /* ***************************************************** */
 
@@ -381,6 +390,14 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, scanned)
 values
 ("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922, true);
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
+values
+("Claire", "Gilbert O'Sullivan", "O'Sullivan, Gilbert", false, 
+1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
+"Authors real name:  Ray Gilbert.");
 
 /* ***************************************************** */
 
@@ -740,7 +757,7 @@ values
 
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 year, source, notes)
 values
 ("How 'Ya Gonna Keep 'Em Down on the Farm?",
@@ -962,11 +979,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+year, copyright, source, musical)
 values
 ("It's De-Lovely", "Cole Porter", "Porter, Cole", true, 1936, 
 "Copyright {\\copyright} 1936 by Chappell \\& Co. (Renewed).", 
-"{\\bf The Best of Cole Porter}, p.~95");
+"{\\bf The Best of Cole Porter}, p.~95", "Red, Hot and Blue");
 
 /* ***************************************************** */
 
@@ -2029,8 +2047,6 @@ select words_and_music_reverse, title from Songs
 where words_and_music_reverse = "Porter, Cole"
 order by title\G
 
-
-
 select distinct music_reverse, words_and_music_reverse from Songs
 where music_reverse is not null or words_and_music_reverse is not null
 order by music_reverse, words_and_music_reverse\G
@@ -2975,7 +2991,6 @@ replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Pa
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
 
-
 replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
 replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");
 
@@ -3041,6 +3056,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standi
 
 replace into Composers_Songs (composer, title) values ("Loesser, Frank", "On a Slow Boat to China");
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "On a Slow Boat to China");
+
+replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert", "Claire");
+replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert", "Claire");
+
+replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert", "Alone Again (Naturally)");
+replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert", "Alone Again (Naturally)");
+
 
 replace into Composers_Songs (composer, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
 replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
