@@ -23,7 +23,6 @@
 
 /* Please send bug reports to Laurence.Finston@gmx.de */
 
-
 /* * (1)  Instructions  */
 
 /* !! PLEASE NOTE:  It is not intended that this file be loaded using the  */
@@ -963,6 +962,14 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
+values
+("It's De-Lovely", "Cole Porter", "Porter, Cole", true, 1936, 
+"Copyright {\\copyright} 1936 by Chappell \\& Co. (Renewed).", 
+"{\\bf The Best of Cole Porter}, p.~95");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("It's Not For Me to Say", "Al Stillman", "Stillman, Al", "Robert Allen", "Allen, Robert", true);
@@ -1196,6 +1203,17 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
 ("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true);
+
+
+/* ***************************************************** */
+
+
+-- delete from Songs where title = "Makin' Whopee!";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
+"{\\bf 100 Years of Popular Music, 1920s, Volume 1}, p.~160");
 
 /* ***************************************************** */
 
@@ -2128,6 +2146,8 @@ replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Lit
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Love Me or Leave Me");
 
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Makin' Whoopee!");
+
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Baby Just Cares for Me");
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Blue Heaven");
@@ -2348,6 +2368,8 @@ replace into Composers_Songs (composer, title) values ("Raksin, David", "Laura")
 replace into Composers_Songs (composer, title) values ("Revaux, Jacques", "Comme d'Habitude");
 
 replace into Composers_Songs (composer, title) values ("Fran{\\c c}ois, Claude", "Comme d'Habitude");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Falling in Love With Love");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady is a Tramp, The");
 
@@ -2609,6 +2631,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over th
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moon");
 
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Falling in Love With Love");
+
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Lady is a Tramp, The");
@@ -2654,6 +2678,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I Can D
 replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I'll Be Seeing You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Love Me or Leave Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Makin' Whoopee!");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Coquette");
 
@@ -2992,8 +3018,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Hatch, Tony", "Downtown"
 replace into Composers_Songs (composer, title) values ("Hollaender, Friedrich", "Illusions");
 replace into Lyricists_Songs (lyricist, title) values ("Hollaender, Friedrich", "Illusions");
 
-replace into Composers_Songs (composer, title) values ("Howard, Bart", "Fly Me to the Moon");
-replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me to the Moon");
+-- select * from Composers_Songs where composer = "Howard, Bart";
+-- select * from Lyricists_Songs where lyricist = "Howard, Bart";
+
+replace into Composers_Songs (composer, title) values ("Howard, Bart", "Fly Me to the Moon (In Other Words)");
+replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me to the Moon (In Other Words)");
 
 replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
 replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
@@ -3021,6 +3050,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Parks, C.~Carson", "Some
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Begin the Beguine");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Begin the Beguine");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's De-Lovely");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's De-Lovely");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "I've Got You Under My Skin");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I've Got You Under My Skin");
