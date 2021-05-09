@@ -198,7 +198,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
 values
-("Alone Again (Naturally)", "Gilbert O'Sullivan", "O'Sullivan, Gilbert", true, 
+("Alone Again (Naturally)", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~16.",
 "Authors real name:  Ray Gilbert.");
 
@@ -395,7 +395,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
 values
-("Claire", "Gilbert O'Sullivan", "O'Sullivan, Gilbert", false, 
+("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert  (Ray Gilbert)", false, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
 "Authors real name:  Ray Gilbert.");
 
