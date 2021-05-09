@@ -1225,9 +1225,6 @@ values
 
 /* ***************************************************** */
 
-
--- delete from Songs where title = "Makin' Whopee!";
-
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
