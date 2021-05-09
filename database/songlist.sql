@@ -3057,12 +3057,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standi
 replace into Composers_Songs (composer, title) values ("Loesser, Frank", "On a Slow Boat to China");
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "On a Slow Boat to China");
 
-replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert", "Claire");
-replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert", "Claire");
+-- delete from Composers_Songs where composer = "O'Sullivan, Gilbert";
+-- delete from Lyricists_Songs where lyricist = "O'Sullivan, Gilbert";
 
-replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert", "Alone Again (Naturally)");
-replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert", "Alone Again (Naturally)");
+replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Claire");
+replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Claire");
 
+replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Alone Again (Naturally)");
+replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Alone Again (Naturally)");
 
 replace into Composers_Songs (composer, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
 replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
