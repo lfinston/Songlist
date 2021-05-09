@@ -3060,6 +3060,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "On a S
 -- delete from Composers_Songs where composer = "O'Sullivan, Gilbert";
 -- delete from Lyricists_Songs where lyricist = "O'Sullivan, Gilbert";
 
+select * from Composers_Songs where title = "Claire";
+
+select * from Composers_Songs where title = "Alone Again (Naturally)";
+
+select * from Composers_Songs where composer = "O'Sullivan, Gilbert";
+select * from Lyricists_Songs where lyricist = "O'Sullivan, Gilbert";
+
 replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Claire");
 replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Claire");
 
