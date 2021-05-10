@@ -194,7 +194,7 @@ source)
 values
 ("All I Do Is Dream Of You", "Arthur Freed", "Freed, Arthur",
 "Nacio Herb Brown", "Brown, Nacio Herb", false, 1934,
-"{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~9.");
 
 /* ***************************************************** */
 
@@ -1058,6 +1058,13 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("June in Janury", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true);
+
+/* ***************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("Just One More Chance", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", false, 1931,
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~166.");
 
 /* ***************************************************** */
 
