@@ -2138,6 +2138,8 @@ replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Aben
 
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
 
+replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "All I Do Is Dream Of You");
+
 replace into Composers_Songs (composer, title) values ("Burke, Joe", "Tiptoe Through the Tulips With Me");
 
 replace into Composers_Songs (composer, title) values ("Burnett, Ernie", "My Melancholy Baby");
@@ -2602,6 +2604,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Fine 
 replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Pick Yourself Up");
 
 replace into Lyricists_Songs (lyricist, title) values ("Fontenoy, Marc", "Buenos Noches Mon Amour");
+
+replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "All I Do Is Dream Of You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "Wedding of the Painted Doll, The");
 
