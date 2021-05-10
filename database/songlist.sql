@@ -187,6 +187,15 @@ values
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
 true, 1, true, "A Day at the Races");
 
+-- delete from Songs where title = "All I Do Is Dream Of You";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source)
+values
+("All I Do Is Dream Of You", "Arthur Freed", "Freed, Arthur",
+"Nacio Herb Brown", "Brown, Nacio Herb", false, 1934,
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
+
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
