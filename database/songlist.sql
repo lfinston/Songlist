@@ -1222,7 +1222,6 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true);
 
-
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
@@ -1258,6 +1257,13 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Many a New Day", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
 "Oklahoma!", true);
+
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, source)
+values
+("Mas Que Nada", "Jorge Ben", "Ben, Jorge", false,
+"{\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.");
 
 /* ***************************************************** */
 
@@ -2933,6 +2939,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Consider
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Food, Glorious Food");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Food, Glorious Food");
+
+replace into Composers_Songs (composer, title) values ("Ben, Jorge", "Mas Que Nada");
+replace into Lyricists_Songs (lyricist, title) values ("Ben, Jorge", "Mas Que Nada");
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "No Strings");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Strings");
