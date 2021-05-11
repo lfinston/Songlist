@@ -1276,10 +1276,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
-("Mas Que Nada", "Jorge Ben", "Ben, Jorge", false,
-"{\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.");
+("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
+"{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.");
 
 /* ***************************************************** */
 
@@ -2273,6 +2273,8 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
 
+replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Just One More Chance");
+
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Pennies from Heaven");
 
 replace into Composers_Songs (composer, title) values ("Jones, Isham", "I'll See You in My Dreams");
@@ -2555,6 +2557,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagina
 replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
 
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Just One More Chance");
 
 replace into Lyricists_Songs (lyricist, title) values ("Cour, Pierre", "Amour est bleu, L'");
 
