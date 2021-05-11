@@ -202,11 +202,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes, scanned)
 values
 ("Alone Again (Naturally)", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~16.",
-"Authors real name:  Ray Gilbert.");
+"Authors real name:  Ray Gilbert.", true);
 
 /* ***************************************************** */
 
@@ -703,12 +703,12 @@ values
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, copyright, source)
+year, copyright, source, scanned)
 values
 ("Heart and Soul", "Frank Loesser", "Loesser, Frank", 
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
 "Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
-"{\\bf The Hoagy Carmichael Songbook}, p.~28.");
+"{\\bf The Hoagy Carmichael Songbook}, p.~28.", true);
 
 /* ***************************************************** */
 
@@ -985,11 +985,11 @@ values
 /* ***************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-year, copyright, source, musical)
+year, copyright, source, musical, scanned)
 values
 ("It's De-Lovely", "Cole Porter", "Porter, Cole", true, 1936, 
 "Copyright {\\copyright} 1936 by Chappell \\& Co. (Renewed).", 
-"{\\bf The Best of Cole Porter}, p.~95", "Red, Hot and Blue");
+"{\\bf The Best of Cole Porter}, p.~95", "Red, Hot and Blue", true);
 
 /* ***************************************************** */
 
@@ -1236,10 +1236,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
 values
 ("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
-"{\\bf 100 Years of Popular Music, 1920s, Volume 1}, p.~160");
+"{\\bf 100 Years of Popular Music, 1920s, Volume 1}, p.~160", true);
 
 /* ***************************************************** */
 
@@ -1272,10 +1272,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, scanned)
 values
 ("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
-"{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.");
+"{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.",
+true);
 
 /* ***************************************************** */
 
