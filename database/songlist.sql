@@ -1979,6 +1979,13 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+values
+("When You're Smiling", "Mark Fisher, Joe Goodwin and Larry Shay", "Fisher, Mark; Goodwin, Joe and Shay, Larry", 
+true, 1928, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~299.");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
@@ -2520,6 +2527,8 @@ replace into Composers_Songs (composer, title) values ("Youmans, Vincent", "Tea 
 
 replace into Composers_Songs (composer, title) values ("Young, Victor", "Stella By Starlight");
 
+
+
 /* * (1)  */
 
 replace into Lyricists_Songs (lyricist, title) values ("Heymann, Edward", "Body and Soul");
@@ -2684,7 +2693,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
 
-delete from Lyricists_Songs where title = "Over the Rainbow";
+-- delete from Lyricists_Songs where title = "Over the Rainbow";
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
 
@@ -2714,7 +2723,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
 
-delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
+-- delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
 
 replace into Lyricists_Songs (lyricist, title) values 
 ("Hough, Will M.", "I Wonder Who's Kissing Her Now");
@@ -2832,7 +2841,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "How 'Ya
 
 replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "How 'Ya Gonna Keep 'Em Down on the Farm?");
 
-select * from Songs where music = "Ray Henderson"\G
+-- select * from Songs where music = "Ray Henderson"\G
 
 -- select * from Lyricists_Songs where lyricist = "Young, Joe"\G
 
@@ -2855,6 +2864,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Heart 
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "You've Got That Look");
 
 replace into Lyricists_Songs (lyricist, title) values ("Luban, Francia", "Para Vigo me voy (Say ``Si, Si'')");
+
+-- select * from Lyricists_Songs where lyricist = "Luban, Francia";
+-- select * from Lyricists_Songs where lyricist = "MacDonald, Ballard";
 
 replace into Lyricists_Songs (lyricist, title) values ("MacDonald, Ballard", "Somebody Loves Me");
 
@@ -3065,14 +3077,23 @@ replace into Lyricists_Songs (lyricist, title) values ("Farr{\\'e}s, Osvaldo", "
 replace into Composers_Songs (composer, title) values ("Fisher, Fred", "Chicago (That Toddling Town)");
 replace into Lyricists_Songs (lyricist, title) values ("Fisher, Fred", "Chicago (That Toddling Town)");
 
-replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
-replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Baby, It's Cold Outside");
+replace into Composers_Songs (composer, title) values ("Fisher, Mark; Goodwin, Joe and Shay, Larry", "When You're Smiling");
+replace into Lyricists_Songs (lyricist, title) values ("Fisher, Mark; Goodwin, Joe and Shay, Larry", "When You're Smiling");
 
-replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Once in Love with Amy");
-replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Once in Love with Amy");
+delete from Composers_Songs where composer = "Frank, Loesser";
+delete from Lyricists_Songs where lyricist = "Frank, Loesser";
 
-replace into Composers_Songs (composer, title) values ("Frank, Loesser", "Guys and Dolls");
-replace into Lyricists_Songs (lyricist, title) values ("Frank, Loesser", "Guys and Dolls");
+select * from Composers_Songs where composer = "Loesser, Frank";
+select * from Lyricists_Songs where lyricist = "Loesser, Frank";
+
+replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Baby, It's Cold Outside");
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Baby, It's Cold Outside");
+
+replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Once in Love with Amy");
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Once in Love with Amy");
+
+replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Guys and Dolls");
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Guys and Dolls");
 
 replace into Composers_Songs (composer, title) values ("Gordon, Irving", "Unforgettable");
 replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Unforgettable");
@@ -3174,7 +3195,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand 
 replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
 replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
 
+
+
 /* * (1)  Composers and Lyricists */
+
+-- !!! START HERE:  The following code contains errors.  It hasn't (all) been evaluated.
+-- LDF 2021.05.11.
 
 **********************************************************************************************
 
