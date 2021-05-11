@@ -83,7 +83,6 @@ create table Songs
     notes varchar (512) default null
 );
 
-
 alter table Songs add column operetta varchar(64) default null after opera;
 
 alter table Songs add column source varchar(128) default null after notes;
@@ -115,7 +114,6 @@ create table Composers
 );
 
 show columns from Composers;
-
 
 /* ** (2) Lyricists */
 
@@ -156,7 +154,6 @@ create table Lyricists_Songs
 );
 
 show columns from Lyricists_Songs;
-
 
 /* * (1)  Replace into `Songs'  */
 
@@ -967,7 +964,6 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("It Could Happen to You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
 
-
 /* ***************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned)
@@ -1598,6 +1594,13 @@ select "!!! R";
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("Rainy Days and Mondays", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", false,
+1970, "{\\bf Carpenters, Greatest Hits}, p.~8.");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Rainy Night in Rio, A", "Leo Robin", "Robin, Leo", "Arthur Schwartz", "Schwartz, Arthur", true);
@@ -1915,9 +1918,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
-("Top of the World", "John Bettis", "Bettis, John", "Richard Carpenter", "Carpenter, Richard", true);
+("Top of the World", "John Bettis", "Bettis, John", "Richard Carpenter", "Carpenter, Richard", true,
+1972, "{\\bf Carpenters, Greatest Hits}, p.~38.");
 
 select "!!! End T";
 
@@ -1967,6 +1971,13 @@ values
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", false,
+1970, "{\\bf Carpenters, Greatest Hits}, p.~5.");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
@@ -1986,7 +1997,6 @@ select "!!! End W";
 select "!!! X";
 
 select "!!! End X";
-
 
 /*  Y  */
 
@@ -2146,6 +2156,10 @@ replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Aben
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
 
 replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "All I Do Is Dream Of You");
+
+-- delete from Composers_Songs where title = "Wedding of the Painted Doll, The";
+
+replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "Wedding of the Painted Doll, The");
 
 replace into Composers_Songs (composer, title) values ("Burke, Joe", "Tiptoe Through the Tulips With Me");
 
@@ -2381,8 +2395,9 @@ replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've
 
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
 
-replace into Composers_Songs (composer, title) values
-("Nacio Brown, Herb", "Wedding of the Painted Doll, The");
+replace into Composers_Songs (composer, title) values ("Nichols, Roger", "Rainy Days and Mondays");
+
+replace into Composers_Songs (composer, title) values ("Nichols, Roger", "We've Only Just Begun");
 
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole");
 
@@ -2949,6 +2964,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Webster, Paul Francis", 
 
 replace into Lyricists_Songs (lyricist, title) values ("Whiting, George A.", "My Blue Heaven");
 
+replace into Lyricists_Songs (lyricist, title) values ("Williams, Paul", "Rainy Days and Mondays");
+
+replace into Lyricists_Songs (lyricist, title) values ("Williams, Paul", "We've Only Just Begun");
+
 replace into Lyricists_Songs (lyricist, title) values ("Wodehouse, P.G.", "Bill");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein, Oscar II", "Bill");
@@ -3401,7 +3420,6 @@ birth_date, death_date)
 values ("Ernest Joseph Seitz", "Seitz, Ernest Joseph",  "Raymond Roberts", "Roberts, Raymond",  
 '1892-02-29', '1978-09-10'); 
 
-
 **********************************************************************************************
 
 replace into Composers (name, name_reverse, birth_date, death_date) 
@@ -3420,12 +3438,10 @@ from Composers order by name_reverse\G
 select name_reverse, name, alternative_name, alternative_name_reverse,
 birth_date, death_date, notes from Lyricists order by name_reverse\G
 
-
 /* * (1)  */
 
 delete from Composers_Songs;
 delete from Lyricists_Songs;
-
 
 select * from Composers_Songs order by composer, title;
 
@@ -3435,11 +3451,9 @@ select distinct composer from Composers_Songs order by composer;
 
 select distinct lyricist from Lyricists_Songs order by lyricist;
 
-
 select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
 
 /* * (1)  */
-
 
 /* Local Variables: */
 /* mode:SQL */
