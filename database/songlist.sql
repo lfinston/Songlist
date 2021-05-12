@@ -194,6 +194,8 @@ true, 1, true, "A Day at the Races");
 
 -- delete from Songs where title = "All I Do Is Dream Of You";
 
+-- select * from Songs where title = "All I Do Is Dream Of You"\G
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source)
 values
@@ -305,9 +307,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
-("Blue Skies", "Irving Berlin", "Berlin, Irving", true, 1926);
+("Blue Skies", "Irving Berlin", "Berlin, Irving", true, 1926,
+"{\\bf Irving Berlin Songs}, p.~16.");
 
 /* ***************************************************** */
 
@@ -1583,6 +1586,15 @@ values
 ("Put on a Happy Face", "Lee Adams", "Adams, Lee", 
 "Charles Strouse", "Strouse, Charles", true, 1, 1960);
 
+/* ***************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+values
+("Puttin' On the Ritz", "Irving Berlin", "Berlin, Irving", true, 1929,
+"{\\bf Irving Berlin Songs}, p.~22.");
+
+select title from Songs where words_and_music = "Irving Berlin";
+
 select "!!! End P";
 
 /* Q   */
@@ -2539,8 +2551,6 @@ replace into Composers_Songs (composer, title) values ("Youmans, Vincent", "Tea 
 
 replace into Composers_Songs (composer, title) values ("Young, Victor", "Stella By Starlight");
 
-
-
 /* * (1)  */
 
 replace into Lyricists_Songs (lyricist, title) values ("Heymann, Edward", "Body and Soul");
@@ -3018,6 +3028,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Str
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Puttin' On the Ritz");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Puttin' On the Ritz");
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Heat Wave");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Heat Wave");
