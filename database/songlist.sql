@@ -175,6 +175,14 @@ true, 1929);
 
 /* ***************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
+values
+("Ain't She Sweet", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", false,
+1927, "Copyright {\\copyright} 1927 (Renewed) WB Music Corp.~and Edwin H. Morris \& Co.",
+"{\\bf The Looney Tunes Songbook}, p.~57");
+
+/* ***************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 recordings, arrangement_solo_guitar,
 film)
@@ -190,7 +198,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source)
 values
 ("All I Do Is Dream Of You", "Arthur Freed", "Freed, Arthur",
-"Nacio Herb Brown", "Brown, Nacio Herb", false, 1934,
+"Nacio Herb Brown", "Brown, Nacio Herb", true, 1934,
 "{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~9.");
 
 /* ***************************************************** */
@@ -401,7 +409,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
 values
-("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert  (Ray Gilbert)", false, 
+("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert  (Ray Gilbert)", true, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
 "Authors real name:  Ray Gilbert.");
 
@@ -1602,9 +1610,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
 values
-("Rainy Night in Rio, A", "Leo Robin", "Robin, Leo", "Arthur Schwartz", "Schwartz, Arthur", true);
+("Rainy Night in Rio, A", "Leo Robin", "Robin, Leo", "Arthur Schwartz", "Schwartz, Arthur", true,
+1946, "Copyright {\\copyright} 1946 (Renewed) WB Music Corp.",
+"{\\bf The Looney Tunes Songbook}, p.~81");
 
 /* ***************************************************** */
 
@@ -2126,6 +2136,8 @@ order by words_reverse, music_reverse, words_and_music_reverse\G
 /* * (1)  */
 
 replace	into Composers_Songs (composer, title) values ("Abreu, Zequinha de", "Tico Tico no Fuba");
+
+replace	into Composers_Songs (composer, title) values ("Ager, Milton", "Ain't She Sweet");
 
 replace into Composers_Songs (composer, title) values ("Ahlert, Fred E.", "I Don't Know Why (I Just Do)");
 
@@ -2984,6 +2996,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Williams, Paul", "We've 
 replace into Lyricists_Songs (lyricist, title) values ("Wodehouse, P.G.", "Bill");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein, Oscar II", "Bill");
+
+replace into Lyricists_Songs (lyricist, title) values ("Yellen, Jack", "Ain't She Sweet");
 
 /* * (1)  */
 
