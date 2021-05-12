@@ -1588,12 +1588,12 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
 ("Puttin' On the Ritz", "Irving Berlin", "Berlin, Irving", true, 1929,
 "{\\bf Irving Berlin Songs}, p.~22.");
 
-select title from Songs where words_and_music = "Irving Berlin";
+select title, lead_sheet from Songs where words_and_music = "Irving Berlin";
 
 select "!!! End P";
 
