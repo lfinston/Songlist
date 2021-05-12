@@ -1597,7 +1597,7 @@ select "!!! R";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
-("Rainy Days and Mondays", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", false,
+("Rainy Days and Mondays", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
 1970, "{\\bf Carpenters, Greatest Hits}, p.~8.");
 
 /* ***************************************************** */
