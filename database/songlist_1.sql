@@ -3049,7 +3049,7 @@ insert ignore into Songs (title, source) values
 update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 2}" where title = "When Your Old Wedding Ring Was New";
 
 insert ignore into Songs (title, source) values
-("When You're Smiling", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
+("When You're Smiling", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~299.");
 
 update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 2}" where title = "When You're Smiling";
 
