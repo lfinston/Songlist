@@ -53,7 +53,7 @@ clean:
 
 .PHONY: all
 
-all:  songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+all: songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
       lyricists.tex composers.tex \
       toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_ls.dvi toc_npt.dvi \
       lyricists.dvi composers.dvi \
@@ -80,7 +80,7 @@ combined.pdf: songlist_out.pdf toc_ls.pdf toc_scores.pdf toc_all.pdf
 	pdftk toc_all.pdf songlist_out.pdf toc_ls.pdf toc_scores.pdf output \
         combined.pdf
 
-tocnpt.o: tocnpt.cxx
+tocnpSt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx
 
 songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx 
@@ -100,7 +100,7 @@ cmdlnopt.o: cmdlnopt.cxx
 
 # ./songlist
 
-run: songlist$(EXEEXT) 
+run:
 	./songlist$(EXEEXT) 
 
 
@@ -175,7 +175,7 @@ toc_ls_i_o.dvi: toc_ls_i_o.tex
 toc_ls_p_z.dvi: toc_ls_p_z.tex  
 	tex toc_ls_p_z.tex
 
-toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex: songlist
+toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex: songlist$(EXEEXT) database/songlist.sql
 	make run
 
 toc_scores.pdf: toc_scores.ps

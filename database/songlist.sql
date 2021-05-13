@@ -580,7 +580,7 @@ true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Sel
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
-"Antonio Carlos Jobim", "Jobim, Antonio Carlos",  false, 1959,
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", false);
 
 /* ** *************************************************** */
