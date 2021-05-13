@@ -177,11 +177,11 @@ true, 1929);
 
 -- delete from Songs where title = "Ain't She Sweet";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source, scanned)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "Copyright {\\copyright} 1927 (Renewed) WB Music Corp.~and Edwin H. Morris \& Co.",
-"{\\bf The Looney Tunes Songbook}, p.~57");
+"{\\bf The Looney Tunes Songbook}, p.~57", false);
 
 /* ***************************************************** */
 
@@ -199,11 +199,11 @@ true, 1, true, "A Day at the Races");
 -- select * from Songs where title = "All I Do Is Dream Of You"\G
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source)
+source, scanned)
 values
 ("All I Do Is Dream Of You", "Arthur Freed", "Freed, Arthur",
 "Nacio Herb Brown", "Brown, Nacio Herb", true, 1934,
-"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~9.");
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~9.", true);
 
 /* ***************************************************** */
 
@@ -412,11 +412,11 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, notes, scanned)
 values
 ("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
-"Authors real name:  Ray Gilbert.");
+"Authors real name:  Ray Gilbert.", true);
 
 /* ***************************************************** */
 
@@ -1617,10 +1617,10 @@ select "!!! R";
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
 values
 ("Rainy Days and Mondays", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
-1970, "{\\bf Carpenters, Greatest Hits}, p.~8.");
+1970, "{\\bf Carpenters, Greatest Hits}, p.~8.", true);
 
 /* ***************************************************** */
 
@@ -1996,10 +1996,10 @@ values
 
 /* ***************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
 values
 ("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
-1970, "{\\bf Carpenters, Greatest Hits}, p.~5.");
+1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", false);
 
 /* ***************************************************** */
 
