@@ -175,9 +175,11 @@ true, 1929);
 
 /* ***************************************************** */
 
+-- delete from Songs where title = "Ain't She Sweet";
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
 values
-("Ain't She Sweet", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", false,
+("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "Copyright {\\copyright} 1927 (Renewed) WB Music Corp.~and Edwin H. Morris \& Co.",
 "{\\bf The Looney Tunes Songbook}, p.~57");
 
@@ -1996,7 +1998,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
-("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", false,
+("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
 1970, "{\\bf Carpenters, Greatest Hits}, p.~5.");
 
 /* ***************************************************** */
