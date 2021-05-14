@@ -581,7 +581,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", false);
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true);
 
 /* ** *************************************************** */
 
@@ -1528,6 +1528,13 @@ values
 ("Parisian Pierrot", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
 
 /* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, musical, scanned)
+values
+("Party's Over, The", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
+true, 1956, "{\\bf The Comden and Green Songbook}, p.~127.", "Bells are Ringing", true);
+
+#/* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
