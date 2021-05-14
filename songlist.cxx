@@ -200,7 +200,7 @@ main(int argc, char **argv)
                     << "\\parskip=.75\\baselineskip" << endl 
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Composer}\\fi"   
-                    << "\\hfil{\\tt \\timestamp}\\quad}" << endl
+                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
@@ -339,7 +339,7 @@ main(int argc, char **argv)
                     << "\\parskip=.75\\baselineskip" << endl 
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
-                    << "\\hfil{\\tt \\timestamp}\\quad}" << endl                         
+                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
