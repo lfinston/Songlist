@@ -317,15 +317,17 @@ main(int argc, char **argv)
                  if (ctr < 10)
                     composers_file << "\\hfil ";
 
-                 composers_file << ctr++ << "}. ";
+                 composers_file << ctr << "}. ";
             }
 
             if (next != song_vector.end() && next_composer != curr_composer)
             {
-               ctr_composer_vector.push_back(make_pair(max(1, ctr - 1), curr_composer));
+               ctr_composer_vector.push_back(make_pair(ctr, curr_composer));
 
                ctr = 1;  
             }
+            else     
+               ctr++;
 
             composers_file << iter->title << "}" << endl;
 
@@ -500,15 +502,17 @@ main(int argc, char **argv)
                  if (ctr < 10)
                     lyricists_file << "\\hfil ";
 
-                 lyricists_file << ctr++ << "}. ";
+                 lyricists_file << ctr << "}. ";
             }
 
             if (next != song_vector.end() && next_lyricist != curr_lyricist)
             {
-               ctr_lyricist_vector.push_back(make_pair(max(1, ctr - 1), curr_lyricist));
+               ctr_lyricist_vector.push_back(make_pair(ctr, curr_lyricist));
 
                ctr = 1;  
             }
+            else
+               ctr++;
 
             lyricists_file << iter->title << "}" << endl;
 
