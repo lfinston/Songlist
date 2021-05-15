@@ -496,6 +496,13 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, musical, scanned)
+values
+("Diamonds are a Girl's Best Friend", "Leo Robin", "Robin, Leo", "Jule Styne", "Styne, Jule",
+true, 1949, "{\\bf The Library of Jazz Standards}, p.~80.", "Gentlemen Prefer Blondes", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Do You Know the Way to San Jose?", "Hal David", "David, Hal", "Burt Bacharach", "Bacharach, Burt", true, 1967);
@@ -1534,7 +1541,7 @@ values
 ("Party's Over, The", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
 true, 1956, "{\\bf The Comden and Green Songbook}, p.~127.", "Bells are Ringing", true);
 
-#/* ** *************************************************** */
+/* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
@@ -2522,6 +2529,10 @@ replace into Composers_Songs (composer, title) values ("Strau{\\ss} (Sohn), Joha
 
 replace into Composers_Songs (composer, title) values ("Strouse, Charles", "Put on a Happy Face");
 
+replace into Composers_Songs (composer, title) values ("Styne, Jule", "Diamonds are a Girl's Best Friend");
+
+replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's Over, The");
+
 replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
 
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
@@ -2621,6 +2632,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Go
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagination");
 
 replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty and Green, Adolf", "Party's Over, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
 
@@ -2975,6 +2988,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Ain't Mis
 replace into Lyricists_Songs (lyricist, title) values ("Reaves, Erell", "Lady of Spain");
 
 replace into Lyricists_Songs (lyricist, title) values ("Tilsley, Henry", "Lady of Spain");
+
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Diamonds are a Girl's Best Friend");
 
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "June in Janury");
 
