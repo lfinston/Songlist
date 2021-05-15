@@ -79,6 +79,18 @@ get_datestamp(string &datestamp, string &datestamp_short);
 int
 submit_mysql_query(string query_str);
 
+bool
+pair_int_greater_than(pair<int, string> a, pair<int, string> b)
+{
+   return a.first > b.first;
+}
+
+bool
+pair_string_less_than(pair<int, string> a, pair<int, string> b)
+{
+   return compare_strings(a.second, b.second);
+}
+
 /* main definition */
 
 /* ** (2) |main| definition  */
@@ -92,7 +104,13 @@ main(int argc, char **argv)
 
    int status;
 
-   
+   int prev_ctr;
+   int curr_ctr;
+   int next_ctr;
+
+   vector<pair<int, string> > ctr_composer_vector;
+   vector<pair<int, string> > ctr_lyricist_vector;
+
    stringstream temp_strm;
 
    cerr << "This is `songlist'." << endl;
@@ -303,7 +321,11 @@ main(int argc, char **argv)
             }
 
             if (next != song_vector.end() && next_composer != curr_composer)
+            {
+               ctr_composer_vector.push_back(make_pair(max(1, ctr - 1), curr_composer));
+
                ctr = 1;  
+            }
 
             composers_file << iter->title << "}" << endl;
 
@@ -316,8 +338,49 @@ main(int argc, char **argv)
                
      }  /* for  */
 
-     composers_file << "}\\singlecolumn" << endl
-                    << endl << "\\bye" << endl;
+     composers_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
+                    << "\\centerline{{\\largebx Composers by Number of Songs}}" << endl
+                    << "\\vskip.75\\baselineskip" << endl                                
+                    << "\\doublecolumns"
+                    << endl << endl;
+
+/* *** (3)  */
+
+     sort(ctr_composer_vector.begin(), ctr_composer_vector.end(), pair_string_less_than);
+     stable_sort(ctr_composer_vector.begin(), ctr_composer_vector.end(), pair_int_greater_than);
+
+     cerr << "`ctr_composer_vector.size()' == " << ctr_composer_vector.size() << endl
+          << "`ctr_composer_vector':" << endl;
+
+     curr_ctr = 0;
+     prev_ctr = 0;
+     next_ctr = ctr_composer_vector.begin()->first;
+
+     for (vector<pair<int, string> >::iterator iter = ctr_composer_vector.begin();
+          iter != ctr_composer_vector.end();
+          ++iter)
+     {
+        prev_ctr = curr_ctr;
+        curr_ctr = next_ctr;
+
+        if ((iter + 1) != ctr_composer_vector.end())
+           next_ctr = (iter + 1)->first;
+
+        if (curr_ctr != prev_ctr)
+        {
+            if (prev_ctr > 0)
+               composers_file << "\\vskip-1.25\\baselineskip" << endl;
+
+            composers_file << "{\\mediumbx " << curr_ctr << "}\\hfil\\break" << endl;
+        }
+
+        composers_file << "\\hbox{\\hskip1em " << iter->second << "}\\hfil\\break";
+
+     }
+
+     cerr << endl;
+
+     composers_file << endl << "\\singlecolumn" << endl << endl << "\\bye" << endl;
 
      composers_file.close();
 
@@ -438,7 +501,11 @@ main(int argc, char **argv)
             }
 
             if (next != song_vector.end() && next_lyricist != curr_lyricist)
+            {
+               ctr_lyricist_vector.push_back(make_pair(max(1, ctr - 1), curr_lyricist));
+
                ctr = 1;  
+            }
 
             lyricists_file << iter->title << "}" << endl;
 
@@ -451,8 +518,49 @@ main(int argc, char **argv)
                
      }  /* for  */
 
-     lyricists_file << "}\\singlecolumn" << endl
-                    << endl << "\\bye" << endl;
+     lyricists_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
+                    << "\\centerline{{\\largebx Lyricists by Number of Songs}}" << endl
+                    << "\\vskip.75\\baselineskip" << endl                                
+                    << "\\doublecolumns"
+                    << endl << endl;
+
+/* *** (3)  */
+
+     sort(ctr_lyricist_vector.begin(), ctr_lyricist_vector.end(), pair_string_less_than);
+     stable_sort(ctr_lyricist_vector.begin(), ctr_lyricist_vector.end(), pair_int_greater_than);
+
+     cerr << "`ctr_lyricist_vector.size()' == " << ctr_lyricist_vector.size() << endl
+          << "`ctr_lyricist_vector':" << endl;
+
+     curr_ctr = 0;
+     prev_ctr = 0;
+     next_ctr = ctr_lyricist_vector.begin()->first;
+
+     for (vector<pair<int, string> >::iterator iter = ctr_lyricist_vector.begin();
+          iter != ctr_lyricist_vector.end();
+          ++iter)
+     {
+        prev_ctr = curr_ctr;
+        curr_ctr = next_ctr;
+
+        if ((iter + 1) != ctr_lyricist_vector.end())
+           next_ctr = (iter + 1)->first;
+
+        if (curr_ctr != prev_ctr)
+        {
+            if (prev_ctr > 0)
+               lyricists_file << "\\vskip-1.25\\baselineskip" << endl;
+
+            lyricists_file << "{\\mediumbx " << curr_ctr << "}\\hfil\\break" << endl;
+        }
+
+        lyricists_file << "\\hbox{\\hskip1em " << iter->second << "}\\hfil\\break";
+
+     }
+
+     cerr << endl;
+
+     lyricists_file << endl << "\\singlecolumn" << endl << endl << "\\bye" << endl;
 
      lyricists_file.close();
 
