@@ -100,9 +100,8 @@ cmdlnopt.o: cmdlnopt.cxx
 
 # ./songlist
 
-run:
+run: ./songlist$(EXEEXT) 
 	./songlist$(EXEEXT) 
-
 
 songlist_out.pdf: songlist_out.ps
 	ps2pdf songlist_out.ps

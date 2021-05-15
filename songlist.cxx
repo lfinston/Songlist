@@ -339,6 +339,9 @@ main(int argc, char **argv)
      }  /* for  */
 
      composers_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
+                    << "\\newcount\\PAGECNT\\PAGECNT=\\pageno" << endl 
+                    << "\\headline={\\hfil\\ifnum\\pageno>\\PAGECNT{\\mediumbx Composers by Number of Songs}\\fi"   
+                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\centerline{{\\largebx Composers by Number of Songs}}" << endl
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -401,7 +404,7 @@ main(int argc, char **argv)
                     << "\\advance\\baselineskip by .25\\baselineskip" << endl 
                     << "\\parskip=.75\\baselineskip" << endl 
                     << "\\medium" << endl                                                
-                    << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
+                    << "\\headline={\\hfil\\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl                  
@@ -519,6 +522,9 @@ main(int argc, char **argv)
      }  /* for  */
 
      lyricists_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
+                    << "\\newcount\\PAGECNT\\PAGECNT=\\pageno" << endl 
+                    << "\\headline={\\hfil \\ifnum\\pageno>\\PAGECNT{\\mediumbx Lyricists by Number of Songs}\\fi"   
+                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\centerline{{\\largebx Lyricists by Number of Songs}}" << endl
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
