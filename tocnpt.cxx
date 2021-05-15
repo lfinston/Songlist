@@ -1141,7 +1141,7 @@ getchar();
 	       << "\\dimen1=\\wd1" << endl					       
 	       << "\\def\\S{\\hskip\\dimen1}" << endl				       
 	       << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets}\\fi"   
-	       << "\\hfil{\\tt \\timestamp}\\quad}" << endl			       
+	       << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl			       
 	       << "\\newcount\\songctr" << endl					       
 	       << "\\songctr=1" << endl						       
 	       << "\\centerline{{\\largebx Lead Sheets}}" << endl		       

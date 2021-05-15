@@ -80,13 +80,13 @@ combined.pdf: songlist_out.pdf toc_ls.pdf toc_scores.pdf toc_all.pdf
 	pdftk toc_all.pdf songlist_out.pdf toc_ls.pdf toc_scores.pdf output \
         combined.pdf
 
-tocnpSt.o: tocnpt.cxx
+tocnpt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx
 
 songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx 
 	g++ -c -g -I/usr/include/mysql -o songlist.o songlist.cxx
 
-songlist: songlist.o cmdlnopt.o tocnpt.o
+songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
 	g++ -o songlist songlist.o cmdlnopt.o tocnpt.o -L/usr/lib/mysql -L/usr/lib/mysql/plugin \
             -L/usr/lib/x86_64-linux-gnu -lmysqlclient \
             -lpthread -lz -lm -lrt \
