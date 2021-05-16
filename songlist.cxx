@@ -412,6 +412,7 @@ main(int argc, char **argv)
                     << "\\headline={\\hfil\\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
+                    << "\\setbox1=\\hbox{{\\mediumbx 00}}\\dimen1=\\wd1" << endl
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -563,11 +564,12 @@ main(int argc, char **argv)
             if (prev_ctr > 0)
                lyricists_file << "\\vskip-1.25\\baselineskip" << endl;
 
-            lyricists_file << "{\\mediumbx " << curr_ctr << "}\\hfil\\break" << endl;
+            lyricists_file << "\\leavevmode\\hbox to \\dimen1{\\hss{\\mediumbx " << curr_ctr << "}}\\hskip.5em " 
+                           << iter->second << "\\hfil\\break" << endl;
         }
-
-        lyricists_file << "\\hbox{\\hskip1em " << iter->second << "}\\hfil\\break";
-
+        else
+           lyricists_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " << iter->second << "\\hfil\\break"
+                          << endl;
      }
 
      cerr << endl;
