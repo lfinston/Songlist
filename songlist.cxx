@@ -220,6 +220,7 @@ main(int argc, char **argv)
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Composer}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
+                    << "\\setbox1=\\hbox{{\\mediumbx 00}}\\dimen1=\\wd1" << endl
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -376,10 +377,13 @@ main(int argc, char **argv)
             if (prev_ctr > 0)
                composers_file << "\\vskip-1.25\\baselineskip" << endl;
 
-            composers_file << "{\\mediumbx " << curr_ctr << "}\\hfil\\break" << endl;
-        }
+            composers_file << "\\leavevmode\\hbox to \\dimen1{\\hss{\\mediumbx " << curr_ctr << "}}\\hskip.5em " 
+                           << iter->second << "\\hfil\\break" << endl;
 
-        composers_file << "\\hbox{\\hskip1em " << iter->second << "}\\hfil\\break";
+        }
+        else
+           composers_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " << iter->second << "\\hfil\\break\\showthe\\wd1\\showthe\\dimen1"
+                          << endl;
 
      }
 
