@@ -584,11 +584,12 @@ true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Sel
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, scanned, film)
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true);
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true, 
+"Orfeu Negro");
 
 /* ** *************************************************** */
 
@@ -1277,10 +1278,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year)
 values
 ("Manh{\\~a} da Carnaval", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
-"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Score for Andantino completed 23.02.2018.");
+"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Score for Andantino completed 23.02.2018.", "Orfeu Negro",
+1959);
 
 /* ** *************************************************** */
 
@@ -2001,6 +2003,15 @@ select "!!! End V";
 /*  W  */
 
 select "!!! W";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
+source, scanned)
+values
+("Wave", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
+"Copyright {\\copyright} 1967, 1968 (Renewed)",
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~206.", true);
 
 /* ** *************************************************** */
 
@@ -3178,6 +3189,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Ti
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Wave");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Wave");
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
 replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
