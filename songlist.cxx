@@ -226,7 +226,6 @@ main(int argc, char **argv)
                     << "\\doublecolumns"
                     << endl << endl;
 
-
      if (DEBUG)
      {
          cerr << "In `main':  `song_vector.size()' == " << song_vector.size()
@@ -382,7 +381,7 @@ main(int argc, char **argv)
 
         }
         else
-           composers_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " << iter->second << "\\hfil\\break\\showthe\\wd1\\showthe\\dimen1"
+           composers_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " << iter->second << "\\hfil\\break"
                           << endl;
 
      }
@@ -417,7 +416,6 @@ main(int argc, char **argv)
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
                     << endl << endl;
-
 
      if (DEBUG)
      {
@@ -1056,7 +1054,6 @@ compare_strings(string t, string s)
   
 }  /* End of |compare_strings| definition  */
 
-
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
 /*   	 indirect buffer is visited, so it's necessary to evaluate the       */
@@ -1074,7 +1071,4 @@ compare_strings(string t, string s)
 /* eval:(outline-minor-mode) */
 /* fill-column:80 */
 /* End: */
-
-
-
 
