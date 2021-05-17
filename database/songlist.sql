@@ -1,4 +1,4 @@
-/* /home/laurence/songlist/database/songlist.sql  */
+ * /home/laurence/songlist/database/songlist.sql  */
 
 /* Created by Laurence D. Finston Wed 10 Mar 2021 01:28:59 AM CET  */
 
@@ -303,9 +303,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, 
-no_page_turns_with_two_songbooks)
+lead_sheet, year, source)
 values
-("Blue Moon", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true);
+("Blue Moon", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
+1934, "{\\bf Rodgers and Hart, A Musical Anthology}, p.~264.");
 
 /* ** *************************************************** */
 
@@ -1885,9 +1886,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, musical, source)
 values
-("Ten Cents a Dance", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1930);
+("Ten Cents a Dance", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1930,
+"Simple Simon", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~255.");
 
 /* ** *************************************************** */
 
