@@ -1687,6 +1687,15 @@ values
 ("Samba de Orfeu", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
 "Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true);
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, scanned)
+values
+("Samba de uma nota so", "Newton Mendo{\\c c}a", "Mendo{\\c c}a, Newton", 
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1961, true);
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
@@ -2373,6 +2382,8 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Felicidade, A");
 
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de uma nota so");
+
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Just One More Chance");
@@ -2972,6 +2983,8 @@ replace into Lyricists_Songs (lyricist, title)
 values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton", "Samba de uma nota so");
 
 replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Jeepers Creepers");
 
