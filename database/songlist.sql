@@ -1682,6 +1682,13 @@ select "!!! S";
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, scanned)
+values
+("Samba de Orfeu", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
+"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
 ("Samba do Avi{\\~a}o", "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1962);
@@ -2045,6 +2052,14 @@ true, 1928, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~299.");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet,
+year, source)
+values
+("Where Do I Begin? (Theme from Love Story)", "Carl Sigman", "Sigman, Carl", "Francis Lai", "Lai, Francis",
+true, 1970, "Single edition.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
@@ -2223,6 +2238,8 @@ replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rus
 replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Abends in der Taverna");
 
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
+
+replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Samba de Orfeu");
 
 replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "All I Do Is Dream Of You");
 
@@ -2405,6 +2422,8 @@ replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Sure Thi
 replace into Composers_Songs (composer, title) values ("Kosma, Joseph", "Feuilles Mortes, Les");
 
 replace into Composers_Songs (composer, title) values ("Lai, Francis", "Homme et une femme, Un");
+
+replace into Composers_Songs (composer, title) values ("Lai, Francis", "Where Do I Begin? (Theme from Love Story)");
 
 replace into Composers_Songs (composer, title) values ("Lane, Burton", "On a Clear Day");
 
@@ -2947,6 +2966,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Magidson, Herb", "Contin
 
 replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "Manh{\\~a} da Carnaval");
 
+replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "Samba de Orfeu");
+
 replace into Lyricists_Songs (lyricist, title) 
 values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
@@ -3015,6 +3036,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner o
 replace into Lyricists_Songs (lyricist, title) values ("Schiffer, Marcellus", "Heute Nacht oder nie");
 
 replace into Lyricists_Songs (lyricist, title) values ("Siegel, Ralph Maria", "Capri Fischer");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sigman, Carl", "Where Do I Begin? (Theme from Love Story)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Silvers, Phil", "Nancy with the Laughing Face");
 
