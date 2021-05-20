@@ -1860,9 +1860,10 @@ true, 1934, "Banjo chord melody");
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
-("Stella By Starlight", "Victor Young", "Young, Victor", true);
+("Stella By Starlight", "Ned Washington", "Washington, Ned", "Victor Young", "Young, Victor",
+true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 2}, p.~235.");
 
 /* ** *************************************************** */
 
@@ -1925,7 +1926,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 year, source)
 values
 ("Tenderly", "Jack Lawrence", "Lawrence, Jack", "Walter Gross", "Gross, Walter", 
-true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1}, p.~212");
+true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1}, p.~212.");
 
 /* ** *************************************************** */
 

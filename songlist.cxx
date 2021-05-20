@@ -326,7 +326,11 @@ main(int argc, char **argv)
 
                ctr = 1;  
             }
-            else     
+            else if (next == song_vector.end())
+            {
+               ctr_composer_vector.push_back(make_pair(ctr, curr_composer));
+            }
+            else
                ctr++;
 
             composers_file << iter->title << "}" << endl;
@@ -356,6 +360,10 @@ main(int argc, char **argv)
 
      cerr << "`ctr_composer_vector.size()' == " << ctr_composer_vector.size() << endl
           << "`ctr_composer_vector':" << endl;
+
+     cerr << "ctr_composer_vector.back().first == " << ctr_composer_vector.back().first << endl
+          << "ctr_composer_vector.back().second == "
+          << ctr_composer_vector.back().second << endl;
 
      curr_ctr = 0;
      prev_ctr = 0;
@@ -513,6 +521,10 @@ main(int argc, char **argv)
                ctr_lyricist_vector.push_back(make_pair(ctr, curr_lyricist));
 
                ctr = 1;  
+            }
+            else if (next == song_vector.end())
+            {
+               ctr_lyricist_vector.push_back(make_pair(ctr, curr_lyricist));
             }
             else
                ctr++;
