@@ -2081,6 +2081,15 @@ true, 1970, "Single edition.");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+musical, sort_by_production, year, copyright, source)
+values
+("Who Will Buy?", "Lionel Bart", "Bart, Lionel", true,
+"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~97.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
@@ -3128,6 +3137,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Consider
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Food, Glorious Food");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Food, Glorious Food");
+
+replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Who Will Buy?");
+replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Who Will Buy?");
 
 replace into Composers_Songs (composer, title) values ("Ben, Jorge", "Mas Que Nada");
 replace into Lyricists_Songs (lyricist, title) values ("Ben, Jorge", "Mas Que Nada");
