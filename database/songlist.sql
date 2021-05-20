@@ -917,10 +917,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings,
+year, source, film, notes)
 values
 ("I'll Remember April", "Patricia Johnston and Don Raye", "Johnston, Patricia and Raye, Don", 
-"Gene de Paul", "Paul, Gene de", true, 1);
+"Gene de Paul", "Paul, Gene de", true, 1, 1941, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~184.",
+"Ride 'Em Cowboy", "Abbot and Costello film");
 
 /* ** *************************************************** */
 
