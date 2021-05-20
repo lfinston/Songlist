@@ -1674,6 +1674,17 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
 
+
+/* ** *************************************************** */
+
+-- delete from Songs where words_and_music = "Alexander Warlamoff";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source)
+values
+("Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
+"Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch", true, "Public Domain.",
+"{\\bf Das Lied der V{\\\"o}lker, Russische Lieder}, p.~26.");
+
 select "!!! End R";
 
 /* S   */
@@ -1689,10 +1700,12 @@ values
 
 /* ** *************************************************** */
 
+-- delete from Songs where title = "Samba de uma nota so";
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned)
 values
-("Samba de uma nota so", "Newton Mendo{\\c c}a", "Mendo{\\c c}a, Newton", 
+("Samba de Uma Nota So", "Newton Mendo{\\c c}a", "Mendo{\\c c}a, Newton", 
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1961, true);
 
 /* ** *************************************************** */
@@ -2381,7 +2394,9 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Felicidade, A");
 
-replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de uma nota so");
+-- delete from Composers_Songs where title = "Samba de uma nota so";
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de Uma Nota So");
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
 
@@ -2580,6 +2595,11 @@ replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and D
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
+
+
+replace into Composers_Songs (composer, title) values 
+("Warlamoff, Alexander Jegorowitsch", 
+"Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young and Healthy");
 
@@ -2983,7 +3003,9 @@ values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
 
-replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton", "Samba de uma nota so");
+-- delete from Lyricists_Songs where title = "Samba de uma nota so";
+
+replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton", "Samba de Uma Nota So");
 
 replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Jeepers Creepers");
 
@@ -3072,6 +3094,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Stillman, Al", "It's Not
 replace into Lyricists_Songs (lyricist, title) values ("Thibaut, Gille", "Comme d'Habitude");
 
 replace into Lyricists_Songs (lyricist, title) values ("Turk, Roy", "I Don't Know Why (I Just Do)");
+
+replace into Lyricists_Songs (lyricist, title) values 
+("Unknown", "Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})");
 
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Cosi Cosa");
 

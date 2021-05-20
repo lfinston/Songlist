@@ -64,6 +64,8 @@
 \font\huge=cmr12 scaled \magstep2
 \font\hugebx=cmbx12 scaled \magstep2
 \font\mediumsy=cmsy10 scaled \magstephalf
+\font\mediumcy=cmcyr10 scaled \magstephalf
+
 
 \medium
 
