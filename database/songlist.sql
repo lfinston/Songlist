@@ -918,11 +918,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings,
-year, source, film, notes)
+year, source, film, notes, scanned)
 values
 ("I'll Remember April", "Patricia Johnston and Don Raye", "Johnston, Patricia and Raye, Don", 
 "Gene de Paul", "Paul, Gene de", true, 1, 1941, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~184.",
-"Ride 'Em Cowboy", "Abbot and Costello film");
+"Ride 'Em Cowboy", "Abbot and Costello film", true);
 
 /* ** *************************************************** */
 
@@ -2085,11 +2085,11 @@ true, 1970, "Single edition.");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-musical, sort_by_production, year, copyright, source)
+musical, sort_by_production, year, copyright, source, scanned)
 values
 ("Who Will Buy?", "Lionel Bart", "Bart, Lionel", true,
 "Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
-"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~97.");
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~97.", true);
 
 /* ** *************************************************** */
 
