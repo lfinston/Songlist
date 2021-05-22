@@ -264,7 +264,10 @@ graphics_1.eps graphics_2.eps graphics_3.eps graphics_4.eps \
 	-mv graphics.7 graphics_7.eps
 	-mv graphics.8 graphics_8.eps
 
+.PHONY: clean
 
+clean:
+	rm -f *.out *.dvi *.ps *.pdf *.log *~
 
 
 
