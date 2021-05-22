@@ -93,6 +93,8 @@ alter table Songs add column words_and_music_reverse varchar(128) default null a
 alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
 
 alter table Songs modify column copyright varchar(256) default null;
+alter table Songs modify column source varchar(356) default null after notes;
+
 
 show columns from Songs.Songs;
 
@@ -1676,7 +1678,6 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
 
-
 /* ** *************************************************** */
 
 -- delete from Songs where words_and_music = "Alexander Warlamoff";
@@ -1879,6 +1880,19 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Sure Thing", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", true, "Cover Girl", 1944);
+
+/* ** *************************************************** */
+
+-- select * from Songs where title = "Swinging On A Star"\G
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, source)
+values
+("Swinging On A Star", "Johnny Burke", "Burke, Johnny",
+"Jimmy van Heusen", "Heusen, Jimmy van", true, "Going My Way",
+1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s, Volume 2}, p.~252.}\n"
+"\\hbox{{\\bf Classic Songs of Johnny Burke, Hollywood's Songwriter}, p.~102.}}");
+
+/* ** *************************************************** */
 
 select "!!! End S";
 
@@ -2394,6 +2408,8 @@ replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Ima
 
 replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Oh! You Crazy Moon");
 
+replace into Composers_Songs (composer, title) values ("Heusen, Jimmy van", "Swinging On A Star");
+
 replace into Composers_Songs (composer, title) values ("Hoffmann, Al", "Heartaches");
 
 replace into Composers_Songs (composer, title) values ("Hollaender, Friedrich", "You've Got That Look");
@@ -2704,6 +2720,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "It Coul
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Got a Pocketful of Dreams");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagination");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Swinging On A Star");
 
 replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
 
