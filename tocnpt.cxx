@@ -1135,19 +1135,11 @@ getchar();
 	       << "\\advance\\hoffset by .5cm" << endl				       
 	       << "\\medium" << endl						       
 	       << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-	       << "\\setbox0=\\hbox{000}" << endl				       
-	       << "\\dimen0=\\wd0" << endl					       
-	       << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl			       
-	       << "\\dimen1=\\wd1" << endl					       
-	       << "\\def\\S{\\hskip\\dimen1}" << endl				       
 	       << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets}\\fi"   
 	       << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl			       
-	       << "\\newcount\\songctr" << endl					       
 	       << "\\songctr=1" << endl						       
 	       << "\\centerline{{\\largebx Lead Sheets}}" << endl		       
 	       << "\\vskip.75\\baselineskip" << endl				       
-	       << "\\def\\N{\\leavevmode\\hbox to \\wd0{\\hfil " << endl 	       
-	       << "\\the\\songctr\\global\\advance\\songctr by 1}. }" << endl	       
 	       << "\\doublecolumns" << endl					       
 	       << "\\obeylines" << endl << endl;
 
@@ -1156,20 +1148,14 @@ getchar();
 		   << "\\input songlist.mac" << endl << endl			       
 		   << "\\advance\\hoffset by .5cm" << endl				       
 		   << "\\medium" << endl						       
-		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-		   << "\\setbox0=\\hbox{000}" << endl				       
-		   << "\\dimen0=\\wd0" << endl					       
-		   << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl			       
-		   << "\\dimen1=\\wd1" << endl					       
-		   << "\\def\\S{\\hskip\\dimen1}" << endl				       
-		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets A--H}\\fi"   
-		   << "\\hfil{\\tt \\timestamp}\\quad}" << endl			       
-		   << "\\newcount\\songctr" << endl					       
-		   << "\\songctr=1" << endl						       
-		   << "\\centerline{{\\largebx Lead Sheets A--H}}" << endl		       
-		   << "\\vskip.75\\baselineskip" << endl				       
-		   << "\\def\\N{\\leavevmode\\hbox to \\wd0{\\hfil " << endl 	       
-		   << "\\the\\songctr\\global\\advance\\songctr by 1}. }" << endl	       
+                   << "\\advance\\baselineskip by .5\\baselineskip" << endl            
+                   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets A--H}\\fi"   
+                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                   << "\\songctr=1" << endl
+                   << "\\newwrite\\songctrout" << endl 
+                   << "\\openout\\songctrout=songctr_a_h.out" << endl 
+                   << "\\centerline{{\\largebx Lead Sheets A--H}}" << endl                     
+                   << "\\vskip.75\\baselineskip" << endl                                       
 		   << "\\doublecolumns" << endl					       
 		   << "\\obeylines" 
 		   << endl << endl;                                                        
@@ -1180,19 +1166,15 @@ getchar();
 		   << "\\advance\\hoffset by .5cm" << endl				       
 		   << "\\medium" << endl						       
 		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-		   << "\\setbox0=\\hbox{000}" << endl				       
-		   << "\\dimen0=\\wd0" << endl					       
-		   << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl			       
-		   << "\\dimen1=\\wd1" << endl					       
-		   << "\\def\\S{\\hskip\\dimen1}" << endl				       
 		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets I--O}\\fi"   
-		   << "\\hfil{\\tt \\timestamp}\\quad}" << endl			       
-		   << "\\newcount\\songctr" << endl					       
-		   << "\\songctr=1" << endl						       
+                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
 		   << "\\centerline{{\\largebx Lead Sheets I--O}}" << endl		       
 		   << "\\vskip.75\\baselineskip" << endl				       
-		   << "\\def\\N{\\leavevmode\\hbox to \\wd0{\\hfil " << endl 	       
-		   << "\\the\\songctr\\global\\advance\\songctr by 1}. }" << endl	       
+		   << "\\newread\\songctrin" << endl 
+		   << "\\openin\\songctrin=songctr_a_h.out" << endl 
+		   << "\\read\\songctrin to \\XXX" << endl 
+                   << "\\closein\\songctrin" << endl 
+		   << "\\songctr=\\XXX" << endl 
 		   << "\\doublecolumns" << endl					       
 		   << "\\obeylines"
 		   << endl << endl;                                                        
@@ -1203,19 +1185,14 @@ getchar();
 		   << "\\advance\\hoffset by .5cm" << endl				       
 		   << "\\medium" << endl						       
 		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-		   << "\\setbox0=\\hbox{000}" << endl				       
-		   << "\\dimen0=\\wd0" << endl					       
-		   << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl			       
-		   << "\\dimen1=\\wd1" << endl					       
-		   << "\\def\\S{\\hskip\\dimen1}" << endl				       
 		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets P--Z}\\fi"   
-		   << "\\hfil{\\tt \\timestamp}\\quad}" << endl			       
-		   << "\\newcount\\songctr" << endl					       
+                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+/* !!START HERE  */ 
+
 		   << "\\songctr=1" << endl						       
+
 		   << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl		       
 		   << "\\vskip.75\\baselineskip" << endl				       
-		   << "\\def\\N{\\leavevmode\\hbox to \\wd0{\\hfil " << endl 	       
-		   << "\\the\\songctr\\global\\advance\\songctr by 1}. }" << endl	       
 		   << "\\doublecolumns" << endl					       
 		   << "\\obeylines"
 		   << endl << endl;                                                        
@@ -1230,54 +1207,53 @@ getchar();
 		<< "\\dimen0=\\wd0" << endl
 		<< "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl
 		<< "\\dimen1=\\wd1" << endl
-		<< "\\def\\S{\\hskip\\dimen1}" << endl
-		<< "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx No Page Turns}\\fi"
-	       << "\\hfil{\\tt \\timestamp}\\quad}" << endl
-		<< "\\newcount\\songctr" << endl
-		<< "\\songctr=1" << endl
-		<< "\\centerline{{\\largebx No Page Turns}}" << endl
-		<< "\\vskip.75\\baselineskip" << endl
-		<< "\\def\\N{\\leavevmode\\hbox to \\wd0{\\hfil " << endl 
-		<< "\\the\\songctr\\global\\advance\\songctr by 1}. }" << endl
-		<< endl;
+                << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx No Page Turns}\\fi"
+                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+  /* !!START HERE  */
+
+                << "\\songctr=1" << endl
+
+                << "\\centerline{{\\largebx No Page Turns}}" << endl
+                << "\\vskip.75\\baselineskip" << endl
+                << endl;
 
    char temp_char;
 
    if (DEBUG)
      {
        for (vector<Song>::iterator iter = song_vector.begin();
-	    iter != song_vector.end();
-	    ++iter)
-	 iter->show("Song:");
+            iter != song_vector.end();
+            ++iter)
+         iter->show("Song:");
      }
    
    for (vector<Song>::iterator iter = song_vector.begin();
-	iter != song_vector.end();
-	++iter)
+        iter != song_vector.end();
+        ++iter)
      {
 
        for (int i = 0; i < iter->title.length(); ++i)
-	 {
-	   if (isalpha(iter->title[i]))
-	     {
-	       temp_char = tolower(iter->title[i]);
-	       break;
-	     }
-	   else if (iter->title[i] == '4')
-	     {
-	       temp_char = 'f';
-	     }
-	   else
-	     continue;
-	 }
+         {
+           if (isalpha(iter->title[i]))
+             {
+               temp_char = tolower(iter->title[i]);
+               break;
+             }
+           else if (iter->title[i] == '4')
+             {
+               temp_char = 'f';
+             }
+           else
+             continue;
+         }
        if (DEBUG) 
-	 iter->show();
+         iter->show();
 
 #if 0        
        cerr << "iter->title              == " << iter->title << endl;
        
        cerr << "iter->musical   == " << iter->musical << endl;
-	   
+           
        cerr << "iter->musical.length()   == " << iter->musical.length() << endl;
 
        cerr << "iter->sort_by_production == " << iter->sort_by_production << endl;
@@ -1285,168 +1261,163 @@ getchar();
 #endif
 
        if (iter->is_production && iter->title_vector.size() > 0)
-	 {
-	   toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+         {
+           toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-	   if (iter->title == "42nd Street")
-	     toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-	   else if (temp_char <= 'h')
-	     toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-	   else if (temp_char <= 'o')
-	     toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-	   else 
-	     toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+           if (iter->title == "42nd Street" || temp_char <= 'h')
+             toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+           else if (temp_char <= 'o')
+             toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+           else 
+             toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-	   for (vector<string>::iterator t_iter = iter->title_vector.begin();
-		t_iter != iter->title_vector.end();
-		++t_iter)
-	     {
-	       toc_ls_file << "\\S\\S " << *t_iter << endl;
+           for (vector<string>::iterator t_iter = iter->title_vector.begin();
+                t_iter != iter->title_vector.end();
+                ++t_iter)
+             {
+               toc_ls_file << "\\S\\S " << *t_iter << endl;
 
-	       if (iter->title == "42nd Street")
-		 toc_ls_a_h_file << "\\S\\S " << *t_iter << endl;
-	       else if (temp_char <= 'h')	       
-		 toc_ls_a_h_file << "\\S\\S " << *t_iter << endl;
-	       else if (temp_char <= 'o')
-		 toc_ls_i_o_file << "\\S\\S " << *t_iter << endl;
-	       else 
-		 toc_ls_p_z_file << "\\S\\S " << *t_iter << endl;
+               if (iter->title == "42nd Street" || temp_char <= 'h')
+                 toc_ls_a_h_file << "\\S\\S " << *t_iter << endl;
+               else if (temp_char <= 'o')
+                 toc_ls_i_o_file << "\\S\\S " << *t_iter << endl;
+               else 
+                 toc_ls_p_z_file << "\\S\\S " << *t_iter << endl;
 
-	     }  /* |for|  */
+             }  /* |for|  */
 
-	   toc_ls_file << "}" << endl;
+           toc_ls_file << "}" << endl;
 
-	   if (iter->title == "42nd Street")
-	     toc_ls_a_h_file << "}" << endl;
-	   else if (temp_char <= 'h')	       
-	     toc_ls_a_h_file << "}" << endl;
-	   else if (temp_char <= 'o')
-	     toc_ls_i_o_file << "}" << endl;
-	   else 
-	     toc_ls_p_z_file << "}" << endl;
+           if (iter->title == "42nd Street" || temp_char <= 'h')
+             toc_ls_a_h_file << "}" << endl;
+           else if (temp_char <= 'o')
+             toc_ls_i_o_file << "}" << endl;
+           else 
+             toc_ls_p_z_file << "}" << endl;
 
-	 }  /* |if|  */
+         }  /* |if|  */
        
        else if (iter->lead_sheet)
-	 {
-	   toc_ls_file << "\\N " << iter->title << endl;
+         {
+           toc_ls_file << "\\N " << iter->title << endl;
 
-	   if (iter->musical.length() > 0 && iter->sort_by_production)
-	     toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-			 << endl;
-   	   else if (iter->opera.length() > 0 && iter->sort_by_production)
-	     toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-			 << endl;
+           if (iter->musical.length() > 0 && iter->sort_by_production)
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                         << endl;
+           else if (iter->opera.length() > 0 && iter->sort_by_production)
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                         << endl;
            else if (iter->operetta.length() > 0 && iter->sort_by_production)
-	     toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-			 << endl;
-	   else if (iter->revue.length() > 0 && iter->sort_by_production)
-	     toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-			 << endl;
-	   else if (iter->film.length() > 0 && iter->sort_by_production)
-	     toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-			 << endl;
-	   
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                         << endl;
+           else if (iter->revue.length() > 0 && iter->sort_by_production)
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                         << endl;
+           else if (iter->film.length() > 0 && iter->sort_by_production)
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                         << endl;
+           
            toc_ls_file << endl;
 
-	   if (temp_char <= 'h')
-	     {
+           if (temp_char <= 'h')
+             {
 
-	       toc_ls_a_h_file << "\\N " << iter->title << endl;
+               toc_ls_a_h_file << "\\N " << iter->title << endl;
 
-	       if (iter->musical.length() > 0 && iter->sort_by_production)
-		 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-				 << endl;
-	       else if (iter->opera.length() > 0 && iter->sort_by_production)
-		 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-				 << endl;
-	       else if (iter->operetta.length() > 0 && iter->sort_by_production)
-		 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-				 << endl;
-	       else if (iter->revue.length() > 0 && iter->sort_by_production)
-		 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-				 << endl;
-	       else if (iter->film.length() > 0 && iter->sort_by_production)
-		 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-				 << endl;
-	   
-	       toc_ls_a_h_file << endl;
-	     }
-	   else if (temp_char <= 'o')
-	     {
-	       toc_ls_i_o_file << "\\N " << iter->title << endl;
+               if (iter->musical.length() > 0 && iter->sort_by_production)
+                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                                 << endl;
+               else if (iter->opera.length() > 0 && iter->sort_by_production)
+                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                                 << endl;
+               else if (iter->operetta.length() > 0 && iter->sort_by_production)
+                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                 << endl;
+               else if (iter->revue.length() > 0 && iter->sort_by_production)
+                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                                 << endl;
+               else if (iter->film.length() > 0 && iter->sort_by_production)
+                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                                 << endl;
+           
+               toc_ls_a_h_file << endl;
+             }
+           else if (temp_char <= 'o')
+             {
+               toc_ls_i_o_file << "\\N " << iter->title << endl;
 
-	       if (iter->musical.length() > 0 && iter->sort_by_production)
-		 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-				 << endl;
-	       else if (iter->opera.length() > 0 && iter->sort_by_production)
-		 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-				 << endl;
-	       else if (iter->operetta.length() > 0 && iter->sort_by_production)
-		 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-				 << endl;
-	       else if (iter->revue.length() > 0 && iter->sort_by_production)
-		 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-				 << endl;
-	       else if (iter->film.length() > 0 && iter->sort_by_production)
-		 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-				 << endl;
-	   
-	       toc_ls_i_o_file << endl;
+               if (iter->musical.length() > 0 && iter->sort_by_production)
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                                 << endl;
+               else if (iter->opera.length() > 0 && iter->sort_by_production)
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                                 << endl;
+               else if (iter->operetta.length() > 0 && iter->sort_by_production)
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                 << endl;
+               else if (iter->revue.length() > 0 && iter->sort_by_production)
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                                 << endl;
+               else if (iter->film.length() > 0 && iter->sort_by_production)
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                                 << endl;
+           
+               toc_ls_i_o_file << endl;
 
-	     }
-	   else
-	     {
-	       toc_ls_p_z_file << "\\N " << iter->title << endl;
-	       
-	       if (iter->musical.length() > 0 && iter->sort_by_production)
-		 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-				 << endl;
-	       else if (iter->opera.length() > 0 && iter->sort_by_production)
-		 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-				 << endl;
-	       else if (iter->operetta.length() > 0 && iter->sort_by_production)
-		 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-				 << endl;
-	       else if (iter->revue.length() > 0 && iter->sort_by_production)
-		 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-				 << endl;
-	       else if (iter->film.length() > 0 && iter->sort_by_production)
-		 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-				 << endl;
-	   
-	       toc_ls_p_z_file << endl;
-	     }
+             }
+           else
+             {
+               toc_ls_p_z_file << "\\N " << iter->title << endl;
+               
+               if (iter->musical.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                                 << endl;
+               else if (iter->opera.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                                 << endl;
+               else if (iter->operetta.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                 << endl;
+               else if (iter->revue.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                                 << endl;
+               else if (iter->film.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                                 << endl;
+           
+               toc_ls_p_z_file << endl;
+             }
 
-	 }  /* |if (iter->lead_sheet)|  */
+         }  /* |if (iter->lead_sheet)|  */
 
        else if (iter->no_page_turns)
-	 {
-	   toc_npt_file << "\\N " << iter->title << endl << endl;
-	 }
+         {
+           toc_npt_file << "\\N " << iter->title << endl << endl;
+         }
 
        else if (iter->no_page_turns_with_two_songbooks)
-	 {
-	   toc_npt_file << "\\N " << iter->title << " (WTS)" << endl << endl;
-	 }
+         {
+           toc_npt_file << "\\N " << iter->title << " (WTS)" << endl << endl;
+         }
        else if (iter->partial_lead_sheet)
-	 {
-	   toc_npt_file << "\\N " << iter->title << " (PLS)" << endl << endl;
-	 }
+         {
+           toc_npt_file << "\\N " << iter->title << " (PLS)" << endl << endl;
+         }
        
      }  /* |for|  */
 
    toc_ls_file << "\\singlecolumn" << endl << endl
-	       << endl << "\\bye" << endl;
+               << endl << "\\bye" << endl;
 
    toc_ls_a_h_file << "\\singlecolumn" << endl << endl
-	       << endl << "\\bye" << endl;
+                   << "\\write\\songctrout{\\the\\songctr}" << endl 
+                   << endl << "\\bye" << endl;
 
    toc_ls_i_o_file << "\\singlecolumn" << endl << endl
-		   << endl << "\\bye" << endl;
+                   << endl << "\\bye" << endl;
 
    toc_ls_p_z_file << "\\singlecolumn" << endl << endl
-	       << endl << "\\bye" << endl;
+               << endl << "\\bye" << endl;
 
    toc_ls_file.close();
    toc_ls_a_h_file.close();
@@ -1454,8 +1425,8 @@ getchar();
    toc_ls_p_z_file.close();
 
    toc_npt_file << "\\vskip2cm" << endl << endl
-		<< "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
-		<< endl << endl << "\\bye" << endl;
+                << "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
+                << endl << endl << "\\bye" << endl;
 
    toc_npt_file.close();
 
@@ -1465,11 +1436,11 @@ getchar();
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
-/*   	 indirect buffer is visited, so it's necessary to evaluate the       */
-/*   	 following s-expression in order to use the facilities normally      */
-/*   	 accessed via the local variables list.                              */
-/*   	 \initials{LDF 2004.02.12}.                                          */
-/*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
+/*       indirect buffer is visited, so it's necessary to evaluate the       */
+/*       following s-expression in order to use the facilities normally      */
+/*       accessed via the local variables list.                              */
+/*       \initials{LDF 2004.02.12}.                                          */
+/*       (progn (cweb-mode) (outline-minor-mode t))                          */
 
 /* * Local variables for Emacs.*/
 /* Local Variables: */

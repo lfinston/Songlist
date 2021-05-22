@@ -66,6 +66,16 @@
 \font\mediumsy=cmsy10 scaled \magstephalf
 \font\mediumcy=cmcyr10 scaled \magstephalf
 
+\setbox0=\hbox{000}
+\dimen0=\wd0
+\setbox1=\hbox{\hskip\dimen0. }
+\dimen1=\wd1				       
+
+\newcount\songctr
+\def\N{\leavevmode\hbox to \dimen0{\hss 
+\the\songctr\global\advance\songctr by 1}. }
+\def\S{\hskip\dimen1}
+
 
 \medium
 

@@ -64,7 +64,7 @@ all: songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_l
       all.dvi all.ps all.pdf 
 
 
-all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi
+all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi  toc_ls_p_z.dvi  
 	dviconcat -o $@ $^
 
 all.ps: all.dvi 
@@ -162,7 +162,7 @@ toc_ls_i_o.ps: toc_ls_i_o.dvi
 toc_ls_p_z.ps: toc_ls_p_z.dvi
 	dvips -o toc_ls_p_z.ps toc_ls_p_z.dvi	
 
-toc_ls.dvi: toc_ls.tex songlist
+toc_ls.dvi: toc_ls.tex songlist.mac songlist
 	tex toc_ls.tex
 
 toc_ls_a_h.dvi: toc_ls_a_h.tex  
