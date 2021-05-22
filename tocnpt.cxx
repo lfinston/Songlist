@@ -1175,6 +1175,8 @@ getchar();
 		   << "\\read\\songctrin to \\XXX" << endl 
                    << "\\closein\\songctrin" << endl 
 		   << "\\songctr=\\XXX" << endl 
+                   << "\\newwrite\\songctrout" << endl 
+                   << "\\openout\\songctrout=songctr_i_o.out" << endl 
 		   << "\\doublecolumns" << endl					       
 		   << "\\obeylines"
 		   << endl << endl;                                                        
@@ -1187,12 +1189,13 @@ getchar();
 		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
 		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets P--Z}\\fi"   
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-/* !!START HERE  */ 
-
-		   << "\\songctr=1" << endl						       
-
 		   << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl		       
-		   << "\\vskip.75\\baselineskip" << endl				       
+		   << "\\vskip.75\\baselineskip" << endl		
+		   << "\\newread\\songctrin" << endl 
+		   << "\\openin\\songctrin=songctr_i_o.out" << endl 
+		   << "\\read\\songctrin to \\XXX" << endl 
+                   << "\\closein\\songctrin" << endl 
+		   << "\\songctr=\\XXX" << endl 
 		   << "\\doublecolumns" << endl					       
 		   << "\\obeylines"
 		   << endl << endl;                                                        
@@ -1414,6 +1417,7 @@ getchar();
                    << endl << "\\bye" << endl;
 
    toc_ls_i_o_file << "\\singlecolumn" << endl << endl
+                   << "\\write\\songctrout{\\the\\songctr}" << endl 
                    << endl << "\\bye" << endl;
 
    toc_ls_p_z_file << "\\singlecolumn" << endl << endl
