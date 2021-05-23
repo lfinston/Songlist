@@ -735,6 +735,19 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 values
 ("Gigi", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Gigi");
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
+notes, scanned, scanned_filename)
+values
+("Gold Diggers' Song, The (We're in the Money)", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
+false, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
+"Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
+false, NULL);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 no_page_turns, year, copyright, musical, source, sort_by_production)
 values
@@ -2693,21 +2706,23 @@ replace into Composers_Songs (composer, title) values
 ("Warlamoff, Alexander Jegorowitsch", 
 "Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})");
 
-replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young and Healthy");
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Gold Diggers' Song, The (We're in the Money)");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "I Only Have Eyes for You");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "I'll String Along With You");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Jeepers Creepers");
+
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Shuffle Off to Buffalo");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "September in the Rain");
 
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young and Healthy");
+
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "You're Getting to Be a Habit With Me");
-
-replace into Composers_Songs (composer, title) values ("Warren, Harry", "I'll String Along With You");
-
-replace into Composers_Songs (composer, title) values ("Warren, Harry", "I Only Have Eyes for You");
-
-replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Speak Low");
 
@@ -2816,6 +2831,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Dehmel, Willy", "Ja und 
 replace into Lyricists_Songs (lyricist, title) values ("DeLange, Eddie", "Moonglow");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dixon, Mort", "Lady in Red, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Gold Diggers' Song, The (We're in the Money)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I'll String Along With You");
 
