@@ -1278,14 +1278,16 @@ getchar();
                 t_iter != iter->title_vector.end();
                 ++t_iter)
              {
-               toc_ls_file << "\\S\\S " << *t_iter << endl;
+
+               toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
 
                if (iter->title == "42nd Street" || temp_char <= 'h')
-                 toc_ls_a_h_file << "\\S\\S " << *t_iter << endl;
+                 toc_ls_a_h_file << "\\S\\S {" << *t_iter << "}" << endl;
                else if (temp_char <= 'o')
-                 toc_ls_i_o_file << "\\S\\S " << *t_iter << endl;
+                 toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
                else 
-                 toc_ls_p_z_file << "\\S\\S " << *t_iter << endl;
+                 toc_ls_p_z_file << "\\S\\S {" << *t_iter << "}" << endl;
+
 
              }  /* |for|  */
 
