@@ -701,7 +701,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, 
 sort_by_production, scanned, scanned_filename, source)
 values
-("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street", 1933, 
+("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street (Film)", 1933, 
 true, true, "ftscstrt.pdf", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~12.");
 
 /* ** *************************************************** */
@@ -1800,7 +1800,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, source)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"42nd Street", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
+"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
 
 /* ** *************************************************** */
 
@@ -2214,7 +2214,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 film, year, sort_by_production, source)
 values
 ("Young and Healthy", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 
-"42nd Street", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
+"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
 
 /* ** *************************************************** */
 
@@ -2222,7 +2222,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 film, year, sort_by_production, source)
 values
 ("You're Getting to Be a Habit With Me", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"42nd Street", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
+"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
 
 /* ** *************************************************** */
 

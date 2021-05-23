@@ -1264,46 +1264,47 @@ getchar();
 #endif
 
        if (iter->is_production && iter->title_vector.size() > 0)
-         {
-           toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+       {
+         toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-           if (iter->title == "42nd Street" || temp_char <= 'h')
-             toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-           else if (temp_char <= 'o')
-             toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-           else 
-             toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+         if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+           toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+         else if (temp_char <= 'o')
+           toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+         else 
+           toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-           for (vector<string>::iterator t_iter = iter->title_vector.begin();
-                t_iter != iter->title_vector.end();
-                ++t_iter)
-             {
+         for (vector<string>::iterator t_iter = iter->title_vector.begin();
+              t_iter != iter->title_vector.end();
+              ++t_iter)
+           {
 
-               toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
+             toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
 
-               if (iter->title == "42nd Street" || temp_char <= 'h')
-                 toc_ls_a_h_file << "\\S\\S {" << *t_iter << "}" << endl;
-               else if (temp_char <= 'o')
-                 toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
-               else 
-                 toc_ls_p_z_file << "\\S\\S {" << *t_iter << "}" << endl;
+             if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+               toc_ls_a_h_file << "\\S\\S {" << *t_iter << "}" << endl;
+             else if (temp_char <= 'o')
+               toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
+             else 
+               toc_ls_p_z_file << "\\S\\S {" << *t_iter << "}" << endl;
 
 
-             }  /* |for|  */
+           }  /* |for|  */
 
-           toc_ls_file << "}" << endl;
+         toc_ls_file << "}" << endl;
 
-           if (iter->title == "42nd Street" || temp_char <= 'h')
-             toc_ls_a_h_file << "}" << endl;
-           else if (temp_char <= 'o')
-             toc_ls_i_o_file << "}" << endl;
-           else 
-             toc_ls_p_z_file << "}" << endl;
+         if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+           toc_ls_a_h_file << "}" << endl;
+         else if (temp_char <= 'o')
+           toc_ls_i_o_file << "}" << endl;
+         else 
+           toc_ls_p_z_file << "}" << endl;
 
-         }  /* |if|  */
+       }  /* |if|  */
        
        else if (iter->lead_sheet)
          {
+
            toc_ls_file << "\\N " << iter->title << endl;
 
            if (iter->musical.length() > 0 && iter->sort_by_production)
@@ -1324,52 +1325,51 @@ getchar();
            
            toc_ls_file << endl;
 
-           if (temp_char <= 'h')
-             {
+           if (iter->title == "42nd Street" || temp_char <= 'h')
+           {
+              toc_ls_a_h_file << "\\N " << iter->title << endl;
 
-               toc_ls_a_h_file << "\\N " << iter->title << endl;
-
-               if (iter->musical.length() > 0 && iter->sort_by_production)
-                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-                                 << endl;
-               else if (iter->opera.length() > 0 && iter->sort_by_production)
-                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-                                 << endl;
-               else if (iter->operetta.length() > 0 && iter->sort_by_production)
-                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-                                 << endl;
-               else if (iter->revue.length() > 0 && iter->sort_by_production)
-                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-                                 << endl;
-               else if (iter->film.length() > 0 && iter->sort_by_production)
-                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-                                 << endl;
+              if (iter->musical.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                                << endl;
+              else if (iter->opera.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                                << endl;
+              else if (iter->operetta.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                << endl;
+              else if (iter->revue.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                                << endl;
+              else if (iter->film.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                                << endl;
            
-               toc_ls_a_h_file << endl;
-             }
+              toc_ls_a_h_file << endl;
+           }
            else if (temp_char <= 'o')
-             {
-               toc_ls_i_o_file << "\\N " << iter->title << endl;
+           {
+              toc_ls_i_o_file << "\\N " << iter->title << endl;
 
-               if (iter->musical.length() > 0 && iter->sort_by_production)
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-                                 << endl;
-               else if (iter->opera.length() > 0 && iter->sort_by_production)
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-                                 << endl;
-               else if (iter->operetta.length() > 0 && iter->sort_by_production)
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-                                 << endl;
-               else if (iter->revue.length() > 0 && iter->sort_by_production)
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-                                 << endl;
-               else if (iter->film.length() > 0 && iter->sort_by_production)
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-                                 << endl;
+              if (iter->musical.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                                << endl;
+              else if (iter->opera.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                                << endl;
+              else if (iter->operetta.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                << endl;
+              else if (iter->revue.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                                << endl;
+              else if (iter->film.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                                << endl;
            
-               toc_ls_i_o_file << endl;
+              toc_ls_i_o_file << endl;
 
-             }
+           }
            else
              {
                toc_ls_p_z_file << "\\N " << iter->title << endl;
