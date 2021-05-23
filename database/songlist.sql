@@ -1931,12 +1931,14 @@ values
 
 -- select * from Songs where title = "Swinging On A Star"\G
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
+year, source, scanned, scanned_filename)
 values
 ("Swinging On A Star", "Johnny Burke", "Burke, Johnny",
 "Jimmy van Heusen", "Heusen, Jimmy van", true, "Going My Way",
 1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s, Volume 2}, p.~252.}\n"
-"\\hbox{{\\bf Classic Songs of Johnny Burke, Hollywood's Songwriter}, p.~102.}}");
+"\\hbox{{\\bf Classic Songs of Johnny Burke, Hollywood's Songwriter}, p.~102.}}",
+true, "swngstar.pdf");
 
 /* ** *************************************************** */
 
