@@ -698,6 +698,12 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, 
+sort_by_production, scanned, scanned_filename)
+values
+("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street", 1933, 
+true, true, "ftscstrt.pdf");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year)

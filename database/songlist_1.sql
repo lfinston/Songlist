@@ -2574,10 +2574,12 @@ insert ignore into Songs (title, source) values
 
 update Songs set source = "{\\bf 100 Years of Popular Music, 1920s, Volume 1}" where title = "Spread a Little Happiness";
 
-insert ignore into Songs (title, source) values
-("Star Dust", "{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
+-- insert ignore into Songs (title, source) values
+-- ("Star Dust", "{\\bf 100 Years of Popular Music, 1930s, Volume 1}");
 
-update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" where title = "Star Dust";
+-- update Songs set source = "{\\bf 100 Years of Popular Music, 1930s, Volume 1}" where title = "Star Dust";
+
+-- delete from Songs where title = "Star Dust";
 
 insert ignore into Songs (title, source) values
 ("Stars Will Remember, The", "{\\bf 100 Years of Popular Music, 1940s, Volume 1}");
