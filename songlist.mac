@@ -66,22 +66,40 @@
 \font\mediumsy=cmsy10 scaled \magstephalf
 \font\mediumcy=cmcyr10 scaled \magstephalf
 
-\setbox0=\hbox{000}
-\dimen0=\wd0
-\setbox1=\hbox{\hskip\dimen0. }
-\dimen1=\wd1				       
+\newdimen\twozerosdimen
+\newdimen\twozerosbolddimen
+\newdimen\twozerosperioddimen
+\newdimen\threezerosdimen
+\newdimen\threezerosperioddimen
+
+\setbox0=\hbox{{\medium 00}}
+\twozerosdimen=\wd0
+\setbox0=\hbox{{\mediumbx 00}}
+\twozerosbolddimen=\wd0
+\setbox0=\hbox{\hskip\twozerosdimen. }
+\twozerosperioddimen=\wd0  
+
+\setbox0=\hbox{{\medium 000}}
+\threezerosdimen=\wd0
+\setbox1=\hbox{\hskip\threezerosdimen. }
+\threezerosperioddimen=\wd1				       
 
 \newcount\songctr
-\def\N{\leavevmode\hbox to \dimen0{\hss 
+
+\def\M{\leavevmode\hbox to \twozerosdimen{\hss 
 \the\songctr\global\advance\songctr by 1}. }
-\def\S{\hskip\dimen1}
+\def\S{\hskip\twozerosperioddimen}
+
+\def\N{\leavevmode\hbox to \threezerosdimen{\hss 
+\the\songctr\global\advance\songctr by 1}. }
+\def\S{\hskip\threezerosperioddimen}
 
 \def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
 
 \def\SCANNED#1#2{\begingroup\setbox0=\hbox{{\medium Pretty A Girl is Like a Melody}}%
-\setbox1=\hbox{{\medium 00.}}%
-\setbox2=\hbox{#1}\ifdim\wd2<\wd0\line{\hbox to \dimen1{\hss\the\songctr .} #1\leaderfill {\mediumtt #2}}\else
-\vtop{\line{\hbox to \dimen1{\hss\the\songctr .} #1\hfil}%
+\setbox1=\hbox{{\medium 00. }}%
+\setbox2=\hbox{#1}\ifdim\wd2<\wd0\line{\hbox to \wd1{\hss\the\songctr. }#1\leaderfill {\mediumtt #2}}\else
+\vtop{\line{\hbox to \wd1{\hss\the\songctr . }#1\hfil}%
 \line{\quad\leaderfill {\mediumtt #2}}}\vskip.25\baselineskip\fi\global\advance\songctr by 1\endgroup}
 
 \medium

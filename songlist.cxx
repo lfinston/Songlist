@@ -116,6 +116,7 @@ main(int argc, char **argv)
    ofstream composers_file;
    ofstream lyricists_file;
    ofstream scanned_file;
+   ofstream public_domain_file;
 
    cerr << "This is `songlist'." << endl;
    
@@ -221,8 +222,6 @@ main(int argc, char **argv)
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Songs by Composer}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
-                    << "\\setbox1=\\hbox{{\\mediumbx 00}}\\dimen1=\\wd1" << endl
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -315,7 +314,7 @@ main(int argc, char **argv)
             if (   (next != song_vector.end() && (next_composer == curr_composer || ctr > 1))
                 || (next == song_vector.end() && ctr > 1))
             {
-                 composers_file << "\\hbox to \\dimen0{";
+                 composers_file << "\\hbox to \\twozerosdimen{";
                  if (ctr < 10)
                     composers_file << "\\hfil ";
 
@@ -386,12 +385,12 @@ main(int argc, char **argv)
             if (prev_ctr > 0)
                composers_file << "\\vskip-1.25\\baselineskip" << endl;
 
-            composers_file << "\\leavevmode\\hbox to \\dimen1{\\hss{\\mediumbx " << curr_ctr << "}}\\hskip.5em " 
+            composers_file << "\\leavevmode\\hbox to \\twozerosbolddimen{\\hss{\\mediumbx " << curr_ctr << "}}\\hskip.5em " 
                            << iter->second << "\\hfil\\break" << endl;
 
         }
         else
-           composers_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " << iter->second << "\\hfil\\break"
+           composers_file << "\\hbox{}\\hskip\\twozerosbolddimen\\hskip.5em " << iter->second << "\\hfil\\break"
                           << endl;
 
      }
@@ -419,8 +418,6 @@ main(int argc, char **argv)
                     << "\\medium" << endl                                                
                     << "\\headline={\\hfil\\ifnum\\pageno>1{\\mediumbx Songs by Lyricist}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                    << "\\setbox0=\\hbox{{\\medium 00}}\\dimen0=\\wd0" << endl
-                    << "\\setbox1=\\hbox{{\\mediumbx 00}}\\dimen1=\\wd1" << endl
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -509,7 +506,7 @@ main(int argc, char **argv)
             if (   (next != song_vector.end() && (next_lyricist == curr_lyricist || ctr > 1))
                 || (next == song_vector.end() && ctr > 1))
             {
-                 lyricists_file << "\\hbox to \\dimen0{";
+                 lyricists_file << "\\hbox to \\twozerosdimen{";
                  if (ctr < 10)
                     lyricists_file << "\\hfil ";
 
@@ -576,12 +573,12 @@ main(int argc, char **argv)
             if (prev_ctr > 0)
                lyricists_file << "\\vskip-1.25\\baselineskip" << endl;
 
-            lyricists_file << "\\leavevmode\\hbox to \\dimen1{\\hss{\\mediumbx " 
+            lyricists_file << "\\leavevmode\\hbox to \\twozerosbolddimen{\\hss{\\mediumbx " 
                            << curr_ctr << "}}\\hskip.5em " 
                            << iter->second << "\\hfil\\break" << endl;
         }
         else
-           lyricists_file << "\\hbox{}\\hskip\\dimen1\\hskip.5em " 
+           lyricists_file << "\\hbox{}\\hskip\\twozerosbolddimen\\hskip.5em " 
                           << iter->second << "\\hfil\\break"
                           << endl;
      }
@@ -603,9 +600,9 @@ main(int argc, char **argv)
                     << "\\advance\\baselineskip by .25\\baselineskip" << endl 
                     << "\\parskip=.75\\baselineskip" << endl 
                     << "\\medium" << endl                                                
-                    << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Scanned Songs}\\fi"   
+                    << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Scanned Lead Sheets}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                    << "\\centerline{{\\largebx Scanned Songs}}" << endl                  
+                    << "\\centerline{{\\largebx Scanned Lead Sheets}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl
                     << "\\begingroup" << endl
                     << "\\dimen0=\\vsize" << endl
@@ -653,6 +650,88 @@ main(int argc, char **argv)
      scanned_file << endl << "\\singlecolumn" << endl << endl << "\\bye" << endl;
 
      scanned_file.close();
+
+/* *** (3)  Print out public domain songs.  */
+
+     public_domain_file.open("pblcdomn.tex");
+
+     public_domain_file << "%% pblcdomn.tex" << endl                                              
+                    << "%% Generated by `songlist' " << datestamp << endl << endl        
+                    << "\\input songlist.mac" << endl << endl                            
+                    << "\\advance\\hoffset by .5cm" << endl
+                    << "\\advance\\baselineskip by .25\\baselineskip" << endl 
+                    << "\\parskip=.75\\baselineskip" << endl 
+                    << "\\medium" << endl                                                
+                    << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Public Domain Songs}\\fi"   
+                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                    << "\\centerline{{\\largebx Public Domain Songs}}" << endl                  
+                    << "\\vskip.75\\baselineskip" << endl
+                    << "\\setbox0=\\hbox{{\\medium 0000}}" << endl
+                    << "\\dimen0=\\wd0" << endl 
+                    << "\\songctr=1" << endl                    
+                    << "%\\doublecolumns" << endl 
+                    << "\\obeylines" << endl;
+     if (DEBUG)
+     {
+         cerr << "In `main':  `song_vector.size()' == " << song_vector.size()
+              << endl;
+     }
+
+#if 0 
+     /* This is currently not necessary, because `song_vector' is sorted above.
+        This line is left in here in case something changes that would make
+        resorting necessary.  LDF 2021.05.24.  */
+
+     sort(song_vector.begin(), song_vector.end(), compare_titles);
+#endif 
+
+     cerr << endl << "Public Domain songs:" << endl << endl;
+
+     for (vector<Song>::iterator iter = song_vector.begin();
+          iter != song_vector.end();
+          ++iter, ++next)
+     {
+         if (iter->public_domain == true)
+         {
+             cerr << iter->title;
+
+             public_domain_file << "\\M " << "\\hbox to .5\\hsize{" << iter->title;
+
+             if (iter->year != 0 || iter->scanned_filename.size() > 0)
+                public_domain_file << "\\leaderfill ";
+              
+             if (iter->year != 0)
+                public_domain_file << iter->year;
+             else
+                public_domain_file << iter->year;
+
+
+               //  << "\\hbox to .5\\hsize{" << iter->title;
+
+
+
+             {
+
+                cerr << " " << iter->year;
+
+
+                
+                if (iter->year != 0)
+                   public_domain_file << "\\leaderfill " << iter->year;
+                else
+                   public_domain_file << "\\leaderfill ";
+
+                public_domain_file << "}" << endl;
+             }
+             
+             cerr << endl;
+         }            
+
+     }  /* |for|  */
+
+     public_domain_file << endl << "%\\singlecolumn" << endl << endl << "\\bye" << endl;
+
+     public_domain_file.close();
 
 /* *** (3)  */
 

@@ -61,19 +61,20 @@ all: songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_l
       lyricists.ps composers.ps \
       toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_ls.pdf toc_npt.pdf \
       lyricists.pdf composers.pdf \
-      scanned.dvi scanned.ps scanned.pdf \
-      all.dvi all.ps all.pdf 
+      scanned.dvi scanned.ps scanned.pdf pblcdomn.dvi pblcdomn.ps pblcdomn.pdf \
+      all.dvi all.ps all.pdf Makefile
 
 
 all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi \
-         toc_ls_p_z.dvi scanned.dvi 
+         toc_ls_p_z.dvi scanned.dvi pblcdomn.dvi
 	dviconcat -o $@ $^
 
 all.ps: all.dvi 
 	dvips -o all.ps all.dvi
 
-all.pdf: all.ps 
-	ps2pdf all.ps
+all.pdf: toc_ls.pdf toc_npt.pdf composers.pdf lyricists.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf \
+         toc_ls_p_z.pdf scanned.pdf pblcdomn.pdf
+	pdfunite $^ $@
 
 combined: combined.pdf
 
@@ -113,7 +114,7 @@ songlist_out.ps: songlist_out.dvi
 
 # | grep "Overfull"	
 
-songlist_out.dvi: songlist_out.tex songlist.mac 
+songlist_out.dvi: songlist_out.tex songlist.mac songlist$(EXEEXT) Makefile
 	tex songlist_out.tex 
 
 
@@ -164,16 +165,16 @@ toc_ls_i_o.ps: toc_ls_i_o.dvi
 toc_ls_p_z.ps: toc_ls_p_z.dvi
 	dvips -o toc_ls_p_z.ps toc_ls_p_z.dvi	
 
-toc_ls.dvi: toc_ls.tex songlist.mac songlist
+toc_ls.dvi: toc_ls.tex songlist.mac songlist$(EXEEXT) Makefile
 	tex toc_ls.tex
 
-toc_ls_a_h.dvi: toc_ls_a_h.tex  
+toc_ls_a_h.dvi: toc_ls_a_h.tex songlist$(EXEEXT) Makefile
 	tex toc_ls_a_h.tex
 
-toc_ls_i_o.dvi: toc_ls_i_o.tex  
+toc_ls_i_o.dvi: toc_ls_i_o.tex songlist$(EXEEXT) Makefile
 	tex toc_ls_i_o.tex
 
-toc_ls_p_z.dvi: toc_ls_p_z.tex  
+toc_ls_p_z.dvi: toc_ls_p_z.tex songlist$(EXEEXT) Makefile
 	tex toc_ls_p_z.tex
 
 toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex: songlist$(EXEEXT) database/songlist.sql
@@ -185,8 +186,8 @@ toc_scores.pdf: toc_scores.ps
 toc_scores.ps: toc_scores.dvi
 	dvips -o toc_scores.ps toc_scores.dvi
 
-toc_scores.dvi: toc_scores.tex
-	tex toc_scores.tex
+toc_scores.dvi: toc_scores.tex songlist$(EXEEXT) Makefile
+	tex $<
 
 toc_scores.tex: songlist
 	make run
@@ -197,8 +198,8 @@ composers.pdf: composers.ps
 composers.ps: composers.dvi
 	dvips -o composers.ps composers.dvi
 
-composers.dvi: composers.tex
-	tex composers.tex
+composers.dvi: composers.tex songlist$(EXEEXT) Makefile
+	tex $<
 
 lyricists.pdf: lyricists.ps
 	ps2pdf lyricists.ps
@@ -206,7 +207,7 @@ lyricists.pdf: lyricists.ps
 lyricists.ps: lyricists.dvi
 	dvips -o lyricists.ps lyricists.dvi
 
-lyricists.dvi: lyricists.tex
+lyricists.dvi: lyricists.tex songlist$(EXEEXT) Makefile
 	tex lyricists.tex
 
 composers.tex: songlist$(EXEEXT) database/songlist.sql
@@ -215,14 +216,26 @@ composers.tex: songlist$(EXEEXT) database/songlist.sql
 lyricists.tex: songlist$(EXEEXT) database/songlist.sql
 	$(MAKE) run
 
-scanned.pdf: scanned.ps
-	ps2pdf $<
+scanned.pdf: scanned.dvi
+	dvipdfmx $<
 
 scanned.ps: scanned.dvi 
 	dvips -o $@ $<
 
-scanned.dvi: scanned.tex songlist.mac songlist$(EXEEXT) database/songlist.sql
+scanned.dvi: scanned.tex songlist.mac songlist$(EXEEXT) database/songlist.sql Makefile
 	tex $<
+
+pblcdomn.pdf: pblcdomn.dvi
+	dvipdfmx $<
+
+pblcdomn.ps: pblcdomn.dvi 
+	dvips -o $@ $<
+
+pblcdomn.dvi: pblcdomn.tex songlist.mac songlist$(EXEEXT) database/songlist.sql Makefile
+	tex $<
+
+pblcdomn.tex: songlist$(EXEEXT)
+	$(MAKE) run
 
 .PHONY: run-c
 
@@ -248,7 +261,7 @@ run-t: ttemp.ps
 ttemp.ps: ttemp.dvi
 	dvips -o ttemp.ps ttemp.dvi
 
-ttemp.dvi: ttemp.tex songlist.mac
+ttemp.dvi: ttemp.tex songlist.mac songlist$(EXEEXT) Makefile
 	tex ttemp.tex
 
 

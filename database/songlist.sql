@@ -1316,12 +1316,13 @@ true, "lvrcbtme.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
-sort_by_production, source, notes)
+sort_by_production, source, notes, scanned, scanned_filename)
 values
 ("Lullaby of Broadway", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"Gold Diggers of 1935", 1935, true, "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~39.}"
+"Gold Diggers of 1935", 1935, false, "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~39.}"
 "\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
-"Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.");
+"Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
+true, "lullbrdw.pdf");
 
 /* ** *************************************************** */
 

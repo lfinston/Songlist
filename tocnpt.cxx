@@ -1226,16 +1226,9 @@ getchar();
                 << "\\advance\\hoffset by .5cm" << endl
                 << "\\medium" << endl
                 << "\\advance\\baselineskip by .5\\baselineskip" << endl 
-                << "\\setbox0=\\hbox{00}" << endl
-                << "\\dimen0=\\wd0" << endl
-                << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl
-                << "\\dimen1=\\wd1" << endl
                 << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx No Page Turns}\\fi"
                 << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-  /* !!START HERE  */
-
                 << "\\songctr=1" << endl
-
                 << "\\centerline{{\\largebx No Page Turns}}" << endl
                 << "\\vskip.75\\baselineskip" << endl
                 << endl;
@@ -1347,7 +1340,7 @@ getchar();
 
            if (iter->title == "42nd Street" || temp_char <= 'h')
            {
-              toc_ls_a_h_file << "\\N " << iter->title << endl;
+              toc_ls_a_h_file << "\\M " << iter->title << endl;
 
               if (iter->musical.length() > 0 && iter->sort_by_production)
                 toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
@@ -1417,16 +1410,16 @@ getchar();
 
        else if (iter->no_page_turns)
          {
-           toc_npt_file << "\\N " << iter->title << endl << endl;
+           toc_npt_file << "\\M " << iter->title << endl << endl;
          }
 
        else if (iter->no_page_turns_with_two_songbooks)
          {
-           toc_npt_file << "\\N " << iter->title << " (WTS)" << endl << endl;
+           toc_npt_file << "\\M " << iter->title << " (WTS)" << endl << endl;
          }
        else if (iter->partial_lead_sheet)
          {
-           toc_npt_file << "\\N " << iter->title << " (PLS)" << endl << endl;
+           toc_npt_file << "\\M " << iter->title << " (PLS)" << endl << endl;
          }
        
      }  /* |for|  */
