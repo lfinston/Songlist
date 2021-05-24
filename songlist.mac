@@ -76,6 +76,12 @@
 \the\songctr\global\advance\songctr by 1}. }
 \def\S{\hskip\dimen1}
 
+\def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
+
+\def\SCANNED#1#2{\begingroup\setbox0=\hbox{{\medium Cup of Coffee, a Sandwich and You}}%
+\dimen0=\wd0
+\setbox1=\hbox{#1}\ifdim\wd1<\dimen0\line{\box1\leaderfill {\mediumtt #2}}\else
+\vtop{\line{#1\hfil}\line{\quad\leaderfill {\mediumtt #2}}}\vskip.25\baselineskip\fi\endgroup}
 
 \medium
 

@@ -125,7 +125,9 @@ process_tocs_and_npt(void)
              <<        "sort_by_production, "               // 19
              <<        "year, "                             // 20
              <<        "copyright, "                        // 21
-             <<        "notes "                             // 22
+             <<        "notes, "                            // 22
+             <<        "scanned, "                          // 23
+             <<        "scanned_filename "                  // 24
              << "from Songs order by title asc;";
 
    if (DEBUG) 
@@ -303,123 +305,141 @@ process_tocs_and_npt(void)
        if (DEBUG)
 	 cerr << "`recordings'                       == " << curr_row[13] << endl;
        curr_song.recordings = atoi(curr_row[13]);
-	   
+           
        if (curr_row[14])
-	 {
-	   if (DEBUG)
-	     cerr << "`opera'                            == " << curr_row[14] << endl;
-	   curr_song.opera.assign(curr_row[14]);	   
-	 }
+       {
+         if (DEBUG)
+           cerr << "`opera'                            == " << curr_row[14] << endl;
+         curr_song.opera.assign(curr_row[14]);           
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`opera'                            == NULL" << endl;
-	 }
+       {
+         if (DEBUG)
+           cerr << "`opera'                            == NULL" << endl;
+       }
 
        if (curr_row[15])
-	 {
-	   if (DEBUG)
-	     cerr << "`operetta'                         == " << curr_row[15] << endl;
-	   curr_song.operetta.assign(curr_row[15]);	   
-	 }
+       {
+         if (DEBUG)
+           cerr << "`operetta'                         == " << curr_row[15] << endl;
+         curr_song.operetta.assign(curr_row[15]);        
+       }
        else
-	 {   if (DEBUG)
-	     cerr << "`operetta'                         == NULL" << endl;
-	 }
+       {   if (DEBUG)
+           cerr << "`operetta'                         == NULL" << endl;
+       }
 
        if (curr_row[16])
-	 {
-	   if (DEBUG)
-	     cerr << "`musical'                          == " << curr_row[16] << endl;
-	   curr_song.musical.assign(curr_row[16]);	   
-	 }
+       {
+         if (DEBUG)
+           cerr << "`musical'                          == " << curr_row[16] << endl;
+         curr_song.musical.assign(curr_row[16]);         
+       }
        else
-	 {   if (DEBUG)
-	     cerr << "`musical'                          == NULL" << endl;
-	 }  
+       {   if (DEBUG)
+           cerr << "`musical'                          == NULL" << endl;
+       }  
 
        if (curr_row[17])
-	 {
-	   if (DEBUG)
-	     cerr << "`revue'                            == " << curr_row[17] << endl;
-	   curr_song.revue.assign(curr_row[17]);
-	 }
+       {
+         if (DEBUG)
+           cerr << "`revue'                            == " << curr_row[17] << endl;
+         curr_song.revue.assign(curr_row[17]);
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`revue'                            == NULL" << endl;
-	 }
+       {
+         if (DEBUG)
+           cerr << "`revue'                            == NULL" << endl;
+       }
 
        if (curr_row[18])
-	 {
-	   if (DEBUG)
-	     cerr << "`film'                             == " << curr_row[18] << endl;
-	   curr_song.film.assign(curr_row[18]);	   
-	 }
+       {
+         if (DEBUG)
+           cerr << "`film'                             == " << curr_row[18] << endl;
+         curr_song.film.assign(curr_row[18]);    
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`film'                             == NULL" << endl;
-	 }
+       {
+         if (DEBUG)
+           cerr << "`film'                             == NULL" << endl;
+       }
 
        if (DEBUG)
-	 cerr << "`sort_by_production'               == " << curr_row[19] << endl;
+         cerr << "`sort_by_production'               == " << curr_row[19] << endl;
        curr_song.sort_by_production = atoi(curr_row[19]);
 
        status = atoi(curr_row[19]);
 
        if (status > 0)
-	 {
-	   if (DEBUG)
-	     cerr << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
-	 }
+       {
+         if (DEBUG)
+           cerr << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
+       }
 
        if (curr_row[20])
-	 {
-	   if (DEBUG)
-	     cerr << "`year'                             == " << curr_row[20] << endl;
-	   curr_song.year = atoi(curr_row[20]);
-	 }
+       {
+         if (DEBUG)
+           cerr << "`year'                             == " << curr_row[20] << endl;
+         curr_song.year = atoi(curr_row[20]);
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`year'                             == NULL" << endl;
-	   curr_song.year = 0;
-	 }
+       {
+         if (DEBUG)
+           cerr << "`year'                             == NULL" << endl;
+         curr_song.year = 0;
+       }
 
 
        if (curr_row[21])
-	 {
-	   if (DEBUG)
-	     cerr << "`copyright'                        == " << curr_row[21] << endl;
-	   curr_song.copyright.assign(curr_row[21]);
-	 }
+       {
+         if (DEBUG)
+           cerr << "`copyright'                        == " << curr_row[21] << endl;
+         curr_song.copyright.assign(curr_row[21]);
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`copyright'                        == NULL" << endl;
-	 }
-
-
+       {
+         if (DEBUG)
+           cerr << "`copyright'                        == NULL" << endl;
+       }
        if (curr_row[22])
-	 {
-	   if (DEBUG)
-	     cerr << "`notes'                            == " << curr_row[22] << endl;
-	   curr_song.notes.assign(curr_row[22]);
-	 }
+       {
+         if (DEBUG)
+           cerr << "`notes'                            == " << curr_row[22] << endl;
+         curr_song.notes.assign(curr_row[22]);
+       }
+       if (curr_row[23])
+       {
+         if (DEBUG)
+           cerr << "`scanned'                            == " << curr_row[23] << endl;
+         curr_song.scanned = atoi(curr_row[23]);
+       }
+       if (curr_row[24])
+       {
+         if (DEBUG)
+           cerr << "`scanned_filename'                   == " 
+                << ((curr_row[24] != 0) ? curr_row[24] : "NULL") << endl;
+         if (curr_row[24] != 0)
+            curr_song.scanned_filename = curr_row[24];
+       }
+       if (curr_row[25])
+       {
+         if (DEBUG)
+           cerr << "`public_domain'                      == " << curr_row[25] << endl;
+         curr_song.public_domain = atoi(curr_row[25]);
+       }
        else
-	 {
-	   if (DEBUG)
-	     cerr << "`notes'                            == NULL" << endl << endl;
-	 }
+       {
+         if (DEBUG)
+           cerr << "`notes'                            == NULL" << endl << endl;
+       }
 
        if (DEBUG)
-	 curr_song.show("curr_song:");
+         curr_song.show("curr_song:");
 
        song_vector.push_back(curr_song);
 
        if (DEBUG) 
-	 cerr << "song_vector.back().title == " << song_vector.back().title << endl;
+         cerr << "song_vector.back().title == " << song_vector.back().title << endl;
 
    } while (curr_row != 0);
 
@@ -427,16 +447,17 @@ process_tocs_and_npt(void)
      
      if (result)
        {
-	 mysql_free_result(result);
-	 result = 0;
+         mysql_free_result(result);
+         result = 0;
        }
 
 /* ** (2)  */
 
    if (song_vector.size() == 0)
    {
-      cerr << "WARNING:  In `process_tocs_and_npt':  `song_vector is empty'.  No songs to show." << endl
-	   << "Exiting `songlist' successfully with exit status 0."
+      cerr << "WARNING:  In `process_tocs_and_npt':  `song_vector is empty'.  No songs to show." 
+           << endl
+           << "Exiting `songlist' successfully with exit status 0."
            << endl;
 
       /* Close connection to database.  */
@@ -448,22 +469,20 @@ process_tocs_and_npt(void)
    }
    else if (DEBUG)
      cerr << "`song_vector.size()' == " << song_vector.size() << "."
-	  << endl << endl;
-
+          << endl << endl;
 
    /* * Process |song_vector|  */
 
    sort(song_vector.begin(), song_vector.end(), compare_titles);
 
-
    if (DEBUG)
      {
        for (vector<Song>::iterator iter = song_vector.begin();
-	    iter != song_vector.end();
-	    ++iter)
-	 {
-	   iter->show("Song:");
-	 }
+            iter != song_vector.end();
+            ++iter)
+         {
+           iter->show("Song:");
+         }
      }
 
    /* Query database for productions (i.e., musicals, operas, $\ldots$.  */
@@ -483,21 +502,21 @@ process_tocs_and_npt(void)
    if (status != 0)
      {
        cerr  << "ERROR!  In `process_tocs_and_npt':"
-	     << endl 
-	     << "`submit_mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "MySQL error:  " << mysql_error(mysql)
-	     << endl 
-	     << "MySQL error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting `songlist' unsuccessfully with exit status 1." 
-	     << endl;
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
           
        exit(1);
      }
    else if (DEBUG)
      {
-	 cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+         cerr << "`submit_mysql_query' succeeded, returning 0." << endl
               << "`row_ctr'   == " << row_ctr << endl
               << "`field_ctr' == " << field_ctr << endl;
      }
@@ -509,51 +528,51 @@ process_tocs_and_npt(void)
    if (row_ctr > 0)
      {
        do
-	 {
-	   curr_production.clear();
+         {
+           curr_production.clear();
 
-	   curr_row = mysql_fetch_row(result);
+           curr_row = mysql_fetch_row(result);
 
-	   if (curr_row == 0)
-	     {
-	       if (DEBUG) 
-		 cerr << "`mysql_fetch_row' returned NULL:" 
-		      << endl;
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
 
-	       if (*mysql_error(mysql))
-		 {
-		   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			<< "returning NULL." << endl
-			<< "Error:  " << mysql_error(mysql) << endl
-			<< "Exiting `songlist' unsuccessfully with exit status 1."
-			<< endl;
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
 
-		   /* Close connection to database.  */
+                   /* Close connection to database.  */
 
-		   mysql_library_end();
+                   mysql_library_end();
    
-		   exit(1);
+                   exit(1);
 
-		 }
-	       else if (DEBUG)
-		 {
-		   cerr << "No more rows." << endl;
-		 }
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
 
-	       break;
+               break;
 
-	     }  /* |if (curr_row == 0)|  */
+             }  /* |if (curr_row == 0)|  */
 
-	   if (DEBUG)
-	     cerr << "`musical' == " << curr_row[0] << endl;
+           if (DEBUG)
+             cerr << "`musical' == " << curr_row[0] << endl;
 
-	   curr_production.title.assign(curr_row[0]);
-	   curr_production.musical.assign(curr_row[0]);
-	   curr_production.is_production = true;
+           curr_production.title.assign(curr_row[0]);
+           curr_production.musical.assign(curr_row[0]);
+           curr_production.is_production = true;
 
-	   production_vector.push_back(curr_production);
+           production_vector.push_back(curr_production);
 
-	 } while (curr_row != 0);
+         } while (curr_row != 0);
 
      }  /* |if (row_ctr > 0)|  */
 
@@ -580,15 +599,15 @@ process_tocs_and_npt(void)
    if (status != 0)
      {
        cerr  << "ERROR!"
-	     << endl 
-	     << "`submit_mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "MySQL error:  " << mysql_error(mysql)
-	     << endl 
-	     << "MySQL error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting `songlist' unsuccessfully with exit status 1." 
-	     << endl;
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
           
        exit(1);
      }
@@ -606,51 +625,51 @@ process_tocs_and_npt(void)
    if (row_ctr > 0)
      {
        do
-	 {
-	   curr_production.clear();
+         {
+           curr_production.clear();
 
-	   curr_row = mysql_fetch_row(result);
+           curr_row = mysql_fetch_row(result);
 
-	   if (curr_row == 0)
-	     {
-	       if (DEBUG) 
-		 cerr << "`mysql_fetch_row' returned NULL:" 
-		      << endl;
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
 
-	       if (*mysql_error(mysql))
-		 {
-		   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			<< "returning NULL." << endl
-			<< "Error:  " << mysql_error(mysql) << endl
-			<< "Exiting `songlist' unsuccessfully with exit status 1."
-			<< endl;
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
 
-		   /* Close connection to database.  */
+                   /* Close connection to database.  */
 
-		   mysql_library_end();
+                   mysql_library_end();
    
-		   exit(1);
+                   exit(1);
 
-		 }
-	       else if (DEBUG)
-		 {
-		   cerr << "No more rows." << endl;
-		 }
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
 
-	       break;
+               break;
 
-	     }  /* |if (curr_row == 0)|  */
+             }  /* |if (curr_row == 0)|  */
 
-	   if (DEBUG)
-	     cerr << "`opera' == " << curr_row[0] << endl;
+           if (DEBUG)
+             cerr << "`opera' == " << curr_row[0] << endl;
 
-	   curr_production.title.assign(curr_row[0]);
-	   curr_production.opera.assign(curr_row[0]);
-	   curr_production.is_production = true;
+           curr_production.title.assign(curr_row[0]);
+           curr_production.opera.assign(curr_row[0]);
+           curr_production.is_production = true;
 
-	   production_vector.push_back(curr_production);
+           production_vector.push_back(curr_production);
 
-	 } while (curr_row != 0);
+         } while (curr_row != 0);
 
      }  /* |if (row_ctr > 0)|  */
 
@@ -677,15 +696,15 @@ process_tocs_and_npt(void)
    if (status != 0)
      {
        cerr  << "ERROR!"
-	     << endl 
-	     << "`submit_mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "MySQL error:  " << mysql_error(mysql)
-	     << endl 
-	     << "MySQL error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting `songlist' unsuccessfully with exit status 1." 
-	     << endl;
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
           
        exit(1);
      }
@@ -703,51 +722,51 @@ process_tocs_and_npt(void)
    if (row_ctr > 0)
      {
        do
-	 {
-	   curr_production.clear();
+         {
+           curr_production.clear();
 
-	   curr_row = mysql_fetch_row(result);
+           curr_row = mysql_fetch_row(result);
 
-	   if (curr_row == 0)
-	     {
-	       if (DEBUG) 
-		 cerr << "`mysql_fetch_row' returned NULL:" 
-		      << endl;
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
 
-	       if (*mysql_error(mysql))
-		 {
-		   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			<< "returning NULL." << endl
-			<< "Error:  " << mysql_error(mysql) << endl
-			<< "Exiting `songlist' unsuccessfully with exit status 1."
-			<< endl;
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
 
-		   /* Close connection to database.  */
+                   /* Close connection to database.  */
 
-		   mysql_library_end();
+                   mysql_library_end();
    
-		   exit(1);
+                   exit(1);
 
-		 }
-	       else if (DEBUG)
-		 {
-		   cerr << "No more rows." << endl;
-		 }
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
 
-	       break;
+               break;
 
-	     }  /* |if (curr_row == 0)|  */
+             }  /* |if (curr_row == 0)|  */
 
-	   if (DEBUG)
-	     cerr << "`operetta' == " << curr_row[0] << endl;
+           if (DEBUG)
+             cerr << "`operetta' == " << curr_row[0] << endl;
 
-	   curr_production.title.assign(curr_row[0]);
-	   curr_production.operetta.assign(curr_row[0]);
-	   curr_production.is_production = true;
+           curr_production.title.assign(curr_row[0]);
+           curr_production.operetta.assign(curr_row[0]);
+           curr_production.is_production = true;
 
-	   production_vector.push_back(curr_production);
+           production_vector.push_back(curr_production);
 
-	 } while (curr_row != 0);
+         } while (curr_row != 0);
 
      }  /* |if (row_ctr > 0)|  */
 
@@ -774,15 +793,15 @@ process_tocs_and_npt(void)
    if (status != 0)
      {
        cerr  << "ERROR!"
-	     << endl 
-	     << "`submit_mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "MySQL error:  " << mysql_error(mysql)
-	     << endl 
-	     << "MySQL error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting `songlist' unsuccessfully with exit status 1." 
-	     << endl;
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
           
        exit(1);
      }
@@ -800,51 +819,51 @@ process_tocs_and_npt(void)
    if (row_ctr > 0)
      {
        do
-	 {
-	   curr_production.clear();
+         {
+           curr_production.clear();
 
-	   curr_row = mysql_fetch_row(result);
+           curr_row = mysql_fetch_row(result);
 
-	   if (curr_row == 0)
-	     {
-	       if (DEBUG) 
-		 cerr << "`mysql_fetch_row' returned NULL:" 
-		      << endl;
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
 
-	       if (*mysql_error(mysql))
-		 {
-		   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			<< "returning NULL." << endl
-			<< "Error:  " << mysql_error(mysql) << endl
-			<< "Exiting `songlist' unsuccessfully with exit status 1."
-			<< endl;
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
 
-		   /* Close connection to database.  */
+                   /* Close connection to database.  */
 
-		   mysql_library_end();
+                   mysql_library_end();
    
-		   exit(1);
+                   exit(1);
 
-		 }
-	       else if (DEBUG)
-		 {
-		   cerr << "No more rows." << endl;
-		 }
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
 
-	       break;
+               break;
 
-	     }  /* |if (curr_row == 0)|  */
+             }  /* |if (curr_row == 0)|  */
 
-	   if (DEBUG)
-	     cerr << "`revue' == " << curr_row[0] << endl;
+           if (DEBUG)
+             cerr << "`revue' == " << curr_row[0] << endl;
 
-	   curr_production.title.assign(curr_row[0]);
-	   curr_production.revue.assign(curr_row[0]);
-	   curr_production.is_production = true;
+           curr_production.title.assign(curr_row[0]);
+           curr_production.revue.assign(curr_row[0]);
+           curr_production.is_production = true;
 
-	   production_vector.push_back(curr_production);
+           production_vector.push_back(curr_production);
 
-	 } while (curr_row != 0);
+         } while (curr_row != 0);
 
      }  /* |if (row_ctr > 0)|  */
 
@@ -872,15 +891,15 @@ process_tocs_and_npt(void)
    if (status != 0)
      {
        cerr  << "ERROR!"
-	     << endl 
-	     << "`submit_mysql_query' failed, returning " << status << ":"
-	     << endl 
-	     << "MySQL error:  " << mysql_error(mysql)
-	     << endl 
-	     << "MySQL error number:  " << mysql_errno(mysql)
-	     << endl 
-	     << "Exiting `songlist' unsuccessfully with exit status 1." 
-	     << endl;
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
           
        exit(1);
      }
@@ -898,51 +917,51 @@ process_tocs_and_npt(void)
    if (row_ctr > 0)
      {
        do
-	 {
-	   curr_production.clear();
+         {
+           curr_production.clear();
 
-	   curr_row = mysql_fetch_row(result);
+           curr_row = mysql_fetch_row(result);
 
-	   if (curr_row == 0)
-	     {
-	       if (DEBUG) 
-		 cerr << "`mysql_fetch_row' returned NULL:" 
-		      << endl;
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
 
-	       if (*mysql_error(mysql))
-		 {
-		   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			<< "returning NULL." << endl
-			<< "Error:  " << mysql_error(mysql) << endl
-			<< "Exiting `songlist' unsuccessfully with exit status 1."
-			<< endl;
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
 
-		   /* Close connection to database.  */
+                   /* Close connection to database.  */
 
-		   mysql_library_end();
+                   mysql_library_end();
    
-		   exit(1);
+                   exit(1);
 
-		 }
-	       else if (DEBUG)
-		 {
-		   cerr << "No more rows." << endl;
-		 }
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
 
-	       break;
+               break;
 
-	     }  /* |if (curr_row == 0)|  */
+             }  /* |if (curr_row == 0)|  */
 
-	   if (DEBUG)
-	     cerr << "`film' == " << curr_row[0] << endl;
+           if (DEBUG)
+             cerr << "`film' == " << curr_row[0] << endl;
 
-	   curr_production.title.assign(curr_row[0]);
-	   curr_production.film.assign(curr_row[0]);
-	   curr_production.is_production = true;
+           curr_production.title.assign(curr_row[0]);
+           curr_production.film.assign(curr_row[0]);
+           curr_production.is_production = true;
 
-	   production_vector.push_back(curr_production);
+           production_vector.push_back(curr_production);
 
-	 } while (curr_row != 0);
+         } while (curr_row != 0);
 
      }  /* |if (row_ctr > 0)|  */
 
@@ -961,126 +980,126 @@ process_tocs_and_npt(void)
    if (DEBUG)
      {
        if (production_vector.size() > 0)
-	 cerr << "production_vector:" << endl;
+         cerr << "production_vector:" << endl;
        else
-	 cerr << "production_vector is empty." << endl;
+         cerr << "production_vector is empty." << endl;
        
        for (vector<Production>::iterator iter = production_vector.begin();
-	    iter != production_vector.end();
-	    ++iter)
-	 {
-	   iter->show("Production:");
-	 }
+            iter != production_vector.end();
+            ++iter)
+         {
+           iter->show("Production:");
+         }
      }
  
    for (vector<Production>::iterator iter = production_vector.begin();
-	iter != production_vector.end();
-	++iter)
+        iter != production_vector.end();
+        ++iter)
      {
        if (DEBUG)
-	 {
-	   iter->show("Production:");
-	 }
+         {
+           iter->show("Production:");
+         }
 
        temp_strm.str("");
 
        temp_strm << "select title from Songs where sort_by_production is true "
-	         << "and ";
+                 << "and ";
 
        if (iter->musical.length() > 0)
-	 temp_strm << "musical = \"" << iter->musical << "\" ";
+         temp_strm << "musical = \"" << iter->musical << "\" ";
        else if (iter->opera.length() > 0)
-	 temp_strm << "opera = \"" << iter->opera << "\" ";
+         temp_strm << "opera = \"" << iter->opera << "\" ";
        else if (iter->operetta.length() > 0)
-	 temp_strm << "operetta = \"" << iter->operetta << "\" ";
+         temp_strm << "operetta = \"" << iter->operetta << "\" ";
        else if (iter->revue .length() > 0)
-	 temp_strm << "revue = \"" << iter->revue << "\" ";
+         temp_strm << "revue = \"" << iter->revue << "\" ";
        else if (iter->film .length() > 0)
-	 temp_strm << "film = \"" << iter->film << "\" ";
+         temp_strm << "film = \"" << iter->film << "\" ";
 
        temp_strm << "order by title;";
 
        if (DEBUG)
-	 cerr << "temp_strm.str() == " << temp_strm.str() << endl;
+         cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
        status = submit_mysql_query(temp_strm.str());
 
        if (status != 0)
-	 {
-	   cerr  << "ERROR!"
-		 << endl 
-		 << "`submit_mysql_query' failed, returning " << status << ":"
-		 << endl 
-		 << "MySQL error:  " << mysql_error(mysql)
-		 << endl 
-		 << "MySQL error number:  " << mysql_errno(mysql)
-		 << endl 
-		 << "Exiting `songlist' unsuccessfully with exit status 1." 
-		 << endl;
+         {
+           cerr  << "ERROR!"
+                 << endl 
+                 << "`submit_mysql_query' failed, returning " << status << ":"
+                 << endl 
+                 << "MySQL error:  " << mysql_error(mysql)
+                 << endl 
+                 << "MySQL error number:  " << mysql_errno(mysql)
+                 << endl 
+                 << "Exiting `songlist' unsuccessfully with exit status 1." 
+                 << endl;
           
-	   exit(1);
-	 }
+           exit(1);
+         }
        else if (DEBUG)
-	 {
-	   cerr << "ZZZ `submit_mysql_query' succeeded, returning 0." << endl
+         {
+           cerr << "ZZZ `submit_mysql_query' succeeded, returning 0." << endl
                 << "`row_ctr'   == " << row_ctr << endl
                 << "`field_ctr' == " << field_ctr << endl;
-	 }
+         }
 
        /*  Process the contents of |result|  */
        
        curr_row = 0;
 
        if (row_ctr > 0)
-	 {
-	   do
-	     {
+         {
+           do
+             {
 
-	       curr_row = mysql_fetch_row(result);
+               curr_row = mysql_fetch_row(result);
 
-	       if (curr_row == 0)
-		 {
-		   if (DEBUG) 
-		     cerr << "`mysql_fetch_row' returned NULL:" 
-			  << endl;
+               if (curr_row == 0)
+                 {
+                   if (DEBUG) 
+                     cerr << "`mysql_fetch_row' returned NULL:" 
+                          << endl;
 
-		   if (*mysql_error(mysql))
-		     {
-		       cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
-			    << "returning NULL." << endl
-			    << "Error:  " << mysql_error(mysql) << endl
-			    << "Exiting `songlist' unsuccessfully with exit status 1."
-			    << endl;
+                   if (*mysql_error(mysql))
+                     {
+                       cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                            << "returning NULL." << endl
+                            << "Error:  " << mysql_error(mysql) << endl
+                            << "Exiting `songlist' unsuccessfully with exit status 1."
+                            << endl;
 
-		       /* Close connection to database.  */
+                       /* Close connection to database.  */
 
-		       mysql_library_end();
+                       mysql_library_end();
    
-		       exit(1);
+                       exit(1);
 
-		     }
-		   else if (DEBUG)
-		     {
-		       cerr << "No more rows." << endl;
-		     }
+                     }
+                   else if (DEBUG)
+                     {
+                       cerr << "No more rows." << endl;
+                     }
 
-		   break;
-		 
-		 }  /* |if (curr_row == 0)|  */
+                   break;
+                 
+                 }  /* |if (curr_row == 0)|  */
 
-	       iter->title_vector.push_back(curr_row[0]);
+               iter->title_vector.push_back(curr_row[0]);
 
-	     } while (curr_row != 0);
+             } while (curr_row != 0);
 
-	 }  /* |if (row_ctr > 0)|  */
+         }  /* |if (row_ctr > 0)|  */
 
        /* Free |result|  */
      
        if (result)
-	 {
-	   mysql_free_result(result);
-	   result = 0;
-	 }
+         {
+           mysql_free_result(result);
+           result = 0;
+         }
        
        /*  */
 
@@ -1091,13 +1110,13 @@ process_tocs_and_npt(void)
    if (DEBUG)
    {
        if (production_vector.size() > 0)
-	 cerr << "production_vector:" << endl;
+         cerr << "production_vector:" << endl;
        else
-	 cerr << "production_vector is empty." << endl;
+         cerr << "production_vector is empty." << endl;
        
        for (vector<Production>::iterator iter = production_vector.begin();
-	    iter != production_vector.end();
-	    ++iter)
+            iter != production_vector.end();
+            ++iter)
        {       
            iter->show("Production:");
        }
@@ -1126,28 +1145,28 @@ getchar();
 
    if (DEBUG) 
      cerr << "datestamp == \"" << datestamp << "\"" << endl
-	  << "datestamp_short == \"" << datestamp_short << "\"" 
-	  << endl;
+          << "datestamp_short == \"" << datestamp_short << "\"" 
+          << endl;
    
-   toc_ls_file << "%% toc_ls.tex" << endl 					       
-	       << "%% Generated by `songlist' " << datestamp << endl << endl	       
-	       << "\\input songlist.mac" << endl << endl			       
-	       << "\\advance\\hoffset by .5cm" << endl				       
-	       << "\\medium" << endl						       
-	       << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-	       << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets}\\fi"   
-	       << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl			       
-	       << "\\songctr=1" << endl						       
-	       << "\\centerline{{\\largebx Lead Sheets}}" << endl		       
-	       << "\\vskip.75\\baselineskip" << endl				       
-	       << "\\doublecolumns" << endl					       
-	       << "\\obeylines" << endl << endl;
+   toc_ls_file << "%% toc_ls.tex" << endl                                              
+               << "%% Generated by `songlist' " << datestamp << endl << endl           
+               << "\\input songlist.mac" << endl << endl                               
+               << "\\advance\\hoffset by .5cm" << endl                                 
+               << "\\medium" << endl                                                   
+               << "\\advance\\baselineskip by .5\\baselineskip" << endl                
+               << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets}\\fi"   
+               << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl                        
+               << "\\songctr=1" << endl                                                
+               << "\\centerline{{\\largebx Lead Sheets}}" << endl                      
+               << "\\vskip.75\\baselineskip" << endl                                   
+               << "\\doublecolumns" << endl                                            
+               << "\\obeylines" << endl << endl;
 
-   toc_ls_a_h_file << "%% toc_ls_a_h.tex" << endl 					       
-		   << "%% Generated by `songlist' " << datestamp << endl << endl	       
-		   << "\\input songlist.mac" << endl << endl			       
-		   << "\\advance\\hoffset by .5cm" << endl				       
-		   << "\\medium" << endl						       
+   toc_ls_a_h_file << "%% toc_ls_a_h.tex" << endl                                              
+                   << "%% Generated by `songlist' " << datestamp << endl << endl               
+                   << "\\input songlist.mac" << endl << endl                           
+                   << "\\advance\\hoffset by .5cm" << endl                                     
+                   << "\\medium" << endl                                                       
                    << "\\advance\\baselineskip by .5\\baselineskip" << endl            
                    << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets A--H}\\fi"   
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
@@ -1156,60 +1175,60 @@ getchar();
                    << "\\openout\\songctrout=songctr_a_h.out" << endl 
                    << "\\centerline{{\\largebx Lead Sheets A--H}}" << endl                     
                    << "\\vskip.75\\baselineskip" << endl                                       
-		   << "\\doublecolumns" << endl					       
-		   << "\\obeylines" 
-		   << endl << endl;                                                        
+                   << "\\doublecolumns" << endl                                        
+                   << "\\obeylines" 
+                   << endl << endl;                                                        
 
-   toc_ls_i_o_file << "%% toc_ls_i_o.tex" << endl 					       
-		   << "%% Generated by `songlist' " << datestamp << endl << endl	       
-		   << "\\input songlist.mac" << endl << endl			       
-		   << "\\advance\\hoffset by .5cm" << endl				       
-		   << "\\medium" << endl						       
-		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets I--O}\\fi"   
+   toc_ls_i_o_file << "%% toc_ls_i_o.tex" << endl                                              
+                   << "%% Generated by `songlist' " << datestamp << endl << endl               
+                   << "\\input songlist.mac" << endl << endl                           
+                   << "\\advance\\hoffset by .5cm" << endl                                     
+                   << "\\medium" << endl                                                       
+                   << "\\advance\\baselineskip by .5\\baselineskip" << endl            
+                   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets I--O}\\fi"   
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-		   << "\\centerline{{\\largebx Lead Sheets I--O}}" << endl		       
-		   << "\\vskip.75\\baselineskip" << endl				       
-		   << "\\newread\\songctrin" << endl 
-		   << "\\openin\\songctrin=songctr_a_h.out" << endl 
-		   << "\\read\\songctrin to \\XXX" << endl 
+                   << "\\centerline{{\\largebx Lead Sheets I--O}}" << endl                     
+                   << "\\vskip.75\\baselineskip" << endl                                       
+                   << "\\newread\\songctrin" << endl 
+                   << "\\openin\\songctrin=songctr_a_h.out" << endl 
+                   << "\\read\\songctrin to \\XXX" << endl 
                    << "\\closein\\songctrin" << endl 
-		   << "\\songctr=\\XXX" << endl 
+                   << "\\songctr=\\XXX" << endl 
                    << "\\newwrite\\songctrout" << endl 
                    << "\\openout\\songctrout=songctr_i_o.out" << endl 
-		   << "\\doublecolumns" << endl					       
-		   << "\\obeylines"
-		   << endl << endl;                                                        
+                   << "\\doublecolumns" << endl                                        
+                   << "\\obeylines"
+                   << endl << endl;                                                        
 
-      toc_ls_p_z_file << "%% toc_ls_p_z.tex" << endl 					       
-		   << "%% Generated by `songlist' " << datestamp << endl << endl	       
-		   << "\\input songlist.mac" << endl << endl			       
-		   << "\\advance\\hoffset by .5cm" << endl				       
-		   << "\\medium" << endl						       
-		   << "\\advance\\baselineskip by .5\\baselineskip" << endl 	       
-		   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets P--Z}\\fi"   
+      toc_ls_p_z_file << "%% toc_ls_p_z.tex" << endl                                           
+                   << "%% Generated by `songlist' " << datestamp << endl << endl               
+                   << "\\input songlist.mac" << endl << endl                           
+                   << "\\advance\\hoffset by .5cm" << endl                                     
+                   << "\\medium" << endl                                                       
+                   << "\\advance\\baselineskip by .5\\baselineskip" << endl            
+                   << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets P--Z}\\fi"   
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-		   << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl		       
-		   << "\\vskip.75\\baselineskip" << endl		
-		   << "\\newread\\songctrin" << endl 
-		   << "\\openin\\songctrin=songctr_i_o.out" << endl 
-		   << "\\read\\songctrin to \\XXX" << endl 
+                   << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl                     
+                   << "\\vskip.75\\baselineskip" << endl                
+                   << "\\newread\\songctrin" << endl 
+                   << "\\openin\\songctrin=songctr_i_o.out" << endl 
+                   << "\\read\\songctrin to \\XXX" << endl 
                    << "\\closein\\songctrin" << endl 
-		   << "\\songctr=\\XXX" << endl 
-		   << "\\doublecolumns" << endl					       
-		   << "\\obeylines"
-		   << endl << endl;                                                        
+                   << "\\songctr=\\XXX" << endl 
+                   << "\\doublecolumns" << endl                                        
+                   << "\\obeylines"
+                   << endl << endl;                                                        
 
    toc_npt_file << "%% toc_npt.tex" << endl 
-		<< "%% Generated by `songlist' " << datestamp << endl << endl
-		<< "\\input songlist.mac" << endl << endl
-		<< "\\advance\\hoffset by .5cm" << endl
-     		<< "\\medium" << endl
-		<< "\\advance\\baselineskip by .5\\baselineskip" << endl 
-		<< "\\setbox0=\\hbox{00}" << endl
-		<< "\\dimen0=\\wd0" << endl
-		<< "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl
-		<< "\\dimen1=\\wd1" << endl
+                << "%% Generated by `songlist' " << datestamp << endl << endl
+                << "\\input songlist.mac" << endl << endl
+                << "\\advance\\hoffset by .5cm" << endl
+                << "\\medium" << endl
+                << "\\advance\\baselineskip by .5\\baselineskip" << endl 
+                << "\\setbox0=\\hbox{00}" << endl
+                << "\\dimen0=\\wd0" << endl
+                << "\\setbox1=\\hbox{\\hskip\\wd0. }" << endl
+                << "\\dimen1=\\wd1" << endl
                 << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx No Page Turns}\\fi"
                 << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
   /* !!START HERE  */

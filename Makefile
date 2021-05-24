@@ -61,10 +61,12 @@ all: songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_l
       lyricists.ps composers.ps \
       toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_ls.pdf toc_npt.pdf \
       lyricists.pdf composers.pdf \
+      scanned.dvi scanned.ps scanned.pdf \
       all.dvi all.ps all.pdf 
 
 
-all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi  toc_ls_p_z.dvi  
+all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi \
+         toc_ls_p_z.dvi scanned.dvi 
 	dviconcat -o $@ $^
 
 all.ps: all.dvi 
@@ -212,6 +214,15 @@ composers.tex: ./songlist database/songlist.sql
 
 lyricists.tex: ./songlist database/songlist.sql
 	$(MAKE) run
+
+scanned.pdf: scanned.ps
+	ps2pdf $<
+
+scanned.ps: scanned.dvi 
+	dvips -o $@ $<
+
+scanned.dvi: scanned.tex
+	tex $<
 
 .PHONY: run-c
 

@@ -76,6 +76,9 @@ class Song
     string notes;
     bool mark_blue;
     bool is_production;
+    bool scanned;
+    string scanned_filename;
+    bool public_domain;
 
     vector<string> title_vector;
     
@@ -109,7 +112,10 @@ class Song
 	 notes = "";
     	 mark_blue = false;
 	 is_production = false;
-	 
+         scanned = false;
+         scanned_filename = "";
+         public_domain = false;
+
          return;
     }
 
@@ -140,9 +146,11 @@ class Song
       copyright = s.copyright;
       notes = s.notes;
       mark_blue = s.mark_blue;
-
       is_production = s.is_production;
       title_vector = s.title_vector;
+      scanned = s.scanned;
+      scanned_filename = s.scanned_filename;
+      public_domain = s.public_domain;
 
       return;
     }
