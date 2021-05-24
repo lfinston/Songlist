@@ -82,7 +82,8 @@ create table Songs
     sort_by_production boolean not null default false,
     year int default null,
     copyright varchar(256) default null,
-    notes varchar (512) default null
+    notes varchar (512) default null,
+    public_domain boolean not null default false
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -94,10 +95,10 @@ alter table Songs add column music_reverse varchar(128) default null after music
 alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
 alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
 alter table Songs add column scanned_filename varchar(12) default null after scanned;
+alter table Songs add column public_domain boolean not null default false after notes;
 
 alter table Songs modify column copyright varchar(256) default null;
 alter table Songs modify column source varchar(356) default null after notes;
-
 
 show columns from Songs.Songs;
 
@@ -243,10 +244,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings,
-year, scanned, scanned_filename)
+year, scanned, scanned_filename, public_domain)
 values
 ("April Showers", "Buddy G.~De Sylva", "De Sylva, Buddy G.", "Louis Silvers", "Silvers, Louis",
-true, 1, 1921, true, "aprlshwr.pdf");
+true, 1, 1921, true, "aprlshwr.pdf", true);
 
 /* ** *************************************************** */
 
@@ -384,10 +385,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, 
+scanned_filename, public_domain)
 values
 ("Carolina in the Morning", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", 
-true, 1922, true, "carolina.pdf");
+true, 1922, true, "carolina.pdf", true);
 
 /* ** *************************************************** */
 
@@ -416,9 +418,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, scanned, scanned_filename)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, 
+scanned, scanned_filename, public_domain)
 values
-("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922, true, "chicago.pdf");
+("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922, true, 
+"chicago.pdf", true);
 
 /* ** *************************************************** */
 
@@ -484,10 +488,11 @@ true, 1935,
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+scanned, scanned_filename, public_domain)
 values
 ("Cup of Coffee, a Sandwich and You, A", "Al Dubin and Billy Rose", "Dubin, Al and Rose, Billy",
-"Joseph Meyer", "Meyer, Joseph", true, 1925, true, "cpcffyou.pdf");
+"Joseph Meyer", "Meyer, Joseph", true, 1925, true, "cpcffyou.pdf", true);
 
 /* D */
 
@@ -546,13 +551,14 @@ values
 
 /* ** *************************************************** */
 
-delete from Songs where title = "Durch die Wälder, durch die Auen";
+-- delete from Songs where title = "Durch die Wälder, durch die Auen";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright, 
-opera, scanned, scanned_filename)
+opera, scanned, scanned_filename, public_domain)
 values
-("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", "Carl Maria von Weber", "Weber, Carl Maria von",
-true, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf");
+("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", 
+"Carl Maria von Weber", "Weber, Carl Maria von",
+true, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true);
 
 /* ** *************************************************** */
 
@@ -672,12 +678,12 @@ values
 -- where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-notes, scanned, scanned_filename, source)
+notes, scanned, scanned_filename, source, public_domain)
 values
 ("Five Foot Two, Eyes Of Blue",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Ray Henderson", "Henderson, Ray", true, 1925, "Subtitle:  Has Anybody Seen My Girl?", true,
-"fivefoot.pdf", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}"); 
+"fivefoot.pdf", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}", true); 
 
 /* ** *************************************************** */
 
@@ -838,12 +844,12 @@ values
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, notes)
+year, source, notes, public_domain)
 values
 ("How 'Ya Gonna Keep 'Em Down on the Farm?",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
-"Subtitle:  After They've Seen Paree"); 
+"Subtitle:  After They've Seen Paree", true); 
 
 /* I   */
 
@@ -1043,9 +1049,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+scanned, scanned_filename, public_domain)
 values
-("It Had to be You", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true, 1924, true, "ithadbey.pdf");
+("It Had to be You", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true, 
+1924, true, "ithadbey.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1106,6 +1114,8 @@ values
 /* ** *************************************************** */
 
 /* Instrumental.  Words added later.  */
+
+/* Presumably copyrighted in Denmark and not in public domain.  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, copyright, scanned, scanned_filename)  
@@ -1340,11 +1350,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-copyright, musical, source, scanned, scanned_filename)
+copyright, musical, source, scanned, scanned_filename, public_domain)
 values
 ("Manhattan", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
 1925, "Copyright {\\copyright} 1925 by Edward B.~Marks Music Company.  Copyright Renewed.",
-"Garrick Gaities", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~106.", true, "manhttan.pdf");
+"Garrick Gaities", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~106.",
+true, "manhttan.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1413,10 +1424,10 @@ true, 1934, "{\\copyright} 1934 Mills Music");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, source, scanned, scanned_filename)
+year, source, scanned, scanned_filename, public_domain)
 values
 ("Moonlight Bay", "Edward Madden", "Madden, Edward", "Percy Wenrich", "Wenrich, Percy", true, 1912,
-"{\bf 100 Years of Popular Music, 1900s}", true, "moonltby.pdf");
+"{\bf 100 Years of Popular Music, 1900s}", true, "moonltby.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1463,10 +1474,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-scanned, scanned_filename, year)
+scanned, scanned_filename, year, public_domain)
 values
 ("My Melancholy Baby", "George A. Norton", "Norton, George A.", "Ernie Burnett", "Burnett, Ernie", 
-true, true, "mymelbby.pdf", 1912);
+true, true, "mymelbby.pdf", 1912, true);
 
 /* N   */
 
@@ -1725,10 +1736,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, scanned, scanned_filename)
+year, scanned, scanned_filename, public_domain)
 values
 ("Rock-a-Bye Your Baby (With a Dixie Melody)", "Sam M.~Lewis and Joe Young", "Lewis, Sam M. and Young, Joe", 
-"Jean Schwarz", "Schwarz, Jean", true, 1918, true, "rckbybby.pdf");
+"Jean Schwarz", "Schwarz, Jean", true, 1918, true, "rckbybby.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1838,12 +1849,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, scanned, scanned_filename)
+year, scanned, scanned_filename, public_domain)
 values
 ("Somebody Loves Me", "Ballard MacDonald and Buddy DeSylva", 
 "MacDonald, Ballard and DeSylva, Buddy", 
 "George Gershwin", "Gershwin, George",
-true, 1924, true, "smblvsme.pdf");
+true, 1924, true, "smblvsme.pdf", true);
 
 /* ** *************************************************** */
 
@@ -2069,10 +2080,10 @@ true, "thouswll.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-scanned, scanned_filename)
+scanned, scanned_filename, public_domain)
 values
 ("Tico Tico no Fuba", "Aloysio de Oliveira", "Oliveira, Aloysio de",
-"Zequinha de Abreu", "Abreu, Zequinha de", true, 1917, true, "ticotico.pdf");
+"Zequinha de Abreu", "Abreu, Zequinha de", true, 1917, true, "ticotico.pdf", true);
 
 /* ** *************************************************** */
 
@@ -2214,15 +2225,18 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 film, year, sort_by_production, source)
 values
 ("Young and Healthy", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 
-"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
+"42nd Street (Film)", 1933, true, 
+"{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 film, year, sort_by_production, source)
 values
-("You're Getting to Be a Habit With Me", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
+("You're Getting to Be a Habit With Me", "Al Dubin", "Dubin, Al",
+"Harry Warren", "Warren, Harry", true,
+"42nd Street (Film)", 1933, true,
+"{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
 
 /* ** *************************************************** */
 
