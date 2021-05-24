@@ -749,9 +749,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 notes, scanned, scanned_filename)
 values
 ("Gold Diggers' Song, The (We're in the Money)", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
-false, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
+true, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
-false, NULL);
+true, "golddgrs.pdf");
 
 /* ** *************************************************** */
 
@@ -1312,6 +1312,16 @@ values
 "{\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
 "{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152",
 true, "lvrcbtme.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
+sort_by_production, source, notes)
+values
+("Lullaby of Broadway", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
+"Gold Diggers of 1935", 1935, true, "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~39.}"
+"\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
+"Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.");
 
 /* ** *************************************************** */
 
@@ -2732,6 +2742,8 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "I'll St
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Jeepers Creepers");
 
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lullaby of Broadway");
+
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Shuffle Off to Buffalo");
@@ -2855,6 +2867,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Gold Digger
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I'll String Along With You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I Only Have Eyes for You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lullaby of Broadway");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lulu's Back in Town");
 
