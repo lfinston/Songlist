@@ -1281,7 +1281,7 @@ getchar();
          toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
          if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
-           toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+           toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title << endl;
          else if (temp_char <= 'o')
            toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
          else 
@@ -1295,7 +1295,7 @@ getchar();
              toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
 
              if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
-               toc_ls_a_h_file << "\\S\\S {" << *t_iter << "}" << endl;
+               toc_ls_a_h_file << "\\R\\R {" << *t_iter << "}" << endl;
              else if (temp_char <= 'o')
                toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
              else 
@@ -1343,19 +1343,19 @@ getchar();
               toc_ls_a_h_file << "\\M " << iter->title << endl;
 
               if (iter->musical.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->musical << "'')"
                                 << endl;
               else if (iter->opera.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->opera << "'')"
                                 << endl;
               else if (iter->operetta.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->operetta << "'')"
                                 << endl;
               else if (iter->revue.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->revue << "'')"
                                 << endl;
               else if (iter->film.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->film << "'')"
                                 << endl;
            
               toc_ls_a_h_file << endl;

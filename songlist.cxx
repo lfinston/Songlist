@@ -667,7 +667,10 @@ main(int argc, char **argv)
                     << "\\centerline{{\\largebx Public Domain Songs}}" << endl                  
                     << "\\vskip.75\\baselineskip" << endl
                     << "\\setbox0=\\hbox{{\\medium 0000}}" << endl
-                    << "\\dimen0=\\wd0" << endl 
+                    << "\\dimen0=\\wd0" << endl
+                    << "\\setbox0=\\hbox{{\\mediumtt xxxxxxxx.xxx}}" << endl
+                    << "\\dimen1=\\wd0" << endl
+                    << "\\advance\\dimen1 by 5em" << endl
                     << "\\songctr=1" << endl                    
                     << "%\\doublecolumns" << endl 
                     << "\\obeylines" << endl;
@@ -697,33 +700,22 @@ main(int argc, char **argv)
 
              public_domain_file << "\\M " << "\\hbox to .5\\hsize{" << iter->title;
 
-             if (iter->year != 0 || iter->scanned_filename.size() > 0)
+             if (iter->year > 0 || iter->scanned_filename.size() > 0)
                 public_domain_file << "\\leaderfill ";
               
-             if (iter->year != 0)
+             if (iter->year > 0)
                 public_domain_file << iter->year;
              else
-                public_domain_file << iter->year;
+                public_domain_file << "\\hbox to \\dimen0{\\leaderfill}";
 
+             public_domain_file << "}";
 
-               //  << "\\hbox to .5\\hsize{" << iter->title;
+             if (iter->scanned && iter->scanned_filename.size() > 0)
+                public_domain_file << "\\hbox to \\dimen1{\\leaderfill\\HLP{" 
+                                   << iter->scanned_filename << "}}";
 
+             public_domain_file << endl;
 
-
-             {
-
-                cerr << " " << iter->year;
-
-
-                
-                if (iter->year != 0)
-                   public_domain_file << "\\leaderfill " << iter->year;
-                else
-                   public_domain_file << "\\leaderfill ";
-
-                public_domain_file << "}" << endl;
-             }
-             
              cerr << endl;
          }            
 

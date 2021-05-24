@@ -554,12 +554,12 @@ values
 
 -- delete from Songs where title = "Durch die Wälder, durch die Auen";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright, 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, 
 opera, scanned, scanned_filename, public_domain)
 values
 ("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", 
 "Carl Maria von Weber", "Weber, Carl Maria von",
-true, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true);
+true, 1821, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1171,11 +1171,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, opera,
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, opera,
 scanned, scanned_filename, public_domain)
 values
 ("L{\\`a} ci darem la mano", "Lorenzo Da Ponte", "Da Ponte, Lorenzo", "Wolfgang Amadeus Mozart",
-"Mozart, Wolfgang Amadeus", true, "Don Giovanni", true, "lacidarm.pdf", true);
+"Mozart, Wolfgang Amadeus", true, 1787, "Don Giovanni", true, "lacidarm.pdf", true);
 
 /* ** *************************************************** */
 
