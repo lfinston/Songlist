@@ -606,9 +606,16 @@ main(int argc, char **argv)
                     << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Scanned Songs}\\fi"   
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                     << "\\centerline{{\\largebx Scanned Songs}}" << endl                  
-                    << "\\vskip.75\\baselineskip" << endl                                
+                    << "\\vskip.75\\baselineskip" << endl
+                    << "\\begingroup" << endl
+                    << "\\dimen0=\\vsize" << endl
+                    << "\\advance\\dimen0 by -4\\baselineskip" << endl
+                    << "\\vbox to 0pt{\\vbox to \\vsize{\\vskip\\dimen0\\line{${}^{\\dag}$ "
+                    << "Public domain\\hfil}\\vss}\\vss}" << endl
+                    << "\\endgroup" << endl
+                    << "\\songctr=1" << endl                    
                     << "\\doublecolumns" << endl 
-                    << "\\obeylines" << endl << endl;
+                    << "\\obeylines" << endl;
      if (DEBUG)
      {
          cerr << "In `main':  `song_vector.size()' == " << song_vector.size()
@@ -629,7 +636,12 @@ main(int argc, char **argv)
              {
                 cerr << iter->scanned_filename << endl;
 
-                scanned_file << "\\SCANNED{" << iter->title << "}{"
+                scanned_file << "\\SCANNED{" << iter->title;
+                
+                if (iter->public_domain == true)
+                   scanned_file << "${}^{\\dag}$";
+
+                scanned_file << "}{"
                              << iter->scanned_filename << "}" << endl;
              }
              else

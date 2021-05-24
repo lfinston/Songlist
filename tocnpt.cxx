@@ -127,7 +127,8 @@ process_tocs_and_npt(void)
              <<        "copyright, "                        // 21
              <<        "notes, "                            // 22
              <<        "scanned, "                          // 23
-             <<        "scanned_filename "                  // 24
+             <<        "scanned_filename, "                 // 24
+             <<        "public_domain "                     // 25
              << "from Songs order by title asc;";
 
    if (DEBUG) 

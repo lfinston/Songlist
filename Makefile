@@ -209,10 +209,10 @@ lyricists.ps: lyricists.dvi
 lyricists.dvi: lyricists.tex
 	tex lyricists.tex
 
-composers.tex: ./songlist database/songlist.sql
+composers.tex: songlist$(EXEEXT) database/songlist.sql
 	$(MAKE) run
 
-lyricists.tex: ./songlist database/songlist.sql
+lyricists.tex: songlist$(EXEEXT) database/songlist.sql
 	$(MAKE) run
 
 scanned.pdf: scanned.ps
@@ -221,7 +221,7 @@ scanned.pdf: scanned.ps
 scanned.ps: scanned.dvi 
 	dvips -o $@ $<
 
-scanned.dvi: scanned.tex
+scanned.dvi: scanned.tex songlist.mac songlist$(EXEEXT) database/songlist.sql
 	tex $<
 
 .PHONY: run-c

@@ -499,10 +499,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-scanned, scanned_filename, operetta, sort_by_production, year)
+scanned, scanned_filename, operetta, sort_by_production, year, public_domain)
 values
 ("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
-"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "maxim.pdf", "Lustige Witwe, Die", true, 1905);
+"Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "maxim.pdf", "Lustige Witwe, Die",
+true, 1905, true);
 
 /* ** *************************************************** */
 
@@ -1170,10 +1171,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, opera, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, opera,
+scanned, scanned_filename, public_domain)
 values
 ("L{\\`a} ci darem la mano", "Lorenzo Da Ponte", "Da Ponte, Lorenzo", "Wolfgang Amadeus Mozart",
-"Mozart, Wolfgang Amadeus", true, "Don Giovanni", true, "lacidarm.pdf");
+"Mozart, Wolfgang Amadeus", true, "Don Giovanni", true, "lacidarm.pdf", true);
 
 /* ** *************************************************** */
 
@@ -1236,22 +1238,22 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 scanned, scanned_filename, 
-operetta, notes, sort_by_production, year)
+operetta, notes, sort_by_production, year, public_domain)
 values
 ("Lippen schweigen", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "lipnschw.pdf", "Lustige Witwe, Die",
-"English title:  The Merry Widow Waltz", true, 1905);
+"English title:  The Merry Widow Waltz", true, 1905, true);
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-scanned, scanned_filename, operetta, sort_by_production, year)
+scanned, scanned_filename, operetta, sort_by_production, year, public_domain)
 values
 ("Lied vom dummen Reiter, Das", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "dummreit.pdf", 
-"Lustige Witwe, Die", true, 1905);
+"Lustige Witwe, Die", true, 1905, true);
 
 /* ** *************************************************** */
 
@@ -1665,9 +1667,11 @@ true, 1938);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, scanned, scanned_filename)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, 
+year, scanned, scanned_filename, public_domain)
 values
-("Pretty A Girl is Like a Melody, A", "Irving Berlin", "Berlin, Irving", true, true, "pretgirl.pdf");
+("Pretty A Girl is Like a Melody, A", "Irving Berlin", "Berlin, Irving", 
+true, 1919, true, "pretgirl.pdf", true);
 
 /* ** *************************************************** */
 

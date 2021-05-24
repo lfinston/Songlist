@@ -78,10 +78,11 @@
 
 \def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
 
-\def\SCANNED#1#2{\begingroup\setbox0=\hbox{{\medium Cup of Coffee, a Sandwich and You}}%
-\dimen0=\wd0
-\setbox1=\hbox{#1}\ifdim\wd1<\dimen0\line{\box1\leaderfill {\mediumtt #2}}\else
-\vtop{\line{#1\hfil}\line{\quad\leaderfill {\mediumtt #2}}}\vskip.25\baselineskip\fi\endgroup}
+\def\SCANNED#1#2{\begingroup\setbox0=\hbox{{\medium Pretty A Girl is Like a Melody}}%
+\setbox1=\hbox{{\medium 00.}}%
+\setbox2=\hbox{#1}\ifdim\wd2<\wd0\line{\hbox to \dimen1{\hss\the\songctr .} #1\leaderfill {\mediumtt #2}}\else
+\vtop{\line{\hbox to \dimen1{\hss\the\songctr .} #1\hfil}%
+\line{\quad\leaderfill {\mediumtt #2}}}\vskip.25\baselineskip\fi\global\advance\songctr by 1\endgroup}
 
 \medium
 
