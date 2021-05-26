@@ -6,7 +6,24 @@
 \hlopts{bwidth=0}
 
 \def\tocchapterentry#1#2#3{\line{#2. \medium #1 \dotfill\ #3}}
-\def\tocsectionentry#1#2#3{\line{\hskip3em #2. \medium #1 \dotfill\ #3}}
+\def\tocsectionentry#1#2#3{\line{\hskip3em {#2}. \medium #1 \dotfill\ #3}}
+
+\newcount\chapctr
+\chapctr=0
+
+\newcount\sectionctr
+\sectionctr=0
+
+%\the\sectionctr
+
+\ifseparate
+\def\Chapter#1#2{\relax}
+\def\Section#1#2{\relax}
+\else
+\def\Chapter#1#2{\advance\chapctr by 1\sectionctr=0\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\the\chapctr}}
+\def\Section#1#2{\advance\sectionctr by 1\xdef\A{\the\chapctr .\the\sectionctr}%
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
+\fi
 
 \ifseparate
 \else
@@ -26,39 +43,39 @@
 
 \newlinechar=`^^J
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{lead sheets}\Blue{Lead Sheets---All}\hlend}{1}
+\Chapter{lead sheets}{Lead Sheets---All}
 
 \input toc_ls.tex
 
-\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets a-h}\Blue{A--H}\hlend}{1}
+\Section{lead sheets a-h}{A--H}
 
 \input toc_ls_a_h.tex
 
-\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets i-o}\Blue{I--O}\hlend}{2}
+\Section{lead sheets i-o}{I--O}
 
 \input toc_ls_i_o.tex
 
-\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets p-z}\Blue{P--Z}\hlend}{3}
+\Section{lead sheets p-z}{P--Z}
 
 \input toc_ls_p_z.tex
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{no page turns}\Blue{No Page Turns}\hlend}{2}
+\Chapter{no page turns}{No Page Turns}
 
 \input toc_npt.tex
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{composers}\Blue{Songs By Composer}\hlend}{3}
+\Chapter{composers}{Songs By Composer}
 
 \input composers.tex
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{lyricists}\Blue{Songs By Lyricist}\hlend}{4}
+\Chapter{lyricists}{Songs By Lyricist}
 
 \input lyricists.tex
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{scanned}\Blue{Scanned Lead Sheets}\hlend}{5}
+\Chapter{scanned}{Scanned Lead Sheets}
 
 \input scanned.tex
 
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{public domain}\Blue{Public Domain Songs}\hlend}{6}
+\Chapter{public domain}{Public Domain Songs}
 
 \input pblcdomn.tex
 
