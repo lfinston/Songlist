@@ -1155,6 +1155,7 @@ getchar();
                << "\\headline={\\hfil \\ifnum\\pageno>1{\\mediumbx Lead Sheets}\\fi"
                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                << "\\songctr=1" << endl
+               << "\\hldest{xyz}{}{lead sheets}" << endl 
                << "\\centerline{{\\largebx Lead Sheets}}" << endl
                << "\\vskip.75\\baselineskip" << endl
                << "\\doublecolumns" << endl
@@ -1170,6 +1171,7 @@ getchar();
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets A--H}\\fi"
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\songctr=1" << endl
+                   << "\\hldest{xyz}{}{lead sheets a-h}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets A--H}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1184,6 +1186,7 @@ getchar();
                    << "\\medium" << endl
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets I--O}\\fi" << endl
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                   << "\\hldest{xyz}{}{lead sheets i-o}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets I--O}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1199,6 +1202,7 @@ getchar();
                    << "\\medium" << endl
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets P--Z}\\fi" << endl 
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                   << "\\hldest{xyz}{}{lead sheets p-z}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1216,6 +1220,7 @@ getchar();
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx No Page Turns}\\fi"
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\songctr=1" << endl
+                   << "\\hldest{xyz}{}{no page turns}" << endl 
                    << "\\centerline{{\\largebx No Page Turns}}" << endl
                    << "\\vskip.75\\baselineskip" << endl << endl;
 

@@ -5,52 +5,60 @@
 
 \hlopts{bwidth=0}
 
-%% !! START HERE:  
+\def\tocchapterentry#1#2#3{\line{#2. \medium #1 \dotfill\ #3}}
+\def\tocsectionentry#1#2#3{\line{\hskip3em #2. \medium #1 \dotfill\ #3}}
 
-%% \def\tocchapterentry#1#2{\line{\mediumrm #1 \dotfill\ #2}}
-
-%% \def\Chapter#1#2{\hldest{xyz}{}{#2}\writetocentry{chapter}%
-%% {\global\sectno=1\hlstart{}{}{#2}\the\chapno . #1 ({\mediumbx\Blue{#2}})\hlend\global\advance\chapno by 1}%
-%% \hldest{xyz}{}{#2}\centerline{{\mediumbx #1}}\vskip\baselineskip\listing{#2}}
-
-\def\Chapter#1#2{}
-
-%% \begingroup
-%% \advance\baselineskip by .5\baselineskip
-%% \centerline{{\largebx Table of Contents}}
-%% \vskip.5\baselineskip
-%% \readtocfile
-%% \vfil\eject
-%% \endgroup
+\ifseparate
+\else
+\begingroup
+\pageno=-1
+\advance\baselineskip by .5\baselineskip
+\centerline{{\largebx Table of Contents}}
+\vskip.5\baselineskip
+\readtocfile
+\vfil\eject
+\endgroup
+\fi
+\pageno=1
 
 \advance\hoffset by .5cm
 \advance\baselineskip by .5\baselineskip
 
 \newlinechar=`^^J
 
-\ifseparate
-\message{\noexpand\separatetrue}
-\else
-\message{\noexpand\separatefalse}
-\fi
-
-\Chapter{Include files}{loader.web}
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{lead sheets}\Blue{Lead Sheets---All}\hlend}{1}
 
 \input toc_ls.tex
 
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets a-h}\Blue{A--H}\hlend}{1}
+
 \input toc_ls_a_h.tex
+
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets i-o}\Blue{I--O}\hlend}{2}
 
 \input toc_ls_i_o.tex
 
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{lead sheets p-z}\Blue{P--Z}\hlend}{3}
+
 \input toc_ls_p_z.tex
+
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{no page turns}\Blue{No Page Turns}\hlend}{2}
 
 \input toc_npt.tex
 
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{composers}\Blue{Songs By Composer}\hlend}{3}
+
 \input composers.tex
+
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{lyricists}\Blue{Songs By Lyricist}\hlend}{4}
 
 \input lyricists.tex
 
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{scanned}\Blue{Scanned Lead Sheets}\hlend}{5}
+
 \input scanned.tex
+
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{public domain}\Blue{Public Domain Songs}\hlend}{6}
 
 \input pblcdomn.tex
 

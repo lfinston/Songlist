@@ -223,6 +223,7 @@ main(int argc, char **argv)
                     << "\\medium" << endl
                     << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs by Composer}\\fi" << endl
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                    << "\\hldest{xyz}{}{composers}" << endl 
                     << "\\centerline{{\\largebx Songs by Composer}}" << endl
                     << "\\vskip.75\\baselineskip" << endl
                     << "\\doublecolumns" << endl << endl;
@@ -352,6 +353,7 @@ main(int argc, char **argv)
                     << "\\pagecnt=\\pageno" << endl
                     << "\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Composers by Number of Songs}\\fi" << endl 
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
+                    << "\\hldest{xyz}{}{composers by number}" << endl 
                     << "\\centerline{{\\largebx Composers by Number of Songs}}" << endl
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -429,6 +431,7 @@ main(int argc, char **argv)
                     << "\\medium" << endl
                     << "\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Songs by Lyricist}\\fi"
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
+                    << "\\hldest{xyz}{}{lyricists}" << endl 
                     << "\\centerline{{\\largebx Songs by Lyricist}}" << endl 
                     << "\\vskip.75\\baselineskip" << endl
                     << "\\doublecolumns" << endl << endl;
@@ -554,6 +557,7 @@ main(int argc, char **argv)
                     << "\\pagecnt=\\pageno" << endl
                     << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lyricists by Number of Songs}\\fi\\hfil" << endl 
                     << "\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
+                    << "\\hldest{xyz}{}{lyricists by number}" << endl 
                     << "\\centerline{{\\largebx Lyricists by Number of Songs}}" << endl
                     << "\\vskip.75\\baselineskip" << endl                                
                     << "\\doublecolumns"
@@ -626,6 +630,7 @@ main(int argc, char **argv)
                   << "\\medium" << endl
                   << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Scanned Lead Sheets}\\fi" << endl 
                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                  << "\\hldest{xyz}{}{scanned}" << endl 
                   << "\\centerline{{\\largebx Scanned Lead Sheets}}" << endl
                   << "\\vskip.75\\baselineskip" << endl
                   << "\\begingroup" << endl
@@ -698,6 +703,7 @@ main(int argc, char **argv)
                         << "\\medium" << endl
                         << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Public Domain Songs}\\fi" << endl
                         << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                        << "\\hldest{xyz}{}{public domain}" << endl 
                         << "\\centerline{{\\largebx Public Domain Songs}}" << endl
                         << "\\vskip.75\\baselineskip" << endl
                         << "\\setbox0=\\hbox{{\\medium 0000}}" << endl
