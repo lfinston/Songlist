@@ -57,21 +57,33 @@ all: all-sep all-no-sep
 
 .PHONY: all-sep
 
-all-sep: all_sep.dvi
+all-sep: all_sep.ps all_sep.pdf
 
 #### all_sep.dvi, with separation (no table of contents)
 
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
 	tex all_sep.tex
 
+all_sep.pdf: all_sep.dvi
+	dvipdfmx $<
+
+all_sep.ps: all_sep.dvi
+	dvips -q -o $@ $< 2>/dev/null
+
 .PHONY: all-no-sep
 
-all-no-sep: all_no_sep.dvi
+all-no-sep: all_no_sep.ps all_no_sep.pdf
 
 #### all_no_sep.dvi, no separation (with table of contents)
 
 all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex
 	tex all_no_sep.tex
+
+all_no_sep.ps: all_no_sep.dvi
+	dvips -q -o $@ $< 2>/dev/null
+
+all_no_sep.pdf: all_no_sep.dvi
+	dvipdfmx $<
 
 tocnpt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx
