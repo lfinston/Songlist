@@ -40,3 +40,4 @@ songctr_i_o.out
 testfont.*
 texput*
 ttemp*
+!backup/*.tex

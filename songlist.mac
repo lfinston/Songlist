@@ -116,7 +116,9 @@
 \enablehyperlinks[dvipdfm]
 %\enablehyperlinks[pdftex] 
 
-
+\newcount\pagecnt
+\newread\songctrin
+\newwrite\songctrout
 
 \medium
 

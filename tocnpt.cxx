@@ -1202,8 +1202,8 @@ getchar();
                    << "\\pagecnt=\\pageno" << endl
                    << "\\medium" << endl
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets P--Z}\\fi" << endl 
-                   << \\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad" << endl" << endl}}" << endl
-                   << "\\centerline{{\\largebx Lead Sheets P--Z" << endl}}" << endl 
+                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
+                   << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\openin\\songctrin=songctr_i_o.out" << endl
                    << "\\read\\songctrin to \\XXX" << endl
@@ -1222,9 +1222,9 @@ getchar();
                    << "\\medium" << endl
                    << "%\\advance\\baselineskip by .5\\baselineskip" << endl
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx No Page Turns}\\fi"
-                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad" << endl}}"
+                   << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\songctr=1" << endl
-                   << "\\centerline{{\\largebx No Page Turns" << endl}}
+                   << "\\centerline{{\\largebx No Page Turns}}" << endl
                    << "\\vskip.75\\baselineskip" << endl << endl;
 
    char temp_char;
@@ -1418,19 +1418,41 @@ getchar();
        
      }  /* |for|  */
 
-   toc_ls_file << "\\singlecolumn" << endl << endl
-               << endl << "\\bye" << endl;
+   toc_ls_file << "\\singlecolumn" << endl 
+               << "\\vfil\\eject" << endl
+               << "\\pagecnt=\\pageno" << endl
+               << "\\endinput" << endl << endl;
 
-   toc_ls_a_h_file << "\\singlecolumn" << endl << endl
-                   << "\\write\\songctrout{\\the\\songctr}" << endl 
-                   << endl << "\\bye" << endl;
+   toc_ls_a_h_file << "\\singlecolumn" << endl
+                   << "\\openout\\songctrout=songctr_a_h.out" << endl
+                   << "\\write\\songctrout{\\the\\songctr}" << endl
+                   << "\\closeout\\songctrout" << endl
+                   << "\\vfil\\eject" << endl
+                   << "\\ifseparate" << endl
+                   << "\\else" << endl
+                   << "\\pagecnt=\\pageno" << endl
+                   << "\\fi" << endl
+                   << "\\endinput" << endl << endl;
 
-   toc_ls_i_o_file << "\\singlecolumn" << endl << endl
-                   << "\\write\\songctrout{\\the\\songctr}" << endl 
-                   << endl << "\\bye" << endl;
+   toc_ls_i_o_file << "\\singlecolumn" << endl
+                   << "\\openout\\songctrout=songctr_i_o.out" << endl
+                   << "\\write\\songctrout{\\the\\songctr}" << endl
+                   << "\\closeout\\songctrout" << endl
+                   << "\\vfil\\eject" << endl
+                   << "\\ifseparate" << endl
+                   << "\\else" << endl
+                   << "\\pagecnt=\\pageno" << endl
+                   << "\\fi" << endl
+                   << "\\endinput" << endl << endl;
 
-   toc_ls_p_z_file << "\\singlecolumn" << endl << endl
-               << endl << "\\bye" << endl;
+
+   toc_ls_p_z_file << "\\singlecolumn" << endl
+                   << "\\vfil\\eject" << endl
+                   << "\\ifseparate" << endl
+                   << "\\else" << endl
+                   << "\\pagecnt=\\pageno" << endl
+                   << "\\fi" << endl
+                   << "\\endinput" << endl << endl;
 
    toc_ls_file.close();
    toc_ls_a_h_file.close();
@@ -1439,7 +1461,12 @@ getchar();
 
    toc_npt_file << "\\vskip2cm" << endl << endl
                 << "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
-                << endl << endl << "\\bye" << endl;
+                << "\\vfil\\eject" << endl
+                << "\\ifseparate" << endl
+                << "\\else" << endl
+                << "\\pagecnt=\\pageno" << endl
+                << "\\fi" << endl
+                << "\\endinput" << endl << endl;
 
    toc_npt_file.close();
 

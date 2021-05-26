@@ -51,30 +51,19 @@ clean:
               toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
               lyricists.tex composers.tex
 
-.PHONY: all
+.PHONY: all-sep
 
-all: songlist$(EXEEXT) database/songlist.sql toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
-      lyricists.tex composers.tex \
-      toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_ls.dvi toc_npt.dvi \
-      lyricists.dvi composers.dvi \
-      toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_ls.ps toc_npt.ps \
-      lyricists.ps composers.ps \
-      toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_ls.pdf toc_npt.pdf \
-      lyricists.pdf composers.pdf \
-      scanned.dvi scanned.ps scanned.pdf pblcdomn.dvi pblcdomn.ps pblcdomn.pdf \
-      all.dvi all.ps all.pdf Makefile
+#### all.tex, with separation (no table of contents)
 
+all-sep: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex
+	echo "1" > sep_flag.tex; tex all.tex
 
-all.dvi: toc_ls.dvi toc_npt.dvi composers.dvi lyricists.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi \
-         toc_ls_p_z.dvi scanned.dvi pblcdomn.dvi
-	dviconcat -o $@ $^
+.PHONY: all-nosep
 
-all.ps: all.dvi 
-	dvips -o all.ps all.dvi
+#### all.tex, no separation (with table of contents)
 
-all.pdf: toc_ls.pdf toc_npt.pdf composers.pdf lyricists.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf \
-         toc_ls_p_z.pdf scanned.pdf pblcdomn.pdf
-	pdfunite $^ $@
+all-nosep: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex
+	echo "0" > sep_flag.tex; tex all.tex
 
 combined: combined.pdf
 
