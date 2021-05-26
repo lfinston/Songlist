@@ -1,0 +1,95 @@
+%% /home/laurence/Songlist/all.tex
+%% Created by Laurence D. Finston (LDF) Tue 25 May 2021 05:48:34 PM CEST
+
+\input songlist.mac
+
+\input colordvi
+
+\hlopts{bwidth=0}
+
+%% !! START HERE:  
+
+%% \def\tocchapterentry#1#2{\line{\mediumrm #1 \dotfill\ #2}}
+
+%% \def\Chapter#1#2{\hldest{xyz}{}{#2}\writetocentry{chapter}%
+%% {\global\sectno=1\hlstart{}{}{#2}\the\chapno . #1 ({\mediumbx\Blue{#2}})\hlend\global\advance\chapno by 1}%
+%% \hldest{xyz}{}{#2}\centerline{{\mediumbx #1}}\vskip\baselineskip\listing{#2}}
+
+\def\Chapter#1#2{}
+
+%% \begingroup
+%% \advance\baselineskip by .5\baselineskip
+%% \centerline{{\largebx Table of Contents}}
+%% \vskip.5\baselineskip
+%% \readtocfile
+%% \vfil\eject
+%% \endgroup
+
+\advance\hoffset by .5cm
+\advance\baselineskip by .5\baselineskip
+
+\newread\separate
+\openin\separate=sep_flag.tex
+\read\separate to \XXX
+\closein\separate
+
+%\show\XXX
+
+\newif\ifseparate
+
+
+%\begingroup
+%\newlinechar=`^^J
+
+%% \ifnum\XXX=0
+%% \errmessage{It's zero.}
+%% \separatefalse
+%% \else\ifnum\XXX=1
+%% \errmessage{It's one.}
+%% \separatetrue
+%% \else
+%% \message{WARNING!  \XXX is neither zero nor one.  Setting \separatetrue .}
+%% \separatetrue
+%% \fi\fi
+%% \endgroup
+
+\newlinechar=`^^J
+
+\ifnum\XXX=0
+%\errmessage{It's 0}
+\separatefalse
+\else\ifnum\XXX=1
+%\errmessage{It's 1}
+\separatetrue
+\else
+\message{WARNING!  \noexpand\XXX == \XXX is neither 0 nor 1.^^JSetting \noexpand\separatetrue}
+\separatetrue
+\fi\fi
+
+\ifseparate
+\message{\noexpand\separatetrue}
+\else
+\message{\noexpand\separatefalse}
+\fi
+
+\Chapter{Include files}{loader.web}
+
+\input toc_ls.tex
+
+\input toc_ls_a_h.tex
+
+\input toc_ls_i_o.tex
+
+\input toc_ls_p_z.tex
+
+\input toc_npt.tex
+
+\input composers.tex
+
+\input lyricists.tex
+
+\input scanned.tex
+
+\input pblcdomn.tex
+
+\bye
