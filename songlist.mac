@@ -117,8 +117,8 @@
 %\enablehyperlinks[pdftex] 
 
 \newcount\pagecnt
-\newread\songctrin
-\newwrite\songctrout
+
+\newif\ifseparate
 
 \medium
 

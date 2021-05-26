@@ -338,7 +338,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Body and Soul", "Edward Heymann, Frank Eyton und Robert Sour", 
-"\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip-2pt\\hbox{and Sour, Robert}}", 
+"\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip2pt\\hbox{and Sour, Robert}}", 
 "John W.~Green", "Green, John W.", true);
 
 /* ** *************************************************** */

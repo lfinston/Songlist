@@ -51,26 +51,27 @@ clean:
               toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
               lyricists.tex composers.tex
 
+.PHONY: all
+
+all: all-sep all-no-sep
+
 .PHONY: all-sep
 
-#### all.tex, with separation (no table of contents)
+all-sep: all_sep.dvi
 
-all-sep: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex
-	echo "1" > sep_flag.tex; tex all.tex
+#### all_sep.dvi, with separation (no table of contents)
 
-.PHONY: all-nosep
+all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
+	tex all_sep.tex
 
-#### all.tex, no separation (with table of contents)
+.PHONY: all-no-sep
 
-all-nosep: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex
-	echo "0" > sep_flag.tex; tex all.tex
+all-no-sep: all_no_sep.dvi
 
-combined: combined.pdf
+#### all_no_sep.dvi, no separation (with table of contents)
 
-
-combined.pdf: songlist_out.pdf toc_ls.pdf toc_scores.pdf toc_all.pdf
-	pdftk toc_all.pdf songlist_out.pdf toc_ls.pdf toc_scores.pdf output \
-        combined.pdf
+all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex
+	tex all_no_sep.tex
 
 tocnpt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx

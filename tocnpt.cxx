@@ -1186,10 +1186,6 @@ getchar();
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\centerline{{\\largebx Lead Sheets I--O}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
-                   << "\\openin\\songctrin=songctr_a_h.out" << endl
-                   << "\\read\\songctrin to \\XXX" << endl
-                   << "\\closein\\songctrin" << endl
-                   << "\\songctr=\\XXX" << endl
                    << "\\doublecolumns" << endl
                    << "\\obeylines" << endl << endl;                                                        
 
@@ -1205,10 +1201,6 @@ getchar();
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\centerline{{\\largebx Lead Sheets P--Z}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
-                   << "\\openin\\songctrin=songctr_i_o.out" << endl
-                   << "\\read\\songctrin to \\XXX" << endl
-                   << "\\closein\\songctrin" << endl
-                   << "\\songctr=\\XXX" << endl
                    << "\\doublecolumns" << endl
                    << "\\obeylines" << endl << endl;                                                        
 
@@ -1424,9 +1416,6 @@ getchar();
                << "\\endinput" << endl << endl;
 
    toc_ls_a_h_file << "\\singlecolumn" << endl
-                   << "\\openout\\songctrout=songctr_a_h.out" << endl
-                   << "\\write\\songctrout{\\the\\songctr}" << endl
-                   << "\\closeout\\songctrout" << endl
                    << "\\vfil\\eject" << endl
                    << "\\ifseparate" << endl
                    << "\\else" << endl
@@ -1435,9 +1424,6 @@ getchar();
                    << "\\endinput" << endl << endl;
 
    toc_ls_i_o_file << "\\singlecolumn" << endl
-                   << "\\openout\\songctrout=songctr_i_o.out" << endl
-                   << "\\write\\songctrout{\\the\\songctr}" << endl
-                   << "\\closeout\\songctrout" << endl
                    << "\\vfil\\eject" << endl
                    << "\\ifseparate" << endl
                    << "\\else" << endl

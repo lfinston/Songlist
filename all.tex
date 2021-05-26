@@ -1,8 +1,6 @@
 %% /home/laurence/Songlist/all.tex
 %% Created by Laurence D. Finston (LDF) Tue 25 May 2021 05:48:34 PM CEST
 
-\input songlist.mac
-
 \input colordvi
 
 \hlopts{bwidth=0}
@@ -28,43 +26,7 @@
 \advance\hoffset by .5cm
 \advance\baselineskip by .5\baselineskip
 
-\newread\separate
-\openin\separate=sep_flag.tex
-\read\separate to \XXX
-\closein\separate
-
-%\show\XXX
-
-\newif\ifseparate
-
-
-%\begingroup
-%\newlinechar=`^^J
-
-%% \ifnum\XXX=0
-%% \errmessage{It's zero.}
-%% \separatefalse
-%% \else\ifnum\XXX=1
-%% \errmessage{It's one.}
-%% \separatetrue
-%% \else
-%% \message{WARNING!  \XXX is neither zero nor one.  Setting \separatetrue .}
-%% \separatetrue
-%% \fi\fi
-%% \endgroup
-
 \newlinechar=`^^J
-
-\ifnum\XXX=0
-%\errmessage{It's 0}
-\separatefalse
-\else\ifnum\XXX=1
-%\errmessage{It's 1}
-\separatetrue
-\else
-\message{WARNING!  \noexpand\XXX == \XXX is neither 0 nor 1.^^JSetting \noexpand\separatetrue}
-\separatetrue
-\fi\fi
 
 \ifseparate
 \message{\noexpand\separatetrue}
@@ -88,12 +50,15 @@
 
 \input lyricists.tex
 
-%% !! START HERE!  Testing.
-
-\bye
-
 \input scanned.tex
 
 \input pblcdomn.tex
 
-\bye
+\endinput
+
+%% (progn (plain-tex-mode) (auto-fill-mode 0))
+
+%% Local Variables:
+%% mode:plain-TeX
+%% eval:(auto-fill-mode 0)
+%% End:
