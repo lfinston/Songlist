@@ -29,6 +29,8 @@ TAGS
 *.log
 *.o
 *#*
+all_sep.ps
+all_sep.toc
 circles.dvi
 circles.mpx
 circles.ps
