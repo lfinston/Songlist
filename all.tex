@@ -16,11 +16,22 @@
 
 %\the\sectionctr
 
+\newcount\totalpages
+\newcount\temppageno
+
 \ifseparate
 \def\Chapter#1#2{\relax}
 \def\Section#1#2{\relax}
+\openout\pagenoout=separate_all_sep.sh
+\begingroup
+\catcode`\%=12
+\write\pagenoout{#! /bin/bash^^J}
+\write\pagenoout{pdfseparate all_sep.pdf all_sep-%02d.pdf^^J}
+\endgroup
+\totalpages=1
 \else
-\def\Chapter#1#2{\advance\chapctr by 1\sectionctr=0\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\the\chapctr}}
+\def\Chapter#1#2{\advance\chapctr by 1\sectionctr=0%
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\the\chapctr}}
 \def\Section#1#2{\advance\sectionctr by 1\xdef\A{\the\chapctr .\the\sectionctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
 \fi
@@ -43,41 +54,167 @@
 
 \newlinechar=`^^J
 
+\ifseparate
+\prevpagecnt=1
+\fi
+
 \Chapter{lead sheets}{Lead Sheets---All}
 
 \input toc_ls.tex
+
+%% !! START HERE!  Must write the names of all the pdf files as arguments to pdfunite.
+
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+toc_ls.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_ls.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
 
 \Section{lead sheets a-h}{A--H}
 
 \input toc_ls_a_h.tex
 
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+toc_ls_a_h.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_a_h_ls.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
+
 \Section{lead sheets i-o}{I--O}
 
 \input toc_ls_i_o.tex
+
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+toc_ls_i_o.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_i_o_ls.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
 
 \Section{lead sheets p-z}{P--Z}
 
 \input toc_ls_p_z.tex
 
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+toc_ls_p_z.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_p_z_ls.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
+
 \Chapter{no page turns}{No Page Turns}
 
 \input toc_npt.tex
+
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+toc_npt.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_npt.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
 
 \Chapter{composers}{Songs By Composer}
 
 \input composers.tex
 
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+composers.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf composers.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
+
 \Chapter{lyricists}{Songs By Lyricist}
 
 \input lyricists.tex
+
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+lyricists.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf lyricists.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
 
 \Chapter{scanned}{Scanned Lead Sheets}
 
 \input scanned.tex
 
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+scanned.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf scanned.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
+
+
 \Chapter{public domain}{Public Domain Songs}
 
 \input pblcdomn.tex
+
+\ifseparate
+\advance\totalpages by \pageno
+\advance\totalpages by -2
+\ifnum\prevpagecnt=\totalpages
+\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+pblcdomn.pdf^^J}\else
+\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf pblcdomn.pdf^^J}\fi
+\advance\totalpages by 1
+\prevpagecnt=\totalpages
+\fi
+
+
+%% \immediate must be used here, otherwise an extra, unwanted page is produced.
+%% For some reason, it has the wrong headline.  I don't know why.
+%% LDF 2021.05.27.
+
+\ifseparate
+\immediate\write\pagenoout{rm `find . -regex "./all_sep-[0-9]+.*.pdf"`^^J}
+\immediate\write\pagenoout{exit 0}
+\immediate\closeout\pagenoout
+\fi
 
 \endinput
 

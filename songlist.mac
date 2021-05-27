@@ -117,8 +117,11 @@
 %\enablehyperlinks[pdftex] 
 
 \newcount\pagecnt
-
+\newcount\prevpagecnt
 \newif\ifseparate
+\newwrite\pagenoout
+
+\newlinechar=`^^J
 
 \medium
 

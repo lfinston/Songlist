@@ -97,7 +97,6 @@ songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
             -lpthread -lz -lm -lrt \
            -lssl -lcrypto -ldl -lresolv
 
-
 cmdlnopt.o: cmdlnopt.cxx
 	g++ -c -g -o cmdlnopt.o cmdlnopt.cxx
 

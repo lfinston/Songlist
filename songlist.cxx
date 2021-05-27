@@ -351,7 +351,7 @@ main(int argc, char **argv)
                     << "\\baselineskip=0pt" << endl
                     << "\\parskip=4pt" << endl
                     << "\\pagecnt=\\pageno" << endl
-                    << "\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Composers by Number of Songs}\\fi" << endl 
+                    << "\\global\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Composers by Number of Songs}\\fi" << endl 
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
                     << "\\Section{composers by number}{Composers By Number of Songs}" << endl 
                     << "\\hldest{xyz}{}{composers by number}" << endl 
@@ -556,7 +556,7 @@ main(int argc, char **argv)
                     << "\\baselineskip=0pt" << endl
                     << "\\parskip=4pt" << endl
                     << "\\pagecnt=\\pageno" << endl
-                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lyricists by Number of Songs}\\fi\\hfil" << endl 
+                    << "\\global\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lyricists by Number of Songs}\\fi\\hfil" << endl 
                     << "\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
                     << "\\Section{lyricists by number}{Lyricists By Number of Songs}" << endl 
                     << "\\hldest{xyz}{}{lyricists by number}" << endl 
