@@ -33,6 +33,7 @@ all_no_sep.ps
 all_no_sep.toc
 all_sep.ps
 all_sep.toc
+!backup/*.tex
 circles.dvi
 circles.mpx
 circles.ps
@@ -45,4 +46,5 @@ songctr_i_o.out
 testfont.*
 texput*
 ttemp*
-!backup/*.tex
+XXX.sh
+
