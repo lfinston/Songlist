@@ -62,7 +62,7 @@ all-sep: all_sep.pdf composers.pdf
 
 #### all_sep.dvi, with separation (no table of contents)
 
-all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
+all_sep.dvi XXX.sh: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
 	tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi sep_all.sh
@@ -71,9 +71,8 @@ all_sep.pdf: all_sep.dvi sep_all.sh
 all_sep.ps: all_sep.dvi 
 	dvips -q -o $@ $< 2>/dev/null
 
-sep_all.sh: all_sep.dvi separate_all_sep.sh
-	emacs --batch separate_all_sep.sh -l fix_separate.el -f save-buffer
-	cp separate_all_sep.sh sep_all.sh
+sep_all.sh: all_sep.dvi XXX.sh
+	cat XXX.sh | tr "|" "\\" > sep_all.sh 2>/dev/null
 
 composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
 toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
