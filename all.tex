@@ -26,6 +26,7 @@
 \begingroup
 \catcode`\%=12
 \write\pagenoout{#! /bin/bash^^J}
+\write\pagenoout{echo "Entering sep_all_sep.sh"^^J}
 \write\pagenoout{pdfseparate all_sep.pdf all_sep-%02d.pdf^^J}
 \endgroup
 \totalpages=1
@@ -51,7 +52,8 @@
 %% |catcode`|\=12
 %% |immediate|write|pagenoout{pdfunite \ } 
 %% |loop
-%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf \ }
+%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf \#
+%% }
 %% |advance|tempcnt by 1
 %% |ifnum|tempcnt<|totalpages
 %% |repeat
@@ -86,17 +88,16 @@
 \prevpagecnt=1
 \fi
 
+\catcode`\_=12
 
-\Chapter{lead sheets}{Lead Sheets---All}
+%% The catcode changes must be done whether \ifseparate is true or false.
+%% It doesn't work to put them into the "then" part of the conditional only.
+%% LDF 2021.05.27.
 
-\input toc_ls.tex
-
-%% !! START HERE!  Must write the names of all the pdf files as arguments to pdfunite.
-
-%\SEP{toc_ls.pdf}
-
-\ifseparate
 \begingroup
+\catcode`\|=0
+\ifseparate
+\gdef\SEP#1{\begingroup
 \advance\totalpages by \pageno
 \advance\totalpages by -2
 \ifnum\prevpagecnt=\totalpages
@@ -112,143 +113,197 @@
 |advance|tempcnt by 1
 |ifnum|tempcnt<|totalpages
 |repeat
-|immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf toc_ls.pdf^^J}
+|immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf #1^^J}
 |fi
 |global|advance|totalpages by 1
 |global|prevpagecnt=|totalpages
-|endgroup
+|endgroup}
+\else
+\gdef\SEP#1{\relax}
 \fi
+\endgroup
+
+
+
+
+
+\Chapter{lead sheets}{Lead Sheets---All}
+
+\input toc_ls.tex
+
+%% !! START HERE!  Must write the names of all the pdf files as arguments to pdfunite.
+
+\SEP{toc_ls.pdf}
+
+%% \ifseparate
+%% \begingroup
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% toc_ls.pdf^^J}
+%% \else
+%% \tempcnt=\prevpagecnt
+%% \catcode`\|=0
+%% |catcode`|\=12
+%% |immediate|write|pagenoout{pdfunite \ } 
+%% |loop
+%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf \ }
+%% |advance|tempcnt by 1
+%% |ifnum|tempcnt<|totalpages
+%% |repeat
+%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf toc_ls.pdf^^J}
+%% |fi
+%% |global|advance|totalpages by 1
+%% |global|prevpagecnt=|totalpages
+%% |endgroup
+%% \fi
 
 
 \Section{lead sheets a-h}{A--H}
 
 \input toc_ls_a_h.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-toc_ls_a_h.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_a_h_ls.pdf^^J}
-\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{toc_ls_a_h.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% toc_ls_a_h.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_a_h_ls.pdf^^J}
+%% \fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Section{lead sheets i-o}{I--O}
 
 \input toc_ls_i_o.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-toc_ls_i_o.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_i_o_ls.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{toc_ls_i_o.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% toc_ls_i_o.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_i_o_ls.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Section{lead sheets p-z}{P--Z}
 
 \input toc_ls_p_z.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-toc_ls_p_z.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_p_z_ls.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{toc_ls_p_z.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% toc_ls_p_z.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_p_z_ls.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Chapter{no page turns}{No Page Turns}
 
 \input toc_npt.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-toc_npt.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_npt.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{toc_npt.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% toc_npt.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_npt.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Chapter{composers}{Songs By Composer}
 
 \input composers.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-composers.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf composers.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{composers.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% composers.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf composers.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Chapter{lyricists}{Songs By Lyricist}
 
 \input lyricists.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-lyricists.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf lyricists.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{lyricists.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% lyricists.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf lyricists.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Chapter{scanned}{Scanned Lead Sheets}
 
 \input scanned.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-scanned.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf scanned.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{scanned.pdf}
 
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% scanned.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf scanned.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 \Chapter{public domain}{Public Domain Songs}
 
 \input pblcdomn.tex
 
-\ifseparate
-\advance\totalpages by \pageno
-\advance\totalpages by -2
-\ifnum\prevpagecnt=\totalpages
-\immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-pblcdomn.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf pblcdomn.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
-\fi
+\SEP{pblcdomn.pdf}
+
+%% \ifseparate
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% pblcdomn.pdf^^J}\else
+%% \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf pblcdomn.pdf^^J}\fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% \fi
 
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
@@ -256,7 +311,8 @@ all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf pblcdomn.pdf^^J}\fi
 %% LDF 2021.05.27.
 
 \ifseparate
-\immediate\write\pagenoout{rm `find . -regex "./all_sep-[0-9]+.*.pdf"`^^J}
+\immediate\write\pagenoout{rm -f `find . -regex "./all_sep-[0-9]+.*.pdf"`^^J}
+\immediate\write\pagenoout{echo "Exiting sep_all_sep.sh with exit status 0"}
 \immediate\write\pagenoout{exit 0}
 \immediate\closeout\pagenoout
 \fi

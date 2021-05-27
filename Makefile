@@ -53,26 +53,35 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep
+all: all-sep all-no-sep composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
+            toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf 
 
 .PHONY: all-sep
 
-all-sep: all_sep.ps all_sep.pdf
+all-sep: all_sep.pdf composers.pdf
 
 #### all_sep.dvi, with separation (no table of contents)
 
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
 	tex all_sep.tex
 
-all_sep.pdf: all_sep.dvi
+all_sep.pdf: all_sep.dvi sep_all.sh
 	dvipdfmx $<
 
-all_sep.ps: all_sep.dvi
+all_sep.ps: all_sep.dvi 
 	dvips -q -o $@ $< 2>/dev/null
+
+sep_all.sh: all_sep.dvi separate_all_sep.sh
+	emacs --batch separate_all_sep.sh -l fix_separate.el -f save-buffer
+	cp separate_all_sep.sh sep_all.sh
+
+composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
+toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
+	./sep_all.sh
 
 .PHONY: all-no-sep
 
-all-no-sep: all_no_sep.ps all_no_sep.pdf
+all-no-sep: all_no_sep.ps all_no_sep.pdf 
 
 #### all_no_sep.dvi, no separation (with table of contents)
 
@@ -126,59 +135,21 @@ songlist_out.tex: songlist input.txt
 
 .PHONY: dvi
 
-dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi composers.dvi lyricists.dvi
+dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi composers.dvi lyricists.dvi \
+         scanned.dvi pblcdomn.dvi
 
 .PHONY: ps
 
-ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps composers.ps lyricists.ps
+ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps composers.ps lyricists.ps \
+         scanned.ps pblcdomn.ps
 
 .PHONY: pdf
 
-pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf composers.pdf lyricists.pdf
+pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf composers.pdf lyricists.pdf \
+         scanned.pdf pblcdomn.pdf
 
-toc_npt.pdf: toc_npt.tex 
-	pdftex toc_npt.tex
-
-toc_ls.pdf: toc_ls.tex 
-	pdftex toc_ls.tex
-
-toc_ls_a_h.pdf: toc_ls_a_h.tex 
-	pdftex toc_ls_a_h.tex
-
-toc_ls_i_o.pdf: toc_ls_i_o.tex 
-	pdftex toc_ls_i_o.tex
-
-toc_ls_p_z.pdf: toc_ls_p_z.tex 
-	pdftex toc_ls_p_z.tex
-
-toc_npt.ps: toc_npt.tex 
-	dvips -o toc_npt.ps toc_npt.dvi
-
-toc_ls.ps: toc_ls.dvi
-	dvips -o toc_ls.ps toc_ls.dvi
-
-toc_ls_a_h.ps: toc_ls_a_h.dvi
-	dvips -o toc_ls_a_h.ps toc_ls_a_h.dvi
-
-toc_ls_i_o.ps: toc_ls_i_o.dvi
-	dvips -o toc_ls_i_o.ps toc_ls_i_o.dvi
-
-toc_ls_p_z.ps: toc_ls_p_z.dvi
-	dvips -o toc_ls_p_z.ps toc_ls_p_z.dvi	
-
-toc_ls.dvi: toc_ls.tex songlist.mac songlist$(EXEEXT) Makefile
-	tex toc_ls.tex
-
-toc_ls_a_h.dvi: toc_ls_a_h.tex songlist$(EXEEXT) Makefile
-	tex toc_ls_a_h.tex
-
-toc_ls_i_o.dvi: toc_ls_i_o.tex songlist$(EXEEXT) Makefile
-	tex toc_ls_i_o.tex
-
-toc_ls_p_z.dvi: toc_ls_p_z.tex songlist$(EXEEXT) Makefile
-	tex toc_ls_p_z.tex
-
-toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex: songlist$(EXEEXT) database/songlist.sql
+toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex composers.tex \
+   lyricists.tex scanned.tex pblcdomn.tex : songlist$(EXEEXT) database/songlist.sql
 	make run
 
 toc_scores.pdf: toc_scores.ps
@@ -192,52 +163,6 @@ toc_scores.dvi: toc_scores.tex songlist$(EXEEXT) Makefile
 
 toc_scores.tex: songlist
 	make run
-
-composers.pdf: composers.ps
-	ps2pdf composers.ps
-
-composers.ps: composers.dvi
-	dvips -o composers.ps composers.dvi
-
-composers.dvi: composers.tex songlist$(EXEEXT) Makefile
-	tex $<
-
-lyricists.pdf: lyricists.ps
-	ps2pdf lyricists.ps
-
-lyricists.ps: lyricists.dvi
-	dvips -o lyricists.ps lyricists.dvi
-
-lyricists.dvi: lyricists.tex songlist$(EXEEXT) Makefile
-	tex lyricists.tex
-
-composers.tex: songlist$(EXEEXT) database/songlist.sql
-	$(MAKE) run
-
-lyricists.tex: songlist$(EXEEXT) database/songlist.sql
-	$(MAKE) run
-
-scanned.pdf: scanned.dvi
-	dvipdfmx $<
-
-scanned.ps: scanned.dvi 
-	dvips -o $@ $<
-
-scanned.dvi: scanned.tex songlist.mac songlist$(EXEEXT) database/songlist.sql Makefile
-	tex $<
-
-pblcdomn.pdf: pblcdomn.dvi
-	dvipdfmx $<
-
-pblcdomn.ps: pblcdomn.dvi 
-	dvips -o $@ $<
-
-pblcdomn.dvi: pblcdomn.tex songlist.mac songlist$(EXEEXT) database/songlist.sql Makefile
-	tex $<
-
-pblcdomn.tex: songlist$(EXEEXT)
-	$(MAKE) run
-
 .PHONY: run-c
 
 run-c: circles.ps

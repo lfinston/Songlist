@@ -118,6 +118,7 @@
 
 \newcount\pagecnt
 \newcount\prevpagecnt
+\newcount\tempcnt
 \newif\ifseparate
 \newwrite\pagenoout
 
