@@ -32,9 +32,37 @@
 \else
 \def\Chapter#1#2{\advance\chapctr by 1\sectionctr=0%
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\the\chapctr}}
-\def\Section#1#2{\advance\sectionctr by 1\xdef\A{\the\chapctr .\the\sectionctr}%
+\def\Section#1#2{\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
 \fi
+
+\catcode`\_=12
+
+%% \ifseparate
+%% \def\SEP#1{\begingroup
+%% \advance\totalpages by \pageno
+%% \advance\totalpages by -2
+%% \ifnum\prevpagecnt=\totalpages
+%% \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
+%% #1^^J}
+%% \else
+%% \tempcnt=\prevpagecnt
+%% \catcode`\|=0
+%% |catcode`|\=12
+%% |immediate|write|pagenoout{pdfunite \ } 
+%% |loop
+%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf \ }
+%% |advance|tempcnt by 1
+%% |ifnum|tempcnt<|totalpages
+%% |repeat
+%% |immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf #1^^J}
+%% \fi
+%% \advance\totalpages by 1
+%% \prevpagecnt=\totalpages
+%% |expandafter\endgroup\relax}
+%% \else
+%% \def\SEP#1{\relax}
+%% \fi
 
 \ifseparate
 \else
@@ -58,23 +86,39 @@
 \prevpagecnt=1
 \fi
 
+
 \Chapter{lead sheets}{Lead Sheets---All}
 
 \input toc_ls.tex
 
 %% !! START HERE!  Must write the names of all the pdf files as arguments to pdfunite.
 
+%\SEP{toc_ls.pdf}
+
 \ifseparate
+\begingroup
 \advance\totalpages by \pageno
 \advance\totalpages by -2
 \ifnum\prevpagecnt=\totalpages
 \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-toc_ls.pdf^^J}\else
-\immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_ls.pdf^^J}\fi
-\advance\totalpages by 1
-\prevpagecnt=\totalpages
+#1^^J}
+\else
+\tempcnt=\prevpagecnt
+\catcode`\|=0
+|catcode`|\=12
+|immediate|write|pagenoout{pdfunite \ } 
+|loop
+|immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf \ }
+|advance|tempcnt by 1
+|ifnum|tempcnt<|totalpages
+|repeat
+|immediate|write|pagenoout{all_sep-|ifnum|tempcnt<10 0|fi|the|tempcnt .pdf toc_ls.pdf^^J}
+|fi
+|global|advance|totalpages by 1
+|global|prevpagecnt=|totalpages
+|endgroup
 \fi
+
 
 \Section{lead sheets a-h}{A--H}
 
@@ -87,7 +131,8 @@ all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_ls.pdf^^J}\fi
 \immediate\write\pagenoout{mv all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
 toc_ls_a_h.pdf^^J}\else
 \immediate\write\pagenoout{pdfunite all_sep-\ifnum\prevpagecnt<10 0\fi\the\prevpagecnt .pdf %
-all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_a_h_ls.pdf^^J}\fi
+all_sep-\ifnum\totalpages<10 0\fi\the\totalpages .pdf toc_a_h_ls.pdf^^J}
+\fi
 \advance\totalpages by 1
 \prevpagecnt=\totalpages
 \fi
