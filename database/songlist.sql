@@ -2113,6 +2113,18 @@ values
 ("Top of the World", "John Bettis", "Bettis, John", "Richard Carpenter", "Carpenter, Richard", true,
 1972, "{\\bf Carpenters, Greatest Hits}, p.~38.");
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, copyright, film, source, scanned, scanned_filename)
+values
+("Two Sleepy People", "Frank Loesser", "Loesser, Frank", 
+"Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
+"Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
+"Thanks for the Memory", "{\\bf The Hoagy Carmichael Songbook}, p.~240.", true, "twosleep.pdf");
+
+/* ** *************************************************** */
+
 select "!!! End T";
 
 /*  U  */
@@ -2411,6 +2423,8 @@ replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Geo
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Skylark");
 
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Stardust");
+
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Two Sleepy People");
 
 replace into Composers_Songs (composer, title) values ("Carpenter, Richard", "Top of the World");
 
@@ -3122,6 +3136,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Livingston, Jay", "Mr.~L
 replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Mr.~Lucky");
 
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Heart and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Two Sleepy People");
 
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "You've Got That Look");
 
