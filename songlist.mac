@@ -99,17 +99,19 @@
 
 %% All lead sheets, in `../music/Lead_Sheets/'.
 
-\def\HLA#1{\hlstart{filepage}{bwidth=0,newwin=,file=../music/Lead_Sheets/#1}{1}{\mediumtt\Blue{#1}}\hlend}
+\def\HLA#1#2{\hlstart{filepage}{bwidth=0,newwin=,file=../music/Lead_Sheets/#1}{1}%
+{\mediumtt\ifnum#2=0\RawSienna{#1}\else\Blue{#1}\fi}%
+\hlend}
 
 %% Public domain lead sheets, in `./lead_sheets/'.
 
 \def\HLP#1{\hlstart{filepage}{bwidth=0,newwin=,file=./lead_sheets/#1}{1}{\mediumtt\Blue{#1}}\hlend}
 
-\def\SCANNED#1#2{\begingroup\setbox0=\hbox{{\medium Pretty A Girl is Like a Melody}}%
+\def\SCANNED#1#2#3{\begingroup\setbox0=\hbox{{\medium Pretty A Girl is Like a Melody}}%
 \setbox1=\hbox{{\medium 00. }}\setbox2=\hbox{#1}%
-\ifdim\wd2<\wd0\line{\hbox to \wd1{\hss\the\songctr. }#1\leaderfill\HLA{#2}}\else
+\ifdim\wd2<\wd0\line{\hbox to \wd1{\hss\the\songctr. }#1\leaderfill\HLA{#2}{#3}}\else
 \vtop{\line{\hbox to \wd1{\hss\the\songctr . }#1\hfil}%
-\line{\quad\leaderfill\HLA{#2}}\vskip.25\baselineskip}\fi
+\line{\quad\leaderfill\HLA{#2}{#3}}\vskip.25\baselineskip}\fi
 \global\advance\songctr by 1
 \endgroup}
 

@@ -638,7 +638,8 @@ main(int argc, char **argv)
                   << "\\begingroup" << endl
                   << "\\dimen0=\\vsize" << endl
                   << "\\advance\\dimen0 by -4\\baselineskip" << endl
-                  << "\\vbox to 0pt{\\vbox to \\vsize{\\vskip\\dimen0\\line{${}^{\\dag}$ Public domain\\hfil}\\vss}\\vss}" << endl
+                  << "\\vbox to 0pt{\\vbox to \\vsize{\\vskip\\dimen0" << endl 
+                  << "\\line{${}^{\\dag}$ \\Blue{Public domain}\\hfil}\\vss}\\vss}" << endl
                   << "\\endgroup" << endl
                   << "\\songctr=1" << endl
                   << "\\doublecolumns" << endl 
@@ -670,7 +671,8 @@ main(int argc, char **argv)
                    scanned_file << "${}^{\\dag}$";
 
                 scanned_file << "}{"
-                             << iter->scanned_filename << "}" << endl;
+                             << iter->scanned_filename << "}" 
+                             << "{" << iter->public_domain << "}" << endl;
              }
              else
                 cerr << "WARNING!  `iter->scanned_filename' is empty." << endl;

@@ -1502,6 +1502,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, copyright, source, scanned, scanned_filename)
+values
+("Nearness of You, The", "Ned Washington", "Washington, Ned", 
+"Hoagy Carmichael", "Carmichael, Hoagy", true, 1937, 
+"Copyright {\\copyright} 1937, 1940 (Renewed 1964, 1967) by Famous Music Corporation",
+"{\\bf The Hoagy Carmichael Songbook}, p.~84.", true, "nrnsfyou.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, copyright)
 values
 ("Nevertheless (I'm In Love With You)", "Bert Kalmar", "Kalmar, Bert", "Harry Ruby", "Ruby, Harry", true, 1,
@@ -2420,6 +2430,8 @@ replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Hea
 
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Georgia on my Mind");
 
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Nearness of You, The");
+
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Skylark");
 
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Stardust");
@@ -3261,6 +3273,8 @@ replace into Lyricists_Songs (lyricist, title) values
 ("Unknown", "Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})");
 
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Cosi Cosa");
+
+replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned",  "Nearness of You, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Smoke Rings");
 
