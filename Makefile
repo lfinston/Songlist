@@ -53,8 +53,7 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
-            toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf 
+all: all-sep all-no-sep 
 
 .PHONY: all-sep
 
@@ -62,7 +61,7 @@ all-sep: all_sep.pdf composers.pdf
 
 #### all_sep.dvi, with separation (no table of contents)
 
-all_sep.dvi XXX.sh: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
+all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
 	tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi sep_all.sh
@@ -75,7 +74,7 @@ sep_all.sh: all_sep.dvi XXX.sh
 	cat XXX.sh | tr "|" "\\" > sep_all.sh 2>/dev/null
 
 composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
-toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
+   toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
 	./sep_all.sh
 
 .PHONY: all-no-sep
@@ -85,7 +84,7 @@ all-no-sep: all_no_sep.ps all_no_sep.pdf
 #### all_no_sep.dvi, no separation (with table of contents)
 
 all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex
-	tex all_no_sep.tex
+	tex all_no_sep.tex & tex all_no_sep.tex
 
 all_no_sep.ps: all_no_sep.dvi
 	dvips -q -o $@ $< 2>/dev/null
