@@ -725,6 +725,15 @@ values
 
 /* G   */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename)
+values
+("Gar{\\^o}ta de Ipanema", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963 (Renewed)",
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~84.", true, "garota.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
 values
 ("Georgia on my Mind", "Stuart Gorrell", "Gorrell, Stuart", "Hoagy Carmichael", "Carmichael, Hoagy", true, 1);
@@ -1029,6 +1038,15 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Duke Ellington", "Ellington, Duke", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename)
+values
+("Insensatez", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963, 1964",
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~88.", true, "insenstz.pdf");
 
 /* ** *************************************************** */
 
@@ -2554,6 +2572,10 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Felicidade, A");
 
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Gar{\\\^o}ta de Ipanema");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Insensatez");
+
 -- delete from Composers_Songs where title = "Samba de uma nota so";
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de Uma Nota So");
@@ -3200,6 +3222,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Caravan
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Chega de Saudade");
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Felicidade, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Gar{\\\^o}ta de Ipanema");
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Insensatez");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
 
