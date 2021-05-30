@@ -30,6 +30,7 @@
 #include <sys/types.h>
 
 #include <errno.h>
+#include <ctype.h>
 
 #include <string>
 #include <iomanip>
@@ -651,6 +652,8 @@ main(int argc, char **argv)
               << endl;
      }
 
+     char prev_title_char;
+ 
      sort(song_vector.begin(), song_vector.end(), compare_titles);
 
      for (vector<Song>::iterator iter = song_vector.begin();
@@ -661,9 +664,31 @@ main(int argc, char **argv)
          {
              cerr << iter->title << " ... ";
 
+             cerr << endl 
+                  << "iter->title[0] == " << iter->title[0] << endl 
+                  << "prev_title_char == " << prev_title_char << endl;
+
              if (iter->scanned_filename.size() > 0)
              {
                 cerr << iter->scanned_filename << endl;
+
+                if (tolower(prev_title_char) == 's' && tolower(iter->title[0]) == 't')
+                { 
+                   cerr << endl 
+                        << "iter->title[0] == " << iter->title[0] << endl 
+                        << "prev_title_char == " << prev_title_char << endl;
+ 
+    
+                   scanned_file << "%%" << endl 
+                                << "%% !! The following line of TeX code causes `scanned.tex' to be split at this point," << endl 
+                                << "%% i.e., between \"S\" and \"T\"" << endl 
+                                << "%% If the number of scanned lead sheets changes, it may be possible to remove" << endl 
+                                << "%% the code that causes this from the function `main' in `songlist.cxx'." << endl 
+                                << "%% LDF 2021.05.30." << endl 
+                                << "\\singlecolumn\\vfil\\eject\\doublecolumns" << endl
+                                << "%% End of code for \"manual\" splitting." << endl
+                                << "%%" << endl;
+                }
 
                 scanned_file << "\\SCANNED{" << iter->title;
                 
@@ -673,6 +698,8 @@ main(int argc, char **argv)
                 scanned_file << "}{"
                              << iter->scanned_filename << "}" 
                              << "{" << iter->public_domain << "}" << endl;
+
+                prev_title_char = iter->title[0];
              }
              else
                 cerr << "WARNING!  `iter->scanned_filename' is empty." << endl;
@@ -821,6 +848,7 @@ Song::show(string s)
        << "musical:                          " << musical << endl
        << "opera:                            " << opera << endl
        << "operetta:                         " << operetta << endl
+       << "song_cycle:                       " << song_cycle << endl
        << "revue:                            " << revue << endl
        << "film:                             " << film << endl
        << "notes:                            " << notes << endl      
@@ -869,6 +897,7 @@ Song::clear(void)
     musical = "";
     opera = "";
     operetta = "";
+    song_cycle = "";
     revue = "";
     film = "";
     sort_by_production = 0;
@@ -1135,9 +1164,29 @@ compare_strings(string t, string s)
 	  found_flag = true;
 	  s.replace(found_s, 4, "forty-second");
 	}
-    }
+    }  
+    while (found_t != string::npos || found_s != string::npos);
 
-  while (found_t != string::npos || found_s != string::npos);
+  /* Replace ``14'' with ``fourteen'' (14 Lieder aus des Knaben Wunderhorn)  */
+
+  do
+    {
+      found_t = t.find("14");
+      if (found_t != string::npos)
+	{
+	  found_flag = true;
+	  t.replace(found_t, 4, "fourteen");
+
+	}
+
+      found_s = s.find("14");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.replace(found_s, 4, "fourteen");
+	}
+    }  
+    while (found_t != string::npos || found_s != string::npos);
 
   /* Delete ``\\vbox{''  */
 

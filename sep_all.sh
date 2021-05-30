@@ -58,13 +58,15 @@ all_sep-25.pdf \
 all_sep-26.pdf \
 all_sep-27.pdf lyricists.pdf
 
-echo "Renaming all_sep-28.pdf to scanned.pdf"
+echo "Creating scanned.pdf with pdfunite"
 
-mv all_sep-28.pdf scanned.pdf
+pdfunite \
+all_sep-28.pdf \
+all_sep-29.pdf scanned.pdf
 
-echo "Renaming all_sep-29.pdf to pblcdomn.pdf"
+echo "Renaming all_sep-30.pdf to pblcdomn.pdf"
 
-mv all_sep-29.pdf pblcdomn.pdf
+mv all_sep-30.pdf pblcdomn.pdf
 
 rm -v -f `find . -regex "./all_sep-[0-9]+.*.pdf"`
 

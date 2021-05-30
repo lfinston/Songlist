@@ -119,16 +119,17 @@ process_tocs_and_npt(void)
              <<        "recordings, "                       // 13
              <<        "opera, "                            // 14
              <<        "operetta, "                         // 15
-             <<        "musical, "                          // 16
-             <<        "revue, "                            // 17
-	     <<        "film, "                             // 18
-             <<        "sort_by_production, "               // 19
-             <<        "year, "                             // 20
-             <<        "copyright, "                        // 21
-             <<        "notes, "                            // 22
-             <<        "scanned, "                          // 23
-             <<        "scanned_filename, "                 // 24
-             <<        "public_domain "                     // 25
+             <<        "song_cycle, "                       // 16
+             <<        "musical, "                          // 17
+             <<        "revue, "                            // 18
+	     <<        "film, "                             // 19
+             <<        "sort_by_production, "               // 20
+             <<        "year, "                             // 21
+             <<        "copyright, "                        // 22
+             <<        "notes, "                            // 23
+             <<        "scanned, "                          // 24
+             <<        "scanned_filename, "                 // 25
+             <<        "public_domain "                     // 26
              << "from Songs order by title asc;";
 
    if (DEBUG) 
@@ -333,19 +334,33 @@ process_tocs_and_npt(void)
        if (curr_row[16])
        {
          if (DEBUG)
-           cerr << "`musical'                          == " << curr_row[16] << endl;
-         curr_song.musical.assign(curr_row[16]);         
+           cerr << "`song_cycle'                          == " << curr_row[16] << endl;
+         curr_song.song_cycle.assign(curr_row[16]);         
+       }
+       else
+       {   if (DEBUG)
+           cerr << "`song_cycle'                          == NULL" << endl;
+       }  
+
+       if (curr_row[17])
+       {
+         if (DEBUG)
+           cerr << "`musical'                          == " << curr_row[17] << endl;
+         curr_song.musical.assign(curr_row[17]);         
        }
        else
        {   if (DEBUG)
            cerr << "`musical'                          == NULL" << endl;
        }  
 
-       if (curr_row[17])
+
+
+
+       if (curr_row[18])
        {
          if (DEBUG)
-           cerr << "`revue'                            == " << curr_row[17] << endl;
-         curr_song.revue.assign(curr_row[17]);
+           cerr << "`revue'                            == " << curr_row[18] << endl;
+         curr_song.revue.assign(curr_row[18]);
        }
        else
        {
@@ -353,11 +368,11 @@ process_tocs_and_npt(void)
            cerr << "`revue'                            == NULL" << endl;
        }
 
-       if (curr_row[18])
+       if (curr_row[19])
        {
          if (DEBUG)
-           cerr << "`film'                             == " << curr_row[18] << endl;
-         curr_song.film.assign(curr_row[18]);    
+           cerr << "`film'                             == " << curr_row[19] << endl;
+         curr_song.film.assign(curr_row[19]);    
        }
        else
        {
@@ -366,10 +381,10 @@ process_tocs_and_npt(void)
        }
 
        if (DEBUG)
-         cerr << "`sort_by_production'               == " << curr_row[19] << endl;
-       curr_song.sort_by_production = atoi(curr_row[19]);
+         cerr << "`sort_by_production'               == " << curr_row[20] << endl;
+       curr_song.sort_by_production = atoi(curr_row[20]);
 
-       status = atoi(curr_row[19]);
+       status = atoi(curr_row[20]);
 
        if (status > 0)
        {
@@ -377,11 +392,11 @@ process_tocs_and_npt(void)
            cerr << "curr_song.sort_by_production = " << curr_song.sort_by_production << endl;
        }
 
-       if (curr_row[20])
+       if (curr_row[21])
        {
          if (DEBUG)
-           cerr << "`year'                             == " << curr_row[20] << endl;
-         curr_song.year = atoi(curr_row[20]);
+           cerr << "`year'                             == " << curr_row[21] << endl;
+         curr_song.year = atoi(curr_row[21]);
        }
        else
        {
@@ -391,42 +406,42 @@ process_tocs_and_npt(void)
        }
 
 
-       if (curr_row[21])
+       if (curr_row[22])
        {
          if (DEBUG)
-           cerr << "`copyright'                        == " << curr_row[21] << endl;
-         curr_song.copyright.assign(curr_row[21]);
+           cerr << "`copyright'                        == " << curr_row[22] << endl;
+         curr_song.copyright.assign(curr_row[22]);
        }
        else
        {
          if (DEBUG)
            cerr << "`copyright'                        == NULL" << endl;
        }
-       if (curr_row[22])
-       {
-         if (DEBUG)
-           cerr << "`notes'                            == " << curr_row[22] << endl;
-         curr_song.notes.assign(curr_row[22]);
-       }
        if (curr_row[23])
        {
          if (DEBUG)
-           cerr << "`scanned'                            == " << curr_row[23] << endl;
-         curr_song.scanned = atoi(curr_row[23]);
+           cerr << "`notes'                            == " << curr_row[23] << endl;
+         curr_song.notes.assign(curr_row[23]);
        }
        if (curr_row[24])
        {
          if (DEBUG)
-           cerr << "`scanned_filename'                   == " 
-                << ((curr_row[24] != 0) ? curr_row[24] : "NULL") << endl;
-         if (curr_row[24] != 0)
-            curr_song.scanned_filename = curr_row[24];
+           cerr << "`scanned'                            == " << curr_row[24] << endl;
+         curr_song.scanned = atoi(curr_row[24]);
        }
        if (curr_row[25])
        {
          if (DEBUG)
-           cerr << "`public_domain'                      == " << curr_row[25] << endl;
-         curr_song.public_domain = atoi(curr_row[25]);
+           cerr << "`scanned_filename'                   == " 
+                << ((curr_row[25] != 0) ? curr_row[25] : "NULL") << endl;
+         if (curr_row[25] != 0)
+            curr_song.scanned_filename = curr_row[25];
+       }
+       if (curr_row[26])
+       {
+         if (DEBUG)
+           cerr << "`public_domain'                      == " << curr_row[26] << endl;
+         curr_song.public_domain = atoi(curr_row[26]);
        }
        else
        {
@@ -779,6 +794,108 @@ process_tocs_and_npt(void)
        result = 0;
      }
 
+   /* Song cycles  */
+   
+   temp_strm.str("");
+   
+   temp_strm << "select distinct song_cycle from Songs where song_cycle is not null "
+             << "and sort_by_production is true and lead_sheet is true order by song_cycle;";
+
+   if (DEBUG) 
+     cerr << "temp_strm.str() == " << temp_strm.str() << endl;
+   
+   status = submit_mysql_query(temp_strm.str());
+
+   if (status != 0)
+     {
+       cerr  << "ERROR!"
+             << endl 
+             << "`submit_mysql_query' failed, returning " << status << ":"
+             << endl 
+             << "MySQL error:  " << mysql_error(mysql)
+             << endl 
+             << "MySQL error number:  " << mysql_errno(mysql)
+             << endl 
+             << "Exiting `songlist' unsuccessfully with exit status 1." 
+             << endl;
+          
+       exit(1);
+     }
+   else if (DEBUG)
+     {
+       cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+            << "`row_ctr'   == " << row_ctr << endl
+            << "`field_ctr' == " << field_ctr << endl;
+     }
+   
+   /*  Process the contents of |result|  */
+
+   curr_row = 0;
+
+   if (row_ctr > 0)
+     {
+       do
+         {
+           curr_production.clear();
+
+           curr_row = mysql_fetch_row(result);
+
+           if (curr_row == 0)
+             {
+               if (DEBUG) 
+                 cerr << "`mysql_fetch_row' returned NULL:" 
+                      << endl;
+
+               if (*mysql_error(mysql))
+                 {
+                   cerr << "ERROR!  In `process_tocs_and_npt':  `mysql_fetch_row' failed "
+                        << "returning NULL." << endl
+                        << "Error:  " << mysql_error(mysql) << endl
+                        << "Exiting `songlist' unsuccessfully with exit status 1."
+                        << endl;
+
+                   /* Close connection to database.  */
+
+                   mysql_library_end();
+   
+                   exit(1);
+
+                 }
+               else if (DEBUG)
+                 {
+                   cerr << "No more rows." << endl;
+                 }
+
+               break;
+
+             }  /* |if (curr_row == 0)|  */
+
+           if (DEBUG)
+             cerr << "`song_cycle' == " << curr_row[0] << endl;
+
+           curr_production.title.assign(curr_row[0]);
+           curr_production.song_cycle.assign(curr_row[0]);
+           curr_production.is_production = true;
+
+           production_vector.push_back(curr_production);
+
+         } while (curr_row != 0);
+
+     }  /* |if (row_ctr > 0)|  */
+
+   /* Free |result|  */
+     
+   if (result)
+     {
+       mysql_free_result(result);
+       result = 0;
+     }
+
+
+
+
+
+
    /* Revues  */
    
    temp_strm.str("");
@@ -1013,6 +1130,8 @@ process_tocs_and_npt(void)
          temp_strm << "opera = \"" << iter->opera << "\" ";
        else if (iter->operetta.length() > 0)
          temp_strm << "operetta = \"" << iter->operetta << "\" ";
+       else if (iter->song_cycle.length() > 0)
+         temp_strm << "song_cycle = \"" << iter->song_cycle << "\" ";
        else if (iter->revue .length() > 0)
          temp_strm << "revue = \"" << iter->revue << "\" ";
        else if (iter->film .length() > 0)
@@ -1271,7 +1390,8 @@ getchar();
        {
          toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-         if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+         if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                                                 || temp_char <= 'h')
            toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title << endl;
          else if (temp_char <= 'o')
            toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
@@ -1285,7 +1405,8 @@ getchar();
 
              toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
 
-             if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+             if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                                                     || temp_char <= 'h')
                toc_ls_a_h_file << "\\R\\R {" << *t_iter << "}" << endl;
              else if (temp_char <= 'o')
                toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
@@ -1297,7 +1418,8 @@ getchar();
 
          toc_ls_file << "}" << endl;
 
-         if (iter->title == "42nd Street (Film)" || temp_char <= 'h')
+         if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                                                 || temp_char <= 'h')
            toc_ls_a_h_file << "}" << endl;
          else if (temp_char <= 'o')
            toc_ls_i_o_file << "}" << endl;
@@ -1320,6 +1442,9 @@ getchar();
            else if (iter->operetta.length() > 0 && iter->sort_by_production)
              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                          << endl;
+           else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                         << endl;
            else if (iter->revue.length() > 0 && iter->sort_by_production)
              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                          << endl;
@@ -1329,7 +1454,8 @@ getchar();
            
            toc_ls_file << endl;
 
-           if (iter->title == "42nd Street" || temp_char <= 'h')
+           if (iter->title == "42nd Street" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                                            || temp_char <= 'h')
            {
               toc_ls_a_h_file << "\\M " << iter->title << endl;
 
@@ -1341,6 +1467,9 @@ getchar();
                                 << endl;
               else if (iter->operetta.length() > 0 && iter->sort_by_production)
                 toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->operetta << "'')"
+                                << endl;
+              else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->song_cycle << "'')"
                                 << endl;
               else if (iter->revue.length() > 0 && iter->sort_by_production)
                 toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->revue << "'')"
@@ -1364,6 +1493,9 @@ getchar();
               else if (iter->operetta.length() > 0 && iter->sort_by_production)
                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                                 << endl;
+              else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                                << endl;
               else if (iter->revue.length() > 0 && iter->sort_by_production)
                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                                 << endl;
@@ -1386,6 +1518,9 @@ getchar();
                                  << endl;
                else if (iter->operetta.length() > 0 && iter->sort_by_production)
                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                                 << endl;
+               else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
                                  << endl;
                else if (iter->revue.length() > 0 && iter->sort_by_production)
                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"

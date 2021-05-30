@@ -67,6 +67,7 @@ class Song
     unsigned short recordings;
     string opera;
     string operetta;
+    string song_cycle;
     string musical;
     string revue;
     string film;
@@ -101,6 +102,7 @@ class Song
 	 no_page_turns_with_two_songbooks = false;
 	 opera = "";
 	 operetta = "";
+	 song_cycle = "";
 	 musical = "";
 	 revue = "";
 	 film = "";
@@ -136,6 +138,7 @@ class Song
       no_page_turns_with_two_songbooks = s.no_page_turns_with_two_songbooks;
       opera = s.opera;
       operetta = s.operetta;
+      song_cycle = s.song_cycle;
       musical = s.musical;
       revue = s.revue;
       film = s.film;
