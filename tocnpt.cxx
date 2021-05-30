@@ -1443,8 +1443,19 @@ getchar();
              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                          << endl;
            else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
-             toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                         << endl;
+           {
+             if (iter->song_cycle.length() > 20)
+             {
+                toc_ls_file << "\\nobreak" << endl << "\\S (see under" << endl 
+                            << "\\S ``" << iter->song_cycle << "'')" << endl;
+             }
+             else
+             {
+                toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                            << endl;
+             }
+
+           }
            else if (iter->revue.length() > 0 && iter->sort_by_production)
              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                          << endl;
@@ -1469,8 +1480,19 @@ getchar();
                 toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->operetta << "'')"
                                 << endl;
               else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
-                toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->song_cycle << "'')"
-                                << endl;
+              {
+                if (iter->song_cycle.length() > 20)
+                {
+                   toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under" << endl 
+                               << "\\S ``" << iter->song_cycle << "'')" << endl;
+                }
+                else
+                {
+                   toc_ls_a_h_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                               << endl;
+                }
+
+              }  
               else if (iter->revue.length() > 0 && iter->sort_by_production)
                 toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->revue << "'')"
                                 << endl;
@@ -1494,8 +1516,19 @@ getchar();
                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                                 << endl;
               else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
-                toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                                << endl;
+              {
+                if (iter->song_cycle.length() > 20)
+                {
+                   toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under" << endl 
+                               << "\\S ``" << iter->song_cycle << "'')" << endl;
+                }
+                else
+                {
+                   toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                               << endl;
+                }
+
+              }  
               else if (iter->revue.length() > 0 && iter->sort_by_production)
                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                                 << endl;
@@ -1520,8 +1553,19 @@ getchar();
                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                                  << endl;
                else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
-                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                                 << endl;
+               {
+                 if (iter->song_cycle.length() > 20)
+                 {
+                    toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under" << endl 
+                                << "\\S ``" << iter->song_cycle << "'')" << endl;
+                 }
+                 else
+                 {
+                    toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                                << endl;
+                 }
+
+               }  
                else if (iter->revue.length() > 0 && iter->sort_by_production)
                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                                  << endl;
