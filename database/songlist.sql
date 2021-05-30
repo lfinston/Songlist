@@ -280,13 +280,14 @@ values
 -- select "{\\\^o}";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source)
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Barcarole (Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
-"Les contes d'Hoffmann", 1881, true, "barkrole.pdf", true, 
+"Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
 "\\vbox{\\hbox{Einzelausgabe}"
-"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}");
+"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}", 
+true);
 
 /* ** *************************************************** */
 
@@ -1584,11 +1585,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source)
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
-"Les contes d'Hoffmann", 1881, true, "oiseaux.pdf", true,
-"{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.");
+"Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
+"{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
+true);
 
 /* ** *************************************************** */
 

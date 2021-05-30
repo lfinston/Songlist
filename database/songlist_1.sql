@@ -2099,6 +2099,10 @@ insert ignore into Songs (title, source) values
 
 update Songs set source = "{\\bf 100 Years of Popular Music, 1940s, Volume 1}" where title = "Near You";
 
+select title from Songs where title like("Nearness%");
+
+select title from Songs where title = "Nearness Of You, The";
+
 insert ignore into Songs (title, source) values
 ("Nearness Of You, The", "{\\bf 100 Years of Popular Music, 1940s, Volume 1}");
 
