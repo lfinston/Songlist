@@ -271,11 +271,22 @@ values
 
 /* ** *************************************************** */
 
+-- delete from Songs where title = "Barcarole";
+
+-- select title from Songs where title like("Barcarole%");
+
+-- delete from Songs where title like("Barcarole%");
+
+-- select "{\\\^o}";
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename)
+opera, year, scanned, scanned_filename, public_domain, source)
 values
-("Barcarole", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
-"Les contes d'Hoffmann", 1881, true, "barkrole.pdf");
+("Barcarole (Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
+"Jacques Offenbach", "Offenbach, Jacques", true,
+"Les contes d'Hoffmann", 1881, true, "barkrole.pdf", true, 
+"\\vbox{\\hbox{Einzelausgabe}"
+"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}");
 
 /* ** *************************************************** */
 
@@ -1572,6 +1583,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+opera, year, scanned, scanned_filename, public_domain, source)
+values
+("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
+"Les contes d'Hoffmann", 1881, true, "oiseaux.pdf", true,
+"{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("On a Clear Day", "Alan Jay Lerner", "Lerner, Alan Jay", "Burton Lane", "Lane, Burton", true);
@@ -2698,6 +2718,14 @@ replace into Composers_Songs (composer, title) values ("Nichols, Roger", "We've 
 
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole");
 
+-- select * from Composers_Songs where composer = "Offenbach, Jacques";
+
+-- delete from Composers_Songs where composer = "Offenbach, Jacques";
+
+replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole (Belle nuit, {\\^o} nuit d'amour)");
+
+replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Oiseaux dans les charmille, Les");
+
 replace into Composers_Songs (composer, title) values ("Orlob, Harold", "I Wonder Who's Kissing Her Now");
 
 replace into Composers_Songs (composer, title) values ("Paul, Gene de", "I'll Remember April");
@@ -2845,7 +2873,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Anderson, Maxwell", "Sep
 
 replace into Lyricists_Songs (lyricist, title) values ("Balz, Bruno", "Es leuchten die Sterne");
 
-replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Barcarole");
+-- select * from Lyricists_Songs where lyricist = "Barbier, Jules";
+
+-- delete from Lyricists_Songs where lyricist = "Barbier, Jules";
+
+replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Barcarole (Belle nuit, {\\^o} nuit d'amour)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Oiseaux dans les charmille, Les");
 
 replace into Lyricists_Songs (lyricist, title) values ("Barouh, Pierre", "Homme et une femme, Un");
 
