@@ -76,6 +76,7 @@ create table Songs
     recordings tinyint not null default 0,
     opera varchar(64) default null,
     operetta varchar(64) default null,
+    song_cycle  varchar(64) default null,
     musical varchar(64) default null,
     revue varchar(64) default null,
     film  varchar(64) default null,
@@ -96,6 +97,7 @@ alter table Songs add column words_and_music_reverse varchar(128) default null a
 alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
 alter table Songs add column scanned_filename varchar(12) default null after scanned;
 alter table Songs add column public_domain boolean not null default false after notes;
+alter table Songs add column song_cycle varchar(64) default null after operetta;
 
 alter table Songs modify column copyright varchar(256) default null;
 alter table Songs modify column source varchar(356) default null after notes;
@@ -1185,6 +1187,71 @@ values
 /* ** *************************************************** */
 
 /* K   */
+
+/* ** (2) *************************************************** */
+
+/* Knaben Wunderhorn, Des.  Gustav Mahler.
+
+select * from Songs where music = "Gustav Mahler"\G
+
+/* *** (3) *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
+"Gustav Mahler", "Mahler Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "antnpdua.pdf", true, 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~32.}", 
+true);
+
+/* *** (3)*************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
+"Gustav Mahler", "Mahler Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "irdleben.pdf", true, 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~25.}", 
+true);
+
+/* *** (3) *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
+"Gustav Mahler", "Mahler Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
+true);
+
+/* *** (3) *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
+"Gustav Mahler", "Mahler Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgnde.pdf", true, 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
+true);
+
+/* *** (3) *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
+"Gustav Mahler", "Mahler Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
+true);
+
+/* *** (3) *************************************************** */
+
+/* ** (2) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
