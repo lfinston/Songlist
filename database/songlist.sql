@@ -1199,8 +1199,8 @@ select * from Songs where music = "Gustav Mahler"\G
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
-("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
-"Gustav Mahler", "Mahler Gustav", true,
+("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "antnpdua.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~32.}", 
 true);
@@ -1210,8 +1210,8 @@ true);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
-("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
-"Gustav Mahler", "Mahler Gustav", true,
+("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "irdleben.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~25.}", 
 true);
@@ -1221,8 +1221,8 @@ true);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
-("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
-"Gustav Mahler", "Mahler Gustav", true,
+("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
 true);
@@ -1232,8 +1232,8 @@ true);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
-("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
-"Gustav Mahler", "Mahler Gustav", true,
+("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgnde.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
 true);
@@ -1243,8 +1243,8 @@ true);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
-("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler Gustav", 
-"Gustav Mahler", "Mahler Gustav", true,
+("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
 true);
@@ -3574,6 +3574,18 @@ replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standi
 
 replace into Composers_Songs (composer, title) values ("Loesser, Frank", "On a Slow Boat to China");
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "On a Slow Boat to China");
+
+replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Antonius von Padua Fischpredigt, Des");
+replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Irdische Leben, Das");
+replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Lob des hohen Verstandes");
+replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Rheinlegendchen");
+replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Wer hat das Liedlein erdacht?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Antonius von Padua Fischpredigt, Des");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Irdische Leben, Das");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Lob des hohen Verstandes");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Rheinlegendchen");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Wer hat das Liedlein erdacht?");
 
 -- delete from Composers_Songs where composer = "O'Sullivan, Gilbert";
 -- delete from Lyricists_Songs where lyricist = "O'Sullivan, Gilbert";
