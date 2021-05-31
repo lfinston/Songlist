@@ -740,11 +740,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, scanned, scanned_filename, source, sort_by_production)
+opera, scanned, scanned_filename, source, sort_by_production, public_domain, year)
 values
 ("Furtiva lagrima, Una", "Felice Romani", "Romani, Felice",
 "Gaetano Donizetti", "Donizetti, Gaetano", false, "L’elisir d’amore", false, "",
-"{\\bf Opern-Arien, Tenor}, p.~72.", true);
+"{\\bf Opern-Arien, Tenor}, p.~72.", true, true, 1832);
 
 /* ** *************************************************** */
 
