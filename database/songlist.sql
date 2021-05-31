@@ -971,6 +971,17 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+values
+("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
+"Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
+"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182}"
+"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
+true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, copyright)
 values
 ("I'll Be Seeing You", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true,
@@ -1200,8 +1211,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "antnpdua.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", false,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "antnpdua.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~32.}", 
 true);
 
@@ -1211,8 +1222,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "irdleben.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", false,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~25.}", 
 true);
 
@@ -1222,8 +1233,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", false,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "lbvrstnd.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
 true);
 
@@ -1233,8 +1244,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgnde.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", false,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "rhnlgnde.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
 true);
 
@@ -1244,8 +1255,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", false,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "liedlein.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
 true);
 
@@ -2793,6 +2804,8 @@ replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Ba
 
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole (Belle nuit, {\\^o} nuit d'amour)");
 
+replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Il {\\'e}tait une fois");
+
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Oiseaux dans les charmille, Les");
 
 replace into Composers_Songs (composer, title) values ("Orlob, Harold", "I Wonder Who's Kissing Her Now");
@@ -2947,6 +2960,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Balz, Bruno", "Es leucht
 -- delete from Lyricists_Songs where lyricist = "Barbier, Jules";
 
 replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Barcarole (Belle nuit, {\\^o} nuit d'amour)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Il {\\'e}tait une fois");
 
 replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Oiseaux dans les charmille, Les");
 
