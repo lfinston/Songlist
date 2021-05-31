@@ -737,6 +737,17 @@ replace into Songs (title, words_and_music, words_and_music_reverse)
 values
 ("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto");
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+opera, scanned, scanned_filename, source, sort_by_production)
+values
+("Furtiva lagrima, Una", "Felice Romani", "Romani, Felice",
+"Gaetano Donizetti", "Donizetti, Gaetano", false, "L’elisir d’amore", false, "",
+"{\\bf Opern-Arien, Tenor}, p.~72.", true);
+
+/* ** *************************************************** */
+
 /* G   */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
@@ -976,7 +987,7 @@ opera, year, scanned, scanned_filename, public_domain, source, sort_by_productio
 values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
 "Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
-"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182}"
+"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
 "\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
 true);
 
@@ -2586,6 +2597,8 @@ replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My 
 
 -- select * from Composers_Songs where composer = "Donaldson, Walter";
 
+replace into Composers_Songs (composer, title) values ("Donizetti, Gaetano", "Furtiva lagrima, Una");
+
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't Get Started");
@@ -3384,6 +3397,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Thanks for
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Rainy Night in Rio, A");
 
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner of Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Romani, Felice", "Furtiva lagrima, Una");
 
 replace into Lyricists_Songs (lyricist, title) values ("Schiffer, Marcellus", "Heute Nacht oder nie");
 
