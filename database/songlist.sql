@@ -933,6 +933,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+opera, sort_by_production,source)
+values
+("I Got Plenty o' Nuttin'", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
+"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~17.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
 values
 ("I Married an Angel", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
@@ -2627,7 +2636,9 @@ replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie 
 
 replace into Composers_Songs (composer, title) values ("Garner, Errol", "Misty");
 
-replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Embraceable You");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "I Got Plenty o' Nuttin'");
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Let's Call the Whole Thing Off");
 
@@ -2635,7 +2646,7 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "Liza
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Somebody Loves Me");
 
-replace into Composers_Songs (composer, title) values ("Gershwin, George", "Embraceable You");
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
 
 replace into Composers_Songs (composer, title) values ("Gifford, H.~Eugene", "Smoke Rings");
 
@@ -3090,6 +3101,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Freed, Ralph", "How Abou
 
 replace into Lyricists_Songs (lyricist, title) values ("Galhardo, Jos{\\'e}", "Lisboa Antiga");
 
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Got Plenty o' Nuttin'"); 
+
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Let's Call the Whole Thing Off");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Thing");
@@ -3165,6 +3178,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
 
 -- delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
+
+replace into Lyricists_Songs (lyricist, title) values ("Heyward, DuBose", "I Got Plenty o' Nuttin'"); 
+
+-- select * from Lyricists_Songs where lyricist = "Heyward, DuBose";
+
+-- select * from Lyricists_Songs where lyricist = "Gershwin, Ira" order by title;
 
 replace into Lyricists_Songs (lyricist, title) values 
 ("Hough, Will M.", "I Wonder Who's Kissing Her Now");
