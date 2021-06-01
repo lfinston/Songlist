@@ -2218,6 +2218,16 @@ values
 ("They Call the Wind Maria", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Paint Your Wagon",
 true);
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+film, sort_by_production, source)
+values
+("They Can't Take That Away From Me", "Ira Gershwin", "Gershwin, Ira",
+"George Gershwin", "Gershwin, George", true, 1937, "Shall We Dance", false,
+"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~127.");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production)
@@ -2647,6 +2657,8 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "Liza
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Somebody Loves Me");
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "They Can't Take That Away From Me");
 
 replace into Composers_Songs (composer, title) values ("Gifford, H.~Eugene", "Smoke Rings");
 
@@ -3101,21 +3113,23 @@ replace into Lyricists_Songs (lyricist, title) values ("Freed, Ralph", "How Abou
 
 replace into Lyricists_Songs (lyricist, title) values ("Galhardo, Jos{\\'e}", "Lisboa Antiga");
 
-replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Got Plenty o' Nuttin'"); 
-
-replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Let's Call the Whole Thing Off");
-
-replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Thing");
-
-replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Someone to Watch Over Me");
-
-replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Long Ago (and Far Away)");
-
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Embraceable You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Can't Get Started");
 
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Got Plenty o' Nuttin'"); 
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Let's Call the Whole Thing Off");
+
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Liza (All the Clouds'll Roll Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Long Ago (and Far Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Someone to Watch Over Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Thing");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Can't Take That Away From Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
 
