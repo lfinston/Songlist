@@ -879,12 +879,12 @@ values
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, notes, public_domain)
+year, source, notes, public_domain, scanned, scanned_filename)
 values
 ("How 'Ya Gonna Keep 'Em Down on the Farm?",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
-"Subtitle:  After They've Seen Paree", true); 
+"Subtitle:  After They've Seen Paree", true, true, "howkeepm.pdf"); 
 
 /* I   */
 
