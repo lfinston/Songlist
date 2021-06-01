@@ -2222,11 +2222,11 @@ true);
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-film, sort_by_production, source)
+film, sort_by_production, source, scanned, scanned_filename)
 values
 ("They Can't Take That Away From Me", "Ira Gershwin", "Gershwin, Ira",
 "George Gershwin", "Gershwin, George", true, 1937, "Shall We Dance", false,
-"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~127.");
+"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~127.", true, "theycant.pdf");
 
 /* ** *************************************************** */
 
