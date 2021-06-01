@@ -44,29 +44,30 @@ all_sep-15.pdf \
 all_sep-16.pdf \
 all_sep-17.pdf \
 all_sep-18.pdf \
-all_sep-19.pdf composers.pdf
+all_sep-19.pdf \
+all_sep-20.pdf composers.pdf
 
 echo "Creating lyricists.pdf with pdfunite"
 
 pdfunite \
-all_sep-20.pdf \
 all_sep-21.pdf \
 all_sep-22.pdf \
 all_sep-23.pdf \
 all_sep-24.pdf \
 all_sep-25.pdf \
 all_sep-26.pdf \
-all_sep-27.pdf lyricists.pdf
+all_sep-27.pdf \
+all_sep-28.pdf lyricists.pdf
 
 echo "Creating scanned.pdf with pdfunite"
 
 pdfunite \
-all_sep-28.pdf \
-all_sep-29.pdf scanned.pdf
+all_sep-29.pdf \
+all_sep-30.pdf scanned.pdf
 
-echo "Renaming all_sep-30.pdf to pblcdomn.pdf"
+echo "Renaming all_sep-31.pdf to pblcdomn.pdf"
 
-mv all_sep-30.pdf pblcdomn.pdf
+mv all_sep-31.pdf pblcdomn.pdf
 
 rm -v -f `find . -regex "./all_sep-[0-9]+.*.pdf"`
 
