@@ -2309,6 +2309,14 @@ select "!!! End U";
 
 select "!!! V";
 
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Very Thought of You, The", "Ray Noble", "Noble, Ray", true, 1934,
+"{\\bf 100 Years of Popular Music, 1930s, Part Two}, p.~327.", true, "vrythght.pdf");
+
 select "!!! End V";
 
 /*  W  */
@@ -3644,11 +3652,15 @@ replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Lob de
 replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Rheinlegendchen");
 replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Wer hat das Liedlein erdacht?");
 
-replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Antonius von Padua Fischpredigt, Des");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav",
+"Antonius von Padua Fischpredigt, Des");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Irdische Leben, Das");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Lob des hohen Verstandes");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Rheinlegendchen");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Wer hat das Liedlein erdacht?");
+
+replace into Composers_Songs (composer, title) values ("Noble, Ray", "Very Thought of You, The");
+replace into Lyricists_Songs (lyricist, title) values ("Noble, Ray", "Very Thought of You, The");
 
 -- delete from Composers_Songs where composer = "O'Sullivan, Gilbert";
 -- delete from Lyricists_Songs where lyricist = "O'Sullivan, Gilbert";
