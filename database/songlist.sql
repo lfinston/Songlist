@@ -527,6 +527,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename)
+values
+("Desafinado", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
+"Copyright {\\copyright} 1959, 1967 (Renewed)",
+"{\\bf The Music of Antonio Carlos Jobim}, p.~3.", true, "desafndo.pdf");
+
+/* ** *************************************************** */
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, musical, scanned, scanned_filename)
 values
@@ -2328,7 +2336,7 @@ select "!!! W";
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
 source, scanned, scanned_filename)
 values
-("Wave", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
+("Wave", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1967,
 "Copyright {\\copyright} 1967, 1968 (Renewed)",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~206.", true, "wave.pdf");
 
@@ -2473,7 +2481,7 @@ values
 
 select "!!! End Z";
 
-/* * *************************************************** */
+/* * (1) *************************************************** */
 
 /* Select  */
 
@@ -3627,6 +3635,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me t
 
 replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
 replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Desafinado");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Desafinado");
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
