@@ -267,6 +267,16 @@ values
 
 /* B  */
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Baby Face", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", 
+true, 1, true, 1939);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, recordings)
 values
 ("Baby, It's Cold Outside", "Frank Loesser", "Frank, Loesser", true, 1 /* '  */); 
