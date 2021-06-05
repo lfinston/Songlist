@@ -1,6 +1,35 @@
 %% /home/laurence/Songlist/all.tex
 %% Created by Laurence D. Finston (LDF) Tue 25 May 2021 05:48:34 PM CEST
 
+%% * (1) Copyright and License.
+
+%%%% This file is part of Songlist, a package for keeping track of songs.
+%%%% Copyright (C) 2021 Laurence D. Finston
+
+%%%% Songlist is free software; you can redistribute it and/or modify 
+%%%% it under the terms of the GNU General Public License as published by 
+%%%% the Free Software Foundation; either version 3 of the License, or 
+%%%% (at your option) any later version.  
+
+%%%% Songlist is distributed in the hope that it will be useful, 
+%%%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%%%% GNU General Public License for more details.  
+
+%%%% You should have received a copy of the GNU General Public License 
+%%%% along with Songlist; if not, write to the Free Software 
+%%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%%%% Songlist is available for downloading from 
+%%%% https://github.com/lfinston/Songlist
+
+%%%% Please send bug reports to Laurence.Finston@gmx.de
+
+%%%% The author can be contacted at: 
+
+%%%% Laurence.Finston@gmx.de
+
+
 \input colordvi
 
 \hlopts{bwidth=0}
@@ -159,6 +188,17 @@ to #1"^^J}
 \fi
 
 \catcode`\_=8 %% Change catcode back to original value.
+
+\headline={}
+\Chapter{copying}{Copying}
+
+\hldest{xyz}{}{copying}
+\begingroup
+\advance\baselineskip by -6pt
+\listing{gpl-3.0.txt}
+\endgroup
+
+\SEP{gpl-3.0.txt}
 
 \endinput
 
