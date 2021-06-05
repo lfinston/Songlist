@@ -1,4 +1,4 @@
- * /home/laurence/songlist/database/songlist.sql  */
+/* /home/laurence/songlist/database/songlist.sql  */
 
 /* Created by Laurence D. Finston Wed 10 Mar 2021 01:28:59 AM CET  */
 
@@ -272,8 +272,10 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
-("Baby Face", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", 
-true, 1, true, 1939);
+("Baby Face", "Benny Davis", "Davis, Benny", "Harry Akst", "Akst, Harry", 
+true, 1926, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~24.", true, "babyface.pdf");
+
+-- select * from Songs where title = "Baby Face"\G
 
 /* ** *************************************************** */
 
@@ -2552,6 +2554,8 @@ replace	into Composers_Songs (composer, title) values ("Ager, Milton", "Ain't Sh
 
 replace into Composers_Songs (composer, title) values ("Ahlert, Fred E.", "I Don't Know Why (I Just Do)");
 
+replace into Composers_Songs (composer, title) values ("Akst, Harry", "Baby Face");
+
 replace into Composers_Songs (composer, title) values ("Allen, Robert", "It's Not For Me to Say");
 
 replace into Composers_Songs (composer, title) values ("Allen, Robert", "Chances Are");
@@ -3082,6 +3086,8 @@ replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "I'll Never
 replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "Do You Know the Way to San Jose?");
 
 replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "I Say a Little Prayer");
+
+replace into Lyricists_Songs (lyricist, title) values ("Davis, Benny", "Baby Face");
 
 replace into Lyricists_Songs (lyricist, title) values ("De Sylva, Buddy G.", "April Showers");
 
