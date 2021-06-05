@@ -190,7 +190,7 @@ source, scanned, scanned_filename)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "Copyright {\\copyright} 1927 (Renewed) WB Music Corp.~and Edwin H. Morris \& Co.",
-"{\\bf The Looney Tunes Songbook}, p.~57", false, "aintsswt.pdf");
+"{\\bf The Looney Tunes Songbook}, p.~57", true, "aintsswt.pdf");
 
 /* ** *************************************************** */
 
@@ -2372,7 +2372,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename)
 values
 ("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
-1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", false, "weveonly.pdf");
+1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", true, "weveonly.pdf");
 
 /* ** *************************************************** */
 
