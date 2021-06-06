@@ -2238,7 +2238,6 @@ values
 ("They Call the Wind Maria", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Paint Your Wagon",
 true);
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -2269,6 +2268,16 @@ values
 ("Thou Swell", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1927,
 "Connecticut Yankee, A", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~82",
 true, "thouswll.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, film, source, scanned, scanned_filename)
+values
+("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
+"Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", false, 1962, 
+"Mondo Cane", "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~136.", 
+false, "tgrdnlcr.pdf");
 
 /* ** *************************************************** */
 
@@ -2874,7 +2883,11 @@ replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Il
 
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Oiseaux dans les charmille, Les");
 
+replace into Composers_Songs (composer, title) values ("Oliviero, Nino", "Ti Guarder{\\`e}ro Nel Cuore (More)");
+
 replace into Composers_Songs (composer, title) values ("Orlob, Harold", "I Wonder Who's Kissing Her Now");
+
+replace into Composers_Songs (composer, title) values ("Ortolani, Riz", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
 replace into Composers_Songs (composer, title) values ("Paul, Gene de", "I'll Remember April");
 
@@ -3068,6 +3081,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagina
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Swinging On A Star");
 
 replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty and Green, Adolf", "Party's Over, The");
 
