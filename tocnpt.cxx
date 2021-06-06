@@ -1121,7 +1121,7 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       temp_strm << "select title from Songs where sort_by_production is true "
+       temp_strm << "select title from Songs where sort_by_production is true and lead_sheet is true "
                  << "and ";
 
        if (iter->musical.length() > 0)
