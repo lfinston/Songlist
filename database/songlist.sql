@@ -1295,8 +1295,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
 values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", false,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "liedlein.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
 true);
 
