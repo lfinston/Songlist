@@ -2479,9 +2479,12 @@ true, true, "youmadem.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, arrangement_solo_guitar)
+replace into Songs (title, words, words_reverse, music, music_reverse,
+lead_sheet, arrangement_solo_guitar, year, musical, source, scanned, scanned_filename)
 values
-("You Took Advantage of Me", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, true);
+("You Took Advantage of Me", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard",
+true, true, 1928, "Present Arms", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~248.",
+true, "ytkadvnt.pdf");
 
 /* ** *************************************************** */
 
