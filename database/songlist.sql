@@ -1990,11 +1990,20 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+scanned, scanned_filename)
+values
+("She's Funny That Way", "Richard A.~Whiting", "Whiting, Richard A.", "Neil Moret", "Moret, Neil", 
+true, 1928, "{\\bf 100 Years of Popular Music, 20s -- Volume 1}, p.~222.", true, "shfnttwy.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
 sort_by_production, source)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
+
 
 /* ** *************************************************** */
 
@@ -2865,6 +2874,8 @@ replace into Composers_Songs (composer, title) values ("Monaco, James", "You Mad
 
 replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've Got a Pocketful of Dreams");
 
+replace into Composers_Songs (composer, title) values ("Moret, Neil", "She's Funny That Way");
+
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
 
 replace into Composers_Songs (composer, title) values ("Nichols, Roger", "Rainy Days and Mondays");
@@ -3522,6 +3533,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Stell
 replace into Lyricists_Songs (lyricist, title) values ("Webster, Paul Francis", "Shadow of Your Smile, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Whiting, George A.", "My Blue Heaven");
+
+replace into Lyricists_Songs (lyricist, title) values ("Whiting, Richard A.", "She's Funny That Way");
 
 replace into Lyricists_Songs (lyricist, title) values ("Williams, Paul", "Rainy Days and Mondays");
 
