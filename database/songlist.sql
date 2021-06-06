@@ -2472,10 +2472,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-scanned, scanned_filename)
+scanned, scanned_filename, public_domain, source)
 values
 ("You Made Me Love You", "Joe McCarthy", "McCarthy, Joe", "James Monaco", "Monaco, James",
-true, true, "youmadem.pdf");
+true, true, "youmadem.pdf", true, "{\\bf 100 Years of Popular Music, 1900}, p.~405.");
 
 /* ** *************************************************** */
 
