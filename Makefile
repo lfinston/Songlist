@@ -57,25 +57,29 @@ all: all-sep all-no-sep
 
 .PHONY: all-sep
 
-all-sep: all_sep.pdf composers.pdf
+#### !! START HERE! \SEP in 'all.tex'  needs to be revised to account for adding a first page 
+#### with a copyright notice and a chapter with the license at the end.
+#### LDF 2021.06.06.
+
+all-sep: all_sep.pdf #composers.pdf
 
 #### all_sep.dvi, with separation (no table of contents)
 
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
 	tex all_sep.tex
 
-all_sep.pdf: all_sep.dvi sep_all.sh
+all_sep.pdf: all_sep.dvi #sep_all.sh
 	dvipdfmx $<
 
 all_sep.ps: all_sep.dvi 
 	dvips -q -o $@ $< 2>/dev/null
 
-sep_all.sh: all_sep.dvi XXX.sh
-	cat XXX.sh | tr "|" "\\" > sep_all.sh 2>/dev/null
+#sep_all.sh: all_sep.dvi XXX.sh
+#	cat XXX.sh | tr "|" "\\" > sep_all.sh 2>/dev/null
 
-composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
-   toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
-	./sep_all.sh
+# composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
+#    toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
+# 	./sep_all.sh
 
 .PHONY: all-no-sep
 
