@@ -34,7 +34,7 @@
 
 \hlopts{bwidth=0}
 
-\def\tocchapterentry#1#2#3{\line{#2. \medium #1 \dotfill\ #3}}
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. \medium #1 \dotfill\ #3}}
 \def\tocsectionentry#1#2#3{\line{\hskip3em {#2}. \medium #1 \dotfill\ #3}}
 
 \newcount\chapctr
@@ -47,6 +47,8 @@
 
 \newcount\totalpages
 \newcount\temppageno
+
+
 
 \ifseparate
 \def\Chapter#1#2{\relax}
@@ -207,6 +209,36 @@ end of this document for the license.
 \input pblcdomn.tex
 
 \SEP{pblcdomn.pdf}
+
+\Chapter{french}{Songs in French}
+
+\SEP{french.pdf}
+\input french.tex
+
+\Chapter{german}{Songs in German}
+
+\SEP{german.pdf}
+\input german.tex
+
+\Chapter{italian}{Songs in Italian}
+
+\SEP{italian.pdf}
+\input italian.tex
+
+\Chapter{portugese}{Songs in Portugese}
+
+\SEP{portugese.pdf}
+\input portugese.tex
+
+\Chapter{russian}{Songs in Russian}
+
+\SEP{russian.pdf}
+\input russian.tex
+
+\Chapter{spanish}{Songs in Spanish}
+
+\SEP{spanish.pdf}
+\input spanish.tex
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
 %% It also has the wrong headline, because the headline in `pblcdomn.tex' is

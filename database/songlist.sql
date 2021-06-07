@@ -1547,7 +1547,7 @@ year, source, scanned, scanned_filename, language)
 values
 ("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
 "{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.",
-true, "masquend.pdf", "spanish");
+true, "masquend.pdf", "portugese");
 
 /* ** *************************************************** */
 
