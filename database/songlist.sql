@@ -1239,6 +1239,13 @@ values
 
 /* K   */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+scanned, scanned_filename, film)
+values
+("Keep Young and Beautiful", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
+1933, "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~170.", true, "kpygbtfl.pdf",
+"Roman Scandals");
+
 /* ** (2) *************************************************** */
 
 /* Knaben Wunderhorn, Des.  Gustav Mahler.
@@ -2994,6 +3001,8 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "I'll St
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Jeepers Creepers");
 
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Keep Young and Beautiful");
+
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lullaby of Broadway");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
@@ -3131,6 +3140,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Gold Digger
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I'll String Along With You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "I Only Have Eyes for You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Keep Young and Beautiful");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lullaby of Broadway");
 
