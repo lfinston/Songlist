@@ -80,6 +80,7 @@ class Song
     bool scanned;
     string scanned_filename;
     bool public_domain;
+    string language;
 
     vector<string> title_vector;
     
@@ -117,6 +118,7 @@ class Song
          scanned = false;
          scanned_filename = "";
          public_domain = false;
+         language = "english";
 
          return;
     }
@@ -154,7 +156,7 @@ class Song
       scanned = s.scanned;
       scanned_filename = s.scanned_filename;
       public_domain = s.public_domain;
-
+      language = s.language;
       return;
     }
 
