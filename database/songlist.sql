@@ -83,8 +83,9 @@ create table Songs
     sort_by_production boolean not null default false,
     year int default null,
     copyright varchar(256) default null,
-    notes varchar (512) default null,
-    public_domain boolean not null default false
+    notes varchar(512) default null,
+    public_domain boolean not null default false,
+    language varchar(32) not null default "english"
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -98,9 +99,12 @@ alter table Songs add column scanned boolean not null default false after no_pag
 alter table Songs add column scanned_filename varchar(12) default null after scanned;
 alter table Songs add column public_domain boolean not null default false after notes;
 alter table Songs add column song_cycle varchar(64) default null after operetta;
+alter table Songs add column language varchar(32) not null default "english" after public_domain;
 
 alter table Songs modify column copyright varchar(256) default null;
 alter table Songs modify column source varchar(356) default null after notes;
+
+
 
 show columns from Songs.Songs;
 
@@ -169,9 +173,12 @@ show columns from Lyricists_Songs;
 
 /* A  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, language)
 values
-("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940);
+("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940,
+"german");
+
+-- select * from Songs where title = "Abends in der Taverna"\G
 
 /* ** *************************************************** */
 
@@ -232,10 +239,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Amour est bleu, L'", "Pierre Cour", "Cour, Pierre", "Andr{\\'e} Popp", "Popp, Andr{\\'e}", 
-true, 1967);
+true, 1967, "french");
 
 replace into Songs (title, words_and_music, words_and_music_reverse, notes)
 values
@@ -294,14 +301,14 @@ values
 -- select "{\\\^o}";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Barcarole (Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
 "\\vbox{\\hbox{Einzelausgabe}"
 "\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}", 
-true);
+true, "french");
 
 /* ** *************************************************** */
 
@@ -313,10 +320,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-recordings, no_page_turns, year)
+recordings, no_page_turns, year, language)
 values
 ("Bel Ami", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", 
-true, 1, true, 1939);
+true, 1, true, 1939, "german");
 
 /* ** *************************************************** */
 
@@ -369,9 +376,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, lead_sheet)
+replace into Songs (title, lead_sheet, language)
 values
-("Buenos Noches Mon Amour", true);
+("Buenos Noches Mon Amour", true, "spanish");
 
 /* ** *************************************************** */
 
@@ -391,10 +398,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year, language)
 values
 ("Capri Fischer", "Ralph Maria Siegel", "Siegel, Ralph Maria", "Gerhard Winkler", "Winkler, Gerhard", 
-true, 1, 1943);
+true, 1, 1943, "german");
 
 /* ** *************************************************** */
 
@@ -437,10 +444,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language)
 values
 ("Chega de Saudade", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
-"Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true);
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese");
 
 /* ** *************************************************** */
 
@@ -467,12 +474,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, year, no_page_turns)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, year, no_page_turns, language)
 values
 ("Comme d'Habitude", "Gille Thibaut", "Thibaut, Gille", "Jacques Revaux and Cluade Fran{\\c c}ois",
 "Revaux, Jacques and Fran{\\c c}ois, Claude",
 true,
-"English title: ``My Way'', English lyrics: Paul Anka", 1967, true);
+"English title: ``My Way'', English lyrics: Paul Anka", 1967, true, "french");
 
 /* ** *************************************************** */
 
@@ -525,11 +532,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-scanned, scanned_filename, operetta, sort_by_production, year, public_domain)
+scanned, scanned_filename, operetta, sort_by_production, year, public_domain, language)
 values
 ("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "maxim.pdf", "Lustige Witwe, Die",
-true, 1905, true);
+true, 1905, true, "german");
 
 /* ** *************************************************** */
 
@@ -540,11 +547,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, language)
 values
 ("Desafinado", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "Copyright {\\copyright} 1959, 1967 (Renewed)",
-"{\\bf The Music of Antonio Carlos Jobim}, p.~3.", true, "desafndo.pdf");
+"{\\bf The Music of Antonio Carlos Jobim}, p.~3.", true, "desafndo.pdf", "portugese");
 
 /* ** *************************************************** */
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -577,23 +584,23 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, year, no_page_turns, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, year, no_page_turns, source, language)
 values
 ("Du sollst der Kaiser meiner Seele sein",
 "Fritz Gr{\\\"u}nbaum und Wilhelm Sterk", "Gr{\\\"u}nbaum, Fritz und Sterk, Wilhelm",
 "Robert Stolz", "Stolz, Robert",
-1916, true, "Das neue Operettenbuch, Buch 1");
+1916, true, "Das neue Operettenbuch, Buch 1", "german");
 
 /* ** *************************************************** */
 
 -- delete from Songs where title = "Durch die Wälder, durch die Auen";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, 
-opera, scanned, scanned_filename, public_domain)
+opera, scanned, scanned_filename, public_domain, language)
 values
 ("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", 
 "Carl Maria von Weber", "Weber, Carl Maria von",
-true, 1821, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true);
+true, 1821, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true, "german");
 
 /* ** *************************************************** */
 
@@ -615,9 +622,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, recordings, language)
 values
-("Es leuchten die Sterne", "Bruno Balz", "Balz, Bruno", "Leo Leux", "Leux, Leo", 1);
+("Es leuchten die Sterne", "Bruno Balz", "Balz, Bruno", "Leo Leux", "Leux, Leo", 1, "german");
 
 /* ** *************************************************** */
 
@@ -639,18 +646,18 @@ true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Sel
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-source, scanned, scanned_filename, film)
+source, scanned, scanned_filename, film, language)
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true, "felcdade.pdf",
-"Orfeu Negro");
+"Orfeu Negro", "portugese");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, language)
 values
-("Feuilles Mortes, Les", "Jacques Prevert", "Prevert, Jacques", "Joseph Kosma", "Kosma, Joseph", true, 1947);
+("Feuilles Mortes, Les", "Jacques Prevert", "Prevert, Jacques", "Joseph Kosma", "Kosma, Joseph", true, 1947, "french");
 
 /* ** *************************************************** */
 
@@ -747,35 +754,36 @@ true, true, "ftscstrt.pdf", "{\\bf 42nd Street, All the Vocal Selections from 42
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year, language)
 values
-("Frauen sind keine Engel", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", true, 1, 1944);
+("Frauen sind keine Engel", "Hans Fritz Beckmann", "Beckmann, Hans Fritz", "Theo Mackeben", "Mackeben, Theo", 
+true, 1, 1944, "german");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse)
+replace into Songs (title, words_and_music, words_and_music_reverse, language)
 values
-("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto");
+("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "spanish");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, scanned, scanned_filename, source, sort_by_production, public_domain, year)
+opera, scanned, scanned_filename, source, sort_by_production, public_domain, year, language)
 values
 ("Furtiva lagrima, Una", "Felice Romani", "Romani, Felice",
 "Gaetano Donizetti", "Donizetti, Gaetano", false, "L’elisir d’amore", false, "",
-"{\\bf Opern-Arien, Tenor}, p.~72.", true, true, 1832);
+"{\\bf Opern-Arien, Tenor}, p.~72.", true, true, 1832, "italian");
 
 /* ** *************************************************** */
 
 /* G   */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, language)
 values
 ("Gar{\\^o}ta de Ipanema", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963 (Renewed)",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~84.", true, "garota.pdf");
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~84.", true, "garota.pdf", "portugese");
 
 /* ** *************************************************** */
 
@@ -795,7 +803,6 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, film)
 values
 ("Gigi", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Gigi");
-
 
 /* ** *************************************************** */
 
@@ -859,9 +866,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, language)
 values
-("Heute Nacht oder nie", "Marcellus Schiffer", "Schiffer, Marcellus", "Mischa Spoliansky", "Spoliansky, Mischa", true, 1932);
+("Heute Nacht oder nie", "Marcellus Schiffer", "Schiffer, Marcellus", "Mischa Spoliansky", "Spoliansky, Mischa",
+true, 1932, "german");
 
 /* recordings 1 ? Not found. */
 
@@ -873,10 +881,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, language)
 values
 ("Homme et une femme, Un", "Pierre Barouh", "Barouh, Pierre", "Francis Lai", "Lai, Francis", 
-true, 1966, "Homme et une femme, Un");
+true, 1966, "Homme et une femme, Un", "french");
 
 /* ** *************************************************** */
 
@@ -1012,13 +1020,13 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
 "Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
 "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
 "\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
-true);
+true, "french");
 
 /* ** *************************************************** */
 
@@ -1107,11 +1115,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, language)
 values
 ("Insensatez", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963, 1964",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~88.", true, "insenstz.pdf");
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~88.", true, "insenstz.pdf", "portugese");
 
 /* ** *************************************************** */
 
@@ -1191,9 +1199,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, language)
 values
-("Ja und Nein", "Willy Dehmel", "Dehmel, Willy", "Franz Grothe", "Grothe, Franz", true, 1, 1939);
+("Ja und Nein", "Willy Dehmel", "Dehmel, Willy", "Franz Grothe", "Grothe, Franz", true, 1, 1939, "german");
 
 /* ** *************************************************** */
 
@@ -1202,10 +1210,10 @@ values
 /* Presumably copyrighted in Denmark and not in public domain.  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, copyright, scanned, scanned_filename)  
+year, copyright, scanned, scanned_filename, language)  
 values
 ("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
-1925, "{\\copyright} 1925.  Public Domain.", true, "jealousy.pdf");
+1925, "{\\copyright} 1925.  Public Domain.", true, "jealousy.pdf", "none");
 
 #words: Vera Bloom (Engl.)
 
@@ -1255,68 +1263,68 @@ select * from Songs where music = "Gustav Mahler"\G
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "antnpdua.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~32.}", 
-true);
+true, "german");
 
 /* *** (3)*************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~25.}", 
-true);
+true, "german");
 
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "lbvrstnd.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
-true);
+true, "german");
 
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "rhnlgnde.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
-true);
+true, "german");
 
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
-true);
+true, "german");
 
 /* *** (3) *************************************************** */
 
 /* ** (2) *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Komm, Zigany",
 "Julius Brammer und Alfred Gr{\\\"u}nwald",
 "Brammer, Julius und Gr{\\\"u}nwald, Alfred",
-"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, 1932);
+"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, 1932, "german");
 
 /* Film-Operetta:  Gr{\\\"a}fin Mariza using melodies by K\\'alman.         */
 /* comment: (ungarisch: K{\\'a}lm{\\'a}n Imre;  eigentlich: Imre Koppstein  */
@@ -1327,10 +1335,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, opera,
-scanned, scanned_filename, public_domain)
+scanned, scanned_filename, public_domain, language)
 values
 ("L{\\`a} ci darem la mano", "Lorenzo Da Ponte", "Da Ponte, Lorenzo", "Wolfgang Amadeus Mozart",
-"Mozart, Wolfgang Amadeus", true, 1787, "Don Giovanni", true, "lacidarm.pdf", true);
+"Mozart, Wolfgang Amadeus", true, 1787, "Don Giovanni", true, "lacidarm.pdf", true, "italian");
 
 /* ** *************************************************** */
 
@@ -1393,31 +1401,31 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 scanned, scanned_filename, 
-operetta, notes, sort_by_production, year, public_domain)
+operetta, notes, sort_by_production, year, public_domain, language)
 values
 ("Lippen schweigen", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "lipnschw.pdf", "Lustige Witwe, Die",
-"English title:  The Merry Widow Waltz", true, 1905, true);
+"English title:  The Merry Widow Waltz", true, 1905, true, "german");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-scanned, scanned_filename, operetta, sort_by_production, year, public_domain)
+scanned, scanned_filename, operetta, sort_by_production, year, public_domain, language)
 values
 ("Lied vom dummen Reiter, Das", 
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "dummreit.pdf", 
-"Lustige Witwe, Die", true, 1905, true);
+"Lustige Witwe, Die", true, 1905, true, "german");
 
 /* ** *************************************************** */
 
 /*  Check words!! */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Lisboa Antiga", "Jos{\\'e} Galhardo", "Galhardo, Jos{\\'e}", 
-"Raul Portela and Amadeu do Vale", "Portela, Raul and Vale, Amadeu do", true, 1937);
+"Raul Portela and Amadeu do Vale", "Portela, Raul and Vale, Amadeu do", true, 1937, "portugese");
 
 /* ** *************************************************** */
 
@@ -1503,17 +1511,17 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns_with_two_songbooks, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns_with_two_songbooks, year, language)
 values
-("Mambo {\\#}5", "D{\\'a}maso P{\\'e}rez Prado", "P{\\'e}rez Prado, D{\\'a}maso", true, 1948);
+("Mambo {\\#}5", "D{\\'a}maso P{\\'e}rez Prado", "P{\\'e}rez Prado, D{\\'a}maso", true, 1948, "spanish");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year, language)
 values
 ("Manh{\\~a} da Carnaval", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
 "Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Score for Andantino completed 23.02.2018.", "Orfeu Negro",
-1959);
+1959, "portugese");
 
 /* ** *************************************************** */
 
@@ -1535,18 +1543,18 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-year, source, scanned, scanned_filename)
+year, source, scanned, scanned_filename, language)
 values
 ("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
 "{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.",
-true, "masquend.pdf");
+true, "masquend.pdf", "spanish");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, operetta, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, operetta, year, language)
 values
 ("Mein Herr Marquis", "Karl Haffner, Richard Gen{\\'e}e", "Haffner, Karl und Gen{\\'e}e, Richard", 
-"Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Die Fledermaus", 1874);
+"Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Die Fledermaus", 1874, "german");
  	
 /* ** *************************************************** */
 
@@ -1710,12 +1718,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production)
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
 "{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
-true);
+true, "french");
 
 /* ** *************************************************** */
 
@@ -1777,10 +1785,10 @@ select "!!! End O";
 
 select "!!! P";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Para Vigo me voy (Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
-true, 1935);
+true, 1935, "spanish");
 
 #/* ** *************************************************** */
 
@@ -1817,11 +1825,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, language)
 values
 ("Perfidia", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", 
 "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", 
-true, 1939);
+true, 1939, "spanish");
 
 /* ** *************************************************** */
 
@@ -1838,10 +1846,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
-scanned, scanned_filename)
+scanned, scanned_filename, language)
 values
 ("Polowetzer T{\\\"a}nze (``Stranger in Paradise'')", "Alexander Borodin", "Borodin, Alexander", 
-true, "Prince Igor", true, "polowtnz.pdf");
+true, "Prince Igor", true, "polowtnz.pdf", "russian");
 
 /* ** *************************************************** */
 
@@ -1891,9 +1899,9 @@ select "!!! End P";
 
 select "!!! Q";
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, language)
 values
-("Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s", "Osvaldo Farr{\\'e}s", "Farr{\\'e}s, Osvaldo", true, 1947);
+("Quiz{\\'a}s, Quiz{\\'a}s, Quiz{\\'a}s", "Osvaldo Farr{\\'e}s", "Farr{\\'e}s, Osvaldo", true, 1947, "spanish");
 
 select "!!! End Q";
 
@@ -1941,11 +1949,11 @@ values
 
 -- delete from Songs where words_and_music = "Alexander Warlamoff";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source, language)
 values
 ("Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
 "Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch", true, "Public Domain.",
-"{\\bf Das Lied der V{\\\"o}lker, Russische Lieder}, p.~26.");
+"{\\bf Das Lied der V{\\\"o}lker, Russische Lieder}, p.~26.", "russian");
 
 select "!!! End R";
 
@@ -1956,26 +1964,26 @@ select "!!! S";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-film, year, scanned, scanned_filename)
+film, year, scanned, scanned_filename, language)
 values
 ("Samba de Orfeu", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
-"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true, "sambaorf.pdf");
+"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true, "sambaorf.pdf", "portugese");
 
 /* ** *************************************************** */
 
 -- delete from Songs where title = "Samba de uma nota so";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, scanned, scanned_filename)
+year, scanned, scanned_filename, language)
 values
 ("Samba de Uma Nota So", "Newton Mendo{\\c c}a", "Mendo{\\c c}a, Newton", 
-"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1961, true, "smbunant.pdf");
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1961, true, "smbunant.pdf", "portugese");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, language)
 values
-("Samba do Avi{\\~a}o", "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1962);
+("Samba do Avi{\\~a}o", "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1962, "portugese");
 
 /* ** *************************************************** */
 
@@ -2014,15 +2022,15 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, music, music_reverse, lead_sheet, language)
 values
-("Siboney", "Ernesto Lecuona", "Lecuona, Ernesto", true);
+("Siboney", "Ernesto Lecuona", "Lecuona, Ernesto", true, "spanish");
 
 #/* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, music, music_reverse, lead_sheet, language)
 values
-("Siempre en mi Coraz{\\'o}n", "Ernesto Lecuona", "Lecuona, Ernesto", true);
+("Siempre en mi Coraz{\\'o}n", "Ernesto Lecuona", "Lecuona, Ernesto", true, "spanish");
 
 /* ** *************************************************** */
 
@@ -2288,20 +2296,20 @@ true, "thouswll.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, film, source, scanned, scanned_filename)
+year, film, source, scanned, scanned_filename, language)
 values
 ("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
 "Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", false, 1962, 
 "Mondo Cane", "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~136.", 
-false, "tgrdnlcr.pdf");
+false, "tgrdnlcr.pdf", "italian");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-scanned, scanned_filename, public_domain)
+scanned, scanned_filename, public_domain, language)
 values
 ("Tico Tico no Fuba", "Aloysio de Oliveira", "Oliveira, Aloysio de",
-"Zequinha de Abreu", "Abreu, Zequinha de", true, 1917, true, "ticotico.pdf", true);
+"Zequinha de Abreu", "Abreu, Zequinha de", true, 1917, true, "ticotico.pdf", true, "portugese");
 
 /* ** *************************************************** */
 
@@ -2336,9 +2344,9 @@ select "!!! U";
 
 /* ** *************************************************** */
 
-replace into Songs (title, no_page_turns)
+replace into Songs (title, no_page_turns, language)
 values
-("{\\'U}ltima Noche, La", true);
+("{\\'U}ltima Noche, La", true, "spanish");
 
 /* ** *************************************************** */
 
@@ -2510,12 +2518,12 @@ select "!!! Z";
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, year, language)
 values
 ("Zwei M{\\\"a}rchenaugen",
 "Julius Brammer und Alfred Gr{\\\"u}nwald",
 "Brammer, Julius und Gr{\\\"u}nwald, Alfred",
-"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Die Zirkusprinzessin", 1926);
+"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Die Zirkusprinzessin", 1926, "german");
 
 /* Copyright 1951  */
 
