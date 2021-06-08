@@ -1362,13 +1362,10 @@ getchar();
                << "\\ifseparate" << endl
                << "\\pageno=1" << endl
                << "\\fi" << endl
-               << "\\pagecnt=\\pageno" << endl
                << "\\medium" << endl
-               << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in French}\\fi"
-               << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                << "\\songctr=1" << endl
                << "\\hldest{xyz}{}{french}" << endl 
-               << "\\centerline{{\\largebx Songs in French}}" << endl
+               << "\\centerline{{\\largebx French}}" << endl
                << "\\vskip.75\\baselineskip" << endl
                << "%%\\doublecolumns" << endl
                << "\\begingroup" << endl 
@@ -1380,13 +1377,10 @@ getchar();
                << "\\ifseparate" << endl
                << "\\pageno=1" << endl
                << "\\fi" << endl
-               << "\\pagecnt=\\pageno" << endl
                << "\\medium" << endl
-               << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in German}\\fi"
-               << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                << "\\songctr=1" << endl
                << "\\hldest{xyz}{}{german}" << endl 
-               << "\\centerline{{\\largebx Songs in German}}" << endl
+               << "\\centerline{{\\largebx German}}" << endl
                << "\\vskip.75\\baselineskip" << endl
                << "%%\\doublecolumns" << endl
                << "\\begingroup" << endl 
@@ -1398,13 +1392,10 @@ getchar();
                 << "\\ifseparate" << endl
                 << "\\pageno=1" << endl
                 << "\\fi" << endl
-                << "\\pagecnt=\\pageno" << endl
                 << "\\medium" << endl
-                << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in Italian}\\fi"
-                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{italian}" << endl 
-                << "\\centerline{{\\largebx Songs in Italian}}" << endl
+                << "\\centerline{{\\largebx Italian}}" << endl
                 << "\\vskip.75\\baselineskip" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
@@ -1416,13 +1407,10 @@ getchar();
                   << "\\ifseparate" << endl
                   << "\\pageno=1" << endl
                   << "\\fi" << endl
-                  << "\\pagecnt=\\pageno" << endl
                   << "\\medium" << endl
-                  << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in Portugese}\\fi"
-                  << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                   << "\\songctr=1" << endl
                   << "\\hldest{xyz}{}{portugese}" << endl 
-                  << "\\centerline{{\\largebx Songs in Portugese}}" << endl
+                  << "\\centerline{{\\largebx Portugese}}" << endl
                   << "\\vskip.75\\baselineskip" << endl
                   << "%%\\doublecolumns" << endl
                   << "\\begingroup" << endl 
@@ -1434,13 +1422,10 @@ getchar();
                 << "\\ifseparate" << endl
                 << "\\pageno=1" << endl
                 << "\\fi" << endl
-                << "\\pagecnt=\\pageno" << endl
                 << "\\medium" << endl
-                << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in Russian}\\fi"
-                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{russian}" << endl 
-                << "\\centerline{{\\largebx Songs in Russian}}" << endl
+                << "\\centerline{{\\largebx Russian}}" << endl
                 << "\\vskip.75\\baselineskip" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
@@ -1452,13 +1437,10 @@ getchar();
                 << "\\ifseparate" << endl
                 << "\\pageno=1" << endl
                 << "\\fi" << endl
-                << "\\pagecnt=\\pageno" << endl
                 << "\\medium" << endl
-                << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Songs in Spanish}\\fi"
-                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{spanish}" << endl 
-                << "\\centerline{{\\largebx Songs in Spanish}}" << endl
+                << "\\centerline{{\\largebx Spanish}}" << endl
                 << "\\vskip.75\\baselineskip" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
@@ -1796,56 +1778,32 @@ getchar();
    toc_npt_file.close();
 
    french_file << "%%\\singlecolumn" << endl
-               << "\\vfil\\eject" << endl
-               << "\\ifseparate" << endl
-               << "\\else" << endl
-               << "\\pagecnt=\\pageno" << endl
-               << "\\fi" << endl
+               << "%%\\vfil\\eject" << endl
                << "\\endgroup" << endl 
                << "\\endinput" << endl << endl;
 
    german_file << "%%\\singlecolumn" << endl
-               << "\\vfil\\eject" << endl
-               << "\\ifseparate" << endl
-               << "\\else" << endl
-               << "\\pagecnt=\\pageno" << endl
-               << "\\fi" << endl
+               << "%%\\vfil\\eject" << endl
                << "\\endgroup" << endl 
                << "\\endinput" << endl << endl;
 
    italian_file << "%%\\singlecolumn" << endl
-                << "\\vfil\\eject" << endl
-                << "\\ifseparate" << endl
-                << "\\else" << endl
-                << "\\pagecnt=\\pageno" << endl
-                << "\\fi" << endl
+                << "%%\\vfil\\eject" << endl
                 << "\\endgroup" << endl 
                 << "\\endinput" << endl << endl;
 
    portugese_file << "%%\\singlecolumn" << endl
-                  << "\\vfil\\eject" << endl
-                  << "\\ifseparate" << endl
-                  << "\\else" << endl
-                  << "\\pagecnt=\\pageno" << endl
-                  << "\\fi" << endl
+                  << "%%\\vfil\\eject" << endl
                   << "\\endgroup" << endl 
                   << "\\endinput" << endl << endl;
 
    russian_file << "%%\\singlecolumn" << endl
-                << "\\vfil\\eject" << endl
-                << "\\ifseparate" << endl
-                << "\\else" << endl
-                << "\\pagecnt=\\pageno" << endl
-                << "\\fi" << endl
+                << "%%\\vfil\\eject" << endl
                 << "\\endgroup" << endl 
                 << "\\endinput" << endl << endl;
 
    spanish_file << "%%\\singlecolumn" << endl
-                << "\\vfil\\eject" << endl
-                << "\\ifseparate" << endl
-                << "\\else" << endl
-                << "\\pagecnt=\\pageno" << endl
-                << "\\fi" << endl
+                << "%%\\vfil\\eject" << endl
                 << "\\endgroup" << endl 
                 << "\\endinput" << endl << endl;
 

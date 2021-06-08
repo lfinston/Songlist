@@ -210,35 +210,43 @@ end of this document for the license.
 
 \SEP{pblcdomn.pdf}
 
-\Chapter{french}{Songs in French}
 
+\ifseparate
+\pageno=1
+\fi
+\pagecnt=\pageno
+\Chapter{other languages}{Songs in Other Languages}
+\hldest{xyz}{}{other languages}
+\centerline{{\largebx Songs in Other Languages}}
+\vskip2\baselineskip
+\headline={\hfil \ifnum\pageno>\pagecnt{\mediumbx Songs in Other Languages}\fi
+\hfil\hbox to 0pt{\hss{\tt \timestamp}\quad}}
+
+\Section{french}{French}
 \SEP{french.pdf}
 \input french.tex
 
-\Chapter{german}{Songs in German}
-
+\Section{german}{German}
 \SEP{german.pdf}
 \input german.tex
 
-\Chapter{italian}{Songs in Italian}
-
+\Section{italian}{Italian}
 \SEP{italian.pdf}
 \input italian.tex
 
-\Chapter{portugese}{Songs in Portugese}
-
+\Section{portugese}{Portugese}
 \SEP{portugese.pdf}
 \input portugese.tex
 
-\Chapter{russian}{Songs in Russian}
-
+\Section{russian}{Russian}
 \SEP{russian.pdf}
 \input russian.tex
 
-\Chapter{spanish}{Songs in Spanish}
-
+\Section{spanish}{Spanish}
 \SEP{spanish.pdf}
 \input spanish.tex
+
+\vfil\eject
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
 %% It also has the wrong headline, because the headline in `pblcdomn.tex' is
