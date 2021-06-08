@@ -1238,10 +1238,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+scanned, scanned_filename)
 values
-("Just One More Chance", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", false, 1931,
-"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~166.");
+("Just One More Chance", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", true, 1931,
+"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~166.", true, "jstonmcn.pdf");
 
 /* ** *************************************************** */
 
@@ -2299,9 +2300,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, film, source, scanned, scanned_filename, language)
 values
 ("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
-"Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", false, 1962, 
+"Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", true, 1962, 
 "Mondo Cane", "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~136.", 
-false, "tgrdnlcr.pdf", "italian");
+true, "tgrdnlcr.pdf", "italian");
 
 /* ** *************************************************** */
 
