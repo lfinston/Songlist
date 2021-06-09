@@ -1686,10 +1686,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, source, language)
 values
 ("Nel blu dipinto di blu (Volare)", "Domenico Modugno and Franco Migliacci", "Modugno, Domenico and Migliacci, Franco", 
-"Domenico Modugno", "Modugno, Domenico", true, 1958, "Single edition.");
+"Domenico Modugno", "Modugno, Domenico", true, 1958, "Single edition.", "italian");
 
 /* ** *************************************************** */
 
