@@ -390,6 +390,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, 
+source, scanned, scanned_filename)
+values
+("Call Me", "Tony Hatch", "Hatch, Tony", true, 1965, 
+"Copyright {\\copyright} 1965 Welbeck Music Ltd.  Copyright Renewed.", 
+"{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~30.", true, "callme.pdf");
+
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
 values
 ("Camelot", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Camelot", true);
@@ -568,10 +578,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, recordings)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, recordings)
 values
-("Downtown", "Tony Hatch", "Hatch, Tony", true, 
-"\\hbox{1964 Welbeck Music Ltd.,}\\hbox{London, England}",
+("Downtown", "Tony Hatch", "Hatch, Tony", true, 1964, "\\hbox{1964 Welbeck Music Ltd.,}\\hbox{London, England}", 
 1);
 
 /* ** *************************************************** */
@@ -3720,6 +3729,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Unforg
 
 replace into Composers_Songs (composer, title) values ("Hatch, Tony", "Downtown");
 replace into Lyricists_Songs (lyricist, title) values ("Hatch, Tony", "Downtown");
+
+replace into Composers_Songs (composer, title) values ("Hatch, Tony", "Call Me");
+replace into Lyricists_Songs (lyricist, title) values ("Hatch, Tony", "Call Me");
 
 replace into Composers_Songs (composer, title) values ("Hollaender, Friedrich", "Illusions");
 replace into Lyricists_Songs (lyricist, title) values ("Hollaender, Friedrich", "Illusions");
