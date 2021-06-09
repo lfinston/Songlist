@@ -1686,11 +1686,19 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, source)
+values
+("Nel blu dipinto di blu (Volare)", "Domenico Modugno and Franco Migliacci", "Modugno, Domenico and Migliacci, Franco", 
+"Domenico Modugno", "Modugno, Domenico", true, 1958, "Single edition.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, copyright)
 values
 ("Nevertheless (I'm In Love With You)", "Bert Kalmar", "Kalmar, Bert", "Harry Ruby", "Ruby, Harry", true, 1,
 1931,
 "{\\copyright} 1931 DeSylva, Brown and Henderson");
+
 
 /* ** *************************************************** */
 
@@ -2901,6 +2909,8 @@ replace into Composers_Songs (composer, title) values ("Schoebel, Elmer", "Nobod
 
 replace into Composers_Songs (composer, title) values ("Miller, Glenn", "Moonlight Serenade");
 
+replace into Composers_Songs (composer, title) values ("Modugno, Domenico", "Nel blu dipinto di blu (Volare)"); 
+
 replace into Composers_Songs (composer, title) values ("Monaco, James", "You Made Me Love You");
 
 replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've Got a Pocketful of Dreams");
@@ -3476,7 +3486,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Laura"
 
 replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Fools Rush In (Where Angels Fear to Tread)");
 
+replace into Lyricists_Songs (lyricist, title) values ("Migliacci, Franco", "Nel blu dipinto di blu (Volare)"); 
+
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Caravan");
+
+replace into Lyricists_Songs (lyricist, title) values ("Modugno, Domenico", "Nel blu dipinto di blu (Volare)"); 
 
 /* select * from Lyricists_Songs where title = "Chega de Saudade";  */
 
