@@ -1462,6 +1462,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+year, source, scanned, scanned_filename)
+values
+("Love Letters in the Sand", "Nick Kenny and Charles Kenny", "Kenny, Nick and Kenny, Charles",
+"J.~Fred Coots", "Coots, J.~Fred", true, 1931,
+"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~196.",
+true, "lvltrsnd.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Love Me or Leave Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928);
@@ -1474,7 +1484,7 @@ values
 ("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
 "{\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
-"{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152",
+"{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152.",
 true, "lvrcbtme.pdf");
 
 /* ** *************************************************** */
@@ -2665,6 +2675,8 @@ replace into Composers_Songs (composer, title) values ("Conrad, Con", "Continent
 
 replace into Composers_Songs (composer, title) values ("Coots, J.~Fred", "You Go to My Head");
 
+replace into Composers_Songs (composer, title) values ("Coots, J.~Fred", "Love Letters in the Sand");
+
 replace into Composers_Songs (composer, title) values ("Dale, Jim", "Georgy  Girl");
 
 replace into Composers_Songs (composer, title) values ("DeRose, Peter", "Deep Purple");
@@ -3329,6 +3341,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "Harbou
 replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "Red Sails in the Sunset");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "South of the Border");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kenny, Nick", "Love Letters in the Sand");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kenny, Charles", "Love Letters in the Sand");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kind, Friedrich", "Durch die W{\\\"a}lder, durch die Auen");
 
