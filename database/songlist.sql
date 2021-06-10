@@ -397,7 +397,6 @@ values
 "Copyright {\\copyright} 1965 Welbeck Music Ltd.  Copyright Renewed.", 
 "{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~30.", true, "callme.pdf");
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
@@ -841,6 +840,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Harbour Lights", "Jimmy Kennedy", "Kennedy, Jimmy", "Hugh Williams", "Williams, Hugh", true,
 "Hugh Williams is the pseudonym of exiled Austrian composer Will Grosz.");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+scanned, scanned_filename)
+values
+("Heart", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
+true, "heart.pdf");
 
 /* ** *************************************************** */
 
@@ -3609,6 +3616,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein, Oscar II", 
 replace into Lyricists_Songs (lyricist, title) values ("Yellen, Jack", "Ain't She Sweet");
 
 /* * (1)  */
+
+replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart");
+replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart");
+replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Heart");
 
 replace into Composers_Songs (composer, title) values ("Ballard, Pat", "Mister Sandman");
 replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister Sandman");

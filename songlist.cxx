@@ -638,7 +638,7 @@ main(int argc, char **argv)
                   << "\\vskip.75\\baselineskip" << endl
                   << "\\begingroup" << endl
                   << "\\dimen0=\\vsize" << endl
-                  << "\\advance\\dimen0 by -4\\baselineskip" << endl
+                  << "\\advance\\dimen0 by -2\\baselineskip" << endl
                   << "\\vbox to 0pt{\\vbox to \\vsize{\\vskip\\dimen0" << endl 
                   << "\\line{${}^{\\dag}$ \\Blue{Public domain}\\hfil}\\vss}\\vss}" << endl
                   << "\\endgroup" << endl
