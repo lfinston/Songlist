@@ -1135,7 +1135,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, language)
 values
-("Incerteza", "Newton F.~Mendo{\\c c}a", "Mendo{\\c c}a, Newton F.", 
+("Incerteza", "Newton F.~Mendon{\\c c}a", "Mendon{\\c c}a, Newton F.", 
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1966, true, "incertza.pdf", "portugese");
 
 /* ** *************************************************** */
@@ -2021,7 +2021,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, language)
 values
-("Samba de Uma Nota So", "Newton Mendo{\\c c}a", "Mendo{\\c c}a, Newton", 
+("Samba de Uma Nota So", "Newton Mendon{\\c c}a", "Mendon{\\c c}a, Newton", 
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1961, true, "smbunant.pdf", "portugese");
 
 /* ** *************************************************** */
@@ -3498,11 +3498,13 @@ values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
 
-replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton F.", "Incerteza");
+-- delete from Lyricists_Songs where title = "Incerteza";
+
+replace into Lyricists_Songs (lyricist, title) values ("Mendon{\\c c}a, Newton F.", "Incerteza");
 
 -- delete from Lyricists_Songs where title = "Samba de uma nota so";
 
-replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton", "Samba de Uma Nota So");
+replace into Lyricists_Songs (lyricist, title) values ("Mendon{\\c c}a, Newton", "Samba de Uma Nota So");
 
 replace into Lyricists_Songs (lyricist, title) values ("Mercer, Johnny", "Jeepers Creepers");
 
