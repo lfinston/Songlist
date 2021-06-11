@@ -1132,6 +1132,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, scanned, scanned_filename, language)
+values
+("Incerteza", "Newton F.~Mendo{\\c c}a", "Mendo{\\c c}a, Newton F.", 
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1966, true, "incertza.pdf", "portugese");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
 source, scanned, scanned_filename, language)
 values
@@ -2815,6 +2823,8 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Gar{\\\^o}ta de Ipanema");
 
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Incerteza");
+
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Insensatez");
 
 -- delete from Composers_Songs where title = "Samba de uma nota so";
@@ -3487,6 +3497,8 @@ replace into Lyricists_Songs (lyricist, title)
 values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Mendo{\\c c}a, Newton F.", "Incerteza");
 
 -- delete from Lyricists_Songs where title = "Samba de uma nota so";
 
