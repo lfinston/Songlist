@@ -1810,10 +1810,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
-year, scanned, scanned_filename)
+year, scanned, scanned_filename, source)
 values
 ("One", "Edward Kleban", "Kleban, Edward", "Marvin Hamlisch", "Hamlisch, Marvin", false, 
-"Chorus Line, A", 1975, false, "one.pdf");
+"Chorus Line, A", 1975, false, "one.pdf", "{\\bf Marvin Hamlisch Songbook}, p.~14.");
 
 /* ** *************************************************** */
 
