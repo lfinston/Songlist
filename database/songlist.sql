@@ -843,11 +843,13 @@ values
 
 /* ** *************************************************** */
 
+-- delete from Songs where title = "Heart";
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
-scanned, scanned_filename)
+scanned, scanned_filename, source)
 values
-("Heart", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
-true, "heart.pdf");
+("Heart (You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
+true, "heart.pdf", "{\\bf Damn Yankees, Vocal Selections}, p.~2.");
 
 /* ** *************************************************** */
 
@@ -3617,10 +3619,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Yellen, Jack", "Ain't Sh
 
 /* * (1)  */
 
-replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart");
-replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart");
-replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart");
-replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Heart");
+-- delete from Composers_Songs where title = "Heart";
+-- delete from Lyricists_Songs where title = "Heart";
+
+replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
+replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
+replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
 
 replace into Composers_Songs (composer, title) values ("Ballard, Pat", "Mister Sandman");
 replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister Sandman");
