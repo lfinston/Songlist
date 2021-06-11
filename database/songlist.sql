@@ -1809,6 +1809,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
+year, scanned, scanned_filename)
+values
+("One", "Edward Kleban", "Kleban, Edward", "Marvin Hamlisch", "Hamlisch, Marvin", false, 
+"Chorus Line, A", 1975, false, "one.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Out of Nowhere", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true);
@@ -2791,6 +2799,8 @@ replace into Composers_Songs (composer, title) values ("Gross, Walter", "Tenderl
 
 replace into Composers_Songs (composer, title) values ("Grothe, Franz", "Ja und Nein");
 
+replace into Composers_Songs (composer, title) values ("Hamlisch, Marvin", "One");
+
 replace into Composers_Songs (composer, title) values 
 ("Five Foot Two, Eyes Of Blue\\par\\S (Has Anybody Seen My Girl?)",
 "Henderson, Ray");
@@ -3385,6 +3395,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Kenny, Nick", "Love Lett
 replace into Lyricists_Songs (lyricist, title) values ("Kenny, Charles", "Love Letters in the Sand");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kind, Friedrich", "Durch die W{\\\"a}lder, durch die Auen");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kleban, Edward", "One");
 
 replace into Lyricists_Songs (lyricist, title) values ("Klenner, John", "Heartaches");
 
