@@ -2332,6 +2332,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Things We Did Last Summer, The", "Sammy Cahn", "Cahn, Sammy", "Jule Styne", "Styne, Jule",
+true, 1946, "{\\bf New Sammy Cahn Songbook, The}, p.~80.", true, "thngswdd.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes)
 values
 ("This Can't be Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
@@ -3051,6 +3059,8 @@ replace into Composers_Songs (composer, title) values ("Styne, Jule", "Diamonds 
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's Over, The");
 
+replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We Did Last Summer, The");
+
 replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
 
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
@@ -3173,6 +3183,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagina
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Swinging On A Star");
 
 replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea for Two");
+
+replace into Lyricists_Songs (lyricist, title) values ("Cahn, Sammy", "Things We Did Last Summer, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
