@@ -100,8 +100,7 @@
 %% All lead sheets, in `../music/Lead_Sheets/'.
 
 \def\HLA#1#2{\hlstart{filepage}{bwidth=0,newwin=,file=../music/Lead_Sheets/#1}{1}%
-{\mediumtt\ifnum#2=0\RawSienna{#1}\else\Blue{#1}\fi}%
-\hlend}
+{\mediumtt\ifnum#2=0\RawSienna{#1}\else\Blue{#1}\fi}\hlend}
 
 %% Public domain lead sheets, in `./lead_sheets/'.
 
