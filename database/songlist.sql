@@ -208,7 +208,7 @@ values
 ("All God's Children", /* '  */
 "Gus Kahn", "Kahn, Gus",
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
-true, 1, true, "A Day at the Races");
+true, 1, true, "Day at the Races, A");
 
 -- delete from Songs where title = "All I Do Is Dream Of You";
 
@@ -1019,7 +1019,7 @@ lead_sheet, year, musical, source, scanned, scanned_filename)
 values
 ("I Wonder Who's Kissing Her Now", 
 "Will M.~Hough and Frank R.~Adams", "Hough, Will M.~and Adams, Frank R.",
-"Harold Orlob", "Orlob, Harold", true, 1909, "The Prince of To-Night",
+"Harold Orlob", "Orlob, Harold", true, 1909, "Prince of To-Night, The",
 "{\\bf 100 Years of Popular Music, 1900}, p.~144.", true, "iwndrwho.pdf");
 
 /* ** *************************************************** */
@@ -1591,7 +1591,7 @@ true, "masquend.pdf", "portugese");
 replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, operetta, year, language)
 values
 ("Mein Herr Marquis", "Karl Haffner, Richard Gen{\\'e}e", "Haffner, Karl und Gen{\\'e}e, Richard", 
-"Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Die Fledermaus", 1874, "german");
+"Johann Strau{\\ss} (Sohn)", "Strau{\\ss} (Sohn), Johann", true, "Fledermaus, Die", 1874, "german");
  	
 /* ** *************************************************** */
 
@@ -1599,7 +1599,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Message From the Man in the Moon, A", "Gus Kahn", "Kahn, Gus", "Walter Jurmann and Bronislaw Kaper",
 "Jurmann, Walter and Kaper, Bronislaw",
-true, "A Day at the Races", "Cut from film");
+true, "Day at the Races, A", "Cut from film.");
 
 /* ** *************************************************** */
 
@@ -1684,7 +1684,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 musical, year, scanned, scanned_filename)
 values
 ("My Heart Stood Still", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 
-"A Connecticut Yankee", 1927, true, "mhrtstst.pdf");
+"Connecticut Yankee, A", 1927, true, "mhrtstst.pdf");
 
 /* ** *************************************************** */
 
@@ -1807,7 +1807,7 @@ lead_sheet, year, copyright, musical, source, scanned, scanned_filename)
 values
 ("Once in Love with Amy", "Frank Loesser", "Loesser, Frank", true, 1948,
 "Copyright {\\copyright} 1948 (Renewed) Frank Music Corp.",
-"Where's Charlie?", "The Frank Loesser Songbook, p.~175", true, "onclvamy.pdf");
+"Where's Charlie?", "Frank Loesser Songbook, The, p.~175", true, "onclvamy.pdf");
 
 /* ** *************************************************** */
 
@@ -2289,7 +2289,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 film, year)
 values
 ("Thanks for the Memory", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true,
-"The Big Broadcast of 1938", 1938);
+"Big Broadcast of 1938, The", 1938);
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, copyright)
 values
@@ -2460,7 +2460,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur", "Nacio Herb Brown", "Nacio Brown, Herb", true,
-"The Broadway Melody", 1929);
+"Broadway Melody, The", 1929);
 
 /* ** *************************************************** */
 
@@ -2594,7 +2594,7 @@ values
 ("Zwei M{\\\"a}rchenaugen",
 "Julius Brammer und Alfred Gr{\\\"u}nwald",
 "Brammer, Julius und Gr{\\\"u}nwald, Alfred",
-"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Die Zirkusprinzessin", 1926, "german");
+"Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Zirkusprinzessin, Die", 1926, "german");
 
 /* Copyright 1951  */
 
@@ -4212,6 +4212,9 @@ select distinct composer from Composers_Songs order by composer;
 select distinct lyricist from Lyricists_Songs order by lyricist;
 
 select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
+
+select distinct musical, film, opera, operetta, revue from Songs where musical is not null or film is not null 
+or opera is not null or operetta is not null or revue is not null order by musical, film, opera, operetta, revue;
 
 /* * (1)  */
 
