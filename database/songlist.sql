@@ -779,7 +779,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 opera, scanned, scanned_filename, source, sort_by_production, public_domain, year, language)
 values
 ("Furtiva lagrima, Una", "Felice Romani", "Romani, Felice",
-"Gaetano Donizetti", "Donizetti, Gaetano", false, "L’elisir d’amore", false, "",
+"Gaetano Donizetti", "Donizetti, Gaetano", false, "Elisir d’amore, L’", false, "",
 "{\\bf Opern-Arien, Tenor}, p.~72.", true, true, 1832, "italian");
 
 /* ** *************************************************** */
@@ -4213,8 +4213,8 @@ select distinct lyricist from Lyricists_Songs order by lyricist;
 
 select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
 
-select distinct musical, film, opera, operetta, revue from Songs where musical is not null or film is not null 
-or opera is not null or operetta is not null or revue is not null order by musical, film, opera, operetta, revue;
+select distinct musical, film, opera, operetta, revue, year from Songs where musical is not null or film is not null 
+or opera is not null or operetta is not null or revue is not null order by year, musical, film, opera, operetta, revue;
 
 /* * (1)  */
 
