@@ -1624,10 +1624,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical)
+replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical, year, source)
 values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
-"Street Scene");
+"Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\&} Hollywood}, p.~108.");
+
+/* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
@@ -2470,6 +2472,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
+source, scanned, scanned_filename)
+values
+("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
+true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
@@ -3102,6 +3112,8 @@ replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Lost in t
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Moon-Faced, Starry-Eyed");
 
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "What Good Would the Moon Be?");
+
 replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Hooray For Hollywood");
 
 replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Japanese Sandman");
@@ -3369,6 +3381,8 @@ replace into Lyricists_Songs (lyricist, title) values
 ("Adams, Frank R.", "I Wonder Who's Kissing Her Now");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "Moon-Faced, Starry-Eyed");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "What Good Would the Moon Be?"); 
 
 replace into Lyricists_Songs (lyricist, title) values ("James, Paul (Warburg, James Paul)", "Fine and Dandy");
 
