@@ -3186,6 +3186,16 @@ replace into Lyricists_Songs (lyricist, title) values ("Caesar, Irving", "Tea fo
 
 replace into Lyricists_Songs (lyricist, title) values ("Cahn, Sammy", "Things We Did Last Summer, The");
 
+-- select * from Lyricists_Songs where title = "Things We Did Last Summer, The";
+
+-- select * from Lyricists_Songs where title = "Things We Did Last Summer, The";
+
+-- select * from Composers_Songs where title = "Things We Did Last Summer, The";
+
+-- delete from Composers_Songs where title = "Things We Did Last Summer, The";
+
+-- delete from Lyricists_Songs where title = "Things We Did Last Summer, The";
+
 replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty and Green, Adolf", "Party's Over, The");
