@@ -1632,10 +1632,13 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical, 
+year, source)
 values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
 "Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\&} Hollywood}, p.~108.");
+
+select * from Songs where musical = "Street Scene"\G
 
 /* ** *************************************************** */
 
@@ -2480,8 +2483,8 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
-source, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
+year, source, scanned, scanned_filename)
 values
 ("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf");
