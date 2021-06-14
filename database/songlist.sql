@@ -405,8 +405,6 @@ values
 
 /* ** *************************************************** */
 
-/* ** *************************************************** */
-
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, recordings, year, language)
 values
 ("Capri Fischer", "Ralph Maria Siegel", "Siegel, Ralph Maria", "Gerhard Winkler", "Winkler, Gerhard", 
@@ -517,6 +515,16 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Coquette", "Gus Kahn", "Kahn, Gus", "John W.~Green and Carmen Lombardo",
 "Green, John W.~and Lombardo, Carmen", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename, language)
+values
+("Corcovado", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1962,
+"Copyright {\\copyright} 1962, 1964 (Renewed)",
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~144.", true, "corcvado.pdf",
+"portugese");
 
 /* ** *************************************************** */
 
@@ -3823,6 +3831,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me t
 
 replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
 replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Corcovado");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Corcovado");
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Desafinado");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Desafinado");
