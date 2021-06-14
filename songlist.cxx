@@ -594,14 +594,29 @@ main(int argc, char **argv)
                lyricists_file << "\\vskip6pt" << endl;
 
             lyricists_file << "\\leavevmode\\hbox to \\twozerosbolddimen{\\hss{\\mediumbx " 
-                           << curr_ctr << "}}\\hskip.5em " 
-                           << iter->second << "\\hfil\\break" << endl;
+                           << curr_ctr << "}}\\hskip.5em ";
+
+
         }
         else
-           lyricists_file << "\\hbox{}\\hskip\\twozerosbolddimen\\hskip.5em " 
-                          << iter->second << "\\hfil\\break"
-                          << endl;
-     }
+           lyricists_file << "\\hbox{}\\hskip\\twozerosbolddimen\\hskip.5em ";
+
+        /* Bug fix:  If there was no comma in |iter->second|, e.g., if it was
+           "None" or "Unknown", the vertical spacing between the corresponding line
+           and the following line was too small.  In this case, an empty \vbox with the
+           depth of `\commabox' (defined in `songlist.mac') is inserted at the beginning
+           of the line using `\vtop'.
+           LDF 2021.06.14.  */
+
+        if (iter->second.find(",") == string::npos)
+           lyricists_file << "\\vtop to \\dp\\commabox{\\vfil}";
+
+        lyricists_file << iter->second << "\\hfil\\break"
+                       << endl;
+
+     }  /* |for|  */
+
+/* *** (3) */
 
      cerr << endl;
 
