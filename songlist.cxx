@@ -672,13 +672,14 @@ main(int argc, char **argv)
              {
                 cerr << iter->scanned_filename << endl;
 
+#if 0 
                 if (tolower(prev_title_char) == 's' && tolower(iter->title[0]) == 't')
                 { 
                    cerr << endl 
                         << "iter->title[0] == " << iter->title[0] << endl 
                         << "prev_title_char == " << prev_title_char << endl;
  
-    
+
                    scanned_file << "%%" << endl 
                                 << "%% !! The following line of TeX code causes `scanned.tex' to be split at this point," << endl 
                                 << "%% i.e., between \"S\" and \"T\"" << endl 
@@ -689,7 +690,7 @@ main(int argc, char **argv)
                                 << "%% End of code for \"manual\" splitting." << endl
                                 << "%%" << endl;
                 }
-
+#endif 
                 scanned_file << "\\SCANNED{" << iter->title;
                 
                 if (iter->public_domain == true)
