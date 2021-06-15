@@ -783,6 +783,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, source, scanned, scanned_filename)
+values
+("Frim Fram Sauce, The", "Redd Evans", "Evans, Redd", "Joe Ricardel", "Ricardel, Joe", true, 
+1946, "{\\bf Library of Jazz Standards, The}, p.~94.", true, "frimfram.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 opera, scanned, scanned_filename, source, sort_by_production, public_domain, year, language)
 values
@@ -3028,6 +3036,8 @@ replace into Composers_Songs (composer, title) values ("Revaux, Jacques", "Comme
 
 replace into Composers_Songs (composer, title) values ("Fran{\\c c}ois, Claude", "Comme d'Habitude");
 
+replace into Composers_Songs (composer, title) values ("Ricardel, Joe", "Frim Fram Sauce, The");
+
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Falling in Love With Love");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady is a Tramp, The");
@@ -3278,6 +3288,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Eliscu, Edward", "Carioc
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Carioca");
 
 replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Tammy");
+
+replace into Lyricists_Songs (lyricist, title) values ("Evans, Redd", "Frim Fram Sauce, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "On the Sunny Side of the Street");
 
