@@ -1805,6 +1805,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
+source, scanned, scanned_filename)
+values
+("On Green Dolphin Street", "Ned Washington", "Washington, Ned", "Bronislau Kaper", "Kaper, Bronislau",
+true, "Green Dolphin Street", 1947, "{\\bf 100 Years of Popular Music, 1940s, Part Two}, p.~186.",
+true, "grndlphn.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
 sort_by_production)
 values
@@ -2906,6 +2915,8 @@ replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Stran
 
 replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Spanish Eyes (Moon Over Naples)");
 
+replace into Composers_Songs (composer, title) values ("Kaper, Bronislau", "On Green Dolphin Street");
+
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "All the Things You Are");
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Make Believe");
@@ -3681,6 +3692,8 @@ replace into Lyricists_Songs (lyricist, title) values
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Cosi Cosa");
 
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned",  "Nearness of You, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "On Green Dolphin Street");
 
 replace into Lyricists_Songs (lyricist, title) values ("Washington, Ned", "Smoke Rings");
 
