@@ -210,6 +210,8 @@ values
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
 true, 1, true, "Day at the Races, A");
 
+/* ** *************************************************** */
+
 -- delete from Songs where title = "All I Do Is Dream Of You";
 
 -- select * from Songs where title = "All I Do Is Dream Of You"\G
@@ -1611,6 +1613,14 @@ values
  	
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+scanned, scanned_filename, source)
+values
+("Memories of You", "Andy Razaf", "Razaf, Andy", "Eubie Blake", "Blake, Eubie",
+true, 1930, true, "memrsofy.pdf", "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~204.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, notes)
 values
 ("Message From the Man in the Moon, A", "Gus Kahn", "Kahn, Gus", "Walter Jurmann and Bronislaw Kaper",
@@ -2298,6 +2308,15 @@ true, true, "teafrtwo.pdf");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Temptation", "Arthur Freed", "Freed, Arthur",
+"Nacio Herb Brown", "Brown, Nacio Herb", true, 1933,
+"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~272.", true, "temptatn.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, musical, source)
 values
 ("Ten Cents a Dance", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1930,
@@ -2719,6 +2738,8 @@ replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Yo
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
 
+replace into Composers_Songs (composer, title) values ("Blake, Eubie", "Memories of You");
+
 replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rush In (Where Angels Fear to Tread)");
 
 replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Abends in der Taverna");
@@ -2728,6 +2749,8 @@ replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Samba de Orfeu");
 
 replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "All I Do Is Dream Of You");
+
+replace into Composers_Songs (composer, title) values ("Brown, Nacio Herb", "Temptation");
 
 -- delete from Composers_Songs where title = "Wedding of the Painted Doll, The";
 
@@ -3316,6 +3339,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Fontenoy, Marc", "Buenos
 
 replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "All I Do Is Dream Of You");
 
+replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "Temptation");
+
 replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "Wedding of the Painted Doll, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Freed, Ralph", "How About You?");
@@ -3641,6 +3666,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Pinelli, Aldo von", "Abe
 replace into Lyricists_Songs (lyricist, title) values ("Prevert, Jacques", "Feuilles Mortes, Les");
 
 replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Ain't Misbehavin'");
+
+replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Memories of You");
 
 replace into Lyricists_Songs (lyricist, title) values ("Reaves, Erell", "Lady of Spain");
 
