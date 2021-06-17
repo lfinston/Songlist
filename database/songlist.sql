@@ -290,7 +290,7 @@ true, 1926, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~24.", true, 
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, recordings)
 values
-("Baby, It's Cold Outside", "Frank Loesser", "Frank, Loesser", true, 1 /* '  */); 
+("Baby, It's Cold Outside", "Frank Loesser", "Loesser, Frank", true, 1 /* '  */); 
 
 /* ** *************************************************** */
 
