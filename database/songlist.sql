@@ -2506,7 +2506,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
-("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur", "Nacio Herb Brown", "Nacio Brown, Herb", true,
+("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur", "Nacio Herb Brown", "Brown, Nacio Herb", true,
 "Broadway Melody, The", 1929);
 
 /* ** *************************************************** */
