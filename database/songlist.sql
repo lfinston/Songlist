@@ -1614,10 +1614,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-scanned, scanned_filename, source)
+scanned, scanned_filename, source, musical)
 values
 ("Memories of You", "Andy Razaf", "Razaf, Andy", "Eubie Blake", "Blake, Eubie",
-true, 1930, true, "memrsofy.pdf", "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~204.");
+true, 1930, true, "memrsofy.pdf", "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~204.",
+"Blackbirds of 1930");
 
 /* ** *************************************************** */
 
