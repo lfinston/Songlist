@@ -2310,11 +2310,11 @@ true, true, "teafrtwo.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, film)
 values
 ("Temptation", "Arthur Freed", "Freed, Arthur",
 "Nacio Herb Brown", "Brown, Nacio Herb", true, 1933,
-"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~272.", true, "temptatn.pdf");
+"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~272.", true, "temptatn.pdf", "Going Hollywood");
 
 /* ** *************************************************** */
 
