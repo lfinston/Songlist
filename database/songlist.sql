@@ -1135,6 +1135,19 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, public_domain,
+scanned, scanned_filename, source)
+values
+("I'm Forever Blowing Bubbles", "John Kellette, James Brockman, Nat Vincent and James Kendis", 
+"Kellette, John; Brockman, James; Vincent, Nat and Kendis, James", 
+true, 1919, true, true, "imfrvrbb.pdf",
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78}."
+"\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~150.}}");
+
+select * from Songs where title = "I'm Forever Blowing Bubbles"\G
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 recordings, year, film)
 values
@@ -1148,7 +1161,7 @@ scanned, scanned_filename, source)
 values
 ("I'm Just Wild About Harry", "Noble Sissle", "Sissle, Noble", "Eubie Blake", "Blake, Eubie", true, 1921,
 true, true, "imwldahr.pdf",
-"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102}"
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102.}"
 "\\hbox{{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~132.}}");
 
 /* ** *************************************************** */
@@ -3933,6 +3946,18 @@ replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Wave");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Wave");
+
+replace into Composers_Songs (composer, title) values ("Kellette, John", "I'm Forever Blowing Bubbles");
+replace into Lyricists_Songs (lyricist, title) values ("Kellette, John", "I'm Forever Blowing Bubbles");
+
+replace into Composers_Songs (composer, title) values ("Brockman, James", "I'm Forever Blowing Bubbles");
+replace into Lyricists_Songs (lyricist, title) values ("Brockman, James", "I'm Forever Blowing Bubbles");
+
+replace into Composers_Songs (composer, title) values ("Vincent, Nat", "I'm Forever Blowing Bubbles");
+replace into Lyricists_Songs (lyricist, title) values ("Vincent, Nat", "I'm Forever Blowing Bubbles");
+
+replace into Composers_Songs (composer, title) values ("Kendis, James", "I'm Forever Blowing Bubbles");
+replace into Lyricists_Songs (lyricist, title) values ("Kendis, James", "I'm Forever Blowing Bubbles"); 
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
 replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siempre en mi Coraz{\\'o}n");
