@@ -892,6 +892,18 @@ values
 ("Heat Wave", "Irving Berlin", "Berlin, Irving", true, 1933, "{\\copyright} 1933 (Renewed)",
 "As Thousands Cheer");
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, public_domain,
+scanned, scanned_filename, source, notes)
+values
+("Hello! Ma Baby", "Joe E.~Howard and Ida Emerson", "Howard, Joe E.~and Emerson, Ida", true, 1899,
+true, true, "hlmababy.pdf",
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~98.}"
+"\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~128.}}",
+"Verse missing in {\\bf 100 Years of Popular Music, 1900}.  Title and attribution vary.");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -1123,9 +1135,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+recordings, year, film)
 values
-("I'm in the Mood for Love", "Dorothy Fields", "Fields, Dorothy", "Jimmy McHugh", "McHugh, Jimmy", true, 1);
+("I'm in the Mood for Love", "Dorothy Fields", "Fields, Dorothy", "Jimmy McHugh", "McHugh, Jimmy", true, 1,
+1935, "Every Night at Eight");
 
 /* ** *************************************************** */
 
@@ -3898,6 +3912,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Hollaender, Friedrich", 
 
 replace into Composers_Songs (composer, title) values ("Howard, Bart", "Fly Me to the Moon (In Other Words)");
 replace into Lyricists_Songs (lyricist, title) values ("Howard, Bart", "Fly Me to the Moon (In Other Words)");
+
+replace into Composers_Songs (composer, title) values ("Howard, Joe E.", "Hello! Ma Baby");
+replace into Lyricists_Songs (lyricist, title) values ("Howard, Joe E.", "Hello! Ma Baby");
+
+replace into Composers_Songs (composer, title) values ("Emerson, Ida", "Hello! Ma Baby");
+replace into Lyricists_Songs (lyricist, title) values ("Emerson, Ida", "Hello! Ma Baby");
 
 replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
 replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
