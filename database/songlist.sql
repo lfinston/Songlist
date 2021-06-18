@@ -1129,6 +1129,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain,
+scanned, scanned_filename, source)
+values
+("I'm Just Wild About Harry", "Noble Sissle", "Sissle, Noble", "Eubie Blake", "Blake, Eubie", true, 1921,
+true, true, "imwldahr.pdf",
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102}"
+"\\hbox{{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~132.}}");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
 ("I'm Shooting High", "Ted Koehler and Charles Wilmott", "Koehler, Ted and Wilmott, Charles",
@@ -2739,6 +2749,8 @@ replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Yo
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
 
+replace into Composers_Songs (composer, title) values ("Blake, Eubie", "I'm Just Wild About Harry");
+
 replace into Composers_Songs (composer, title) values ("Blake, Eubie", "Memories of You");
 
 replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rush In (Where Angels Fear to Tread)");
@@ -3695,6 +3707,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Sigman, Carl", "Where Do
 replace into Lyricists_Songs (lyricist, title) values ("Silvers, Phil", "Nancy with the Laughing Face");
 
 replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "Spanish Eyes (Moon Over Naples)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sissle, Noble", "I'm Just Wild About Harry");
 
 replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Spanish Eyes (Moon Over Naples)");
 
