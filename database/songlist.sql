@@ -1139,7 +1139,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, source)
 values
 ("I'm Forever Blowing Bubbles", "John Kellette, James Brockman, Nat Vincent and James Kendis", 
-"Kellette, John; Brockman, James; Vincent, Nat and Kendis, James", 
+"\\vbox{\\hbox{Kellette, John; Brockman, James;}\\hbox{Vincent, Nat and Kendis, James}}", 
 true, 1919, true, true, "imfrvrbb.pdf",
 "\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78}."
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~150.}}");
