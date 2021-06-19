@@ -1010,7 +1010,7 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production,source)
+opera, sort_by_production, source)
 values
 ("I Got Plenty o' Nuttin'", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
 "George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
