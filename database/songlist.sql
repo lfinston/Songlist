@@ -2574,6 +2574,14 @@ true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79."
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename)
+values
+("What a Wonderful World", "George David Weiss and Bob Thiele", "Weiss, George David and Thiele, Bob", 
+true, 1967, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~504.", true, "whtwndfl.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
@@ -4067,7 +4075,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand 
 replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
 replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
 
-
+replace into Composers_Songs (composer, title) values ("Weiss, George David", "What a Wonderful World");
+replace into Lyricists_Songs (lyricist, title) values ("Weiss, George David", "What a Wonderful World");
+replace into Composers_Songs (composer, title) values ("Thiele, Bob", "What a Wonderful World");
+replace into Lyricists_Songs (lyricist, title) values ("Thiele, Bob", "What a Wonderful World");
 
 /* * (1)  Composers and Lyricists */
 
