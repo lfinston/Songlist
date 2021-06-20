@@ -1761,6 +1761,15 @@ values
 ("My Melancholy Baby", "George A. Norton", "Norton, George A.", "Ernie Burnett", "Burnett, Ernie", 
 true, true, "mymelbby.pdf", 1912, true);
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+scanned, scanned_filename, year, copyright, source)
+values
+("My Old Flame", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", 
+true, true, "myoldflm.pdf", 1934, "Copyright {\\copyright} 1934 (Renewed 1961) by Famous Music Corporation",
+"{\\bf Big Book of Standards}, p.~212.");
+
 /* N   */
 
 /* ** *************************************************** */
@@ -2954,6 +2963,8 @@ replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cock
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Just One More Chance");
 
+replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "My Old Flame");
+
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Pennies from Heaven");
 
 replace into Composers_Songs (composer, title) values ("Jones, Isham", "I'll See You in My Dreams");
@@ -3310,6 +3321,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty and Green,
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
 
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Just One More Chance");
+
+replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "My Old Flame");
 
 replace into Lyricists_Songs (lyricist, title) values ("Cour, Pierre", "Amour est bleu, L'");
 
