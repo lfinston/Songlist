@@ -1764,11 +1764,11 @@ true, true, "mymelbby.pdf", 1912, true);
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-scanned, scanned_filename, year, copyright, source)
+scanned, scanned_filename, year, copyright, source, film)
 values
 ("My Old Flame", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", 
 true, true, "myoldflm.pdf", 1934, "Copyright {\\copyright} 1934 (Renewed 1961) by Famous Music Corporation",
-"{\\bf Big Book of Standards}, p.~212.");
+"{\\bf Big Book of Standards}, p.~212.", "Belle of the Nineties");
 
 /* N   */
 
