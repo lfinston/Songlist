@@ -1734,6 +1734,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+copyright, source, scanned, scanned_filename)
+values
+("Music Goes 'Round and Around, The", "Red Hodgson", "Hodgson, Red",
+"Edward Farley and Michael Riley", "Farley, Edward and Riley, Michael", true,
+1935, "Copyright {\\copyright} 1935 (Renewed).", "{\\bf Big Book of Big Band Hits, The}, p.~175.",
+true, "mscgsrnd.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("My Baby Just Cares for Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true);
@@ -2566,19 +2576,19 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
-year, source, scanned, scanned_filename)
-values
-("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
-true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf");
-
-/* ** *************************************************** */
-
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
 scanned, scanned_filename)
 values
 ("What a Wonderful World", "George David Weiss and Bob Thiele", "Weiss, George David and Thiele, Bob", 
 true, 1967, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~504.", true, "whtwndfl.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
+year, source, scanned, scanned_filename)
+values
+("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
+true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf");
 
 /* ** *************************************************** */
 
@@ -2888,6 +2898,9 @@ replace into Composers_Songs (composer, title) values ("Fain, Sammy", "I'll Be S
 replace into Composers_Songs (composer, title) values ("Fain, Sammy", "That Old Feeling");
 
 replace into Composers_Songs (composer, title) values ("Fain, Sammy", "By a Waterfall");
+
+replace into Composers_Songs (composer, title) values ("Farley, Edward", "Music Goes 'Round and Around, The");
+replace into Composers_Songs (composer, title) values ("Riley, Michael", "Music Goes 'Round and Around, The");
 
 replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie ``Tango Tzigane'' (Jealousy)");
 
@@ -3494,11 +3507,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Heyward, DuBose", "I Got
 
 -- select * from Lyricists_Songs where lyricist = "Gershwin, Ira" order by title;
 
-replace into Lyricists_Songs (lyricist, title) values 
-("Hough, Will M.", "I Wonder Who's Kissing Her Now");
+replace into Lyricists_Songs (lyricist, title) values ("Hough, Will M.", "I Wonder Who's Kissing Her Now");
 
-replace into Lyricists_Songs (lyricist, title) values 
-("Adams, Frank R.", "I Wonder Who's Kissing Her Now");
+replace into Lyricists_Songs (lyricist, title) values ("Adams, Frank R.", "I Wonder Who's Kissing Her Now");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hodgson, Red", "Music Goes 'Round and Around, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "Moon-Faced, Starry-Eyed");
 
