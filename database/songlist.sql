@@ -378,9 +378,24 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, lead_sheet, language)
+-- select title from Songs where title like("Buen%");
+
+-- select title from Composers_Songs where title like("Buen%");
+
+-- select title from Lyricists_Songs where title like("Buen%");
+
+-- delete from Songs where title = "Buenos Noches Mon Amour";
+
+-- delete from Songs where title like("Buen%");
+
+-- delete from Composers_Songs where title = "Buenos Noches Mon Amour";
+-- delete from Lyricists_Songs where title = "Buenos Noches Mon Amour";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, source, language)
 values
-("Buenos Noches Mon Amour", true, "spanish");
+("Buenas Noches mi Amor", "Marc Fontenoy", "Fontenoy, Marc", "Hubert Giraud", "Giraud, Hubert", 
+true, 1957, "{\\bf 40 franz{\\\"o}sische Chansons}, p.~99.", "french");
 
 /* ** *************************************************** */
 
@@ -2932,7 +2947,7 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "They
 
 replace into Composers_Songs (composer, title) values ("Gifford, H.~Eugene", "Smoke Rings");
 
-replace into Composers_Songs (composer, title) values ("Giraud, Hubert", "Buenos Noches Mon Amour");
+replace into Composers_Songs (composer, title) values ("Giraud, Hubert", "Buenas Noches mi Amor");
 
 replace into Composers_Songs (composer, title) values ("Green, John W.", "I Cover the Waterfront");
 
@@ -3419,7 +3434,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Fine 
 
 replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "Pick Yourself Up");
 
-replace into Lyricists_Songs (lyricist, title) values ("Fontenoy, Marc", "Buenos Noches Mon Amour");
+replace into Lyricists_Songs (lyricist, title) values ("Fontenoy, Marc", "Buenas Noches mi Amor");
 
 replace into Lyricists_Songs (lyricist, title) values ("Freed, Arthur", "All I Do Is Dream Of You");
 
