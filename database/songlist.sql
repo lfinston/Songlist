@@ -388,6 +388,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("By a Waterfall", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true, 1, true, 1933);
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+public_domain, scanned, scanned_filename)
+values
+("By The Light Of The Silvery Moon", "Ed Madden", "Madden, Ed", "Gus Edwards", "Edwards, Gus", true, 1909,
+"{\\bf 100 Years of Popular Music, 1900}, p.~52.", true, true, "bltslvmn.pdf");
+
 /* C   */
 
 /* ** *************************************************** */
@@ -2879,6 +2887,8 @@ replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't Get Started");
 
+replace into Composers_Songs (composer, title) values ("Edwards, Gus", "By The Light Of The Silvery Moon");
+
 replace into Composers_Songs (composer, title) values ("Ellington, Duke", "Prelude to a Kiss");
 
 replace into Composers_Songs (composer, title) values ("Ellington, Duke", "Sophisticated Lady");
@@ -3680,6 +3690,8 @@ values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
 
 -- delete from Lyricists_Songs where title = "Incerteza";
+
+replace into Lyricists_Songs (lyricist, title) values ("Madden, Ed", "By The Light Of The Silvery Moon"); 
 
 replace into Lyricists_Songs (lyricist, title) values ("Mendon{\\c c}a, Newton F.", "Incerteza");
 
