@@ -2187,10 +2187,11 @@ true, 1928, "{\\bf 100 Years of Popular Music, 20s -- Volume 1}, p.~222.", true,
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, public_domain)
+source, scanned, scanned_filename, public_domain, revue)
 values
 ("Shine On Harvest Moon", "Jack Norworth", "Norworth, Jack", "Nora Bayes", "Bayes, Nora", true,
-1908, "{\\bf 100 Years of Popular Music, 1900}, p.~328.", true, "shnhrvmn.pdf", true);
+1908, "{\\bf 100 Years of Popular Music, 1900}, p.~328.", true, "shnhrvmn.pdf", true,
+"Ziegfeld Follies (1908)");
 
 /* ** *************************************************** */
 
