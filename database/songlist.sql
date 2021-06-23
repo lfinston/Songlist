@@ -2186,12 +2186,19 @@ true, 1928, "{\\bf 100 Years of Popular Music, 20s -- Volume 1}, p.~222.", true,
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Shine On Harvest Moon", "Jack Norworth", "Norworth, Jack", "Nora Bayes", "Bayes, Nora", true,
+1908, "{\\bf 100 Years of Popular Music, 1900}, p.~328.", true, "shnhrvmn.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
 sort_by_production, source)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
-
 
 /* ** *************************************************** */
 
@@ -3129,6 +3136,10 @@ replace into Composers_Songs (composer, title) values ("Nichols, Roger", "Rainy 
 
 replace into Composers_Songs (composer, title) values ("Nichols, Roger", "We've Only Just Begun");
 
+replace into Composers_Songs (composer, title) values ("Bayes, Nora", "Shine On Harvest Moon");
+
+-- delete from Composers_Songs where title = "Shine On Harvest Moon";
+
 replace into Composers_Songs (composer, title) values ("Offenbach, Jacques", "Barcarole");
 
 -- select * from Composers_Songs where composer = "Offenbach, Jacques";
@@ -3311,6 +3322,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Il {\\
 replace into Lyricists_Songs (lyricist, title) values ("Barbier, Jules", "Oiseaux dans les charmille, Les");
 
 replace into Lyricists_Songs (lyricist, title) values ("Barouh, Pierre", "Homme et une femme, Un");
+
+replace into Lyricists_Songs (lyricist, title) values ("Norworth, Jack", "Shine On Harvest Moon");
 
 replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Bel Ami");
 
