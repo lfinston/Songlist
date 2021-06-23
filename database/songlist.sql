@@ -2109,7 +2109,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, public_domain)
 values
-("Rock-a-Bye Your Baby (With a Dixie Melody)", "Sam M.~Lewis and Joe Young", "Lewis, Sam M. and Young, Joe", 
+("Rock-a-Bye Your Baby (With a Dixie Melody)", "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe", 
 "Jean Schwarz", "Schwarz, Jean", true, 1918, true, "rckbybby.pdf", true);
 
 /* ** *************************************************** */
@@ -2187,10 +2187,10 @@ true, 1928, "{\\bf 100 Years of Popular Music, 20s -- Volume 1}, p.~222.", true,
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, public_domain)
 values
 ("Shine On Harvest Moon", "Jack Norworth", "Norworth, Jack", "Nora Bayes", "Bayes, Nora", true,
-1908, "{\\bf 100 Years of Popular Music, 1900}, p.~328.", true, "shnhrvmn.pdf");
+1908, "{\\bf 100 Years of Popular Music, 1900}, p.~328.", true, "shnhrvmn.pdf", true);
 
 /* ** *************************************************** */
 
