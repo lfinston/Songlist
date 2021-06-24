@@ -1711,11 +1711,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, musical, 
-year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
+year, source, scanned, scanned_filename)
 values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
-"Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\&} Hollywood}, p.~108.");
+"Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\&} Hollywood}, p.~108.", true, "moonfacd.pdf");
 
 select * from Songs where musical = "Street Scene"\G
 
