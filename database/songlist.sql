@@ -855,6 +855,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, musical, source, scanned, scanned_filename)
+values
+("Girl of the Moment", "Ira Gershwin", "Gershwin, Ira", "Kurt Weill", "Weill, Kurt", 
+true, 1941, "Lady in the Dark", "{\\bf Kurt Weill, Broadway and Hollywood}, p.~42.",
+true, "girlmmnt.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
 notes, scanned, scanned_filename)
 values
@@ -2166,9 +2175,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns_with_two_songbooks, musical)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
+year, source, scanned, scanned_filename)
 values
-("September Song", "Maxwell Anderson", "Anderson, Maxwell", "Kurt Weill", "Weill, Kurt", true, "Knickerbocker Holiday");
+("September Song", "Maxwell Anderson", "Anderson, Maxwell", "Kurt Weill", "Weill, Kurt", 
+true, "Knickerbocker Holiday", 1938, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~40.", 
+true, "sptmbsng.pdf");
 
 /* ** *************************************************** */
 
@@ -3268,13 +3280,15 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young a
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "You're Getting to Be a Habit With Me");
 
-replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Speak Low");
-
-replace into Composers_Songs (composer, title) values ("Weill, Kurt", "September Song");
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Girl of the Moment");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Lost in the Stars");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Moon-Faced, Starry-Eyed");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "September Song");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Speak Low");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "What Good Would the Moon Be?");
 
@@ -3461,6 +3475,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Freed, Ralph", "How Abou
 replace into Lyricists_Songs (lyricist, title) values ("Galhardo, Jos{\\'e}", "Lisboa Antiga");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Embraceable You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Girl of the Moment");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "I Can't Get Started");
 
