@@ -1854,6 +1854,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Nice Work If You Can Get It", "Ira Gershwin", "Gershwin, Ira",
+"George Gershwin", "Gershwin, George", true, 1937, 
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~99.}"
+"\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}, p.~270.}}", true, "nicework.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year)
 values
 ("Night and Day", "Cole Porter", "Porter, Cole", true,
@@ -2965,6 +2975,8 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "Let'
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Liza (All the Clouds'll Roll Away)");
 
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Nice Work If You Can Get It");
+
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Somebody Loves Me");
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
@@ -3503,6 +3515,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Let's C
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Liza (All the Clouds'll Roll Away)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Long Ago (and Far Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Nice Work If You Can Get It");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Someone to Watch Over Me");
 
