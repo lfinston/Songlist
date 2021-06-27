@@ -340,10 +340,8 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
 lead_sheet, sort_by_production)
 values
-("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", 
-"Wodehouse, P.G. and Hammerstein, Oscar II", 
-"Jerome Kern", "Kern, Jerome",
-"Showboat", true, true);
+("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", "Wodehouse, P.G. and Hammerstein, Oscar II", 
+"Jerome Kern", "Kern, Jerome", "Showboat", true, true);
 
 /* ** *************************************************** */
 
@@ -1351,6 +1349,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename)
+values
+("Just in Time", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
+true, 1956, "{\\bf The Comden and Green Songbook}, p.~68.", "Bells are Ringing", true, "justtime.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
 scanned, scanned_filename)
 values
@@ -2296,9 +2302,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
-("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", true, "One Touch of Venus");
+("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", true, "One Touch of Venus", 1943);
 
 /* ** *************************************************** */
 
@@ -3243,6 +3249,8 @@ replace into Composers_Songs (composer, title) values ("Strouse, Charles", "Put 
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Diamonds are a Girl's Best Friend");
 
+replace into Composers_Songs (composer, title) values ("Styne, Jule", "Just in Time");
+
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's Over, The");
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We Did Last Summer, The");
@@ -3390,7 +3398,15 @@ replace into Lyricists_Songs (lyricist, title) values ("Cahn, Sammy", "Things We
 
 replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
-replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty and Green, Adolf", "Party's Over, The");
+-- delete from Lyricists_Songs where lyricist = "Comden, Betty" limit 1;
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Just in Time");
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Party's Over, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Just in Time");
+
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Party's Over, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
 
@@ -4433,8 +4449,12 @@ select distinct lyricist from Lyricists_Songs order by lyricist;
 
 select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
 
-select distinct musical, film, opera, operetta, revue, year from Songs where musical is not null or film is not null 
-or opera is not null or operetta is not null or revue is not null order by year, musical, film, opera, operetta, revue;
+select title, musical, film, revue, opera, operetta, year from Songs where musical is not null or film is not null 
+or opera is not null or operetta is not null or revue is not null order by title\G
+
+select musical, title, music, words, words_and_music, year from Songs where musical is not null 
+and music = "Kurt Weill" order by year;
+
 
 /* * (1)  */
 
