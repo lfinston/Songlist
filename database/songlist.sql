@@ -1855,10 +1855,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+film, source, scanned, scanned_filename)
 values
 ("Nice Work If You Can Get It", "Ira Gershwin", "Gershwin, Ira",
-"George Gershwin", "Gershwin, George", true, 1937, 
+"George Gershwin", "Gershwin, George", true, 1937, "Damsel in Distress, A",
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~99.}"
 "\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}, p.~270.}}", true, "nicework.pdf");
 
