@@ -2651,6 +2651,16 @@ true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79."
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
+year, source, scanned, scanned_filename)
+values
+("When I Fall in Love", "Edward Heyman", "Heyman, Edward", "Victor Young", "Young, Victor",
+true, "One Minute to Zero", 1952, 
+"{\\bf Nat ``King'' Cole, Unforgettable.  Legendary Performers -- Volume 9}, p.~9.", 
+true, "whenlove.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
@@ -3330,13 +3340,9 @@ replace into Composers_Songs (composer, title) values ("Youmans, Vincent", "Tea 
 
 replace into Composers_Songs (composer, title) values ("Young, Victor", "Stella By Starlight");
 
+replace into Composers_Songs (composer, title) values ("Young, Victor", "When I Fall in Love");
+
 /* * (1)  */
-
-replace into Lyricists_Songs (lyricist, title) values ("Heymann, Edward", "Body and Soul");
-
-replace into Lyricists_Songs (lyricist, title) values ("Eyton Frank", "Body and Soul");
-
-replace into Lyricists_Songs (lyricist, title) values ("Sour, Robert", "Body and Soul");
 
 replace into Lyricists_Songs (lyricist, title) values ("Adams, Lee", "Put on a Happy Face");
 
@@ -3480,6 +3486,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Tammy");
 
 replace into Lyricists_Songs (lyricist, title) values ("Evans, Redd", "Frim Fram Sauce, The");
 
+replace into Lyricists_Songs (lyricist, title) values ("Eyton Frank", "Body and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Heymann, Edward", "Body and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sour, Robert", "Body and Soul");
+
 replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "On the Sunny Side of the Street");
 
 replace into Lyricists_Songs (lyricist, title) values ("Fields, Dorothy", "I'm in the Mood for Love");
@@ -3580,9 +3592,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Thou Swe
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "My Heart Stood Still");
 
+replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
+
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "Out of Nowhere");
 
-replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
+replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "When I Fall in Love");
 
 -- delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
 
