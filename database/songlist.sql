@@ -232,6 +232,18 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
+values
+("Alles f{\\\"u}hlt der Liebe Freuden", "Emanuel Schikaneder", "Schikaneder, Emanuel",
+"Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", false,
+"Zauberfl{\\\"u}te, Die", 1791, true, "allsfhlt.pdf", true,
+"{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
+
+-- select title from Songs where music = "Wolfgang Amadeus Mozart";Jacques Offenbach";
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, notes, scanned, scanned_filename)
 values
@@ -1101,10 +1113,12 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
-"Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
+"Contes d'Hoffmann, Les", 1881, true, "iletaifs.pdf", true,
 "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
 "\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
 true, "french");
+
+-- select title from Songs where music = "Jacques Offenbach";
 
 /* ** *************************************************** */
 
@@ -2668,7 +2682,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, scanned, scanned_filename)
 values
 ("When I Fall in Love", "Edward Heyman", "Heyman, Edward", "Victor Young", "Young, Victor",
-false, "One Minute to Zero", 1952, 
+true, "One Minute to Zero", 1952, 
 "{\\bf Nat ``King'' Cole, Unforgettable.  Legendary Performers -- Volume 9}, p.~9.", 
 true, "whenlove.pdf");
 
@@ -3183,6 +3197,8 @@ replace into Composers_Songs (composer, title) values ("Monaco, James", "You Mad
 replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've Got a Pocketful of Dreams");
 
 replace into Composers_Songs (composer, title) values ("Moret, Neil", "She's Funny That Way");
+
+replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "Alles f{\\\"u}hlt der Liebe Freuden");
 
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
 
@@ -3876,6 +3892,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Rainy Nigh
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner of Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Romani, Felice", "Furtiva lagrima, Una");
+
+replace into Lyricists_Songs (lyricist, title) values ("Schikaneder, Emanuel", "Alles f{\\\"u}hlt der Liebe Freuden");
 
 replace into Lyricists_Songs (lyricist, title) values ("Schiffer, Marcellus", "Heute Nacht oder nie");
 
