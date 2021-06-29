@@ -1549,6 +1549,19 @@ values
 
 /* ** *************************************************** */
 
+-- delete from Songs where title = "Listen to My Song";
+-- delete from Composers_Songs where title = "Listen to My Song";
+-- delete from Lyricists_Songs where title = "Listen to My Song";
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, musical, source, scanned, scanned_filename)
+values
+("Listen to My Song (Johnny's Song)", "Paul Green", "Green, Paul", "Kurt Weill", "Weill, Kurt", 
+true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~48.",
+true, "listsong.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Little White Lies", "Walter Donaldson", "Donaldson, Walter", true);
@@ -3312,6 +3325,8 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "You're 
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Girl of the Moment");
 
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Listen to My Song (Johnny's Song)");
+
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Lost in the Stars");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Moon-Faced, Starry-Eyed");
@@ -3545,6 +3560,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Prelud
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Prelude to a Kiss");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gorrell, Stuart", "Georgia on my Mind");
+
+replace into Lyricists_Songs (lyricist, title) values ("Green, Paul", "Listen to My Song (Johnny's Song)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nbaum, Fritz", "Du sollst der Kaiser meiner Seele sein");
 
