@@ -1398,6 +1398,16 @@ values
 
 /* ** (2) *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Keepin' Out of Mischief Now", "Andy Razaf", "Razaf, Andy",
+"Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
+true, 1932, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~85.",
+true, "kpnmschf.pdf");
+
+/* ** (2) *************************************************** */
+
 /* Knaben Wunderhorn, Des.  Gustav Mahler.
 
 select * from Songs where music = "Gustav Mahler"\G
@@ -3324,6 +3334,7 @@ replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''"
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
 
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Keepin' Out of Mischief Now");
 
 replace into Composers_Songs (composer, title) values 
 ("Warlamoff, Alexander Jegorowitsch", 
@@ -3886,6 +3897,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Pinelli, Aldo von", "Abe
 replace into Lyricists_Songs (lyricist, title) values ("Prevert, Jacques", "Feuilles Mortes, Les");
 
 replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Ain't Misbehavin'");
+
+replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Keepin' Out of Mischief Now");
 
 replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Memories of You");
 
