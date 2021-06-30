@@ -266,6 +266,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, source, scanned, scanned_filename)
+values
+("Anything You Can Do", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
+1946, "{\\bf Songs of Irving Berlin, The, Broadway Songs}, p.~2.", true, "anything.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings,
 year, scanned, scanned_filename, public_domain)
 values
@@ -2488,9 +2496,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, source)
 values
-("There's No Business Like Show Business", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true);
+("There's No Business Like Show Business", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
+1946, "{\\bf Songs of Irving Berlin, The, Broadway Songs}, p.~102.");
 
 /* ** *************************************************** */
 
@@ -2518,9 +2528,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, source)
 values
-("They Say it's Wonderful", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true);
+("They Say it's Wonderful", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
+1946, "{\\bf Songs of Irving Berlin, The, Ballads}, p.~86.");
 
 /* ** *************************************************** */
 
@@ -3978,6 +3990,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Who Will
 
 replace into Composers_Songs (composer, title) values ("Ben, Jorge", "Mas Que Nada");
 replace into Lyricists_Songs (lyricist, title) values ("Ben, Jorge", "Mas Que Nada");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Anything You Can Do");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Anything You Can Do");
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "No Strings");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Strings");
