@@ -1200,13 +1200,13 @@ select * from Songs where title = "I'm Forever Blowing Bubbles"\G
 
 /* ** *************************************************** */
 
-delete from Songs where title like("%I'm Gonna Sit%");
+-- delete from Songs where title like("%I'm Gonna Sit%");
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
 scanned, scanned_filename, source)
 values
 ("\\vtop{\\hbox{I'm Gonna Sit Right Down}\\vskip-.2\\baselineskip\\hbox{and Write Myself a Letter}\\vskip.375\\baselineskip}",
-"Joe Young", "Young, Joe", 
-"Fred E.~Ahlert", "Ahlert, Fred E.", true, 1935, true, "gonnasit.pdf",
+"Joe Young", "Young, Joe", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1935, true, "gonnasit.pdf",
 "{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~89.");
 
 /* ** *************************************************** */
