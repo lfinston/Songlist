@@ -1200,6 +1200,15 @@ select * from Songs where title = "I'm Forever Blowing Bubbles"\G
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+scanned, scanned_filename, source)
+values
+("I'm Gonna Sit Right Down and Write Myself a Letter", "Joe Young", "Young, Joe", 
+"Fred E.~Ahlert", "Ahlert, Fred E.", true, 1935, true, "gonnasit.pdf",
+"{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~89.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 recordings, year, film)
 values
@@ -2891,6 +2900,8 @@ replace	into Composers_Songs (composer, title) values ("Ager, Milton", "Ain't Sh
 
 replace into Composers_Songs (composer, title) values ("Ahlert, Fred E.", "I Don't Know Why (I Just Do)");
 
+replace into Composers_Songs (composer, title) values ("Ahlert, Fred E.", "I'm Gonna Sit Right Down and Write Myself a Letter");
+
 replace into Composers_Songs (composer, title) values ("Akst, Harry", "Baby Face");
 
 replace into Composers_Songs (composer, title) values ("Allen, Robert", "It's Not For Me to Say");
@@ -3978,6 +3989,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Wodehouse, P.G.", "Bill"
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein, Oscar II", "Bill");
 
 replace into Lyricists_Songs (lyricist, title) values ("Yellen, Jack", "Ain't She Sweet");
+
+replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "I'm Gonna Sit Right Down and Write Myself a Letter");
 
 /* * (1)  */
 
