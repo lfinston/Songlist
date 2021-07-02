@@ -1223,14 +1223,14 @@ compare_strings(string t, string s)
 	  s.erase(found_s, 6);
 	}
     }
-
   while (found_t != string::npos || found_s != string::npos);
 
-  /* Delete ``\\hbox{''  */
+
+  /* Delete ``\\vtop{''  */
 
   do
     {
-      found_t = t.find("\\hbox{");
+      found_t = t.find("\\vtop{");
       if (found_t != string::npos)
 	{
 	  found_flag = true;
@@ -1238,17 +1238,99 @@ compare_strings(string t, string s)
 
 	}
 
-      found_s = s.find("\\hbox{");
+      found_s = s.find("\\vtop{");
       if (found_s != string::npos)
 	{
 	  found_flag = true;
 	  s.erase(found_s, 6);
 	}
     }
-
   while (found_t != string::npos || found_s != string::npos);
 
+  /* Delete ``\\hbox{''  */
+
+  do
+  {
+    found_t = t.find("\\hbox{");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 6);
+
+      }
+
+    found_s = s.find("\\hbox{");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
   while (found_t != string::npos || found_s != string::npos);
+
+  /* Delete ``\\vskip''  */
+
+  do
+  {
+    found_t = t.find("\\vskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 6);
+
+      }
+
+    found_s = s.find("\\vskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
+
+  /* Delete ``\\baselineskip''  */
+
+  do
+  {
+    found_t = t.find("\\baselineskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 13);
+
+      }
+
+    found_s = s.find("\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
+
+  do
+  {
+    found_t = t.find("\\vskip{");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 7);
+
+      }
+
+    found_s = s.find("\\vskip{");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
+
+
+
 
   char tc[64];
   char sc[64];
