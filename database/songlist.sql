@@ -1376,6 +1376,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Joint is Jumpin', The", "Andy Razaf and J.C.~Johnson", "Razaf, Andy and Johnson, J.C.",
+"Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
+true, 1938, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~78.",
+true, "jntsjmpn.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("June in Janury", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true);
@@ -3347,6 +3357,8 @@ replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''"
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
 
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Joint is Jumpin', The");
+
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Keepin' Out of Mischief Now");
 
 replace into Composers_Songs (composer, title) values 
@@ -3686,6 +3698,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "Moon
 replace into Lyricists_Songs (lyricist, title) values ("Hughes, Langston", "What Good Would the Moon Be?"); 
 
 replace into Lyricists_Songs (lyricist, title) values ("James, Paul (Warburg, James Paul)", "Fine and Dandy");
+
+replace into Lyricists_Songs (lyricist, title) values ("Johnson, J.C.", "Joint is Jumpin', The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Joint is Jumpin', The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Johnston, Patricia", "I'll Remember April");
 
