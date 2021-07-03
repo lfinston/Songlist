@@ -1267,9 +1267,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+year, film, scanned, scanned_filename, source)
 values
-("Isn't It Romantic?", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true);
+("Isn't It Romantic?", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
+1932, "Love Me Tonight", true, "isntrmnt.pdf", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~192.");
 
 /* ** *************************************************** */
 
