@@ -1365,8 +1365,9 @@ getchar();
                << "\\medium" << endl
                << "\\songctr=1" << endl
                << "\\hldest{xyz}{}{french}" << endl 
-               << "\\centerline{{\\largebx French}}" << endl
-               << "\\vskip.75\\baselineskip" << endl
+               << "\\vbox{\\centerline{{\\largebx French}}" << endl
+               << "\\vskip.75\\baselineskip}" << endl
+               << "\\nobreak" << endl
                << "%%\\doublecolumns" << endl
                << "\\begingroup" << endl 
                << "\\parskip=0pt" << endl 
@@ -1380,8 +1381,9 @@ getchar();
                << "\\medium" << endl
                << "\\songctr=1" << endl
                << "\\hldest{xyz}{}{german}" << endl 
-               << "\\centerline{{\\largebx German}}" << endl
-               << "\\vskip.75\\baselineskip" << endl
+               << "\\vbox{\\centerline\\centerline{{\\largebx German}}" << endl
+               << "\\vskip.75\\baselineskip}" << endl
+               << "\\nobreak" << endl
                << "%%\\doublecolumns" << endl
                << "\\begingroup" << endl 
                << "\\parskip=0pt" << endl 
@@ -1395,8 +1397,9 @@ getchar();
                 << "\\medium" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{italian}" << endl 
-                << "\\centerline{{\\largebx Italian}}" << endl
-                << "\\vskip.75\\baselineskip" << endl
+                << "\\vbox{\\centerline{{\\largebx Italian}}" << endl
+                << "\\vskip.75\\baselineskip}" << endl
+                << "\\nobreak" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
                 << "\\parskip=0pt" << endl 
@@ -1410,8 +1413,9 @@ getchar();
                   << "\\medium" << endl
                   << "\\songctr=1" << endl
                   << "\\hldest{xyz}{}{portugese}" << endl 
-                  << "\\centerline{{\\largebx Portugese}}" << endl
-                  << "\\vskip.75\\baselineskip" << endl
+                  << "\\vbox{\\centerline{{\\largebx Portugese}}" << endl
+                  << "\\vskip.75\\baselineskip}" << endl
+                  << "\\nobreak" << endl
                   << "%%\\doublecolumns" << endl
                   << "\\begingroup" << endl 
                   << "\\parskip=0pt" << endl 
@@ -1425,8 +1429,9 @@ getchar();
                 << "\\medium" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{russian}" << endl 
-                << "\\centerline{{\\largebx Russian}}" << endl
-                << "\\vskip.75\\baselineskip" << endl
+                << "\\vbox{\\centerline{{\\largebx Russian}}" << endl
+                << "\\vskip.75\\baselineskip}" << endl
+                << "\\nobreak" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
                 << "\\parskip=0pt" << endl 
@@ -1440,8 +1445,9 @@ getchar();
                 << "\\medium" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{spanish}" << endl 
-                << "\\centerline{{\\largebx Spanish}}" << endl
-                << "\\vskip.75\\baselineskip" << endl
+                << "\\vbox{\\centerline{{\\largebx Spanish}}" << endl
+                << "\\vskip.75\\baselineskip}" << endl
+                << "\\nobreak" << endl
                 << "%%\\doublecolumns" << endl
                 << "\\begingroup" << endl 
                 << "\\parskip=0pt" << endl 
