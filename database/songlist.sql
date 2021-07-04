@@ -417,6 +417,14 @@ true, 1957, "{\\bf 40 franz{\\\"o}sische Chansons}, p.~99.", "french");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename)
+values
+("Button Up Your Overcoat", "B.G.~DeSylva, Lew Brown and Ray Henderson", "DeSylva, B.G.; Brown, Lew and Henderson, Ray",
+true, 1928, "{\\bf 100 Years of Popular Music, 20s, Volume 1}, p.~44.", true, "btnpvrct.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, arrangement_solo_guitar, year)
 values
 ("By a Waterfall", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true, 1, true, 1933);
@@ -4099,6 +4107,15 @@ replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Ro
 
 replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
 replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");
+
+replace into Composers_Songs (composer, title) values ("DeSylva, B.G.", "Button Up Your Overcoat");
+replace into Lyricists_Songs (lyricist, title) values ("DeSylva, B.G.", "Button Up Your Overcoat");
+
+replace into Composers_Songs (composer, title) values ("Brown, Lew", "Button Up Your Overcoat");
+replace into Lyricists_Songs (lyricist, title) values ("Brown, Lew", "Button Up Your Overcoat");
+
+replace into Composers_Songs (composer, title) values ("Henderson, Ray", "Button Up Your Overcoat");
+replace into Lyricists_Songs (lyricist, title) values ("Henderson, Ray", "Button Up Your Overcoat");
 
 replace into Composers_Songs (composer, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Frenesi");
 replace into Lyricists_Songs (lyricist, title) values ("Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "Frenesi");
