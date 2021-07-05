@@ -2625,6 +2625,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film,
+year, source, scanned, scanned_filename)
+values
+("Top Hat, White Tie and Tails", "Irving Berlin", "Berlin, Irving", true, "Top Hat", 
+1935, "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~102.", true, "tphtwttl.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Top of the World", "John Bettis", "Bettis, John", "Richard Carpenter", "Carpenter, Richard", true,
@@ -4048,8 +4056,29 @@ replace into Lyricists_Songs (lyricist, title) values ("Ben, Jorge", "Mas Que Na
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Anything You Can Do");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Anything You Can Do");
 
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Blue Skies");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Blue Skies");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Change Partners");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Change Partners");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Cheek to Cheek");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Cheek to Cheek");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Heat Wave");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Heat Wave");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
+
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "No Strings");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "No Strings");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Piccolino, The");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Piccolino, The");
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Pretty A Girl is Like a Melody, A");
@@ -4057,32 +4086,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Pretty
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Puttin' On the Ritz");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Puttin' On the Ritz");
 
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Heat Wave");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Heat Wave");
-
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Piccolino, The");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Piccolino, The");
-
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "There's No Business Like Show Business");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "There's No Business Like Show Business");
-
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Isn't This a Lovely Day?");
-
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Cheek to Cheek");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Cheek to Cheek");
-
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Change Partners");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Change Partners");
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "They Say it's Wonderful");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "They Say it's Wonderful");
 
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Blue Skies");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Blue Skies");
-
-replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
-replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Let's Face the Music and Dance");
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
 
 replace into Composers_Songs (composer, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
 replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
