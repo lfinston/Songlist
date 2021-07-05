@@ -490,15 +490,17 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
-("Change Partners", "Irving Berlin", "Berlin, Irving", true);
+("Change Partners", "Irving Berlin", "Berlin, Irving", true, 1938, "Carefree",
+"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~18.");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
-("Cheek to Cheek", "Irving Berlin", "Berlin, Irving", true);
+("Cheek to Cheek", "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
+"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~22.");
 
 /* ** *************************************************** */
 
@@ -950,7 +952,6 @@ values
 ("Heat Wave", "Irving Berlin", "Berlin, Irving", true, 1933, "{\\copyright} 1933 (Renewed)",
 "As Thousands Cheer");
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, public_domain,
@@ -1283,9 +1284,15 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+-- delete from Songs where title like("%Isn't This a Lovely Day?%");
+
+-- select title from Songs where title like("Isn't This a Lovely Day?%");
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
-("Isn't This a Lovely Day?", "Irving Berlin", "Berlin, Irving", true);
+("\\vtop{\\hbox{Isn't This a Lovely Day?}\\vskip-.2\\baselineskip\\hbox{(To Be Caught in the Rain)}\\vskip.375\\baselineskip}",
+"Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
+"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~45.");
 
 /* ** *************************************************** */
 
@@ -1568,9 +1575,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
-("Let's Face the Music and Dance", "Irving Berlin", "Berlin, Irving", true);
+("Let's Face the Music and Dance", "Irving Berlin", "Berlin, Irving", true, 1936,
+"Follow the Fleet", "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~64.");
 
 /* ** *************************************************** */
 
@@ -1947,9 +1955,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+-- delete from Songs where title = "No Strings";
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
-("No Strings", "Irving Berlin", "Berlin, Irving", true);
+("No Strings (I'm Fancy Free)", "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
+"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~78.");
 
 /* ** *************************************************** */
 
@@ -2107,9 +2118,10 @@ true, 1939, "spanish");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, year, source)
 values
-("Piccolino, The", "Irving Berlin", "Berlin, Irving", true, "Top Hat");
+("Piccolino, The", "Irving Berlin", "Berlin, Irving", true, "Top Hat", 1935,
+"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~78.");
 
 /* ** *************************************************** */
 
