@@ -2702,7 +2702,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, language)
 values
 ("Volver", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
-"{\\bf Carlos Gardel, Tangos $\\rm{V}^\\rm{o}$, p.~29.", true, "volver.pdf", "spanish");
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$, p.~29.", true, "volver.pdf", "spanish");
 
 select "!!! End V";
 
