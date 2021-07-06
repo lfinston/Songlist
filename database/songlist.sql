@@ -1478,8 +1478,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", false,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "lbvrstnd.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
 true, "german");
 
@@ -2699,10 +2699,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, language)
 values
 ("Volver", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
-"{\\bf Carlos Gardel, Tangos $\\rm{V}^\\rm{o}$, p.~29.", true, "volver.pdf");
+"{\\bf Carlos Gardel, Tangos $\\rm{V}^\\rm{o}$, p.~29.", true, "volver.pdf", "spanish");
 
 select "!!! End V";
 
