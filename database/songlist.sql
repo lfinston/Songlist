@@ -2696,6 +2696,14 @@ values
 ("Very Thought of You, The", "Ray Noble", "Noble, Ray", true, 1934,
 "{\\bf 100 Years of Popular Music, 1930s, Part Two}, p.~327.", true, "vrythght.pdf");
 
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Volver", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
+"{\\bf Carlos Gardel, Tangos $\\rm{V}^\\rm{o}$, p.~29.", true, "volver.pdf");
+
 select "!!! End V";
 
 /*  W  */
@@ -3076,6 +3084,8 @@ replace into Composers_Songs (composer, title) values ("Farley, Edward", "Music 
 replace into Composers_Songs (composer, title) values ("Riley, Michael", "Music Goes 'Round and Around, The");
 
 replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie ``Tango Tzigane'' (Jealousy)");
+
+replace into Composers_Songs (composer, title) values ("Gardel, Carlos"
 
 replace into Composers_Songs (composer, title) values ("Garner, Errol", "Misty");
 
@@ -3802,6 +3812,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Kurtz, Manny", "In a Sen
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "In a Sentimental Mood");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kusik, Larry", "Speak Softly, Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Le Pera, Alfredo", "Volver");
 
 replace into Lyricists_Songs (lyricist, title) values ("L{\\'e}on, Victor", "Da geh ich zu Maxim");
 
