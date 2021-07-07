@@ -2139,6 +2139,14 @@ true, "Prince Igor", true, "polowtnz.pdf", "russian");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, language)
+values
+("Por Una Cabeza", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1935,
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ II, p.~32.", true, "prunacbz.pdf", "spanish");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Prelude to a Kiss", "Irving Gordon and Irving Mills", "Gordon, Irving and Mills, Irving", "Duke Ellington", 
@@ -2698,11 +2706,13 @@ values
 
 /* ** *************************************************** */
 
+select title from Songs where music = "Carlos Gardel";
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename, language)
 values
-("Volver--", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
-"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$, p.~29.", true, "volver.pdf", "spanish");
+("Volver", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I, p.~29.", true, "volver.pdf", "spanish");
 
 select "!!! End V";
 
@@ -3085,7 +3095,11 @@ replace into Composers_Songs (composer, title) values ("Riley, Michael", "Music 
 
 replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie ``Tango Tzigane'' (Jealousy)");
 
-replace into Composers_Songs (composer, title) values ("Gardel, Carlos"
+-- select * from Composers_Songs where composer = "Gardel, Carlos";
+
+replace into Composers_Songs (composer, title) values ("Gardel, Carlos", "Por Una Cabeza");
+
+replace into Composers_Songs (composer, title) values ("Gardel, Carlos", "Volver");
 
 replace into Composers_Songs (composer, title) values ("Garner, Errol", "Misty");
 
@@ -3812,6 +3826,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Kurtz, Manny", "In a Sen
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "In a Sentimental Mood");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kusik, Larry", "Speak Softly, Love");
+
+replace into Lyricists_Songs (lyricist, title) values ("Le Pera, Alfredo", "Por Una Cabeza");
 
 replace into Lyricists_Songs (lyricist, title) values ("Le Pera, Alfredo", "Volver");
 
