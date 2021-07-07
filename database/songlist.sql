@@ -2645,11 +2645,22 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
+year, source, scanned, scanned_filename, public_domain)
+values
+("Toot Toot Tootsie, Goo'bye", "Gus Kahn, Ernie Erdman, Dan Russo and Ted Fiorito",
+"Kahn, Gus; Erdman, Ernie; Russo, Dan and Fiorito, Ted", true, "Bombo", 
+1922, "{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~281.", true,
+"toottoot.pdf", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film,
 year, source, scanned, scanned_filename)
 values
 ("Top Hat, White Tie and Tails", "Irving Berlin", "Berlin, Irving", true, "Top Hat", 
 1935, "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~102.", true, "tphtwttl.pdf");
+
 
 /* ** *************************************************** */
 
@@ -4254,6 +4265,18 @@ replace into Lyricists_Songs (lyricist, title) values ("Brockman, James", "I'm F
 
 replace into Composers_Songs (composer, title) values ("Vincent, Nat", "I'm Forever Blowing Bubbles");
 replace into Lyricists_Songs (lyricist, title) values ("Vincent, Nat", "I'm Forever Blowing Bubbles");
+
+replace into Composers_Songs (composer, title) values ("Kahn, Gus", "Toot Toot Tootsie, Goo'bye");
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Toot Toot Tootsie, Goo'bye");
+
+replace into Composers_Songs (composer, title) values ("Erdman, Ernie", "Toot Toot Tootsie, Goo'bye");
+replace into Lyricists_Songs (lyricist, title) values ("Erdman, Ernie", "Toot Toot Tootsie, Goo'bye");
+
+replace into Composers_Songs (composer, title) values ("Russo, Dan", "Toot Toot Tootsie, Goo'bye");
+replace into Lyricists_Songs (lyricist, title) values ("Russo, Dan", "Toot Toot Tootsie, Goo'bye");
+
+replace into Composers_Songs (composer, title) values ("Fiorito, Ted", "Toot Toot Tootsie, Goo'bye");
+replace into Lyricists_Songs (lyricist, title) values ("Fiorito, Ted", "Toot Toot Tootsie, Goo'bye");
 
 replace into Composers_Songs (composer, title) values ("Kendis, James", "I'm Forever Blowing Bubbles");
 replace into Lyricists_Songs (lyricist, title) values ("Kendis, James", "I'm Forever Blowing Bubbles"); 
