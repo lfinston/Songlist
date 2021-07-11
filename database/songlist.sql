@@ -1310,6 +1310,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, source, scanned, scanned_filename, musical)
+values
+("It Never Entered My Mind", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
+1940, "{\\bf Rodgers and Hart, A Musical Anthology}, p.~152.", true, "itnvrmnd.pdf", "Higher and Higher");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("It's a Pity to Say Goodnight", "Billy Reid", "Reid, Billy", true);
@@ -1798,6 +1806,15 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Misty", "Johnny Burke", "Burke, Johnny", "Errol Garner", "Garner, Errol", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, musical, source, scanned, scanned_filename)
+values
+("Mon Ami, My Friend", "Paul Green", "Green, Paul", "Kurt Weill", "Weill, Kurt", 
+true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~52.",
+true, "monamimf.pdf");
 
 /* ** *************************************************** */
 
@@ -3363,6 +3380,8 @@ replace into Composers_Songs (composer, title) values ("Ricardel, Joe", "Frim Fr
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Falling in Love With Love");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "It Never Entered My Mind");
+
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady is a Tramp, The");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Manhattan");
@@ -3458,6 +3477,8 @@ replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Girl of t
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Listen to My Song (Johnny's Song)");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Lost in the Stars");
+
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Mon Ami, My Friend");
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Moon-Faced, Starry-Eyed");
 
@@ -3721,23 +3742,27 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moo
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Falling in Love With Love");
 
-replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "I Married an Angel");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It Romantic?");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "It Never Entered My Mind");
+
+-- select * from Lyricists_Songs where title = "It Never Entered My Mind";
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Lady is a Tramp, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Manhattan");
 
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "My Heart Stood Still");
+
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Ten Cents a Dance");
 
-replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "I Married an Angel");
-
-replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took Advantage of Me");
-
-replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Isn't It Romantic?");
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Thou Swell");
 
-replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "My Heart Stood Still");
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took Advantage of Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "I Cover the Waterfront");
 
