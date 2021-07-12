@@ -268,6 +268,8 @@ process_tocs_and_npt(void)
 	   if (DEBUG)
 	     cerr << "`words_and_music'                  == " << curr_row[5] << endl;
 	   curr_song.words_and_music.assign(curr_row[5]);
+	   curr_song.words.assign(curr_row[5]);
+	   curr_song.music.assign(curr_row[5]);
 	 }
        else
 	 {
@@ -280,6 +282,8 @@ process_tocs_and_npt(void)
 	   if (DEBUG)
 	     cerr << "`words_and_music_reverse'          == " << curr_row[6] << endl;
 	   curr_song.words_and_music_reverse.assign(curr_row[6]);
+	   curr_song.words_reverse.assign(curr_row[6]);
+	   curr_song.music_reverse.assign(curr_row[6]);
 	 }
        else
 	 {
@@ -359,10 +363,6 @@ process_tocs_and_npt(void)
        {   if (DEBUG)
            cerr << "`musical'                          == NULL" << endl;
        }  
-
-
-
-
        if (curr_row[18])
        {
          if (DEBUG)

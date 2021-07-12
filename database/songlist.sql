@@ -2315,6 +2315,8 @@ values
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~18.",
 1958, true, "stdsfiav.pdf");
 
+select music_reverse, title from Songs where music_reverse like("%Jobim%");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)

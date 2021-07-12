@@ -274,6 +274,12 @@ main(int argc, char **argv)
             else if (iter->words_and_music_reverse != "")
                curr_composer = iter->words_and_music_reverse;
 
+
+             
+
+            cerr << "curr_composer == " << curr_composer << endl
+                 << "title         == " << iter->title << endl;
+
             if (curr_composer == "")
             {  
                 cerr << "WARNING!  Composer(s) not listed:" << endl 
@@ -346,6 +352,10 @@ main(int argc, char **argv)
             first_time = false;
                
      }  /* for  */
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
 
      composers_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
                     << "\\begingroup" << endl
