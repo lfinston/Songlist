@@ -697,6 +697,16 @@ values
 
 /* ** *************************************************** */
 
+delete from Songs where title = "Este Sue Olhar";
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language, source, year, scanned, 
+scanned_filename)
+values
+("Este Seu Olhar", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~46.",
+1964, true, "estsolhr.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Every Time We Say Goodbye", "Cole Porter", "Porter, Cole", true);
@@ -2298,6 +2308,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language, source, year, scanned, 
+scanned_filename)
+values
+("Se Todos Fossem Iguais A Voc{\\^e}", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
+"Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~18.",
+1958, true, "stdsfiav.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
 values
 ("September in the Rain", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1);
@@ -3208,6 +3227,8 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de Uma Nota So");
 
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Se Todos Fossem Iguais A Voc{\\^e}");  
+
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Just One More Chance");
@@ -3990,11 +4011,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Modugno, Domenico", "Nel
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Chega de Saudade");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Felicidade, A");
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Felicidade, A");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Gar{\\\^o}ta de Ipanema");
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Gar{\\\^o}ta de Ipanema");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de",  "Insensatez");
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Insensatez");
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Se Todos Fossem Iguais A Voc{\\^e}");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
 
@@ -4273,6 +4296,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Ti
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Corcovado");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Corcovado");
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos",  "Este Seu Olhar");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos",  "Este Seu Olhar");
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Desafinado");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Desafinado");
