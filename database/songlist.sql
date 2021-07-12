@@ -2319,9 +2319,11 @@ select music_reverse, title from Songs where music_reverse like("%Jobim%");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, 
+film)
 values
-("September in the Rain", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1);
+("September in the Rain", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1, 
+1937, "Melody for Two");
 
 /* ** *************************************************** */
 
@@ -2365,13 +2367,13 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, language)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language)
 values
 ("Siboney", "Ernesto Lecuona", "Lecuona, Ernesto", true, "spanish");
 
 #/* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, language)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language)
 values
 ("Siempre en mi Coraz{\\'o}n", "Ernesto Lecuona", "Lecuona, Ernesto", true, "spanish");
 
@@ -2383,6 +2385,20 @@ values
 1941, "Copyright {\\copyright} 1941, 1942 GEORGE SIMON, INC.  Copyrights Renewed (1969, 1970) "
 "and Assigned to WB MUSIC CORP.~and FRANK MUSIC CORP.",
 "{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~93.");
+
+
+/* ** *************************************************** */
+
+INSERT INTO `Songs`.`Songs` VALUES 
+("Sleepwalk",NULL,NULL,"Santo Farina, John Farina and Ann Farina","Farina, Santo; Farina, John; and Farina, Ann",
+NULL,NULL,0,0,1,0,0,NULL,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,1959,NULL,NULL,0,"english",
+"{\\bf More of the 1950s.  Hal Leonard Essential Songs, p.~304}");
+
+update Songs set words = "None", words_reverse = "None" where title = "Sleepwalk";
+
+-- delete from Songs where title = "Sleepwalk";
+
+   select * from Songs where title = "Sleepwalk"\G
 
 /* ** *************************************************** */
 

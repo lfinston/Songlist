@@ -169,6 +169,7 @@ main(int argc, char **argv)
    unsigned int mysql_timeout = 120;
   
    // mysql_options(mysql, MYSQL_OPT_RECONNECT, 0);
+
    mysql_options(mysql, MYSQL_OPT_CONNECT_TIMEOUT, &mysql_timeout); 
   
    if (!mysql_real_connect(mysql,"localhost","songlist",0,"Songs",0,NULL,0))

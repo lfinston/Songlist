@@ -137,7 +137,7 @@ process_tocs_and_npt(void)
              <<        "scanned_filename, "                 // 25
              <<        "public_domain, "                    // 26
              <<        "language "                          // 27
-             << "from Songs order by title asc;";
+             <<        "from Songs where music != \"\" or words_and_music != \"\" order by title asc;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
