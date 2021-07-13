@@ -1035,6 +1035,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename)
+values
+("I Can Cook Too", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
+"Leonard Bernstein", "Bernstein, Leonard",
+true, 1944, "{\\bf Bernstein on Broadway}, p.~33.", "On the Town", true, "icancook.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, copyright)
 values
 ("I Can Dream, Can't I?", "Irving Kahal", "Kahal, Irving", "Sammy Fain", "Fain, Sammy", true,
@@ -3056,6 +3065,8 @@ replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Close
 
 replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Your Troubles in Dreams");
 
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Can Cook Too");
+
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
 
 replace into Composers_Songs (composer, title) values ("Blake, Eubie", "I'm Just Wild About Harry");
@@ -3622,6 +3633,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Cahn, Sammy", "Things We
 replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
 -- delete from Lyricists_Songs where lyricist = "Comden, Betty" limit 1;
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "I Can Cook Too");
+
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "I Can Cook Too");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Just in Time");
 
