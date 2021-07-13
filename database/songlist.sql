@@ -391,7 +391,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Body and Soul", "Edward Heymann, Frank Eyton und Robert Sour", 
-"\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip-3pt\\hbox{and Sour, Robert}}", 
+"\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip\\composerskip\\hbox{and Sour, Robert}}", 
 "John W.~Green", "Green, John W.", true);
 
 /* ** *************************************************** */
@@ -1219,7 +1219,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, source)
 values
 ("I'm Forever Blowing Bubbles", "John Kellette, James Brockman, Nat Vincent and James Kendis", 
-"\\vbox{\\hbox{Kellette, John; Brockman, James;}\\vskip-3pt\\hbox{Vincent, Nat and Kendis, James}}", 
+"\\vbox{\\hbox{Kellette, John; Brockman, James;}\\vskip\\composerskip\\hbox{Vincent, Nat and Kendis, James}}", 
 true, 1919, true, true, "imfrvrbb.pdf",
 "\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78.}\\vskip-3pt"
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~150.}}");
@@ -2712,7 +2712,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename, public_domain)
 values
 ("Toot Toot Tootsie, Goo'bye", "Gus Kahn, Ernie Erdman, Dan Russo and Ted Fiorito",
-"\\vbox{\\hbox{Kahn, Gus; Erdman, Ernie;}\\vskip-3pt\\hbox{Russo, Dan and Fiorito, Ted}}", 
+"\\vbox{\\hbox{Kahn, Gus; Erdman, Ernie;}\\vskip\\composerskip\\hbox{Russo, Dan and Fiorito, Ted}}", 
 true, "Bombo", 
 1922, "{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~281.", true,
 "toottoot.pdf", true);
