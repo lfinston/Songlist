@@ -238,6 +238,8 @@ main(int argc, char **argv)
 
      stable_sort(song_vector.begin(), song_vector.end(), compare_composers);
 
+     
+
      if (DEBUG)
      { 
         if (song_vector.size() > 0)
@@ -275,11 +277,10 @@ main(int argc, char **argv)
             else if (iter->words_and_music_reverse != "")
                curr_composer = iter->words_and_music_reverse;
 
-
-             
-
+#if 0 
             cerr << "curr_composer == " << curr_composer << endl
                  << "title         == " << iter->title << endl;
+#endif 
 
             if (curr_composer == "")
             {  
@@ -358,6 +359,7 @@ main(int argc, char **argv)
                     << "\\begingroup" << endl
                     << "\\baselineskip=0pt" << endl
                     << "\\parskip=4pt" << endl
+                    << "\\composerskip=2pt" << endl
                     << "\\pagecnt=\\pageno" << endl
                     << "\\global\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Composers by Number of Songs}\\fi" << endl 
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
@@ -373,12 +375,14 @@ main(int argc, char **argv)
      sort(ctr_composer_vector.begin(), ctr_composer_vector.end(), pair_string_less_than);
      stable_sort(ctr_composer_vector.begin(), ctr_composer_vector.end(), pair_int_greater_than);
 
+#if 0 
      cerr << "`ctr_composer_vector.size()' == " << ctr_composer_vector.size() << endl
           << "`ctr_composer_vector':" << endl;
 
      cerr << "ctr_composer_vector.back().first == " << ctr_composer_vector.back().first << endl
           << "ctr_composer_vector.back().second == "
           << ctr_composer_vector.back().second << endl;
+#endif 
 
      curr_ctr = 0;
      prev_ctr = 0;
@@ -409,7 +413,9 @@ main(int argc, char **argv)
 
      }
 
+#if 0 
      cerr << endl;
+#endif 
 
      composers_file << endl << "\\singlecolumn" 
                     << "\\endgroup" << endl
@@ -578,8 +584,10 @@ main(int argc, char **argv)
      sort(ctr_lyricist_vector.begin(), ctr_lyricist_vector.end(), pair_string_less_than);
      stable_sort(ctr_lyricist_vector.begin(), ctr_lyricist_vector.end(), pair_int_greater_than);
 
+#if 0 
      cerr << "`ctr_lyricist_vector.size()' == " << ctr_lyricist_vector.size() << endl
           << "`ctr_lyricist_vector':" << endl;
+#endif 
 
      curr_ctr = 0;
      prev_ctr = 0;
@@ -603,7 +611,6 @@ main(int argc, char **argv)
             lyricists_file << "\\leavevmode\\hbox to \\twozerosbolddimen{\\hss{\\mediumbx " 
                            << curr_ctr << "}}\\hskip.5em ";
 
-
         }
         else
            lyricists_file << "\\hbox{}\\hskip\\twozerosbolddimen\\hskip.5em ";
@@ -625,7 +632,9 @@ main(int argc, char **argv)
 
 /* *** (3) */
 
+#if 0 
      cerr << endl;
+#endif 
 
      lyricists_file << endl << "\\singlecolumn" << endl 
                     << "\\endgroup" << endl
@@ -684,17 +693,19 @@ main(int argc, char **argv)
      {
          if (iter->scanned == true)
          {
-             cerr << iter->title << " ... ";
-
-             cerr << endl 
+#if 0 
+             cerr << iter->title << " ... "
+                  << endl 
                   << "iter->title[0] == " << iter->title[0] << endl 
                   << "prev_title_char == " << prev_title_char << endl;
+#endif 
 
              if (iter->scanned_filename.size() > 0)
              {
-                cerr << iter->scanned_filename << endl;
 
 #if 0 
+                cerr << iter->scanned_filename << endl;
+
                 if (tolower(prev_title_char) == 's' && tolower(iter->title[0]) == 't')
                 { 
                    cerr << endl 
@@ -782,7 +793,10 @@ main(int argc, char **argv)
      sort(song_vector.begin(), song_vector.end(), compare_titles);
 #endif 
 
+#if 0 
      cerr << endl << "Public Domain songs:" << endl << endl;
+#endif 
+
 
      for (vector<Song>::iterator iter = song_vector.begin();
           iter != song_vector.end();
@@ -790,8 +804,9 @@ main(int argc, char **argv)
      {
          if (iter->public_domain == true)
          {
+#if 0 
              cerr << iter->title;
-
+#endif 
              public_domain_file << "\\M " << "\\hbox to .5\\hsize{" << iter->title;
 
              if (iter->year > 0 || iter->scanned_filename.size() > 0)
@@ -810,7 +825,10 @@ main(int argc, char **argv)
 
              public_domain_file << endl;
 
+#if 0 
              cerr << endl;
+#endif 
+
          }            
 
      }  /* |for|  */
@@ -892,7 +910,7 @@ Song::show(string s)
   }
 
   cerr << endl;
-  
+
   return;
 
 }  /* End of |Show::show| definition.  */
@@ -940,7 +958,6 @@ Song::clear(void)
 int
 get_datestamp(string &datestamp, string &datestamp_short)
 {
-
     bool DEBUG = false;  /* |true|  */
 
     char outstr[64];
@@ -954,7 +971,6 @@ get_datestamp(string &datestamp, string &datestamp_short)
 
     if (localtime_r(&t, &tmp) == 0) 
     {
-
         cerr << "ERROR!  In `get_datestamp':  `localtime_r' failed, returning 0:"
              << endl
              << "Not creating datestamps.  Exiting function return value 1."
@@ -1007,7 +1023,6 @@ get_datestamp(string &datestamp, string &datestamp_short)
 int
 submit_mysql_query(string query_str)
 {
-
   int status = 0;
 
   bool DEBUG = false;  /* |true|  */
@@ -1148,6 +1163,7 @@ compare_strings(string t, string s)
 
   bool found_flag = false;
       
+
   /* erase cedilla accents:  |"\c "|  */
 
   do
@@ -1168,6 +1184,8 @@ compare_strings(string t, string s)
     }
 
   while (found_t != string::npos || found_s != string::npos);
+
+   
 
   /* Replace ``42nd'' with ``forty-second''  */
 
@@ -1231,7 +1249,6 @@ compare_strings(string t, string s)
 	}
     }
   while (found_t != string::npos || found_s != string::npos);
-
 
   /* Delete ``\\vtop{''  */
 
@@ -1319,15 +1336,15 @@ compare_strings(string t, string s)
 
   do
   {
-    found_t = t.find("\\vskip{");
+    found_t = t.find("\\vskip");
     if (found_t != string::npos)
       {
         found_flag = true;
-        t.erase(found_t, 7);
+        t.erase(found_t, 6);
 
       }
 
-    found_s = s.find("\\vskip{");
+    found_s = s.find("\\vskip");
     if (found_s != string::npos)
       {
         found_flag = true;
@@ -1336,8 +1353,24 @@ compare_strings(string t, string s)
   }
   while (found_t != string::npos || found_s != string::npos);
 
+  do
+  {
+    found_t = t.find("\\composerskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 13);
 
+      }
 
+    found_s = s.find("\\composerskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
 
   char tc[64];
   char sc[64];
@@ -1396,6 +1429,7 @@ compare_strings(string t, string s)
     {
       s += tolower(sc[i]);
     }
+
 #if 0 
   cerr << "tolower(t[0]) == " << tolower(t[0]) << endl
        << "tolower(s[0]) == " << tolower(s[0]) << endl;
@@ -1404,7 +1438,9 @@ compare_strings(string t, string s)
   cerr << "s  == " << s << endl;
 #endif 
 
-  return t < s;
+  bool b = t < s;
+
+  return b;
   
 }  /* End of |compare_strings| definition  */
 
