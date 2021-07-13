@@ -354,10 +354,6 @@ main(int argc, char **argv)
                
      }  /* for  */
 
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-
-
      composers_file << "}\\singlecolumn" << endl << "\\vfil\\eject" << endl << endl
                     << "\\begingroup" << endl
                     << "\\baselineskip=0pt" << endl
