@@ -2320,7 +2320,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language, source, year, scanned, 
 scanned_filename)
 values
-("Se Todos Fossem Iguais A Voc{\\^e}", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
+("Se Todos Fossem Iguais a Voc{\\^e}", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~18.",
 1958, true, "stdsfiav.pdf");
 
@@ -3256,7 +3256,7 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba de Uma Nota So");
 
-replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Se Todos Fossem Iguais A Voc{\\^e}");  
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Se Todos Fossem Iguais a Voc{\\^e}");  
 
 replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Cocktails for Two");
 
@@ -4050,7 +4050,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius 
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Insensatez");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Se Todos Fossem Iguais A Voc{\\^e}");
+-- delete from Lyricists_Songs where title = "Se Todos Fossem Iguais A Voc{\\^e}";
+
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Se Todos Fossem Iguais a Voc{\\^e}");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
 
