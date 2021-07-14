@@ -360,6 +360,7 @@ main(int argc, char **argv)
                     << "\\baselineskip=0pt" << endl
                     << "\\parskip=4pt" << endl
                     << "\\composerskip=2pt" << endl
+                    << "\\lyricistskip=2pt" << endl
                     << "\\pagecnt=\\pageno" << endl
                     << "\\global\\headline={\\hfil\\ifnum\\pageno>\\pagecnt{\\mediumbx Composers by Number of Songs}\\fi" << endl 
                     << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
@@ -569,6 +570,8 @@ main(int argc, char **argv)
                     << "\\begingroup" << endl
                     << "\\baselineskip=0pt" << endl
                     << "\\parskip=4pt" << endl
+                    << "\\composerskip=2pt" << endl
+                    << "\\lyricistskip=2pt" << endl
                     << "\\pagecnt=\\pageno" << endl
                     << "\\global\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lyricists by Number of Songs}\\fi\\hfil" << endl 
                     << "\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl 
@@ -1371,6 +1374,27 @@ compare_strings(string t, string s)
       }
   }
   while (found_t != string::npos || found_s != string::npos);
+
+  do
+  {
+    found_t = t.find("\\lyricistskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 13);
+
+      }
+
+    found_s = s.find("\\lyricistskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
+
+
 
   char tc[64];
   char sc[64];
