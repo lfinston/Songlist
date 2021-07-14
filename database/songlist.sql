@@ -1337,9 +1337,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
-("It's a Pity to Say Goodnight", "Billy Reid", "Reid, Billy", true);
+("It's a Pity to Say `Goodnight'", "Billy Reid", "Reid, Billy", true, 1946,
+"{\\bf 100 Years of Popular Music, 1940s, Part Two}, p.~146.");
 
 /* ** *************************************************** */
 
@@ -1516,8 +1517,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", false,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "rhnlgnde.pdf", true, 
+"Gustav Mahler", "Mahler, Gustav", true,
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndn.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
 true, "german");
 
