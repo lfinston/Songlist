@@ -2717,6 +2717,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, language)
+values
+("Tomo y Obligo", "Manuel Romero", "Romero, Manuel", "Carlos Gardel", "Gardel, Carlos", true, 1931,
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I, p.~17.", true, "tomyoblg.pdf", "spanish");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
 year, source, scanned, scanned_filename, public_domain)
 values
@@ -3195,6 +3203,8 @@ replace into Composers_Songs (composer, title) values ("Gade, Jacob", "Jalousie 
 -- select * from Composers_Songs where composer = "Gardel, Carlos";
 
 replace into Composers_Songs (composer, title) values ("Gardel, Carlos", "Por Una Cabeza");
+
+replace into Composers_Songs (composer, title) values ("Gardel, Carlos", "Tomo y Obligo");
 
 replace into Composers_Songs (composer, title) values ("Gardel, Carlos", "Volver");
 
@@ -4119,6 +4129,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Rainy Nigh
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner of Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Romani, Felice", "Furtiva lagrima, Una");
+
+replace into Lyricists_Songs (lyricist, title) values ("Romero, Manuel", "Tomo y Obligo");
 
 replace into Lyricists_Songs (lyricist, title) values ("Schikaneder, Emanuel", "Alles f{\\\"u}hlt der Liebe Freuden");
 
