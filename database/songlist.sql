@@ -1679,6 +1679,14 @@ true, "listsong.pdf");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename)
+values
+("Little Tin Box", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
+true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~22.", "Fiorello!", true, "lttltnbx.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
 ("Little White Lies", "Walter Donaldson", "Donaldson, Walter", true);
@@ -3115,6 +3123,8 @@ replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rus
 
 replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Abends in der Taverna");
 
+replace into Composers_Songs (composer, title) values ("Bock, Jerry", "Little Tin Box");
+
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
 
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Samba de Orfeu");
@@ -3833,6 +3843,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke G
 -- delete from Lyricists_Songs where title = "Over the Rainbow";
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
+
+replace into Lyricists_Songs (lyricist, title) values ("Harnick, Sheldon", "Little Tin Box");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moon");
 
