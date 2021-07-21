@@ -1591,6 +1591,16 @@ values
 
 /* ** *************************************************** */
 
+delete from Songs where title like("Lady's in Love%");
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film,
+scanned, scanned_filename, notes)
+values
+("Lady's in Love With You, The", "Frank Loesser", "Loesser, Frank", "Burton Lane", "Lane, Burton", true,
+1939, "Some Like It Hot", true, "ldysinlv.pdf", "Not the 1959 Billy Wilder film.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, arrangement_solo_guitar, notes,
 copyright, film)
 values
@@ -3344,9 +3354,11 @@ replace into Composers_Songs (composer, title) values ("Lai, Francis", "Homme et
 
 replace into Composers_Songs (composer, title) values ("Lai, Francis", "Where Do I Begin? (Theme from Love Story)");
 
-replace into Composers_Songs (composer, title) values ("Lane, Burton", "On a Clear Day");
-
 replace into Composers_Songs (composer, title) values ("Lane, Burton", "How About You?");
+
+replace into Composers_Songs (composer, title) values ("Lane, Burton", "Lady's in Love With You, The");
+
+replace into Composers_Songs (composer, title) values ("Lane, Burton", "On a Clear Day");
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Para Vigo me voy (Say ``Si, Si'')");
 
@@ -4013,6 +4025,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Livingston, Jay", "Mr.~L
 replace into Lyricists_Songs (lyricist, title) values ("Evans, Ray", "Mr.~Lucky");
 
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Heart and Soul");
+
+replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Lady's in Love With You, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Two Sleepy People");
 
