@@ -1083,6 +1083,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename)
+values
+("I Don't Want to Set the World on Fire", "\\vbox{\\hbox{Eddie Seiler, Sol Marcus,}\\hbox{Bennie Benjamin and Eddie Durham}}", 
+"\\vbox{\\hbox{Seiler, Eddie; Marcus, Sol;}\\hbox{Benjamin, Bennie and Durham, Eddie}}", 
+true, 1941,
+"{\\bf 100 Years of Popular Music, 1940s, Part One}, p.~75.", true, "idwtswnf.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
 values
 ("I Feel Pretty", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  "West Side Story");
@@ -4508,6 +4518,15 @@ replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "I'll Clos
 
 replace into Composers_Songs (composer, title) values ("Reid, Billy", "It's a Pity to Say `Goodnight'");
 replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "It's a Pity to Say `Goodnight'");
+
+replace into Composers_Songs (composer, title) values ("Seiler, Eddie",    "I Don't Want to Set the World on Fire");
+replace into Lyricists_Songs (lyricist, title) values ("Seiler, Eddie",    "I Don't Want to Set the World on Fire");
+replace into Composers_Songs (composer, title) values ("Marcus, Sol",      "I Don't Want to Set the World on Fire");
+replace into Lyricists_Songs (lyricist, title) values ("Marcus, Sol",      "I Don't Want to Set the World on Fire");
+replace into Composers_Songs (composer, title) values ("Benjamin, Bennie", "I Don't Want to Set the World on Fire");
+replace into Lyricists_Songs (lyricist, title) values ("Benjamin, Bennie", "I Don't Want to Set the World on Fire");
+replace into Composers_Songs (composer, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
+replace into Lyricists_Songs (lyricist, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
 
 replace into Composers_Songs (composer, title) values ("Wayne, Bernie", "Blue Velvet");
 replace into Lyricists_Songs (lyricist, title) values ("Wayne, Bernie", "Blue Velvet");
