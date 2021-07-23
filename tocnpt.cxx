@@ -70,6 +70,8 @@ int get_datestamp(string &datestamp, string &datestamp_short);
 
 int submit_mysql_query(string query_str);
 
+string remove_formatting_commands(string s);
+
 vector<Song> song_vector;
 
 ofstream toc_ls_file;
@@ -1454,6 +1456,7 @@ getchar();
                 << "\\obeylines" << endl;
 
    char temp_char;
+   string temp_title;
 
    if (DEBUG)
      {
@@ -1466,33 +1469,35 @@ getchar();
    for (vector<Song>::iterator iter = song_vector.begin();
         iter != song_vector.end();
         ++iter)
-     {
+   {
 
-       for (int i = 0; i < iter->title.length(); ++i)
+     temp_title = remove_formatting_commands(iter->title);
+     
+     for (int i = 0; i < temp_title.length(); ++i)
+     {
+       if (isalpha(temp_title[i]))
          {
-           if (isalpha(iter->title[i]))
-             {
-               temp_char = tolower(iter->title[i]);
-               break;
-             }
-           else if (iter->title[i] == '4')
-             {
-               temp_char = 'f';
-             }
-           else
-             continue;
+           temp_char = tolower(temp_title[i]);
+           break;
          }
-       if (DEBUG) 
-         iter->show();
+       else if (temp_title[i] == '4')
+         {
+           temp_char = 'f';
+         }
+       else
+         continue;
+     }
+     if (DEBUG) 
+       iter->show();
 
 #if 0        
-       cerr << "iter->title              == " << iter->title << endl;
-       
-       cerr << "iter->musical   == " << iter->musical << endl;
-           
-       cerr << "iter->musical.length()   == " << iter->musical.length() << endl;
+    cerr << "iter->title              == " << iter->title << endl;
+   
+    cerr << "iter->musical   == " << iter->musical << endl;
+        
+    cerr << "iter->musical.length()   == " << iter->musical.length() << endl;
 
-       cerr << "iter->sort_by_production == " << iter->sort_by_production << endl;
+    cerr << "iter->sort_by_production == " << iter->sort_by_production << endl;
 
 #endif
 
