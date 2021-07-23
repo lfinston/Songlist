@@ -92,10 +92,12 @@ pair_string_less_than(pair<int, string> a, pair<int, string> b)
    return compare_strings(a.second, b.second);
 }
 
+string
+remove_formatting_commands(string s);
+
 /* main definition */
 
 /* ** (2) |main| definition  */
-
 int
 main(int argc, char **argv)
 {
@@ -1165,7 +1167,7 @@ compare_strings(string t, string s)
   size_t found_s;
 
   bool found_flag = false;
-      
+     
 
   /* erase cedilla accents:  |"\c "|  */
 
@@ -1187,8 +1189,6 @@ compare_strings(string t, string s)
     }
 
   while (found_t != string::npos || found_s != string::npos);
-
-   
 
   /* Replace ``42nd'' with ``forty-second''  */
 
@@ -1275,6 +1275,45 @@ compare_strings(string t, string s)
   while (found_t != string::npos || found_s != string::npos);
 
   /* Delete ``\\hbox{''  */
+
+
+  do
+  {
+    found_t = t.find("-.2\\baselineskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 16);
+
+      }
+
+    found_s = s.find("-.2\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 16);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
+
+  do
+  {
+    found_t = t.find(".375\\baselineskip");
+    if (found_t != string::npos)
+      {
+        found_flag = true;
+        t.erase(found_t, 17);
+
+      }
+
+    found_s = s.find(".375\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 17);
+      }
+  }
+  while (found_t != string::npos || found_s != string::npos);
 
   do
   {
@@ -1394,8 +1433,6 @@ compare_strings(string t, string s)
   }
   while (found_t != string::npos || found_s != string::npos);
 
-
-
   char tc[64];
   char sc[64];
   memset(tc, 0, 64);
@@ -1457,9 +1494,8 @@ compare_strings(string t, string s)
 #if 0 
   cerr << "tolower(t[0]) == " << tolower(t[0]) << endl
        << "tolower(s[0]) == " << tolower(s[0]) << endl;
-
-  cerr << "t  == " << t << endl;
-  cerr << "s  == " << s << endl;
+  cerr << "t == " << t << endl;
+  cerr << "s == " << s << endl;
 #endif 
 
   bool b = t < s;
@@ -1467,6 +1503,167 @@ compare_strings(string t, string s)
   return b;
   
 }  /* End of |compare_strings| definition  */
+
+
+string 
+remove_formatting_commands(string s)
+{
+  size_t found_s;
+
+  bool found_flag = false;
+
+  /* erase cedilla accents:  |"\c "|  */
+
+  do
+    {
+      found_s = s.find("\\c ");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.erase(found_s, 3);
+	}
+    }
+
+  while (found_s != string::npos);
+
+  /* Delete ``\\vbox{''  */
+
+  do
+    {
+      found_s = s.find("\\vbox{");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.erase(found_s, 6);
+	}
+    }
+  while (found_s != string::npos);
+
+  /* Delete ``\\vtop{''  */
+
+  do
+    {
+      found_s = s.find("\\vtop{");
+      if (found_s != string::npos)
+	{
+	  found_flag = true;
+	  s.erase(found_s, 6);
+	}
+    }
+  while (found_s != string::npos);
+
+  /* Delete ``\\hbox{''  */
+
+
+  do
+  {
+    found_s = s.find("-.2\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 16);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find(".375\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 17);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\hbox{");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_s != string::npos);
+
+  /* Delete ``\\vskip''  */
+
+  do
+  {
+    found_s = s.find("\\vskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_s != string::npos);
+
+  /* Delete ``\\baselineskip''  */
+
+  do
+  {
+    found_s = s.find("\\baselineskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\vskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\composerskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\lyricistskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_s != string::npos);
+
+  char sc[64];
+  memset(sc, 0, 64);
+      
+  do
+    {
+      found_s = s.find_first_of("\\'`\"{}~-_");
+      if (found_s != string::npos)	  	  
+	{
+	  found_flag = true;
+	  s.erase(found_s, 1);
+	}
+    } while (found_s != string::npos);
+
+    return s;
+
+}  /* End of |remove_formatting_commands| definition  */
+
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
