@@ -1087,7 +1087,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename)
 values
 ("I Don't Want to Set the World on Fire", "\\vbox{\\hbox{Eddie Seiler, Sol Marcus,}\\hbox{Bennie Benjamin and Eddie Durham}}", 
-"\\vbox{\\hbox{Seiler, Eddie; Marcus, Sol;}\\hbox{Benjamin, Bennie and Durham, Eddie}}", 
+"\\vbox{\\hbox{Seiler, Eddie; Marcus, Sol;}\\vskip\\composerskip\\hbox{Benjamin, Bennie and Durham, Eddie}}", 
 true, 1941,
 "{\\bf 100 Years of Popular Music, 1940s, Part One}, p.~75.", true, "idwtswnf.pdf");
 
