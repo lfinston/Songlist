@@ -2933,6 +2933,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, musical, source, scanned, scanned_filename)
+values
+("Wie lange noch?", "Walter Mehring", "Mehring, Walter", "Kurt Weill", "Weill, Kurt", 
+true, 1944, "Copyright {\\copyright} 1981.", "{\\bf Unknown Kurt Weill, The}, p.~23.",
+true, "wlngnoch.pdf");
+
+/* ** *************************************************** */
+
 select * from Songs where title = "Bewitched"\G
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
@@ -3611,6 +3620,8 @@ replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Speak Low
 
 replace into Composers_Songs (composer, title) values ("Weill, Kurt", "What Good Would the Moon Be?");
 
+replace into Composers_Songs (composer, title) values ("Weill, Kurt", "Wie lange noch?");
+
 replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Hooray For Hollywood");
 
 replace into Composers_Songs (composer, title) values ("Whiting, Richard A.", "Japanese Sandman");
@@ -4096,6 +4107,8 @@ replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Mad
 -- delete from Lyricists_Songs where title = "Incerteza";
 
 replace into Lyricists_Songs (lyricist, title) values ("Madden, Ed", "By The Light Of The Silvery Moon"); 
+
+replace into Lyricists_Songs (lyricist, title) values ("Mehring, Walter", "Wie lange noch?");
 
 replace into Lyricists_Songs (lyricist, title) values ("Mendon{\\c c}a, Newton F.", "Incerteza");
 
