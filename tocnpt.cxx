@@ -1473,8 +1473,8 @@ process_tocs_and_npt(void)
                 << "\\nobreak" << endl
                 << "\\doublecolumns" << endl
                 << "\\begingroup" << endl 
-                << "\\parskip=0pt" << endl 
-                << "\\obeylines" << endl;
+                << "%\\parskip=\\baselineskip" << endl 
+                << "%\\obeylines" << endl;
 
 
    char temp_char;
@@ -1884,20 +1884,22 @@ process_tocs_and_npt(void)
           curr_prod = iter->opera;
           if (curr_prod != prev_prod)
           {
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Opera:     " << iter->opera << endl;
-             productions_file << "{\\bf " << iter->opera << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera << "}";
+
              if (iter->opera.length() > 30)
-               productions_file << endl;
+               productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
+
              productions_file << "(Opera";
              if (iter->year > 0)
                 productions_file << " " << iter->year;
-             productions_file << ")\\nobreak" << endl;
+             productions_file << ")}" << endl;
           }
        }
        if (iter->operetta != "")
@@ -1905,14 +1907,14 @@ process_tocs_and_npt(void)
           curr_prod = iter->operetta;
           if (curr_prod != prev_prod)
           {
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Operetta:  " << iter->operetta << endl;
-             productions_file << "{\\bf " << iter->operetta << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta << "}";
              if (iter->operetta.length() > 30)
-               productions_file << endl;
+               productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
              productions_file << "(Operetta";
@@ -1920,7 +1922,7 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << " " << iter->year;
 
-             productions_file << ")" << endl;
+             productions_file << ")}" << endl;
           }
        }
        if (iter->song_cycle != "")
@@ -1928,21 +1930,23 @@ process_tocs_and_npt(void)
           curr_prod = iter->song_cycle;
           if (curr_prod != prev_prod)
           {
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Song cycle:  " << iter->song_cycle << endl;
-             productions_file << "{\\bf " << iter->song_cycle << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle << "}";
+
              if (iter->song_cycle.length() > 30)
-               productions_file << endl;
+               productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
+
              productions_file << "(Song Cycle";
 
              if (iter->year > 0)
                 productions_file << " " << iter->year;
-             productions_file << ")" << endl;
+             productions_file << ")}" << endl;
           }
        }
        if (iter->musical != "")
@@ -1950,21 +1954,23 @@ process_tocs_and_npt(void)
           curr_prod = iter->musical;
           if (curr_prod != prev_prod)
           {       
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Musical:   " << iter->musical << endl;
-             productions_file << "{\\bf " << iter->musical << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical << "}";
+
              if (iter->musical.length() > 30)
-               productions_file << endl;
+               productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
+
              productions_file << "(Musical";
 
              if (iter->year > 0)
                 productions_file << " " << iter->year;
-             productions_file << ")" << endl;
+             productions_file << ")}" << endl;
           }
        }
        if (iter->revue != "")
@@ -1972,21 +1978,23 @@ process_tocs_and_npt(void)
           curr_prod = iter->revue;
           if (curr_prod != prev_prod)       
           {
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Revue:     " << iter->revue << endl;
-             productions_file << "{\\bf " << iter->revue << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue << "}";
+
              if (iter->revue.length() > 30)
-               productions_file << endl;
+               productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
+
              productions_file << "(Revue";
 
              if (iter->year > 0)
                 productions_file << " " << iter->year;
-             productions_file << ")" << endl;
+             productions_file << ")}" << endl;
           }
        }
        if (iter->film != "")
@@ -1994,17 +2002,17 @@ process_tocs_and_npt(void)
           curr_prod = iter->film;
           if (curr_prod != prev_prod)       
           {
-#if 0
+#if 1 /* 0 */
              if (prev_prod != "")
-                productions_file << "}" << endl;
+                productions_file << "}\\vskip.5\\baselineskip" << endl;
 #endif
              cerr << "Film:      " << iter->film << endl;
-             productions_file << "{\\bf " << iter->film << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->film << "}";
              pos = iter->film.find("(Film)");
              if (pos == string::npos || iter->year > 0)
              {
                if (iter->film.length() > 30)
-                  productions_file << endl;
+                  productions_file << "}" << endl << "\\hbox{";
                else 
                   productions_file << " ";
                productions_file << "(";
@@ -2016,16 +2024,17 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << iter->year;
              if (pos == string::npos || iter->year > 0)
-                productions_file << ")" << endl;
+                productions_file << ")";
+             productions_file << "}" << endl;
           }
        }
        cerr << "   Title:     " << iter->title << endl;
-       productions_file << "\\quad " << iter->title << endl;
+       productions_file << "\\hbox{\\quad " << iter->title << "}" << endl;
 
        prev_prod = curr_prod;
    }
  
-#if 0 
+#if 1 /* 0 */
    productions_file << "}" << endl;
 #endif 
 
