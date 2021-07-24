@@ -1462,6 +1462,9 @@ process_tocs_and_npt(void)
                 << "\\ifseparate" << endl
                 << "\\pageno=1" << endl
                 << "\\fi" << endl
+                << "\\temppagecnt\\pageno" << endl 
+                << "\\headline={\\hfil \\ifnum\\pageno>\\temppagecnt{\\mediumbx Productions}\\fi"
+                << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                 << "\\medium" << endl
                 << "\\songctr=1" << endl
                 << "\\hldest{xyz}{}{Productions}" << endl 
