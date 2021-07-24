@@ -48,6 +48,8 @@ class Song
 
     friend bool compare_composers(const Song&, const Song&);
 
+    friend bool compare_productions(const Song& t, const Song& s);
+
     friend int process_tocs_and_npt(void);
 
     int song_ctr;

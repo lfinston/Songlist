@@ -1236,7 +1236,7 @@ compare_strings(string t, string s)
 
   do
     {
-      found_t = t.find("\\vbox{");
+      found_t = t.find("\\vbox{");  /* }  */
       if (found_t != string::npos)
 	{
 	  found_flag = true;
@@ -1244,7 +1244,7 @@ compare_strings(string t, string s)
 
 	}
 
-      found_s = s.find("\\vbox{");
+      found_s = s.find("\\vbox{");  /* }  */
       if (found_s != string::npos)
 	{
 	  found_flag = true;
@@ -1257,7 +1257,7 @@ compare_strings(string t, string s)
 
   do
     {
-      found_t = t.find("\\vtop{");
+      found_t = t.find("\\vtop{");  /* }  */
       if (found_t != string::npos)
 	{
 	  found_flag = true;
@@ -1265,7 +1265,7 @@ compare_strings(string t, string s)
 
 	}
 
-      found_s = s.find("\\vtop{");
+      found_s = s.find("\\vtop{");  /* }  */
       if (found_s != string::npos)
 	{
 	  found_flag = true;
@@ -1317,7 +1317,7 @@ compare_strings(string t, string s)
 
   do
   {
-    found_t = t.find("\\hbox{");
+    found_t = t.find("\\hbox{");  /* }  */
     if (found_t != string::npos)
       {
         found_flag = true;
@@ -1325,7 +1325,7 @@ compare_strings(string t, string s)
 
       }
 
-    found_s = s.find("\\hbox{");
+    found_s = s.find("\\hbox{");  /* }  */
     if (found_s != string::npos)
       {
         found_flag = true;
@@ -1504,6 +1504,48 @@ compare_strings(string t, string s)
   
 }  /* End of |compare_strings| definition  */
 
+bool
+compare_productions(const Song& t, const Song& s)
+{
+   string tt;
+   string ss;
+
+   if (t.opera != "")
+     tt = t.opera;
+   if (s.opera != "")
+     ss = s.opera;
+
+   if (t.operetta != "")
+     tt = t.operetta;
+   if (s.operetta != "")
+     ss = s.operetta;
+
+   if (t.song_cycle != "")
+     tt = t.song_cycle;
+   if (s.song_cycle != "")
+     ss = s.song_cycle;
+
+   if (t.musical != "")
+     tt = t.musical;
+   if (s.musical != "")
+     ss = s.musical;
+
+   if (t.revue != "")
+     tt = t.revue;
+   if (s.revue != "")
+     ss = s.revue;
+
+   if (t.film != "")
+     tt = t.film;
+   if (s.film != "")
+     ss = s.film;
+
+   return compare_strings(tt, ss);
+
+
+}  /* |end of compare_productions| definition */
+
+
 
 string 
 remove_formatting_commands(string s)
@@ -1530,7 +1572,7 @@ remove_formatting_commands(string s)
 
   do
     {
-      found_s = s.find("\\vbox{");
+      found_s = s.find("\\vbox{");  /* }  */
       if (found_s != string::npos)
 	{
 	  found_flag = true;
@@ -1539,11 +1581,11 @@ remove_formatting_commands(string s)
     }
   while (found_s != string::npos);
 
-  /* Delete ``\\vtop{''  */
+  /* Delete ``\\vtop{''  }  */
 
   do
     {
-      found_s = s.find("\\vtop{");
+      found_s = s.find("\\vtop{");  /* }  */
       if (found_s != string::npos)
 	{
 	  found_flag = true;
@@ -1552,7 +1594,7 @@ remove_formatting_commands(string s)
     }
   while (found_s != string::npos);
 
-  /* Delete ``\\hbox{''  */
+  /* Delete ``\\hbox{''  } */
 
 
   do
@@ -1579,7 +1621,7 @@ remove_formatting_commands(string s)
 
   do
   {
-    found_s = s.find("\\hbox{");
+    found_s = s.find("\\hbox{");  /* }  */
     if (found_s != string::npos)
       {
         found_flag = true;

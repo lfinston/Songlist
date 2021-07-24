@@ -2934,7 +2934,7 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, musical, source, scanned, scanned_filename, language)
+year, copyright, source, scanned, scanned_filename, language)
 values
 ("Wie lange noch?", "Walter Mehring", "Mehring, Walter", "Kurt Weill", "Weill, Kurt", 
 true, 1944, "Copyright {\\copyright} 1981.", "{\\bf Unknown Kurt Weill, The}, p.~23.",
