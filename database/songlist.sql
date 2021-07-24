@@ -2458,6 +2458,15 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Smoke Rings", "Ned Washington", "Washington, Ned", "H.~Eugene Gifford", "Gifford, H.~Eugene ", true);
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
+source, scanned, scanned_filename)
+values
+("Some Enchanted Evening", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
+"South Pacific", 1949, "{\\bf Rodgers and Hammerstein Collection, The}, p.~325.", true, "smenevng.pdf");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -3490,7 +3499,13 @@ replace into Composers_Songs (composer, title) values ("Fran{\\c c}ois, Claude",
 
 replace into Composers_Songs (composer, title) values ("Ricardel, Joe", "Frim Fram Sauce, The");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Blue Moon");
+
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Falling in Love With Love");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "I Married an Angel");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Isn't It Romantic?");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "It Never Entered My Mind");
 
@@ -3498,25 +3513,21 @@ replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Lady
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Manhattan");
 
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "You Took Advantage of Me");
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Many a New Day");
 
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Ten Cents a Dance");
-
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Isn't It Romantic?");
-
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "This Can't be Love");
-
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Blue Moon");
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "My Heart Stood Still");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "People Will Say We're in Love");
 
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "I Married an Angel");
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Some Enchanted Evening");
 
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Many a New Day");
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Ten Cents a Dance");
+
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "This Can't be Love");
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Thou Swell");
 
-replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "My Heart Stood Still");
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "You Took Advantage of Me");
 
 replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Softly, Love");
 
@@ -3848,7 +3859,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Make Believe");
 
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Some Enchanted Evening");
+
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
+
+
 
 -- delete from Lyricists_Songs where title = "Over the Rainbow";
 
