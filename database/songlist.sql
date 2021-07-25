@@ -2977,6 +2977,16 @@ select "!!! End X";
 
 select "!!! Y";
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
+("Yacht Club Swing", "J.C.~Johnson", "Johnson, J.C.",
+"Thomas ``Fats'' Waller and Herman Autrey", "Waller, Thomas ``Fats'' and Autrey, Herman",
+true, 1938, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~54.", true, "ychtclub.pdf");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
@@ -3128,6 +3138,10 @@ replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Let's F
 replace into Composers_Songs (composer, title) values ("Arlen, Harold", "I've Got the World on a String");
 
 replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Over the Rainbow");
+
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Yacht Club Swing");
+
+replace into Composers_Songs (composer, title) values ("Autrey, Herman", "Yacht Club Swing");
 
 replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "I'll Never Fall in Love Again");
 
@@ -3937,6 +3951,8 @@ replace into Lyricists_Songs (lyricist, title) values ("James, Paul (Warburg, Ja
 replace into Lyricists_Songs (lyricist, title) values ("Johnson, J.C.", "Joint is Jumpin', The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Razaf, Andy", "Joint is Jumpin', The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Johnson, J.C.", "Yacht Club Swing");
 
 replace into Lyricists_Songs (lyricist, title) values ("Johnston, Patricia", "I'll Remember April");
 
