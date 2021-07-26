@@ -1442,6 +1442,15 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
+("Jitterbug Waltz, The", "None", "None",
+"Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
+true, 1942, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~46.", true, "jttrbwlz.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename)
+values
 ("Joint is Jumpin', The", "Andy Razaf and J.C.~Johnson", "Razaf, Andy and Johnson, J.C.",
 "Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
 true, 1938, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~78.",
@@ -3595,6 +3604,8 @@ replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and D
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
+
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Jitterbug Waltz, The");
 
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Joint is Jumpin', The");
 
