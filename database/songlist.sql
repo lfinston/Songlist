@@ -2491,6 +2491,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language, year, source, scanned,
+scanned_filename)
+values
+("So{\\~n}e que me dejabas", "Ernesto Lecuona", "Lecuona, Ernesto", true, "spanish", 1936,
+"{\\bf Songs of Ernesto Lecuona}, p.~98.", true, "snqmdjbs.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Sophisticated Lady", "Mitchell Parish and Irving Mills",
@@ -4488,6 +4496,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siem
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Siboney");
 replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Siboney");
+
+replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "So{\\~n}e que me dejabas");
+replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "So{\\~n}e que me dejabas");
 
 replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Standing on the Corner");
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standing on the Corner");
