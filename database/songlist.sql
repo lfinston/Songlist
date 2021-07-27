@@ -1391,6 +1391,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+scanned, scanned_filename, source)
+values
+("I've Got a Feeling I'm Falling", "Billy Rose", "Rose, Billy",
+"Thomas ``Fats'' Waller and Harry Link", "Waller, Thomas ``Fats'' and Link, Harry",
+true, 1929, true, "ivgtflng.pdf", "{\\bf Ain't Misbehavin', Vocal Selections}, p.~42.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("I've Got a Pocketful of Dreams", "Johnny Burke", "Burke, Johnny", "James V.~Monaco", "Monaco, James V.", true, 1938,
@@ -3625,6 +3634,10 @@ replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''"
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
 
+replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "I've Got a Feeling I'm Falling");
+
+replace into Composers_Songs (composer, title) values ("Link, Harry", "I've Got a Feeling I'm Falling");
+
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Jitterbug Waltz, The");
 
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Joint is Jumpin', The");
@@ -4254,6 +4267,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Prisoner o
 replace into Lyricists_Songs (lyricist, title) values ("Romani, Felice", "Furtiva lagrima, Una");
 
 replace into Lyricists_Songs (lyricist, title) values ("Romero, Manuel", "Tomo y Obligo");
+
+replace into Lyricists_Songs (lyricist, title) values ("Rose, Billy", "I've Got a Feeling I'm Falling");
 
 replace into Lyricists_Songs (lyricist, title) values ("Schikaneder, Emanuel", "Alles f{\\\"u}hlt der Liebe Freuden");
 
