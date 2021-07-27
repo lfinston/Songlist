@@ -2967,6 +2967,14 @@ true, "wlngnoch.pdf", "german");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year,
+source, musical)
+values
+("Willkommen", "Fred Ebb", "Ebb, Fred", "John Kander", "Kander, John", true, 1966,
+"{\\bf Vocal Selections from Cabaret}, p.~2.", "Cabaret");
+
+/* ** *************************************************** */
+
 select * from Songs where title = "Bewitched"\G
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
@@ -3407,6 +3415,8 @@ replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Spani
 
 replace into Composers_Songs (composer, title) values ("Kander, John", "Cabaret");
 
+replace into Composers_Songs (composer, title) values ("Kander, John", "Willkommen");
+
 replace into Composers_Songs (composer, title) values ("Kaper, Bronislau", "On Green Dolphin Street");
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "All the Things You Are");
@@ -3824,6 +3834,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Young and H
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "You're Getting to Be a Habit With Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Ebb, Fred", "Cabaret");
+
+replace into Lyricists_Songs (lyricist, title) values ("Ebb, Fred", "Willkommen");
 
 replace into Lyricists_Songs (lyricist, title) values ("Egan, Raymond B.", "Japanese Sandman");
 
