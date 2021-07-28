@@ -1198,11 +1198,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
-scanned, scanned_filename)
+scanned, scanned_filename, musical)
 values
 ("I'll Follow My Secret Heart", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1934, 
 "{\\copyright} 1934 (Renewed).",
-"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf");
+"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf", "Conversation Piece");
 
 /* ** *************************************************** */
 
