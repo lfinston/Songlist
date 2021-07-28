@@ -221,6 +221,9 @@ graphics_1.eps graphics_2.eps graphics_3.eps graphics_4.eps \
 clean:
 	rm -f *.out *.dvi *.ps *.pdf *.log *~
 
+.PHONY: dump
 
+dump:
+	mysqlpump 3dldf > dump.sql
 
 
