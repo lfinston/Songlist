@@ -3028,7 +3028,6 @@ select "!!! End X";
 
 select "!!! Y";
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -3080,6 +3079,15 @@ values
 ("You Took Advantage of Me", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard",
 true, true, 1928, "Present Arms", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~248.",
 true, "ytkadvnt.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+scanned, scanned_filename, source)
+values
+("You're Nobody 'Til Somebody Loves You", "Russ Morgan, Larry Stock and James Cavanaugh",
+"Morgan, Russ; Stock, Larry and Cavanaugh, James", true, 1944, true, "yrnbdytl.pdf",
+"{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~241.");
 
 /* ** *************************************************** */
 
@@ -4584,6 +4592,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gust
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Lob des hohen Verstandes");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Rheinlegendchen");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Wer hat das Liedlein erdacht?");
+
+replace into Composers_Songs (composer, title) values ("Morgan, Russ", "You're Nobody 'Til Somebody Loves You");
+replace into Composers_Songs (composer, title) values ("Stock, Larry", "You're Nobody 'Til Somebody Loves You");
+replace into Composers_Songs (composer, title) values ("Cavanaugh, James", "You're Nobody 'Til Somebody Loves You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Morgan, Russ", "You're Nobody 'Til Somebody Loves You");
+replace into Lyricists_Songs (lyricist, title) values ("Stock, Larry", "You're Nobody 'Til Somebody Loves You");
+replace into Lyricists_Songs (lyricist, title) values ("Cavanaugh, James", "You're Nobody 'Til Somebody Loves You");
 
 replace into Composers_Songs (composer, title) values ("Noble, Ray", "Very Thought of You, The");
 replace into Lyricists_Songs (lyricist, title) values ("Noble, Ray", "Very Thought of You, The");
