@@ -1197,6 +1197,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
+scanned, scanned_filename)
+values
+("I'll Follow My Secret Heart", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1934, 
+"{\\copyright} 1934 (Renewed).",
+"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes)
 values
 ("I'll Never Fall in Love Again", "Hal David", "David, Hal", "Burt Bacharach", "Bacharach, Burt", true,
@@ -1217,7 +1226,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 values
 ("I'll See You Again", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, 
 "{\\copyright} 1929 (Renewed).",
-"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34");
+"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34.");
 
 /* ** *************************************************** */
 
@@ -3155,6 +3164,7 @@ order by words_reverse, music_reverse, words_and_music_reverse\G
 
 /* * (1)  */
 
+
 replace	into Composers_Songs (composer, title) values ("Abreu, Zequinha de", "Tico Tico no Fuba");
 
 replace	into Composers_Songs (composer, title) values ("Ager, Milton", "Ain't She Sweet");
@@ -3708,7 +3718,7 @@ replace into Composers_Songs (composer, title) values ("Young, Victor", "Stella 
 
 replace into Composers_Songs (composer, title) values ("Young, Victor", "When I Fall in Love");
 
-/* * (1)  */
+-- /* * (1)  */
 
 replace into Lyricists_Songs (lyricist, title) values ("Adams, Lee", "Put on a Happy Face");
 
@@ -4206,7 +4216,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Caravan
 
 replace into Lyricists_Songs (lyricist, title) values ("Modugno, Domenico", "Nel blu dipinto di blu (Volare)"); 
 
-/* select * from Lyricists_Songs where title = "Chega de Saudade";  */
+-- /* select * from Lyricists_Songs where title = "Chega de Saudade";  */
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Chega de Saudade");
 
@@ -4333,7 +4343,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Yellen, Jack", "Ain't Sh
 
 replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "I'm Gonna Sit Right Down and Write Myself a Letter");
 
-/* * (1)  */
+-- /* * (1)  */
 
 -- delete from Composers_Songs where title = "Heart";
 -- delete from Lyricists_Songs where title = "Heart";
@@ -4412,6 +4422,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "If Love Were All");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "If Love Were All");
 
+
+
+
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
 
@@ -4420,6 +4433,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Pa
 
 replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
+
+replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "I'll Follow My Secret Heart");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "I'll Follow My Secret Heart");
 
 replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
 replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");
