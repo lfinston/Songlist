@@ -3086,7 +3086,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, source)
 values
 ("You're Nobody 'Til Somebody Loves You", "Russ Morgan, Larry Stock and James Cavanaugh",
-"Morgan, Russ; Stock, Larry and Cavanaugh, James", true, 1944, true, "yrnbdytl.pdf",
+"\\vbox{\\hbox{"Morgan, Russ; Stock, Larry}\\vskip\\composerskip\\hbox{and Cavanaugh, James}}", 
+true, 1944, true, "yrnbdytl.pdf",
 "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~241.");
 
 /* ** *************************************************** */
