@@ -2086,6 +2086,18 @@ select "!!! N";
 
 select "!!! O";
 
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename, language)
+values
+("O Nosso Amor (Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
+"Copyright {\\copyright} 1959, 1964 (Renewed)",
+"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
+"portugese");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Oh! You Crazy Moon", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1939,
@@ -4537,6 +4549,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Desafinado");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Desafinado");
+
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "O Nosso Amor (Carnival Samba)");
+replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "O Nosso Amor (Carnival Samba)");
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Samba do Avi{\\~a}o");
