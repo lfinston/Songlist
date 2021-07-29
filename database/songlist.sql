@@ -3090,6 +3090,8 @@ values
 true, 1944, true, "yrnbdytl.pdf",
 "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~241.");
 
+select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
+
 /* ** *************************************************** */
 
 replace into Songs (title, music, music_reverse, lead_sheet, notes)
