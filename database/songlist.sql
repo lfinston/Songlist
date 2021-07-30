@@ -2100,12 +2100,12 @@ select "!!! O";
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename, language, sort_by_production)
+source, scanned, scanned_filename, language, film, sort_by_production)
 values
 ("O Nosso Amor (Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "Copyright {\\copyright} 1959, 1964 (Renewed)",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
-"portugese", true);
+"portugese", "Orfeu Negro", true);
 
 /* ** *************************************************** */
 
