@@ -640,6 +640,7 @@ values
 "{\\bf The Music of Antonio Carlos Jobim}, p.~3.", true, "desafndo.pdf", "portugese");
 
 /* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, musical, scanned, scanned_filename)
 values
@@ -729,6 +730,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, musical, scanned, scanned_filename)
+values
+("Everything's Coming Up Roses", "Stephen Sondheim", "Sondheim, Stephen", "Jule Styne", "Styne, Jule",
+true, 1959, "{\\bf Broadway Double Bill, Gypsy and Funny Girl, Vocal Selections}, p.~5.",
+"Gypsy", true, "evtcuprs.pdf");
+
+/* ** *************************************************** */
+
 /* F   */
 
 /* ** *************************************************** */
@@ -741,12 +751,12 @@ true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Sel
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-source, scanned, scanned_filename, film, language)
+source, scanned, scanned_filename, film, language, sort_by_production)
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true, "felcdade.pdf",
-"Orfeu Negro", "portugese");
+"Orfeu Negro", "portugese", true);
 
 /* ** *************************************************** */
 
@@ -1830,11 +1840,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year, language)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year, 
+language, sort_by_production)
 values
 ("Manh{\\~a} da Carnaval", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
 "Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Score for Andantino completed 23.02.2018.", "Orfeu Negro",
-1959, "portugese");
+1959, "portugese", true);
 
 /* ** *************************************************** */
 
@@ -2089,12 +2100,12 @@ select "!!! O";
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename, language)
+source, scanned, scanned_filename, language, sort_by_production)
 values
 ("O Nosso Amor (Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "Copyright {\\copyright} 1959, 1964 (Renewed)",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
-"portugese");
+"portugese", true);
 
 /* ** *************************************************** */
 
@@ -2378,10 +2389,10 @@ select "!!! S";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-film, year, scanned, scanned_filename, language)
+film, year, scanned, scanned_filename, language, sort_by_production)
 values
 ("Samba de Orfeu", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
-"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true, "sambaorf.pdf", "portugese");
+"Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true, "sambaorf.pdf", "portugese", true);
 
 /* ** *************************************************** */
 
@@ -3655,6 +3666,8 @@ replace into Composers_Songs (composer, title) values ("Strouse, Charles", "Put 
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Diamonds are a Girl's Best Friend");
 
+replace into Composers_Songs (composer, title) values ("Styne, Jule", "Everything's Coming Up Roses");
+
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Just in Time");
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's Over, The");
@@ -4323,6 +4336,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "St
 
 replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Strangers in the Night");
 
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Everything's Coming Up Roses");
+
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "I Feel Pretty");
 
 replace into Lyricists_Songs (lyricist, title) values ("Springfield, Tom", "Georgy  Girl");
@@ -4496,8 +4511,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Fisher, Fred", "Chicago 
 replace into Composers_Songs (composer, title) values ("Fisher, Mark; Goodwin, Joe and Shay, Larry", "When You're Smiling");
 replace into Lyricists_Songs (lyricist, title) values ("Fisher, Mark; Goodwin, Joe and Shay, Larry", "When You're Smiling");
 
-delete from Composers_Songs where composer = "Frank, Loesser";
-delete from Lyricists_Songs where lyricist = "Frank, Loesser";
+-- delete from Composers_Songs where composer = "Frank, Loesser";
+-- delete from Lyricists_Songs where lyricist = "Frank, Loesser";
 
 select * from Composers_Songs where composer = "Loesser, Frank";
 select * from Lyricists_Songs where lyricist = "Loesser, Frank";
