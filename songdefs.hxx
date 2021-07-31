@@ -83,6 +83,9 @@ class Song
     string scanned_filename;
     bool public_domain;
     string language;
+    bool is_cross_reference;
+    string target;
+    string production;
 
     vector<string> title_vector;
     
@@ -121,6 +124,10 @@ class Song
          scanned_filename = "";
          public_domain = false;
          language = "english";
+         is_cross_reference = false;
+         target = "";
+         production = "";
+
 
          return;
     }
@@ -159,6 +166,10 @@ class Song
       scanned_filename = s.scanned_filename;
       public_domain = s.public_domain;
       language = s.language;
+      is_cross_reference = s.is_cross_reference;
+      target = s.target;
+      production = s.production;
+
       return;
     }
 

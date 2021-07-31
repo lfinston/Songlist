@@ -1667,7 +1667,19 @@ process_tocs_and_npt(void)
          if (iter->title == "42nd Street" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                                           || temp_char <= 'h')
          {
-            toc_ls_a_h_file << "\\M " << iter->title << endl;
+             if (iter->is_cross_reference)
+             {
+                toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
+                            << endl
+                            << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+
+                if (iter->production != "")
+                   toc_ls_a_h_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+
+                toc_ls_a_h_file << ")}" << endl << endl;
+             }
+             else
+                toc_ls_a_h_file << "\\M " << iter->title << endl;
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->musical << "'')"
@@ -1703,7 +1715,19 @@ process_tocs_and_npt(void)
          }
          else if (temp_char <= 'o')
          {
-            toc_ls_i_o_file << "\\N " << iter->title << endl;
+             if (iter->is_cross_reference)
+             {
+                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
+                            << endl
+                            << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+
+                if (iter->production != "")
+                   toc_ls_i_o_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+
+                toc_ls_i_o_file << ")}" << endl << endl;
+             }
+             else
+               toc_ls_i_o_file << "\\N " << iter->title << endl;
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
               toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
@@ -1740,7 +1764,19 @@ process_tocs_and_npt(void)
          }
          else
            {
-             toc_ls_p_z_file << "\\N " << iter->title << endl;
+             if (iter->is_cross_reference)
+             {
+                toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
+                            << endl
+                            << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+
+                if (iter->production != "")
+                   toc_ls_p_z_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+
+                toc_ls_p_z_file << ")}" << endl << endl;
+             }
+             else
+                toc_ls_p_z_file << "\\N " << iter->title << endl;
              
              if (iter->musical.length() > 0 && iter->sort_by_production)
                toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"

@@ -900,7 +900,14 @@ Song::show(string s)
        << "notes:                            " << notes << endl      
        << "mark_blue:                        " << mark_blue << endl
        << "sort_by_production:               " << sort_by_production << endl      
-       << "is_production:                    " << is_production << endl;      
+       << "is_production:                    " << is_production << endl
+       << "scanned:                          " << scanned << endl
+       << "scanned_filename:                 " << scanned_filename << endl
+       << "public_domain:                    " << public_domain << endl
+       << "language:                         " << language << endl
+       << "is_cross_reference:               " << is_cross_reference << endl
+       << "target:                           " << target << endl
+       << "production:                       " << production << endl;
 
   if (title_vector.size() > 0)
     cerr << "title_vector:" << endl;
@@ -952,6 +959,14 @@ Song::clear(void)
     mark_blue = 0;
     notes = "";
     is_production = false;
+    scanned = false;
+    scanned_filename = "";
+    public_domain = false;
+    language = "";
+    is_cross_reference = false;
+    target = "";
+    production = "";
+
     title_vector.clear();
     
     return;
@@ -1453,7 +1468,7 @@ remove_formatting_commands(string s)
       
   do
     {
-      found_s = s.find_first_of("\\'`\"{}~-_");
+      found_s = s.find_first_of("()\\'`\"{}~-_");
       if (found_s != string::npos)	  	  
 	{
 	  found_flag = true;

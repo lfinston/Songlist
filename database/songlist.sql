@@ -81,17 +81,17 @@ create table Songs
     revue varchar(64) default null,
     film  varchar(64) default null,
     sort_by_production boolean not null default false,
+    production varchar(64) not null default "",
     year int default null,
     copyright varchar(256) default null,
     notes varchar(512) default null,
     public_domain boolean not null default false,
-    language varchar(32) not null default "english"
+    language varchar(32) not null default "english",
+    is_cross_reference boolean not null default false
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
-
 alter table Songs add column source varchar(128) default null after notes;
-
 alter table Songs add column words_reverse varchar(128) default null after words;
 alter table Songs add column music_reverse varchar(128) default null after music;
 alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
@@ -100,13 +100,14 @@ alter table Songs add column scanned_filename varchar(12) default null after sca
 alter table Songs add column public_domain boolean not null default false after notes;
 alter table Songs add column song_cycle varchar(64) default null after operetta;
 alter table Songs add column language varchar(32) not null default "english" after public_domain;
-
 alter table Songs modify column copyright varchar(256) default null;
 alter table Songs modify column source varchar(356) default null after notes;
+alter table Songs add column is_cross_reference boolean not null default 0 after language;
+alter table Songs add column target varchar(128) not null default "" after is_cross_reference;
 
+alter table Songs add column production varchar(64) not null default "" after sort_by_production;
 
-
-show columns from Songs.Songs;
+show columns from Songs;
 
 delete from Songs;
 
@@ -1208,10 +1209,16 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
-musical, scanned, scanned_filename)
+musical, scanned, scanned_filename, sort_by_production)
 values
 ("(I'll Marry) The Very Next Man", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
-true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "verynext.pdf");
+true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "verynext.pdf", true);
+
+replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
+values
+("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!");
+
+select * from Songs where title = "Very Next Man, (I'll Marry) The"\G
 
 /* ** *************************************************** */
 
@@ -1743,10 +1750,10 @@ true, "listsong.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
-musical, scanned, scanned_filename)
+musical, scanned, scanned_filename, sort_by_production)
 values
 ("Little Tin Box", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
-true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~22.", "Fiorello!", true, "lttltnbx.pdf");
+true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~22.", "Fiorello!", true, "lttltnbx.pdf", true);
 
 /* ** *************************************************** */
 
