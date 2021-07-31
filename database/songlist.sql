@@ -87,7 +87,9 @@ create table Songs
     notes varchar(512) default null,
     public_domain boolean not null default false,
     language varchar(32) not null default "english",
-    is_cross_reference boolean not null default false
+    is_cross_reference boolean not null default false,
+    target varchar(128) not null default "",
+    do_filecard boolean not null default false
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -104,8 +106,9 @@ alter table Songs modify column copyright varchar(256) default null;
 alter table Songs modify column source varchar(356) default null after notes;
 alter table Songs add column is_cross_reference boolean not null default 0 after language;
 alter table Songs add column target varchar(128) not null default "" after is_cross_reference;
-
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
+
+alter table Songs add column do_filecard boolean not null default false after target;
 
 show columns from Songs;
 
@@ -174,10 +177,10 @@ show columns from Lyricists_Songs;
 
 /* A  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, language)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, language, do_filecard)
 values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940,
-"german");
+"german", true);
 
 -- select * from Songs where title = "Abends in der Taverna"\G
 
@@ -467,9 +470,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
-("Camelot", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Camelot", true);
+("Camelot", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Camelot", true, 1960);
 
 /* ** *************************************************** */
 
@@ -1175,10 +1178,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
 ("If I Should Ever Leave You", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true,
-"Camelot", true);
+"Camelot", true, 1960);
 
 /* ** *************************************************** */
 

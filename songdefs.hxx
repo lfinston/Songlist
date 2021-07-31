@@ -86,6 +86,7 @@ class Song
     bool is_cross_reference;
     string target;
     string production;
+    bool do_filecard;
 
     vector<string> title_vector;
     
@@ -127,7 +128,7 @@ class Song
          is_cross_reference = false;
          target = "";
          production = "";
-
+         do_filecard = false;
 
          return;
     }
@@ -169,6 +170,7 @@ class Song
       is_cross_reference = s.is_cross_reference;
       target = s.target;
       production = s.production;
+      do_filecard = s.do_filecard;
 
       return;
     }

@@ -266,7 +266,7 @@ main(int argc, char **argv)
           iter != song_vector.end();
           ++iter, ++next)
      {
-            if (iter->is_production)
+            if (iter->is_production || iter->is_cross_reference)
             {
                 continue;
             }
@@ -481,7 +481,7 @@ main(int argc, char **argv)
           iter != song_vector.end();
           ++iter, ++next)
      {
-            if (iter->is_production)
+            if (iter->is_production || iter->is_cross_reference)
             {
                 continue;
             }
@@ -907,7 +907,8 @@ Song::show(string s)
        << "language:                         " << language << endl
        << "is_cross_reference:               " << is_cross_reference << endl
        << "target:                           " << target << endl
-       << "production:                       " << production << endl;
+       << "production:                       " << production << endl
+       << "do_filecard:                      " << do_filecard << endl;
 
   if (title_vector.size() > 0)
     cerr << "title_vector:" << endl;
@@ -964,8 +965,9 @@ Song::clear(void)
     public_domain = false;
     language = "";
     is_cross_reference = false;
-    target = "";
+    target ="";
     production = "";
+    do_filecard = false;
 
     title_vector.clear();
     

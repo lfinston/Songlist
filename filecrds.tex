@@ -31,54 +31,41 @@
 %% \savebaselineskip=\baselineskip
 %% \saveparskip=\parskip
 
-\def\A#1#2#3#4{\leftline{\hskip#1\hskip2em {\mediumbx #2}}
+\def\A{%% Rules for DIN A7 "file cards"
+%%
+\vtop to 0pt{\vbox to \vsize{\hbox to 0pt{\hskip\dimen0
+\vbox to 0pt{\hrule width 1.5pt height .5\vsize depth .5\vsize\vss}\hss
+}\hbox to 0pt{\vbox to 0pt{\vskip.5\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
+}\hbox to 0pt{\vbox to 0pt{\vskip.25\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
+}\hbox to 0pt{\vbox to 0pt{\vskip.75\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
+}\vss
+}\vss}\vskip-\vsize\vskip.25cm}
+
+\def\B#1#2#3#4#5{\vbox to 0pt{\vskip#1\vskip.125cm
+\leftline{\hskip#2\hskip2em {\mediumbx #3}}
 \vskip12pt
-\leftline{\hskip#1\hskip2em #3}
+\leftline{\hskip#2\hskip2em #4}
 \vskip12pt
-\leftline{\hskip#1\hskip2em #4}}
+\leftline{\hskip#2\hskip2em #5}\vss}}
 
 \parskip=0pt
 \parindent=0pt
 \baselineskip=0pt
 \dimen0=.5\hsize
 \advance\dimen0 by -.75pt
-%%
-%% Rules for DIN A7 "file cards"
-%%
-\vtop to 0pt{\vbox to \vsize{\hbox to 0pt{\hskip\dimen0
-\vbox to 0pt{\hrule width 1.5pt height .5\vsize depth .5\vsize\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.5\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.25\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.75\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\vss
-}\vss
-%%
-}
 
 %% Songs
 
-\vskip-\vsize\vskip.25cm
-\vbox to 0pt{\vskip.125cm
-\A{0pt}{Call Me}{Words and Music:  Tony Hatch}{Copyright {\copyright} 1965}
-\vss}
-\vbox to 0pt{\vskip.125cm
-\vskip.25\vsize
-\A{.5\hsize}{Camelot}{Words:  Alan Jay Lerner.  Music:  Frederick Loewe}{Copyright {\copyright} 1960}
-\vss}
-\eject
+\input sub_filecrds.tex
 
-\vtop to 0pt{\vbox to \vsize{\hbox to 0pt{\hskip\dimen0
-\vbox to 0pt{\hrule width 1.5pt height .5\vsize depth .5\vsize\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.5\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.25\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\hbox to 0pt{\vbox to 0pt{\vskip.75\vsize\hrule width \hsize height .75pt depth .75pt\vss}\hss
-}\vss
-}\vss
-%%
-}\vskip-\vsize\vskip.25cm
-\vbox to 0pt{\vskip.125cm
-\A{0pt}{Capri Fischer}{Words:  Ralph Maria Siegel.  Music:  Gerhard Winkler}{Copyright {\copyright} 1943}
-\vss}
+%% \A
+%% \B{0pt}{0pt}{Call Me}{Words and Music:  Tony Hatch}{Copyright {\copyright} 1965}
+%% \B{.25\vsize}{.5\hsize}{Camelot}{Words:  Alan Jay Lerner.  Music:  Frederick Loewe}{Copyright {\copyright} 1960}
+%% \eject
+
+%% \A
+%% \B{0pt}{0pt}{Capri Fischer}{Words:  Ralph Maria Siegel.  Music:  Gerhard Winkler}{Copyright {\copyright} 1943}
+
 
 
 
