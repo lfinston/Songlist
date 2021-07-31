@@ -53,13 +53,29 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep
+all: all-sep all-no-sep filecrds.pdf filecrds.ps
+
+.PHONY: fc
+
+fc: filecrds.ps
 
 .PHONY: f-all
 
 f-all:
 	songlist$(EXEEXT)
 	$(MAKE) all
+
+filecrds.pdf: filecrds.dvi
+	dvipdfmx $<
+
+filecrds.ps: filecrds.dvi
+	dvips -o $@ $<
+
+filecrds.dvi: filecrds.tex sub_filecrds.tex
+	tex $<
+
+sub_filecrds.tex: database/songlist.sql songlist$(EXEEXT)
+	songlist$(EXEEXT)
 
 .PHONY: all-sep
 

@@ -148,7 +148,8 @@ process_tocs_and_npt(void)
              <<        "is_cross_reference, "               // 28
              <<        "target, "                           // 29
              <<        "production, "                       // 30
-             <<        "do_filecard "                       // 31
+             <<        "do_filecard, "                      // 31
+             <<        "filecard_title "                    // 32
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -488,6 +489,10 @@ process_tocs_and_npt(void)
        curr_song.do_filecard = atoi(curr_row[31]);
          if (DEBUG)
            cerr << "`do_filecard'                        == " << curr_row[31] << endl;
+
+       curr_song.filecard_title = curr_row[32];
+         if (DEBUG)
+           cerr << "`filecard_title'                     == " << curr_row[32] << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -1672,7 +1677,10 @@ process_tocs_and_npt(void)
            else if (filecard_ctr == 7)
               sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
 
-           sub_filecards_file << "{" << iter->title << "}";
+           if (!iter->filecard_title.empty())
+              sub_filecards_file << "{" << iter->filecard_title << "}";
+           else
+              sub_filecards_file << "{" << iter->title << "}";
 
            if (!iter->words_and_music.empty())
               sub_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";

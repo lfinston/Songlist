@@ -908,7 +908,8 @@ Song::show(string s)
        << "is_cross_reference:               " << is_cross_reference << endl
        << "target:                           " << target << endl
        << "production:                       " << production << endl
-       << "do_filecard:                      " << do_filecard << endl;
+       << "do_filecard:                      " << do_filecard << endl
+       << "filecard_title:                   " << filecard_title << endl;
 
   if (title_vector.size() > 0)
     cerr << "title_vector:" << endl;
@@ -968,6 +969,7 @@ Song::clear(void)
     target ="";
     production = "";
     do_filecard = false;
+    filecard_title = "";
 
     title_vector.clear();
     
