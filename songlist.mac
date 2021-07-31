@@ -87,6 +87,9 @@
 
 \newcount\songctr
 
+\catcode`\@=\active
+\def@#1{{\"#1}}
+
 \def\M{\leavevmode\hbox to \twozerosdimen{\hss 
 \the\songctr\global\advance\songctr by 1}. }
 \def\R{\hskip\twozerosperioddimen}

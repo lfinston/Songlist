@@ -243,12 +243,16 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
-("Alles f{\\\"u}hlt der Liebe Freuden", "Emanuel Schikaneder", "Schikaneder, Emanuel",
-"Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", false,
-"Zauberfl{\\\"u}te, Die", 1791, true, "allsfhlt.pdf", true,
+("Alles f@{u}hlt der Liebe Freuden", "Emanuel Schikaneder", "Schikaneder, Emanuel",
+"Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", true,
+"Zauberfl@{o}te, Die", 1791, true, "allsfhlt.pdf", true,
 "{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
 
--- select title from Songs where music = "Wolfgang Amadeus Mozart";Jacques Offenbach";
+
+
+--
+
+select * from Songs where opera = "Zauberfl@{o}te, Die"\G
 
 /* ** *************************************************** */
 
@@ -339,7 +343,7 @@ values
 "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
 "\\vbox{\\hbox{Einzelausgabe}"
-"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}", 
+"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}", 
 true, "french");
 
 /* ** *************************************************** */
@@ -431,7 +435,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, language)
 values
 ("Buenas Noches mi Amor", "Marc Fontenoy", "Fontenoy, Marc", "Hubert Giraud", "Giraud, Hubert", 
-true, 1957, "{\\bf 40 franz{\\\"o}sische Chansons}, p.~99.", "french");
+true, 1957, "{\\bf 40 franz@{o}sische Chansons}, p.~99.", "french");
 
 /* ** *************************************************** */
 
@@ -683,7 +687,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, year, no_page_turns, source, language)
 values
 ("Du sollst der Kaiser meiner Seele sein",
-"Fritz Gr{\\\"u}nbaum und Wilhelm Sterk", "Gr{\\\"u}nbaum, Fritz und Sterk, Wilhelm",
+"Fritz Gr@{u}nbaum und Wilhelm Sterk", "Gr@{u}nbaum, Fritz und Sterk, Wilhelm",
 "Robert Stolz", "Stolz, Robert",
 1916, true, "Das neue Operettenbuch, Buch 1", "german");
 
@@ -694,9 +698,9 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, 
 opera, scanned, scanned_filename, public_domain, language)
 values
-("Durch die W{\\\"a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", 
+("Durch die W@{a}lder, durch die Auen", "Friedrich Kind", "Kind, Friedrich", 
 "Carl Maria von Weber", "Weber, Carl Maria von",
-true, 1821, "Public Domain", "Freisch{\\\"u}tz, Der", true, "drchwldr.pdf", true, "german");
+true, 1821, "Public Domain", "Freisch@{u}tz, Der", true, "drchwldr.pdf", true, "german");
 
 /* ** *************************************************** */
 
@@ -1182,7 +1186,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright)
 values
-("If Love Were All", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, "{\\copyright} 1929 (Renewed).");
+("If Love Were All", "No@{e}l Coward", "Coward, No@{e}l",  true, 1929, "{\\copyright} 1929 (Renewed).");
 
 /* ** *************************************************** */
 
@@ -1199,7 +1203,7 @@ values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
 "Contes d'Hoffmann, Les", 1881, true, "iletaifs.pdf", true,
 "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
-"\\hbox{{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
+"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
 true, "french");
 
 -- select title from Songs where music = "Jacques Offenbach";
@@ -1236,9 +1240,9 @@ select * from Songs where title = "Very Next Man, (I'll Marry) The"\G
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
 scanned, scanned_filename, musical)
 values
-("I'll Follow My Secret Heart", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1934, 
+("I'll Follow My Secret Heart", "No@{e}l Coward", "Coward, No@{e}l",  true, 1934, 
 "{\\copyright} 1934 (Renewed).",
-"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf", "Conversation Piece");
+"{\\bf Sir No@{e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf", "Conversation Piece");
 
 /* ** *************************************************** */
 
@@ -1260,9 +1264,9 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
-("I'll See You Again", "No{\\\"e}l Coward", "Coward, No{\\\"e}l",  true, 1929, 
+("I'll See You Again", "No@{e}l Coward", "Coward, No@{e}l",  true, 1929, 
 "{\\copyright} 1929 (Renewed).",
-"{\\bf Sir No{\\\"e}l Coward, His Words and Music}, p.~34.");
+"{\\bf Sir No@{e}l Coward, His Words and Music}, p.~34.");
 
 /* ** *************************************************** */
 
@@ -1577,7 +1581,7 @@ values
 ("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "antnpdua.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~32.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~32.}", 
 true, "german");
 
 /* *** (3)*************************************************** */
@@ -1588,7 +1592,7 @@ values
 ("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~25.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~25.}", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1599,7 +1603,7 @@ values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~61.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~61.}", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1610,7 +1614,7 @@ values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndn.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~41.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.}", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1621,7 +1625,7 @@ values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f{\\\"u}r tiefe Stimme und Klavier}, p.~20.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~20.}", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1631,11 +1635,11 @@ true, "german");
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Komm, Zigany",
-"Julius Brammer und Alfred Gr{\\\"u}nwald",
-"Brammer, Julius und Gr{\\\"u}nwald, Alfred",
+"Julius Brammer und Alfred Gr@{u}nwald",
+"Brammer, Julius und Gr@{u}nwald, Alfred",
 "Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, 1932, "german");
 
-/* Film-Operetta:  Gr{\\\"a}fin Mariza using melodies by K\\'alman.         */
+/* Film-Operetta:  Gr@{a}fin Mariza using melodies by K\\'alman.         */
 /* comment: (ungarisch: K{\\'a}lm{\\'a}n Imre;  eigentlich: Imre Koppstein  */
 /* Copyright 1957                                                           */
 
@@ -2149,7 +2153,7 @@ opera, year, scanned, scanned_filename, public_domain, source, sort_by_productio
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
-"{\\bf Hoffmanns Erz{\\\"a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
+"{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
 true, "french");
 
 /* ** *************************************************** */
@@ -2244,7 +2248,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("Parisian Pierrot", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
+("Parisian Pierrot", "No@{e}l Coward", "Coward, No@{e}l", true);
 
 /* ** *************************************************** */
 
@@ -2293,7 +2297,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
 scanned, scanned_filename, language)
 values
-("Polowetzer T{\\\"a}nze (``Stranger in Paradise'')", "Alexander Borodin", "Borodin, Alexander", 
+("Polowetzer T@{a}nze (``Stranger in Paradise'')", "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", true, "polowtnz.pdf", "russian");
 
 /* ** *************************************************** */
@@ -2396,7 +2400,7 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
 values
-("Room With a View, A", "No{\\\"e}l Coward", "Coward, No{\\\"e}l", true);
+("Room With a View, A", "No@{e}l Coward", "Coward, No@{e}l", true);
 
 /* ** *************************************************** */
 
@@ -2406,7 +2410,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 values
 ("Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
 "Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch", true, "Public Domain.",
-"{\\bf Das Lied der V{\\\"o}lker, Russische Lieder}, p.~26.", "russian");
+"{\\bf Das Lied der V@{o}lker, Russische Lieder}, p.~26.", "russian");
 
 select "!!! End R";
 
@@ -2610,9 +2614,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, recordings, film, year)
 values
-("Speak Softly, Love", "Larry Kusik", "Kusik, Larry", "Nino Rota", "Rota, Nino", 1);
+("Speak Softly, Love", "Larry Kusik", "Kusik, Larry", "Nino Rota", "Rota, Nino", 1, "Godfather, The", 1972);
 
 /* ** *************************************************** */
 
@@ -3164,9 +3168,9 @@ select "!!! Z";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, year, language)
 values
-("Zwei M{\\\"a}rchenaugen",
-"Julius Brammer und Alfred Gr{\\\"u}nwald",
-"Brammer, Julius und Gr{\\\"u}nwald, Alfred",
+("Zwei M@{a}rchenaugen",
+"Julius Brammer und Alfred Gr@{u}nwald",
+"Brammer, Julius und Gr@{u}nwald, Alfred",
 "Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Zirkusprinzessin, Die", 1926, "german");
 
 /* Copyright 1951  */
@@ -3301,7 +3305,7 @@ replace into Composers_Songs (composer, title) values ("Burke, Joe", "Tiptoe Thr
 
 replace into Composers_Songs (composer, title) values ("Burnett, Ernie", "My Melancholy Baby");
 
-replace into Composers_Songs (composer, title) values ("Weber, Carl Maria von", "Durch die W{\\\"a}lder, durch die Auen");
+replace into Composers_Songs (composer, title) values ("Weber, Carl Maria von", "Durch die W@{a}lder, durch die Auen");
 
 replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Heart and Soul");
 
@@ -3492,7 +3496,7 @@ replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Mess
 
 replace into Composers_Songs (composer, title) values ("K{\\'a}lm{\\'a}n, Emmerich", "Komm, Zigany");
 
-replace into Composers_Songs (composer, title) values ("K{\\'a}lm{\\'a}n, Emmerich", "Zwei M{\\\"a}rchenaugen");
+replace into Composers_Songs (composer, title) values ("K{\\'a}lm{\\'a}n, Emmerich", "Zwei M@{a}rchenaugen");
 
 replace into Composers_Songs (composer, title) values ("Kaempfert, Bert", "Strangers in the Night");
 
@@ -3592,7 +3596,7 @@ replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've
 
 replace into Composers_Songs (composer, title) values ("Moret, Neil", "She's Funny That Way");
 
-replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "Alles f{\\\"u}hlt der Liebe Freuden");
+replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "Alles f@{u}hlt der Liebe Freuden");
 
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "L{\\`a} ci darem la mano");
 
@@ -3816,15 +3820,15 @@ replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "
 
 replace into Lyricists_Songs (lyricist, title) values ("Bettis, John", "Top of the World");
 
-replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Zwei M{\\\"a}rchenaugen");
+replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Zwei M@{a}rchenaugen");
 
 replace into Lyricists_Songs (lyricist, title) values ("Brown, Lew", "That Old Feeling");
 
-replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nwald, Alfred", "Zwei M{\\\"a}rchenaugen");
+replace into Lyricists_Songs (lyricist, title) values ("Gr@{u}nwald, Alfred", "Zwei M@{a}rchenaugen");
 
 replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Komm, Zigany");
 
-replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nwald, Alfred", "Komm, Zigany");
+replace into Lyricists_Songs (lyricist, title) values ("Gr@{u}nwald, Alfred", "Komm, Zigany");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Here's That Rainy Day");
 
@@ -4000,7 +4004,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Gorrell, Stuart", "Georg
 
 replace into Lyricists_Songs (lyricist, title) values ("Green, Paul", "Listen to My Song (Johnny's Song)");
 
-replace into Lyricists_Songs (lyricist, title) values ("Gr{\\\"u}nbaum, Fritz", "Du sollst der Kaiser meiner Seele sein");
+replace into Lyricists_Songs (lyricist, title) values ("Gr@{u}nbaum, Fritz", "Du sollst der Kaiser meiner Seele sein");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sterk, Wilhelm", "Du sollst der Kaiser meiner Seele sein");
 
@@ -4130,7 +4134,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Kenny, Nick", "Love Lett
 
 replace into Lyricists_Songs (lyricist, title) values ("Kenny, Charles", "Love Letters in the Sand");
 
-replace into Lyricists_Songs (lyricist, title) values ("Kind, Friedrich", "Durch die W{\\\"a}lder, durch die Auen");
+replace into Lyricists_Songs (lyricist, title) values ("Kind, Friedrich", "Durch die W@{a}lder, durch die Auen");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kleban, Edward", "One");
 
@@ -4346,7 +4350,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Romero, Manuel", "Tomo y
 
 replace into Lyricists_Songs (lyricist, title) values ("Rose, Billy", "I've Got a Feeling I'm Falling");
 
-replace into Lyricists_Songs (lyricist, title) values ("Schikaneder, Emanuel", "Alles f{\\\"u}hlt der Liebe Freuden");
+replace into Lyricists_Songs (lyricist, title) values ("Schikaneder, Emanuel", "Alles f@{u}hlt der Liebe Freuden");
 
 replace into Lyricists_Songs (lyricist, title) values ("Schiffer, Marcellus", "Heute Nacht oder nie");
 
@@ -4478,8 +4482,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "They S
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
 
-replace into Composers_Songs (composer, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
-replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Polowetzer T{\\\"a}nze (``Stranger in Paradise'')");
+replace into Composers_Songs (composer, title) values ("Borodin, Alexander", "Polowetzer T@{a}nze (``Stranger in Paradise'')");
+replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Polowetzer T@{a}nze (``Stranger in Paradise'')");
 
 replace into Composers_Songs (composer, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
 replace into Lyricists_Songs (lyricist, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
@@ -4487,23 +4491,23 @@ replace into Lyricists_Songs (lyricist, title) values ("Bowman, Brooks", "East o
 replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "If Love Were All");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "If Love Were All");
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "If Love Were All");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "If Love Were All");
 
 
 
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "I'll See You Again");
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "I'll See You Again");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "I'll See You Again");
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Parisian Pierrot");
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "Parisian Pierrot");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "Parisian Pierrot");
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "Room With a View, A");
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "Room With a View, A");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "Room With a View, A");
 
-replace into Composers_Songs (composer, title) values ("Coward, No{\\\"e}l", "I'll Follow My Secret Heart");
-replace into Lyricists_Songs (lyricist, title) values ("Coward, No{\\\"e}l", "I'll Follow My Secret Heart");
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "I'll Follow My Secret Heart");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "I'll Follow My Secret Heart");
 
 replace into Composers_Songs (composer, title) values ("Denver, John", "Annie's Song");
 replace into Lyricists_Songs (lyricist, title) values ("Denver, John", "Annie's Song");

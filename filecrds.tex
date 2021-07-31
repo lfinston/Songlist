@@ -52,6 +52,9 @@
 \newskip\titleskip
 \titleskip=8pt
 
+\newskip\basichskip
+\basichskip=2em
+
 \newskip\copyrightskip
 \copyrightskip=6pt
 
@@ -81,24 +84,34 @@
 \def\B#1#2#3#4#5#6#7{\begingroup
 \setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}\setbox7=\hbox{#7}
 \vbox to 0pt{\vskip#1\vskip.25cm
-\leftline{\hskip#2\hskip2em {\Largebx #3}}
+\leftline{\hskip#2\hskip\basichskip {\Largebx #3}}
 \ifdim\wd4>0pt
 \vskip12pt
-\leftline{\hskip#2\hskip2em #4}
+\leftline{\hskip#2\hskip\basichskip #4}
 \fi
 \ifdim\wd5>0pt
 \vskip12pt
-\leftline{\hskip#2\hskip2em #5}
+\leftline{\hskip#2\hskip\basichskip #5}
 \fi
 \ifdim\wd6>0pt
 \vskip12pt
-\leftline{\hskip#2\hskip2em #6}
+\leftline{\hskip#2\hskip\basichskip #6}
 \fi
 \ifdim\wd7>0pt
 \vskip12pt
-\leftline{\hskip#2\hskip2em #7}
+\leftline{\hskip#2\hskip\basichskip #7}
 \fi
 \vss}\endgroup}
+
+\newskip\Chskip
+
+
+\def\C#1#2#3{\Chskip=#2\vskip#1\vskip.25cm
+\leftline{\hskip#2\hskip\basichskip {\Largebx #3}}
+\vskip12pt}
+
+\catcode`\@=\active
+\def@#1{{\"#1}}
 
 \begingroup
 \parindent=0pt

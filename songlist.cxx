@@ -1324,6 +1324,7 @@ compare_productions(const Song& t, const Song& s)
 }  /* |end of compare_productions| definition */
 
 
+/* ** (2) */
 
 string 
 remove_formatting_commands(string s)
@@ -1472,7 +1473,7 @@ remove_formatting_commands(string s)
       
   do
     {
-      found_s = s.find_first_of("()\\'`\"{}~-_");
+      found_s = s.find_first_of("@()\\'`\"{}~-_");
       if (found_s != string::npos)	  	  
 	{
 	  found_flag = true;
