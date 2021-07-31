@@ -2819,6 +2819,10 @@ values
 "Mondo Cane", "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~136.", 
 true, "tgrdnlcr.pdf", "italian");
 
+replace into Songs (title, is_cross_reference, target, lead_sheet)
+values
+("More", true, "Ti Guarder{\\`e}ro Nel Cuore (More)"", true);
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,

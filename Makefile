@@ -53,7 +53,13 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep 
+all: all-sep all-no-sep
+
+.PHONY: f-all
+
+f-all:
+	songlist$(EXEEXT)
+	$(MAKE) all
 
 .PHONY: all-sep
 
