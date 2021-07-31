@@ -1672,7 +1672,28 @@ process_tocs_and_npt(void)
            else if (filecard_ctr == 7)
               sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
 
-           sub_filecards_file << "{" << iter->title << "}{}{}" << endl;
+           sub_filecards_file << "{" << iter->title << "}";
+
+           if (!iter->words_and_music.empty())
+              sub_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";
+           else if (!(iter->words.empty() && iter->music.empty()))
+           {
+              if (!iter->words.empty())
+                 sub_filecards_file << "{Words:  " << iter->words << ".}" << endl;
+              else 
+                 sub_filecards_file << "{}" << endl;
+              if (!iter->music.empty())
+                 sub_filecards_file << "{Music:  " << iter->music << ".}";
+              else 
+                 sub_filecards_file << "{}" << endl;
+           }
+           if (!iter->copyright.empty())
+              sub_filecards_file << "{" << iter->copyright << "}" << endl;
+           else if (iter->year > 0)
+              sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}" << endl;
+           else
+              sub_filecards_file << "{}" << endl;
+
            ++filecard_ctr;
          }
 
