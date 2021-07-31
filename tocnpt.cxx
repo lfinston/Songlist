@@ -1689,10 +1689,14 @@ process_tocs_and_npt(void)
            }
            if (!iter->copyright.empty())
               sub_filecards_file << "{" << iter->copyright << "}" << endl;
-           else if (iter->year > 0)
+           else if (iter->year >= 1900)
               sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}" << endl;
+           else if (iter->year > 0)
+              sub_filecards_file << "{Year:  " << iter->year << "}" << endl;
            else
               sub_filecards_file << "{}" << endl;
+
+           /* !!START HERE:  Add code for productions and notes.   */ 
 
            ++filecard_ctr;
          }
