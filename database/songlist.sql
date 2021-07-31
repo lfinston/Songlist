@@ -80,6 +80,7 @@ create table Songs
     musical varchar(64) default null,
     revue varchar(64) default null,
     film  varchar(64) default null,
+    film_reverse varchar(64) default null,
     sort_by_production boolean not null default false,
     production varchar(64) not null default "",
     year int default null,
@@ -110,9 +111,6 @@ alter table Songs add column target varchar(128) not null default "" after is_cr
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
 alter table Songs add column do_filecard boolean not null default true after target;
 alter table Songs add column filecard_title varchar(128) not null default "" after do_filecard;
-
-
-
 
 show columns from Songs;
 
@@ -2470,9 +2468,10 @@ true, "sptmbsng.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source)
 values
-("Shadow of Your Smile, The", "Johnny Mandel", "Mandel, Johnny", true);
+("Shadow of Your Smile, The", "Paul Francis Webster", "Webster, Paul Francis", 
+"Johnny Mandel", "Mandel, Johnny", true, 1965, "Sandpiper, The", "{\\bf Johnny Mandel Songbook, The}, p.~6.");
 
 /* ** *************************************************** */
 
@@ -2516,23 +2515,16 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
 values
 ("Skylark", "Johnny Mercer", "Mercer, Johnny", "Hoagy Carmichael", "Carmichael, Hoagy", true,
-1941, "Copyright {\\copyright} 1941, 1942 GEORGE SIMON, INC.  Copyrights Renewed (1969, 1970) "
-"and Assigned to WB MUSIC CORP.~and FRANK MUSIC CORP.",
+1941, "Copyright {\\copyright} 1941, 1942 George Simon, Inc.  Copyrights Renewed (1969, 1970) "
+"and Assigned to WB Music Corp.~and Frank Music Corp.",
 "{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~93.");
-
 
 /* ** *************************************************** */
 
-INSERT INTO `Songs`.`Songs` VALUES 
-("Sleepwalk",NULL,NULL,"Santo Farina, John Farina and Ann Farina","Farina, Santo; Farina, John; and Farina, Ann",
-NULL,NULL,0,0,1,0,0,NULL,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,0,1959,NULL,NULL,0,"english",
-"{\\bf More of the 1950s.  Hal Leonard Essential Songs, p.~304}");
-
-update Songs set words = "None", words_reverse = "None" where title = "Sleepwalk";
-
--- delete from Songs where title = "Sleepwalk";
-
-   select * from Songs where title = "Sleepwalk"\G
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
+values 
+("Sleepwalk", "Santo Farina, John Farina and Ann Farina", "Farina, Santo; Farina, John; and Farina, Ann",
+true, 1959, "{\\bf More of the 1950s.  Hal Leonard Essential Songs, p.~304}");
 
 /* ** *************************************************** */
 
@@ -2545,7 +2537,6 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Smoke Rings", "Ned Washington", "Washington, Ned", "H.~Eugene Gifford", "Gifford, H.~Eugene ", true);
-
 
 /* ** *************************************************** */
 
@@ -3154,9 +3145,11 @@ select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, year, film, source)
 values
-("You've Got That Look", "Friedrich Hollaender", "Hollaender, Friedrich", true, "Too low.  Must transpose!");
+("You've Got That Look", "Friedrich Hollaender", "Hollaender, Friedrich", 
+"Frank Loesser", "Loesser, Frank", true, "Too low.  Must transpose!", 1939, "Destry Rides Again",
+"{\\bf Marlene Dietrich Sings Friedrich Hollaender}, p.~46.");
 
 /* mark_blue  */
 /* words: Frank Loesser (Check!)  */

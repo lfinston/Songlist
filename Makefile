@@ -246,6 +246,6 @@ clean:
 .PHONY: dump
 
 dump:
-	mysqlpump 3dldf > dump.sql
+	mysqlpump Songs > dump.sql
 
 

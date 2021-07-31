@@ -58,6 +58,10 @@
 \newskip\composerskip
 \composerskip=4pt
 
+\newdimen\wmdimen
+\setbox0=\hbox{{\large Words:  }}
+\wmdimen=\wd0
+
 %% \newskip\savebaselineskip
 %% \newskip\saveparskip
 
@@ -74,8 +78,8 @@
 }\vss
 }\vss}\vskip-\vsize\vskip.25cm}
 
-\def\B#1#2#3#4#5#6{\begingroup
-\setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}
+\def\B#1#2#3#4#5#6#7{\begingroup
+\setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}\setbox7=\hbox{#7}
 \vbox to 0pt{\vskip#1\vskip.25cm
 \leftline{\hskip#2\hskip2em {\Largebx #3}}
 \ifdim\wd4>0pt
@@ -89,6 +93,10 @@
 \ifdim\wd6>0pt
 \vskip12pt
 \leftline{\hskip#2\hskip2em #6}
+\fi
+\ifdim\wd7>0pt
+\vskip12pt
+\leftline{\hskip#2\hskip2em #7}
 \fi
 \vss}\endgroup}
 

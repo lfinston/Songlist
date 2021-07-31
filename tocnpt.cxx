@@ -1287,10 +1287,9 @@ process_tocs_and_npt(void)
        }
    } 
 
+
    song_vector.insert(song_vector.begin(), production_vector.begin(), production_vector.end());
 
-   production_vector.clear();
-   
    sort(song_vector.begin(), song_vector.end(), compare_titles);
    
    /* Open output files.  */
@@ -1525,6 +1524,10 @@ process_tocs_and_npt(void)
         iter != song_vector.end();
         ++iter)
    {
+
+     /* !!START HERE:  LDF 2021.07.31.  Add code for making "production" file cards.  */
+
+
      if (filecard_ctr == 8)
      {
        sub_filecards_file << "\\eject" << endl << endl;
@@ -1687,24 +1690,46 @@ process_tocs_and_npt(void)
            else if (!(iter->words.empty() && iter->music.empty()))
            {
               if (!iter->words.empty())
-                 sub_filecards_file << "{Words:  " << iter->words << ".}" << endl;
+                 sub_filecards_file << "{\\hbox to\\wmdimen{Words:  \\hss}" << iter->words << ".}";
               else 
                  sub_filecards_file << "{}" << endl;
               if (!iter->music.empty())
-                 sub_filecards_file << "{Music:  " << iter->music << ".}";
+                 sub_filecards_file << "{\\hbox to\\wmdimen{Music:  \\hss}" << iter->music << ".}";
               else 
-                 sub_filecards_file << "{}" << endl;
+                 sub_filecards_file << "{}";
            }
            if (!iter->copyright.empty())
-              sub_filecards_file << "{" << iter->copyright << "}" << endl;
+              sub_filecards_file << "{" << iter->copyright << "}";
            else if (iter->year >= 1900)
-              sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}" << endl;
+              sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}";
            else if (iter->year > 0)
-              sub_filecards_file << "{Year:  " << iter->year << "}" << endl;
+              sub_filecards_file << "{Year:  " << iter->year << "}";
            else
-              sub_filecards_file << "{}" << endl;
+              sub_filecards_file << "{}";
 
-           /* !!START HERE:  Add code for productions and notes.   Add code for handling cross references.  */ 
+           if (!iter->opera.empty())
+              sub_filecards_file << "{Opera:  " << iter->opera << "}";
+           else if (!iter->operetta.empty())
+              sub_filecards_file << "{Operetta:  " << iter->operetta << "}";
+           else if (!iter->song_cycle.empty())
+              sub_filecards_file << "{Song Cycle:  " << iter->song_cycle << "}";
+           else if (!iter->musical.empty())
+              sub_filecards_file << "{Musical:  " << iter->musical << "}";
+           else if (!iter->film.empty())
+           {
+              pos = iter->film.find("(Film)");
+
+              if (pos == string::npos) 
+                 sub_filecards_file << "{Film:  " << iter->film << "}";
+              else
+                 sub_filecards_file << "{" << iter->film << "}";
+           }
+           else if (!iter->revue.empty())
+              sub_filecards_file << "{Revue:  " << iter->revue << "}";
+           else
+              sub_filecards_file << "{}";
+
+           sub_filecards_file << endl;
 
            ++filecard_ctr;
          }
