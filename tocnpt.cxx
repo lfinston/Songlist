@@ -1513,11 +1513,18 @@ process_tocs_and_npt(void)
             ++iter)
          iter->show("Song:");
      }
+
+   int filecard_ctr = 0;
    
    for (vector<Song>::iterator iter = song_vector.begin();
         iter != song_vector.end();
         ++iter)
    {
+     if (filecard_ctr == 8)
+     {
+       sub_filecards_file << "\\eject" << endl << endl;
+       filecard_ctr = 0;
+     }
 
      temp_title = remove_formatting_commands(iter->title);
      
@@ -1640,6 +1647,34 @@ process_tocs_and_npt(void)
          }
          else
             toc_ls_file << "\\N " << iter->title << endl << endl;
+ 
+         if (iter->do_filecard)
+         {
+             if (filecard_ctr == 0)
+                sub_filecards_file << "\\A" << endl;
+
+           sub_filecards_file << "\\B";
+
+           if (filecard_ctr == 0)
+              sub_filecards_file << "{0pt}{0pt}";
+           else if (filecard_ctr == 1)
+              sub_filecards_file << "{.25\\vsize}{0pt}";
+           else if (filecard_ctr == 2)
+              sub_filecards_file << "{.5\\vsize}{0pt}";
+           else if (filecard_ctr == 3)
+              sub_filecards_file << "{.75\\vsize}{0pt}";
+           else if (filecard_ctr == 4)
+              sub_filecards_file << "{0pt}{.5\\hsize}";
+           else if (filecard_ctr == 5)
+              sub_filecards_file << "{.25\\vsize}{.5\\hsize}";
+           else if (filecard_ctr == 6)
+              sub_filecards_file << "{.5\\vsize}{.5\\hsize}";
+           else if (filecard_ctr == 7)
+              sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
+
+           sub_filecards_file << "{" << iter->title << "}{}{}" << endl;
+           ++filecard_ctr;
+         }
 
          if (iter->musical.length() > 0 && iter->sort_by_production)
            toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
@@ -1918,7 +1953,7 @@ process_tocs_and_npt(void)
                 << "\\endinput" << endl << endl;
 
 
-   sub_filecards_file << "\\endinput" << endl << endl;
+   sub_filecards_file << endl << "\\endinput" << endl << endl;
 
    french_file.close();    
    german_file.close();    
