@@ -1207,6 +1207,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename)
+values
+("(I'll Marry) The Very Next Man", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
+true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "verynext.pdf");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
 scanned, scanned_filename, musical)
 values
@@ -3251,6 +3259,8 @@ replace into Composers_Songs (composer, title) values ("Bloom, Rube", "Fools Rus
 
 replace into Composers_Songs (composer, title) values ("Bochmann, Werner", "Abends in der Taverna");
 
+replace into Composers_Songs (composer, title) values ("Bock, Jerry", "(I'll Marry) The Very Next Man");
+
 replace into Composers_Songs (composer, title) values ("Bock, Jerry", "Little Tin Box");
 
 replace into Composers_Songs (composer, title) values ("Bonf{\\'a}, Luiz", "Manh{\\~a} da Carnaval");
@@ -3990,13 +4000,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
 
-
-
 -- delete from Lyricists_Songs where title = "Over the Rainbow";
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
 
-replace into Lyricists_Songs (lyricist, title) values ("Harnick, Sheldon", "Little Tin Box");
+replace into Lyricists_Songs (lyricist, title) values ("Harnick, Sheldon", "(I'll Marry) The Very Next Man");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Blue Moon");
 
