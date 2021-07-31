@@ -31,6 +31,12 @@
 %% \savebaselineskip=\baselineskip
 %% \saveparskip=\parskip
 
+\def\A#1#2#3#4{\leftline{\hskip#1\hskip2em {\mediumbx #2}}
+\vskip12pt
+\leftline{\hskip#1\hskip2em #3}
+\vskip12pt
+\leftline{\hskip#1\hskip2em #4}}
+
 \parskip=0pt
 \parindent=0pt
 \baselineskip=0pt
@@ -47,22 +53,18 @@
 }\vss
 }\vss
 %%
-}\vskip-\vsize\vskip.25cm
+}
+
+%% Songs
+
+\vskip-\vsize\vskip.25cm
 \vbox to 0pt{\vskip.125cm
-\leftline{\hskip2em {\mediumbx Call Me}}
-\vskip12pt
-\leftline{\hskip2em Words and Music:  Tony Hatch}
-\vskip12pt
-\leftline{\hskip2em Copyright {\copyright} 1965}
+\A{0pt}{Call Me}{Words and Music:  Tony Hatch}{Copyright {\copyright} 1965}
 \vss}
 \vbox to 0pt{\vskip.125cm
 \vskip.25\vsize
-\leftline{\hskip.5\hsize\hskip2em {\mediumbx Camelot}}
-\vskip12pt
-\leftline{\hskip.5\hsize\hskip2em Words:  Alan Jay Lerner.  Music:  Frederick Loewe}
-\vskip12pt
-\leftline{\hskip.5\hsize\hskip2em Copyright {\copyright} 1960}
-}
+\A{.5\hsize}{Camelot}{Words:  Alan Jay Lerner.  Music:  Frederick Loewe}{Copyright {\copyright} 1960}
+\vss}
 \eject
 
 \vtop to 0pt{\vbox to \vsize{\hbox to 0pt{\hskip\dimen0
@@ -75,11 +77,7 @@
 %%
 }\vskip-\vsize\vskip.25cm
 \vbox to 0pt{\vskip.125cm
-\leftline{\hskip2em {\mediumbx Capri Fischer}}
-\vskip12pt
-\leftline{\hskip2em Words:  Ralph Maria Siegel.  Music:  Gerhard Winkler}
-\vskip12pt
-\leftline{\hskip2em Copyright {\copyright} 1943}
+\A{0pt}{Capri Fischer}{Words:  Ralph Maria Siegel.  Music:  Gerhard Winkler}{Copyright {\copyright} 1943}
 \vss}
 
 
