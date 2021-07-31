@@ -143,8 +143,12 @@ process_tocs_and_npt(void)
              <<        "scanned, "                          // 24
              <<        "scanned_filename, "                 // 25
              <<        "public_domain, "                    // 26
-             <<        "language "                          // 27
-             <<        "from Songs where music != \"\" or words_and_music != \"\" order by title asc;";
+             <<        "language, "                         // 27
+             <<        "is_cross_reference, "               // 28
+             <<        "target, "                           // 29
+             <<        "production "                        // 30
+             <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
+             <<        "order by title asc;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -174,9 +178,10 @@ process_tocs_and_npt(void)
    /*  Process the contents of |curr_row|  */
 
    curr_row = 0;
-   
+
    do
      {
+
        curr_song.clear();
 
        curr_row = mysql_fetch_row(result);
@@ -465,6 +470,18 @@ process_tocs_and_npt(void)
        curr_song.language = curr_row[27];
          if (DEBUG)
            cerr << "`language'                           == " << curr_row[27] << endl;
+
+       curr_song.is_cross_reference                      = atoi(curr_row[28]);
+         if (DEBUG)
+           cerr << "`is_cross_reference'                 == " << curr_row[28] << endl;
+
+       curr_song.target = curr_row[29];
+         if (DEBUG)
+           cerr << "`target'                             == " << curr_row[29] << endl;
+
+       curr_song.production = curr_row[30];
+         if (DEBUG)
+           cerr << "`production'                         == " << curr_row[30] << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -1601,7 +1618,19 @@ process_tocs_and_npt(void)
        else if (iter->lead_sheet)
        {
 
-         toc_ls_file << "\\N " << iter->title << endl << endl;
+         if (iter->is_cross_reference)
+         {
+            toc_ls_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
+                        << endl
+                        << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+
+            if (iter->production != "")
+               toc_ls_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+
+            toc_ls_file << ")}" << endl << endl;
+         }
+         else
+            toc_ls_file << "\\N " << iter->title << endl << endl;
 
          if (iter->musical.length() > 0 && iter->sort_by_production)
            toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
@@ -1884,11 +1913,13 @@ process_tocs_and_npt(void)
           curr_prod = iter->opera;
           if (curr_prod != prev_prod)
           {
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+
+#if 0
              cerr << "Opera:     " << iter->opera << endl;
+#endif
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera << "}";
 
              if (iter->opera.length() > 30)
@@ -1907,11 +1938,13 @@ process_tocs_and_npt(void)
           curr_prod = iter->operetta;
           if (curr_prod != prev_prod)
           {
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+
+#if 0
              cerr << "Operetta:  " << iter->operetta << endl;
+#endif
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta << "}";
              if (iter->operetta.length() > 30)
                productions_file << "}" << endl << "\\hbox{";
@@ -1930,11 +1963,13 @@ process_tocs_and_npt(void)
           curr_prod = iter->song_cycle;
           if (curr_prod != prev_prod)
           {
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+
+#if 0 
              cerr << "Song cycle:  " << iter->song_cycle << endl;
+#endif 
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle << "}";
 
              if (iter->song_cycle.length() > 30)
@@ -1954,11 +1989,12 @@ process_tocs_and_npt(void)
           curr_prod = iter->musical;
           if (curr_prod != prev_prod)
           {       
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+#if 0 
              cerr << "Musical:   " << iter->musical << endl;
+#endif 
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical << "}";
 
              if (iter->musical.length() > 30)
@@ -1978,12 +2014,14 @@ process_tocs_and_npt(void)
           curr_prod = iter->revue;
           if (curr_prod != prev_prod)       
           {
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+
+#if 0 
              cerr << "Revue:     " << iter->revue << endl;
+#endif 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue << "}";
+
 
              if (iter->revue.length() > 30)
                productions_file << "}" << endl << "\\hbox{";
@@ -2002,11 +2040,13 @@ process_tocs_and_npt(void)
           curr_prod = iter->film;
           if (curr_prod != prev_prod)       
           {
-#if 1 /* 0 */
              if (prev_prod != "")
                 productions_file << "}\\vskip.5\\baselineskip" << endl;
-#endif
+
+#if 0
              cerr << "Film:      " << iter->film << endl;
+#endif 
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->film << "}";
              pos = iter->film.find("(Film)");
              if (pos == string::npos || iter->year > 0)
@@ -2028,15 +2068,16 @@ process_tocs_and_npt(void)
              productions_file << "}" << endl;
           }
        }
+#if 0 
        cerr << "   Title:     " << iter->title << endl;
+#endif 
+
        productions_file << "\\hbox{\\quad " << iter->title << "}" << endl;
 
        prev_prod = curr_prod;
    }
  
-#if 1 /* 0 */
    productions_file << "}" << endl;
-#endif 
 
    productions_file << "\\singlecolumn" << endl
                    << "\\vfil\\eject" << endl
