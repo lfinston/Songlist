@@ -1696,7 +1696,7 @@ process_tocs_and_npt(void)
            else
               sub_filecards_file << "{}" << endl;
 
-           /* !!START HERE:  Add code for productions and notes.   */ 
+           /* !!START HERE:  Add code for productions and notes.   Add code for handling cross references.  */ 
 
            ++filecard_ctr;
          }
