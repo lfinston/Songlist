@@ -1626,24 +1626,30 @@ process_tocs_and_npt(void)
               sub_filecards_file << iter->title;
            }
 
+           sub_filecards_file << "}";
+
+#if 0 
+
+           sub_filecards_file << "{";
+
            if (iter->is_production)
            {
               if (!iter->opera.empty())
-                 sub_filecards_file << "\\hskip1in Opera";
+                 sub_filecards_file << "Opera";
               else if (!iter->operetta.empty())
-                 sub_filecards_file << "\\hskip1in Operetta";
+                 sub_filecards_file << "Operetta";
               else if (!iter->song_cycle.empty())
-                 sub_filecards_file << "\\hskip1in Song Cycle";
+                 sub_filecards_file << "Song Cycle";
               else if (!iter->musical.empty())
-                 sub_filecards_file << "\\hfil XXX Musical";
+                 sub_filecards_file << "Musical";
               else if (!iter->film.empty())
-                 sub_filecards_file << "\\hskip1in Film";
+                 sub_filecards_file << "Film";
               else if (!iter->revue.empty())
-                 sub_filecards_file << "\\hskip1in Revue";
+                 sub_filecards_file << "Revue";
            }
 
            sub_filecards_file << "}";
-
+#endif 
            if (!iter->is_production) 
            {
               if (!iter->words_and_music.empty())
@@ -1723,8 +1729,9 @@ process_tocs_and_npt(void)
                  ++t_iter)
             {
 
+#if 0 
               cerr << "*t_iter == " << *t_iter << endl;
-
+#endif 
               sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << *t_iter << "}" << endl << "\\vskip12pt" << endl;
 
               toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
