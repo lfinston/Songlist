@@ -89,7 +89,7 @@ create table Songs
     public_domain boolean not null default false,
     language varchar(32) not null default "english",
     is_cross_reference boolean not null default false,
-    target varchar(128) not null default "",
+    target varchar(256) not null default "",
     do_filecard boolean not null default true,
     filecard_title varchar(128) not null default ""
 );
@@ -111,6 +111,9 @@ alter table Songs add column target varchar(128) not null default "" after is_cr
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
 alter table Songs add column do_filecard boolean not null default true after target;
 alter table Songs add column filecard_title varchar(128) not null default "" after do_filecard;
+
+alter table Songs modify column target varchar(256) not null default "";
+
 
 show columns from Songs;
 
@@ -950,13 +953,23 @@ true, "girlmmnt.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
 notes, scanned, scanned_filename)
 values
-("Gold Diggers' Song, The (We're in the Money)", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
+("Gold Diggers' Song, The (We're in the Money)", 
+"\\vtop{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{(We're in the Money)}}", 
+"Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
 true, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "golddgrs.pdf");
+
+replace into Songs (title, is_cross_reference, target, lead_sheet)
+values
+("We're in the Money", true,
+"\\ifalltex Gold Diggers' Song, The\\hfil\\vskip0pt\\S (We're in the Money)"
+"\\else\\vtop{\\largebx{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{\\hskip-\\basichskip(We're in the Money)}}}\\fi",
+true);
+
 
 /* ** *************************************************** */
 

@@ -54,6 +54,12 @@
 \newskip\composerskip
 \composerskip=-3pt
 
+\newskip\titleskip
+\titleskip=-3pt
+
+\newskip\posttitleskip
+\posttitleskip=6pt
+
 \newskip\lyricistskip
 \lyricistskip=-3pt
 
@@ -76,6 +82,12 @@
 \def\Section#1#2{\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
 \fi
+
+\newif\ifalltex
+\alltextrue
+
+\newif\iffilecards
+\filecardsfalse
 
 
 %% This must be done in order to be able to pass filenames with underscores to \SEP as arguments.
