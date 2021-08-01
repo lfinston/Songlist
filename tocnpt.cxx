@@ -1642,7 +1642,6 @@ process_tocs_and_npt(void)
 
            sub_filecards_file << "}";
 
-
            if (iter->is_production || iter->is_cross_reference)
            {
               sub_filecards_file << "{";
@@ -1667,6 +1666,12 @@ process_tocs_and_npt(void)
            }
            if (iter->is_production)
            {
+              cerr << "iter->title:  " << iter->title << endl 
+                   << "iter->year:  " << iter->year << endl;
+ 
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
               if (iter->year > 0)
                  sub_filecards_file << "{" << iter->year << "}";
               else 
@@ -1736,8 +1741,6 @@ process_tocs_and_npt(void)
 
                  if (pos == string::npos) 
                  {
-                    sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
-
                     if (iter->film.length() > max_production_str_length)
                        sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                           << iter->film << "}}}}";

@@ -382,10 +382,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
-lead_sheet, sort_by_production)
+lead_sheet, sort_by_production, year)
 values
 ("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", "Wodehouse, P.G. and Hammerstein, Oscar II", 
-"Jerome Kern", "Kern, Jerome", "Showboat", true, true);
+"Jerome Kern", "Kern, Jerome", "Showboat", true, true, 1927);
 
 /* ** *************************************************** */
 
@@ -1176,9 +1176,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
-("I Talk to the Trees", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Paint Your Wagon", true);
+("I Talk to the Trees", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Paint Your Wagon", true,
+1951);
 
 /* ** *************************************************** */
 
@@ -1392,9 +1393,10 @@ values
 
 -- select title from Songs where title like("Isn't This a Lovely Day?%");
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
+replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("\\vtop{\\hbox{Isn't This a Lovely Day?}\\vskip-.2\\baselineskip\\hbox{(To Be Caught in the Rain)}\\vskip.375\\baselineskip}",
+"\\vtop{\\hbox{Isn't This a Lovely Day?}\\vskip\\titleskip\\hbox{(To Be Caught in the Rain)}}",
 "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
 "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~45.");
 
@@ -1860,9 +1862,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
-("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true);
+("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true, 1927);
 
 /* ** *************************************************** */
 
@@ -1899,10 +1901,10 @@ true, "manhttan.pdf", true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
 ("Many a New Day", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
-"Oklahoma!", true);
+"Oklahoma!", true, 1943);
 
 /* ** *************************************************** */
 
@@ -2190,11 +2192,11 @@ true, "grndlphn.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical,
-sort_by_production)
+sort_by_production, year)
 values
 ("On the Street Where You Live", "Alan Jay Lerner", "Lerner, Alan Jay",
 "Frederick Loewe", "Loewe, Frederick", true,  "My Fair Lady",
-true);
+true, 1956);
 
 /* ** *************************************************** */
 
@@ -2276,10 +2278,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
 ("People Will Say We're in Love", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true, 
-"Oklahoma!", true);
+"Oklahoma!", true, 1943);
 
 /* ** *************************************************** */
 
@@ -2787,10 +2789,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
 values
 ("They Call the Wind Maria", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Paint Your Wagon",
-true);
+true, 1951);
 
 /* ** *************************************************** */
 
@@ -2994,7 +2996,8 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
 scanned, scanned_filename)
 values
-("What a Wonderful World", "George David Weiss and Bob Thiele", "Weiss, George David and Thiele, Bob", 
+("What a Wonderful World", "\\vtop{\\hbox{George David Weiss}\\vskip\\composerskip\\hbox{and Bob Thiele}}",
+"Weiss, George David and Thiele, Bob", 
 true, 1967, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~504.", true, "whtwndfl.pdf");
 
 /* ** *************************************************** */
@@ -3004,6 +3007,17 @@ year, source, scanned, scanned_filename)
 values
 ("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
+year, source, scanned, scanned_filename)
+values
+("What Kind of Fool Am I?",
+"\\vtop{\\hbox{Leslie Bricusse and}\\vskip\\titleskip\\hbox{Anthony Newley}}",
+"Bricusse, Leslie and Newley, Anthony", 
+true, "Stop the World---I Want to Get Off", 1961, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~508.",
+true, "whatkind.pdf");
 
 /* ** *************************************************** */
 
@@ -3020,15 +3034,18 @@ true, "whenlove.pdf");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
-("When You're Smiling", "Mark Fisher, Joe Goodwin and Larry Shay", "Fisher, Mark; Goodwin, Joe and Shay, Larry", 
+("When You're Smiling", "\\vtop{\\hbox{Mark Fisher, Joe Goodwin}\\vskip\\composerskip\\hbox{and Larry Shay}}", 
+"Fisher, Mark; Goodwin, Joe and Shay, Larry", 
 true, 1928, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~299.", true, "whensmil.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet,
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, partial_lead_sheet,
 year, source)
 values
-("Where Do I Begin? (Theme from Love Story)", "Carl Sigman", "Sigman, Carl", "Francis Lai", "Lai, Francis",
+("Where Do I Begin? (Theme from Love Story)", 
+"\\vbox{\\hbox{Where Do I Begin?}\\vskip\\titleskip\\hbox{(Theme from Love Story)}}", 
+"Carl Sigman", "Sigman, Carl", "Francis Lai", "Lai, Francis",
 true, 1970, "Single edition.");
 
 /* ** *************************************************** */
@@ -3072,10 +3089,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production, year)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
-"My Fair Lady", true);
+"My Fair Lady", true, 1956);
 
 /* ** *************************************************** */
 
@@ -3156,8 +3173,9 @@ true, "ytkadvnt.pdf");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 scanned, scanned_filename, source)
 values
-("You're Nobody 'Til Somebody Loves You", "Russ Morgan, Larry Stock and James Cavanaugh",
-"\\vbox{\\hbox{"Morgan, Russ; Stock, Larry}\\vskip\\composerskip\\hbox{and Cavanaugh, James}}", 
+("You're Nobody 'Til Somebody Loves You",
+"\\vtop{\\hbox{Russ Morgan, Larry Stock}\\vskip\\composerskip\\hbox{and James Cavanaugh}}",
+"\\vbox{\\hbox{Morgan, Russ; Stock, Larry}\\vskip\\composerskip\\hbox{and Cavanaugh, James}}", 
 true, 1944, true, "yrnbdytl.pdf",
 "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~241.");
 
@@ -4501,6 +4519,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Po
 
 replace into Composers_Songs (composer, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
 replace into Lyricists_Songs (lyricist, title) values ("Bowman, Brooks", "East of the Sun (and West of the Moon)");
+
+replace into Composers_Songs (composer, title) values ("Bricusse, Leslie", "What Kind of Fool Am I?");
+replace into Lyricists_Songs (lyricist, title) values ("Bricusse, Leslie", "What Kind of Fool Am I?");
+replace into Composers_Songs (composer, title) values ("Newley, Anthony", "What Kind of Fool Am I?");
+replace into Lyricists_Songs (lyricist, title) values ("Newley, Anthony", "What Kind of Fool Am I?");
 
 replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
