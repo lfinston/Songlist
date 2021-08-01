@@ -115,6 +115,8 @@ process_tocs_and_npt(void)
 
    affected_rows = 0L;
 
+   int max_production_str_length = 30;
+
    temp_strm.str("");
 
    temp_strm << "select title, "                            //  0 
@@ -552,7 +554,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct musical from Songs where musical is not null "
+   temp_strm << "select distinct musical, year from Songs where musical is not null "
              << "and sort_by_production is true order by musical;";
 
    if (DEBUG) 
@@ -630,6 +632,8 @@ process_tocs_and_npt(void)
            curr_production.title.assign(curr_row[0]);
            curr_production.musical.assign(curr_row[0]);
            curr_production.is_production = true;
+           if (curr_row[1])
+              curr_production.year = atoi(curr_row[1]);
 
            production_vector.push_back(curr_production);
 
@@ -649,7 +653,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct opera from Songs where opera is not null "
+   temp_strm << "select distinct opera, year from Songs where opera is not null "
              << "and sort_by_production is true order by opera;";
 
    if (DEBUG) 
@@ -727,6 +731,8 @@ process_tocs_and_npt(void)
          curr_production.title.assign(curr_row[0]);
          curr_production.opera.assign(curr_row[0]);
          curr_production.is_production = true;
+         if (curr_row[1])
+            curr_production.year = atoi(curr_row[1]);
 
          production_vector.push_back(curr_production);
 
@@ -746,7 +752,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct operetta from Songs where operetta is not null "
+   temp_strm << "select distinct operetta, year from Songs where operetta is not null "
              << "and sort_by_production is true order by operetta;";
 
    if (DEBUG) 
@@ -824,6 +830,8 @@ process_tocs_and_npt(void)
            curr_production.title.assign(curr_row[0]);
            curr_production.operetta.assign(curr_row[0]);
            curr_production.is_production = true;
+           if (curr_row[1])
+              curr_production.year = atoi(curr_row[1]);
 
            production_vector.push_back(curr_production);
 
@@ -843,7 +851,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct song_cycle from Songs where song_cycle is not null "
+   temp_strm << "select distinct song_cycle, year from Songs where song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
    if (DEBUG) 
@@ -921,6 +929,8 @@ process_tocs_and_npt(void)
            curr_production.title.assign(curr_row[0]);
            curr_production.song_cycle.assign(curr_row[0]);
            curr_production.is_production = true;
+           if (curr_row[1])
+              curr_production.year = atoi(curr_row[1]);
 
            production_vector.push_back(curr_production);
 
@@ -940,7 +950,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct revue from Songs where revue is not null "
+   temp_strm << "select distinct revue, year from Songs where revue is not null "
              << "and sort_by_production is true order by revue";
 
    if (DEBUG) 
@@ -1018,6 +1028,8 @@ process_tocs_and_npt(void)
            curr_production.title.assign(curr_row[0]);
            curr_production.revue.assign(curr_row[0]);
            curr_production.is_production = true;
+           if (curr_row[1])
+              curr_production.year = atoi(curr_row[1]);
 
            production_vector.push_back(curr_production);
 
@@ -1038,7 +1050,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct film from Songs where film is not null "
+   temp_strm << "select distinct film, year from Songs where film is not null "
              << "and sort_by_production is true order by film;";
 
    if (DEBUG) 
@@ -1116,6 +1128,8 @@ process_tocs_and_npt(void)
            curr_production.title.assign(curr_row[0]);
            curr_production.film.assign(curr_row[0]);
            curr_production.is_production = true;
+           if (curr_row[1])
+              curr_production.year = atoi(curr_row[1]);
 
            production_vector.push_back(curr_production);
 
@@ -1650,8 +1664,12 @@ process_tocs_and_npt(void)
               }
 
               sub_filecards_file << "}";
-
            }
+
+           if (iter->is_production && iter->year > 0)
+              sub_filecards_file << endl << "\\vskip-2pt" << endl 
+                                 << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip {\\Largebx " << iter->year << "}}"
+                                 << endl << "\\vskip12pt";
 
            if (!iter->is_production) 
            {
@@ -1678,24 +1696,63 @@ process_tocs_and_npt(void)
                  sub_filecards_file << "{}";
 
               if (!iter->opera.empty())
-                 sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
+              {
+                 if (iter->opera.length() > max_production_str_length)
+                    sub_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                       << iter->opera << "}}}}";
+                 else
+                    sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
+              }
               else if (!iter->operetta.empty())
-                 sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+              {
+                 if (iter->operetta.length() > max_production_str_length)
+                    sub_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                       << iter->operetta << "}}}}";
+                 else
+                    sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+              }
               else if (!iter->song_cycle.empty())
-                 sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
+              {
+                 if (iter->song_cycle.length() > max_production_str_length)
+                    sub_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                       << iter->song_cycle << "}}}}";
+                 else
+                    sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
+              }
               else if (!iter->musical.empty())
-                 sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
+              {
+                 if (iter->musical.length() > max_production_str_length)
+                    sub_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                       << iter->musical << "}}}}";
+                 else
+                    sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
+              }
+
               else if (!iter->film.empty())
               {
                  pos = iter->film.find("(Film)");
 
                  if (pos == string::npos) 
+                 {
                     sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
+
+                    if (iter->film.length() > max_production_str_length)
+                       sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                          << iter->film << "}}}}";
+                    else
+                       sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
+                 }
                  else
                     sub_filecards_file << "{{\\largebx " << iter->film << "}}";
               }
               else if (!iter->revue.empty())
-                 sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
+              {
+                 if (iter->revue.length() > max_production_str_length)
+                    sub_filecards_file << "{\\vtop{\\hbox{Revue:  }\\vskip\\titleskip\\hbox{{\\largebx " 
+                                       << iter->revue << "}}}}";
+                 else
+                    sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
+              }
               else
                  sub_filecards_file << "{}";
 
@@ -1786,7 +1843,7 @@ process_tocs_and_npt(void)
        if (iter->is_production || iter->is_cross_reference)
           sub_filecards_file << "\\vss}" << endl;          
 
-       else if (iter->lead_sheet || !iter->is_production)
+       if (iter->lead_sheet || iter->is_cross_reference || iter->is_production)
        {
 
          if (iter->is_cross_reference)
@@ -1934,55 +1991,55 @@ process_tocs_and_npt(void)
 
          }
          else
+         {
+           if (iter->is_cross_reference)
            {
-             if (iter->is_cross_reference)
+              toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
+                          << endl
+                          << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+
+              if (iter->production != "")
+                 toc_ls_p_z_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+
+              toc_ls_p_z_file << ")}" << endl << endl;
+           }
+           else
+              toc_ls_p_z_file << "\\N " << iter->title << endl;
+           
+           if (iter->musical.length() > 0 && iter->sort_by_production)
+             toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+                             << endl;
+           else if (iter->opera.length() > 0 && iter->sort_by_production)
+             toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
+                             << endl;
+           else if (iter->operetta.length() > 0 && iter->sort_by_production)
+             toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
+                             << endl;
+           else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+           {
+             if (iter->song_cycle.length() > 20)
              {
-                toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
-                            << endl
-                            << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
-
-                if (iter->production != "")
-                   toc_ls_p_z_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
-
-                toc_ls_p_z_file << ")}" << endl << endl;
+                toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under" << endl 
+                            << "\\S ``" << iter->song_cycle << "'')" << endl;
              }
              else
-                toc_ls_p_z_file << "\\N " << iter->title << endl;
-             
-             if (iter->musical.length() > 0 && iter->sort_by_production)
-               toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-                               << endl;
-             else if (iter->opera.length() > 0 && iter->sort_by_production)
-               toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-                               << endl;
-             else if (iter->operetta.length() > 0 && iter->sort_by_production)
-               toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-                               << endl;
-             else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
              {
-               if (iter->song_cycle.length() > 20)
-               {
-                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under" << endl 
-                              << "\\S ``" << iter->song_cycle << "'')" << endl;
-               }
-               else
-               {
-                  toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                              << endl;
-               }
+                toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
+                            << endl;
+             }
 
-             }  
-             else if (iter->revue.length() > 0 && iter->sort_by_production)
-               toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-                               << endl;
-             else if (iter->film.length() > 0 && iter->sort_by_production)
-               toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-                               << endl;
+           }  
+           else if (iter->revue.length() > 0 && iter->sort_by_production)
+             toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
+                             << endl;
+           else if (iter->film.length() > 0 && iter->sort_by_production)
+             toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
+                             << endl;
          
-             toc_ls_p_z_file << endl;
-           }
+           toc_ls_p_z_file << endl;
+         }
 
-       }  /* |if (iter->lead_sheet)|  */
+       }  /* |if|  */
 
        else if (iter->no_page_turns)
        {
@@ -2133,7 +2190,7 @@ process_tocs_and_npt(void)
 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera << "}";
 
-             if (iter->opera.length() > 30)
+             if (iter->opera.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
@@ -2157,7 +2214,7 @@ process_tocs_and_npt(void)
 #endif
 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta << "}";
-             if (iter->operetta.length() > 30)
+             if (iter->operetta.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
@@ -2183,7 +2240,7 @@ process_tocs_and_npt(void)
 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle << "}";
 
-             if (iter->song_cycle.length() > 30)
+             if (iter->song_cycle.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
@@ -2208,7 +2265,7 @@ process_tocs_and_npt(void)
 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical << "}";
 
-             if (iter->musical.length() > 30)
+             if (iter->musical.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
@@ -2234,7 +2291,7 @@ process_tocs_and_npt(void)
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue << "}";
 
 
-             if (iter->revue.length() > 30)
+             if (iter->revue.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
                productions_file << " ";
@@ -2262,7 +2319,7 @@ process_tocs_and_npt(void)
              pos = iter->film.find("(Film)");
              if (pos == string::npos || iter->year > 0)
              {
-               if (iter->film.length() > 30)
+               if (iter->film.length() > max_production_str_length)
                   productions_file << "}" << endl << "\\hbox{";
                else 
                   productions_file << " ";
