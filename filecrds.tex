@@ -109,17 +109,9 @@
 \cardwd=105mm
 \advance\cardwd by -\basichskip
 
-%% \def\C#1#2#3#4#5{\begingroup
-%% \setbox5=\hbox{#5}
-%% \ifdim\wd5>0pt
-%% \setbox0=\vtop{{\Largebx\hbox{#4}\vskip8pt\hbox{#5}}}\else
-%% \setbox0=\hbox{#4}\fi
-%% \Chskip=#2\vskip#1\vskip.25cm
-%% \leftline{\hskip#2\hskip\basichskip\hbox to \cardwd{{\Largebx #3\hss\box0}\hskip\basichskip}\hss}
-%% \vskip12pt\endgroup}
-
 \def\C#1#2#3#4#5{\Chskip=#2\vskip#1\vskip.25cm
-\setbox0=\hbox{#5}\leftline{\hskip#2\hskip\basichskip\hbox to \cardwd{{\Largebx #3\hss #4\ifdim\wd0>0pt{\space}#5\fi}\hskip\basichskip}\hss}
+\setbox0=\hbox{#5}\leftline{\hskip#2\hskip\basichskip
+\hbox to \cardwd{{\Largebx #3\hss #4\ifdim\wd0>0pt{\space}#5\fi}\hskip\basichskip}\hss}
 \vskip12pt}
 
 
