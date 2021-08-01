@@ -105,9 +105,12 @@
 
 \newskip\Chskip
 
+\newdimen\cardwd
+\cardwd=105mm
+\advance\cardwd by -\basichskip
 
-\def\C#1#2#3{\Chskip=#2\vskip#1\vskip.25cm
-\leftline{\hskip#2\hskip\basichskip {\Largebx #3}}
+\def\C#1#2#3#4{\Chskip=#2\vskip#1\vskip.25cm
+\leftline{\hskip#2\hskip\basichskip\hbox to \cardwd{{\Largebx #3\hss #4}\hskip\basichskip}\hss}
 \vskip12pt}
 
 \catcode`\@=\active
