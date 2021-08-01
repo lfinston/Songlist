@@ -1678,24 +1678,24 @@ process_tocs_and_npt(void)
                  sub_filecards_file << "{}";
 
               if (!iter->opera.empty())
-                 sub_filecards_file << "{Opera:  " << iter->opera << "}";
+                 sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
               else if (!iter->operetta.empty())
-                 sub_filecards_file << "{Operetta:  " << iter->operetta << "}";
+                 sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
               else if (!iter->song_cycle.empty())
-                 sub_filecards_file << "{Song Cycle:  " << iter->song_cycle << "}";
+                 sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
               else if (!iter->musical.empty())
-                 sub_filecards_file << "{Musical:  " << iter->musical << "}";
+                 sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
               else if (!iter->film.empty())
               {
                  pos = iter->film.find("(Film)");
 
                  if (pos == string::npos) 
-                    sub_filecards_file << "{Film:  " << iter->film << "}";
+                    sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
                  else
-                    sub_filecards_file << "{" << iter->film << "}";
+                    sub_filecards_file << "{{\\largebx " << iter->film << "}}";
               }
               else if (!iter->revue.empty())
-                 sub_filecards_file << "{Revue:  " << iter->revue << "}";
+                 sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
               else
                  sub_filecards_file << "{}";
 

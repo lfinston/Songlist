@@ -585,7 +585,9 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 musical, sort_by_production, year, copyright, source)
 values
 ("Consider Yourself", "Lionel Bart", "Bart, Lionel", true,
-"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"Oliver!", true, 1959, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
+"\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
 "{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~30.");
 
 /* ** *************************************************** */
@@ -854,14 +856,18 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 musical, sort_by_production, year, copyright, source, scanned, scanned_filename)
 values
 ("Food, Glorious Food", "Lionel Bart", "Bart, Lionel", true,
-"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"Oliver!", true, 1959,
+"\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
+"\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
 "{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~9.", true, "foodglor.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright)
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, copyright)
 values
-("Fools Rush In (Where Angels Fear to Tread)", "Johnny Mercer", "Mercer, Johnny",
+("Fools Rush In (Where Angels Fear to Tread)", 
+"\\vbox{\\hbox{Fools Rush In}\\vskip\\titleskip\\hbox{(Where Angels Fear to Tread)}}",
+"Johnny Mercer", "Mercer, Johnny",
 "Rube Bloom", "Bloom, Rube", true,
 "{\\copyright} 1940 WB Music Corp.~(Renewed)");
 
@@ -1069,7 +1075,7 @@ replace into Songs (title, filecard_title, words, words_reverse, music, music_re
 year, source, notes, public_domain, scanned, scanned_filename)
 values
 ("How 'Ya Gonna Keep 'Em Down on the Farm?",
-"\\vbox{\\hbox{How 'Ya Gonna Keep'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
+"\\vbox{\\hbox{How 'Ya Gonna Keep 'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
 "Subtitle:  After They've Seen Paree", true, true, "howkeepm.pdf"); 
@@ -2298,11 +2304,15 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
+replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
 scanned, scanned_filename, language)
 values
-("Polowetzer T@{a}nze (``Stranger in Paradise'')", "Alexander Borodin", "Borodin, Alexander", 
+("Polowetzer T@{a}nze (``Stranger in Paradise'')",
+"\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
+"Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", true, "polowtnz.pdf", "russian");
+
+select * from Songs where title like("%\\"%")
 
 /* ** *************************************************** */
 
@@ -3027,7 +3037,9 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 musical, sort_by_production, year, copyright, source, scanned, scanned_filename)
 values
 ("Who Will Buy?", "Lionel Bart", "Bart, Lionel", true,
-"Oliver!", true, 1959, "{\\copyright} Copyright 1959 by Lakeview Music Publishing Company Limited.",
+"Oliver!", true, 1959, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
+"\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
 "{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~97.", true, "whwllbuy.pdf");
 
 /* ** *************************************************** */
@@ -3172,9 +3184,7 @@ select "!!! Z";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, operetta, year, language)
 values
-("Zwei M@{a}rchenaugen",
-"Julius Brammer und Alfred Gr@{u}nwald",
-"Brammer, Julius und Gr@{u}nwald, Alfred",
+("Zwei M@{a}rchenaugen", "Julius Brammer und Alfred Gr@{u}nwald", "Brammer, Julius und Gr@{u}nwald, Alfred",
 "Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, "Zirkusprinzessin, Die", 1926, "german");
 
 /* Copyright 1951  */
