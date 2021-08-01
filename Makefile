@@ -53,7 +53,7 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep filecrds.pdf filecrds.ps
+all: all-sep all-no-sep filecrds.ps filecrds.pdf 
 
 .PHONY: fc
 
