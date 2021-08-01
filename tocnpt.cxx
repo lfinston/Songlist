@@ -1666,12 +1666,11 @@ process_tocs_and_npt(void)
            }
            if (iter->is_production)
            {
+#if 0
               cerr << "iter->title:  " << iter->title << endl 
                    << "iter->year:  " << iter->year << endl;
+#endif 
  
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-
               if (iter->year > 0)
                  sub_filecards_file << "{" << iter->year << "}";
               else 

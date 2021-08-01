@@ -1699,13 +1699,14 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, arrangement_solo_guitar, notes,
-copyright, film)
+copyright, film, year)
 values
 ("Laura", "Johnny Mercer", "Mercer, Johnny", "David Raksin", "Raksin, David", true, true,
-"Arrangement Andantino.", 
-"{\\copyright} 1945 EMI Catalogue Partnership and EMI Robbins Catalog Inc., USA 
-Worldwide print rights controlled by Warner Bros. Publications Inc./IMP Ltd.",
-"Laura");
+"Arrangement Andantino.",
+"\\vtop{\\hbox{{\\copyright} 1945 EMI Catalogue Partnership}\\vskip\\copyrightskip\\hbox{and EMI Robbins Catalog Inc., USA.}"
+"\\vskip\\copyrightskip\\hbox{Worldwide print rights controlled by}"
+"\\vskip\\copyrightskip\\hbox{Warner Bros. Publications Inc./IMP Ltd.}}",
+"Laura", 1944);
 
 /* ** *************************************************** */
 
@@ -1895,7 +1896,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 copyright, musical, source, scanned, scanned_filename, public_domain)
 values
 ("Manhattan", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-1925, "Copyright {\\copyright} 1925 by Edward B.~Marks Music Company.  Copyright Renewed.",
+1925, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1925}\\vskip\\copyrightskip\\hbox{by Edward B.~Marks Music Company.}"
+"\\vskip\\copyrightskip\\hbox{Copyright Renewed}}",
 "Garrick Gaities", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~106.",
 true, "manhttan.pdf", true);
 
@@ -2080,7 +2083,7 @@ year, copyright, source, scanned, scanned_filename)
 values
 ("Nearness of You, The", "Ned Washington", "Washington, Ned", 
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1937, 
-"Copyright {\\copyright} 1937, 1940 (Renewed 1964, 1967) by Famous Music Corporation",
+"\\vtop{\\hbox{Copyright {\\copyright} 1937, 1940 (Renewed 1964, 1967)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation}}",
 "{\\bf The Hoagy Carmichael Songbook}, p.~84.", true, "nrnsfyou.pdf");
 
 /* ** *************************************************** */
@@ -2406,10 +2409,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, public_domain)
 values
-("Rock-a-Bye Your Baby (With a Dixie Melody)", "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe", 
+("Rock-a-Bye Your Baby (With a Dixie Melody)",
+"\\vbox{\\hbox{Rock-a-Bye Your Baby}\\vskip\\titleskip\\hbox{(With a Dixie Melody)}}",
+"Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe", 
 "Jean Schwarz", "Schwarz, Jean", true, 1918, true, "rckbybby.pdf", true);
 
 /* ** *************************************************** */
