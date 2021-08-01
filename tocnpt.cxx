@@ -1615,10 +1615,34 @@ process_tocs_and_npt(void)
            else if (filecard_ctr == 7)
               sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
 
+          sub_filecards_file << "{";
+
            if (!iter->filecard_title.empty())
-              sub_filecards_file << "{" << iter->filecard_title << "}";
+           {
+              sub_filecards_file << iter->filecard_title;
+           }
            else
-              sub_filecards_file << "{" << iter->title << "}";
+           {
+              sub_filecards_file << iter->title;
+           }
+
+           if (iter->is_production)
+           {
+              if (!iter->opera.empty())
+                 sub_filecards_file << "\\hskip1in Opera";
+              else if (!iter->operetta.empty())
+                 sub_filecards_file << "\\hskip1in Operetta";
+              else if (!iter->song_cycle.empty())
+                 sub_filecards_file << "\\hskip1in Song Cycle";
+              else if (!iter->musical.empty())
+                 sub_filecards_file << "\\hfil XXX Musical";
+              else if (!iter->film.empty())
+                 sub_filecards_file << "\\hskip1in Film";
+              else if (!iter->revue.empty())
+                 sub_filecards_file << "\\hskip1in Revue";
+           }
+
+           sub_filecards_file << "}";
 
            if (!iter->is_production) 
            {
