@@ -151,7 +151,8 @@ process_tocs_and_npt(void)
              <<        "target, "                           // 29
              <<        "production, "                       // 30
              <<        "do_filecard, "                      // 31
-             <<        "filecard_title "                    // 32
+             <<        "filecard_title, "                   // 32
+             <<        "source "                            // 33
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -495,6 +496,15 @@ process_tocs_and_npt(void)
        curr_song.filecard_title = curr_row[32];
          if (DEBUG)
            cerr << "`filecard_title'                     == " << curr_row[32] << endl;
+
+       if (curr_row[33] != 0 && strlen(curr_row[33]) > 0)
+       {
+          curr_song.source = curr_row[33];
+          if (DEBUG)
+              cerr << "`source'                             == " << curr_row[33] << endl;
+       }
+       else if (DEBUG)
+           cerr << "`source' is NULL." << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -1629,9 +1639,13 @@ process_tocs_and_npt(void)
            else if (filecard_ctr == 7)
               sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
 
-          sub_filecards_file << "{";
+           sub_filecards_file << "{"; 
 
-           if (!iter->filecard_title.empty())
+           if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
+           {
+              sub_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
+           }
+           else if (!iter->filecard_title.empty())
            {
               sub_filecards_file << iter->filecard_title;
            }
@@ -1657,7 +1671,12 @@ process_tocs_and_npt(void)
                  else if (!iter->musical.empty())
                     sub_filecards_file << "Musical";
                  else if (!iter->film.empty())
-                    sub_filecards_file << "Film";
+                 {
+                    pos = iter->film.find("Film");
+
+                    if (pos == string::npos)
+                        sub_filecards_file << "Film";
+                 }
                  else if (!iter->revue.empty())
                     sub_filecards_file << "Revue";
               }
@@ -1757,6 +1776,11 @@ process_tocs_and_npt(void)
                  else
                     sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
               }
+              else
+                 sub_filecards_file << "{}";
+
+              if (!iter->source.empty())
+                 sub_filecards_file << "{" << iter->source << "}";
               else
                  sub_filecards_file << "{}";
 

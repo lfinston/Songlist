@@ -210,7 +210,7 @@ source, scanned, scanned_filename)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "\\vbox{\\hbox{Copyright {\\copyright} 1927 (Renewed)}\\vskip\\copyrightskip\\hbox{WB Music Corp.~and Edwin H. Morris \\& Co.}}",
-"{\\bf The Looney Tunes Songbook}, p.~57", true, "aintsswt.pdf");
+"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf");
 
 /* ** *************************************************** */
 
@@ -234,14 +234,15 @@ source, scanned, scanned_filename)
 values
 ("All I Do Is Dream Of You", "Arthur Freed", "Freed, Arthur",
 "Nacio Herb Brown", "Brown, Nacio Herb", true, 1934,
-"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~9.", true, "alliddrm.pdf");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
+true, "alliddrm.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
 ("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar",
-"Jerome Kern", "Kern, Jerome", true);
+"Jerome Kern", "Kern, Jerome", true, "Very Warm for May", 1939);
 
 /* ** *************************************************** */
 
@@ -277,11 +278,12 @@ true, 1967, "french");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, notes)
+replace into Songs (title, words_and_music, words_and_music_reverse, notes, year)
 values
 ("Annie's Song", /* '  */
 "John Denver", "Denver, John",
-"\\hbox{Score for flute, b-flat clarinet, alto sax.~and tenor sax.}\\hbox{Completed 02.2018.}");
+"\\hbox{Score for flute, b-flat clarinet, alto sax.~and tenor sax.}\\hbox{Completed 02.2018.}",
+1974);
 
 /* ** *************************************************** */
 
@@ -347,8 +349,8 @@ values
 ("Barcarole (Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
-"\\vbox{\\hbox{Einzelausgabe}"
-"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~246.}}", 
+"\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"
+"\\hbox{2.  {\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
 true, "french");
 
 /* ** *************************************************** */
@@ -356,7 +358,7 @@ true, "french");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("Begin the Beguine", "Cole Porter", "Porter, Cole", true, 1935, 
-"{\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30");
+"{\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30.");
 
 /* ** *************************************************** */
 
@@ -376,10 +378,13 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, 
+replace into Songs (title, filecard_title,
+words, words_reverse, music, music_reverse, 
 lead_sheet, year)
 values
-("Between the Devil and the Deep Blue Sea", "Ted Koehler", "Koehler, Ted", 
+("Between the Devil and the Deep Blue Sea", 
+"\\vbox{\\hbox{Between the Devil and the}\\vskip\\titleskip\\hbox{Deep Blue Sea}}", 
+"Ted Koehler", "Koehler, Ted", 
 "Harold Arlen", "Arlen, Harold", true, 1931);
 
 /* ** *************************************************** */
@@ -415,11 +420,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Body and Soul", "Edward Heymann, Frank Eyton und Robert Sour", 
+("Body and Soul", "\\vtop{\\hbox{Edward Heymann, Frank Eyton}\\vskip\\composerskip\\hbox{and Robert Sour}}", 
 "\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip\\composerskip\\hbox{and Sour, Robert}}", 
-"John W.~Green", "Green, John W.");
+"John W.~Green", "Green, John W.", true, 1930);
 
 /* ** *************************************************** */
 
@@ -595,9 +600,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film)
 values
-("Continental, The", "Herb Magidson", "Magidson, Herb", "Con Conrad", "Conrad, Con", true);
+("Continental, The", "Herb Magidson", "Magidson, Herb", "Con Conrad", "Conrad, Con", true, 1934,
+"The Gay Divorcee");
 
 /* ** *************************************************** */
 
@@ -678,7 +684,8 @@ values
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, recordings)
 values
-("Downtown", "Tony Hatch", "Hatch, Tony", true, 1964, "\\hbox{1964 Welbeck Music Ltd.,}\\hbox{London, England}", 
+("Downtown", "Tony Hatch", "Hatch, Tony", true, 1964, 
+"\\vbox{\\hbox{Copyright {\\copyright} 1964 Welbeck Music Ltd.,}\\vskip\\copyrightskip\\hbox{London, England}}", 
 1);
 
 /* ** *************************************************** */
@@ -696,7 +703,7 @@ values
 ("Du sollst der Kaiser meiner Seele sein",
 "Fritz Gr@{u}nbaum und Wilhelm Sterk", "Gr@{u}nbaum, Fritz und Sterk, Wilhelm",
 "Robert Stolz", "Stolz, Robert",
-1916, true, "Das neue Operettenbuch, Buch 1", "german");
+1916, true, "{\\bf Das neue Operettenbuch, Buch 1.}", "german");
 
 /* ** *************************************************** */
 
@@ -880,7 +887,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, scanned, scanned_filename, source)
 values
 ("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street (Film)", 1933, 
-true, true, "ftscstrt.pdf", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~12.");
+true, true, "ftscstrt.pdf", 
+"\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\titleskip\\hbox{{\\bf from 42nd Street}, p.~12.}}");
 
 /* ** *************************************************** */
 
@@ -1604,7 +1612,7 @@ values
 ("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "antnpdua.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~32.}", 
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~32.}}", 
 true, "german");
 
 /* *** (3)*************************************************** */
@@ -1615,7 +1623,7 @@ values
 ("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~25.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~25.", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1626,7 +1634,7 @@ values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~61.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~61.", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1637,7 +1645,7 @@ values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndn.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1648,7 +1656,7 @@ values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~20.}", 
+"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~20.", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1993,7 +2001,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, scanned, scanned_filename)
 values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
-"Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\&} Hollywood}, p.~108.", true, "moonfacd.pdf");
+"Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\\&} Hollywood}, p.~108.", true, "moonfacd.pdf");
 
 select * from Songs where musical = "Street Scene"\G
 
@@ -2338,7 +2346,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, language)
 values
 ("Por Una Cabeza", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1935,
-"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ II, p.~32.", true, "prunacbz.pdf", "spanish");
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ II}, p.~32.", true, "prunacbz.pdf", "spanish");
 
 /* ** *************************************************** */
 
@@ -2860,7 +2868,7 @@ year, film, source, scanned, scanned_filename, language)
 values
 ("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
 "Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", true, 1962, 
-"Mondo Cane", "{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~136.", 
+"Mondo Cane", "{\\bf The Big Book of '50s {\\&} '60s Swinging Songs}, p.~136.", 
 true, "tgrdnlcr.pdf", "italian");
 
 replace into Songs (title, is_cross_reference, target, lead_sheet)
@@ -2887,7 +2895,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, language)
 values
 ("Tomo y Obligo", "Manuel Romero", "Romero, Manuel", "Carlos Gardel", "Gardel, Carlos", true, 1931,
-"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I, p.~17.", true, "tomyoblg.pdf", "spanish");
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I}, p.~17.", true, "tomyoblg.pdf", "spanish");
 
 /* ** *************************************************** */
 
@@ -2970,7 +2978,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, language)
 values
 ("Volver", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1934,
-"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I, p.~29.", true, "volver.pdf", "spanish");
+"{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ I}, p.~29.", true, "volver.pdf", "spanish");
 
 select "!!! End V";
 
@@ -3195,7 +3203,7 @@ values
 "\\vtop{\\hbox{Russ Morgan, Larry Stock}\\vskip\\composerskip\\hbox{and James Cavanaugh}}",
 "\\vbox{\\hbox{Morgan, Russ; Stock, Larry}\\vskip\\composerskip\\hbox{and Cavanaugh, James}}", 
 true, 1944, true, "yrnbdytl.pdf",
-"{\\bf The Big Book of '50s {\&} '60s Swinging Songs}, p.~241.");
+"{\\bf The Big Book of '50s {\\&} '60s Swinging Songs}, p.~241.");
 
 select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
 

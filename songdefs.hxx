@@ -88,6 +88,7 @@ class Song
     string production;
     bool do_filecard;
     string filecard_title;
+    string source;
 
     vector<string> title_vector;
     
@@ -131,6 +132,7 @@ class Song
          production = "";
          do_filecard = false;
          filecard_title = "";
+         source = "";
          return;
     }
 
@@ -173,6 +175,7 @@ class Song
       production = s.production;
       do_filecard = s.do_filecard;
       filecard_title = s.filecard_title;
+      source = s.source;
 
       return;
     }

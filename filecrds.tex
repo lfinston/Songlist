@@ -64,6 +64,9 @@
 \newskip\composerskip
 \composerskip=4pt
 
+\newskip\sourceskip
+\sourceskip=6pt
+
 \newdimen\wmdimen
 \setbox0=\hbox{{\large Words:  }}
 \wmdimen=\wd0
@@ -90,8 +93,9 @@
 }\vss
 }\vss}\vskip-\vsize\vskip.25cm}
 
-\def\B#1#2#3#4#5#6#7{\begingroup
-\setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}\setbox7=\hbox{#7}
+\def\B#1#2#3#4#5#6#7#8{\begingroup
+\def\bf{\largebx}
+\setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}\setbox7=\hbox{#7}\setbox8=\hbox{#8}
 \vbox to 0pt{\vskip#1\vskip.25cm
 \leftline{\hskip#2\hskip\basichskip {\Largebx #3}}
 \ifdim\wd4>0pt
@@ -109,6 +113,10 @@
 \ifdim\wd7>0pt
 \vskip12pt
 \leftline{\hskip#2\hskip\basichskip #7}
+\fi
+\ifdim\wd8>0pt
+\vskip12pt
+\leftline{\hskip#2\hskip\basichskip{\large #8}}
 \fi
 \vss}\endgroup}
 
@@ -146,8 +154,6 @@ the Free Software Foundation; either version 3 of the License, or
 the license.
 \vfil\eject
 \endgroup
-
-
 
 
 \parskip=0pt
