@@ -175,6 +175,8 @@ show columns from Lyricists_Songs;
 
 update Songs set do_filecard = true where is_cross_reference = false;
 
+update Songs set do_filecard = true where is_cross_reference = true;
+
 /* * (1)  Replace into `Songs'  */
 
 /* ** *************************************************** */
@@ -1955,7 +1957,9 @@ true, "monamimf.pdf");
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, copyright, film, source)
 values
 ("Moon River", "Johnny Mercer", "Mercer, Johnny", "Henry Mancini", "Mancini, Henry", true,
-1961, "Copyright {\\copyright} 1961 (Renewed 1989) by FAMOUS MUSIC CORPORATION, New York, N.Y.",
+1961, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1961}\\vskip\\copyrightskip"
+"\\hbox{(Renewed 1989) by Famous Music Corporation,}\\vskip\\copyrightskip\\hbox{New York, N.Y.}}",
 "Breakfast at Tiffany's", 
 "{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~180.");
 

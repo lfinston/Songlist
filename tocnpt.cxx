@@ -553,7 +553,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
 
    temp_strm << "select distinct musical from Songs where musical is not null "
-             << "and sort_by_production is true and lead_sheet is true order by musical;";
+             << "and sort_by_production is true order by musical;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -650,7 +650,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
    temp_strm << "select distinct opera from Songs where opera is not null "
-             << "and sort_by_production is true and lead_sheet is true order by opera;";
+             << "and sort_by_production is true order by opera;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -747,7 +747,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
    temp_strm << "select distinct operetta from Songs where operetta is not null "
-             << "and sort_by_production is true and lead_sheet is true order by operetta;";
+             << "and sort_by_production is true order by operetta;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -844,7 +844,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
    temp_strm << "select distinct song_cycle from Songs where song_cycle is not null "
-             << "and sort_by_production is true and lead_sheet is true order by song_cycle;";
+             << "and sort_by_production is true order by song_cycle;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -941,7 +941,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
    temp_strm << "select distinct revue from Songs where revue is not null "
-             << "and sort_by_production is true and lead_sheet is true order by revue";
+             << "and sort_by_production is true order by revue";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -1039,7 +1039,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
    temp_strm << "select distinct film from Songs where film is not null "
-             << "and sort_by_production is true and lead_sheet is true order by film;";
+             << "and sort_by_production is true order by film;";
 
    if (DEBUG) 
      cerr << "temp_strm.str() == " << temp_strm.str() << endl;
@@ -1161,8 +1161,7 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       temp_strm << "select title from Songs where sort_by_production is true and lead_sheet is true "
-                 << "and ";
+       temp_strm << "select title from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
          temp_strm << "musical = \"" << iter->musical << "\" ";
@@ -1594,7 +1593,7 @@ process_tocs_and_npt(void)
              if (filecard_ctr == 0)
                 sub_filecards_file << "\\A" << endl;
 
-           if (iter->is_production)
+           if (iter->is_production || iter->is_cross_reference)
               sub_filecards_file << "\\vbox to 0pt{\\C";
            else 
               sub_filecards_file << "\\B";
@@ -1677,7 +1676,7 @@ process_tocs_and_npt(void)
 
 /* *** (3)  */
 
-       if (iter->is_production)
+       if (iter->is_production && !iter->is_cross_reference)
        {
 /* **** (4) */
 
@@ -1734,13 +1733,26 @@ process_tocs_and_npt(void)
 /* **** (4) */
 
 
-         sub_filecards_file << "\\vss}" << endl;          
-
        }  /* |if|  */
        
 /* *** (3) */
 
-       else if (iter->lead_sheet)
+       if (iter->is_cross_reference)
+       {
+          sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip "
+                             << "{\\large See {\\largebx " << iter->target << "}}}" << endl;
+          if (iter->sort_by_production)
+             sub_filecards_file << "\\vskip\\titleskip\\leftline{\\hskip\\Chskip\\hskip\\basichskip{\\large  "
+                                << "under {\\largebx " << iter->production << "}}}" << endl;
+       }
+
+
+/* *** (3) */
+
+       if (iter->is_production || iter->is_cross_reference)
+          sub_filecards_file << "\\vss}" << endl;          
+
+       else if (iter->lead_sheet || !iter->is_production)
        {
 
          if (iter->is_cross_reference)
