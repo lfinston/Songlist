@@ -1665,11 +1665,13 @@ process_tocs_and_npt(void)
 
               sub_filecards_file << "}";
            }
-
-           if (iter->is_production && iter->year > 0)
-              sub_filecards_file << endl << "\\vskip-2pt" << endl 
-                                 << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip {\\Largebx " << iter->year << "}}"
-                                 << endl << "\\vskip12pt";
+           if (iter->is_production)
+           {
+              if (iter->year > 0)
+                 sub_filecards_file << "{" << iter->year << "}";
+              else 
+                 sub_filecards_file << "{}";
+           }
 
            if (!iter->is_production) 
            {
@@ -1693,7 +1695,7 @@ process_tocs_and_npt(void)
               else if (iter->year > 0)
                  sub_filecards_file << "{Year:  " << iter->year << "}";
               else
-                 sub_filecards_file << "{}";
+                         sub_filecards_file << "{}";
 
               if (!iter->opera.empty())
               {
