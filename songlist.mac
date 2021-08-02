@@ -87,16 +87,21 @@
 \threezerosperioddimen=\wd1				       
 
 \newcount\songctr
+\songctr=0
+\newcount\leadsheetctr
+\leadsheetctr=0
 
 \catcode`\@=\active
 \def@#1{{\"#1}}
 
 \def\M{\leavevmode\hbox to \twozerosdimen{\hss 
 \the\songctr\global\advance\songctr by 1}. }
+
 \def\R{\hskip\twozerosperioddimen}
 
 \def\N{\leavevmode\hbox to \threezerosdimen{\hss 
 \the\songctr\global\advance\songctr by 1}. }
+
 \def\S{\hskip\threezerosperioddimen}
 
 \def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
@@ -126,6 +131,9 @@
 \newcount\tempcnt
 \newif\ifseparate
 \newwrite\pagenoout
+
+\newcount\filecardctr
+\filecardctr=0
 
 \newlinechar=`^^J
 

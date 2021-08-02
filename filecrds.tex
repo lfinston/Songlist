@@ -128,7 +128,7 @@
 \vskip12pt
 \leftline{\hskip#2\hskip\basichskip{\large #8}}
 \fi
-\vss}\endgroup}
+\vss}\endgroup\global\advance\filecardctr by 1}
 
 \newskip\Chskip
 
@@ -139,7 +139,7 @@
 \def\C#1#2#3#4#5{\Chskip=#2\vskip#1\vskip.25cm
 \setbox0=\hbox{#5}\leftline{\hskip#2\hskip\basichskip
 \hbox to \cardwd{{\Largebx #3\hss #4\ifdim\wd0>0pt{\space}#5\fi}\hskip\basichskip}\hss}
-\vskip12pt}
+\vskip12pt\global\advance\filecardctr by 1}
 
 \catcode`\@=\active
 \def@#1{{\"#1}}
@@ -177,7 +177,6 @@ any later version.  See the end of this document for the license.
 \input sub_filecrds.tex
 
 \eject
-
 
 \endinput
 
