@@ -53,11 +53,7 @@ clean:
 
 .PHONY: all
 
-all: all-sep all-no-sep filecrds.ps filecrds.pdf 
-
-.PHONY: fc
-
-fc: filecrds.ps
+all: all-no-sep all-sep
 
 .PHONY: f-all
 
@@ -65,29 +61,17 @@ f-all:
 	songlist$(EXEEXT)
 	$(MAKE) all
 
-filecrds.pdf: filecrds.dvi
-	dvipdfmx $<
-
-filecrds.ps: filecrds.dvi
-	dvips -o $@ $<
-
-filecrds.dvi: filecrds.tex sub_filecrds.tex
-	tex $<
-
 sub_filecrds.tex: database/songlist.sql songlist$(EXEEXT)
 	songlist$(EXEEXT)
 
 .PHONY: all-sep
 
-#### !! START HERE! \SEP in 'all.tex'  needs to be revised to account for adding a first page 
-#### with a copyright notice and a chapter with the license at the end.
-#### LDF 2021.06.06.
-
-all-sep: all_sep.pdf #composers.pdf
+all-sep: all_sep.pdf 
 
 #### all_sep.dvi, with separation (no table of contents)
 
-all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex
+all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex \
+             sub_filecrds.tex filecrds.tex
 	tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi #sep_all.sh
@@ -109,7 +93,8 @@ all-no-sep: all_no_sep.ps all_no_sep.pdf
 
 #### all_no_sep.dvi, no separation (with table of contents)
 
-all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex
+all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex \
+                sub_filecrds.tex filecrds.tex
 	tex all_no_sep.tex & tex all_no_sep.tex
 
 all_no_sep.ps: all_no_sep.dvi

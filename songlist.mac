@@ -62,6 +62,7 @@
 \font\largebx=cmbx12
 \font\largeit=cmti12
 \font\largett=cmtt12
+\font\Largebx=cmbx12 scaled \magstephalf
 \font\huge=cmr12 scaled \magstep2
 \font\hugebx=cmbx12 scaled \magstep2
 \font\mediumsy=cmsy10 scaled \magstephalf

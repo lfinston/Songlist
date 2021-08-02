@@ -280,6 +280,16 @@ end of this document for the license.
 
 \vfil\eject
 
+\begingroup
+\Chapter{File Cards}{File Cards}
+
+\input filecrds.tex
+
+\SEP{filecrds.pdf}
+\endgroup
+
+\vfil\eject
+
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
 %% It also has the wrong headline, because the headline in `pblcdomn.tex' is
 %% set inside a group.
@@ -293,6 +303,10 @@ end of this document for the license.
 \fi
 
 \catcode`\_=8 %% Change catcode back to original value.
+
+\ifseparate
+\pageno=1
+\fi
 
 \headline={}
 \Chapter{Copying}{Copying}
