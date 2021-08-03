@@ -215,13 +215,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-recordings, arrangement_solo_guitar,
-film)
+recordings, arrangement_solo_guitar, film, year, scanned, scanned_filename)
 values
 ("All God's Children", /* '  */
 "Gus Kahn", "Kahn, Gus",
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
-true, 1, true, "Day at the Races, A");
+true, 1, true, "Day at the Races, A", 1937, true, "allgdsch.pdf");
 
 /* ** *************************************************** */
 
@@ -421,11 +420,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, scanned_filename)
 values
 ("Body and Soul", "\\vtop{\\hbox{Edward Heymann, Frank Eyton}\\vskip\\composerskip\\hbox{and Robert Sour}}", 
 "\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip\\composerskip\\hbox{and Sour, Robert}}", 
-"John W.~Green", "Green, John W.", true, 1930);
+"John W.~Green", "Green, John W.", true, 1930, true, "bodysoul.pdf");
 
 /* ** *************************************************** */
 
@@ -979,7 +978,6 @@ values
 "\\else\\vtop{\\largebx{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{\\hskip-\\basichskip(We're in the Money)}}}\\fi",
 true);
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
@@ -1178,10 +1176,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, revue, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, revue, source,
+scanned, scanned_filename)
 values 
 ("I Like the Likes of You", "E.Y.~Harburg", "Harburg, E.Y.", "Vernon Duke", "Duke, Vernon",
-true, 1934, "Ziegfeld Follies of 1934", "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~28.");
+true, 1934, "Ziegfeld Follies of 1934", "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~28.",
+true, "lksofyou.pdf");
 
 /* ** *************************************************** */
 
@@ -1355,10 +1355,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-recordings, year, film)
+recordings, year, film, scanned, scanned_filename)
 values
 ("I'm in the Mood for Love", "Dorothy Fields", "Fields, Dorothy", "Jimmy McHugh", "McHugh, Jimmy", true, 1,
-1935, "Every Night at Eight");
+1935, "Every Night at Eight", true, "inmdfrlv.pdf");
 
 /* ** *************************************************** */
 
@@ -1576,6 +1576,13 @@ musical, scanned, scanned_filename)
 values
 ("Just in Time", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
 true, 1956, "{\\bf The Comden and Green Songbook}, p.~68.", "Bells are Ringing", true, "justtime.pdf");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+values
+("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", false, 1946,
+"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~32.");
 
 /* ** *************************************************** */
 
@@ -2298,7 +2305,6 @@ values
 ("Paris in New York", "Vernon Duke", "Duke, Vernon", true, 1965,
 "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~50.");
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
@@ -2357,7 +2363,9 @@ values
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", true, "polowtnz.pdf", "russian");
 
-select * from Songs where title like("%\\"%")
+replace into Songs (title, is_cross_reference, target, lead_sheet)
+values
+("Strangers in Paradise", true, "Polowetzer T@{a}nze", true);
 
 /* ** *************************************************** */
 
@@ -3434,6 +3442,8 @@ replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't 
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Like the Likes of You");
 
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Just Like a Man");
+
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
 
 replace into Composers_Songs (composer, title) values ("Edwards, Gus", "By The Light Of The Silvery Moon");
@@ -4380,6 +4390,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius 
 -- delete from Lyricists_Songs where title = "Se Todos Fossem Iguais A Voc{\\^e}";
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Se Todos Fossem Iguais a Voc{\\^e}");
+
+replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Just Like a Man");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Speak Low");
 
