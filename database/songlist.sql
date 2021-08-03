@@ -309,9 +309,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, revue)
 values
-("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934);
+("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934,
+"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~8.", "Walk a Little Faster");
 
 /* ** ****************************************************/
 
@@ -1177,6 +1178,13 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, revue, source)
+values 
+("I Like the Likes of You", "E.Y.~Harburg", "Harburg, E.Y.", "Vernon Duke", "Duke, Vernon",
+true, 1934, "Ziegfeld Follies of 1934", "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~28.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
 values
 ("I Married an Angel", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
@@ -1731,6 +1739,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, 
+year, source, scanned, scanned_filename)
+values
+("Lazy River", "\\vtop{\\hbox{Hoagy Carmichael}\\vskip\\composerskip\\hbox{and Sidney Arodin}}",
+"Carmichael, Hoagy and Arodin, Sidney", 
+true, 1931, "{\\bf The Hoagy Carmichael Songbook}, p.~60.", true, "lazyrivr.pdf");
+
+/* ** *************************************************** */
+
 /*  ?? Question mark in film title?  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
@@ -2276,9 +2293,11 @@ true, 1935, "spanish");
 
 #/* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
-("Paris in New York", "Vernon Duke", "Duke, Vernon", true);
+("Paris in New York", "Vernon Duke", "Duke, Vernon", true, 1965,
+"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~50.");
+
 
 /* ** *************************************************** */
 
@@ -3411,9 +3430,11 @@ replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My 
 
 replace into Composers_Songs (composer, title) values ("Donizetti, Gaetano", "Furtiva lagrima, Una");
 
-replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
-
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't Get Started");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Like the Likes of You");
+
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
 
 replace into Composers_Songs (composer, title) values ("Edwards, Gus", "By The Light Of The Silvery Moon");
 
@@ -4086,6 +4107,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke G
 
 -- delete from Lyricists_Songs where title = "Over the Rainbow";
 
+replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "I Like the Likes of You");
+
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
 
 replace into Lyricists_Songs (lyricist, title) values ("Harnick, Sheldon", "(I'll Marry) The Very Next Man");
@@ -4551,14 +4574,19 @@ replace into Lyricists_Songs (lyricist, title) values ("Bricusse, Leslie", "What
 replace into Composers_Songs (composer, title) values ("Newley, Anthony", "What Kind of Fool Am I?");
 replace into Lyricists_Songs (lyricist, title) values ("Newley, Anthony", "What Kind of Fool Am I?");
 
+replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Lazy River");
+replace into Lyricists_Songs (lyricist, title) values ("Carmichael, Hoagy", "Lazy River");
+replace into Composers_Songs (composer, title) values ("Arodin, Sidney", "Lazy River");
+replace into Lyricists_Songs (lyricist, title) values ("Arodin, Sidney", "Lazy River"); 
+
+
+
+
 replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 
 replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "If Love Were All");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "If Love Were All");
-
-
-
 
 replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "I'll See You Again");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "I'll See You Again");
