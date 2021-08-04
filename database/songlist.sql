@@ -358,7 +358,7 @@ true, "french");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("Begin the Beguine", "Cole Porter", "Porter, Cole", true, 1935, 
-"{\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30.");
+"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30.");
 
 /* ** *************************************************** */
 
@@ -1161,9 +1161,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, source)
 values
-("I Get a Kick Out of You", "Cole Porter", "Porter, Cole", true, "Anything Goes");
+("I Get a Kick Out of You", "Cole Porter", "Porter, Cole", true, "Anything Goes",
+1934, "{\\bf The Best of Cole Porter}, p.~68.");
 
 /* ** *************************************************** */
 
@@ -1460,9 +1461,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
-("It's All Right With Me", "Cole Porter", "Porter, Cole", true);
+("It's All Right With Me", "Cole Porter", "Porter, Cole", true, 1953,
+"{\\bf The Best of Cole Porter}, p.~90.");
 
 /* ** *************************************************** */
 
@@ -1507,7 +1509,7 @@ true, 1932);
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("I've Got You Under My Skin", "Cole Porter", "Porter, Cole", true, 1936, 
-"{\\copyright} 1936 by Chappell {\\&} Co.~ (Renewed)", "{\\bf The Best of Cole Porter}");
+"Copyright {\\copyright} 1936 by Chappell {\\&} Co.~ (Renewed)", "{\\bf The Best of Cole Porter}, p.~86.");
 
 /* J   */
 
@@ -1583,6 +1585,15 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", false, 1946,
 "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~32.");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
+scanned, scanned_filename)
+values
+("Just One of Those Things", "Cole Porter", "Porter, Cole", true, 1935, 
+"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~100.",
+true, "jstthngs.pdf");
 
 /* ** *************************************************** */
 
@@ -1856,9 +1867,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
-("Love for Sale", "Cole Porter", "Porter, Cole", true);
+("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf The Best of Cole Porter}, p.~112.");
 
 /* ** *************************************************** */
 
@@ -1883,7 +1894,7 @@ operetta, year, copyright, source, scanned, scanned_filename)
 values
 ("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
-"{\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
+"Copyright {\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
 "{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152.",
 true, "lvrcbtme.pdf");
 
@@ -2034,7 +2045,7 @@ select * from Songs where musical = "Street Scene"\G
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
 ("Moonglow", "Eddie DeLange", "DeLange, Eddie", "Will Hudson and Irving Mills", "Hudson, Will and Mills, Irving", 
-true, 1934, "{\\copyright} 1934 Mills Music");
+true, 1934, "Copyright {\\copyright} 1934 Mills Music");
 
 /* ** *************************************************** */
 
@@ -2144,7 +2155,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Nevertheless (I'm In Love With You)", "Bert Kalmar", "Kalmar, Bert", "Harry Ruby", "Ruby, Harry", true, 1,
 1931,
-"{\\copyright} 1931 DeSylva, Brown and Henderson");
+"Copyright {\\copyright} 1931 DeSylva, Brown and Henderson");
 
 
 /* ** *************************************************** */
@@ -2159,10 +2170,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year, source)
 values
 ("Night and Day", "Cole Porter", "Porter, Cole", true,
-"{\\copyright} 1932 Warner Bros.~Inc.~(Renewed)", 1932);
+"Copyright {\\copyright} 1932 Warner Bros.~Inc.~(Renewed)", 1932, "{\\bf The Best of Cole Porter}, p.~120.");
 
 /* ** *************************************************** */
 
@@ -2777,7 +2788,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
 ("Tangerine", "Johnny Mercer", "Mercer, Johnny", "Victor Schertzinger", "Schertzinger, Victor", true,
-1942, "{\\copyright} 1942 Famous Music Corp., USA");
+1942, "Copyright {\\copyright} 1942 Famous Music Corp., USA");
 
 /* ** *************************************************** */
 
@@ -2822,7 +2833,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, copyright)
 values
 ("That Old Feeling", "Lew Brown", "Brown, Lew", "Sammy Fain", "Fain, Sammy", true,
-"Vogues of 1938", 1937, "{\\copyright} 1937, Renewed 1965.");
+"Vogues of 1938", 1937, "Copyright {\\copyright} 1937, Renewed 1965.");
 
 /* ** *************************************************** */
 
@@ -3175,15 +3186,12 @@ values
 "Thomas ``Fats'' Waller and Herman Autrey", "Waller, Thomas ``Fats'' and Autrey, Herman",
 true, 1938, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~54.", true, "ychtclub.pdf");
 
-
-
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright)
 values
 ("You Go to My Head", "Haven Gillespie", "Gillespie, Haven", "J.~Fred Coots", "Coots, J.~Fred", true,
-1938, "{\\copyright} 1938 Remick Music");
+1938, "Copyright {\\copyright} 1938 Remick Music");
 
 /* ** *************************************************** */
 
@@ -4804,6 +4812,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's De-
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "I've Got You Under My Skin");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I've Got You Under My Skin");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Just One of Those Things");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Just One of Those Things");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Love for Sale");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Love for Sale");
