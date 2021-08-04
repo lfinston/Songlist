@@ -1591,7 +1591,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
 scanned, scanned_filename)
 values
-("Just One of Those Things", "Cole Porter", "Porter, Cole", true, 1935, 
+("Just One of Those Things", "Cole Porter", "Porter, Cole", false, 1935, 
 "Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~100.",
 true, "jstthngs.pdf");
 
@@ -3125,6 +3125,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
+scanned, scanned_filename, source)
+values
+("Why Was I Born?", "Oscar Hammerstein II", "Hammerstein II, Oscar",
+"Jerome Kern", "Kern, Jerome", true, "Sweet Adeline", 1929, true, "whwsibrn.pdf",
+"{\\bf Jerome Kern Collection}, p.~97.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, copyright, source, scanned, scanned_filename, language)
 values
@@ -3607,6 +3616,8 @@ replace into Composers_Songs (composer, title) values ("Kaper, Bronislau", "On G
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "All the Things You Are");
 
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Bill");
+
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Make Believe");
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Way You Look Tonight, The");
@@ -3617,11 +3628,11 @@ replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Fine Rom
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Pick Yourself Up");
 
-replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Bill");
-
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Smoke Gets in Your Eyes");
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Sure Thing");
+
+replace into Composers_Songs (composer, title) values ("Kern, Jerome", "Why Was I Born?");
 
 replace into Composers_Songs (composer, title) values ("Kosma, Joseph", "Feuilles Mortes, Les");
 
@@ -4120,6 +4131,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Make Believe");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Some Enchanted Evening");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", "Why Was I Born?");
 
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
 
