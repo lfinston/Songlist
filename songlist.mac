@@ -83,7 +83,7 @@
 
 \setbox0=\hbox{{\medium 000}}
 \threezerosdimen=\wd0
-\setbox1=\hbox{\hskip\threezerosdimen. }
+\setbox1=\hbox{\hbox to \threezerosdimen{\hfil}\hbox{.\space}}
 \threezerosperioddimen=\wd1				       
 
 \newcount\songctr
@@ -94,15 +94,18 @@
 \catcode`\@=\active
 \def@#1{{\"#1}}
 
-\def\M{\leavevmode\hbox to \twozerosdimen{\hss 
-\the\songctr\global\advance\songctr by 1}. }
+\newif\ifthreezeros
+\threezerosfalse
 
-\def\R{\hskip\twozerosperioddimen}
+\def\M{\leavevmode\hbox to \twozerosperioddimen{\hss\the\songctr\global\advance\songctr by 1 . }}
 
-\def\N{\leavevmode\hbox to \threezerosdimen{\hss 
-\the\songctr\global\advance\songctr by 1}. }
+\def\R{\threezerosfalse\hskip\twozerosperioddimen}
 
-\def\S{\hskip\threezerosperioddimen}
+\def\N{\threezerostrue\leavevmode\hbox to \threezerosperioddimen{\hss
+\the\songctr\global\advance\songctr by 1 . }}
+
+\def\S{\ifthreezeros\dimen0=\threezerosperioddimen\else\dimen0=\twozerosperioddimen\fi
+\leavevmode\hbox to \dimen0{\hfil}}
 
 \def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
 

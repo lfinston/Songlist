@@ -1885,7 +1885,7 @@ process_tocs_and_npt(void)
 
             toc_ls_file << ")}" << endl << endl;
          }
-         else
+         else if (!iter->is_production)
             toc_ls_file << "\\N " << iter->title << endl << endl;
           
          if (iter->musical.length() > 0 && iter->sort_by_production)
