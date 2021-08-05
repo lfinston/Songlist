@@ -1625,15 +1625,7 @@ process_tocs_and_npt(void)
  
             if (curr_char != prev_char)
             {
-               // << "\\edef\\A{\\advance\\sectionctr by 1\\the\\chapctr . \\the\\sectionctr}"
-               //                   << "{\\hlstart{}{bwidth=0}{" << curr_char << "}\\Blue{"
-               //                   << curr_char << "}\\hlend}"
-
-               sub_filecards_file << "\\writenumberedtocentry{section}{\\hlstart{}{bwidth=0}{" 
-                                  << curr_char << "}\\Blue{" << curr_char << "}\\hlend}"
-                                  << "{\\vbox to 0pt{}}"
-                                  << endl 
-                                  << "\\hldest{xyz}{}{" << curr_char << "}" << endl;
+               sub_filecards_file << "\\FilecardSection{" << curr_char << "}" << endl;
             }
 
             if (filecard_ctr == 0)

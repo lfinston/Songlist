@@ -67,7 +67,7 @@
 \ifseparate
 \def\Chapter#1#2{\relax}
 \def\Section#1#2{\relax}
-\def\FilecardSection#1#2{\relax}
+\def\FilecardSection#1{\relax}
 \openout\pagenoout=XXX.sh
 \begingroup
 \catcode`\%=12
@@ -83,6 +83,8 @@
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\the\chapctr}}
 \def\Section#1#2{\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
+\def\FilecardSection#1{\writenumberedtocentry{section}{\hlstart{}{bwidth=0}%
+{#1}\Blue{#1}\hlend}{\vbox to 0pt{}}\hldest{xyz}{}{#1}}
 \fi
 
 \newif\ifalltex
