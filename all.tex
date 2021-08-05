@@ -34,8 +34,9 @@
 
 \hlopts{bwidth=0}
 
-\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. \medium #1 \dotfill\ #3}}
-\def\tocsectionentry#1#2#3{\line{\hskip3em {#2}. \medium #1 \dotfill\ #3}}
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1} \dotfill\ #3}}
+%\def\tocsectionentry#1#2#3{\line{\hskip3em {#2}. {\medium #1} \dotfill\ #3}}
+\def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2}. \fi{\medium #1} \dotfill\ #3}}
 
 \newcount\chapctr
 \chapctr=0
@@ -66,6 +67,7 @@
 \ifseparate
 \def\Chapter#1#2{\relax}
 \def\Section#1#2{\relax}
+\def\FilecardSection#1#2{\relax}
 \openout\pagenoout=XXX.sh
 \begingroup
 \catcode`\%=12
@@ -273,18 +275,21 @@ Songlist is available for downloading from
 \SEP{spanish.pdf}
 \input spanish.tex
 \vskip\baselineskip
+\vfil\eject
 
+\headline={}
+\Chapter{File Cards}{File Cards}
+\centerline{{\largebx File Cards for Songs and Productions}}
+\vskip.5\baselineskip
+\centerline{(Begins on following page.)}
+\SEP{filecrds.pdf}
+\hldest{xyz}{}{File Cards}
 \vfil\eject
 
 \begingroup
-\Chapter{File Cards}{File Cards}
-
 \input filecrds.tex
-
-\SEP{filecrds.pdf}
-\endgroup
-
 \vfil\eject
+\endgroup
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
 %% It also has the wrong headline, because the headline in `pblcdomn.tex' is

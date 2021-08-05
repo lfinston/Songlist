@@ -1424,6 +1424,19 @@ remove_formatting_commands(string s)
   }
   while (found_s != string::npos);
 
+  /* Delete ``\\hskip''  */
+
+  do
+  {
+    found_s = s.find("\\hskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 6);
+      }
+  }
+  while (found_s != string::npos);
+
   /* Delete ``\\baselineskip''  */
 
   do
@@ -1444,6 +1457,28 @@ remove_formatting_commands(string s)
       {
         found_flag = true;
         s.erase(found_s, 6);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\titleskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
+      }
+  }
+  while (found_s != string::npos);
+
+  do
+  {
+    found_s = s.find("\\copyrightskip");
+    if (found_s != string::npos)
+      {
+        found_flag = true;
+        s.erase(found_s, 13);
       }
   }
   while (found_s != string::npos);
