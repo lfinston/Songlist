@@ -1531,6 +1531,8 @@ process_tocs_and_npt(void)
                     << "\\pageno=1" << endl
                     << "\\fi" << endl
                     << "\\temppagecnt=\\pageno" << endl 
+                    << "\\headline={\\ifnum\\pageno>\\temppagecnt\\firstmark\\hfil{\\mediumbx Productions}\\hfil%" << endl 
+                    << "\\hbox to 0pt{\\hss{\\tt \\timestamp}\\hskip.5cm}\\botmark\\else\\hfil{\\tt \\timestamp}\\quad\\fi}" << endl 
                     << "\\medium" << endl
                     << "\\songctr=1" << endl
                     << "\\doublecolumns" << endl
@@ -2275,6 +2277,21 @@ process_tocs_and_npt(void)
              cerr << "Opera:     " << iter->opera << endl;
 #endif
 
+             temp_str = remove_formatting_commands(iter->opera);
+             curr_char = toupper(temp_str[0]);
+       
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+               productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+
+               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+
+             }
+  
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera << "}";
 
              if (iter->opera.length() > max_production_str_length)
@@ -2286,6 +2303,11 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << " " << iter->year;
              productions_file << ")}" << endl;
+ 
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
+
           }
        }
        if (iter->operetta != "")
@@ -2300,6 +2322,20 @@ process_tocs_and_npt(void)
              cerr << "Operetta:  " << iter->operetta << endl;
 #endif
 
+             temp_str = remove_formatting_commands(iter->operetta);
+             curr_char = toupper(temp_str[0]);
+    
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+               productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+
+               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+             }
+  
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta << "}";
              if (iter->operetta.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
@@ -2311,6 +2347,10 @@ process_tocs_and_npt(void)
                 productions_file << " " << iter->year;
 
              productions_file << ")}" << endl;
+
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
           }
        }
        if (iter->song_cycle != "")
@@ -2325,6 +2365,24 @@ process_tocs_and_npt(void)
              cerr << "Song cycle:  " << iter->song_cycle << endl;
 #endif 
 
+             temp_str = remove_formatting_commands(iter->song_cycle);
+
+             if (temp_str[0] == '4' || (temp_str[0] == '1' && temp_str[1] == '4'))
+                curr_char = 'F';
+             else
+                curr_char = toupper(temp_str[0]);
+              
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+               productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+
+               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+             }
+  
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle << "}";
 
              if (iter->song_cycle.length() > max_production_str_length)
@@ -2337,6 +2395,10 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << " " << iter->year;
              productions_file << ")}" << endl;
+
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
           }
        }
        if (iter->musical != "")
@@ -2350,6 +2412,24 @@ process_tocs_and_npt(void)
              cerr << "Musical:   " << iter->musical << endl;
 #endif 
 
+             temp_str = remove_formatting_commands(iter->musical);
+
+             if (temp_str[0] == '4' || (temp_str[0] == '1' && temp_str[1] == '4'))
+                curr_char = 'F';
+             else
+                curr_char = toupper(temp_str[0]);
+ 
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+               productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+
+               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+             }
+  
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical << "}";
 
              if (iter->musical.length() > max_production_str_length)
@@ -2362,6 +2442,10 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << " " << iter->year;
              productions_file << ")}" << endl;
+
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
           }
        }
        if (iter->revue != "")
@@ -2375,6 +2459,22 @@ process_tocs_and_npt(void)
 #if 0 
              cerr << "Revue:     " << iter->revue << endl;
 #endif 
+
+             temp_str = remove_formatting_commands(iter->revue);
+
+             curr_char = toupper(temp_str[0]);
+       
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+               productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+
+               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+             }
+    
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
+
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue << "}";
 
 
@@ -2388,6 +2488,10 @@ process_tocs_and_npt(void)
              if (iter->year > 0)
                 productions_file << " " << iter->year;
              productions_file << ")}" << endl;
+
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
           }
        }
        if (iter->film != "")
@@ -2401,8 +2505,25 @@ process_tocs_and_npt(void)
 #if 0
              cerr << "Film:      " << iter->film << endl;
 #endif 
+             temp_str = remove_formatting_commands(iter->film);
+
+             if (temp_str[0] == '4' || (temp_str[0] == '1' && temp_str[1] == '4'))
+                curr_char = 'F';
+             else
+                curr_char = toupper(temp_str[0]);
+       
+             if (isupper(curr_char) && curr_char != prev_char)
+             {
+                 productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
+                                  << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
+                 productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+             }
+
+             if (isupper(curr_char))
+               productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
              productions_file << "\\vbox{\\hbox{{\\bf " << iter->film << "}";
+
              pos = iter->film.find("(Film)");
              if (pos == string::npos || iter->year > 0)
              {
@@ -2421,6 +2542,10 @@ process_tocs_and_npt(void)
              if (pos == string::npos || iter->year > 0)
                 productions_file << ")";
              productions_file << "}" << endl;
+
+             if (isupper(curr_char))           
+               prev_char = curr_char;
+
           }
        }
 #if 0 
@@ -2430,12 +2555,14 @@ process_tocs_and_npt(void)
        productions_file << "\\hbox{\\quad " << iter->title << "}" << endl;
 
        prev_prod = curr_prod;
-   }
+
+   }  /* |for|  */
  
    productions_file << "}" << endl;
 
-   productions_file << "\\singlecolumn" << endl
+   productions_file << "%%\\singlecolumn %% DO NOT UNCOMMENT THIS!" << endl
                    << "\\vfil\\eject" << endl
+                   << "\\singlecolumn" << endl
                    << "\\endgroup" << endl 
                    << "\\endinput" << endl << endl;
 

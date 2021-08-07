@@ -307,12 +307,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production, source, scanned, scanned_filename, public_domain)
+opera, sort_by_production, source, scanned, scanned_filename, public_domain, language)
 values
 ("Au fond du temple saint", "Eug{\\`e}ne Cormon and Michel Carr{\\'e}", 
 "Cormon, Eug{\\`e}ne and Carr{\\'e}, Michel", "Georges Bizet", "Bizet, Georges", 
 false, 1863, "P{\\^e}cheurs de perles, Les", true, "Single edition, Edition Peters, EP 7588.",
-false, "aufndsnt.pdf", true);
+false, "aufndsnt.pdf", true, "french");
 
 /* ** *************************************************** */
 
@@ -611,7 +611,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film)
 values
 ("Continental, The", "Herb Magidson", "Magidson, Herb", "Con Conrad", "Conrad, Con", true, 1934,
-"The Gay Divorcee");
+"Gay Divorcee, The");
 
 /* ** *************************************************** */
 

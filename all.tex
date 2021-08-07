@@ -40,6 +40,9 @@
 \definecontentsfile{ptc}
 \def\ptcchapterentry#1#2{{\medium #1 \dotfill\ #2}}
 
+\definecontentsfile{ftc}
+\def\ftcchapterentry#1#2{{\medium #1 \dotfill\ #2}}
+
 \newcount\chapctr
 \chapctr=0
 
@@ -86,7 +89,9 @@
 \def\Section#1#2{\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend}{\A}}
 \def\FilecardSection#1{\writenumberedtocentry{section}{\hlstart{}{bwidth=0}%
-{#1}\Blue{#1}\hlend}{\vbox to 0pt{}}\hldest{xyz}{}{#1}}
+{#1}\Blue{#1}\hlend}{\vbox to 0pt{}}\hldest{fit}{}{#1}
+\writeftcentry{chapter}{\hlstart{}{bwidth=0}{filecard #1}\Blue{#1}\hlend}
+\hldest{fit}{}{filecard #1}}
 \fi
 
 \newif\ifalltex
@@ -305,7 +310,18 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \Chapter{File Cards}{File Cards}
 \centerline{{\largebx File Cards for Songs and Productions}}
 \vskip.5\baselineskip
-\centerline{(Begins on following page.)}
+\centerline{(File cards begin on following page.)}
+
+\vskip\baselineskip
+\Section{TOC File Cards}{Table of Contents---File Cards}
+\hldest{fit}{}{TOC File Cards}
+\centerline{{\largebx Table of Contents---File Cards}}
+\vskip\baselineskip
+\begingroup
+\parskip=0pt
+\readftcfile
+\endgroup
+\vskip\baselineskip
 \SEP{filecrds.pdf}
 \hldest{xyz}{}{File Cards}
 \vfil\eject
