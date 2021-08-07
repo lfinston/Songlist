@@ -34,8 +34,11 @@
 
 \hlopts{bwidth=0}
 
-\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1} \dotfill\ #3}}
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1 \dotfill\ #3}}}
 \def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2}. \fi{\medium #1} \dotfill\ #3}}
+
+\definecontentsfile{ptc}
+\def\ptcchapterentry#1#2{{\medium #1 \dotfill\ #2}}
 
 \newcount\chapctr
 \chapctr=0
@@ -234,9 +237,22 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \SEP{pblcdomn.pdf}
 
 \Chapter{Productions}{Productions}
-
+\centerline{{\largebx Productions}}
+\hldest{xyz}{}{Productions}
+\vskip\baselineskip
+\Section{TOC Productions}{Table of Contents---Productions}
+\hldest{fit}{}{TOC Productions}
+\centerline{{\largebx Table of Contents---Productions}}
+\vskip\baselineskip
+\begingroup
+\parskip=0pt
+\readptcfile
+\endgroup
+\vrule width \hsize height 1pt
+\vskip\baselineskip
+\Section{List Productions}{Productions}
+\hldest{xyz}{}{List Productions}
 \input productions.tex
-
 \SEP{productions.pdf}
 
 \ifseparate
