@@ -102,6 +102,7 @@ process_tocs_and_npt(void)
    int status;
   
    stringstream temp_strm;
+   string temp_str; 
   
    Song curr_song;
 
@@ -1202,32 +1203,72 @@ process_tocs_and_npt(void)
 
        temp_strm << "order by title;";
 
-       if (DEBUG)
-          cerr << "temp_strm.str() == " << temp_strm.str() << endl;
+       temp_str = temp_strm.str();
+      
+       pos = 0;
 
-       status = submit_mysql_query(temp_strm.str());
+       /* Replace |'\'| with |"\\"|.  Two loops are required.                             */
+
+       /* |'%'| is used as a ``dummy'' character here.  Otherwise, replacing |'\'| with   */
+       /* |"\\"| would be tricky and would require the use of iterators.                  */
+       /* It's simpler to just use two loops.                                             */
+       /* |'%'| is guaranteed to not occur in a title, because it's the comment character */
+       /* in TeX.  LDF 2021.08.07.                                                        */
+
+       do
+       {
+          pos = temp_str.find("\\");
+
+          if (pos != string::npos)
+          {
+              temp_str.replace(pos, 1, "%");
+          }
+       } while (pos != string::npos);
+
+       pos = 0;
+
+       do
+       {
+          pos = temp_str.find("%");
+
+          if (pos != string::npos)
+          {
+              temp_str.replace(pos, 1, "\\\\");
+          }
+       } while (pos != string::npos);
+
+       temp_strm.str("");
+
+       if (DEBUG)
+          cerr << "temp_str == " << temp_str << endl;
+
+       status = submit_mysql_query(temp_str);
 
        if (status != 0)
-         {
-           cerr  << "ERROR!"
-                 << endl 
-                 << "`submit_mysql_query' failed, returning " << status << ":"
-                 << endl 
-                 << "MySQL error:  " << mysql_error(mysql)
-                 << endl 
-                 << "MySQL error number:  " << mysql_errno(mysql)
-                 << endl 
-                 << "Exiting `songlist' unsuccessfully with exit status 1." 
-                 << endl;
-          
-           exit(1);
-         }
+       {
+         cerr  << "ERROR!"
+               << endl 
+               << "`submit_mysql_query' failed, returning " << status << ":"
+               << endl 
+               << "MySQL error:  " << mysql_error(mysql)
+               << endl 
+               << "MySQL error number:  " << mysql_errno(mysql)
+               << endl 
+               << "Query string == `temp_str' == \"" << temp_str << "\"" 
+               << endl 
+               << "Exiting `songlist' unsuccessfully with exit status 1." 
+               << endl;
+        
+         exit(1);
+       }
        else if (DEBUG)
-         {
-           cerr << "`submit_mysql_query' succeeded, returning 0." << endl
-                << "`row_ctr'   == " << row_ctr << endl
-                << "`field_ctr' == " << field_ctr << endl;
-         }
+       {
+         cerr << "`submit_mysql_query' succeeded, returning 0." << endl
+              << "`row_ctr'   == " << row_ctr << endl
+              << "`field_ctr' == " << field_ctr << endl;
+       }
+
+       temp_str = "";
 
        /*  Process the contents of |result|  */
        
@@ -1304,7 +1345,6 @@ process_tocs_and_npt(void)
            iter->show("Production:");
        }
    } 
-
 
    song_vector.insert(song_vector.begin(), production_vector.begin(), production_vector.end());
 
@@ -1519,7 +1559,6 @@ process_tocs_and_npt(void)
      }
 
    int filecard_ctr = 0;
-   string temp_str; 
    size_t found_s;
    char curr_char = '\0';
    char prev_char= '\0';
@@ -1600,7 +1639,9 @@ process_tocs_and_npt(void)
 
          if (iter->do_filecard || iter->is_production)
          {
+#if 0 
             cerr << "iter->title == " << iter->title << endl;
+#endif 
 
             temp_str = remove_formatting_commands(iter->title);
 
@@ -1618,8 +1659,10 @@ process_tocs_and_npt(void)
                temp_str.replace(found_s, 4, "Forty-Second");
             }
 
+#if 0 
             cerr << "temp_str == " << temp_str << endl
                  << "temp_str[0] == " << temp_str[0] << endl;
+#endif 
 
             curr_char = temp_str[0];
  
