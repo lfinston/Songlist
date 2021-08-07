@@ -252,9 +252,6 @@ values
 "Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", true,
 "Zauberfl@{o}te, Die", 1791, true, "allsfhlt.pdf", true,
 "{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
-
-
-
 --
 
 select * from Songs where opera = "Zauberfl@{o}te, Die"\G
@@ -305,6 +302,17 @@ true, 1, 1921, true, "aprlshwr.pdf", true);
 replace into Songs (title, lead_sheet, words_and_music, words_and_music_reverse, year)
 values
 ("As Time Goes By", true, "Herman Hupfeld", "Hupfeld, Herman", 1931);
+
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+opera, sort_by_production, source, scanned, scanned_filename, public_domain)
+values
+("Au fond du temple saint", "Eug{\\`e}ne Cormon and Michel Carr{\\'e}", 
+"Cormon, Eug{\\`e}ne and Carr{\\'e}, Michel", "Georges Bizet", "Bizet, Georges", 
+false, 1863, "P{\\^e}cheurs de perles, Les", true, "Single edition, Edition Peters, EP 7588.",
+false, "aufndsnt.pdf", true);
 
 /* ** *************************************************** */
 
@@ -3379,6 +3387,8 @@ replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I 
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
 
+replace into Composers_Songs (composer, title) values ("Bizet, Georges", "Au fond du temple saint");
+
 replace into Composers_Songs (composer, title) values ("Blake, Eubie", "I'm Just Wild About Harry");
 
 replace into Composers_Songs (composer, title) values ("Blake, Eubie", "Memories of You");
@@ -3985,6 +3995,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Party's
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Just in Time");
 
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Party's Over, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Cormon, Eug{\\`e}ne", "Au fond du temple saint");
+
+replace into Lyricists_Songs (lyricist, title) values ("Carr{\\'e}, Michel", "Au fond du temple saint");
 
 replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "Cocktails for Two");
 

@@ -1510,7 +1510,7 @@ remove_formatting_commands(string s)
       
   do
     {
-      found_s = s.find_first_of("@()\\'`\"{}~-_");
+      found_s = s.find_first_of("@()\\'`\"{}~-_^");
       if (found_s != string::npos)	  	  
 	{
 	  found_flag = true;
