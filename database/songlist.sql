@@ -2061,7 +2061,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, scanned, scanned_filename, public_domain)
 values
 ("Moonlight Bay", "Edward Madden", "Madden, Edward", "Percy Wenrich", "Wenrich, Percy", true, 1912,
-"{\bf 100 Years of Popular Music, 1900s}", true, "moonltby.pdf", true);
+"{\\bf 100 Years of Popular Music, 1900s}", true, "moonltby.pdf", true);
 
 /* ** *************************************************** */
 
