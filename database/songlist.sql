@@ -289,7 +289,9 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename)
 values
 ("Anything You Can Do", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
-1946, "{\\bf Songs of Irving Berlin, The, Broadway Songs}, p.~2.", true, "anything.pdf");
+1946,
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Broadway Songs}, p.~2.}}",
+true, "anything.pdf");
 
 /* ** *************************************************** */
 
@@ -333,7 +335,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename)
 values
 ("Baby Face", "Benny Davis", "Davis, Benny", "Harry Akst", "Akst, Harry", 
-true, 1926, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~24.", true, "babyface.pdf");
+true, 1926, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
+"\\hbox{{\\bf Volume 2}, p.~24.}}", true, "babyface.pdf");
 
 -- select * from Songs where title = "Baby Face"\G
 
@@ -384,7 +387,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse,
 lead_sheet, year, musical, source, scanned, scanned_filename)
 values
 ("Bewitched", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-1941, "Pal Joey", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~234.", true, "bewitchd.pdf");
+1941, "Pal Joey", 
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~234.}}", 
+true, "bewitchd.pdf");
 
 /* ** *************************************************** */
 
@@ -411,7 +416,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse,
 lead_sheet, year, source, scanned, scanned_filename)
 values
 ("Blue Moon", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-1934, "{\\bf Rodgers and Hart, A Musical Anthology}, p.~264.", true, "bluemoon.pdf");
+1934, "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~264.}}", 
+true, "bluemoon.pdf");
 
 /* ** *************************************************** */
 
@@ -898,7 +904,7 @@ sort_by_production, scanned, scanned_filename, source)
 values
 ("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street (Film)", 1933, 
 true, true, "ftscstrt.pdf", 
-"\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\titleskip\\hbox{{\\bf from 42nd Street}, p.~12.}}");
+"\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~12.}}");
 
 /* ** *************************************************** */
 
@@ -1425,7 +1431,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, film, scanned, scanned_filename, source)
 values
 ("Isn't It Romantic?", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-1932, "Love Me Tonight", true, "isntrmnt.pdf", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~192.");
+1932, "Love Me Tonight", true, "isntrmnt.pdf",
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~192.}}");
 
 /* ** *************************************************** */
 
@@ -1460,7 +1467,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse,
 lead_sheet, year, source, scanned, scanned_filename, musical)
 values
 ("It Never Entered My Mind", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-1940, "{\\bf Rodgers and Hart, A Musical Anthology}, p.~152.", true, "itnvrmnd.pdf", "Higher and Higher");
+1940,
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~152.}}",
+true, "itnvrmnd.pdf", "Higher and Higher");
 
 /* ** *************************************************** */
 
@@ -1965,7 +1974,8 @@ values
 1925, 
 "\\vtop{\\hbox{Copyright {\\copyright} 1925}\\vskip\\copyrightskip\\hbox{by Edward B.~Marks Music Company.}"
 "\\vskip\\copyrightskip\\hbox{Copyright Renewed}}",
-"Garrick Gaities", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~106.",
+"Garrick Gaities", 
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~106.}}",
 true, "manhttan.pdf", true);
 
 /* ** *************************************************** */
@@ -2822,7 +2832,8 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, musical, source)
 values
 ("Ten Cents a Dance", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1930,
-"Simple Simon", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~255.");
+"Simple Simon", 
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~255.}}");
 
 /* ** *************************************************** */
 
@@ -2906,7 +2917,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse,
 lead_sheet, year, musical, source, scanned, scanned_filename)
 values
 ("Thou Swell", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 1927,
-"Connecticut Yankee, A", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~82",
+"Connecticut Yankee, A", 
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~82}}",
 true, "thouswll.pdf");
 
 /* ** *************************************************** */
@@ -3170,8 +3182,8 @@ sort_by_production, source, scanned, scanned_filename, language, public_domain)
 values
 ("Gute Nacht", "Wilhelm M@{u}ller", "M@{u}ller, Wilhelm",  
 "Franz Schubert", "Schubert, Franz", true, 1827,
-"Winterreise, Die, Schubert, op.~89, D 911.", true,
-"\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\titleskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
+"Winterreise, Die", true,
+"\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\sourceskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
 false, "gutencht.pdf", "german", true);
 
 /* *** (3) *************************************************** */
@@ -3264,7 +3276,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse,
 lead_sheet, arrangement_solo_guitar, year, musical, source, scanned, scanned_filename)
 values
 ("You Took Advantage of Me", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard",
-true, true, 1928, "Present Arms", "{\\bf Rodgers and Hart, A Musical Anthology}, p.~248.",
+true, true, 1928, "Present Arms",
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~248.}}",
 true, "ytkadvnt.pdf");
 
 /* ** *************************************************** */
