@@ -814,7 +814,7 @@ main(int argc, char **argv)
 #endif 
              public_domain_file << "\\M " << "\\hbox to .5\\hsize{" << iter->title;
 
-             if (iter->year > 0 || iter->scanned_filename.size() > 0)
+             if (iter->year > 0 || (iter->scanned && iter->scanned_filename.size() > 0))
                 public_domain_file << "\\leaderfill ";
               
              if (iter->year > 0)

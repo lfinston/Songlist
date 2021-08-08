@@ -3172,7 +3172,7 @@ values
 "Franz Schubert", "Schubert, Franz", true, 1827,
 "Winterreise, Die, Schubert, op.~89, D 911.", true,
 "\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\titleskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
-true, "gutencht.pdf", "german", true);
+false, "gutencht.pdf", "german", true);
 
 /* *** (3) *************************************************** */
 
