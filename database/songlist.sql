@@ -469,7 +469,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename)
 values
 ("Button Up Your Overcoat", "B.G.~DeSylva, Lew Brown and Ray Henderson", "DeSylva, B.G.; Brown, Lew and Henderson, Ray",
-true, 1928, "{\\bf 100 Years of Popular Music, 20s, Volume 1}, p.~44.", true, "btnpvrct.pdf");
+true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~44.}}", 
+true, "btnpvrct.pdf");
 
 /* ** *************************************************** */
 
@@ -855,7 +856,7 @@ values
 
 -- insert ignore into Songs (title, source) values
 -- ("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
--- "{\\bf 100 Years of Popular Music, 1920s, Volume 2}");
+-- "{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}}}");
 
 -- select * from Songs where music = "Ray Henderson"\G
 
@@ -874,7 +875,8 @@ values
 ("Five Foot Two, Eyes Of Blue",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Ray Henderson", "Henderson, Ray", true, 1925, "Subtitle:  Has Anybody Seen My Girl?", true,
-"fivefoot.pdf", "{\\bf 100 Years of Popular Music, 1920s, Volume 2}", true); 
+"fivefoot.pdf", "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}}}",
+true); 
 
 /* ** *************************************************** */
 
@@ -1053,7 +1055,7 @@ scanned, scanned_filename, source, notes)
 values
 ("Hello! Ma Baby", "Joe E.~Howard and Ida Emerson", "Howard, Joe E.~and Emerson, Ida", true, 1899,
 true, true, "hlmababy.pdf",
-"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~98.}"
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~98.}\\vskip\\sourceskip"
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~128.}}",
 "Verse missing in {\\bf 100 Years of Popular Music, 1900}.  Title and attribution vary.");
 
@@ -1167,7 +1169,8 @@ values
 "\\vtop{\\hbox{Eddie Seiler, Sol Marcus,}\\vskip2pt\\hbox{Bennie Benjamin}\\vskip2pt\\hbox{and Eddie Durham}}", 
 "\\vbox{\\hbox{Seiler, Eddie; Marcus, Sol;}\\vskip\\composerskip\\hbox{Benjamin, Bennie and Durham, Eddie}}", 
 true, 1941,
-"{\\bf 100 Years of Popular Music, 1940s, Part One}, p.~75.", true, "idwtswnf.pdf");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part One}, p.~75.}}", 
+true, "idwtswnf.pdf");
 
 /* ** *************************************************** */
 
@@ -1235,7 +1238,8 @@ values
 ("I Wonder Who's Kissing Her Now", 
 "Will M.~Hough and Frank R.~Adams", "Hough, Will M.~and Adams, Frank R.",
 "Harold Orlob", "Orlob, Harold", true, 1909, "Prince of To-Night, The",
-"{\\bf 100 Years of Popular Music, 1900}, p.~144.", true, "iwndrwho.pdf");
+"{\\bf 100 Years of Popular Music, 1900}, p.~144.",
+true, "iwndrwho.pdf");
 
 /* ** *************************************************** */
 
@@ -1351,8 +1355,8 @@ values
 ("I'm Forever Blowing Bubbles", 
 "\\vtop{\\hbox{John Kellette, James Brockman,}\\vskip\\composerskip\\hbox{Nat Vincent and James Kendis}}", 
 "\\vbox{\\hbox{Kellette, John; Brockman, James;}\\vskip\\composerskip\\hbox{Vincent, Nat and Kendis, James}}", 
-true, 1919, true, true, "imfrvrbb.pdf",
-"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78.}\\vskip-3pt"
+true, 1919, true, true, "imfrvrbb.pdf", 
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78.}\\vskip\\sourceskip"
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~150.}}");
 
 select * from Songs where title = "I'm Forever Blowing Bubbles"\G
@@ -1384,8 +1388,8 @@ scanned, scanned_filename, source)
 values
 ("I'm Just Wild About Harry", "Noble Sissle", "Sissle, Noble", "Eubie Blake", "Blake, Eubie", true, 1921,
 true, true, "imwldahr.pdf",
-"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102.}"
-"\\hbox{{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~132.}}");
+"\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102.}\\vskip\\sourceskip"
+"\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~132.}}");
 
 /* ** *************************************************** */
 
@@ -1476,7 +1480,7 @@ true, "itnvrmnd.pdf", "Higher and Higher");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
 ("It's a Pity to Say `Goodnight'", "Billy Reid", "Reid, Billy", true, 1946,
-"{\\bf 100 Years of Popular Music, 1940s, Part Two}, p.~146.");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~146.}}");
 
 /* ** *************************************************** */
 
@@ -1620,7 +1624,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename)
 values
 ("Just One More Chance", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", true, 1931,
-"{\\bf 100 Years of Popular Music, 1930s, Volume 1}, p.~166.", true, "jstonmcn.pdf");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~166.}}",
+true, "jstonmcn.pdf");
 
 /* ** *************************************************** */
 
@@ -1630,7 +1635,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, film)
 values
 ("Keep Young and Beautiful", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-1933, "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~170.", true, "kpygbtfl.pdf",
+1933, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~170.}}",
+true, "kpygbtfl.pdf",
 "Roman Scandals");
 
 /* ** (2) *************************************************** */
@@ -1897,7 +1903,7 @@ year, source, scanned, scanned_filename)
 values
 ("Love Letters in the Sand", "Nick Kenny and Charles Kenny", "Kenny, Nick and Kenny, Charles",
 "J.~Fred Coots", "Coots, J.~Fred", true, 1931,
-"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~196.",
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~196.}}",
 true, "lvltrsnd.pdf");
 
 /* ** *************************************************** */
@@ -1914,7 +1920,7 @@ values
 ("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
 "Copyright {\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
-"{\\bf 100 Years of Popular Music, 1920s Volume 1}, p.~152.",
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~152.}}",
 true, "lvrcbtme.pdf");
 
 /* ** *************************************************** */
@@ -1924,7 +1930,7 @@ sort_by_production, source, notes, scanned, scanned_filename)
 values
 ("Lullaby of Broadway", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "Gold Diggers of 1935", 1935, false, "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~39.}"
-"\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
+"\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "lullbrdw.pdf");
 
@@ -1948,7 +1954,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename)
 values
 ("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
-"{\\bf 100 Years of Popular Music, 1920s, Volume 1}, p.~160", true, "makwhoop.pdf");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~160}}", 
+true, "makwhoop.pdf");
 
 /* ** *************************************************** */
 
@@ -2007,7 +2014,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, source, musical)
 values
 ("Memories of You", "Andy Razaf", "Razaf, Andy", "Eubie Blake", "Blake, Eubie",
-true, 1930, true, "memrsofy.pdf", "{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~204.",
+true, 1930, true, "memrsofy.pdf", 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s }}\\vskip\\sourceskip\\hbox{{\\bf-- Volume 1}, p.~204.}}",
 "Blackbirds of 1930");
 
 /* ** *************************************************** */
@@ -2185,7 +2193,7 @@ film, source, scanned, scanned_filename)
 values
 ("Nice Work If You Can Get It", "Ira Gershwin", "Gershwin, Ira",
 "George Gershwin", "Gershwin, George", true, 1937, "Damsel in Distress, A",
-"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~99.}"
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~99.}\\vskip\\sourceskip"
 "\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}, p.~270.}}", true, "nicework.pdf");
 
 /* ** *************************************************** */
@@ -2265,7 +2273,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename)
 values
 ("On Green Dolphin Street", "Ned Washington", "Washington, Ned", "Bronislau Kaper", "Kaper, Bronislau",
-true, "Green Dolphin Street", 1947, "{\\bf 100 Years of Popular Music, 1940s, Part Two}, p.~186.",
+true, "Green Dolphin Street", 1947, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~186.}}",
 true, "grndlphn.pdf");
 
 /* ** *************************************************** */
@@ -2583,7 +2592,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename)
 values
 ("She's Funny That Way", "Richard A.~Whiting", "Whiting, Richard A.", "Neil Moret", "Moret, Neil", 
-true, 1928, "{\\bf 100 Years of Popular Music, 20s -- Volume 1}, p.~222.", true, "shfnttwy.pdf");
+true, 1928,
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~222.}}",
+true, "shfnttwy.pdf");
 
 /* ** *************************************************** */
 
@@ -2751,7 +2762,7 @@ true, 1934, "Banjo chord melody");
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Stella By Starlight", "Ned Washington", "Washington, Ned", "Victor Young", "Young, Victor",
-true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 2}, p.~235.");
+true, 1946, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Vol. 2}, p.~235.}}");
 
 /* ** *************************************************** */
 
@@ -2775,7 +2786,7 @@ year, source, scanned, scanned_filename)
 values
 ("Swinging On A Star", "Johnny Burke", "Burke, Johnny",
 "Jimmy van Heusen", "Heusen, Jimmy van", true, "Going My Way",
-1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s, Volume 2}, p.~252.}\n"
+1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s, Volume 2}, p.~252.}\\vskip\\sourceskip"
 "\\hbox{{\\bf Classic Songs of Johnny Burke, Hollywood's Songwriter}, p.~102.}}",
 true, "swngstar.pdf");
 
@@ -2825,7 +2836,8 @@ source, scanned, scanned_filename, film)
 values
 ("Temptation", "Arthur Freed", "Freed, Arthur",
 "Nacio Herb Brown", "Brown, Nacio Herb", true, 1933,
-"{\\bf 100 Years of Popular Music, 30s -- Volume 1}, p.~272.", true, "temptatn.pdf", "Going Hollywood");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~272.}}", 
+true, "temptatn.pdf", "Going Hollywood");
 
 /* ** *************************************************** */
 
@@ -2841,7 +2853,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 year, source)
 values
 ("Tenderly", "Jack Lawrence", "Lawrence, Jack", "Walter Gross", "Gross, Walter", 
-true, 1946, "{\\bf 100 Years of Popular Music 1940s, Vol. 1}, p.~212.");
+true, 1946, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Vol. 1}, p.~212.}}");
 
 /* ** *************************************************** */
 
@@ -2965,8 +2978,8 @@ values
 ("Toot Toot Tootsie, Goo'bye", "Gus Kahn, Ernie Erdman, Dan Russo and Ted Fiorito",
 "\\vbox{\\hbox{Kahn, Gus; Erdman, Ernie;}\\vskip\\composerskip\\hbox{Russo, Dan and Fiorito, Ted}}", 
 true, "Bombo", 
-1922, "{\\bf 100 Years of Popular Music, 20s -- Volume 2}, p.~281.", true,
-"toottoot.pdf", true);
+1922, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~281.}}",
+true, "toottoot.pdf", true);
 
 /* ** *************************************************** */
 
@@ -3028,7 +3041,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 source, scanned, scanned_filename)
 values
 ("Very Thought of You, The", "Ray Noble", "Noble, Ray", true, 1934,
-"{\\bf 100 Years of Popular Music, 1930s, Part Two}, p.~327.", true, "vrythght.pdf");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1930s, Part Two}, p.~327.}}", 
+true, "vrythght.pdf");
 
 /* ** *************************************************** */
 
@@ -3122,7 +3136,8 @@ source, scanned, scanned_filename)
 values
 ("When You're Smiling", "\\vtop{\\hbox{Mark Fisher, Joe Goodwin}\\vskip\\composerskip\\hbox{and Larry Shay}}", 
 "Fisher, Mark; Goodwin, Joe and Shay, Larry", 
-true, 1928, "{\\bf 100 Years of Popular Music, 1920s, Volume 2}, p.~299.", true, "whensmil.pdf");
+true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~299.}}", 
+true, "whensmil.pdf");
 
 /* ** *************************************************** */
 
