@@ -1991,7 +1991,7 @@ process_tocs_and_npt(void)
 
                 toc_ls_a_h_file << ")}" << endl << endl;
              }
-             else
+             else if (!iter->is_production)
                 toc_ls_a_h_file << "\\M " << iter->title << endl;
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
@@ -2039,7 +2039,7 @@ process_tocs_and_npt(void)
 
                 toc_ls_i_o_file << ")}" << endl << endl;
              }
-             else
+             else if (!iter->is_production)
                toc_ls_i_o_file << "\\N " << iter->title << endl;
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
@@ -2088,7 +2088,7 @@ process_tocs_and_npt(void)
 
               toc_ls_p_z_file << ")}" << endl << endl;
            }
-           else
+           else if (!iter->is_production)
               toc_ls_p_z_file << "\\N " << iter->title << endl;
            
            if (iter->musical.length() > 0 && iter->sort_by_production)
