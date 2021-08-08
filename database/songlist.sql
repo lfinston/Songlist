@@ -76,7 +76,7 @@ create table Songs
     recordings tinyint not null default 0,
     opera varchar(64) default null,
     operetta varchar(64) default null,
-    song_cycle  varchar(64) default null,
+    song_cycle varchar(256) default null,
     musical varchar(64) default null,
     revue varchar(64) default null,
     film  varchar(64) default null,
@@ -113,6 +113,8 @@ alter table Songs add column do_filecard boolean not null default true after tar
 alter table Songs add column filecard_title varchar(128) not null default "" after do_filecard;
 
 alter table Songs modify column target varchar(256) not null default "";
+
+alter table Songs modify column song_cycle varchar(256) default null;
 
 
 show columns from Songs;
@@ -985,6 +987,17 @@ values
 "\\ifalltex Gold Diggers' Song, The\\hfil\\vskip0pt\\S (We're in the Money)"
 "\\else\\vtop{\\largebx{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{\\hskip-\\basichskip(We're in the Money)}}}\\fi",
 true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, song_cycle,
+sort_by_production, source, scanned, scanned_filename, language)
+values
+("Gute Nacht", "Wilhelm M@{u}ller", "M@{u}ller, Wilhelm",  
+"Franz Schubert", "Schubert, Franz", true, 1827,
+"Winterreise, Die, Schubert, op.~89, D 911.", true,
+"\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\titleskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
+true, "gutencht.pdf", "german");
 
 /* ** *************************************************** */
 
@@ -3802,6 +3815,8 @@ replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Neverthel
 
 replace into Composers_Songs (composer, title) values ("Schertzinger, Victor", "Tangerine");
 
+replace into Composers_Songs (composer, title) values ("Schubert, Franz", "Gute Nacht");
+
 replace into Composers_Songs (composer, title) values ("Schwartz, Arthur", "Rainy Night in Rio, A");
 
 replace into Composers_Songs (composer, title) values ("Schwarz, Jean", "Rock-a-Bye Your Baby (With a Dixie Melody)");
@@ -4425,6 +4440,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius 
 -- delete from Lyricists_Songs where title = "Se Todos Fossem Iguais A Voc{\\^e}";
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Se Todos Fossem Iguais a Voc{\\^e}");
+
+replace into Lyricists_Songs (lyricist, title) values ("M@{u}ller, Wilhelm", "Gute Nacht");
 
 replace into Lyricists_Songs (lyricist, title) values ("Nash, Ogden", "Just Like a Man");
 
