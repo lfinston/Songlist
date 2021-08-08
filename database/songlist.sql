@@ -990,17 +990,6 @@ true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, song_cycle,
-sort_by_production, source, scanned, scanned_filename, language)
-values
-("Gute Nacht", "Wilhelm M@{u}ller", "M@{u}ller, Wilhelm",  
-"Franz Schubert", "Schubert, Franz", true, 1827,
-"Winterreise, Die, Schubert, op.~89, D 911.", true,
-"\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\titleskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
-true, "gutencht.pdf", "german");
-
-/* ** *************************************************** */
-
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 no_page_turns, year, copyright, musical, source)
 values
@@ -1690,7 +1679,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
-"Gustav Mahler", "Mahler, Gustav", false,
+"Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndn.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
 true, "german");
@@ -3169,6 +3158,25 @@ source, musical)
 values
 ("Willkommen", "Fred Ebb", "Ebb, Fred", "John Kander", "Kander, John", true, 1966,
 "{\\bf Vocal Selections from Cabaret}, p.~2.", "Cabaret");
+
+/* ** (2) *************************************************** */
+
+/* Winterreise, Die.  Franz Schubert and Wilhelm Müller.
+
+/* *** (3) *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, song_cycle,
+sort_by_production, source, scanned, scanned_filename, language, public_domain)
+values
+("Gute Nacht", "Wilhelm M@{u}ller", "M@{u}ller, Wilhelm",  
+"Franz Schubert", "Schubert, Franz", true, 1827,
+"Winterreise, Die, Schubert, op.~89, D 911.", true,
+"\\vbox{\\hbox{{\\bf Schubert.  Lieder Band 3, Hohe Stimme}}\\vskip\\titleskip\\hbox{B@{a}renreiter Urtext, p.~78.}}",
+true, "gutencht.pdf", "german", true);
+
+/* *** (3) *************************************************** */
+
+/* ** (2) *************************************************** */
 
 /* ** *************************************************** */
 
