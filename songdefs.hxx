@@ -189,6 +189,38 @@ class Song
     
 };  /* End of |class Song| definition  */
 
+
+/* ** (2) class Production */
+
+class Production
+{
+    private:
+
+       string title;
+       string words;
+       string music;
+       string words_and_music;
+       int type;
+       string ttypename; 
+       int year;
+       string copyright;
+       string notes;
+       bool public_domain;
+       string language;
+       bool do_filecard;
+       string filecard_title;
+       bool number_filecards;
+
+    public: 
+       Production(void);
+       Production(const Production&);
+
+       void clear(void);
+       void show(string s = "");
+
+};  /* End of |class Production| definition  */
+
+
 typedef Song Production_Song;
 
 extern vector<Song> song_vector;

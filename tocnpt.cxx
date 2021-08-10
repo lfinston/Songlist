@@ -1847,10 +1847,12 @@ process_tocs_and_npt(void)
 
             /* number_filecards, Arg. #9 to \B.  */
 
+#if 1 
             if (iter->number_filecards)
                sub_filecards_file << "{1}";
             else 
                sub_filecards_file << "{0}";
+#endif 
 
             sub_filecards_file << endl;
 

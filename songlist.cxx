@@ -1525,6 +1525,103 @@ remove_formatting_commands(string s)
 }  /* End of |remove_formatting_commands| definition  */
 
 
+/* *** (3) Default constructor  */
+
+Production::Production(void)
+{
+       title = "";
+       words = "";
+       music = "";
+       words_and_music = "";
+       type = 0;
+       ttypename = ""; 
+       year = 0;
+       copyright = "";
+       notes = "";
+       public_domain = false;
+       language = "english";
+       do_filecard = true;
+       filecard_title = "";
+       number_filecards = false;
+
+   return;
+}
+
+/* *** (3) Copy constructor  */
+
+Production::Production(const Production& p)
+{
+   title            = p.title; 
+   words            = p.words;
+   music            = p.music;
+   words_and_music  = p.words_and_music;
+   type             = p.type;
+   ttypename        = p.ttypename;
+   year             = p.year;
+   copyright        = p.copyright;
+   notes            = p.notes;
+   public_domain    = p.public_domain;
+   language         = p.language;
+   do_filecard      = p.do_filecard;
+   filecard_title   = p.filecard_title;
+   number_filecards = p.number_filecards;
+   
+   return;
+}
+
+
+/* *** (3) Clear  */
+
+void
+Production::clear(void)
+{
+   title = "";
+   words = "";
+   music = "";
+   words_and_music = "";
+   type = 0;
+   ttypename = ""; 
+   year = 0;
+   copyright = "";
+   notes = "";
+   public_domain = false;
+   language = "english";
+   do_filecard = true;
+   filecard_title = "";
+   number_filecards = false;
+
+   return;
+}
+
+/* *** (3) Show */
+
+void 
+Production::show(string s)
+{
+   if (s.length() == 0)
+      s = "Production:";
+
+   cerr << s << endl
+        << "title:             " << title << endl
+        << "words:             " << words << endl
+        << "music:             " << music << endl
+        << "words_and_music:   " << words_and_music << endl
+        << "type:              " << type << endl
+        << "ttypename:         " << ttypename << endl
+        << "year:              " << year << endl
+        << "copyright:         " << copyright << endl
+        << "notes:             " << notes << endl
+        << "public_domain:     " << public_domain << endl
+        << "language:          " << language << endl
+        << "do_filecard:       " << do_filecard << endl
+        << "filecard_title:    " << filecard_title << endl
+        << "number_filecards:  " << number_filecards << endl
+        << endl;
+
+   return;
+}
+
+
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
 /*   	 indirect buffer is visited, so it's necessary to evaluate the       */

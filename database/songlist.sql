@@ -455,10 +455,10 @@ select * from Productions order by title\G
 /* A  */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year,
-language, number_filecards)
+language)
 values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940,
-"german", true);
+"german");
 
 -- select * from Songs where title = "Abends in der Taverna"\G
 
@@ -735,7 +735,8 @@ true, 1957, "{\\bf 40 franz@{o}sische Chansons}, p.~99.", "french");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
 scanned, scanned_filename)
 values
-("Button Up Your Overcoat", "B.G.~DeSylva, Lew Brown and Ray Henderson", "DeSylva, B.G.; Brown, Lew and Henderson, Ray",
+("Button Up Your Overcoat", "\\vtop{\\hbox{B.G.~DeSylva, Lew Brown}\\vskip\\composerskip\\hbox{and Ray Henderson}}", 
+"DeSylva, B.G.; Brown, Lew and Henderson, Ray",
 true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~44.}}", 
 true, "btnpvrct.pdf");
 
@@ -769,7 +770,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 source, scanned, scanned_filename)
 values
 ("Call Me", "Tony Hatch", "Hatch, Tony", true, 1965, 
-"Copyright {\\copyright} 1965 Welbeck Music Ltd.  Copyright Renewed.", 
+"\\vbox{\\hbox{Copyright {\\copyright} 1965 Welbeck Music Ltd.}\\vskip\\copyrightskip\\hbox{Copyright Renewed.}}", 
 "\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~30.}}", 
 true, "callme.pdf");
 
@@ -818,14 +819,14 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("Change Partners", "Irving Berlin", "Berlin, Irving", true, 1938, "Carefree",
-"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~18.");
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~18.}}");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("Cheek to Cheek", "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
-"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~22.");
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~22.}}");
 
 /* ** *************************************************** */
 
@@ -1047,7 +1048,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, musical, scanned, scanned_filename)
 values
 ("Everything's Coming Up Roses", "Stephen Sondheim", "Sondheim, Stephen", "Jule Styne", "Styne, Jule",
-true, 1959, "{\\bf Broadway Double Bill, Gypsy and Funny Girl, Vocal Selections}, p.~5.",
+true, 1959,
+"\\vbox{\\hbox{{\\bf Broadway Double Bill, Gypsy and}}\\vskip\\sourceskip\\hbox{{\\bf Funny Girl, Vocal Selections}, p.~5.}}",
 "Gypsy", true, "evtcuprs.pdf");
 
 /* ** *************************************************** */
@@ -1055,6 +1057,8 @@ true, 1959, "{\\bf Broadway Double Bill, Gypsy and Funny Girl, Vocal Selections}
 /* F   */
 
 /* ** *************************************************** */
+
+/* !! START HERE:  LDF 2021.08.10.  Adjusting line breaks on filecards.  */ 
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, source)
 values
@@ -1720,7 +1724,7 @@ values
 ("\\vtop{\\hbox{Isn't This a Lovely Day?}\\vskip-.2\\baselineskip\\hbox{(To Be Caught in the Rain)}\\vskip.375\\baselineskip}",
 "\\vtop{\\hbox{Isn't This a Lovely Day?}\\vskip\\titleskip\\hbox{(To Be Caught in the Rain)}}",
 "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
-"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~45.");
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~45.}}");
 
 /* ** *************************************************** */
 
@@ -2074,7 +2078,8 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("Let's Face the Music and Dance", "Irving Berlin", "Berlin, Irving", true, 1936,
-"Follow the Fleet", "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~64.");
+"Follow the Fleet",
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~64.}}");
 
 /* ** *************************************************** */
 
@@ -2482,7 +2487,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("No Strings (I'm Fancy Free)", "Irving Berlin", "Berlin, Irving", true, 1935, "Top Hat",
-"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~78.");
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~78.}}");
 
 /* ** *************************************************** */
 
@@ -2657,7 +2662,7 @@ true, 1939, "spanish");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, year, source)
 values
 ("Piccolino, The", "Irving Berlin", "Berlin, Irving", true, "Top Hat", 1935,
-"{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~78.");
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~71.}}");
 
 /* ** *************************************************** */
 
@@ -3147,7 +3152,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source)
 values
 ("There's No Business Like Show Business", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
-1946, "{\\bf Songs of Irving Berlin, The, Broadway Songs}, p.~102.");
+1946,
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Broadway Songs}, p.~102.}}");
 
 /* ** *************************************************** */
 
@@ -3260,8 +3266,9 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename)
 values
 ("Top Hat, White Tie and Tails", "Irving Berlin", "Berlin, Irving", true, "Top Hat", 
-1935, "{\\bf Songs of Irving Berlin, The, Movie Songs}, p.~102.", true, "tphtwttl.pdf");
-
+1935,
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~102.}}",
+true, "tphtwttl.pdf");
 
 /* ** *************************************************** */
 
