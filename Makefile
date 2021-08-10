@@ -141,6 +141,26 @@ songlist_out.tex: songlist input.txt
 	./songlist 
 # --banjo --accordeon --zither
 
+.PHONY: edvi
+
+edvi: explanations.dvi
+
+.PHONY: eps
+
+eps: explanations.ps
+
+.PHONY: epdf
+
+epdf: explanations.pdf
+
+explanations.dvi: explanations.tex
+	tex explanations.tex
+
+explanations.ps: explanations.dvi
+	dvips -o explanations.ps explanations.dvi
+
+explanations.pdf: explanations.dvi
+	dvipdfmx explanations.dvi
 
 .PHONY: dvi
 

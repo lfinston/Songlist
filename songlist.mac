@@ -128,6 +128,7 @@
 
 \enablehyperlinks[dvipdfm]
 %\enablehyperlinks[pdftex] 
+\hlopts{bwidth=0}
 
 \newcount\pagecnt
 \newcount\prevpagecnt
