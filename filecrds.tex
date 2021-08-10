@@ -103,11 +103,12 @@
 }\vss
 }\vss}\vskip-\vsize\vskip.25cm}
 
-\def\B#1#2#3#4#5#6#7#8{\begingroup
+\def\B#1#2#3#4#5#6#7#8#9{\begingroup
 \def\bf{\largebx}
 \setbox4=\hbox{#4}\setbox5=\hbox{#5}\setbox6=\hbox{#6}\setbox7=\hbox{#7}\setbox8=\hbox{#8}
 \vbox to 0pt{\vskip#1\vskip.25cm
 \leftline{\hskip#2\hskip\basichskip {\Largebx #3}}
+\ifnum#9>0\vskip-12pt\line{\hskip.5\hsize\hskip-1.5em{\Largebx #9}\hss}\fi
 \ifdim\wd4>0pt
 \vskip12pt
 \leftline{\hskip#2\hskip\basichskip #4}

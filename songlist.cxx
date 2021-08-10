@@ -910,6 +910,7 @@ Song::show(string s)
        << "production:                       " << production << endl
        << "do_filecard:                      " << do_filecard << endl
        << "filecard_title:                   " << filecard_title << endl
+       << "number_filecards:                 " << number_filecards << endl
        << "source:                           " << source << endl;
 
   if (title_vector.size() > 0)
@@ -971,6 +972,7 @@ Song::clear(void)
     production = "";
     do_filecard = false;
     filecard_title = "";
+    number_filecards = false;
     source = "";
 
     title_vector.clear();

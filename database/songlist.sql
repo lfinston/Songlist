@@ -95,7 +95,8 @@ create table Songs
     is_cross_reference boolean not null default false,
     target varchar(256) not null default "",
     do_filecard boolean not null default true,
-    filecard_title varchar(128) not null default ""
+    filecard_title varchar(128) not null default "",
+    number_filecards boolean not null default false
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -115,6 +116,8 @@ alter table Songs add column target varchar(128) not null default "" after is_cr
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
 alter table Songs add column do_filecard boolean not null default true after target;
 alter table Songs add column filecard_title varchar(128) not null default "" after do_filecard;
+
+alter table Songs add column number_filecards boolean not null default false after filecard_title;
 
 alter table Songs modify column target varchar(256) not null default "";
 
@@ -186,13 +189,273 @@ update Songs set do_filecard = true where is_cross_reference = false;
 
 update Songs set do_filecard = true where is_cross_reference = true;
 
+/* ** (2) Productions */
+
+create table Productions
+(
+    title varchar(128) unique not null,
+    words varchar(128) default null,
+    music varchar(128) default null,
+    words_and_music varchar(128) default null,
+    type int not null default 0,
+    typename varchar(128) not null default "",
+    year int default null,
+    copyright varchar(256) default null,
+    notes varchar(512) default null,
+    public_domain boolean not null default false,
+    language varchar(32) not null default "english",
+    do_filecard boolean not null default true,
+    filecard_title varchar(128) not null default "",
+    number_filecards boolean not null default false
+);
+
+show columns from Productions;
+
+select distinct opera, operetta, song_cycle, musical, revue, film from Songs where 
+opera is not null or operetta is not null or song_cycle is not null
+or musical is not null or revue is not null or film is not null\G
+
+
+replace into Productions (typename, title) values ("film", "42nd Street (Film)");
+
+replace into Productions (typename, title) values ("film", "Belle of the Nineties");
+
+replace into Productions (typename, title) values ("film", "Big Broadcast of 1938, The");
+
+replace into Productions (typename, title) values ("film", "Breakfast at Tiffany's");
+
+replace into Productions (typename, title) values ("film", "Broadway Melody, The");
+
+replace into Productions (typename, title) values ("film", "Carefree");
+
+replace into Productions (typename, title) values ("film", "Cover Girl");
+
+replace into Productions (typename, title) values ("film", "Dames");
+
+replace into Productions (typename, title) values ("film", "Damsel in Distress, A");
+
+replace into Productions (typename, title) values ("film", "Day at the Races, A");
+
+replace into Productions (typename, title) values ("film", "Destry Rides Again");
+
+replace into Productions (typename, title) values ("film", "Every Night at Eight");
+
+replace into Productions (typename, title) values ("film", "Follow the Fleet");
+
+replace into Productions (typename, title) values ("film", "Gay Divorcee, The");
+
+replace into Productions (typename, title) values ("film", "Gigi");
+
+replace into Productions (typename, title) values ("film", "Godfather, The");
+
+replace into Productions (typename, title) values ("film", "Going Hollywood");
+
+replace into Productions (typename, title) values ("film", "Going My Way");
+
+replace into Productions (typename, title) values ("film", "Gold Diggers of 1933");
+
+replace into Productions (typename, title) values ("film", "Gold Diggers of 1935");
+
+replace into Productions (typename, title) values ("film", "Green Dolphin Street");
+
+replace into Productions (typename, title) values ("film", "Guys and Dolls (Film)");
+
+replace into Productions (typename, title) values ("film", "Homme et une femme, Un");
+
+replace into Productions (typename, title) values ("film", "Laura");
+
+replace into Productions (typename, title) values ("film", "Love Me Tonight");
+
+replace into Productions (typename, title) values ("film", "Melody for Two");
+
+replace into Productions (typename, title) values ("film", "Mondo Cane");
+
+replace into Productions (typename, title) values ("film", "Night at the Opera, A");
+
+replace into Productions (typename, title) values ("film", "One Minute to Zero");
+
+replace into Productions (typename, title) values ("film", "Orfeu Negro");
+
+replace into Productions (typename, title) values ("film", "Ride 'Em Cowboy");
+
+replace into Productions (typename, title) values ("film", "Roman Scandals");
+
+replace into Productions (typename, title) values ("film", "Sandpiper, The");
+
+replace into Productions (typename, title) values ("film", "Shall We Dance");
+
+replace into Productions (typename, title) values ("film", "Some Like It Hot");
+
+replace into Productions (typename, title) values ("film", "Swing Time");
+
+replace into Productions (typename, title) values ("film", "Tammy and the Bachelor");
+
+replace into Productions (typename, title) values ("film", "Thanks for the Memory");
+
+replace into Productions (typename, title) values ("film", "Top Hat");
+
+replace into Productions (typename, title) values ("film", "Vogues of 1938");
+
+replace into Productions (typename, title) values ("film", "Wizard of Oz, The");
+
+replace into Productions (typename, title) values ("opera", "Contes d'Hoffmann, Les");
+
+replace into Productions (typename, title) values ("opera", "Don Giovanni");
+
+replace into Productions (typename, title) values ("opera", "Elisir d’amore, L’");
+
+replace into Productions (typename, title) values ("opera", "Freisch@{u}tz, Der");
+
+replace into Productions (typename, title) values ("opera", "Porgy and Bess");
+
+replace into Productions (typename, title) values ("opera", "Prince Igor");
+
+replace into Productions (typename, title) values ("opera", "P{\^e}cheurs de perles, Les");
+
+replace into Productions (typename, title) values ("opera", "Zauberfl@{o}te, Die");
+
+replace into Productions (typename, title) values ("revue", "Walk a Little Faster");
+
+replace into Productions (typename, title) values ("revue", "Ziegfeld Follies (1908)");
+
+replace into Productions (typename, title) values ("revue", "Ziegfeld Follies 1927");
+
+replace into Productions (typename, title) values ("revue", "Ziegfeld Follies of 1934");
+
+replace into Productions (typename, title) values ("musical", "Annie Get Your Gun");
+
+replace into Productions (typename, title) values ("musical", "Anything Goes");
+
+replace into Productions (typename, title) values ("musical", "As Thousands Cheer");
+
+replace into Productions (typename, title) values ("musical", "Babes in Arms");
+
+replace into Productions (typename, title) values ("musical", "Bells are Ringing");
+
+replace into Productions (typename, title) values ("musical", "Blackbirds of 1930");
+
+replace into Productions (typename, title) values ("musical", "Bombo");
+
+replace into Productions (typename, title) values ("musical", "Boys from Syracuse, The");
+
+replace into Productions (typename, title) values ("musical", "Cabaret");
+
+replace into Productions (typename, title) values ("musical", "Cabin in the Sky");
+
+replace into Productions (typename, title) values ("musical", "Camelot");
+
+replace into Productions (typename, title) values ("musical", "Carnival in Flanders");
+
+replace into Productions (typename, title) values ("musical", "Chorus Line, A");
+
+replace into Productions (typename, title) values ("musical", "Connecticut Yankee, A");
+
+replace into Productions (typename, title) values ("musical", "Conversation Piece");
+
+replace into Productions (typename, title) values ("musical", "Damn Yankees");
+
+replace into Productions (typename, title) values ("musical", "Fiorello!");
+
+replace into Productions (typename, title) values ("musical", "Garrick Gaities");
+
+replace into Productions (typename, title) values ("musical", "Gentlemen Prefer Blondes");
+
+replace into Productions (typename, title) values ("musical", "Guys and Dolls");
+
+replace into Productions (typename, title) values ("musical", "Gypsy");
+
+replace into Productions (typename, title) values ("musical", "Higher and Higher");
+
+replace into Productions (typename, title) values ("musical", "I Married an Angel");
+
+replace into Productions (typename, title) values ("musical", "Johnny Johnson");
+
+replace into Productions (typename, title) values ("musical", "Knickerbocker Holiday");
+
+replace into Productions (typename, title) values ("musical", "Lady in the Dark");
+
+replace into Productions (typename, title) values ("musical", "Lost in the Stars");
+
+replace into Productions (typename, title) values ("musical", "My Fair Lady");
+
+replace into Productions (typename, title) values ("musical", "Oklahoma!");
+
+replace into Productions (typename, title) values ("musical", "Oliver!");
+
+replace into Productions (typename, title) values ("musical", "On the Town");
+
+replace into Productions (typename, title) values ("musical", "One Touch of Venus");
+
+replace into Productions (typename, title) values ("musical", "Paint Your Wagon");
+
+replace into Productions (typename, title) values ("musical", "Pal Joey");
+
+replace into Productions (typename, title) values ("musical", "Present Arms");
+
+replace into Productions (typename, title) values ("musical", "Prince of To-Night, The");
+
+replace into Productions (typename, title) values ("musical", "Red, Hot and Blue");
+
+replace into Productions (typename, title) values ("musical", "Right This Way");
+
+replace into Productions (typename, title) values ("musical", "Roberta");
+
+replace into Productions (typename, title) values ("musical", "Showboat");
+
+replace into Productions (typename, title) values ("musical", "Simple Simon");
+
+replace into Productions (typename, title) values ("musical", "South Pacific");
+
+replace into Productions (typename, title) values ("musical", "Stop the World---I Want to Get Off");
+
+replace into Productions (typename, title) values ("musical", "Street Scene");
+
+replace into Productions (typename, title) values ("musical", "Sweet Adeline");
+
+replace into Productions (typename, title) values ("musical", "Very Warm for May");
+
+replace into Productions (typename, title) values ("musical", "West Side Story");
+
+replace into Productions (typename, title) values ("musical", "Where's Charlie?");
+
+replace into Productions (typename, title) values ("operetta", "Fledermaus, Die");
+
+replace into Productions (typename, title) values ("operetta", "Lustige Witwe, Die");
+
+replace into Productions (typename, title) values ("operetta", "New Moon, The");
+
+replace into Productions (typename, title) values ("operetta", "Zirkusprinzessin, Die");
+
+replace into Productions (typename, title) values ("song_cycle", "14 Lieder aus Des Knaben Wunderhorn");
+
+replace into Productions (typename, title) values ("song_cycle", "Winterreise, Die");
+
+opera       = 1
+operetta    = 2
+song_cycle  = 3
+musical     = 4 
+revue       = 5 
+film        = 6 
+
+update Productions set type = 1 where typename = "opera";
+update Productions set type = 2 where typename = "operetta";
+update Productions set type = 3 where typename = "song_cycle";
+update Productions set type = 4 where typename = "musical";
+update Productions set type = 5 where typename = "revue";
+update Productions set type = 6 where typename = "film";
+
+
+select * from Productions order by title\G
+
+
 /* * (1)  Replace into `Songs'  */
 
 /* ** *************************************************** */
 
 /* A  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year, language)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year,
+language, number_filecards)
 values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940,
 "german", true);
@@ -507,7 +770,8 @@ source, scanned, scanned_filename)
 values
 ("Call Me", "Tony Hatch", "Hatch, Tony", true, 1965, 
 "Copyright {\\copyright} 1965 Welbeck Music Ltd.  Copyright Renewed.", 
-"{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~30.", true, "callme.pdf");
+"\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~30.}}", 
+true, "callme.pdf");
 
 /* ** *************************************************** */
 
@@ -835,7 +1099,7 @@ copyright, scanned, scanned_filename, source)
 values
 ("Fly Me to the Moon (In Other Words)", "Bart Howard", "Howard, Bart", true, 1954, 
 "Copyright {\\copyright} 1954 (Renewed)", true, "fmttmoon.pdf", 
-"{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~65.");
+"\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~65.}}");
 
 /* ** *************************************************** */
 
@@ -1378,7 +1642,7 @@ values
 ("\\vtop{\\hbox{I'm Gonna Sit Right Down}\\vskip-.2\\baselineskip\\hbox{and Write Myself a Letter}\\vskip.375\\baselineskip}",
 "\\vbox{\\hbox{I'm Gonna Sit Right Down}\\vskip\\titleskip\\hbox{and Write Myself a Letter}}",
 "Joe Young", "Young, Joe", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1935, true, "gonnasit.pdf",
-"{\\bf The Big Book of '50s and '60s Swinging Songs}, p.~89.");
+"\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~89.}}");
 
 /* ** *************************************************** */
 
@@ -2950,7 +3214,7 @@ year, film, source, scanned, scanned_filename, language)
 values
 ("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
 "Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", true, 1962, 
-"Mondo Cane", "{\\bf The Big Book of '50s {\\&} '60s Swinging Songs}, p.~136.", 
+"Mondo Cane", "\\vbox{\\hbox{{\\bf The Big Book of '50s {\\&} '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~136.}}", 
 true, "tgrdnlcr.pdf", "italian");
 
 replace into Songs (title, is_cross_reference, target, lead_sheet)
@@ -3313,7 +3577,7 @@ values
 "\\vtop{\\hbox{Russ Morgan, Larry Stock}\\vskip\\composerskip\\hbox{and James Cavanaugh}}",
 "\\vbox{\\hbox{Morgan, Russ; Stock, Larry}\\vskip\\composerskip\\hbox{and Cavanaugh, James}}", 
 true, 1944, true, "yrnbdytl.pdf",
-"{\\bf The Big Book of '50s {\\&} '60s Swinging Songs}, p.~241.");
+"\\vbox{\\hbox{{\\bf The Big Book of '50s {\\&} '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~241.}}");
 
 select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
 

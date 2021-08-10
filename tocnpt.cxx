@@ -106,9 +106,9 @@ process_tocs_and_npt(void)
   
    Song curr_song;
 
-   Production curr_production;
+   Production_Song curr_production;
 
-   vector<Production> production_vector;
+   vector<Production_Song> production_vector;
 
    size_t pos;
 
@@ -153,7 +153,8 @@ process_tocs_and_npt(void)
              <<        "production, "                       // 30
              <<        "do_filecard, "                      // 31
              <<        "filecard_title, "                   // 32
-             <<        "source "                            // 33
+             <<        "source, "                           // 33
+             <<        "number_filecards "                  // 34
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -506,6 +507,10 @@ process_tocs_and_npt(void)
        }
        else if (DEBUG)
            cerr << "`source' is NULL." << endl;
+
+       curr_song.number_filecards = static_cast<bool>(atoi(curr_row[34]));
+         if (DEBUG)
+           cerr << "`filecard_title'                     == " << curr_row[34] << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -1167,21 +1172,21 @@ process_tocs_and_npt(void)
        else
          cerr << "production_vector is empty." << endl;
        
-       for (vector<Production>::iterator iter = production_vector.begin();
+       for (vector<Production_Song>::iterator iter = production_vector.begin();
             iter != production_vector.end();
             ++iter)
          {
-           iter->show("Production:");
+           iter->show("Production_Song:");
          }
      }
 
-   for (vector<Production>::iterator iter = production_vector.begin();
+   for (vector<Production_Song>::iterator iter = production_vector.begin();
         iter != production_vector.end();
         ++iter)
      {
        if (DEBUG)
          {
-           iter->show("Production:");
+           iter->show("Production_Song:");
          }
 
        temp_strm.str("");
@@ -1338,11 +1343,11 @@ process_tocs_and_npt(void)
        else
          cerr << "production_vector is empty." << endl;
        
-       for (vector<Production>::iterator iter = production_vector.begin();
+       for (vector<Production_Song>::iterator iter = production_vector.begin();
             iter != production_vector.end();
             ++iter)
        {       
-           iter->show("Production:");
+           iter->show("Production_Song:");
        }
    } 
 
@@ -1839,6 +1844,13 @@ process_tocs_and_npt(void)
                   sub_filecards_file << "{}";
 
             }  /* |if (!iter->is_production)|  */
+
+            /* number_filecards, Arg. #9 to \B.  */
+
+            if (iter->number_filecards)
+               sub_filecards_file << "{1}";
+            else 
+               sub_filecards_file << "{0}";
 
             sub_filecards_file << endl;
 
