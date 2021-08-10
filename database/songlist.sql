@@ -1079,7 +1079,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, language)
 values
-("Feuilles Mortes, Les", "Jacques Prevert", "Prevert, Jacques", "Joseph Kosma", "Kosma, Joseph", true, 1947, "french");
+("Feuilles Mortes, Les", "Jacques Prevert", "Prevert, Jacques", "Joseph Kosma", "Kosma, Joseph", true,
+1947, "french");
 
 /* ** *************************************************** */
 
