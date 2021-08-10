@@ -51,9 +51,13 @@ use Songs;
 /* * (1) As a user with the privilege of creating users and granting privileges (possibly `root')  */
 /*       create user `songlist' and grant privileges on database `Songs' to it.                    */
 
-create user 'songlist'@'localhost;
+create user 'songlist'@'localhost';
+
+create user 'taxonomy'@'localhost';
 
 GRANT ALL ON Songs TO 'songlist'@'localhost';
+
+GRANT ALL ON Taxonomy TO 'laurence'@'localhost';
 
 /* ** (2) Create table `Songs'.  */
 
@@ -1174,9 +1178,12 @@ true, "idwtswnf.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, source)
 values
-("I Feel Pretty", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  "West Side Story");
+("I Feel Pretty", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  
+"West Side Story", true, 
+"\\vbox{\\hbox{{\\bf Bernstein on Broadway}, p.~200.}\\vskip\\sourceskip"
+"\\hbox{{\\bf West Side Story, Die bekanntesten Melodien},}\\vskip\\sourceskip\\hbox{ p.~64 (Vocal Selections).}}");
 
 /* ** *************************************************** */
 
@@ -1192,7 +1199,7 @@ opera, sort_by_production, source)
 values
 ("I Got Plenty o' Nuttin'", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
 "George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
-"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~17.");
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~17.}}");
 
 /* ** *************************************************** */
 
@@ -2193,8 +2200,9 @@ film, source, scanned, scanned_filename)
 values
 ("Nice Work If You Can Get It", "Ira Gershwin", "Gershwin, Ira",
 "George Gershwin", "Gershwin, George", true, 1937, "Damsel in Distress, A",
-"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~99.}\\vskip\\sourceskip"
-"\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}, p.~270.}}", true, "nicework.pdf");
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~99.}"
+"\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~270.}}",
+true, "nicework.pdf");
 
 /* ** *************************************************** */
 
@@ -2899,7 +2907,8 @@ film, sort_by_production, source, scanned, scanned_filename)
 values
 ("They Can't Take That Away From Me", "Ira Gershwin", "Gershwin, Ira",
 "George Gershwin", "Gershwin, George", true, 1937, "Shall We Dance", false,
-"{\\bf Summertime, The Greatest Songs of George Gershwin}, p.~127.", true, "theycant.pdf");
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~127.}}", 
+true, "theycant.pdf");
 
 /* ** *************************************************** */
 
