@@ -37,6 +37,24 @@
 
 all: public_domain.pdf public_domain.ps
 
+.PHONY: pdf
+
+pdf: public_domain.pdf
+
+.PHONY: ps
+
+ps: public_domain.ps
+
+.PHONY: dvi
+
+dvi: public_domain.dvi
+
+.PHONY: dvic # Update contents
+
+dvic:
+	tex public_domain.tex
+	tex public_domain.tex
+
 public_domain.pdf: public_domain.dvi
 	dvipdfmx public_domain.dvi
 

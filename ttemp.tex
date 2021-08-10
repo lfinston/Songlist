@@ -1,10 +1,39 @@
 %% /home/laurence/Songlist/ttemp.tex
 
-\setbox0=\hbox{5}
-\leavevmode\hbox to 0pt{\copy0\hss}/\hfil\break
+\input eplain
 
+\input epsf
 
+\input colordvi
 
+%% Uncomment for A4 portrait
+
+\special{papersize=210mm, 297mm}
+\hsize=210mm
+\vsize=297mm
+
+\parindent=0pt
+
+\advance\vsize by -3cm
+
+\advance\voffset by -1in
+\advance\hoffset by -1in
+
+%\advance\voffset by 1.5cm
+%\advance\hoffset by 1cm
+
+%\advance\hsize by -2cm
+
+\def\epsfsize#1#2{#1}
+
+\vbox to \vsize{\epsffile{barkrl01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl02.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl03.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl04.eps}\vss}
+\eject
 
 \bye
 
