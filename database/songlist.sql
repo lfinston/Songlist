@@ -2597,11 +2597,13 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
-copyright, source, notes)
+copyright, source, notes, scanned, scanned_filename)
 values
 ("Over the Rainbow", "E.Y.~Harburg", "Harburg, E.Y.", "Harold Arlen", "Arlen, Harold", 
 true, "Wizard of Oz, The", 1938, "Copyright {\\copyright} 1938, 1939 (Renewed)",
-"{\\bf The Harold Arlen Songbook}, p.~112", "Accidentally wrote out lead sheet twice.");
+"{\\bf The Harold Arlen Songbook}, p.~112", "Accidentally wrote out lead sheet twice.", true,
+"ovrrnbow.pdf");
+
 
 select "!!! End O";
 
@@ -2674,16 +2676,16 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
-scanned, scanned_filename, language)
+scanned, scanned_filename, language, sort_by_production)
 values
 ("Polowetzer T@{a}nze (``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
-true, "Prince Igor", true, "polowtnz.pdf", "russian");
+true, "Prince Igor ({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true);
 
-replace into Songs (title, is_cross_reference, target, lead_sheet)
+replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
 values
-("Strangers in Paradise", true, "Polowetzer T@{a}nze", true);
+("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor ({\\mediumcy kNQZX iGORX})");
 
 /* ** *************************************************** */
 
