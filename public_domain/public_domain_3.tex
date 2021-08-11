@@ -1,0 +1,282 @@
+%% public_domain_3.tex
+%% Created by Laurence D. Finston (LDF) Wed 11 Aug 2021 12:37:16 PM CEST
+
+%% * Copyright and License.
+
+%% This file is part of songlist, a package for keeping track of songs. 
+%% Copyright (C) 2021 Laurence D. Finston 
+
+%% songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% Please send bug reports to Laurence.Finston@gmx.de 
+
+\input eplain
+
+\input epsf
+
+\input colordvi
+
+\enablehyperlinks[dvipdfm]
+\hlopts{bwidth=0}
+
+\font\small=cmr8
+\font\Small=cmr7
+\font\SMALL=cmr6
+\font\tiny=cmr5
+\font\Tiny=cmr4
+\font\TINY=cmr3
+\font\smalltt=cmtt8
+\font\rmnine=cmr9
+\font\medium=cmr10 scaled \magstephalf
+\font\mediumbx=cmbx10 scaled \magstephalf
+\font\mediumit=cmti10 scaled \magstephalf
+\font\mediumtt=cmtt10 scaled \magstephalf
+\font\Medium=cmr11
+\font\large=cmr12
+\font\largebx=cmbx12
+\font\largeit=cmti12
+\font\largett=cmtt12
+\font\Largebx=cmbx12 scaled \magstephalf
+\font\huge=cmr12 scaled \magstep2
+\font\hugebx=cmbx12 scaled \magstep2
+\font\mediumsy=cmsy10 scaled \magstephalf
+\font\largesy=cmsy12
+\font\Largesy=cmsy13
+\font\LARGEsy=cmsy14 
+\font\mediumcy=cmcyr10 scaled \magstephalf
+
+\setbox0=\hbox{\hskip6em}
+\dimen0=\wd0
+
+\newcount\chapctr
+\chapctr=0
+
+\def\A#1#2{\hbox to .6\hsize{#1\leaderfill\hbox to .333\hsize{#2\hss}}}
+
+\def\Slash#1{\begingroup\setbox0=\hbox{{\Small #1}}
+\hbox to 0pt{\box0\hss}\hbox{{\small /}}\endgroup}
+
+\def\halfdimin{\begingroup\setbox0=\hbox{{\Largesy\char"0E}}\setbox1=\hbox{\hskip.125\wd0{\rmnine /}}%
+\hbox to 0pt{\copy0\hss}\raise.164275\ht1\box1\endgroup}
+
+\newcount\temppagecnt
+\temppagecnt=0
+
+\newcount\sectionctr
+\sectionctr=0
+
+\newdimen\twozerosdimen
+\newdimen\twozerosbolddimen
+\newdimen\twozerosperioddimen
+\newdimen\threezerosdimen
+\newdimen\threezerosperioddimen
+
+\setbox0=\hbox{{\medium 00}}
+\twozerosdimen=\wd0
+\setbox0=\hbox{{\mediumbx 00}}
+\twozerosbolddimen=\wd0
+\setbox0=\hbox{\hskip\twozerosdimen. }
+\twozerosperioddimen=\wd0  
+
+\setbox0=\hbox{{\medium 000}}
+\threezerosdimen=\wd0
+\setbox1=\hbox{\hbox to \threezerosdimen{\hfil}\hbox{.\space}}
+\threezerosperioddimen=\wd1				       
+
+\def\Chapter#1#2#3{\global\advance\chapctr by 1\sectionctr=0%
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\chapctr}}
+
+\def\Section#1#2#3{\global\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}}
+
+%% Uncomment for A4 portrait
+
+\special{papersize=210mm, 297mm}
+\hsize=210mm
+\vsize=297mm
+
+\parindent=0pt
+
+\advance\vsize by -1.5cm
+
+\advance\voffset by -1in
+\advance\hoffset by -1in
+
+%\advance\voffset by 1.5cm
+%\advance\hoffset by 1cm
+
+%\advance\hsize by -2cm
+
+\def\epsfsize#1#2{#1}
+
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1 \dotfill\ #3}}}
+\def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2}. \fi{\medium #1} \dotfill\ #3}}
+
+
+\pageno=-1
+\begingroup
+\advance\hsize by -1.5in
+\advance\vsize by -.5in
+\advance\hoffset by 1in
+\advance\voffset by .5in
+\noindent
+\centerline{{\Largebx Public Domain Songs}}
+\vskip.75\baselineskip
+\centerline{{\Largebx Part III}}
+\vskip2\baselineskip
+\centerline{Author:  Laurence D.~Finston}
+\centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
+\centerline{Contact:  {\tt Laurence.Finston@gmx.de}}
+\vskip.75\baselineskip
+This file is part of the Songlist package.\hfil\break
+Songlist is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 3 of the License, or 
+(at your option) any later version.  See the end of this document for
+the license.
+\vskip.5\baselineskip
+Songlist is available for downloading from
+\href{https://github.com/lfinston/Songlist}{\Blue{{\tt https://github.com/lfinston/Songlist}}}.
+\vskip.25\baselineskip
+Lead sheets for songs in the public domain in the USA and Germany are available for downloading from\hfil\break
+\begingroup
+\catcode`\_=12
+\href{https://github.com/lfinston/Songlist/tree/main/lead_sheets}%
+{\Blue{{\tt https://github.com/lfinston/Songlist/tree/main/lead_sheets}}}.
+\endgroup
+\vskip2\baselineskip
+\centerline{{\largebx Table of Contents}}
+\vskip\baselineskip
+\headline={\ifnum\pageno=-1\else\hfil {\medium Table of Contents}\hfil\fi}
+\baselineskip=16pt
+\parskip=12pt
+\readtocfile
+\vfil\eject
+\headline={}
+
+%% ** (2)
+
+\def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
+
+\global\pageno=1
+\parskip=-7pt
+\centerline{{\Largebx Chord Symbols Explained}}
+\vskip2\baselineskip
+\Chapter{chord symbols}{Chord Symbols Explained}{}
+\hldest{fit}{}{chord symbols}
+\A{\hbox{\vbox to 0pt{\vskip1.5pt\hbox to 0pt{\hskip1.8pt ${}_\circ$\hss}\vss}}C}{C alone, i.e., not a chord (C)}
+%% Major
+\A{C}{C major (C-E-G)}
+\A{$\rm{C}_{4}$}{C suspended $4^{\rm{th}}$ (C-F-G)}
+\A{$\rm{C}_4$\lower1.5pt\hbox{-}\hskip5pt ${}_3$}{C suspended $4^{\rm{th}}$ resolving to $3^{\rm{rd}}$ (C-F-G -- C-E-G)}
+\A{$\rm{C}_4$\lower1.5pt\hbox{-}\hskip5pt $\rm{C}_3$}{ibid.}
+\A{C/E}{C major with E in bass (E-C-G or E-G-C)}
+\A{$\rm{C}^6$}{C sixth (C-E-G-A)}
+\A{$\rm{C}_9$}{C add ninth (C-E-G-D)}
+\A{$\rm{C}^6_9$}{C six-nine (C-E-G-A-D)}
+\A{$\rm{C}_{\Slash{5}}$}{C major without $5^{\rm{th}}$ (C-E)}
+\A{$\rm{C}^\triangle$}{C major $7^{\rm{th}}$ (C-E-G-B)}
+\A{$\rm{C}^\triangle_9$}{C major $7^{\rm{th}}$ with added $9^{\rm{th}}$ (C-E-G-B-D)}
+\A{$\rm{C}$\raise4pt\hbox{{\SMALL +}}}{C augmented (C-E-G$\sharp$)}
+\A{$\rm{C}^7$}{C dominant $7^{\rm{th}}$ (C-E-G-B$\flat$)}
+\A{$\rm{C}^9$}{C dominant $9^{\rm{th}}$ (C-E-G-B$\flat$-D)}
+\A{$\rm{C}^{11}$}{C dominant $11^{\rm{th}}$ (C-F-G-B$\flat$-D)}
+\A{$\rm{C}^{13}$}{C dominant $13^{\rm{th}}$ (C-E-G-B$\flat$-D-A)}
+\A{$\rm{C}^7_{\flat 9}$}{C dominant $7^{\rm{th}}$ with flat $9^{\rm{th}}$(C-E-G-B$\flat$-D$\flat$)}
+\A{$\rm{C}^7$\raise4pt\hbox{{\SMALL +}}}{C dominant $7^{\rm{th}}$ with augmented $5^{\rm{th}}$ (C-E-G$\sharp$-B$\flat$)}
+\A{$\rm{C}^9_{\Slash{3}\Slash{5}}$}{C dominant $9^{\rm{th}}$ without $3^{\rm{rd}}$ and $5^{\rm{th}}$ (C-B$\flat$-D)}
+\A{$\rm{C}^9$\raise4pt\hbox{{\SMALL +}}}{C dominant $9^{\rm{th}}$ with augmented $5^{\rm{th}}$ (C-E-G$\sharp$-B$\flat$-D)}
+\A{$\rm{Cm}^\triangle$}{C minor with major $7^{\rm{th}}$ (C-E$\flat$-G-B)}
+\A{$\rm{C}^\triangle$}{C major $7^{\rm{th}}$ (C-E-G-B)}
+\A{$\rm{Cm}^\triangle$}{C minor with major $7^{\rm{th}}$ (C-E$\flat$-G-B)}
+\A{$\rm{C}^\circ$}{C diminished $7^{\rm{th}}$ (C-E$\flat$-G$\flat$-B$\flat\flat$)}
+\A{$\rm{C}^\circ_{\Slash{7}}$}{C diminished triad, i.e., without diminished $7^{\rm{th}}$ (C-E$\flat$-G$\flat$)}
+\A{$\rm{C}^{\halfdimin}$}{C half-diminished $7^{\rm{th}}$ (C-E$\flat$-G$\flat$-B$\flat$)}
+\vfil\eject
+\endgroup
+
+%% ** (2)
+
+\Chapter{r}{Nobody's Sweetheart}{}
+\hldest{fit}{}{r}
+\vbox to \vsize{\epsffile{nbdswt01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{nbdswt02.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{nbdswt03.eps}\vss}
+\eject
+
+
+\Chapter{s}{Polowetzer T{\"a}nze}{(``Stranger in Paradise'')}
+\hldest{fit}{}{s}
+\vbox to \vsize{\epsffile{polow01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{polow02.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{polow03.eps}\vss}
+\eject
+
+\Chapter{t}{Pretty A Girl is Like a Melody, A}{}
+\hldest{fit}{}{t}
+\vbox to \vsize{\epsffile{prtgrl01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{prtgrl02.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{prtgrl03.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{prtgrl04.eps}\vss}
+\eject
+
+\Chapter{u}{Rock-a-Bye Your Baby}{(With a Dixie Melody)}
+\hldest{fit}{}{u}
+\vbox to \vsize{\epsffile{rckbybby.eps}\vss}
+\eject
+
+\Chapter{v}{Shine On Harvest Moon}{}
+\hldest{fit}{}{v}
+\vbox to \vsize{\epsffile{shnhrvm1.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{shnhrvm2.eps}\vss}
+\eject
+
+\Chapter{w}{Somebody Loves Me}{}
+\hldest{fit}{}{w}
+\vbox to \vsize{\epsffile{smblvs01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{smblvs02.eps}\vss}
+\eject
+
+\Chapter{copying}{Copying}{}
+\hldest{fit}{}{copying}
+\begingroup
+\footline={\hskip .3\hsize{\rm \folio}\hfil}
+%\advance\hsize by -1in
+\advance\hoffset by 1in
+\advance\vsize by -1in
+\advance\voffset by 1in
+\baselineskip=12pt
+%\nopagenumbers
+\listing{gpl-3.0.txt}
+\vfil\eject
+\endgroup
+
+\bye
+
+%% (progn (plain-tex-mode) (auto-fill-mode 0))
+
+%% Local Variables:
+%% mode:plain-TeX
+%% eval:(auto-fill-mode 0)
+%% End:
