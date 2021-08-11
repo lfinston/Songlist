@@ -1,6 +1,27 @@
 %% public_domain.mac
 %% Created by Laurence D. Finston (LDF) Wed 11 Aug 2021 10:09:19 PM CEST
 
+%% * Copyright and License.
+
+%% This file is part of songlist, a package for keeping track of songs. 
+%% Copyright (C) 2021 Laurence D. Finston 
+
+%% songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% Please send bug reports to Laurence.Finston@gmx.de 
+
 \input eplain
 
 \input epsf
@@ -108,16 +129,19 @@
 
 \begingroup
 \catcode`\_=12
-\gdef\Title#1{\pageno=-1
+\gdef\Title#1#2{\pageno=-1
 \begingroup
 \advance\hsize by -1.5in
 \advance\vsize by -.5in
 \advance\hoffset by 1in
 \advance\voffset by .5in
 \noindent
-\centerline{{\Largebx Public Domain Songs}}
-\vskip.75\baselineskip
 \centerline{{\Largebx #1}}
+\setbox2=\hbox{#2}
+\ifdim\wd2>0pt
+\vskip.75\baselineskip
+\centerline{{\Largebx #2}}
+\fi
 \vskip2\baselineskip
 \centerline{Author:  Laurence D.~Finston}
 \centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
