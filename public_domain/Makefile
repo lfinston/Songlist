@@ -68,6 +68,7 @@ dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4
 .PHONY: dvic # Update contents
 
 dvic:
+	rm -f *.toc
 	tex public_domain_1.tex
 	tex public_domain_1.tex
 	tex public_domain_2.tex
@@ -144,12 +145,17 @@ full: public_domain_full.pdf public_domain_full.ps
 .PHONY: fdvic
 
 fdvic:
+	rm -f public_domain_full.toc
 	tex public_domain_full.tex
 	tex public_domain_full.tex
 
 fullc:
 	$(MAKE) fdvic
 	$(MAKE) public_domain_full.ps public_domain_full.pdf 
+
+.PHONY: fpdf
+
+fpdf: public_domain_full.pdf
 
 public_domain_full.pdf: public_domain_full.dvi
 	dvipdfmx public_domain_full.dvi
@@ -159,7 +165,6 @@ public_domain_full.ps: public_domain_full.dvi
 
 public_domain_full.dvi: public_domain_full.tex
 	tex public_domain_full.tex
-
 
 .PHONY: clean
 
