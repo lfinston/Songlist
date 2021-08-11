@@ -37,13 +37,11 @@
 
 all: public_domain_1.pdf public_domain_1.ps public_domain_2.pdf public_domain_2.ps  \
      public_domain_3.pdf public_domain_3.ps public_domain_4.pdf public_domain_4.ps \
-     public_domain_5.pdf public_domain_5.ps public_domain_6.pdf public_domain_6.ps \
+     public_domain_5.pdf public_domain_5.ps \
 
 .PHONY: pdf
 
-pdf: public_domain_1.pdf public_domain_2.pdf public_domain_3.pdf public_domain_4.pdf public_domain_5.pdf \
-     public_domain_6.pdf
-
+pdf: public_domain_1.pdf public_domain_2.pdf public_domain_3.pdf public_domain_4.pdf public_domain_5.pdf
 
 .PHONY: pdc
 
@@ -53,7 +51,7 @@ pdfc:
 
 .PHONY: ps
 
-ps: public_domain_1.ps public_domain_2.ps public_domain_3.ps public_domain_4.ps public_domain_5.ps public_domain_6.ps
+ps: public_domain_1.ps public_domain_2.ps public_domain_3.ps public_domain_4.ps public_domain_5.ps
 
 .PHONY: psc
 
@@ -63,7 +61,7 @@ psc:
 
 .PHONY: dvi
 
-dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4.dvi public_domain_5.dvi public_domain_6.dvi
+dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4.dvi public_domain_5.dvi
 
 .PHONY: dvic # Update contents
 
@@ -79,8 +77,6 @@ dvic:
 	tex public_domain_4.tex
 	tex public_domain_5.tex
 	tex public_domain_5.tex
-	tex public_domain_6.tex
-	tex public_domain_6.tex
 	tex public_domain_full.tex
 	tex public_domain_full.tex
 
@@ -90,7 +86,7 @@ public_domain_1.pdf: public_domain_1.dvi
 public_domain_1.ps: public_domain_1.dvi
 	dvips -o public_domain_1.ps public_domain_1.dvi
 
-public_domain_1.dvi: public_domain_1.tex public_domain_full.mac chord_symbols.tex
+public_domain_1.dvi: public_domain_1.tex public_domain.mac chord_symbols.tex
 	tex public_domain_1.tex
 
 public_domain_2.pdf: public_domain_2.dvi
@@ -99,7 +95,7 @@ public_domain_2.pdf: public_domain_2.dvi
 public_domain_2.ps: public_domain_2.dvi
 	dvips -o public_domain_2.ps public_domain_2.dvi
 
-public_domain_2.dvi: public_domain_2.tex public_domain_full.mac chord_symbols.tex
+public_domain_2.dvi: public_domain_2.tex public_domain.mac chord_symbols.tex
 	tex public_domain_2.tex
 
 public_domain_3.pdf: public_domain_3.dvi
@@ -108,7 +104,7 @@ public_domain_3.pdf: public_domain_3.dvi
 public_domain_3.ps: public_domain_3.dvi
 	dvips -o public_domain_3.ps public_domain_3.dvi
 
-public_domain_3.dvi: public_domain_3.tex public_domain_full.mac chord_symbols.tex
+public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex
 	tex public_domain_3.tex
 
 public_domain_4.pdf: public_domain_4.dvi
@@ -117,7 +113,7 @@ public_domain_4.pdf: public_domain_4.dvi
 public_domain_4.ps: public_domain_4.dvi
 	dvips -o public_domain_4.ps public_domain_4.dvi
 
-public_domain_4.dvi: public_domain_4.tex public_domain_full.mac chord_symbols.tex
+public_domain_4.dvi: public_domain_4.tex public_domain.mac chord_symbols.tex
 	tex public_domain_4.tex
 
 public_domain_5.pdf: public_domain_5.dvi
@@ -126,17 +122,8 @@ public_domain_5.pdf: public_domain_5.dvi
 public_domain_5.ps: public_domain_5.dvi
 	dvips -o public_domain_5.ps public_domain_5.dvi
 
-public_domain_5.dvi: public_domain_5.tex public_domain_full.mac chord_symbols.tex
+public_domain_5.dvi: public_domain_5.tex public_domain.mac chord_symbols.tex
 	tex public_domain_5.tex
-
-public_domain_6.pdf: public_domain_6.dvi
-	dvipdfmx public_domain_6.dvi
-
-public_domain_6.ps: public_domain_6.dvi
-	dvips -o public_domain_6.ps public_domain_6.dvi
-
-public_domain_6.dvi: public_domain_6.tex public_domain_full.mac chord_symbols.tex
-	tex public_domain_6.tex
 
 .PHONY: full
 
@@ -176,7 +163,7 @@ public_domain_full.ps: public_domain_full.dvi
 
 fdvi: public_domain_full.dvi 
 
-public_domain_full.dvi: public_domain_full.tex public_domain_full.mac chord_symbols.tex
+public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.tex
 	tex public_domain_full.tex
 
 .PHONY: clean

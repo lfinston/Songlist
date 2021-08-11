@@ -157,7 +157,7 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \endgroup
 
 \def\Copying{\Chapter{copying}{Copying}{}{0}
-\hldest{fit}{}{copying}
+\hldest{xyz}{}{copying}
 \begingroup
 \footline={\hskip .3\hsize{\rm \folio}\hfil}
 %\advance\hsize by -1in
