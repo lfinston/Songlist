@@ -81,6 +81,8 @@ dvic:
 	tex public_domain_5.tex
 	tex public_domain_6.tex
 	tex public_domain_6.tex
+	tex public_domain_full.tex
+	tex public_domain_full.tex
 
 public_domain_1.pdf: public_domain_1.dvi
 	dvipdfmx public_domain_1.dvi
@@ -155,6 +157,13 @@ fullc:
 
 .PHONY: fpdf
 
+.PHONY: fpdfc
+
+fpdfc:
+	$(MAKE) fdvic
+	$(MAKE) fpdf
+
+
 fpdf: public_domain_full.pdf
 
 public_domain_full.pdf: public_domain_full.dvi
@@ -162,6 +171,10 @@ public_domain_full.pdf: public_domain_full.dvi
 
 public_domain_full.ps: public_domain_full.dvi
 	dvips -o public_domain_full.ps public_domain_full.dvi
+
+.PHONY: fdvi
+
+fdvi: public_domain_full.dvi
 
 public_domain_full.dvi: public_domain_full.tex
 	tex public_domain_full.tex
