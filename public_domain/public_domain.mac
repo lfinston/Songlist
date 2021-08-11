@@ -1,0 +1,167 @@
+%% public_domain.mac
+%% Created by Laurence D. Finston (LDF) Wed 11 Aug 2021 10:09:19 PM CEST
+
+\input eplain
+
+\input epsf
+
+\input colordvi
+
+\enablehyperlinks[dvipdfm]
+\hlopts{bwidth=0}
+
+\font\small=cmr8
+\font\Small=cmr7
+\font\SMALL=cmr6
+\font\tiny=cmr5
+\font\Tiny=cmr4
+\font\TINY=cmr3
+\font\smalltt=cmtt8
+\font\rmnine=cmr9
+\font\medium=cmr10 scaled \magstephalf
+\font\mediumbx=cmbx10 scaled \magstephalf
+\font\mediumit=cmti10 scaled \magstephalf
+\font\mediumtt=cmtt10 scaled \magstephalf
+\font\Medium=cmr11
+\font\large=cmr12
+\font\largebx=cmbx12
+\font\largeit=cmti12
+\font\largett=cmtt12
+\font\Largebx=cmbx12 scaled \magstephalf
+\font\huge=cmr12 scaled \magstep2
+\font\hugebx=cmbx12 scaled \magstep2
+\font\mediumsy=cmsy10 scaled \magstephalf
+\font\largesy=cmsy12
+\font\Largesy=cmsy13
+\font\LARGEsy=cmsy14 
+\font\mediumcy=cmcyr10 scaled \magstephalf
+
+\setbox0=\hbox{\hskip6em}
+\dimen0=\wd0
+
+\newcount\chapctr
+\chapctr=0
+
+\def\A#1#2{\hbox to .6\hsize{#1\leaderfill\hbox to .333\hsize{#2\hss}}}
+
+\def\Slash#1{\begingroup\setbox0=\hbox{{\Small #1}}
+\hbox to 0pt{\box0\hss}\hbox{{\small /}}\endgroup}
+
+\def\halfdimin{\begingroup\setbox0=\hbox{{\Largesy\char"0E}}\setbox1=\hbox{\hskip.125\wd0{\rmnine /}}%
+\hbox to 0pt{\copy0\hss}\raise.164275\ht1\box1\endgroup}
+
+\newcount\temppagecnt
+\temppagecnt=0
+
+\newcount\sectionctr
+\sectionctr=0
+
+\newdimen\twozerosdimen
+\newdimen\twozerosbolddimen
+\newdimen\twozerosperioddimen
+\newdimen\threezerosdimen
+\newdimen\threezerosperioddimen
+
+\setbox0=\hbox{{\medium 00}}
+\twozerosdimen=\wd0
+\setbox0=\hbox{{\mediumbx 00}}
+\twozerosbolddimen=\wd0
+\setbox0=\hbox{\hskip\twozerosdimen. }
+\twozerosperioddimen=\wd0  
+
+\setbox0=\hbox{{\medium 000}}
+\threezerosdimen=\wd0
+\setbox1=\hbox{\hbox to \threezerosdimen{\hfil}\hbox{.\space}}
+\threezerosperioddimen=\wd1				       
+
+\def\Chapter#1#2#3{\global\advance\chapctr by 1\sectionctr=0%
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\chapctr}}
+
+\def\Section#1#2#3{\global\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
+\writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}}
+
+%% Uncomment for A4 portrait
+
+\special{papersize=210mm, 297mm}
+\hsize=210mm
+\vsize=297mm
+
+\parindent=0pt
+
+\advance\vsize by -1.5cm
+
+\advance\voffset by -1in
+\advance\hoffset by -1in
+
+%\advance\voffset by 1.5cm
+%\advance\hoffset by 1cm
+
+%\advance\hsize by -2cm
+
+\def\epsfsize#1#2{#1}
+
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1 \dotfill\ #3}}}
+\def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2}. \fi{\medium #1} \dotfill\ #3}}
+
+\def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
+
+\begingroup
+\catcode`\_=12
+\gdef\Title#1{\pageno=-1
+\begingroup
+\advance\hsize by -1.5in
+\advance\vsize by -.5in
+\advance\hoffset by 1in
+\advance\voffset by .5in
+\noindent
+\centerline{{\Largebx Public Domain Songs}}
+\vskip.75\baselineskip
+\centerline{{\Largebx #1}}
+\vskip2\baselineskip
+\centerline{Author:  Laurence D.~Finston}
+\centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
+\centerline{Contact:  {\tt Laurence.Finston@gmx.de}}
+\vskip.75\baselineskip
+This file is part of the Songlist package.\hfil\break
+Songlist is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 3 of the License, or 
+(at your option) any later version.  See the end of this document for
+the license.
+\vskip.5\baselineskip
+Songlist is available for downloading from
+\href{https://github.com/lfinston/Songlist}{\Blue{{\tt https://github.com/lfinston/Songlist}}}.
+\vskip.25\baselineskip
+Lead sheets for songs in the public domain in the USA and Germany are available for downloading from\hfil\break
+\begingroup
+\catcode`\_=12
+\href{https://github.com/lfinston/Songlist/tree/main/lead_sheets}%
+{\Blue{{\tt https://github.com/lfinston/Songlist/tree/main/lead_sheets}}}.
+\endgroup
+\vskip2\baselineskip
+\centerline{{\largebx Table of Contents}}
+\vskip\baselineskip
+\headline={\ifnum\pageno=-1\else\hfil {\medium Table of Contents}\hfil\fi}
+\baselineskip=16pt
+\parskip=12pt
+\readtocfile
+\vfil\eject
+\headline={}}
+\endgroup
+
+\def\Copying{\Chapter{copying}{Copying}{}
+\hldest{fit}{}{copying}
+\begingroup
+\footline={\hskip .3\hsize{\rm \folio}\hfil}
+%\advance\hsize by -1in
+\advance\hoffset by 1in
+\advance\vsize by -1in
+\advance\voffset by 1in
+\baselineskip=12pt
+%\nopagenumbers
+\listing{gpl-3.0.txt}
+\vfil\eject
+\endgroup}
+
+
+\endinput
