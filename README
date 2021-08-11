@@ -34,6 +34,11 @@ I've decided to make it publicly available at GitHub.
 Please contact the author with any questions.
 See email address above.
 
-The directory `[...]/Songlist/lead_sheets/' contains hand-written
+The directory `/Songlist/public_domain/' contains PDF files containing
+lead sheets for songs that are in the public domain in both the USA and Germany.
+See the file `/Songlist/public_domain/README' for more information.
+
+In addition, the directory `/Songlist/lead_sheets/' contains hand-written
 lead sheets by the author of songs that are in the public domain
 in both the USA and Germany.
+
