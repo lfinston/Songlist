@@ -35,36 +35,107 @@
 
 .PHONY: all
 
-all: public_domain.pdf public_domain.ps
+all: public_domain_1.pdf public_domain_1.ps public_domain_2.pdf public_domain_2.ps  \
+     public_domain_3.pdf public_domain_3.ps public_domain_4.pdf public_domain_4.ps \
+     public_domain_5.pdf public_domain_5.ps public_domain_6.pdf public_domain_6.ps \
 
 .PHONY: pdf
 
-pdf: public_domain.pdf
+pdf: public_domain_1.pdf public_domain_2.pdf public_domain_3.pdf public_domain_4.pdf public_domain_5.pdf \
+     public_domain_6.pdf
+
+
+.PHONY: pdc
+
+pdfc:
+	$(MAKE) dvic
+	$(MAKE) pdf
 
 .PHONY: ps
 
-ps: public_domain.ps
+ps: public_domain_1.ps public_domain_2.ps public_domain_3.ps public_domain_4.ps public_domain_5.ps public_domain_6.ps
+
+.PHONY: psc
+
+psc:
+	$(MAKE) dvic
+	$(MAKE) ps
 
 .PHONY: dvi
 
-dvi: public_domain.dvi
+dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4.dvi public_domain_5.dvi public_domain_6.dvi
 
 .PHONY: dvic # Update contents
 
 dvic:
-	tex public_domain.tex
-	tex public_domain.tex
+	tex public_domain_1.tex
+	tex public_domain_1.tex
+	tex public_domain_2.tex
+	tex public_domain_2.tex
+	tex public_domain_3.tex
+	tex public_domain_4.tex
+	tex public_domain_4.tex
+	tex public_domain_4.tex
+	tex public_domain_5.tex
+	tex public_domain_5.tex
+	tex public_domain_6.tex
+	tex public_domain_6.tex
 
-public_domain.pdf: public_domain.dvi
-	dvipdfmx public_domain.dvi
+public_domain_1.pdf: public_domain_1.dvi
+	dvipdfmx public_domain_1.dvi
 
-public_domain.ps: public_domain.dvi
-	dvips -o public_domain.ps public_domain.dvi
+public_domain_1.ps: public_domain_1.dvi
+	dvips -o public_domain_1.ps public_domain_1.dvi
 
-public_domain.dvi: public_domain.tex
-	tex public_domain.tex
+public_domain_1.dvi: public_domain_1.tex
+	tex public_domain_1.tex
+
+public_domain_2.pdf: public_domain_2.dvi
+	dvipdfmx public_domain_2.dvi
+
+public_domain_2.ps: public_domain_2.dvi
+	dvips -o public_domain_2.ps public_domain_2.dvi
+
+public_domain_2.dvi: public_domain_2.tex
+	tex public_domain_2.tex
+
+public_domain_3.pdf: public_domain_3.dvi
+	dvipdfmx public_domain_3.dvi
+
+public_domain_3.ps: public_domain_3.dvi
+	dvips -o public_domain_3.ps public_domain_3.dvi
+
+public_domain_3.dvi: public_domain_3.tex
+	tex public_domain_3.tex
+
+public_domain_4.pdf: public_domain_4.dvi
+	dvipdfmx public_domain_4.dvi
+
+public_domain_4.ps: public_domain_4.dvi
+	dvips -o public_domain_4.ps public_domain_4.dvi
+
+public_domain_4.dvi: public_domain_4.tex
+	tex public_domain_4.tex
+
+public_domain_5.pdf: public_domain_5.dvi
+	dvipdfmx public_domain_5.dvi
+
+public_domain_5.ps: public_domain_5.dvi
+	dvips -o public_domain_5.ps public_domain_5.dvi
+
+public_domain_5.dvi: public_domain_5.tex
+	tex public_domain_5.tex
+
+public_domain_6.pdf: public_domain_6.dvi
+	dvipdfmx public_domain_6.dvi
+
+public_domain_6.ps: public_domain_6.dvi
+	dvips -o public_domain_6.ps public_domain_6.dvi
+
+public_domain_6.dvi: public_domain_6.tex
+	tex public_domain_6.tex
 
 .PHONY: clean
 
 clean:  
-	rm -f *.dvi *.ps *.pdf *.log 
+	rm -f *.dvi *.ps *.pdf *.log *.toc
