@@ -1509,13 +1509,13 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, 
-lead_sheet, year, musical, source, scanned, scanned_filename)
+lead_sheet, year, musical, source, scanned, scanned_filename, public_domain)
 values
 ("I Wonder Who's Kissing Her Now", 
 "Will M.~Hough and Frank R.~Adams", "Hough, Will M.~and Adams, Frank R.",
 "Harold Orlob", "Orlob, Harold", true, 1909, "Prince of To-Night, The",
 "{\\bf 100 Years of Popular Music, 1900}, p.~144.",
-true, "iwndrwho.pdf");
+true, "iwndrwho.pdf", true);
 
 /* ** *************************************************** */
 

@@ -27,6 +27,8 @@ TAGS
 *~
 00README
 \#README\#
+*.ftc
+*.ptc
 *.log
 *.o
 *#*
