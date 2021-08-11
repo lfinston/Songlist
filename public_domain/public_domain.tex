@@ -157,7 +157,7 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \vskip2\baselineskip
 \centerline{{\largebx Table of Contents}}
 \vskip\baselineskip
-\headline={\hfil {\medium Table of Contents}\hfil}
+\headline={\ifnum\pageno=-1\else\hfil {\medium Table of Contents}\hfil\fi}
 \baselineskip=16pt
 \parskip=12pt
 \readtocfile
@@ -218,17 +218,6 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \vbox to \vsize{\epsffile{aprshw04.eps}\vss}
 \eject
 
-\Chapter{b}{Barkarole}{}
-\hldest{fit}{}{b}
-\vbox to \vsize{\epsffile{barkrl01.eps}\vss}
-\eject
-\vbox to \vsize{\epsffile{barkrl02.eps}\vss}
-\eject
-\vbox to \vsize{\epsffile{barkrl03.eps}\vss}
-\eject
-\vbox to \vsize{\epsffile{barkrl04.eps}\vss}
-\eject
-
 \Chapter{c}{By the Light of the Silvery Moon}{}
 \hldest{fit}{}{c}
 \vbox to \vsize{\epsffile{bltslvm1.eps}\vss}
@@ -254,6 +243,16 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 
 \Chapter{contes}{Contes d'Hoffmann, Les}{}
 \hldest{fit}{}{contes}
+\Section{b}{Barkarole}{}
+\hldest{fit}{}{b}
+\vbox to \vsize{\epsffile{barkrl01.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl02.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl03.eps}\vss}
+\eject
+\vbox to \vsize{\epsffile{barkrl04.eps}\vss}
+\eject
 \Section{oiseaux}{Oiseaux dans les charmille, Les}{}
 \hldest{fit}{}{oiseaux}
 \vbox to \vsize{\epsffile{oiseaux1.eps}\vss}
@@ -499,42 +498,6 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \listing{gpl-3.0.txt}
 \vfil\eject
 \endgroup
-
-\bye
-
-\tracingall
-\tracingonline=2
-
-\newbox\collectbox
-
-\collectbox=\vbox{}
-
-\collectbox=\vbox{\unvcopy\collectbox abc def ghi jkl mno}
-
-\unvcopy\collectbox
-
-\vskip1in
-
-\collectbox=\vbox{\unvcopy\collectbox pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz}
-
-\unvcopy\collectbox
-
-
-\bye
-
-
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-abc def ghi jkl mno pqr stu vwx yz abc def ghi jkl mno pqr stu vwx yz
-
-
-
 
 \bye
 
