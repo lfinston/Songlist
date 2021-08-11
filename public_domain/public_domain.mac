@@ -39,9 +39,6 @@
 \setbox0=\hbox{\hskip6em}
 \dimen0=\wd0
 
-\newcount\chapctr
-\chapctr=0
-
 \def\A#1#2{\hbox to .6\hsize{#1\leaderfill\hbox to .333\hsize{#2\hss}}}
 
 \def\Slash#1{\begingroup\setbox0=\hbox{{\Small #1}}
@@ -52,9 +49,6 @@
 
 \newcount\temppagecnt
 \temppagecnt=0
-
-\newcount\sectionctr
-\sectionctr=0
 
 \newdimen\twozerosdimen
 \newdimen\twozerosbolddimen
