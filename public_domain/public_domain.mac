@@ -74,10 +74,17 @@
 \setbox1=\hbox{\hbox to \threezerosdimen{\hfil}\hbox{.\space}}
 \threezerosperioddimen=\wd1				       
 
-\def\Chapter#1#2#3{\global\advance\chapctr by 1\sectionctr=0%
-\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\chapctr}}
+\newcount\songctr
+\songctr=0
 
-\def\Section#1#2#3{\global\advance\sectionctr by 1\edef\A{\the\chapctr .\the\sectionctr}%
+\def\Chapter#1#2#3#4{\ifnum#4>0
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\ifnum#4=1\RawSienna{#2}\else\OliveGreen{#2}\fi%
+\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\vbox{}}
+\else\global\advance\songctr by 1
+\writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\songctr .}
+\fi}
+
+\def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}}
 
 %% Uncomment for A4 portrait
@@ -149,7 +156,7 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \headline={}}
 \endgroup
 
-\def\Copying{\Chapter{copying}{Copying}{}
+\def\Copying{\Chapter{copying}{Copying}{}{0}
 \hldest{fit}{}{copying}
 \begingroup
 \footline={\hskip .3\hsize{\rm \folio}\hfil}
