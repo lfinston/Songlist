@@ -28,3 +28,18 @@ in both the USA and Germany.
 
 They are divided into multiple files because a single file would be too large to store
 in GitHub and also too large for the author to send by email.
+
+It is, however, possible to generate a single file containing all of the public domain lead sheets.
+See the file Makefile for rules for generating public_domain_full.dvi, public_domain_full.ps and
+public_domain_full.pdf.
+
+The files public_domain_full.tex and public_domain_full.dvi are included in the Git repository.
+The file public_domain_full.tex can be used to generate the files public_domain_full.dvi,
+public_domain_full.ps and public_domain_full.pdf, whereby the DVI file is already included
+in the repository.  As of 2021.08.11., public_domain_full.dvi is only 91628 bytes long.
+Of course, it doesn't actually include the scanned images of the lead sheets, but only references
+to them, unlike the PostScript and PDF files.  As of this date, public_domain_full.pdf is
+80,037,129 bytes in size (> 80 MB) while public_domain_full.ps is 146,009,277 bytes in size
+(> 146 MB).  The latter two files are therefore not included in the Git repository.
+
+%% End of README
