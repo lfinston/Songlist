@@ -96,7 +96,8 @@ create table Songs
     target varchar(256) not null default "",
     do_filecard boolean not null default true,
     filecard_title varchar(128) not null default "",
-    number_filecards boolean not null default false
+    number_filecards boolean not null default false,
+    eps_filenames varchar(512) not null default ""
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -116,13 +117,10 @@ alter table Songs add column target varchar(128) not null default "" after is_cr
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
 alter table Songs add column do_filecard boolean not null default true after target;
 alter table Songs add column filecard_title varchar(128) not null default "" after do_filecard;
-
 alter table Songs add column number_filecards boolean not null default false after filecard_title;
-
+alter table Songs add column eps_filenames varchar(512) not null default "" after number_filecards;
 alter table Songs modify column target varchar(256) not null default "";
-
 alter table Songs modify column song_cycle varchar(256) default null;
-
 
 show columns from Songs;
 
@@ -245,11 +243,11 @@ true, 1929);
 -- delete from Songs where title = "Ain't She Sweet";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, eps_filenames)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "\\vbox{\\hbox{Copyright {\\copyright} 1927 (Renewed)}\\vskip\\copyrightskip\\hbox{WB Music Corp.~and Edwin H. Morris \\& Co.}}",
-"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf");
+"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf", "aintswt1.eps;aintswt2.eps;");
 
 /* ** *************************************************** */
 

@@ -911,7 +911,8 @@ Song::show(string s)
        << "do_filecard:                      " << do_filecard << endl
        << "filecard_title:                   " << filecard_title << endl
        << "number_filecards:                 " << number_filecards << endl
-       << "source:                           " << source << endl;
+       << "source:                           " << source << endl
+       << "eps_filenames:                    " << eps_filenames << endl;
 
   if (title_vector.size() > 0)
     cerr << "title_vector:" << endl;
@@ -974,6 +975,7 @@ Song::clear(void)
     filecard_title = "";
     number_filecards = false;
     source = "";
+    eps_filenames = "";
 
     title_vector.clear();
     

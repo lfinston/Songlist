@@ -90,6 +90,7 @@ class Song
     string filecard_title;
     bool number_filecards;
     string source;
+    string eps_filenames;
 
     vector<string> title_vector;
     
@@ -135,6 +136,7 @@ class Song
          filecard_title = "";
          number_filecards = false;
          source = "";
+         eps_filenames = "";
          return;
     }
 
@@ -179,6 +181,7 @@ class Song
       filecard_title = s.filecard_title;
       number_filecards = s.number_filecards;
       source = s.source;
+      eps_filenames = s.eps_filenames;
 
       return;
     }

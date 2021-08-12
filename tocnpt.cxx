@@ -111,6 +111,7 @@ process_tocs_and_npt(void)
   
    stringstream temp_strm;
    string temp_str; 
+   string temp_str_1; 
   
    Song curr_song;
 
@@ -119,6 +120,7 @@ process_tocs_and_npt(void)
    vector<Production_Song> production_vector;
 
    size_t pos;
+   size_t pos_1;
 
    errno = 0;
 
@@ -162,7 +164,8 @@ process_tocs_and_npt(void)
              <<        "do_filecard, "                      // 31
              <<        "filecard_title, "                   // 32
              <<        "source, "                           // 33
-             <<        "number_filecards "                  // 34
+             <<        "number_filecards, "                 // 34
+             <<        "eps_filenames "                     // 35
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -518,7 +521,11 @@ process_tocs_and_npt(void)
 
        curr_song.number_filecards = static_cast<bool>(atoi(curr_row[34]));
          if (DEBUG)
-           cerr << "`filecard_title'                     == " << curr_row[34] << endl;
+           cerr << "`number_filecards'                      == " << curr_row[34] << endl;
+
+       curr_song.eps_filenames = curr_row[35];
+         if (DEBUG)
+           cerr << "`eps_filenames'                         == " << curr_row[35] << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -2002,9 +2009,6 @@ process_tocs_and_npt(void)
          if (iter->lead_sheet && !iter->is_production && !iter->sort_by_production && !iter->is_cross_reference)
          {
 
-            /* !!START HERE:  LDF 2021.08.12.  Add more for the entries in `songs_*.tex'.  */ 
-            /* Below, remember to acct. for case of "lustige Witwe".   */
-
             temp_strm.str("");
 
             temp_str = remove_formatting_commands(iter->title);
@@ -2013,18 +2017,52 @@ process_tocs_and_npt(void)
 
             cerr << "iter->public_domain == " << iter->public_domain << endl 
                  << "iter->title         == " << iter->title << endl 
+                 << "iter->eps_filenames == " << iter->eps_filenames << endl
                  << "temp_str            == " << temp_str << endl;
 
 
             if (!iter->public_domain)
                temp_strm << "\\ifnotpublicdomainonly" << endl;
 
-            temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{0}" << endl;
+            temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{0}" << endl
+                      << "\\hldest{xyz}{}{" << temp_str << "}" << endl; 
+
+            pos = 0;
+            do
+            {
+                cerr << "pos == " << pos << endl;
+                pos_1 = iter->eps_filenames.find(";", pos);
+
+                // aintswt1.eps;aintswt2.eps;
+
+                cerr << "pos_1 == " << pos_1 << endl;
+                
+                cerr << "iter->eps_filenames.length() == " << iter->eps_filenames.length() << endl;
+
+                if (pos_1 != string::npos)
+                {
+                  temp_str_1 = iter->eps_filenames.substr(pos, pos_1 - pos);
+                  cerr << "temp_str_1 == " << temp_str_1 << endl;
+                  pos = pos_1 + 1;
+
+                  temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_1 << "}\\vss}" << endl
+                            << "\\eject" << endl;
+
+                }
+
+            } while (pos != string::npos && pos < iter->eps_filenames.length());
 
             if (!iter->public_domain)
                temp_strm << "\\fi" << endl;
 
             temp_strm << endl;
+
+            cerr << "temp_strm.str() == " << temp_strm.str() << endl;
+
+#if 0 
+            cerr << "XXX Enter <RETURN> to continue: ";
+            getchar(); 
+#endif 
 
             if (tolower(temp_str[0]) >= 'a' && tolower(temp_str[0]) <= 'e')
             {
