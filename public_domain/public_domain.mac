@@ -22,6 +22,10 @@
 
 %% Please send bug reports to Laurence.Finston@gmx.de 
 
+%% !! TODO:
+%% !! START HERE: LDF 2021.08.12.  Fix the page sizes and offsets and
+%% the position of the page numbers on the pages without the lead sheets.
+
 \input eplain
 
 \input epsf
@@ -94,21 +98,27 @@
 
 \newwrite\index
 
-\def\Chapter#1#2#3#4{\ifnum#4>0
+\def\Chapter#1#2#3#4{\setbox3=\hbox{#3}\ifdim\wd3>0pt\def\B{\space #3}\else\edef\B{\empty}\fi
+\ifnum#4>0
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\ifnum#4=1\RawSienna{#2}\else\OliveGreen{#2}\fi%
 \hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\vbox{}}
 \else\global\advance\songctr by 1
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\songctr .}
 \fi
-\ifnum#4<3\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2}%
-\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend\noexpand
-\leaderfill \the\pageno}}\fi}
+\ifnum#4<3\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2 #3}%
+\noexpand\setbox3=\hbox{#3}%
+\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend
+\noexpand\ifdim\wd3>0pt\noexpand~#3\noexpand\fi\noexpand\leaderfill
+\the\pageno}}\fi}
 
 \def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr}%
+\setbox3=\hbox{#3}\ifdim\wd3>0pt\def\B{\space #3}\else\def\B{\empty}\fi
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}%
-\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2}%
-\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend\noexpand
-\noexpand\leaderfill \the\pageno}}}
+\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2 #3}%
+\noexpand\setbox3=\hbox{#3}%
+\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend
+\noexpand\ifdim\wd3>0pt\noexpand~#3\noexpand\fi\noexpand\leaderfill
+\leaderfill \the\pageno}}}
 
 \newif\ifnotpublicdomainonly
 \notpublicdomainonlyfalse %% Only public domain songs.
@@ -194,11 +204,16 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \footline={\hskip .3\hsize{\rm \folio}\hfil}
 %\advance\hsize by -1in
 \advance\hoffset by 1in
-\advance\vsize by -1in
-\advance\voffset by 1in
+\advance\vsize by -.75in
+\advance\voffset by .5in
 \baselineskip=12pt
 %\nopagenumbers
 \listing{gpl-3.0.txt}
+\vfil\eject
 \endgroup}
 
 \endinput
+
+%% Local Variables:
+%% mode:plain-TeX
+%% End:
