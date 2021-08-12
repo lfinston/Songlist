@@ -102,6 +102,9 @@
 \def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}}
 
+\newif\ifnotpublicdomainonly
+\notpublicdomainonlyfalse %% Only public domain songs.
+
 %% Uncomment for A4 portrait
 
 \special{papersize=210mm, 297mm}
