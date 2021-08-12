@@ -57,7 +57,6 @@ ps: public_domain_1.ps public_domain_2.ps public_domain_3.ps public_domain_4.ps 
 
 dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4.dvi public_domain_5.dvi
 
-
 public_domain_1.pdf: public_domain_1.dvi
 	dvipdfmx public_domain_1.dvi
 
