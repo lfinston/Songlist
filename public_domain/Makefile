@@ -91,7 +91,7 @@ public_domain_3.pdf: public_domain_3.dvi
 public_domain_3.ps: public_domain_3.dvi
 	dvips -o public_domain_3.ps public_domain_3.dvi
 
-public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex songs_lustige_witwe.tex songs_m_n.tex \
+public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex songs_m_n.tex \
                      replace_control_codes$(EXEEXT)
 	rm -f public_domain_3.idx public_domain_3.uix public_domain_3.sdx
 	touch public_domain_3.idx
@@ -148,7 +148,7 @@ public_domain_full.ps: public_domain_full.dvi
 fdvi: public_domain_full.dvi 
 
 public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.tex songs_a_e.tex songs_f_l.tex \
-                        songs_lustige_witwe.tex songs_m_n.tex songs_o_s.tex songs_t_z.tex replace_control_codes$(EXEEXT)
+                        songs_m_n.tex songs_o_s.tex songs_t_z.tex replace_control_codes$(EXEEXT)
 	rm -f public_domain_full.idx public_domain_full.uix public_domain_full.sdx
 	touch public_domain_full.idx
 	tex public_domain_full.tex
