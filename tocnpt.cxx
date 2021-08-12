@@ -1998,13 +1998,57 @@ process_tocs_and_npt(void)
 
        if (iter->lead_sheet || iter->is_cross_reference || iter->is_production)
        {
+
          if (iter->lead_sheet && !iter->is_production && !iter->sort_by_production && !iter->is_cross_reference)
          {
+
+            /* !!START HERE:  LDF 2021.08.12.  Add more for the entries in `songs_*.tex'.  */ 
+            /* Below, remember to acct. for case of "lustige Witwe".   */
+
+            temp_strm.str("");
+
             temp_str = remove_formatting_commands(iter->title);
             
+            cerr << "XXX" << endl;
+
             cerr << "iter->public_domain == " << iter->public_domain << endl 
                  << "iter->title         == " << iter->title << endl 
                  << "temp_str            == " << temp_str << endl;
+
+
+            if (!iter->public_domain)
+               temp_strm << "\\ifnotpublicdomainonly" << endl;
+
+            temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{0}" << endl;
+
+            if (!iter->public_domain)
+               temp_strm << "\\fi" << endl;
+
+            temp_strm << endl;
+
+            if (tolower(temp_str[0]) >= 'a' && tolower(temp_str[0]) <= 'e')
+            {
+               songs_a_e_file << temp_strm.str();
+            }
+            else if (tolower(temp_str[0]) >= 'f' && tolower(temp_str[0]) <= 'l')
+            {
+               songs_f_l_file << temp_strm.str();
+            }
+            else if (tolower(temp_str[0]) >= 'm' && tolower(temp_str[0]) <= 'n')
+            {
+               songs_m_n_file << temp_strm.str();
+            }
+            else if (tolower(temp_str[0]) >= 'o' && tolower(temp_str[0]) <= 's')
+            {
+               songs_o_s_file << temp_strm.str();
+            }
+            else if (tolower(temp_str[0]) >= 't' && tolower(temp_str[0]) <= 'z')
+            {
+               songs_o_s_file << temp_strm.str();
+            }
+
+            temp_str = "";
+            temp_strm.str("");
 
          }
 
