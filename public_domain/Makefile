@@ -60,10 +60,11 @@ public_domain_1.ps: public_domain_1.dvi
 	dvips -o public_domain_1.ps public_domain_1.dvi
 
 public_domain_1.dvi: public_domain_1.tex public_domain.mac chord_symbols.tex songs_a_e.tex
-	rm -f public_domain_1.idx public_domain_1.uix
+	rm -f public_domain_1.idx public_domain_1.uix public_domain_1.sdx
 	touch public_domain_1.idx
 	tex public_domain_1.tex
-	./make_index.sh public_domain_1.uix
+	replace_control_codes$(EXEEXT) public_domain_1.uix public_domain_1.sdx
+	make_index.sh public_domain_1.sdx public_domain_1.idx 
 	tex public_domain_1.tex
 
 public_domain_2.pdf: public_domain_2.dvi
@@ -73,10 +74,11 @@ public_domain_2.ps: public_domain_2.dvi
 	dvips -o public_domain_2.ps public_domain_2.dvi
 
 public_domain_2.dvi: public_domain_2.tex public_domain.mac chord_symbols.tex songs_f_l.tex
-	rm -f public_domain_2.idx public_domain_2.uix
+	rm -f public_domain_2.idx public_domain_2.uix public_domain_2.sdx
 	touch public_domain_2.idx
 	tex public_domain_2.tex
-	./make_index.sh public_domain_2.uix
+	replace_control_codes$(EXEEXT) public_domain_2.uix public_domain_2.sdx
+	make_index.sh public_domain_2.sdx public_domain_2.idx 
 	tex public_domain_2.tex
 
 public_domain_3.pdf: public_domain_3.dvi
@@ -86,10 +88,11 @@ public_domain_3.ps: public_domain_3.dvi
 	dvips -o public_domain_3.ps public_domain_3.dvi
 
 public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex songs_lustige_witwe.tex songs_m_n.tex
-	rm -f public_domain_3.idx public_domain_3.uix
+	rm -f public_domain_3.idx public_domain_3.uix public_domain_3.sdx
 	touch public_domain_3.idx
 	tex public_domain_3.tex
-	./make_index.sh public_domain_3.uix
+	replace_control_codes$(EXEEXT) public_domain_3.uix public_domain_3.sdx
+	make_index.sh public_domain_3.sdx public_domain_3.idx 
 	tex public_domain_3.tex
 
 public_domain_4.pdf: public_domain_4.dvi
@@ -99,10 +102,11 @@ public_domain_4.ps: public_domain_4.dvi
 	dvips -o public_domain_4.ps public_domain_4.dvi
 
 public_domain_4.dvi: public_domain_4.tex public_domain.mac chord_symbols.tex songs_o_s.tex
-	rm -f public_domain_4.idx public_domain_4.uix
+	rm -f public_domain_4.idx public_domain_4.uix public_domain_4.sdx
 	touch public_domain_4.idx
 	tex public_domain_4.tex
-	./make_index.sh public_domain_4.uix
+	replace_control_codes$(EXEEXT) public_domain_4.uix public_domain_4.sdx
+	make_index.sh public_domain_4.sdx public_domain_4.idx 
 	tex public_domain_4.tex
 
 public_domain_5.pdf: public_domain_5.dvi
@@ -112,10 +116,11 @@ public_domain_5.ps: public_domain_5.dvi
 	dvips -o public_domain_5.ps public_domain_5.dvi
 
 public_domain_5.dvi: public_domain_5.tex public_domain.mac chord_symbols.tex songs_t_z.tex
-	rm -f public_domain_5.idx public_domain_5.uix
+	rm -f public_domain_5.idx public_domain_5.uix public_domain_5.sdx
 	touch public_domain_5.idx
 	tex public_domain_5.tex
-	./make_index.sh public_domain_5.uix
+	replace_control_codes$(EXEEXT) public_domain_5.uix public_domain_5.sdx
+	make_index.sh public_domain_5.sdx public_domain_5.idx 
 	tex public_domain_5.tex
 
 .PHONY: full
@@ -139,10 +144,11 @@ fdvi: public_domain_full.dvi
 
 public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.tex songs_a_e.tex songs_f_l.tex \
                         songs_lustige_witwe.tex songs_m_n.tex songs_o_s.tex songs_t_z.tex
-	rm -f public_domain_full.idx public_domain_full.uix
+	rm -f public_domain_full.idx public_domain_full.uix public_domain_full.sdx
 	touch public_domain_full.idx
 	tex public_domain_full.tex
-	./make_index.sh public_domain_full.uix
+	replace_control_codes$(EXEEXT) public_domain_full.uix public_domain_full.sdx
+	make_index.sh public_domain_full.sdx public_domain_full.idx 
 	tex public_domain_full.tex
 
 .PHONY: clean
