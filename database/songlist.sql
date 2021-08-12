@@ -389,7 +389,7 @@ values
 
 -- delete from Songs where title like("Barcarole%");
 
--- select "{\\\^o}";
+-- select "{\\^o}";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
@@ -2602,6 +2602,8 @@ values
 
 /* ** *************************************************** */
 
+select title from Songs where title like("Se Todos%");
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language, source, year, scanned, 
 scanned_filename)
 values
@@ -3677,7 +3679,9 @@ replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", 
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Felicidade, A");
 
-replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Gar{\\\^o}ta de Ipanema");
+select title from Songs where music_reverse = "Jobim, Antonio Carlos";
+
+replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Gar{\\^o}ta de Ipanema");
 
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Incerteza");
 
@@ -4521,7 +4525,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius 
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Felicidade, A");
 
-replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Gar{\\\^o}ta de Ipanema");
+replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Gar{\\^o}ta de Ipanema");
 
 replace into Lyricists_Songs (lyricist, title) values ("Moraes, Vin{\\'\\i}cius de", "Insensatez");
 
