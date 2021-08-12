@@ -92,6 +92,8 @@
 \newcount\songctr
 \songctr=0
 
+\newwrite\index
+
 \def\Chapter#1#2#3#4{\ifnum#4>0
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\ifnum#4=1\RawSienna{#2}\else\OliveGreen{#2}\fi%
 \hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\vbox{}}
