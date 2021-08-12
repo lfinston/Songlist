@@ -89,6 +89,14 @@ ofstream russian_file;
 ofstream spanish_file;   
 ofstream productions_file;
 ofstream sub_filecards_file;
+ofstream songs_a_e_file;
+ofstream songs_f_l_file;
+ofstream songs_lustige_witwe_file;
+ofstream songs_m_n_file;
+ofstream songs_o_s_file;
+ofstream songs_t_z_file;
+
+
 
 /* ``tocs'' stands for ``table(s) of contents''.  */
 /* ``npt'' stands for ``no page turns''.          */
@@ -570,7 +578,9 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct musical, year from Songs where musical is not null "
+
+
+   temp_strm << "select distinct musical, year, public_domain from Songs where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
 
    if (DEBUG) 
@@ -650,6 +660,7 @@ process_tocs_and_npt(void)
            curr_production.is_production = true;
            if (curr_row[1])
               curr_production.year = atoi(curr_row[1]);
+           curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
            production_vector.push_back(curr_production);
 
@@ -669,7 +680,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct opera, year from Songs where opera is not null "
+   temp_strm << "select distinct opera, year, public_domain from Songs where lead_sheet is true and opera is not null "
              << "and sort_by_production is true order by opera;";
 
    if (DEBUG) 
@@ -749,6 +760,7 @@ process_tocs_and_npt(void)
          curr_production.is_production = true;
          if (curr_row[1])
             curr_production.year = atoi(curr_row[1]);
+         curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
          production_vector.push_back(curr_production);
 
@@ -768,7 +780,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct operetta, year from Songs where operetta is not null "
+   temp_strm << "select distinct operetta, year, public_domain from Songs where lead_sheet is true and operetta is not null "
              << "and sort_by_production is true order by operetta;";
 
    if (DEBUG) 
@@ -848,6 +860,7 @@ process_tocs_and_npt(void)
            curr_production.is_production = true;
            if (curr_row[1])
               curr_production.year = atoi(curr_row[1]);
+           curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
            production_vector.push_back(curr_production);
 
@@ -867,7 +880,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct song_cycle, year from Songs where song_cycle is not null "
+   temp_strm << "select distinct song_cycle, year, public_domain from Songs where lead_sheet is true and song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
    if (DEBUG) 
@@ -947,6 +960,7 @@ process_tocs_and_npt(void)
            curr_production.is_production = true;
            if (curr_row[1])
               curr_production.year = atoi(curr_row[1]);
+           curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
            production_vector.push_back(curr_production);
 
@@ -966,7 +980,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct revue, year from Songs where revue is not null "
+   temp_strm << "select distinct revue, year, public_domain from Songs where lead_sheet is true and revue is not null "
              << "and sort_by_production is true order by revue";
 
    if (DEBUG) 
@@ -1046,6 +1060,7 @@ process_tocs_and_npt(void)
            curr_production.is_production = true;
            if (curr_row[1])
               curr_production.year = atoi(curr_row[1]);
+           curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
            production_vector.push_back(curr_production);
 
@@ -1066,7 +1081,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct film, year from Songs where film is not null "
+   temp_strm << "select distinct film, year, public_domain from Songs where lead_sheet is true and film is not null "
              << "and sort_by_production is true order by film;";
 
    if (DEBUG) 
@@ -1146,6 +1161,7 @@ process_tocs_and_npt(void)
            curr_production.is_production = true;
            if (curr_row[1])
               curr_production.year = atoi(curr_row[1]);
+           curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
 
            production_vector.push_back(curr_production);
 
@@ -1370,6 +1386,12 @@ process_tocs_and_npt(void)
    spanish_file.open("spanish.tex");
    productions_file.open("productions.tex");
    sub_filecards_file.open("sub_filecrds.tex");
+   songs_a_e_file.open("songs_a_e.tex");
+   songs_f_l_file.open("songs_f_l.tex");
+   songs_lustige_witwe_file.open("songs_lustige_witwe.tex");
+   songs_m_n_file.open("songs_m_n.tex");
+   songs_o_s_file.open("songs_o_s.tex");
+   songs_t_z_file.open("songs_t_z.tex"); 
 
    status = get_datestamp(datestamp, datestamp_short);
 
@@ -1547,6 +1569,25 @@ process_tocs_and_npt(void)
 
    sub_filecards_file << "%% sub_filecards.tex" << endl
                       << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+   songs_a_e_file << "%% songs_a_e_file.tex" << endl 
+                  << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+   songs_f_l_file << "%% songs_f_l_file.tex" << endl
+                  << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+   songs_lustige_witwe_file << "%% songs_lustige_witwe_file.tex" << endl
+                            << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+   songs_m_n_file << "%% songs_m_n_file.tex" << endl
+                  << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+
+   songs_o_s_file << "%% songs_o_s_file.tex" << endl
+                  << "%% Generated by `songlist' " << datestamp << endl << endl;
+
+   songs_t_z_file << "%% songs_t_z_file.tex" << endl
+                  << "%% Generated by `songlist' " << datestamp << endl << endl;
 
    char temp_char;
    string temp_title;
@@ -1873,6 +1914,13 @@ process_tocs_and_npt(void)
          {         
 /* ***** (5) */
 
+              temp_str = remove_formatting_commands(iter->title);
+
+              cerr << "Production:" << endl 
+                   << "iter->public_domain == " << iter->public_domain << endl 
+                   << "iter->title         == " << iter->title << endl 
+                   << "temp_str            == " << temp_str << endl;
+
             toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
             if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
@@ -1891,6 +1939,12 @@ process_tocs_and_npt(void)
 #if 0 
               cerr << "*t_iter == " << *t_iter << endl;
 #endif 
+              temp_str = remove_formatting_commands(*t_iter);
+
+              cerr << "Song from production:" << endl 
+                   << "*t_iter     == " << *t_iter << endl 
+                   << "temp_str    == " << temp_str << endl;
+
               sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << *t_iter << "}" << endl << "\\vskip12pt" << endl;
 
               toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
@@ -1944,6 +1998,16 @@ process_tocs_and_npt(void)
 
        if (iter->lead_sheet || iter->is_cross_reference || iter->is_production)
        {
+         if (iter->lead_sheet && !iter->is_production && !iter->sort_by_production && !iter->is_cross_reference)
+         {
+            temp_str = remove_formatting_commands(iter->title);
+            
+            cerr << "iter->public_domain == " << iter->public_domain << endl 
+                 << "iter->title         == " << iter->title << endl 
+                 << "temp_str            == " << temp_str << endl;
+
+         }
+
 
          if (iter->is_cross_reference)
          {
@@ -1957,7 +2021,7 @@ process_tocs_and_npt(void)
             toc_ls_file << ")}" << endl << endl;
          }
          else if (!iter->is_production)
-            toc_ls_file << "\\N " << iter->title << endl << endl;
+            toc_ls_file << "\\N " << iter->title << endl;
           
          if (iter->musical.length() > 0 && iter->sort_by_production)
            toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
@@ -2194,6 +2258,13 @@ process_tocs_and_npt(void)
    toc_ls_a_h_file.close();
    toc_ls_i_o_file.close();
    toc_ls_p_z_file.close();
+//   songs_a_e_file.close();
+   songs_f_l_file.close();
+   songs_lustige_witwe_file.close();
+   songs_m_n_file.close();
+   songs_o_s_file.close();
+   songs_t_z_file.close();
+
 
    toc_npt_file << "\\vskip2cm" << endl << endl
                 << "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
@@ -2299,7 +2370,7 @@ process_tocs_and_npt(void)
                productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                 << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
 
-               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+               productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
 
              }
   
@@ -2344,7 +2415,7 @@ process_tocs_and_npt(void)
                productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                 << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
 
-               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+               productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
              }
   
              if (isupper(curr_char))
@@ -2391,7 +2462,7 @@ process_tocs_and_npt(void)
                productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                 << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
 
-               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+               productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
              }
   
              if (isupper(curr_char))
@@ -2438,7 +2509,7 @@ process_tocs_and_npt(void)
                productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                 << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
 
-               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+               productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
              }
   
              if (isupper(curr_char))
@@ -2483,7 +2554,7 @@ process_tocs_and_npt(void)
                productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                 << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
 
-               productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+               productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
              }
     
              if (isupper(curr_char))
@@ -2530,7 +2601,7 @@ process_tocs_and_npt(void)
              {
                  productions_file << "\\writeptcentry{chapter}{\\hlstart{}{bwidth=0}{production " << char(curr_char) 
                                   << "}\\Blue{" << char(curr_char) << "}\\hlend}" << endl;
-                 productions_file << "\\hldest{fit}{}{production " << char(curr_char) << "}" << endl;
+                 productions_file << "\\hldest{xyz}{}{production " << char(curr_char) << "}" << endl;
              }
 
              if (isupper(curr_char))
