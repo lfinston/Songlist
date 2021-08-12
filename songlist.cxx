@@ -925,6 +925,11 @@ Song::show(string s)
   {
   cerr << "title:                            " << *iter << endl;
   }
+ 
+  if (production_song_vector.size() > 0)
+     cerr << "production_song_vector is not empty." << endl;
+  else        
+     cerr << "production_song_vector is empty." << endl;
 
   cerr << endl;
 
@@ -976,8 +981,8 @@ Song::clear(void)
     number_filecards = false;
     source = "";
     eps_filenames = "";
-
     title_vector.clear();
+    production_song_vector.clear();
     
     return;
 

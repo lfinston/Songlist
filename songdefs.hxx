@@ -93,6 +93,7 @@ class Song
     string eps_filenames;
 
     vector<string> title_vector;
+    vector<Song> production_song_vector;
     
  public:
    
@@ -170,6 +171,7 @@ class Song
       mark_blue = s.mark_blue;
       is_production = s.is_production;
       title_vector = s.title_vector;
+      production_song_vector = s.production_song_vector;
       scanned = s.scanned;
       scanned_filename = s.scanned_filename;
       public_domain = s.public_domain;

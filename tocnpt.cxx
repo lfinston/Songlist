@@ -531,6 +531,8 @@ process_tocs_and_npt(void)
 
        song_vector.push_back(curr_song);
 
+       curr_song.clear();
+
        if (DEBUG) 
          cerr << "song_vector.back().title == " << song_vector.back().title << endl;
 
@@ -1213,7 +1215,8 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       temp_strm << "select title from Songs where sort_by_production is true and ";
+       temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, song_cycle, revue, film "
+                 << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
          temp_strm << "musical = \"" << iter->musical << "\" ";
@@ -1300,11 +1303,14 @@ process_tocs_and_npt(void)
        /*  Process the contents of |result|  */
        
        curr_row = 0;
+ 
 
        if (row_ctr > 0)
          {
+          
            do
              {
+               curr_song.clear();
 
                curr_row = mysql_fetch_row(result);
 
@@ -1338,7 +1344,23 @@ process_tocs_and_npt(void)
                  
                  }  /* |if (curr_row == 0)|  */
 
+               /* !!START HERE:  LDF 2021.08.12.  */ 
+                             
+
                iter->title_vector.push_back(curr_row[0]);
+
+               curr_song.title = curr_row[0];
+               curr_song.scanned = static_cast<bool>(curr_row[1]);
+               curr_song.eps_filenames = curr_row[2];
+               if (curr_row[3])
+                  curr_song.musical = curr_row[3];
+               if (curr_row[4])
+                  curr_song.opera = curr_row[4];
+
+               iter->production_song_vector.push_back(curr_song);
+
+               cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
+
 
              } while (curr_row != 0);
 
@@ -1353,6 +1375,26 @@ process_tocs_and_npt(void)
          }
        
        /*  */
+
+       cerr << "AAA" << endl;
+
+       cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
+       cerr << "Showing iter->production_song_vector:" << endl;
+
+       for (vector<Song>::iterator a_iter = iter->production_song_vector.begin();
+            a_iter != iter->production_song_vector.end();
+            ++a_iter) 
+       { 
+            cerr << "a_iter->title == " << a_iter->title << endl;
+       } 
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
 
        sort(iter->title_vector.begin(), iter->title_vector.end(), compare_strings);
 
@@ -1918,10 +1960,15 @@ process_tocs_and_npt(void)
 
               temp_str = remove_formatting_commands(iter->title);
 
+/* !!START HERE:  LDF 2021.08.12.  */ 
+
               cerr << "Production:" << endl 
                    << "iter->public_domain == " << iter->public_domain << endl 
                    << "iter->title         == " << iter->title << endl 
                    << "temp_str            == " << temp_str << endl;
+
+            cerr << "YYY" << endl;
+
 
             toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
@@ -1946,6 +1993,8 @@ process_tocs_and_npt(void)
               cerr << "Song from production:" << endl 
                    << "*t_iter     == " << *t_iter << endl 
                    << "temp_str    == " << temp_str << endl;
+
+              cerr << "ZZZ" << endl;
 
               sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << *t_iter << "}" << endl << "\\vskip12pt" << endl;
 
@@ -2054,12 +2103,7 @@ process_tocs_and_npt(void)
 
             temp_strm << endl;
 
-            cerr << "temp_strm.str() == " << temp_strm.str() << endl;
-
-#if 0 
-            cerr << "XXX Enter <RETURN> to continue: ";
-            getchar(); 
-#endif 
+            // cerr << "temp_strm.str() == " << temp_strm.str() << endl;
 
             if (tolower(temp_str[0]) >= 'a' && tolower(temp_str[0]) <= 'e')
             {
