@@ -145,11 +145,13 @@
 \vskip.75\baselineskip
 \centerline{{\Largebx #2}}
 \fi
-\vskip2\baselineskip
+
 \centerline{Author:  Laurence D.~Finston}
+\vskip.125\baselineskip
 \centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
+\vskip.125\baselineskip
 \centerline{Contact:  {\tt Laurence.Finston@gmx.de}}
-\vskip.75\baselineskip
+\vskip\baselineskip
 This file is part of the Songlist package.\hfil\break
 Songlist is free software; you can redistribute it and/or modify 
 it under the terms of the GNU General Public License as published by 
