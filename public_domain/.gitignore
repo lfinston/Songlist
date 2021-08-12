@@ -5,6 +5,9 @@
 *.log
 *.toc
 *.log
+*.idx
+*.uix
+*.sdx
 /backup
 public_domain_full.pdf
 public_domain_full.ps
