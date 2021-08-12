@@ -24,7 +24,7 @@
 
 \input public_domain.mac
 
-\openout\index=public_domain_3.idx
+\openout\index=public_domain_3.uix
 
 \Title{Public Domain Songs}{Part III}
 
@@ -38,10 +38,24 @@
 
 \input songs_m_n.tex
 
-\Copying
+\Chapter{index}{Index}{}{3}
+\hldest{xyz}{}{index}
+\begingroup
+\advance\voffset by .5in
+\advance\hoffset by .5in
+\advance\hsize by -1in
+\advance\vsize by -.5in
+\advance\baselineskip by 5pt
+\centerline{{\largebx Index}}
+\vskip1.5\baselineskip
+\input public_domain_3.idx
+\vfil\eject
+\endgroup
 
-%\write\index{abc}
 \closeout\index
+
+\Copying
+\vfil\eject
 
 \bye
 

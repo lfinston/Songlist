@@ -16,15 +16,12 @@ b=`expr substr $1 1 $a`
 echo "\$b:"
 echo $b
 
-c=${b}ps
+c=${b}idx
 
 echo "\$c:"
 echo $c
 
-d=`expr substr $1 1 $a`eps
-echo "\$d:"
-echo $d
 
-#sort #1 > 
+sort $1 > $c
 
 exit 0

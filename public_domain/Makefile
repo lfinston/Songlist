@@ -43,42 +43,15 @@ all: public_domain_1.pdf public_domain_1.ps public_domain_2.pdf public_domain_2.
 
 pdf: public_domain_1.pdf public_domain_2.pdf public_domain_3.pdf public_domain_4.pdf public_domain_5.pdf
 
-.PHONY: pdc
-
-pdfc:
-	$(MAKE) dvic
-	$(MAKE) pdf
-
 .PHONY: ps
 
 ps: public_domain_1.ps public_domain_2.ps public_domain_3.ps public_domain_4.ps public_domain_5.ps
 
-.PHONY: psc
-
-psc:
-	$(MAKE) dvic
-	$(MAKE) ps
 
 .PHONY: dvi
 
 dvi: public_domain_1.dvi public_domain_2.dvi public_domain_3.dvi public_domain_4.dvi public_domain_5.dvi
 
-.PHONY: dvic # Update contents
-
-dvic:
-	rm -f *.toc
-	tex public_domain_1.tex
-	tex public_domain_1.tex
-	tex public_domain_2.tex
-	tex public_domain_2.tex
-	tex public_domain_3.tex
-	tex public_domain_4.tex
-	tex public_domain_4.tex
-	tex public_domain_4.tex
-	tex public_domain_5.tex
-	tex public_domain_5.tex
-	tex public_domain_full.tex
-	tex public_domain_full.tex
 
 public_domain_1.pdf: public_domain_1.dvi
 	dvipdfmx public_domain_1.dvi
@@ -86,7 +59,11 @@ public_domain_1.pdf: public_domain_1.dvi
 public_domain_1.ps: public_domain_1.dvi
 	dvips -o public_domain_1.ps public_domain_1.dvi
 
-public_domain_1.dvi: public_domain_1.tex public_domain.mac chord_symbols.tex
+public_domain_1.dvi: public_domain_1.tex public_domain.mac chord_symbols.tex songs_a_e.tex
+	rm -f public_domain_1.idx public_domain_1.uix
+	touch public_domain_1.idx
+	tex public_domain_1.tex
+	./make_index.sh public_domain_1.uix
 	tex public_domain_1.tex
 
 public_domain_2.pdf: public_domain_2.dvi
@@ -95,7 +72,11 @@ public_domain_2.pdf: public_domain_2.dvi
 public_domain_2.ps: public_domain_2.dvi
 	dvips -o public_domain_2.ps public_domain_2.dvi
 
-public_domain_2.dvi: public_domain_2.tex public_domain.mac chord_symbols.tex
+public_domain_2.dvi: public_domain_2.tex public_domain.mac chord_symbols.tex songs_f_l.tex
+	rm -f public_domain_2.idx public_domain_2.uix
+	touch public_domain_2.idx
+	tex public_domain_2.tex
+	./make_index.sh public_domain_2.uix
 	tex public_domain_2.tex
 
 public_domain_3.pdf: public_domain_3.dvi
@@ -104,7 +85,11 @@ public_domain_3.pdf: public_domain_3.dvi
 public_domain_3.ps: public_domain_3.dvi
 	dvips -o public_domain_3.ps public_domain_3.dvi
 
-public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex
+public_domain_3.dvi: public_domain_3.tex public_domain.mac chord_symbols.tex songs_lustige_witwe.tex songs_m_n.tex
+	rm -f public_domain_3.idx public_domain_3.uix
+	touch public_domain_3.idx
+	tex public_domain_3.tex
+	./make_index.sh public_domain_3.uix
 	tex public_domain_3.tex
 
 public_domain_4.pdf: public_domain_4.dvi
@@ -113,7 +98,11 @@ public_domain_4.pdf: public_domain_4.dvi
 public_domain_4.ps: public_domain_4.dvi
 	dvips -o public_domain_4.ps public_domain_4.dvi
 
-public_domain_4.dvi: public_domain_4.tex public_domain.mac chord_symbols.tex
+public_domain_4.dvi: public_domain_4.tex public_domain.mac chord_symbols.tex songs_o_s.tex
+	rm -f public_domain_4.idx public_domain_4.uix
+	touch public_domain_4.idx
+	tex public_domain_4.tex
+	./make_index.sh public_domain_4.uix
 	tex public_domain_4.tex
 
 public_domain_5.pdf: public_domain_5.dvi
@@ -122,34 +111,19 @@ public_domain_5.pdf: public_domain_5.dvi
 public_domain_5.ps: public_domain_5.dvi
 	dvips -o public_domain_5.ps public_domain_5.dvi
 
-public_domain_5.dvi: public_domain_5.tex public_domain.mac chord_symbols.tex
+public_domain_5.dvi: public_domain_5.tex public_domain.mac chord_symbols.tex songs_t_z.tex
+	rm -f public_domain_5.idx public_domain_5.uix
+	touch public_domain_5.idx
+	tex public_domain_5.tex
+	./make_index.sh public_domain_5.uix
 	tex public_domain_5.tex
 
 .PHONY: full
 
 full: public_domain_full.pdf public_domain_full.ps
 
-.PHONY: fullc
-
-.PHONY: fdvic
-
-fdvic:
-	rm -f public_domain_full.toc
-	tex public_domain_full.tex
-	tex public_domain_full.tex
-
-fullc:
-	$(MAKE) fdvic
-	$(MAKE) public_domain_full.ps public_domain_full.pdf 
 
 .PHONY: fpdf
-
-.PHONY: fpdfc
-
-fpdfc:
-	$(MAKE) fdvic
-	$(MAKE) fpdf
-
 
 fpdf: public_domain_full.pdf
 
@@ -163,7 +137,12 @@ public_domain_full.ps: public_domain_full.dvi
 
 fdvi: public_domain_full.dvi 
 
-public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.tex
+public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.tex songs_a_e.tex songs_f_l.tex \
+                        songs_lustige_witwe.tex songs_m_n.tex songs_o_s.tex songs_t_z.tex
+	rm -f public_domain_full.idx public_domain_full.uix
+	touch public_domain_full.idx
+	tex public_domain_full.tex
+	./make_index.sh public_domain_full.uix
 	tex public_domain_full.tex
 
 .PHONY: clean

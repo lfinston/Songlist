@@ -100,11 +100,15 @@
 \else\global\advance\songctr by 1
 \writenumberedtocentry{chapter}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\the\songctr .}
 \fi
-\ifnum#4<3\write\index{\noexpand\line{#2\noexpand\leaderfill \the\pageno}}\fi}
+\ifnum#4<3\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2}%
+\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend\noexpand
+\leaderfill \the\pageno}}\fi}
 
 \def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr}%
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}%
-\write\index{\noexpand\line{#2\noexpand\leaderfill \the\pageno}}}
+\write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2}%
+\noexpand\hlstart{}{bwidth=0}{#1}\noexpand\Blue{#2}\noexpand\hlend\noexpand
+\noexpand\leaderfill \the\pageno}}}
 
 \newif\ifnotpublicdomainonly
 \notpublicdomainonlyfalse %% Only public domain songs.
@@ -184,7 +188,7 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \headline={}}
 \endgroup
 
-\def\Copying{\Chapter{copying}{Copying}{}{0}
+\def\Copying{\Chapter{copying}{Copying}{}{3}
 \hldest{xyz}{}{copying}
 \begingroup
 \footline={\hskip .3\hsize{\rm \folio}\hfil}
@@ -195,8 +199,6 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \baselineskip=12pt
 %\nopagenumbers
 \listing{gpl-3.0.txt}
-\vfil\eject
 \endgroup}
-
 
 \endinput
