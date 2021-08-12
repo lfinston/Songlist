@@ -142,10 +142,11 @@
 \centerline{{\Largebx #1}}
 \setbox2=\hbox{#2}
 \ifdim\wd2>0pt
-\vskip.75\baselineskip
+\par
 \centerline{{\Largebx #2}}
+\vskip\baselineskip
 \fi
-
+\par
 \centerline{Author:  Laurence D.~Finston}
 \vskip.125\baselineskip
 \centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
