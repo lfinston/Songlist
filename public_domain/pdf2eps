@@ -1,0 +1,50 @@
+#! /bin/bash
+
+#### pdf2eps
+#### Created by Laurence D. Finston (LDF) Wed 11 Aug 2021 07:54:10 PM CEST
+
+#### This shellscript calls pdf2ps and ps2eps.
+#### There is no program 'pdf2eps' supplied with the programs just named,
+#### so this shellscript provides the functionality, i.e., it converts a PDF
+#### file in two steps to an Encapsulated PS (EPS) file.
+#### LDF 2021.08.11.
+
+# echo "\$1:"
+# echo $1
+
+echo "pdf2ps $1"
+pdf2ps $1
+
+a=`expr index $1 "."`
+
+# echo "\$a:"
+# echo $a
+
+b=`expr substr $1 1 $a`
+
+# echo "\$b:"
+# echo $b
+
+c=${b}ps
+
+# echo "\$c:"
+# echo $c
+
+d=`expr substr $1 1 $a`eps
+# echo "\$d:"
+# echo $d
+
+if test -e $d
+then
+    echo "$d exists.  Not calling ps2eps."
+    echo "Exiting pdf2eps."
+else
+    echo "ps2eps $c"
+    ps2eps $c
+    echo "Created $d."
+    #ls -l $d
+fi
+
+exit 0
+
+
