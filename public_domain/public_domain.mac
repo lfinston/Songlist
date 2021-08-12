@@ -122,8 +122,8 @@
 
 \def\epsfsize#1#2{#1}
 
-\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2}. {\medium #1 \dotfill\ #3}}}
-\def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2}. \fi{\medium #1} \dotfill\ #3}}
+\def\tocchapterentry#1#2#3{\line{\hbox to \twozerosdimen{\hss #2} {\medium #1 \dotfill\ #3}}}
+\def\tocsectionentry#1#2#3{\setbox0=\hbox{#2}\line{\hskip3em\ifdim\wd0>0pt{#2} \fi{\medium #1} \dotfill\ #3}}
 
 \def\leaderfill{\leaders\hbox to .5em{\hss.\hss}\hfil}
 
