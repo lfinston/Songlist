@@ -287,7 +287,7 @@ opera, year, scanned, scanned_filename, public_domain, source, sort_by_productio
 values
 ("Alles f@{u}hlt der Liebe Freuden", "Emanuel Schikaneder", "Schikaneder, Emanuel",
 "Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", true,
-"Zauberfl@{o}te, Die", 1791, true, "allsfhlt.pdf", true,
+"Zauberfl@{o}te, Die", 1791, false, "allsfhlt.pdf", true,
 "{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
 --
 
@@ -327,6 +327,8 @@ values
 1946,
 "\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Broadway Songs}, p.~2.}}",
 true, "anything.pdf");
+
+select eps_filenames from Songs where title = "Anything You Can Do";
 
 /* ** *************************************************** */
 
@@ -1752,7 +1754,7 @@ song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_prod
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndn.pdf", true, 
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "rhnlgndn.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
 true, "german");
 
@@ -5547,6 +5549,9 @@ update Songs set do_filecard = true where is_cross_reference = false;
 update Songs set do_filecard = true where is_cross_reference = true;
 
 select * from Productions order by title\G
+
+select title, scanned, scanned_filename, eps_filenames from Songs where (scanned is true or length(scanned_filename) > 0) 
+and length(eps_filenames) = 0 order by title\G
 
 
 /* * (1)  */

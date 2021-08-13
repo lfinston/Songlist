@@ -250,7 +250,7 @@ process_tocs_and_npt(void)
 
        curr_song.title.assign(curr_row[0]);
 
-       if (DEBUG) 
+       if (DEBUG)
 	 cerr << "curr_song.title == " << curr_song.title << endl;
        
        if (curr_row[1])
@@ -1199,7 +1199,7 @@ process_tocs_and_npt(void)
    sort(production_vector.begin(), production_vector.end(), compare_titles);
    
    if (DEBUG)
-     {
+   {
        if (production_vector.size() > 0)
          cerr << "production_vector:" << endl;
        else
@@ -1211,12 +1211,12 @@ process_tocs_and_npt(void)
          {
            iter->show("Production_Song:");
          }
-     }
+   }
 
    for (vector<Production_Song>::iterator iter = production_vector.begin();
         iter != production_vector.end();
         ++iter)
-     {
+   {
        if (DEBUG)
          {
            iter->show("Production_Song:");
@@ -1279,7 +1279,7 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       if (true || DEBUG)
+       if (DEBUG)
           cerr << "temp_str == " << temp_str << endl;
 
        status = submit_mysql_query(temp_str);
@@ -1376,7 +1376,8 @@ process_tocs_and_npt(void)
 
                iter->production_song_vector.push_back(curr_song);
 
-               cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
+               if (DEBUG)
+                  cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
 
              } while (curr_row != 0);
 
@@ -1394,15 +1395,17 @@ process_tocs_and_npt(void)
 
        sort(iter->production_song_vector.begin(), iter->production_song_vector.end(), compare_titles);
 
-       for (vector<Song>::iterator a_iter = iter->production_song_vector.begin();
-            a_iter != iter->production_song_vector.end();
-            ++a_iter) 
-       { 
-            a_iter->show("*a_iter:");
+       if (DEBUG)
+       {
+          for (vector<Song>::iterator a_iter = iter->production_song_vector.begin();
+               a_iter != iter->production_song_vector.end();
+               ++a_iter) 
+          { 
+               a_iter->show("*a_iter:");
+          }
        } 
 
-
-     }  /* |for|  */
+   }  /* |for|  */
 
    if (DEBUG)
    {
@@ -1996,142 +1999,143 @@ process_tocs_and_npt(void)
 
               temp_str = remove_formatting_commands(iter->title);
 
-              cerr << "Production:" << endl 
-                   << "iter->public_domain == " << iter->public_domain << endl 
-                   << "iter->title         == " << iter->title << endl 
-                   << "temp_str            == " << temp_str << endl;
-
-            cerr << "YYY" << endl;
-
-            toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-
-            if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
-                                                    || temp_char <= 'h')
-               toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title << endl;
-            else if (temp_char <= 'o')
-              toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-            else 
-              toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
-
-
-            cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
-                 << endl;
-
-            cerr << "DDD" << endl;
-
-            song_from_production_flag = false;
-
-            for (vector<Song>::iterator t_iter = iter->production_song_vector.begin();
-                 t_iter != iter->production_song_vector.end();
-                 ++t_iter)
-            {
-
-              temp_str_2 = remove_formatting_commands(t_iter->title);
-
-              cerr << "Song from production:" << endl 
-                   << "t_iter->title         == " << t_iter->title << endl 
-                   << "temp_str_2              == " << temp_str_2 << endl
-                   << "t_iter->scanned       == " << t_iter->scanned << endl
-                   << "t_iter->eps_filenames == " << t_iter->eps_filenames << endl;
-
-              cerr << "ZZZ" << endl;
-
-              if (t_iter->scanned == false && t_iter->eps_filenames.length() > 0)
+              if (DEBUG)
               {
-                  cerr << "WARNING! `t_iter->scanned' == `false' and `t_iter->eps_filenames.length()' > 0."
-                       << endl
-                       << "This shouldn't happen.  Continuing." << endl;
+                 cerr << "Production:" << endl 
+                      << "iter->public_domain == " << iter->public_domain << endl 
+                      << "iter->title         == " << iter->title << endl 
+                      << "temp_str            == " << temp_str << endl;
 
-                  t_iter->scanned = true;
-
+                 cerr << "YYY" << endl;
               }
 
-              else if (t_iter->scanned == true && t_iter->eps_filenames.length() == 0)
-              {
-                  cerr << "WARNING! `t_iter->scanned' == `true' and `t_iter->eps_filenames.length()' == 0."
-                       << endl
-                       << "This shouldn't happen.  Continuing." << endl;
-
-              }
-               
-
-              if (t_iter->scanned)
-              {
-                 temp_strm.str("");
-
-                 if (!song_from_production_flag)
-                 {
-                    if (!t_iter->public_domain)
-                    {
-                        temp_strm << "\\ifnotpublicdomainonly" << endl;
-                    }
-
-                    temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{1}" 
-                              << endl
-                              << "\\hldest{xyz}{}{" << temp_str << "}" << endl;
-
-                    song_from_production_flag = true;
-
-                 }
-
-                 temp_strm << "\\Section{" << temp_str_2 << "}{" << t_iter->title << "}{}" << endl
-                           << "\\hldest{xyz}{}{" << temp_str_2 << "}" << endl;
-
-                 pos = 0;
-                 do
-                 {
-                     cerr << "pos == " << pos << endl;
-                     pos_1 = t_iter->eps_filenames.find(";", pos);
-
-                     // aintswt1.eps;aintswt2.eps;
-
-                     cerr << "pos_1 == " << pos_1 << endl;
-                     
-                     cerr << "t_iter->eps_filenames.length() == " << t_iter->eps_filenames.length() << endl;
-
-                     if (pos_1 != string::npos)
-                     {
-                       temp_str_3 = t_iter->eps_filenames.substr(pos, pos_1 - pos);
-                       cerr << "temp_str_3 == " << temp_str_3 << endl;
-                       pos = pos_1 + 1;
-
-                       temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_3 << "}\\vss}" << endl
-                                 << "\\eject" << endl;
-
-                     }
-
-                 } while (pos != string::npos && pos < t_iter->eps_filenames.length());
-
-
-
-                 cerr << "KKK temp_str == " << temp_str << endl
-                      << "temp_str_2 == " << temp_str_2 << endl
-                      << "temp_strm.str() == " << endl
-                      << temp_strm.str() << endl; 
-
-                 cerr << "FFF Enter <RETURN> to continue: ";
-  
-                 if (curr_songs_file)
-                    *curr_songs_file << temp_strm.str();
-
-                 temp_strm.str("");
-
-              }  /* |if (t_iter->scanned)|  */
-
-              sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title << "}" 
-                                 << endl << "\\vskip12pt" << endl;
-
-              toc_ls_file << "\\S\\S {" << t_iter->title << "}" << endl;
+              toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
               if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                                                       || temp_char <= 'h')
-                toc_ls_a_h_file << "\\R\\R {" << t_iter->title << "}" << endl;
+                 toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title << endl;
               else if (temp_char <= 'o')
-                toc_ls_i_o_file << "\\S\\S {" << t_iter->title << "}" << endl;
+                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
               else 
-                toc_ls_p_z_file << "\\S\\S {" << t_iter->title << "}" << endl;
+                toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
-            }  /* |for| (production_song_vector)  */
+              if (DEBUG)
+                 cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
+                      << endl
+                      << "DDD" << endl;
+
+              song_from_production_flag = false;
+
+              for (vector<Song>::iterator t_iter = iter->production_song_vector.begin();
+                   t_iter != iter->production_song_vector.end();
+                   ++t_iter)
+              {
+
+                temp_str_2 = remove_formatting_commands(t_iter->title);
+
+                if (DEBUG)
+                    cerr << "Song from production:" << endl 
+                         << "t_iter->title         == " << t_iter->title << endl 
+                         << "temp_str_2              == " << temp_str_2 << endl
+                         << "t_iter->scanned       == " << t_iter->scanned << endl
+                         << "t_iter->eps_filenames == " << t_iter->eps_filenames << endl
+                         << "ZZZ" << endl;
+
+                if (t_iter->scanned == false && t_iter->eps_filenames.length() > 0)
+                {
+                    cerr << "WARNING! `t_iter->scanned' == `false' and `t_iter->eps_filenames.length()' > 0."
+                         << endl
+                         << "This shouldn't happen.  Continuing." << endl;
+
+                    t_iter->scanned = true;
+
+                }
+
+                else if (t_iter->scanned == true && t_iter->eps_filenames.length() == 0)
+                {
+                    cerr << "WARNING! `t_iter->scanned' == `true' and `t_iter->eps_filenames.length()' == 0."
+                         << endl
+                         << "This shouldn't happen.  Continuing." << endl;
+
+                }
+               
+
+                if (t_iter->scanned)
+                {
+                   temp_strm.str("");
+
+                   if (!song_from_production_flag)
+                   {
+                      if (!t_iter->public_domain)
+                      {
+                          temp_strm << "\\ifnotpublicdomainonly" << endl;
+                      }
+
+                      temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{1}" 
+                                << endl
+                                << "\\hldest{xyz}{}{" << temp_str << "}" << endl;
+
+                      song_from_production_flag = true;
+
+                   }
+
+                   temp_strm << "\\Section{" << temp_str_2 << "}{" << t_iter->title << "}{}" << endl
+                             << "\\hldest{xyz}{}{" << temp_str_2 << "}" << endl;
+
+                   pos = 0;
+                   do
+                   {
+                       pos_1 = t_iter->eps_filenames.find(";", pos);
+
+                       if (DEBUG)
+                           cerr << "pos == " << pos << endl
+                                << "pos_1 == " << pos_1 << endl
+                                << "t_iter->eps_filenames.length() == " << t_iter->eps_filenames.length() 
+                                << endl;
+
+                       if (pos_1 != string::npos)
+                       {
+                         temp_str_3 = t_iter->eps_filenames.substr(pos, pos_1 - pos);
+
+                         if (DEBUG)
+                            cerr << "temp_str_3 == " << temp_str_3 << endl;
+
+                         pos = pos_1 + 1;
+
+                         temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_3 << "}\\vss}" << endl
+                                   << "\\eject" << endl;
+
+                       }
+
+                   } while (pos != string::npos && pos < t_iter->eps_filenames.length());
+
+                   if (DEBUG)
+                       cerr << "temp_str == " << temp_str << endl
+                            << "temp_str_2 == " << temp_str_2 << endl
+                            << "temp_strm.str() == " << endl
+                            << temp_strm.str() << endl;
+  
+                   if (curr_songs_file)
+                      *curr_songs_file << temp_strm.str();
+
+                   temp_strm.str("");
+
+                }  /* |if (t_iter->scanned)|  */
+
+                sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title << "}" 
+                                   << endl << "\\vskip12pt" << endl;
+
+                toc_ls_file << "\\S\\S {" << t_iter->title << "}" << endl;
+
+                if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                                                        || temp_char <= 'h')
+                  toc_ls_a_h_file << "\\R\\R {" << t_iter->title << "}" << endl;
+                else if (temp_char <= 'o')
+                  toc_ls_i_o_file << "\\S\\S {" << t_iter->title << "}" << endl;
+                else 
+                  toc_ls_p_z_file << "\\S\\S {" << t_iter->title << "}" << endl;
+
+            }    /* |for| (production_song_vector)  */
 
 /* ***** (5) */
 
@@ -2198,12 +2202,11 @@ process_tocs_and_npt(void)
 
             temp_str_1 = remove_formatting_commands(iter->title);
             
-            cerr << "XXX" << endl;
-
-            cerr << "iter->public_domain == " << iter->public_domain << endl 
-                 << "iter->title         == " << iter->title << endl 
-                 << "iter->eps_filenames == " << iter->eps_filenames << endl
-                 << "temp_str_1          == " << temp_str_1 << endl;
+            if (DEBUG)
+                cerr << "iter->public_domain == " << iter->public_domain << endl 
+                     << "iter->title         == " << iter->title << endl 
+                     << "iter->eps_filenames == " << iter->eps_filenames << endl
+                     << "temp_str_1          == " << temp_str_1 << endl;
 
 
             if (!iter->public_domain)
@@ -2215,19 +2218,22 @@ process_tocs_and_npt(void)
             pos = 0;
             do
             {
-                cerr << "pos == " << pos << endl;
+
                 pos_1 = iter->eps_filenames.find(";", pos);
 
-                // aintswt1.eps;aintswt2.eps;
-
-                cerr << "pos_1 == " << pos_1 << endl;
-                
-                cerr << "iter->eps_filenames.length() == " << iter->eps_filenames.length() << endl;
+                if (DEBUG)
+                   cerr << "pos == " << pos << endl
+                        << "pos_1 == " << pos_1 << endl
+                        << "iter->eps_filenames.length() == " << iter->eps_filenames.length() 
+                        << endl;
 
                 if (pos_1 != string::npos)
                 {
                   temp_str_1 = iter->eps_filenames.substr(pos, pos_1 - pos);
-                  cerr << "III temp_str_1 == " << temp_str_1 << endl;
+
+                  if (DEBUG)
+                     cerr << "temp_str_1 == " << temp_str_1 << endl;
+
                   pos = pos_1 + 1;
 
                   temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_1 << "}\\vss}" << endl
@@ -2245,13 +2251,8 @@ process_tocs_and_npt(void)
 
             if (temp_strm.str().length() > 0)
             {
-                cerr << "Error after here 1." << endl; 
-                cerr << "JJJ temp_str == " << temp_str << endl;
-                
                 if (curr_songs_file)
                    *curr_songs_file << temp_strm.str();
-
-                cerr << "Error after here 2." << endl; 
 
                 temp_strm.str("");
             }

@@ -914,17 +914,6 @@ Song::show(string s)
        << "source:                           " << source << endl
        << "eps_filenames:                    " << eps_filenames << endl;
 
-  if (title_vector.size() > 0)
-    cerr << "title_vector:" << endl;
-  else
-        cerr << "title_vector is empty" << endl;
-  
-  for (vector<string>::iterator iter = title_vector.begin();
-       iter != title_vector.end();
-       ++iter)
-  {
-  cerr << "title:                            " << *iter << endl;
-  }
  
   if (production_song_vector.size() > 0)
      cerr << "production_song_vector is not empty." << endl;
@@ -981,7 +970,6 @@ Song::clear(void)
     number_filecards = false;
     source = "";
     eps_filenames = "";
-    title_vector.clear();
     production_song_vector.clear();
     
     return;

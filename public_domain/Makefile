@@ -161,4 +161,4 @@ public_domain_full.dvi: public_domain_full.tex public_domain.mac chord_symbols.t
 .PHONY: clean
 
 clean:  
-	rm -f *.dvi *.ps *.pdf *.log *.toc
+	rm -f *.dvi *.ps *.pdf *.log *.toc *.idx *.uix *.sdx
