@@ -88,6 +88,7 @@ create table Songs
     film_reverse varchar(64) default null,
     sort_by_production boolean not null default false,
     production varchar(64) not null default "",
+    production_subtitle varchar(128) not null default "",
     year int default null,
     copyright varchar(256) default null,
     notes varchar(512) default null,
@@ -124,6 +125,7 @@ alter table Songs add column eps_filenames varchar(512) not null default "" afte
 alter table Songs modify column target varchar(256) not null default "";
 alter table Songs modify column song_cycle varchar(256) default null;
 alter table Songs add column subtitle varchar(128) not null default "" after title;
+alter table Songs add column production_subtitle varchar(128) not null default "" after production;
 
 show columns from Songs;
 
@@ -2467,13 +2469,13 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera, 
-scanned, scanned_filename, language, sort_by_production, public_domain)
+replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
+production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain)
 values
 ("Polowetzer T@{a}nze (``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
-true, "Prince Igor ({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true);
+true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true);
 
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
 values
@@ -2569,10 +2571,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, 
+delete from Songs where title like("Rock-a-Bye%");
+
+replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, public_domain)
 values
-("Rock-a-Bye Your Baby (With a Dixie Melody)",
+("Rock-a-Bye Your Baby", "(With a Dixie Melody)",
 "\\vbox{\\hbox{Rock-a-Bye Your Baby}\\vskip\\titleskip\\hbox{(With a Dixie Melody)}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe", 
 "Jean Schwarz", "Schwarz, Jean", true, 1918, true, "rckbybby.pdf", true);
