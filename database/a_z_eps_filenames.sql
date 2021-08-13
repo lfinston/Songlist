@@ -1,6 +1,6 @@
 update Songs set eps_filenames = "allgdsch1.eps;allgdsch2.eps;allgdsch3.eps;" where title = "All God's Children";
 
-select title, music, eps_filenames from Songs where title = "All God's Children";
+-- select title, music, eps_filenames from Songs where title = "All God's Children";
 
 update Songs set eps_filenames = "alliddrm.eps;" where title = "All I Do Is Dream Of You";
 
@@ -51,7 +51,8 @@ update Songs set eps_filenames = "desafin1.eps;desafin2.eps;desafin3.eps;" where
 
 update Songs set eps_filenames = "diamnds1.eps;diamnds2.eps;" where title = "Diamonds are a Girl's Best Friend";
 
-update Songs set eps_filenames = "lacidr01.eps;lacidr02.eps;lacidr03.eps;lacidr04.eps;lacidr05.eps;" where title = "L{\\`a} ci darem la mano";
+update Songs set eps_filenames = "lacidr01.eps;lacidr02.eps;lacidr03.eps;lacidr04.eps;lacidr05.eps;"
+where title = "L{\\`a} ci darem la mano";
 
 update Songs set eps_filenames = "estsolhr1.eps;estsolhr2.eps;" where title = "Este Seu Olhar";
 
@@ -65,9 +66,7 @@ update Songs set eps_filenames = "fivefoot.eps;" where title = "Five Foot Two, E
 
 update Songs set eps_filenames = "flymoon1.eps;flymoon2.eps;" where title = "Fly Me to the Moon (In Other Words)";
 
-
 update Songs set eps_filenames = "frtscst1.eps;frtscst2.eps;" where title = "42nd Street";
-
 
 update Songs set eps_filenames = "lbvrstn1.eps;lbvrstn2.eps;lbvrstn3.eps;lbvrstn4.eps;" where title = "Lob des hohen Verstandes";
 

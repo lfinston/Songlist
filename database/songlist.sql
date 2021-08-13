@@ -61,7 +61,7 @@ GRANT ALL ON Taxonomy TO 'laurence'@'localhost';
 
 /* ** (2) Create table `Songs'.  */
 
-drop table Songs;
+// drop table Songs;
 
 create table Songs
 (
@@ -73,8 +73,8 @@ create table Songs
     partial_lead_sheet boolean not null default false,
     no_page_turns boolean not null default false,
     no_page_turns_with_two_songbooks boolean not null default false,
-    scanned boolean not null default false;
-    scanned_filename varchar(12) default null after scanned;
+    scanned boolean not null default false,
+    scanned_filename varchar(12) default null,
     arrangement_orchestra boolean not null default false,
     arrangement_solo_guitar boolean not null default false,
     recordings tinyint not null default 0,
@@ -183,11 +183,9 @@ create table Lyricists_Songs
 
 show columns from Lyricists_Songs;
 
-update Songs set do_filecard = true where is_cross_reference = false;
-
-update Songs set do_filecard = true where is_cross_reference = true;
-
 /* ** (2) Productions */
+
+drop table Productions;
 
 create table Productions
 (
@@ -221,6 +219,8 @@ or musical is not null or revue is not null or film is not null\G
 /* ** *************************************************** */
 
 /* A  */
+
+select "$$$ A";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year,
 language)
@@ -360,9 +360,13 @@ values
 ("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934,
 "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~8.", "Walk a Little Faster");
 
+select "$$$ End of A";
+
 /* ** ****************************************************/
 
 /* B  */
+
+select "$$$ B";
 
 /* ** *************************************************** */
 
@@ -379,7 +383,7 @@ true, 1926, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\so
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, recordings)
 values
-("Baby, It's Cold Outside", "Frank Loesser", "Loesser, Frank", true, 1, true /* '  */); 
+("Baby, It's Cold Outside", "Frank Loesser", "Loesser, Frank", true, 1);
 
 /* ** *************************************************** */
 
@@ -398,7 +402,8 @@ values
 "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
 "\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"
-"\\hbox{2.  {\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
+"\\hbox{2.  {\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip"
+"\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
 true, "french");
 
 /* ** *************************************************** */
@@ -522,7 +527,11 @@ values
 ("By The Light Of The Silvery Moon", "Ed Madden", "Madden, Ed", "Gus Edwards", "Edwards, Gus", true, 1909,
 "{\\bf 100 Years of Popular Music, 1900}, p.~52.", true, true, "bltslvmn.pdf");
 
+select "$$$ End of B";
+
 /* C   */
+
+select "$$$ C";
 
 /* ** *************************************************** */
 
@@ -694,7 +703,11 @@ values
 ("Cup of Coffee, a Sandwich and You, A", "Al Dubin and Billy Rose", "Dubin, Al and Rose, Billy",
 "Joseph Meyer", "Meyer, Joseph", true, 1925, true, "cpcffyou.pdf", true);
 
+select "$$$ End of C";
+
 /* D */
+
+select "$$$ D";
 
 /* ** *************************************************** */
 
@@ -1304,7 +1317,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
-"Contes d'Hoffmann, Les", 1881, true, "iletaifs.pdf", true,
+"Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
 "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
 "\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
 true, "french");
@@ -2962,6 +2975,8 @@ values
 ("They Say it's Wonderful", "Irving Berlin", "Berlin, Irving", true, "Annie Get Your Gun", true,
 1946, "{\\bf Songs of Irving Berlin, The, Ballads}, p.~86.");
 
+select scanned from Songs where title = "They Say it's Wonderful";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -2999,7 +3014,7 @@ true, "tgrdnlcr.pdf", "italian");
 
 replace into Songs (title, is_cross_reference, target, lead_sheet)
 values
-("More", true, "Ti Guarder{\\`e}ro Nel Cuore (More)"", true);
+("More", true, "Ti Guarder{\\`e}ro Nel Cuore (More)", true);
 
 /* ** *************************************************** */
 
@@ -4017,6 +4032,8 @@ replace into Composers_Songs (composer, title) values ("Young, Victor", "When I 
 
 -- /* * (1)  */
 
+select "$$$ Lyricists_Songs";
+
 replace into Lyricists_Songs (lyricist, title) values ("Adams, Lee", "Put on a Happy Face");
 
 replace into Lyricists_Songs (lyricist, title) values ("Anderson, Maxwell", "Lost in the Stars");
@@ -4657,6 +4674,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "I'm Gonna 
 -- delete from Composers_Songs where title = "Heart";
 -- delete from Lyricists_Songs where title = "Heart";
 
+
+select "$$$ Composers_Songs and Lyricists_Songs";
+
 replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
 replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
@@ -4734,9 +4754,6 @@ replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Laz
 replace into Lyricists_Songs (lyricist, title) values ("Carmichael, Hoagy", "Lazy River");
 replace into Composers_Songs (composer, title) values ("Arodin, Sidney", "Lazy River");
 replace into Lyricists_Songs (lyricist, title) values ("Arodin, Sidney", "Lazy River"); 
-
-
-
 
 replace into Composers_Songs (composer, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
 replace into Lyricists_Songs (lyricist, title) values ("Collazo, Roberto (Bobby)", "{\\'U}ltima Noche, La");
@@ -5044,12 +5061,12 @@ values ("Walter Donaldson", "Donaldson, Walter",
 
 **********************************************************************************************
 
-"The Charleston" is a jazz composition that was written to accompany
-the Charleston dance. It was composed in 1923, with lyrics by Cecil
-Mack and music by James P. Johnson,
+-- "The Charleston" is a jazz composition that was written to accompany
+-- the Charleston dance. It was composed in 1923, with lyrics by Cecil
+-- Mack and music by James P. Johnson,
 
 replace into Lyricists (name, name_reverse, birth_date, death_date) 
-values ("Cecil Mack", "Mack, Cecil", '1873-11-6', '1944-08-1')
+values ("Cecil Mack", "Mack, Cecil", '1873-11-6', '1944-08-1');
 
 replace into Composers (name, name_reverse, birth_date, death_date) 
 values ("James Price Johnson", "Johnson, James Price",
@@ -5110,8 +5127,8 @@ values ("Benny Davis", "Davis, Benny", '1895-08-21', '1979-12-20',
 replace into Composers (name, name_reverse, birth_date, death_date) 
 values ("Milton Ager", "Ager, Milton", '1893-10-6', '1979-05-6');
 
-replace into Lyricists (name, name_reverse, birth_date, death_date) 
-values ("Jack Selig Yellen", Jacek Jeleń; '1892-07-6', '1991-04-17');
+-- replace into Lyricists (name, name_reverse, birth_date, death_date) 
+-- values ("Jack Selig Yellen", "Jacek Jele{\\'n}" '1892-07-6', '1991-04-17');
 
 replace into Composers (name, name_reverse, birth_date, death_date) 
 values ("Lester Santly", "Santly, Lester", null, null);
@@ -5293,6 +5310,8 @@ and music = "Kurt Weill" order by year;
 
 
 /* * (1)  */
+
+select "$$$ Productions";
 
 replace into Productions (typename, title) values ("film", "42nd Street (Film)");
 
@@ -5522,6 +5541,10 @@ update Productions set type = 4 where typename = "musical";
 update Productions set type = 5 where typename = "revue";
 update Productions set type = 6 where typename = "film";
 
+
+update Songs set do_filecard = true where is_cross_reference = false;
+
+update Songs set do_filecard = true where is_cross_reference = true;
 
 select * from Productions order by title\G
 

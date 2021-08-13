@@ -464,7 +464,7 @@ process_tocs_and_npt(void)
        {
          if (DEBUG)
            cerr << "`scanned'                            == " << curr_row[24] << endl;
-         curr_song.scanned = atoi(curr_row[24]);
+         curr_song.scanned = static_cast<bool>(atoi(curr_row[24]));
        }
        if (curr_row[25])
        {
@@ -1269,7 +1269,7 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       if (DEBUG)
+       if (true || DEBUG)
           cerr << "temp_str == " << temp_str << endl;
 
        status = submit_mysql_query(temp_str);
@@ -1344,23 +1344,28 @@ process_tocs_and_npt(void)
                  
                  }  /* |if (curr_row == 0)|  */
 
-               /* !!START HERE:  LDF 2021.08.12.  */ 
-                             
-
                iter->title_vector.push_back(curr_row[0]);
 
                curr_song.title = curr_row[0];
-               curr_song.scanned = static_cast<bool>(curr_row[1]);
+
+               curr_song.scanned = static_cast<bool>(atoi(curr_row[1]));
                curr_song.eps_filenames = curr_row[2];
                if (curr_row[3])
                   curr_song.musical = curr_row[3];
                if (curr_row[4])
                   curr_song.opera = curr_row[4];
+               if (curr_row[5])
+                  curr_song.operetta = curr_row[5];
+               if (curr_row[6])
+                  curr_song.song_cycle = curr_row[6];
+               if (curr_row[7])
+                  curr_song.revue = curr_row[7];
+               if (curr_row[8])
+                  curr_song.film = curr_row[8];
 
                iter->production_song_vector.push_back(curr_song);
 
                cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
-
 
              } while (curr_row != 0);
 
@@ -1376,25 +1381,14 @@ process_tocs_and_npt(void)
        
        /*  */
 
-       cerr << "AAA" << endl;
-
-       cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() << endl;
-
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-
-       cerr << "Showing iter->production_song_vector:" << endl;
+       sort(iter->production_song_vector.begin(), iter->production_song_vector.end(), compare_titles);
 
        for (vector<Song>::iterator a_iter = iter->production_song_vector.begin();
             a_iter != iter->production_song_vector.end();
             ++a_iter) 
        { 
-            cerr << "a_iter->title == " << a_iter->title << endl;
+            a_iter->show("*a_iter:");
        } 
-
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-
 
        sort(iter->title_vector.begin(), iter->title_vector.end(), compare_strings);
 
@@ -1979,6 +1973,18 @@ getchar();
               toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
             else 
               toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+
+
+            cerr << "iter->title_vector.size() == " << iter->title_vector.size() << endl
+                 << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
+                 << endl;
+
+            cerr << "DDD Enter <RETURN> to continue: ";
+            getchar(); 
+
+/* !!START HERE:  LDF 2021.08.13.  Use production_song_vector instead of title_vector.  */
+
+
 
             for (vector<string>::iterator t_iter = iter->title_vector.begin();
                  t_iter != iter->title_vector.end();
