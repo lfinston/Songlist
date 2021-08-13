@@ -209,7 +209,7 @@ update Songs set eps_filenames = "prtgrl01.eps;prtgrl02.eps;prtgrl03.eps;prtgrl0
 
 update Songs set eps_filenames = "raindys1.eps;raindys2.eps;" where title = "Rainy Days and Mondays";
 
-update Songs set eps_filenames = "rckbybby.eps;" where title = "Rock-a-Bye Your Baby (With a Dixie Melody)";
+update Songs set eps_filenames = "rckbybby.eps;" where title = "Rock-a-Bye Your Baby";
 
 update Songs set eps_filenames = "smbunta1.eps;smbunta2.eps;" where title = "Samba de Uma Nota So";
 
