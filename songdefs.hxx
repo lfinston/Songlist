@@ -36,6 +36,9 @@ bool compare_strings(string, string);
 
 int process_tocs_and_npt(void);
 
+
+/* !!START HERE:  LDF 2021.08.13.  Add production_subtitle.  */ 
+
 class Song
 {
     friend int main(int arg, char **argv);

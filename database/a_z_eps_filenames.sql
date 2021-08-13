@@ -203,7 +203,7 @@ update Songs set eps_filenames = "ovrrnb01.eps;ovrrnb02.eps;" where title = "Ove
 
 update Songs set eps_filenames = "prunacbz.eps;" where title = "Por Una Cabeza";
 
-update Songs set eps_filenames = "polow01.eps;polow02.eps;polow03.eps;" where title = "Polowetzer T@{a}nze (``Stranger in Paradise'')";
+update Songs set eps_filenames = "polow01.eps;polow02.eps;polow03.eps;" where title = "Polowetzer T@{a}nze";
 
 update Songs set eps_filenames = "prtgrl01.eps;prtgrl02.eps;prtgrl03.eps;prtgrl04.eps;" where title = "Pretty A Girl is Like a Melody, A";
 

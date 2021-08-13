@@ -2469,10 +2469,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
+delete from Songs where title like("Polowetzer%");
+
+replace into Songs (title, subtitle, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
 production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain)
 values
-("Polowetzer T@{a}nze (``Stranger in Paradise'')",
+("Polowetzer T@{a}nze", "(``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true);

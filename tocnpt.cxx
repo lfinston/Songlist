@@ -2078,7 +2078,8 @@ getchar();
                 {
                     cerr << "WARNING! `t_iter->scanned' == `true' and `t_iter->eps_filenames.length()' == 0."
                          << endl
-                         << "This shouldn't happen.  Continuing." << endl;
+                         << "This shouldn't happen.  Continuing." << endl
+                         << "t_iter->title == " << t_iter->title << endl;
 
                 }
                
