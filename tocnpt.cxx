@@ -609,7 +609,10 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct musical, year, public_domain from Songs where lead_sheet is true and musical is not null "
+   /* !!START HERE:  LDF 2021.08.13.  Get production_subtitle from curr_row.  Do same below.  */ 
+
+   temp_strm << "select distinct musical, year, public_domain, production_subtitle from Songs "
+             << "where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
 
    if (DEBUG) 
@@ -709,7 +712,8 @@ process_tocs_and_npt(void)
 
    temp_strm.str("");
 
-   temp_strm << "select distinct opera, year, public_domain from Songs where lead_sheet is true and opera is not null "
+   temp_strm << "select distinct opera, year, public_domain, production_subtitle "
+             << "from Songs where lead_sheet is true and opera is not null "
              << "and sort_by_production is true order by opera;";
 
    if (DEBUG) 
@@ -815,7 +819,8 @@ getchar();
    temp_strm.str("");
    
 
-   temp_strm << "select distinct operetta, year, public_domain from Songs where lead_sheet is true and operetta is not null "
+   temp_strm << "select distinct operetta, year, public_domain, production_subtitle "
+             << "from Songs where lead_sheet is true and operetta is not null "
              << "and sort_by_production is true order by operetta;";
 
    if (DEBUG) 
@@ -915,7 +920,8 @@ getchar();
    
    temp_strm.str("");
    
-   temp_strm << "select distinct song_cycle, year, public_domain from Songs where lead_sheet is true and song_cycle is not null "
+   temp_strm << "select distinct song_cycle, year, public_domain, production_subtitle "
+             << "from Songs where lead_sheet is true and song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
    if (DEBUG) 
@@ -1015,7 +1021,8 @@ getchar();
    
    temp_strm.str("");
 
-   temp_strm << "select distinct revue, year, public_domain from Songs where lead_sheet is true and revue is not null "
+   temp_strm << "select distinct revue, year, public_domain, production_subtitle "
+             << "from Songs where lead_sheet is true and revue is not null "
              << "and sort_by_production is true order by revue";
 
    if (DEBUG) 
@@ -1116,7 +1123,8 @@ getchar();
    
    temp_strm.str("");
    
-   temp_strm << "select distinct film, year, public_domain from Songs where lead_sheet is true and film is not null "
+   temp_strm << "select distinct film, year, public_domain, production_subtitle "
+             << "from Songs where lead_sheet is true and film is not null "
              << "and sort_by_production is true order by film;";
 
    if (DEBUG) 
