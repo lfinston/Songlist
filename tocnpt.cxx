@@ -2038,6 +2038,9 @@ getchar();
                   || temp_char <= 'h')
               {
                  toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title;
+ 
+                 if (iter->subtitle.length() > 0)
+                    toc_ls_a_h_file << " " << iter->subtitle;
 
                  toc_ls_a_h_file << endl;
               }
@@ -2045,11 +2048,17 @@ getchar();
               {
                 toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
 
+                if (iter->subtitle.length() > 0)
+                    toc_ls_i_o_file << " " << iter->subtitle;
+
                 toc_ls_i_o_file << endl;
               }
               else 
               {
                 toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
+ 
+                if (iter->subtitle.length() > 0)
+                   toc_ls_p_z_file << " " << iter->subtitle;
 
                 toc_ls_p_z_file << endl;
               }
@@ -2197,12 +2206,23 @@ getchar();
                     || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                     || temp_char <= 'h')
                 {
-                  toc_ls_a_h_file << "\\R\\R {" << t_iter->title << "}" << endl;
+                  toc_ls_a_h_file << "\\R\\R {" << t_iter->title;
+ 
+                  toc_ls_a_h_file << "}" << endl;
                 }
                 else if (temp_char <= 'o')
-                  toc_ls_i_o_file << "\\S\\S {" << t_iter->title << "}" << endl;
+                {
+                  toc_ls_i_o_file << "\\S\\S {" << t_iter->title;
+
+                  toc_ls_i_o_file << "}" << endl;
+                }
                 else 
-                  toc_ls_p_z_file << "\\S\\S {" << t_iter->title << "}" << endl;
+                {
+                  toc_ls_p_z_file << "\\S\\S {" << t_iter->title 
+
+                  toc_ls_p_z_file << "}" << endl;
+
+                }
 
             }    /* |for| (production_song_vector)  */
 
