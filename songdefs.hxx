@@ -90,6 +90,7 @@ class Song
     bool is_cross_reference;
     string target;
     string production;
+    string production_subtitle;
     bool do_filecard;
     string filecard_title;
     bool number_filecards;
@@ -137,6 +138,7 @@ class Song
          is_cross_reference = false;
          target = "";
          production = "";
+         production_subtitle = "";
          do_filecard = false;
          filecard_title = "";
          number_filecards = false;
@@ -183,6 +185,7 @@ class Song
       is_cross_reference = s.is_cross_reference;
       target = s.target;
       production = s.production;
+      production_subtitle = s.production_subtitle;
       do_filecard = s.do_filecard;
       filecard_title = s.filecard_title;
       number_filecards = s.number_filecards;

@@ -909,6 +909,7 @@ Song::show(string s)
        << "is_cross_reference:               " << is_cross_reference << endl
        << "target:                           " << target << endl
        << "production:                       " << production << endl
+       << "production_subtitle:              " << production_subtitle << endl
        << "do_filecard:                      " << do_filecard << endl
        << "filecard_title:                   " << filecard_title << endl
        << "number_filecards:                 " << number_filecards << endl
@@ -967,6 +968,7 @@ Song::clear(void)
     is_cross_reference = false;
     target ="";
     production = "";
+    production_subtitle = "";
     do_filecard = false;
     filecard_title = "";
     number_filecards = false;

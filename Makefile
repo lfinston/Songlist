@@ -223,6 +223,46 @@ ttemp.ps: ttemp.dvi
 ttemp.dvi: ttemp.tex songlist.mac songlist$(EXEEXT) Makefile
 	tex ttemp.tex
 
+.PHONY: pdpdf
+
+pdpdf:
+	cd public_domain; $(MAKE) pdf
+
+
+.PHONY: pdpdf1
+
+pdpdf1:
+	cd public_domain; $(MAKE) public_domain_1.pdf
+
+.PHONY: pdpdf2
+
+pdpdf2:
+	cd public_domain; $(MAKE) public_domain_2.pdf
+
+.PHONY: pdpdf3
+
+pdpdf3:
+	cd public_domain; $(MAKE) public_domain_3.pdf
+
+.PHONY: pdpdf4
+
+pdpdf4:
+	cd public_domain; $(MAKE) public_domain_4.pdf
+
+.PHONY: pdpdf5
+
+pdpdf5:
+	cd public_domain; $(MAKE) public_domain_5.pdf
+
+.PHONY: fpdpdf
+
+fpdpdf:
+	cd public_domain; $(MAKE) fpdf
+
+.PHONY: lspdf
+
+lspdf:
+	cd ~/music/Lead_Sheets/tex; $(MAKE) pdf
 
 .PHONY: graph
 

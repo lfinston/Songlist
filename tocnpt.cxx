@@ -175,10 +175,9 @@ process_tocs_and_npt(void)
              <<        "filecard_title, "                   // 32
              <<        "source, "                           // 33
              <<        "number_filecards, "                 // 34
-             <<        "eps_filenames  "                    // 35
-#if 0 
-             <<        "subtitle "                          // 36
-#endif 
+             <<        "eps_filenames, "                    // 35
+             <<        "subtitle, "                         // 36
+             <<        "production_subtitle "               // 37
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -540,16 +539,13 @@ process_tocs_and_npt(void)
          if (DEBUG)
            cerr << "`eps_filenames'                         == " << curr_row[35] << endl;
 
-       curr_song.subtitle = "";
+       curr_song.subtitle = curr_row[36];
+         if (DEBUG)
+           cerr << "`subtitle'                              == " << curr_row[36] << endl;
 
-#if 0 
-       cerr << "curr_row[36] == " << curr_row[36] << endl;
-
-       if (strlen(curr_row[36]) > 0)
-          curr_song.subtitle.assign(curr_row[36]);
-         if (true || DEBUG)
-           cerr << "`subtitle'                              == \"" << curr_song.subtitle << "\"" << endl;
-#endif 
+       curr_song.production_subtitle = curr_row[37];
+         if (DEBUG)
+           cerr << "`production_subtitle'                   == " << curr_row[37] << endl;
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -559,8 +555,9 @@ process_tocs_and_npt(void)
        curr_song.clear();
 
        if (DEBUG) 
-         cerr << "song_vector.back().title    == " << song_vector.back().title << endl
-              << "song_vector.back().subtitle == " << song_vector.back().subtitle << endl;
+         cerr << "song_vector.back().title               == " << song_vector.back().title << endl
+              << "song_vector.back().subtitle            == " << song_vector.back().subtitle << endl
+              << "song_vector.back().production_subtitle == " << song_vector.back().production_subtitle << endl;
 
    } while (curr_row != 0);
 
@@ -1246,7 +1243,7 @@ getchar();
        temp_strm.str("");
 
        temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, "
-                 << "song_cycle, revue, film, public_domain, subtitle "
+                 << "song_cycle, revue, film, public_domain, subtitle, production_subtitle "
                  << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
@@ -1391,11 +1388,9 @@ getchar();
                   curr_song.revue = curr_row[7];
                if (curr_row[8])
                   curr_song.film = curr_row[8];
-#if 1 
                curr_song.public_domain = static_cast<bool>(atoi(curr_row[9]));
-#endif 
-
                curr_song.subtitle.assign(curr_row[10]);
+               curr_song.production_subtitle.assign(curr_row[11]);
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -1859,6 +1854,8 @@ getchar();
 
           sub_filecards_file << "}";
 
+          /* !!START HERE:  LDF 2021.08.13.  Add code to acct. for production_subtitle.  */ 
+
           if (iter->is_production || iter->is_cross_reference)
           {
              sub_filecards_file << "{";
@@ -2104,10 +2101,24 @@ getchar();
                           getchar(); 
                       }
 
+                      temp_strm << "\\Chapter{" << temp_str;
 
-                      temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{1}" 
+                      if (iter->title == t_iter->title)
+                         temp_strm << "-production";
+
+                      temp_strm << "}{" << iter->title << "}{";
+
+                      if (t_iter->production_subtitle.length() > 0)
+                         temp_strm << t_iter->production_subtitle;
+
+                      temp_strm << "}{1}" 
                                 << endl
-                                << "\\hldest{xyz}{}{" << temp_str << "}" << endl;
+                                << "\\hldest{xyz}{}{" << temp_str;
+
+                      if (iter->title == t_iter->title)
+                         temp_strm << "-production";
+
+                      temp_strm << "}" << endl;
 
                       song_from_production_flag = true;
 
@@ -2233,6 +2244,8 @@ getchar();
              && !iter->is_cross_reference)
          {
 
+            DEBUG = true;
+
             temp_strm.str("");
 
             temp_str_1 = remove_formatting_commands(iter->title);
@@ -2240,21 +2253,27 @@ getchar();
             if (DEBUG)
                 cerr << "iter->public_domain == " << iter->public_domain << endl 
                      << "iter->title         == " << iter->title << endl 
+                     << "iter->subtitle      == " << iter->subtitle << endl 
                      << "iter->eps_filenames == " << iter->eps_filenames << endl
                      << "temp_str_1          == " << temp_str_1 << endl;
 
 
             if (!iter->public_domain)
                temp_strm << "\\ifnotpublicdomainonly" << endl;
-
+#if 0
             if (iter->subtitle.length() > 0)
             {
                 cerr << "iter->subtitle == " << iter->subtitle << endl;
                 cerr << "YYY Enter <RETURN> to continue: ";
                 getchar(); 
             }
+#endif 
+            temp_strm << "\\Chapter{" << temp_str_1 << "}{" << iter->title << "}{";
+ 
+            if (iter->subtitle.length() > 0)
+               temp_strm << iter->subtitle;
 
-            temp_strm << "\\Chapter{" << temp_str_1 << "}{" << iter->title << "}{}{0}" << endl
+            temp_strm << "}{0}" << endl
                       << "\\hldest{xyz}{}{" << temp_str_1 << "}" << endl; 
 
             pos = 0;
@@ -2298,6 +2317,8 @@ getchar();
 
                 temp_strm.str("");
             }
+
+            DEBUG = false;
 
          } /* |if|  */
 

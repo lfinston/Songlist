@@ -267,6 +267,8 @@ values
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
 true, 1, true, "Day at the Races, A", 1937, true, "allgdsch.pdf");
 
+update Songs set eps_filenames = "allgdsch1.eps;allgdsch2.eps;allgdsch3.eps;" where title = "All God's Children";
+
 /* ** *************************************************** */
 
 -- delete from Songs where title = "All I Do Is Dream Of You";
@@ -280,6 +282,8 @@ values
 "Nacio Herb Brown", "Brown, Nacio Herb", true, 1934,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
 true, "alliddrm.pdf");
+
+update Songs set eps_filenames = "alliddrm.eps;" where title = "All I Do Is Dream Of You";
 
 /* ** *************************************************** */
 
@@ -310,6 +314,8 @@ values
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~16.",
 "Authors real name:  Ray Gilbert.", true, "aloneagn.pdf");
 
+update Songs set eps_filenames = "alnagn01.eps;alnagn02.eps;" where title = "Alone Again (Naturally)";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
@@ -336,6 +342,8 @@ values
 "\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Broadway Songs}, p.~2.}}",
 true, "anything.pdf");
 
+update Songs set eps_filenames = "anythin1.eps;anythin2.eps;" where title = "Anything You Can Do";
+
 select eps_filenames from Songs where title = "Anything You Can Do";
 
 /* ** *************************************************** */
@@ -345,6 +353,8 @@ year, scanned, scanned_filename, public_domain)
 values
 ("April Showers", "Buddy G.~De Sylva", "De Sylva, Buddy G.", "Louis Silvers", "Silvers, Louis",
 true, 1, 1921, true, "aprlshwr.pdf", true);
+
+update Songs set eps_filenames = "aprshw01.eps;aprshw02.eps;aprshw03.eps;aprshw04.eps;" where title = "April Showers";
 
 /* ** *************************************************** */
 
@@ -387,6 +397,8 @@ values
 true, 1926, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Volume 2}, p.~24.}}", true, "babyface.pdf");
 
+update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Baby Face";
+
 -- select * from Songs where title = "Baby Face"\G
 
 /* ** *************************************************** */
@@ -418,6 +430,8 @@ values
 "\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
 true, "french");
 
+update Songs set eps_filenames = "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl04.eps;" where title = "Barcarole";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
@@ -442,6 +456,8 @@ values
 1941, "Pal Joey", 
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~234.}}", 
 true, "bewitchd.pdf");
+
+update Songs set eps_filenames = "bewitchd1.eps;bewitchd2.eps;" where title = "Bewitched";
 
 /* ** *************************************************** */
 
@@ -471,6 +487,8 @@ values
 1934, "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~264.}}", 
 true, "bluemoon.pdf");
 
+update Songs set eps_filenames = "blumoon1.eps;blumoon2.eps;" where title = "Blue Moon";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
@@ -493,6 +511,8 @@ values
 ("Body and Soul", "\\vtop{\\hbox{Edward Heymann, Frank Eyton}\\vskip\\composerskip\\hbox{and Robert Sour}}", 
 "\\vbox{\\hbox{Heymann, Edward; Eyton Frank;}\\vskip\\composerskip\\hbox{and Sour, Robert}}", 
 "John W.~Green", "Green, John W.", true, 1930, true, "bodysoul.pdf");
+
+update Songs set eps_filenames = "bodysoul1.eps;bodysoul2.eps;" where title = "Body and Soul";
 
 /* ** *************************************************** */
 
@@ -525,6 +545,8 @@ values
 true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~44.}}", 
 true, "btnpvrct.pdf");
 
+update Songs set eps_filenames = "btnpvrc1.eps;btnpvrc2.eps;" where title = "Button Up Your Overcoat";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, arrangement_solo_guitar, year)
@@ -538,6 +560,8 @@ public_domain, scanned, scanned_filename)
 values
 ("By The Light Of The Silvery Moon", "Ed Madden", "Madden, Ed", "Gus Edwards", "Edwards, Gus", true, 1909,
 "{\\bf 100 Years of Popular Music, 1900}, p.~52.", true, true, "bltslvmn.pdf");
+
+update Songs set eps_filenames = "bltslvm1.eps;bltslvm2.eps;" where title = "By the Light of the Silvery Moon";
 
 select "$$$ End of B";
 
@@ -554,6 +578,8 @@ values
 "John Kander", "Kander, John", true, 1966,
 "{\\bf Vocal Selections from Cabaret}, p.~30.", true, "cabaret.pdf", "Cabaret", true);
 
+update Songs set eps_filenames = "cabaret1.eps;cabaret2.eps;" where title = "Cabaret";
+
 /* ** *************************************************** */
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, 
 source, scanned, scanned_filename)
@@ -562,6 +588,8 @@ values
 "\\vbox{\\hbox{Copyright {\\copyright} 1965 Welbeck Music Ltd.}\\vskip\\copyrightskip\\hbox{Copyright Renewed.}}", 
 "\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~30.}}", 
 true, "callme.pdf");
+
+update Songs set eps_filenames = "callme1.eps;callme2.eps;" where title = "Call Me";
 
 /* ** *************************************************** */
 
@@ -597,6 +625,8 @@ values
 ("Carolina in the Morning", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", 
 true, 1922, true, "carolina.pdf", true);
 
+update Songs set eps_filenames = "carolin1.eps;carolin2.eps;carolin3.eps;" where title = "Carolina in the Morning";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -626,11 +656,19 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, 
+delete from Songs where title = "Chicago (That Toddling Town)";
+
+select title from Songs where title like("Chicago%");
+
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, 
 scanned, scanned_filename, public_domain)
 values
-("Chicago (That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922, true, 
+("Chicago", "(That Toddling Town)", "Fred Fisher", "Fisher, Fred", true, 1922, true, 
 "chicago.pdf", true);
+
+update Songs set eps_filenames = "chicago1.eps;chicago2.eps;" where title = "Chicago";
+
+select * from Songs where title = "Chicago"\G
 
 /* ** *************************************************** */
 
@@ -640,6 +678,8 @@ values
 ("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
 1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
 "Authors real name:  Ray Gilbert.", true, "claire.pdf");
+
+update Songs set eps_filenames = "claire01.eps;claire02.eps;" where title = "Claire";
 
 /* ** *************************************************** */
 
@@ -697,6 +737,8 @@ values
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~144.", true, "corcvado.pdf",
 "portugese");
 
+update Songs set eps_filenames = "crcvdo01.eps;crcvdo02.eps;" where title = "Corcovado";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, 
@@ -715,6 +757,8 @@ values
 ("Cup of Coffee, a Sandwich and You, A", "Al Dubin and Billy Rose", "Dubin, Al and Rose, Billy",
 "Joseph Meyer", "Meyer, Joseph", true, 1925, true, "cpcffyou.pdf", true);
 
+update Songs set eps_filenames = "cupcof01.eps;cupcof02.eps;" where title = "Cup of Coffee, a Sandwich and You, A";
+
 select "$$$ End of C";
 
 /* D */
@@ -729,6 +773,8 @@ values
 ("Da geh ich zu Maxim", "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "maxim.pdf", "Lustige Witwe, Die",
 true, 1905, true, "german");
+
+update Songs set eps_filenames = "maxim01.eps;maxim02.eps;maxim03.eps;" where title = "Da geh ich zu Maxim";
 
 /* ** *************************************************** */
 
@@ -745,6 +791,8 @@ values
 "Copyright {\\copyright} 1959, 1967 (Renewed)",
 "{\\bf The Music of Antonio Carlos Jobim}, p.~3.", true, "desafndo.pdf", "portugese");
 
+update Songs set eps_filenames = "desafin1.eps;desafin2.eps;desafin3.eps;" where title = "Desafinado";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -752,6 +800,8 @@ source, musical, scanned, scanned_filename)
 values
 ("Diamonds are a Girl's Best Friend", "Leo Robin", "Robin, Leo", "Jule Styne", "Styne, Jule",
 true, 1949, "{\\bf The Library of Jazz Standards}, p.~80.", "Gentlemen Prefer Blondes", true, "diamonds.pdf");
+
+update Songs set eps_filenames = "diamnds1.eps;diamnds2.eps;" where title = "Diamonds are a Girl's Best Friend";
 
 /* ** *************************************************** */
 
@@ -795,6 +845,8 @@ values
 "Carl Maria von Weber", "Weber, Carl Maria von",
 true, 1821, "Public Domain", "Freisch@{u}tz, Der", true, "drchwldr.pdf", true, "german", true);
 
+update Songs set eps_filenames = "drchwldr01.eps;drchwldr02.eps;drchwldr03.eps;" where title = "Durch die W@{a}lder, durch die Auen";
+
 /* ** *************************************************** */
 
 /* E   */
@@ -829,6 +881,8 @@ values
 ("Este Seu Olhar", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~46.",
 1964, true, "estsolhr.pdf");
 
+update Songs set eps_filenames = "estsolhr1.eps;estsolhr2.eps;" where title = "Este Seu Olhar";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
@@ -844,6 +898,8 @@ values
 true, 1959,
 "\\vbox{\\hbox{{\\bf Broadway Double Bill, Gypsy and}}\\vskip\\sourceskip\\hbox{{\\bf Funny Girl, Vocal Selections}, p.~5.}}",
 "Gypsy", true, "evtcuprs.pdf");
+
+update Songs set eps_filenames = "evtcuprs1.eps;evtcuprs2.eps;" where title = "Everything's Coming Up Roses";
 
 /* ** *************************************************** */
 
@@ -867,6 +923,8 @@ values
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true, "felcdade.pdf",
 "Orfeu Negro", "portugese", true);
+
+update Songs set eps_filenames = "felici01.eps;felici02.eps;" where title = "Felicidade, A";
 
 /* ** *************************************************** */
 
@@ -898,6 +956,8 @@ values
 ("Fly Me to the Moon (In Other Words)", "Bart Howard", "Howard, Bart", true, 1954, 
 "Copyright {\\copyright} 1954 (Renewed)", true, "fmttmoon.pdf", 
 "\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~65.}}");
+
+update Songs set eps_filenames = "flymoon1.eps;flymoon2.eps;" where title = "Fly Me to the Moon (In Other Words)";
 
 /* ** *************************************************** */
 
@@ -944,6 +1004,8 @@ values
 "fivefoot.pdf", "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}}}",
 true); 
 
+update Songs set eps_filenames = "fivefoot.eps;" where title = "Five Foot Two, Eyes of Blue";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
@@ -954,6 +1016,8 @@ values
 "\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
 "\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
 "{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~9.", true, "foodglor.pdf");
+
+update Songs set eps_filenames = "fdglfd01.eps;fdglfd02.eps;fdglfd03.eps;fdglfd04.eps;" where title = "Food, Glorious Food";
 
 /* ** *************************************************** */
 
@@ -973,6 +1037,8 @@ values
 ("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street (Film)", 1933, 
 true, true, "ftscstrt.pdf", 
 "\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~12.}}");
+
+update Songs set eps_filenames = "frtscst1.eps;frtscst2.eps;" where title = "42nd Street";
 
 /* ** *************************************************** */
 
@@ -995,6 +1061,8 @@ values
 ("Frim Fram Sauce, The", "Redd Evans", "Evans, Redd", "Joe Ricardel", "Ricardel, Joe", true, 
 1946, "{\\bf Library of Jazz Standards, The}, p.~94.", true, "frimfram.pdf");
 
+update Songs set eps_filenames = "frimfrm1.eps;frimfrm2.eps;" where title = "Frim Fram Sauce, The";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
@@ -1014,6 +1082,8 @@ values
 ("Gar{\\^o}ta de Ipanema", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963 (Renewed)",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~84.", true, "garota.pdf", "portugese");
+
+update Songs set eps_filenames = "garota1.eps;garota2.eps;" where title = "Gar{\\\^o}ta de Ipanema";
 
 /* ** *************************************************** */
 
@@ -1043,17 +1113,23 @@ values
 true, 1941, "Lady in the Dark", "{\\bf Kurt Weill, Broadway and Hollywood}, p.~42.",
 true, "girlmmnt.pdf", true);
 
+update Songs set eps_filenames = "girlmmn1.eps;girlmmn2.eps;" where title = "Girl of the Moment";
+
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
+delete from Songs where title = "Gold Diggers' Song, The (We're in the Money)";
+
+replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
 notes, scanned, scanned_filename)
 values
-("Gold Diggers' Song, The (We're in the Money)", 
+("Gold Diggers' Song, The", "(We're in the Money)", 
 "\\vtop{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{(We're in the Money)}}", 
 "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
 true, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "golddgrs.pdf");
+
+update Songs set eps_filenames = "golddig1.eps;golddig2.eps;" where title = "Gold Diggers' Song, The";
 
 replace into Songs (title, is_cross_reference, target, lead_sheet)
 values
@@ -1083,13 +1159,17 @@ values
 
 /* ** *************************************************** */
 
--- delete from Songs where title = "Heart";
+--
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+delete from Songs where title = "Heart (You've Gotta Have Heart)";
+
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
 scanned, scanned_filename, source, sort_by_production)
 values
-("Heart (You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
+("Heart", "(You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
 true, "heart.pdf", "{\\bf Damn Yankees, Vocal Selections}, p.~2.", true);
+
+update Songs set eps_filenames = "heart1.eps;heart2.eps;" where title = "Heart";
 
 /* ** *************************************************** */
 
@@ -1100,6 +1180,8 @@ values
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
 "Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
 "{\\bf The Hoagy Carmichael Songbook}, p.~28.", true, "hrtnsoul.pdf");
+
+update Songs set eps_filenames = "hrtsoul1.eps;hrtsoul2.eps;" where title = "Heart and Soul";
 
 /* ** *************************************************** */
 
@@ -1125,6 +1207,8 @@ true, true, "hlmababy.pdf",
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~128.}}",
 "Verse missing in {\\bf 100 Years of Popular Music, 1900}.  Title and attribution vary.");
 
+update Songs set eps_filenames = "hlmabab1.eps;hlmabab2.eps;" where title = "Hello! Ma Baby";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -1132,6 +1216,8 @@ year, source, musical, scanned, scanned_filename)
 values
 ("Here's That Rainy Day", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1953,
 "{\\bf Classic Songs of Johnny Burke}, p.~33.", "Carnival in Flanders", true, "hererain.pdf");
+
+update Songs set eps_filenames = "hererain.eps;" where title = "Here's That Rainy Day";
 
 /* ** *************************************************** */
 
@@ -1175,14 +1261,17 @@ values
 
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
-replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, notes, public_domain, scanned, scanned_filename)
+replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
+year, source, public_domain, scanned, scanned_filename)
 values
-("How 'Ya Gonna Keep 'Em Down on the Farm?",
+("How 'Ya Gonna Keep 'Em Down on the Farm?", "After They've Seen Paree", 
 "\\vbox{\\hbox{How 'Ya Gonna Keep 'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
-"Subtitle:  After They've Seen Paree", true, true, "howkeepm.pdf"); 
+true, true, "howkeepm.pdf"); 
+
+update Songs set eps_filenames = "howkeep1.eps;howkeep2.eps;" where title = "How 'Ya Gonna Keep 'Em Down on the Farm?";
+
 
 /* I   */
 
@@ -1194,6 +1283,8 @@ values
 ("I Can Cook Too", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
 "Leonard Bernstein", "Bernstein, Leonard",
 true, 1944, "{\\bf Bernstein on Broadway}, p.~33.", "On the Town", true, "icancook.pdf", true);
+
+update Songs set eps_filenames = "icancook1.eps;icancook2.eps;icancook3.eps;icancook4.eps;" where title = "I Can Cook Too";
 
 /* ** *************************************************** */
 
@@ -1238,6 +1329,8 @@ true, 1941,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part One}, p.~75.}}", 
 true, "idwtswnf.pdf");
 
+update Songs set eps_filenames = "idwtswnf1.eps;idwtswnf2.eps;" where title = "I Don't Want to Set the World on Fire";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, source)
@@ -1271,6 +1364,8 @@ values
 ("I Like the Likes of You", "E.Y.~Harburg", "Harburg, E.Y.", "Vernon Duke", "Duke, Vernon",
 true, 1934, "Ziegfeld Follies of 1934", "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~28.",
 true, "lksofyou.pdf");
+
+update Songs set eps_filenames = "lksofyou1.eps;lksofyou2.eps;" where title = "I Like the Likes of You";
 
 /* ** *************************************************** */
 
@@ -1309,6 +1404,8 @@ values
 "Harold Orlob", "Orlob, Harold", true, 1909, "Prince of To-Night, The",
 "{\\bf 100 Years of Popular Music, 1900}, p.~144.",
 true, "iwndrwho.pdf", true);
+
+update Songs set eps_filenames = "iwonder01.eps;iwonder02.eps;" where title = "I Wonder Who's Kissing Her Now";
 
 /* ** *************************************************** */
 
@@ -1351,26 +1448,30 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
-musical, scanned, scanned_filename, sort_by_production)
-values
-("(I'll Marry) The Very Next Man", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
-true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "verynext.pdf", true);
-
-replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
-values
-("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!");
-
-select * from Songs where title = "Very Next Man, (I'll Marry) The"\G
-
-/* ** *************************************************** */
-
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
 scanned, scanned_filename, musical)
 values
 ("I'll Follow My Secret Heart", "No@{e}l Coward", "Coward, No@{e}l",  true, 1934, 
 "{\\copyright} 1934 (Renewed).",
 "{\\bf Sir No@{e}l Coward, His Words and Music}, p.~65.", true, "illfollw.pdf", "Conversation Piece");
+
+update Songs set eps_filenames = "illfollw1.eps;illfollw2.eps;" where title = "I'll Follow My Secret Heart";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename, sort_by_production)
+values
+("(I'll Marry) The Very Next Man", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
+true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "verynext.pdf", true);
+
+update Songs set eps_filenames = "verynext1.eps;verynext2.eps;verynext3.eps;" where title = "(I'll Marry) The Very Next Man";
+
+replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
+values
+("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!");
+
+select * from Songs where title = "Very Next Man, (I'll Marry) The"\G
 
 /* ** *************************************************** */
 
@@ -1387,6 +1488,8 @@ values
 ("I'll Remember April", "Patricia Johnston and Don Raye", "Johnston, Patricia and Raye, Don", 
 "Gene de Paul", "Paul, Gene de", true, 1, 1941, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~184.",
 "Ride 'Em Cowboy", "Abbot and Costello film", true, "illrmapr.pdf");
+
+update Songs set eps_filenames = "illrmbr1.eps;illrmbr2.eps;illrmbr3.eps;" where title = "I'll Remember April";
 
 /* ** *************************************************** */
 
@@ -1428,6 +1531,8 @@ true, 1919, true, true, "imfrvrbb.pdf",
 "\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~78.}\\vskip\\sourceskip"
 "\\hbox{{\\bf 100 Years of Popular Music, 1900}, p.~150.}}");
 
+update Songs set eps_filenames = "imfrvrbb.eps;" where title = "I'm Forever Blowing Bubbles";
+
 select * from Songs where title = "I'm Forever Blowing Bubbles"\G
 
 /* ** *************************************************** */
@@ -1442,6 +1547,8 @@ values
 "Joe Young", "Young, Joe", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1935, true, "gonnasit.pdf",
 "\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~89.}}");
 
+update Songs set eps_filenames = "gonnasi1.eps;gonnasi2.eps;" where title like("%I'm Gonna Sit Right Down%");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
@@ -1449,6 +1556,8 @@ recordings, year, film, scanned, scanned_filename)
 values
 ("I'm in the Mood for Love", "Dorothy Fields", "Fields, Dorothy", "Jimmy McHugh", "McHugh, Jimmy", true, 1,
 1935, "Every Night at Eight", true, "inmdfrlv.pdf");
+
+update Songs set eps_filenames = "inmdfrlv1.eps;inmdfrlv2.eps;inmdfrlv3.eps;" where title = "I'm in the Mood for Love";
 
 /* ** *************************************************** */
 
@@ -1459,6 +1568,8 @@ values
 true, true, "imwldahr.pdf",
 "\\vbox{\\hbox{{\\bf The Looney Tunes Songbook}, p.~102.}\\vskip\\sourceskip"
 "\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~132.}}");
+
+update Songs set eps_filenames = "imwldah1.eps;imwldah2.eps;" where title = "I'm Just Wild About Harry";
 
 /* ** *************************************************** */
 
@@ -1475,6 +1586,8 @@ values
 ("Imagination", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1939,
 "{\\bf Classic Songs of Johnny Burke}, p.~44.", true, "imagnntn.pdf");
 
+update Songs set eps_filenames = "imagin01.eps;imagin02.eps;" where title = "Imagination";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -1489,6 +1602,8 @@ values
 ("Incerteza", "Newton F.~Mendon{\\c c}a", "Mendon{\\c c}a, Newton F.", 
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1966, true, "incertza.pdf", "portugese");
 
+update Songs set eps_filenames = "incertz1.eps;incertz2.eps;" where title = "Incerteza";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
@@ -1498,6 +1613,8 @@ values
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963, 1964",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~88.", true, "insenstz.pdf", "portugese");
 
+update Songs set eps_filenames = "insenstz.eps;" where title = "Insensatez";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
@@ -1506,6 +1623,8 @@ values
 ("Isn't It Romantic?", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
 1932, "Love Me Tonight", true, "isntrmnt.pdf",
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~192.}}");
+
+update Songs set eps_filenames = "isntrmn1.eps;isntrmn2.eps;" where title = "Isn't It Romantic?";
 
 /* ** *************************************************** */
 
@@ -1534,6 +1653,8 @@ values
 ("It Had to be You", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true, 
 1924, true, "ithadbey.pdf", true);
 
+update Songs set eps_filenames = "ithadbey.eps;" where title = "It Had to be You";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, 
@@ -1543,6 +1664,8 @@ values
 1940,
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~152.}}",
 true, "itnvrmnd.pdf", "Higher and Higher");
+
+update Songs set eps_filenames = "itnvrmnd1.eps;itnvrmnd2.eps;" where title = "It Never Entered My Mind";
 
 /* ** *************************************************** */
 
@@ -1567,6 +1690,8 @@ values
 "Copyright {\\copyright} 1936 by Chappell \\& Co. (Renewed).", 
 "{\\bf The Best of Cole Porter}, p.~95", "Red, Hot and Blue", true, "itsdelve.pdf");
 
+update Songs set eps_filenames = "itsdelv1.eps;itsdelv2.eps;" where title = "It's De-Lovely";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -1581,6 +1706,8 @@ values
 ("I've Got a Feeling I'm Falling", "Billy Rose", "Rose, Billy",
 "Thomas ``Fats'' Waller and Harry Link", "Waller, Thomas ``Fats'' and Link, Harry",
 true, 1929, true, "ivgtflng.pdf", "{\\bf Ain't Misbehavin', Vocal Selections}, p.~42.");
+
+update Songs set eps_filenames = "ivgtflng1.eps;ivgtflng2.eps;" where title = "I've Got a Feeling I'm Falling";
 
 /* ** *************************************************** */
 
@@ -1623,6 +1750,9 @@ values
 ("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
 1925, "{\\copyright} 1925.  Public Domain.", true, "jealousy.pdf", "none");
 
+update Songs set eps_filenames = "jealsy01.eps;jealsy02.eps;jealsy03.eps;jealsy04.eps;jealsy05.eps;"
+where title = "Jalousie ``Tango Tzigane'' (Jealousy)";
+
 #words: Vera Bloom (Engl.)
 
 /* ** *************************************************** */
@@ -1631,6 +1761,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Japanese Sandman", "Raymond B.~Egan", "Egan, Raymond B.", "Richard A.~Whiting", "Whiting, Richard A.", 
 true, true, "jpnsndmn.pdf");
+
+update Songs set eps_filenames = "jpnsnd01.eps;jpnsnd02.eps;jpnsnd03.eps;jpnsnd04.eps;jpnsnd05.eps;" where title = "Japanese Sandman, The";
 
 /* ** *************************************************** */
 
@@ -1647,6 +1779,8 @@ values
 "Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
 true, 1942, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~46.", true, "jttrbwlz.pdf");
 
+update Songs set eps_filenames = "jttrbwlz.eps;" where title = "Jitterbug Waltz, The";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -1656,6 +1790,8 @@ values
 "Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
 true, 1938, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~78.",
 true, "jntsjmpn.pdf");
+
+update Songs set eps_filenames = "jntsjmp1.eps;jntsjmp2.eps;" where title = "Joint is Jumpin', The";
 
 /* ** *************************************************** */
 
@@ -1671,6 +1807,8 @@ values
 ("Just in Time", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
 true, 1956, "{\\bf The Comden and Green Songbook}, p.~68.", "Bells are Ringing", true, "justtime.pdf", true);
 
+update Songs set eps_filenames = "justtim1.eps;justtim2.eps;" where title = "Just in Time";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
@@ -1680,21 +1818,23 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
-scanned, scanned_filename)
-values
-("Just One of Those Things", "Cole Porter", "Porter, Cole", false, 1935, 
-"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~100.",
-true, "jstthngs.pdf");
-
-/* ** *************************************************** */
-
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
 scanned, scanned_filename)
 values
 ("Just One More Chance", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", true, 1931,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~166.}}",
 true, "jstonmcn.pdf");
+
+update Songs set eps_filenames = "jstonmc1.eps;jstonmc2.eps;" where title = "Just One More Chance";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
+scanned, scanned_filename)
+values
+("Just One of Those Things", "Cole Porter", "Porter, Cole", false, 1935, 
+"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~100.",
+true, "jstthngs.pdf");
 
 /* ** *************************************************** */
 
@@ -1708,6 +1848,8 @@ values
 true, "kpygbtfl.pdf",
 "Roman Scandals");
 
+update Songs set eps_filenames = "kpygbtf1.eps;kpygbtf2.eps;" where title = "Keep Young and Beautiful";
+
 /* ** (2) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -1717,6 +1859,8 @@ values
 "Thomas ``Fats'' Waller", "Waller, Thomas ``Fats''",
 true, 1932, "{\\bf Ain't Misbehavin', Vocal Selections}, p.~85.",
 true, "kpnmschf.pdf");
+
+update Songs set eps_filenames = "kpnmsch1.eps;kpnmsch2.eps;" where title = "Keepin' Out of Mischief Now";
 
 /* ** (2) *************************************************** */
 
@@ -1757,6 +1901,8 @@ values
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~61.", 
 true, "german");
 
+update Songs set eps_filenames = "lbvrstn1.eps;lbvrstn2.eps;lbvrstn3.eps;lbvrstn4.eps;" where title = "Lob des hohen Verstandes";
+
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
@@ -1778,6 +1924,8 @@ values
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
 "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~20.", 
 true, "german");
+
+update Songs set eps_filenames = "liedlei1.eps;liedlei2.eps;liedlei3.eps;" where title = "Wer hat das Liedlein erdacht?";
 
 /* *** (3) *************************************************** */
 
@@ -1804,6 +1952,10 @@ values
 ("L{\\`a} ci darem la mano", "Lorenzo Da Ponte", "Da Ponte, Lorenzo", "Wolfgang Amadeus Mozart",
 "Mozart, Wolfgang Amadeus", true, 1787, "Don Giovanni", true, "lacidarm.pdf", true, "italian",
 true);
+
+update Songs set eps_filenames = "lacidr01.eps;lacidr02.eps;lacidr03.eps;lacidr04.eps;lacidr05.eps;"
+where title = "L{\\`a} ci darem la mano";
+
 
 /* ** *************************************************** */
 
@@ -1838,6 +1990,8 @@ values
 ("Lady's in Love With You, The", "Frank Loesser", "Loesser, Frank", "Burton Lane", "Lane, Burton", true,
 1939, "Some Like It Hot", true, "ldysinlv.pdf", "Not the 1959 Billy Wilder film.");
 
+update Songs set eps_filenames = "ldysinlv1.eps;ldysinlv2.eps;" where title = "Lady's in Love With You, The";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, arrangement_solo_guitar, notes,
@@ -1858,6 +2012,8 @@ values
 ("Lazy River", "\\vtop{\\hbox{Hoagy Carmichael}\\vskip\\composerskip\\hbox{and Sidney Arodin}}",
 "Carmichael, Hoagy and Arodin, Sidney", 
 true, 1931, "{\\bf The Hoagy Carmichael Songbook}, p.~60.", true, "lazyrivr.pdf");
+
+update Songs set eps_filenames = "lazyrivr1.eps;lazyrivr2.eps;" where title = "Lazy River";
 
 /* ** *************************************************** */
 
@@ -1895,6 +2051,8 @@ values
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "lipnschw.pdf", "Lustige Witwe, Die",
 "English title:  The Merry Widow Waltz", true, 1905, true, "german");
 
+update Songs set eps_filenames = "lpnsch01.eps;lpnsch02.eps;" where title = "Lippen schweigen";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -1904,6 +2062,8 @@ values
 "Victor L{\\'e}on und Leo Stein", "L{\\'e}on, Victor und Stein, Leo",
 "Franz Leh{\\'a}r", "Leh{\\'a}r, Franz", true, true, "dummreit.pdf", 
 "Lustige Witwe, Die", true, 1905, true, "german");
+
+update Songs set eps_filenames = "dummrt01.eps;dummrt02.eps;dummrt03.eps;" where title = "Lied vom dummen Reiter, Das";
 
 /* ** *************************************************** */
 
@@ -1927,6 +2087,8 @@ values
 true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~48.",
 true, "listsong.pdf", true);
 
+update Songs set eps_filenames = "listsong1.eps;listsong2.eps;" where title = "Listen to My Song (Johnny's Song)";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
@@ -1934,6 +2096,8 @@ musical, scanned, scanned_filename, sort_by_production)
 values
 ("Little Tin Box", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
 true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~22.", "Fiorello!", true, "lttltnbx.pdf", true);
+
+update Songs set eps_filenames = "lttltnbx1.eps;lttltnbx2.eps;" where title = "Little Tin Box";
 
 /* ** *************************************************** */
 
@@ -1977,6 +2141,8 @@ values
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~196.}}",
 true, "lvltrsnd.pdf");
 
+update Songs set eps_filenames = "lvltrsn1.eps;lvltrsn2.eps;" where title = "Love Letters in the Sand";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
@@ -1994,6 +2160,8 @@ values
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~152.}}",
 true, "lvrcbtme.pdf");
 
+update Songs set eps_filenames = "lvrcmbk1.eps;lvrcmbk2.eps;" where title = "Lover Come Back to Me";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
@@ -2004,6 +2172,8 @@ values
 "\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "lullbrdw.pdf");
+
+update Songs set eps_filenames = "lullbrd1.eps;lullbrd2.eps;" where title = "Lullaby of Broadway";
 
 /* ** *************************************************** */
 
@@ -2027,6 +2197,8 @@ values
 ("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~160}}", 
 true, "makwhoop.pdf");
+
+update Songs set eps_filenames = "mkwhoop1.eps;mkwhoop2.eps;" where title = "Makin' Whoopee!";
 
 /* ** *************************************************** */
 
@@ -2056,6 +2228,8 @@ values
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~106.}}",
 true, "manhttan.pdf", true);
 
+update Songs set eps_filenames = "manhattan01.eps;manhattan02.eps;" where title = "Manhattan";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
@@ -2071,6 +2245,8 @@ values
 ("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
 "{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.",
 true, "masquend.pdf", "portugese");
+
+update Songs set eps_filenames = "masque01.eps;masque02.eps;" where title = "Mas Que Nada";
 
 /* ** *************************************************** */
 
@@ -2088,6 +2264,8 @@ values
 true, 1930, true, "memrsofy.pdf", 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s }}\\vskip\\sourceskip\\hbox{{\\bf-- Volume 1}, p.~204.}}",
 "Blackbirds of 1930");
+
+update Songs set eps_filenames = "memrsof1.eps;memrsof2.eps;" where title = "Memories of You";
 
 /* ** *************************************************** */
 
@@ -2117,6 +2295,8 @@ values
 ("Mon Ami, My Friend", "Paul Green", "Green, Paul", "Kurt Weill", "Weill, Kurt", 
 true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~52.",
 true, "monamimf.pdf", true);
+
+update Songs set eps_filenames = "monamimf1.eps;monamimf2.eps;monamimf3.eps;" where title = "Mon Ami, My Friend";
 
 /* ** *************************************************** */
 
@@ -2154,6 +2334,8 @@ values
 ("Moonlight Bay", "Edward Madden", "Madden, Edward", "Percy Wenrich", "Wenrich, Percy", true, 1912,
 "{\\bf 100 Years of Popular Music, 1900s}", true, "moonltby.pdf", true);
 
+update Songs set eps_filenames = "mnltbay1.eps;mnltbay2.eps;" where title = "Moonlight Bay";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -2185,6 +2367,8 @@ values
 1935, "Copyright {\\copyright} 1935 (Renewed).", "{\\bf Big Book of Big Band Hits, The}, p.~175.",
 true, "mscgsrnd.pdf");
 
+update Songs set eps_filenames = "mscgsrnd.eps;" where title = "Music Goes 'Round and Around, The";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -2206,6 +2390,8 @@ values
 ("My Heart Stood Still", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 
 "Connecticut Yankee, A", 1927, true, "mhrtstst.pdf");
 
+update Songs set eps_filenames = "myheart01.eps;myheart02.eps;" where title = "My Heart Stood Still";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -2213,6 +2399,8 @@ scanned, scanned_filename, year, public_domain)
 values
 ("My Melancholy Baby", "George A. Norton", "Norton, George A.", "Ernie Burnett", "Burnett, Ernie", 
 true, true, "mymelbby.pdf", 1912, true);
+
+update Songs set eps_filenames = "mymlby01.eps;mymlby02.eps;" where title = "My Melancholy Baby";
 
 /* ** *************************************************** */
 
@@ -2222,6 +2410,8 @@ values
 ("My Old Flame", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", 
 true, true, "myoldflm.pdf", 1934, "Copyright {\\copyright} 1934 (Renewed 1961) by Famous Music Corporation",
 "{\\bf Big Book of Standards}, p.~212.", "Belle of the Nineties");
+
+update Songs set eps_filenames = "myoldfl1.eps;myoldfl2.eps;" where title = "My Old Flame";
 
 /* N   */
 
@@ -2240,6 +2430,8 @@ values
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1937, 
 "\\vtop{\\hbox{Copyright {\\copyright} 1937, 1940 (Renewed 1964, 1967)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation}}",
 "{\\bf The Hoagy Carmichael Songbook}, p.~84.", true, "nrnsfyou.pdf");
+
+update Songs set eps_filenames = "nearnss1.eps;nearnss2.eps;" where title = "Nearness of You, The";
 
 /* ** *************************************************** */
 
@@ -2268,6 +2460,8 @@ values
 "\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~270.}}",
 true, "nicework.pdf");
 
+update Songs set eps_filenames = "nicewrk1.eps;nicewrk2.eps;" where title = "Nice Work If You Can Get It";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year, source)
@@ -2292,6 +2486,8 @@ values
 "Billy Meyers and Elmer Schoebel", "Meyers, Billy and Schoebel, Elmer", 
 true, true, "nbswthrt.pdf");
 
+update Songs set eps_filenames = "nbdswt01.eps;nbdswt02.eps;nbdswt03.eps;" where title = "Nobody's Sweetheart";
+
 select "!!! N";
 
 /* O   */
@@ -2310,6 +2506,8 @@ values
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
 "portugese", "Orfeu Negro", true);
 
+update Songs set eps_filenames = "onssamor1.eps;onssamor2.eps;onssamor3.eps;" where title = "O Nosso Amor (Carnival Samba)";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
@@ -2326,6 +2524,8 @@ values
 "Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
 "{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
 true, "french");
+
+update Songs set eps_filenames = "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;" where title = "Oiseaux dans les charmille, Les";
 
 /* ** *************************************************** */
 
@@ -2348,6 +2548,8 @@ values
 true, "Green Dolphin Street", 1947, 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~186.}}",
 true, "grndlphn.pdf");
+
+update Songs set eps_filenames = "grndlphn.eps;" where title = "On Green Dolphin Street";
 
 /* ** *************************************************** */
 
@@ -2398,6 +2600,7 @@ true, "Wizard of Oz, The", 1938, "Copyright {\\copyright} 1938, 1939 (Renewed)",
 "{\\bf The Harold Arlen Songbook}, p.~112", "Accidentally wrote out lead sheet twice.", true,
 "ovrrnbow.pdf");
 
+update Songs set eps_filenames = "ovrrnb01.eps;ovrrnb02.eps;" where title = "Over the Rainbow";
 
 select "!!! End O";
 
@@ -2432,6 +2635,8 @@ musical, scanned, scanned_filename, sort_by_production)
 values
 ("Party's Over, The", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", "Jule Styne", "Styne, Jule",
 true, 1956, "{\\bf The Comden and Green Songbook}, p.~127.", "Bells are Ringing", true, "prtyover.pdf", true);
+
+update Songs set eps_filenames = "prtyovr1.eps;prtyovr2.eps;" where title = "Party's Over, The";
 
 /* ** *************************************************** */
 
@@ -2479,9 +2684,15 @@ values
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true);
 
-replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
+update Songs set eps_filenames = "polow01.eps;polow02.eps;polow03.eps;" where title = "Polowetzer T@{a}nze";
+
+delete from Songs where title = "Strangers in Paradise";
+
+replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
-("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor ({\\mediumcy kNQZX iGORX})");
+("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
+
+
 
 /* ** *************************************************** */
 
@@ -2490,6 +2701,8 @@ source, scanned, scanned_filename, language)
 values
 ("Por Una Cabeza", "Alfredo Le Pera", "Le Pera, Alfredo", "Carlos Gardel", "Gardel, Carlos", true, 1935,
 "{\\bf Carlos Gardel, Tangos ${\\rm V}^{\\rm o}$ II}, p.~32.", true, "prunacbz.pdf", "spanish");
+
+update Songs set eps_filenames = "prunacbz.eps;" where title = "Por Una Cabeza";
 
 /* ** *************************************************** */
 
@@ -2613,6 +2826,8 @@ values
 ("Samba de Orfeu", "Ant{\\^o}nio Maria", "Maria, Ant{\\^o}nio",
 "Luiz Bonf{\\'a}", "Bonf{\\'a}, Luiz", true, "Orfeu Negro", 1959, true, "sambaorf.pdf", "portugese", true);
 
+update Songs set eps_filenames = "samborf1.eps;samborf2.eps;" where title = "Samba de Orfeu";
+
 /* ** *************************************************** */
 
 -- delete from Songs where title = "Samba de uma nota so";
@@ -2658,6 +2873,8 @@ values
 ("September Song", "Maxwell Anderson", "Anderson, Maxwell", "Kurt Weill", "Weill, Kurt", 
 true, "Knickerbocker Holiday", 1938, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~40.", 
 true, "sptmbsng.pdf", true);
+
+update Songs set eps_filenames = "sptmbsn1.eps;sptmbsn2.eps;" where title = "September Song";
 
 /* ** *************************************************** */
 
@@ -3245,6 +3462,8 @@ values
 "\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
 "{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~97.", true, "whwllbuy.pdf");
 
+update Songs set eps_filenames = "whwllbuy.eps;" where title = "Who Will Buy?";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
@@ -3295,11 +3514,13 @@ false, "gutencht.pdf", "german", true);
 select * from Songs where title = "Bewitched"\G
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-year, film, source, notes, scanned, scanned_filename, sort_by_production)
+year, film, production_subtitle, source, notes, scanned, scanned_filename, sort_by_production)
 values
 ("Woman in Love, A", "Frank Loesser", "Loesser, Frank", true, 1955,
-"Guys and Dolls (Film)", "Guys and Dolls, Vocal Selections, p.~2.",
+"Guys and Dolls", "(Film)", "Guys and Dolls, Vocal Selections, p.~2.",
 "In the 1955 film, not in the original Broadway production.", true, "womninlv.pdf", true);
+
+update Songs set eps_filenames = "womninlv1.eps;womninlv2.eps;" where title = "Woman in Love, A";
 
 /* ** *************************************************** */
 
