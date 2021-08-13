@@ -73,6 +73,7 @@ all-sep: all_sep.pdf
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex \
              sub_filecrds.tex filecrds.tex
 	tex all_sep.tex
+	tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi #sep_all.sh
 	dvipdfmx $<

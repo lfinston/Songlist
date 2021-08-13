@@ -1260,14 +1260,15 @@ values
 
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
-replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, public_domain, scanned, scanned_filename, eps_filenames)
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
+year, source, public_domain, scanned, scanned_filename, eps_filenames, notes)
 values
-("How 'Ya Gonna Keep 'Em Down on the Farm?", "(After They've Seen Paree)", 
+("How 'Ya Gonna Keep 'Em Down on the Farm?", 
 "\\vbox{\\hbox{How 'Ya Gonna Keep 'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
-true, true, "howkeepm.pdf", "howkeep1.eps;howkeep2.eps;"); 
+true, true, "howkeepm.pdf", "howkeep1.eps;howkeep2.eps;",
+"Subtitle:  (After They've Seen Paree)"); 
 
 update Songs set  =  where title = "How 'Ya Gonna Keep 'Em Down on the Farm?";
 
@@ -2909,11 +2910,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, production_subtitle, year,
 sort_by_production, source)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"42nd Street (Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
+"42nd Street", "(Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
+
 
 /* ** *************************************************** */
 
@@ -3572,20 +3574,20 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-film, year, sort_by_production, source)
+film, production_subtitle, year, sort_by_production, source)
 values
 ("Young and Healthy", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 
-"42nd Street (Film)", 1933, true, 
+"42nd Street", "(Film)", 1933, true, 
 "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-film, year, sort_by_production, source)
+film, production_subtitle, year, sort_by_production, source)
 values
 ("You're Getting to Be a Habit With Me", "Al Dubin", "Dubin, Al",
 "Harry Warren", "Warren, Harry", true,
-"42nd Street (Film)", 1933, true,
+"42nd Street", "(Film)", 1933, true,
 "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
 
 /* ** *************************************************** */
@@ -5792,6 +5794,8 @@ select * from Productions order by title\G
 
 select title, scanned, scanned_filename, eps_filenames from Songs where (scanned is true or length(scanned_filename) > 0) 
 and length(eps_filenames) = 0 order by title\G
+
+select title, subtitle from Songs where length(subtitle) > 0;
 
 
 /* * (1)  */
