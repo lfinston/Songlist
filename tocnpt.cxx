@@ -2036,11 +2036,23 @@ getchar();
               if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
                   || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                   || temp_char <= 'h')
-                 toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title << endl;
+              {
+                 toc_ls_a_h_file << "\\vskip.5\\baselineskip\\vbox{{\\R}" << iter->title;
+
+                 toc_ls_a_h_file << endl;
+              }
               else if (temp_char <= 'o')
-                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+              {
+                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
+
+                toc_ls_i_o_file << endl;
+              }
               else 
-                toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+              {
+                toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
+
+                toc_ls_p_z_file << endl;
+              }
 
               if (DEBUG)
                  cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
