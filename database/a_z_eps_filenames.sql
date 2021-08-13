@@ -36,8 +36,7 @@ update Songs set eps_filenames = "chicago1.eps;chicago2.eps;" where title = "Chi
 
 update Songs set eps_filenames = "claire01.eps;claire02.eps;" where title = "Claire";
 
-update Songs set eps_filenames = "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl04.eps;" where title 
-= "Barcarole (Belle nuit, {\\^o} nuit d'amour)";
+update Songs set eps_filenames = "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl04.eps;" where title = "Barcarole";
 
 update Songs set eps_filenames = "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;" where title = "Oiseaux dans les charmille, Les";
 

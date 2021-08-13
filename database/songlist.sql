@@ -66,6 +66,7 @@ GRANT ALL ON Taxonomy TO 'laurence'@'localhost';
 create table Songs
 (
     title varchar(128) unique not null,
+    subtitle varchar(128) not null default "",
     words varchar(128) default null,
     music varchar(128) default null,
     words_and_music varchar(128) default null,
@@ -98,6 +99,7 @@ create table Songs
     filecard_title varchar(128) not null default "",
     number_filecards boolean not null default false,
     eps_filenames varchar(512) not null default ""
+    
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -121,10 +123,14 @@ alter table Songs add column number_filecards boolean not null default false aft
 alter table Songs add column eps_filenames varchar(512) not null default "" after number_filecards;
 alter table Songs modify column target varchar(256) not null default "";
 alter table Songs modify column song_cycle varchar(256) default null;
+alter table Songs add column subtitle varchar(128) not null default "" after title;
 
 show columns from Songs;
 
 delete from Songs;
+
+select distinct subtitle from Songs where subtitle <> "";
+
 
 /* ** (2) Composers */
 
@@ -389,18 +395,20 @@ values
 
 /* ** *************************************************** */
 
--- delete from Songs where title = "Barcarole";
+-- delete from Songs where title like("Barcarole (%");
 
--- select title from Songs where title like("Barcarole%");
+-- select title, subtitle from Songs where title like("Barcarole%");
 
 -- delete from Songs where title like("Barcarole%");
 
 -- select "{\\^o}";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+select title, subtitle, eps_filenames from Songs where music = "Jacques Offenbach";
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet,
 opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
 values
-("Barcarole (Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
+("Barcarole", "(Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
 "\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"

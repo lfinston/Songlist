@@ -612,10 +612,6 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-#if 0 
-, subtitle 
-#endif 
-
    temp_strm << "select distinct musical, year, public_domain from Songs where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
 
@@ -692,18 +688,6 @@ process_tocs_and_npt(void)
              cerr << "BBB `musical' == " << curr_row[0] << endl;
 
            curr_production.title.assign(curr_row[0]);
-           curr_production.subtitle = "";
-
-#if 0 
-           cerr << "curr_row[3] == \"" << curr_row[3] << "\"" << endl;
-
-           if (strlen(curr_row[3]) > 0)
-             curr_production.subtitle.assign(curr_row[3]);
-
-           cerr << "curr_production.subtitle == \"" << curr_production.subtitle << "\"" << endl;
-#endif 
-
-
            curr_production.musical.assign(curr_row[0]);
            curr_production.is_production = true;
            if (curr_row[1])
@@ -725,13 +709,8 @@ process_tocs_and_npt(void)
      }
    
    /* Operas  */
-   
-   temp_strm.str("");
-   
-#if 0 
-, subtitle 
-#endif 
 
+   temp_strm.str("");
 
    temp_strm << "select distinct opera, year, public_domain from Songs where lead_sheet is true and opera is not null "
              << "and sort_by_production is true order by opera;";
@@ -761,6 +740,11 @@ process_tocs_and_npt(void)
        cerr << "`submit_mysql_query' succeeded, returning 0." << endl
             << "`row_ctr'   == " << row_ctr << endl
             << "`field_ctr' == " << field_ctr << endl;
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
+
      }
    
    /*  Process the contents of |result|  */
@@ -808,15 +792,7 @@ process_tocs_and_npt(void)
          if (DEBUG)
            cerr << "`opera' == " << curr_row[0] << endl;
 
-         curr_production.subtitle = "";
-
          curr_production.title.assign(curr_row[0]);
-
-#if 0 
-         if (strlen(curr_row[3]) > 0)
-            curr_production.subtitle = curr_row[3];
-#endif 
-
          curr_production.opera.assign(curr_row[0]);
          curr_production.is_production = true;
          if (curr_row[1])
@@ -841,10 +817,6 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-#if 0 
-, subtitle 
-#endif 
-
 
    temp_strm << "select distinct operetta, year, public_domain from Songs where lead_sheet is true and operetta is not null "
              << "and sort_by_production is true order by operetta;";
@@ -921,15 +893,7 @@ process_tocs_and_npt(void)
            if (DEBUG)
              cerr << "`operetta' == " << curr_row[0] << endl;
 
-           curr_production.subtitle = "";
-
            curr_production.title.assign(curr_row[0]);
-
-#if 0 
-           if (strlen(curr_row[3]) > 0)
-            curr_production.subtitle = curr_row[3];
-#endif 
-
            curr_production.operetta.assign(curr_row[0]);
            curr_production.is_production = true;
            if (curr_row[1])
@@ -954,11 +918,6 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-#if 0 
-, subtitle 
-#endif 
-
-
    temp_strm << "select distinct song_cycle, year, public_domain from Songs where lead_sheet is true and song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
@@ -1034,15 +993,7 @@ process_tocs_and_npt(void)
            if (DEBUG)
              cerr << "`song_cycle' == " << curr_row[0] << endl;
 
-           curr_production.subtitle = "";
-
            curr_production.title.assign(curr_row[0]);
-
-#if 0   
-           if (strlen(curr_row[3]) > 0)
-              curr_production.subtitle = curr_row[3];
-#endif 
-
            curr_production.song_cycle.assign(curr_row[0]);
            curr_production.is_production = true;
            if (curr_row[1])
@@ -1066,11 +1017,6 @@ process_tocs_and_npt(void)
    /* Revues  */
    
    temp_strm.str("");
-
-#if 0 
-, subtitle 
-#endif 
-   
 
    temp_strm << "select distinct revue, year, public_domain from Songs where lead_sheet is true and revue is not null "
              << "and sort_by_production is true order by revue";
@@ -1147,15 +1093,7 @@ process_tocs_and_npt(void)
            if (DEBUG)
              cerr << "`revue' == " << curr_row[0] << endl;
 
-           curr_production.subtitle = "";
-
            curr_production.title.assign(curr_row[0]);
-
-#if 0 
-           if (strlen(curr_row[3]) > 0)
-              curr_production.subtitle = curr_row[3];
-#endif 
-
            curr_production.revue.assign(curr_row[0]);
            curr_production.is_production = true;
            if (curr_row[1])
@@ -1181,11 +1119,6 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-#if 0 
-, subtitle 
-#endif 
-
-
    temp_strm << "select distinct film, year, public_domain from Songs where lead_sheet is true and film is not null "
              << "and sort_by_production is true order by film;";
 
@@ -1261,15 +1194,7 @@ process_tocs_and_npt(void)
            if (DEBUG)
              cerr << "`film' == " << curr_row[0] << endl;
  
-           curr_production.subtitle = "";
-
            curr_production.title.assign(curr_row[0]);
-
-#if 0
-           if (strlen(curr_row[3]) > 0)
-              curr_production.subtitle = curr_row[3];
-#endif 
-
            curr_production.film.assign(curr_row[0]);
            curr_production.is_production = true;
            if (curr_row[1])
@@ -1320,13 +1245,8 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-#if 0 
-, subtitle 
-#endif 
-
-
        temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, "
-                 << "song_cycle, revue, film, public_domain "
+                 << "song_cycle, revue, film, public_domain, subtitle "
                  << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
@@ -1475,9 +1395,7 @@ process_tocs_and_npt(void)
                curr_song.public_domain = static_cast<bool>(atoi(curr_row[9]));
 #endif 
 
-#if 0 
                curr_song.subtitle.assign(curr_row[10]);
-#endif 
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -2194,7 +2112,8 @@ process_tocs_and_npt(void)
 
                    }
 
-                   temp_strm << "\\Section{" << temp_str_2 << "}{" << t_iter->title << "}{}" << endl
+                   temp_strm << "\\Section{" << temp_str_2 << "}{" << t_iter->title << "}{"
+                             << t_iter->subtitle << "}" << endl
                              << "\\hldest{xyz}{}{" << temp_str_2 << "}" << endl;
 
                    pos = 0;

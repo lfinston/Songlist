@@ -54,6 +54,7 @@ class Song
 
     int song_ctr;
     string title;
+    string subtitle;
     string words;
     string words_reverse;
     string music;
@@ -101,6 +102,7 @@ class Song
     Song(void) 
     {
          title = "";
+         subtitle = "";
 	 words = "";
 	 words_reverse = "";
 	 music = "";
@@ -145,6 +147,7 @@ class Song
     Song(const Song &s) 
     {
       title = s.title;
+      subtitle = s.subtitle;
       words = s.words;
       words_reverse = s.words_reverse;
       music = s.music;
@@ -200,6 +203,7 @@ class Production
     private:
 
        string title;
+       string subtitle;
        string words;
        string music;
        string words_and_music;

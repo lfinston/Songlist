@@ -877,6 +877,7 @@ Song::show(string s)
      cerr << s << endl;
  
   cerr << "title:                            " << title << endl
+       << "subtitle:                         " << subtitle << endl
        << "words:                            " << words << endl
        << "words_reverse:                    " << words_reverse << endl
        << "music:                            " << music << endl
@@ -933,6 +934,7 @@ Song::clear(void)
 {
     song_ctr = 0;
     title = "";
+    subtitle = "";
     words = "";
     words_reverse = "";
     music = "";
@@ -1525,6 +1527,7 @@ remove_formatting_commands(string s)
 Production::Production(void)
 {
        title = "";
+       subtitle = "";
        words = "";
        music = "";
        words_and_music = "";
@@ -1547,6 +1550,7 @@ Production::Production(void)
 Production::Production(const Production& p)
 {
    title            = p.title; 
+   subtitle         = p.subtitle; 
    words            = p.words;
    music            = p.music;
    words_and_music  = p.words_and_music;
@@ -1571,6 +1575,7 @@ void
 Production::clear(void)
 {
    title = "";
+   subtitle = "";
    words = "";
    music = "";
    words_and_music = "";
@@ -1598,6 +1603,7 @@ Production::show(string s)
 
    cerr << s << endl
         << "title:             " << title << endl
+        << "subtitle:          " << subtitle << endl
         << "words:             " << words << endl
         << "music:             " << music << endl
         << "words_and_music:   " << words_and_music << endl
@@ -1615,7 +1621,6 @@ Production::show(string s)
 
    return;
 }
-
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */

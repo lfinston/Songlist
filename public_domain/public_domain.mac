@@ -64,6 +64,11 @@
 \setbox0=\hbox{\hskip6em}
 \dimen0=\wd0
 
+\let\@=@
+
+\catcode`\@=\active
+\let@=\"
+
 \def\A#1#2{\hbox to .6\hsize{#1\leaderfill\hbox to .333\hsize{#2\hss}}}
 
 \def\Slash#1{\begingroup\setbox0=\hbox{{\Small #1}}
@@ -169,7 +174,7 @@
 \vskip.125\baselineskip
 \centerline{Copyright 2021 {\copyright} Laurence D.~Finston}
 \vskip.125\baselineskip
-\centerline{Contact:  {\tt Laurence.Finston@gmx.de}}
+\centerline{Contact:  {\tt Laurence.Finston\@gmx.de}}
 \vskip\baselineskip
 This file is part of the Songlist package.\hfil\break
 Songlist is free software; you can redistribute it and/or modify 
