@@ -175,7 +175,8 @@ process_tocs_and_npt(void)
              <<        "filecard_title, "                   // 32
              <<        "source, "                           // 33
              <<        "number_filecards, "                 // 34
-             <<        "eps_filenames "                     // 35
+             <<        "eps_filenames, "                    // 35
+             <<        "subtitle "                          // 36
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -397,12 +398,12 @@ process_tocs_and_npt(void)
        if (curr_row[17])
        {
          if (DEBUG)
-           cerr << "`musical'                          == " << curr_row[17] << endl;
+           cerr << "AAA `musical'                          == " << curr_row[17] << endl;
          curr_song.musical.assign(curr_row[17]);         
        }
        else
        {   if (DEBUG)
-           cerr << "`musical'                          == NULL" << endl;
+           cerr << "AAA `musical'                          == NULL" << endl;
        }  
        if (curr_row[18])
        {
@@ -537,6 +538,10 @@ process_tocs_and_npt(void)
          if (DEBUG)
            cerr << "`eps_filenames'                         == " << curr_row[35] << endl;
 
+       curr_song.subtitle = curr_row[36];
+         if (DEBUG)
+           cerr << "`subtitle'                              == " << curr_row[36] << endl;
+
        if (DEBUG)
          curr_song.show("curr_song:");
 
@@ -545,7 +550,8 @@ process_tocs_and_npt(void)
        curr_song.clear();
 
        if (DEBUG) 
-         cerr << "song_vector.back().title == " << song_vector.back().title << endl;
+         cerr << "song_vector.back().title    == " << song_vector.back().title << endl
+              << "song_vector.back().subtitle == " << song_vector.back().subtitle << endl;
 
    } while (curr_row != 0);
 
