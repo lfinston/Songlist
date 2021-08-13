@@ -2424,8 +2424,6 @@ getchar();
          
          toc_ls_file << endl;
 
-/* !!START HERE:  LDF 2021.08.13.  Find all places where title or production (film, musical, etc.) are 
-   written to a file and print subtitle or production_subtitle to the file.  */ 
 
          if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
              || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
@@ -2454,17 +2452,31 @@ getchar();
                 toc_ls_a_h_file << ")}" << endl << endl;
              }
              else if (!iter->is_production)
-                toc_ls_a_h_file << "\\M " << iter->title << endl;
+             {
+                toc_ls_a_h_file << "\\M " << iter->title;
+
+                if (iter->subtitle.length() > 0)
+                   toc_ls_a_h_file << " " << iter->subtitle;
+
+                toc_ls_a_h_file << endl;
+               
+             }
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
+            {
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->musical << "'')"
                               << endl;
+            }
             else if (iter->opera.length() > 0 && iter->sort_by_production)
+            {
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->opera << "'')"
                               << endl;
+            }
             else if (iter->operetta.length() > 0 && iter->sort_by_production)
+            {
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->operetta << "'')"
                               << endl;
+            }
             else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
             {
               if (iter->song_cycle.length() > 20)
@@ -2480,11 +2492,15 @@ getchar();
 
             }  
             else if (iter->revue.length() > 0 && iter->sort_by_production)
+            {
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->revue << "'')"
                               << endl;
+            }
             else if (iter->film.length() > 0 && iter->sort_by_production)
+            {
               toc_ls_a_h_file << "\\nobreak" << endl << "\\R (see under ``" << iter->film << "'')"
                               << endl;
+            }
          
             toc_ls_a_h_file << endl;
          }
@@ -2492,12 +2508,23 @@ getchar();
          {
              if (iter->is_cross_reference)
              {
-                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
-                            << endl
-                            << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
+                toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title;
+
+                if (iter->subtitle.length() > 0)
+                   toc_ls_i_o_file << " " << iter->subtitle;
+
+                toc_ls_i_o_file  << endl
+                                 << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
 
                 if (iter->production != "")
-                   toc_ls_i_o_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+                {
+                   toc_ls_i_o_file << "\\nobreak" << endl << "\\S under ``" << iter->production;
+
+                   if (iter->production_subtitle.length() > 0)
+                      toc_ls_i_o_file << " " << iter->production_subtitle;
+
+                   toc_ls_i_o_file << "''";
+                }
 
                 toc_ls_i_o_file << ")}" << endl << endl;
              }
@@ -2513,34 +2540,75 @@ getchar();
              }
 
             if (iter->musical.length() > 0 && iter->sort_by_production)
-              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
+            {
+              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical;
+
+              if (iter->production_subtitle.length() > 0)
+                toc_ls_i_o_file << " " << iter->production_subtitle;
+
+              toc_ls_i_o_file << "'')"
                               << endl;
+            }
             else if (iter->opera.length() > 0 && iter->sort_by_production)
-              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-                              << endl;
+            {
+              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera;
+
+              if (iter->production_subtitle.length() > 0)
+                toc_ls_i_o_file << " " << iter->production_subtitle;
+
+              toc_ls_i_o_file << "'')" << endl;
+
+            }
             else if (iter->operetta.length() > 0 && iter->sort_by_production)
-              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-                              << endl;
+            {
+              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta;
+              
+              if (iter->production_subtitle.length() > 0)
+                toc_ls_i_o_file << " " << iter->production_subtitle;
+               
+              toc_ls_i_o_file << "'')" << endl;
+            }
             else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
             {
               if (iter->song_cycle.length() > 20)
               {
                  toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under" << endl 
-                             << "\\S ``" << iter->song_cycle << "'')" << endl;
+                             << "\\S ``" << iter->song_cycle;
+
+                 if (iter->production_subtitle.length() > 0)
+                    toc_ls_i_o_file << " " << iter->production_subtitle;
+ 
+                 toc_ls_i_o_file << "'')" << endl;
               }
               else
               {
-                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                             << endl;
+                 toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle;
+
+                 if (iter->production_subtitle.length() > 0)
+                   toc_ls_i_o_file << " " << iter->production_subtitle;
+
+                 toc_ls_i_o_file << "'')" << endl;
               }
 
             }  
             else if (iter->revue.length() > 0 && iter->sort_by_production)
-              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-                              << endl;
+            {
+              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue;
+       
+              if (iter->production_subtitle.length() > 0)
+                toc_ls_i_o_file << " " << iter->production_subtitle;
+
+              toc_ls_i_o_file << "'')" << endl;
+            }
             else if (iter->film.length() > 0 && iter->sort_by_production)
-              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-                              << endl;
+            {
+              toc_ls_i_o_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film;
+
+              if (iter->production_subtitle.length() > 0)
+                toc_ls_i_o_file << " " << iter->production_subtitle;
+
+              toc_ls_i_o_file << "'')" << endl;
+            }
          
             toc_ls_i_o_file << endl;
 
@@ -2569,14 +2637,20 @@ getchar();
            }
           
            if (iter->musical.length() > 0 && iter->sort_by_production)
+           {
              toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
                              << endl;
+           }
            else if (iter->opera.length() > 0 && iter->sort_by_production)
+           {
              toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
                              << endl;
+           }
            else if (iter->operetta.length() > 0 && iter->sort_by_production)
+           {
              toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
                              << endl;
+           }
            else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
            {
              if (iter->song_cycle.length() > 20)
@@ -2592,11 +2666,15 @@ getchar();
 
            }  
            else if (iter->revue.length() > 0 && iter->sort_by_production)
+           {
              toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
                              << endl;
+           }
            else if (iter->film.length() > 0 && iter->sort_by_production)
+           {
              toc_ls_p_z_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
                              << endl;
+           }
          
            toc_ls_p_z_file << endl;
          }
@@ -2616,7 +2694,6 @@ getchar();
        {
          toc_npt_file << "\\M " << iter->title << " (PLS)" << endl << endl;
        }
-
        
      }  /* |for|  */
  
