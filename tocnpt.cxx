@@ -95,7 +95,9 @@ ofstream songs_m_n_file;
 ofstream songs_o_s_file;
 ofstream songs_t_z_file;
 
+ofstream *curr_songs_file = 0;
 
+/* * (1) */
 
 /* ``tocs'' stands for ``table(s) of contents''.  */
 /* ``npt'' stands for ``no page turns''.          */
@@ -103,6 +105,7 @@ ofstream songs_t_z_file;
 int
 process_tocs_and_npt(void)
 {
+/* ** (2) */
 
    bool DEBUG = false; /* |true|  */
 
@@ -111,6 +114,8 @@ process_tocs_and_npt(void)
    stringstream temp_strm;
    string temp_str; 
    string temp_str_1; 
+   string temp_str_2; 
+   string temp_str_3; 
   
    Song curr_song;
 
@@ -120,6 +125,12 @@ process_tocs_and_npt(void)
 
    size_t pos;
    size_t pos_1;
+
+   bool song_from_production_flag;
+   song_from_production_flag = false;
+   
+   bool public_domain_flag;
+   public_domain_flag = false;
 
    errno = 0;
 
@@ -585,8 +596,6 @@ process_tocs_and_npt(void)
    /* Musicals  */
    
    temp_strm.str("");
-
-
 
    temp_strm << "select distinct musical, year, public_domain from Songs where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
@@ -1215,7 +1224,8 @@ process_tocs_and_npt(void)
 
        temp_strm.str("");
 
-       temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, song_cycle, revue, film "
+       temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, "
+                 << "song_cycle, revue, film, public_domain "
                  << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
@@ -1344,8 +1354,6 @@ process_tocs_and_npt(void)
                  
                  }  /* |if (curr_row == 0)|  */
 
-               iter->title_vector.push_back(curr_row[0]);
-
                curr_song.title = curr_row[0];
 
                curr_song.scanned = static_cast<bool>(atoi(curr_row[1]));
@@ -1362,6 +1370,9 @@ process_tocs_and_npt(void)
                   curr_song.revue = curr_row[7];
                if (curr_row[8])
                   curr_song.film = curr_row[8];
+#if 1 
+               curr_song.public_domain = static_cast<bool>(atoi(curr_row[9]));
+#endif 
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -1390,7 +1401,6 @@ process_tocs_and_npt(void)
             a_iter->show("*a_iter:");
        } 
 
-       sort(iter->title_vector.begin(), iter->title_vector.end(), compare_strings);
 
      }  /* |for|  */
 
@@ -1643,304 +1653,333 @@ process_tocs_and_npt(void)
    char curr_char = '\0';
    char prev_char= '\0';
 
+   public_domain_flag = false;
+
    for (vector<Song>::iterator iter = song_vector.begin();
         iter != song_vector.end();
         ++iter)
    {
+       if (iter->public_domain)
+          public_domain_flag = true;
+       else 
+          public_domain_flag = false;
 
-     if (filecard_ctr == 8)
-     {
-       sub_filecards_file << "\\eject" << endl << endl;
-       filecard_ctr = 0;
-     }
+       song_from_production_flag = false;
 
-     temp_title = remove_formatting_commands(iter->title);
-     
-     for (int i = 0; i < temp_title.length(); ++i)
-     {
-       if (isalpha(temp_title[i]))
-         {
-           temp_char = tolower(temp_title[i]);
-           break;
-         }
-       else if (temp_title[i] == '4')
-         {
-           temp_char = 'f';
-         }
-       else
-         continue;
-     }
-     if (DEBUG) 
-       iter->show();
+#if 0 
+       cerr << "iter->title == " << iter->title << endl;
+#endif 
+       temp_str = remove_formatting_commands(iter->title);
 
-#if 0        
-    cerr << "iter->title              == " << iter->title << endl;
+       found_s = temp_str.find("14");
+
+       if (found_s != string::npos)
+       {
+          temp_str.replace(found_s, 2, "Fourteen");
+       }
+
+       found_s = temp_str.find("42nd");
+
+       if (found_s != string::npos)
+       {
+          temp_str.replace(found_s, 4, "Forty-Second");
+       } 
+
+#if 0 
+       cerr << "temp_str == " << temp_str << endl
+            << "temp_str[0] == " << temp_str[0] << endl;
+#endif 
+
+       if (tolower(temp_str[0]) >= 'a' && tolower(temp_str[0]) <= 'e')
+       {
+          curr_songs_file = &songs_a_e_file;
+       }
+       else if (tolower(temp_str[0]) >= 'f' && tolower(temp_str[0]) <= 'l')
+       {
+          curr_songs_file = &songs_f_l_file;
+       }
+       else if (tolower(temp_str[0]) >= 'm' && tolower(temp_str[0]) <= 'n')
+       {
+          curr_songs_file = &songs_m_n_file;
+       }
+       else if (tolower(temp_str[0]) >= 'o' && tolower(temp_str[0]) <= 's')
+       {
+          curr_songs_file = &songs_o_s_file;
+       }                
+       else if (tolower(temp_str[0]) >= 't' && tolower(temp_str[0]) <= 'z')
+       {
+          curr_songs_file = &songs_t_z_file;
+       }
+
+       if (filecard_ctr == 8)
+       {
+         sub_filecards_file << "\\eject" << endl << endl;
+         filecard_ctr = 0;
+       }
+
+       temp_title = remove_formatting_commands(iter->title);
+
+       for (int i = 0; i < temp_title.length(); ++i)
+       {
+         if (isalpha(temp_title[i]))
+           {
+             temp_char = tolower(temp_title[i]);
+             break;
+           }
+         else if (temp_title[i] == '4')
+           {
+             temp_char = 'f';
+           }
+         else
+           continue;
+       }
+       if (DEBUG) 
+         iter->show();
+
+#if 0          
+       cerr << "iter->title              == " << iter->title << endl;
    
-    cerr << "iter->musical   == " << iter->musical << endl;
-        
-    cerr << "iter->musical.length()   == " << iter->musical.length() << endl;
+       cerr << "iter->musical   == " << iter->musical << endl;
+          
+       cerr << "iter->musical.length()   == " << iter->musical.length() << endl;
 
-    cerr << "iter->sort_by_production == " << iter->sort_by_production << endl;
+       cerr << "iter->sort_by_production == " << iter->sort_by_production << endl;
 
 #endif
 
 /* *** (3)  */
 
-         if (!iter->is_production)
-         {
-            if (iter->language == "french")
-            {
-                french_file << "\\M " << iter->title << endl;
-            }       
-            else if (iter->language == "german")
-            {
-                german_file << "\\M " << iter->title << endl;
-            }       
-            else if (iter->language == "italian")
-            {
-                italian_file << "\\M " << iter->title << endl;
-            }       
-            if (iter->language == "portugese")
-            {
-                portugese_file << "\\M " << iter->title << endl;
-            }       
-            if (iter->language == "russian")
-            {
-                russian_file << "\\M " << iter->title << endl;
-            }       
-            if (iter->language == "spanish")
-            {
-                spanish_file << "\\M " << iter->title << endl;
-            }       
+       if (!iter->is_production)
+       {
+          if (iter->language == "french")
+          {
+              french_file << "\\M " << iter->title << endl;
+          }       
+          else if (iter->language == "german")
+          {
+              german_file << "\\M " << iter->title << endl;
+          }       
+          else if (iter->language == "italian")
+          {
+              italian_file << "\\M " << iter->title << endl;
+          }       
+          if (iter->language == "portugese")
+          {
+              portugese_file << "\\M " << iter->title << endl;
+          }       
+          if (iter->language == "russian")
+          {
+              russian_file << "\\M " << iter->title << endl;
+          }       
+          if (iter->language == "spanish")
+          {
+              spanish_file << "\\M " << iter->title << endl;
+          }       
 
-         }
+       }
 
 /* *** (3)  */
 
-         if (iter->do_filecard || iter->is_production)
-         {
-#if 0 
-            cerr << "iter->title == " << iter->title << endl;
-#endif 
+       if (iter->do_filecard || iter->is_production)
+       {
 
-            temp_str = remove_formatting_commands(iter->title);
-
-            found_s = temp_str.find("14");
-
-            if (found_s != string::npos)
-            {
-               temp_str.replace(found_s, 2, "Fourteen");
-            }
-
-            found_s = temp_str.find("42nd");
-
-            if (found_s != string::npos)
-            {
-               temp_str.replace(found_s, 4, "Forty-Second");
-            }
-
-#if 0 
-            cerr << "temp_str == " << temp_str << endl
-                 << "temp_str[0] == " << temp_str[0] << endl;
-#endif 
-
-            curr_char = temp_str[0];
+          curr_char = temp_str[0];
  
-            if (curr_char != prev_char)
-            {
-               sub_filecards_file << "\\FilecardSection{" << curr_char << "}" << endl;
-            }
+          if (curr_char != prev_char)
+          {
+             sub_filecards_file << "\\FilecardSection{" << curr_char << "}" << endl;
+          }
 
-            if (filecard_ctr == 0)
-            {  
-               sub_filecards_file << "\\A" << endl;
-            }
-            if (iter->is_production || iter->is_cross_reference)
-               sub_filecards_file << "\\vbox to 0pt{\\C";
-            else 
-               sub_filecards_file << "\\B";
+          if (filecard_ctr == 0)
+          {  
+             sub_filecards_file << "\\A" << endl;
+          }
+          if (iter->is_production || iter->is_cross_reference)
+             sub_filecards_file << "\\vbox to 0pt{\\C";
+          else 
+             sub_filecards_file << "\\B";
 
-            if (filecard_ctr == 0)
-               sub_filecards_file << "{0pt}{0pt}";
-            else if (filecard_ctr == 1)
-               sub_filecards_file << "{0pt}{.5\\hsize}";
-            else if (filecard_ctr == 2)
-               sub_filecards_file << "{.25\\vsize}{0pt}";
-            else if (filecard_ctr == 3)
-               sub_filecards_file << "{.25\\vsize}{.5\\hsize}";
-            else if (filecard_ctr == 4)
-               sub_filecards_file << "{.5\\vsize}{0pt}";
-            else if (filecard_ctr == 5)
-               sub_filecards_file << "{.5\\vsize}{.5\\hsize}";
-            else if (filecard_ctr == 6)
-               sub_filecards_file << "{.75\\vsize}{0pt}";
-            else if (filecard_ctr == 7)
-               sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
+          if (filecard_ctr == 0)
+             sub_filecards_file << "{0pt}{0pt}";
+          else if (filecard_ctr == 1)
+             sub_filecards_file << "{0pt}{.5\\hsize}";
+          else if (filecard_ctr == 2)
+             sub_filecards_file << "{.25\\vsize}{0pt}";
+          else if (filecard_ctr == 3)
+             sub_filecards_file << "{.25\\vsize}{.5\\hsize}";
+          else if (filecard_ctr == 4)
+             sub_filecards_file << "{.5\\vsize}{0pt}";
+          else if (filecard_ctr == 5)
+             sub_filecards_file << "{.5\\vsize}{.5\\hsize}";
+          else if (filecard_ctr == 6)
+             sub_filecards_file << "{.75\\vsize}{0pt}";
+          else if (filecard_ctr == 7)
+             sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
 
-            sub_filecards_file << "{"; 
+          sub_filecards_file << "{"; 
 
-            if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
-            {
-               sub_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
-            }
-            else if (!iter->filecard_title.empty())
-            {
-               sub_filecards_file << iter->filecard_title;
-            }
-            else
-            {
-               sub_filecards_file << iter->title;
-            }
+          if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
+          {
+             sub_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
+          }
+          else if (!iter->filecard_title.empty())
+          {
+             sub_filecards_file << iter->filecard_title;
+          }
+          else
+          {
+             sub_filecards_file << iter->title;
+          }
 
-            sub_filecards_file << "}";
+          sub_filecards_file << "}";
 
-            if (iter->is_production || iter->is_cross_reference)
-            {
-               sub_filecards_file << "{";
+          if (iter->is_production || iter->is_cross_reference)
+          {
+             sub_filecards_file << "{";
 
-               if (iter->is_production)
-               {
-                  if (!iter->opera.empty())
-                     sub_filecards_file << "Opera";
-                  else if (!iter->operetta.empty())
-                     sub_filecards_file << "Operetta";
-                  else if (!iter->song_cycle.empty())
-                     sub_filecards_file << "Song Cycle";
-                  else if (!iter->musical.empty())
-                     sub_filecards_file << "Musical";
-                  else if (!iter->film.empty())
-                  {
-                     pos = iter->film.find("Film");
+             if (iter->is_production)
+             {
+                if (!iter->opera.empty())
+                   sub_filecards_file << "Opera";
+                else if (!iter->operetta.empty())
+                   sub_filecards_file << "Operetta";
+                else if (!iter->song_cycle.empty())
+                   sub_filecards_file << "Song Cycle";
+                else if (!iter->musical.empty())
+                   sub_filecards_file << "Musical";
+                else if (!iter->film.empty())
+                {
+                   pos = iter->film.find("Film");
 
-                     if (pos == string::npos)
-                         sub_filecards_file << "Film";
-                  }
-                  else if (!iter->revue.empty())
-                     sub_filecards_file << "Revue";
-               }
+                   if (pos == string::npos)
+                       sub_filecards_file << "Film";
+                }
+                else if (!iter->revue.empty())
+                   sub_filecards_file << "Revue";
+             }
 
-               sub_filecards_file << "}";
-            }
-            if (iter->is_production)
-            {
+             sub_filecards_file << "}";
+          }
+          if (iter->is_production)
+          {
 #if 0
-               cerr << "iter->title:  " << iter->title << endl 
-                    << "iter->year:  " << iter->year << endl;
+             cerr << "iter->title:  " << iter->title << endl 
+                  << "iter->year:  " << iter->year << endl;
 #endif 
  
-               if (iter->year > 0)
-                  sub_filecards_file << "{" << iter->year << "}";
-               else 
-                  sub_filecards_file << "{}";
-            }
+             if (iter->year > 0)
+                sub_filecards_file << "{" << iter->year << "}";
+             else 
+                sub_filecards_file << "{}";
+          }
 
-            if (!iter->is_production) 
-            {
-               if (!iter->words_and_music.empty())
-                  sub_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";
-               else if (!(iter->words.empty() && iter->music.empty()))
-               {
-                  if (!iter->words.empty())
-                     sub_filecards_file << "{\\hbox to\\wmdimen{Words:  \\hss}" << iter->words << ".}";
-                  else 
-                     sub_filecards_file << "{}" << endl;
-                  if (!iter->music.empty())
-                     sub_filecards_file << "{\\hbox to\\wmdimen{Music:  \\hss}" << iter->music << ".}";
-                  else 
-                     sub_filecards_file << "{}";
-               }
-               if (!iter->copyright.empty())
-                  sub_filecards_file << "{" << iter->copyright << "}";
-               else if (iter->year >= 1900)
-                  sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}";
-               else if (iter->year > 0)
-                  sub_filecards_file << "{Year:  " << iter->year << "}";
-               else
-                          sub_filecards_file << "{}";
+          if (!iter->is_production) 
+          {
+             if (!iter->words_and_music.empty())
+                sub_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";
+             else if (!(iter->words.empty() && iter->music.empty()))
+             {
+                if (!iter->words.empty())
+                   sub_filecards_file << "{\\hbox to\\wmdimen{Words:  \\hss}" << iter->words << ".}";
+                else 
+                   sub_filecards_file << "{}" << endl;
+                if (!iter->music.empty())
+                   sub_filecards_file << "{\\hbox to\\wmdimen{Music:  \\hss}" << iter->music << ".}";
+                else 
+                   sub_filecards_file << "{}";
+             }
+             if (!iter->copyright.empty())
+                sub_filecards_file << "{" << iter->copyright << "}";
+             else if (iter->year >= 1900)
+                sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}";
+             else if (iter->year > 0)
+                sub_filecards_file << "{Year:  " << iter->year << "}";
+             else
+                        sub_filecards_file << "{}";
 
-               if (!iter->opera.empty())
-               {
-                  if (iter->opera.length() > max_production_str_length)
-                     sub_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
-                                        << iter->opera << "}}}}";
-                  else
-                     sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
-               }
-               else if (!iter->operetta.empty())
-               {
-                  if (iter->operetta.length() > max_production_str_length)
-                     sub_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
-                                        << iter->operetta << "}}}}";
-                  else
-                     sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
-               }
-               else if (!iter->song_cycle.empty())
-               {
-                  if (iter->song_cycle.length() > max_production_str_length)
-                     sub_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
-                                        << iter->song_cycle << "}}}}";
-                  else
-                     sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
-               }
-               else if (!iter->musical.empty())
-               {
-                  if (iter->musical.length() > max_production_str_length)
-                     sub_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
-                                        << iter->musical << "}}}}";
-                  else
-                     sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
-               }
+             if (!iter->opera.empty())
+             {
+                if (iter->opera.length() > max_production_str_length)
+                   sub_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                      << iter->opera << "}}}}";
+                else
+                   sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
+             }
+             else if (!iter->operetta.empty())
+             {
+                if (iter->operetta.length() > max_production_str_length)
+                   sub_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                      << iter->operetta << "}}}}";
+                else
+                   sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+             }
+             else if (!iter->song_cycle.empty())
+             {
+                if (iter->song_cycle.length() > max_production_str_length)
+                   sub_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                      << iter->song_cycle << "}}}}";
+                else
+                   sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
+             }
+             else if (!iter->musical.empty())
+             {
+                if (iter->musical.length() > max_production_str_length)
+                   sub_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                      << iter->musical << "}}}}";
+                else
+                   sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
+             }
 
-               else if (!iter->film.empty())
-               {
-                  pos = iter->film.find("(Film)");
+             else if (!iter->film.empty())
+             {
+                pos = iter->film.find("(Film)");
 
-                  if (pos == string::npos) 
-                  {
-                     if (iter->film.length() > max_production_str_length)
-                        sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
-                                           << iter->film << "}}}}";
-                     else
-                        sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
-                  }
-                  else
-                     sub_filecards_file << "{{\\largebx " << iter->film << "}}";
-               }
-               else if (!iter->revue.empty())
-               {
-                  if (iter->revue.length() > max_production_str_length)
-                     sub_filecards_file << "{\\vtop{\\hbox{Revue:  }\\vskip\\titleskip\\hbox{{\\largebx " 
-                                        << iter->revue << "}}}}";
-                  else
-                     sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
-               }
-               else
-                  sub_filecards_file << "{}";
+                if (pos == string::npos) 
+                {
+                   if (iter->film.length() > max_production_str_length)
+                      sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->film << "}}}}";
+                   else
+                      sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
+                }
+                else
+                   sub_filecards_file << "{{\\largebx " << iter->film << "}}";
+             }
+             else if (!iter->revue.empty())
+             {
+                if (iter->revue.length() > max_production_str_length)
+                   sub_filecards_file << "{\\vtop{\\hbox{Revue:  }\\vskip\\titleskip\\hbox{{\\largebx " 
+                                      << iter->revue << "}}}}";
+                else
+                   sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
+             }
+             else
+                sub_filecards_file << "{}";
 
-               if (!iter->source.empty())
-                  sub_filecards_file << "{" << iter->source << "}";
-               else
-                  sub_filecards_file << "{}";
+             if (!iter->source.empty())
+                sub_filecards_file << "{" << iter->source << "}";
+             else
+                sub_filecards_file << "{}";
 
-            }  /* |if (!iter->is_production)|  */
+          }  /* |if (!iter->is_production)|  */
 
-            /* number_filecards, Arg. #9 to \B.  */
+          /* number_filecards, Arg. #9 to \B.  */
 
 #if 1 
-            if (iter->number_filecards)
-               sub_filecards_file << "{1}";
-            else 
-               sub_filecards_file << "{0}";
+          if (iter->number_filecards)
+             sub_filecards_file << "{1}";
+          else 
+             sub_filecards_file << "{0}";
 #endif 
 
-            sub_filecards_file << endl;
+          sub_filecards_file << endl;
 
-            ++filecard_ctr;
+          ++filecard_ctr;
      
-            if (isupper(curr_char))           
-               prev_char = curr_char;
+          if (isupper(curr_char))           
+             prev_char = curr_char;
 
-         }   /* |if (iter->do_filecard || iter->is_production)| */
+       }   /* |if (iter->do_filecard || iter->is_production)| */
 
 /* *** (3)  */
 
@@ -1948,13 +1987,14 @@ process_tocs_and_npt(void)
        {
 /* **** (4) */
 
-         if (iter->title_vector.size() > 0)
+         if (iter->production_song_vector.size() > 0)
          {         
 /* ***** (5) */
 
-              temp_str = remove_formatting_commands(iter->title);
+              if (iter->public_domain)
+                 public_domain_flag = true;
 
-/* !!START HERE:  LDF 2021.08.12.  */ 
+              temp_str = remove_formatting_commands(iter->title);
 
               cerr << "Production:" << endl 
                    << "iter->public_domain == " << iter->public_domain << endl 
@@ -1962,7 +2002,6 @@ process_tocs_and_npt(void)
                    << "temp_str            == " << temp_str << endl;
 
             cerr << "YYY" << endl;
-
 
             toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
@@ -1975,47 +2014,139 @@ process_tocs_and_npt(void)
               toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
 
 
-            cerr << "iter->title_vector.size() == " << iter->title_vector.size() << endl
-                 << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
+            cerr << "iter->production_song_vector.size() == " << iter->production_song_vector.size() 
                  << endl;
 
-            cerr << "DDD Enter <RETURN> to continue: ";
-            getchar(); 
+            cerr << "DDD" << endl;
 
-/* !!START HERE:  LDF 2021.08.13.  Use production_song_vector instead of title_vector.  */
+            song_from_production_flag = false;
 
-
-
-            for (vector<string>::iterator t_iter = iter->title_vector.begin();
-                 t_iter != iter->title_vector.end();
+            for (vector<Song>::iterator t_iter = iter->production_song_vector.begin();
+                 t_iter != iter->production_song_vector.end();
                  ++t_iter)
             {
 
-#if 0 
-              cerr << "*t_iter == " << *t_iter << endl;
-#endif 
-              temp_str = remove_formatting_commands(*t_iter);
+              temp_str_2 = remove_formatting_commands(t_iter->title);
 
               cerr << "Song from production:" << endl 
-                   << "*t_iter     == " << *t_iter << endl 
-                   << "temp_str    == " << temp_str << endl;
+                   << "t_iter->title         == " << t_iter->title << endl 
+                   << "temp_str_2              == " << temp_str_2 << endl
+                   << "t_iter->scanned       == " << t_iter->scanned << endl
+                   << "t_iter->eps_filenames == " << t_iter->eps_filenames << endl;
 
               cerr << "ZZZ" << endl;
 
-              sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << *t_iter << "}" << endl << "\\vskip12pt" << endl;
+              if (t_iter->scanned == false && t_iter->eps_filenames.length() > 0)
+              {
+                  cerr << "WARNING! `t_iter->scanned' == `false' and `t_iter->eps_filenames.length()' > 0."
+                       << endl
+                       << "This shouldn't happen.  Continuing." << endl;
 
-              toc_ls_file << "\\S\\S {" << *t_iter << "}" << endl;
+                  t_iter->scanned = true;
+
+              }
+
+              else if (t_iter->scanned == true && t_iter->eps_filenames.length() == 0)
+              {
+                  cerr << "WARNING! `t_iter->scanned' == `true' and `t_iter->eps_filenames.length()' == 0."
+                       << endl
+                       << "This shouldn't happen.  Continuing." << endl;
+
+              }
+               
+
+              if (t_iter->scanned)
+              {
+                 temp_strm.str("");
+
+                 if (!song_from_production_flag)
+                 {
+                    if (!t_iter->public_domain)
+                    {
+                        temp_strm << "\\ifnotpublicdomainonly" << endl;
+                    }
+
+                    temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{1}" 
+                              << endl
+                              << "\\hldest{xyz}{}{" << temp_str << "}" << endl;
+
+                    song_from_production_flag = true;
+
+                 }
+
+                 temp_strm << "\\Section{" << temp_str_2 << "}{" << t_iter->title << "}{}" << endl
+                           << "\\hldest{xyz}{}{" << temp_str_2 << "}" << endl;
+
+                 pos = 0;
+                 do
+                 {
+                     cerr << "pos == " << pos << endl;
+                     pos_1 = t_iter->eps_filenames.find(";", pos);
+
+                     // aintswt1.eps;aintswt2.eps;
+
+                     cerr << "pos_1 == " << pos_1 << endl;
+                     
+                     cerr << "t_iter->eps_filenames.length() == " << t_iter->eps_filenames.length() << endl;
+
+                     if (pos_1 != string::npos)
+                     {
+                       temp_str_3 = t_iter->eps_filenames.substr(pos, pos_1 - pos);
+                       cerr << "temp_str_3 == " << temp_str_3 << endl;
+                       pos = pos_1 + 1;
+
+                       temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_3 << "}\\vss}" << endl
+                                 << "\\eject" << endl;
+
+                     }
+
+                 } while (pos != string::npos && pos < t_iter->eps_filenames.length());
+
+
+
+                 cerr << "KKK temp_str == " << temp_str << endl
+                      << "temp_str_2 == " << temp_str_2 << endl
+                      << "temp_strm.str() == " << endl
+                      << temp_strm.str() << endl; 
+
+                 cerr << "FFF Enter <RETURN> to continue: ";
+  
+                 if (curr_songs_file)
+                    *curr_songs_file << temp_strm.str();
+
+                 temp_strm.str("");
+
+              }  /* |if (t_iter->scanned)|  */
+
+              sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title << "}" 
+                                 << endl << "\\vskip12pt" << endl;
+
+              toc_ls_file << "\\S\\S {" << t_iter->title << "}" << endl;
 
               if (iter->title == "42nd Street (Film)" || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                                                       || temp_char <= 'h')
-                toc_ls_a_h_file << "\\R\\R {" << *t_iter << "}" << endl;
+                toc_ls_a_h_file << "\\R\\R {" << t_iter->title << "}" << endl;
               else if (temp_char <= 'o')
-                toc_ls_i_o_file << "\\S\\S {" << *t_iter << "}" << endl;
+                toc_ls_i_o_file << "\\S\\S {" << t_iter->title << "}" << endl;
               else 
-                toc_ls_p_z_file << "\\S\\S {" << *t_iter << "}" << endl;
+                toc_ls_p_z_file << "\\S\\S {" << t_iter->title << "}" << endl;
+
+            }  /* |for| (production_song_vector)  */
+
+/* ***** (5) */
+
+            if (song_from_production_flag)
+            {
+               if (!public_domain_flag)
+                  *curr_songs_file << "\\fi" << endl << endl;
+               else 
+                  *curr_songs_file << endl;
+            }
+
+/* ***** (5) */
 
 
-            }  /* |for|  */
+            temp_strm.str("");
 
             toc_ls_file << "}" << endl;
 
@@ -2036,6 +2167,8 @@ process_tocs_and_npt(void)
 
        }  /* |if|  */
        
+       song_from_production_flag = false;
+
 /* *** (3) */
 
        if (iter->is_cross_reference)
@@ -2063,21 +2196,21 @@ process_tocs_and_npt(void)
 
             temp_strm.str("");
 
-            temp_str = remove_formatting_commands(iter->title);
+            temp_str_1 = remove_formatting_commands(iter->title);
             
             cerr << "XXX" << endl;
 
             cerr << "iter->public_domain == " << iter->public_domain << endl 
                  << "iter->title         == " << iter->title << endl 
                  << "iter->eps_filenames == " << iter->eps_filenames << endl
-                 << "temp_str            == " << temp_str << endl;
+                 << "temp_str_1          == " << temp_str_1 << endl;
 
 
             if (!iter->public_domain)
                temp_strm << "\\ifnotpublicdomainonly" << endl;
 
-            temp_strm << "\\Chapter{" << temp_str << "}{" << iter->title << "}{}{0}" << endl
-                      << "\\hldest{xyz}{}{" << temp_str << "}" << endl; 
+            temp_strm << "\\Chapter{" << temp_str_1 << "}{" << iter->title << "}{}{0}" << endl
+                      << "\\hldest{xyz}{}{" << temp_str_1 << "}" << endl; 
 
             pos = 0;
             do
@@ -2094,7 +2227,7 @@ process_tocs_and_npt(void)
                 if (pos_1 != string::npos)
                 {
                   temp_str_1 = iter->eps_filenames.substr(pos, pos_1 - pos);
-                  cerr << "temp_str_1 == " << temp_str_1 << endl;
+                  cerr << "III temp_str_1 == " << temp_str_1 << endl;
                   pos = pos_1 + 1;
 
                   temp_strm << "\\vbox to \\vsize{\\epsffile{" << temp_str_1 << "}\\vss}" << endl
@@ -2104,39 +2237,26 @@ process_tocs_and_npt(void)
 
             } while (pos != string::npos && pos < iter->eps_filenames.length());
 
+
             if (!iter->public_domain)
                temp_strm << "\\fi" << endl;
 
             temp_strm << endl;
 
-            // cerr << "temp_strm.str() == " << temp_strm.str() << endl;
+            if (temp_strm.str().length() > 0)
+            {
+                cerr << "Error after here 1." << endl; 
+                cerr << "JJJ temp_str == " << temp_str << endl;
+                
+                if (curr_songs_file)
+                   *curr_songs_file << temp_strm.str();
 
-            if (tolower(temp_str[0]) >= 'a' && tolower(temp_str[0]) <= 'e')
-            {
-               songs_a_e_file << temp_strm.str();
-            }
-            else if (tolower(temp_str[0]) >= 'f' && tolower(temp_str[0]) <= 'l')
-            {
-               songs_f_l_file << temp_strm.str();
-            }
-            else if (tolower(temp_str[0]) >= 'm' && tolower(temp_str[0]) <= 'n')
-            {
-               songs_m_n_file << temp_strm.str();
-            }
-            else if (tolower(temp_str[0]) >= 'o' && tolower(temp_str[0]) <= 's')
-            {
-               songs_o_s_file << temp_strm.str();
-            }
-            else if (tolower(temp_str[0]) >= 't' && tolower(temp_str[0]) <= 'z')
-            {
-               songs_o_s_file << temp_strm.str();
+                cerr << "Error after here 2." << endl; 
+
+                temp_strm.str("");
             }
 
-            temp_str = "";
-            temp_strm.str("");
-
-         }
-
+         } /* |if|  */
 
          if (iter->is_cross_reference)
          {
