@@ -1031,14 +1031,13 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, 
-sort_by_production, scanned, scanned_filename, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, production_subtitle, 
+year, sort_by_production, scanned, scanned_filename, source, eps_filenames)
 values
-("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street (Film)", 1933, 
+("42nd Street", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, "42nd Street", "(Film)", 1933, 
 true, true, "ftscstrt.pdf", 
-"\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~12.}}");
-
-update Songs set eps_filenames = "frtscst1.eps;frtscst2.eps;" where title = "42nd Street";
+"\\vbox{\\hbox{{\\bf All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~12.}}",
+"frtscst1.eps;frtscst2.eps;");
 
 /* ** *************************************************** */
 
@@ -1262,15 +1261,15 @@ values
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
 replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, public_domain, scanned, scanned_filename)
+year, source, public_domain, scanned, scanned_filename, eps_filenames)
 values
-("How 'Ya Gonna Keep 'Em Down on the Farm?", "After They've Seen Paree", 
+("How 'Ya Gonna Keep 'Em Down on the Farm?", "(After They've Seen Paree)", 
 "\\vbox{\\hbox{How 'Ya Gonna Keep 'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
 "Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
-true, true, "howkeepm.pdf"); 
+true, true, "howkeepm.pdf", "howkeep1.eps;howkeep2.eps;"); 
 
-update Songs set eps_filenames = "howkeep1.eps;howkeep2.eps;" where title = "How 'Ya Gonna Keep 'Em Down on the Farm?";
+update Songs set  =  where title = "How 'Ya Gonna Keep 'Em Down on the Farm?";
 
 
 /* I   */
@@ -1744,14 +1743,17 @@ values
 
 /* Presumably copyrighted in Denmark and not in public domain.  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, copyright, scanned, scanned_filename, language)  
-values
-("Jalousie ``Tango Tzigane'' (Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
-1925, "{\\copyright} 1925.  Public Domain.", true, "jealousy.pdf", "none");
 
-update Songs set eps_filenames = "jealsy01.eps;jealsy02.eps;jealsy03.eps;jealsy04.eps;jealsy05.eps;"
-where title = "Jalousie ``Tango Tzigane'' (Jealousy)";
+--
+
+delete from Songs where title like("Jalousie%");
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
+year, copyright, scanned, scanned_filename, language, eps_filenames)  
+values
+("Jalousie ``Tango Tzigane''", "(Jealousy)", "None", "None", "Jacob Gade", "Gade, Jacob", true,
+1925, "{\\copyright} 1925.  Public Domain.", true, "jealousy.pdf", "none",
+"jealsy01.eps;jealsy02.eps;jealsy03.eps;jealsy04.eps;jealsy05.eps;");
 
 #words: Vera Bloom (Engl.)
 
@@ -2076,18 +2078,21 @@ values
 
 /* ** *************************************************** */
 
--- delete from Songs where title = "Listen to My Song";
+--
+
+delete from Songs where title like("Listen to My Song%");
+
+
 -- delete from Composers_Songs where title = "Listen to My Song";
 -- delete from Lyricists_Songs where title = "Listen to My Song";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, musical, source, scanned, scanned_filename, sort_by_production)
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
+year, musical, source, scanned, scanned_filename, sort_by_production, eps_filenames)
 values
-("Listen to My Song (Johnny's Song)", "Paul Green", "Green, Paul", "Kurt Weill", "Weill, Kurt", 
+("Listen to My Song", "(Johnny's Song)", "Paul Green", "Green, Paul", "Kurt Weill", "Weill, Kurt", 
 true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~48.",
-true, "listsong.pdf", true);
+true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 
-update Songs set eps_filenames = "listsong1.eps;listsong2.eps;" where title = "Listen to My Song (Johnny's Song)";
 
 /* ** *************************************************** */
 

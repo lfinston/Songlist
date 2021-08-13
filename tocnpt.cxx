@@ -2244,8 +2244,6 @@ getchar();
              && !iter->is_cross_reference)
          {
 
-            DEBUG = true;
-
             temp_strm.str("");
 
             temp_str_1 = remove_formatting_commands(iter->title);
@@ -2317,8 +2315,6 @@ getchar();
 
                 temp_strm.str("");
             }
-
-            DEBUG = false;
 
          } /* |if|  */
 

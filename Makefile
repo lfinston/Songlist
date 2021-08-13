@@ -264,6 +264,12 @@ fpdpdf:
 lspdf:
 	cd ~/music/Lead_Sheets/tex; $(MAKE) pdf
 
+.PHONY: lsdvic
+
+lsdvic:
+	cd ~/music/Lead_Sheets/tex; $(MAKE) dvic
+
+
 .PHONY: graph
 
 graph: graphics.ps
