@@ -1932,7 +1932,7 @@ process_tocs_and_npt(void)
              else if (iter->year > 0)
                 sub_filecards_file << "{Year:  " << iter->year << "}";
              else
-                        sub_filecards_file << "{}";
+                sub_filecards_file << "{}";
 
              if (!iter->opera.empty())
              {
