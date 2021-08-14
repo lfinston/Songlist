@@ -2044,9 +2044,12 @@ getchar();
                  cerr << "YYY" << endl;
               }
 
-              toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title << endl;
+              toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
 
-
+              if (iter->subtitle.length() > 0)
+                 toc_ls_file << " " << iter->subtitle;
+              else if (iter->production_subtitle.length() > 0)
+                 toc_ls_file << " " << iter->production_subtitle;
 
               if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
                   || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
@@ -2056,6 +2059,8 @@ getchar();
  
                  if (iter->subtitle.length() > 0)
                     toc_ls_a_h_file << " " << iter->subtitle;
+                 else if (iter->production_subtitle.length() > 0)
+                    toc_ls_a_h_file << " " << iter->production_subtitle;
 
                  toc_ls_a_h_file << endl;
               }
@@ -2064,16 +2069,20 @@ getchar();
                 toc_ls_i_o_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
 
                 if (iter->subtitle.length() > 0)
-                    toc_ls_i_o_file << " " << iter->subtitle;
+                   toc_ls_i_o_file << " " << iter->subtitle;
+                else if (iter->production_subtitle.length() > 0)
+                   toc_ls_i_o_file << " " << iter->production_subtitle;
 
                 toc_ls_i_o_file << endl;
               }
               else 
               {
                 toc_ls_p_z_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
- 
+
                 if (iter->subtitle.length() > 0)
                    toc_ls_p_z_file << " " << iter->subtitle;
+                else if (iter->production_subtitle.length() > 0)
+                   toc_ls_p_z_file << " " << iter->production_subtitle;
 
                 toc_ls_p_z_file << endl;
               }
@@ -2388,12 +2397,23 @@ getchar();
 
          if (iter->is_cross_reference)
          {
-            toc_ls_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title
-                        << endl
+            toc_ls_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title;
+
+            if (iter->subtitle.length() > 0)
+               toc_ls_file << " " << iter->subtitle;
+
+            toc_ls_file << endl
                         << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
 
             if (iter->production != "")
-               toc_ls_file << "\\nobreak" << endl << "\\S under ``" << iter->production << "''";
+            {
+               toc_ls_file << "\\nobreak" << endl << "\\S under ``" << iter->production;
+
+               if (iter->production_subtitle.length() > 0)
+                    toc_ls_file << " " << iter->production_subtitle;
+
+               toc_ls_file << "''";
+            }
 
             toc_ls_file << ")}" << endl << endl;
          }
@@ -2407,6 +2427,11 @@ getchar();
             toc_ls_file << endl;
          }
           
+/* !!START HERE:  LDF 2021.08.14.  Add production_subtitle.  
+   Check strangers in paradise:  production_subtitle is printed erroneously.
+
+*/ 
+
          if (iter->musical.length() > 0 && iter->sort_by_production)
          {
            toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"

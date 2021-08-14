@@ -1629,6 +1629,23 @@ Production::show(string s)
 int
 write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, string r_or_s)
 {
+/* *** (3) */
+
+    bool DEBUG = true; /* |false|  */
+
+    if (DEBUG)
+    { 
+       cerr << "Entering `write_to_toc_sub_file'." << endl;
+
+       if (iter->production_subtitle.length() > 0)
+       {
+          cerr << "iter->production_subtitle == " << iter->production_subtitle << endl;
+          cerr << "XXX Enter <RETURN> to continue: ";
+          getchar(); 
+       }
+
+    }  
+
     if (iter->is_cross_reference)
     {
        *toc_file_ptr << "\\vskip.5\\baselineskip\\vbox{" << r_or_s << " " << iter->title;
@@ -1730,11 +1747,20 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     
     *toc_file_ptr << endl;
 
-    return 0;
+
+/* *** (3) */
+
+    if (DEBUG)
+    { 
+       cerr << "Exiting `write_to_toc_sub_file' successfully with return value 0." 
+            << endl;
+    }  
+
+   return 0;
 
 }  /* End of |write_to_toc_sub_file| definition.  */
 
-
+/* ** (2) */
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
@@ -1743,6 +1769,8 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
 /*   	 accessed via the local variables list.                              */
 /*   	 \initials{LDF 2004.02.12}.                                          */
 /*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
+
+/* (setq outline-regexp "/\\* \\*+") */
 
 /* * Local variables for Emacs.*/
 /* Local Variables: */
