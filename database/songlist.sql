@@ -948,16 +948,17 @@ values
 
 /* ** *************************************************** */
 
--- delete from Songs where title = "Fly Me to the Moon";
+-- 
+delete from Songs where title like("Fly Me to the Moon%");
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, 
-copyright, scanned, scanned_filename, source)
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, 
+copyright, scanned, scanned_filename, source, eps_filenames)
 values
-("Fly Me to the Moon (In Other Words)", "Bart Howard", "Howard, Bart", true, 1954, 
+("Fly Me to the Moon", "(In Other Words)", "Bart Howard", "Howard, Bart", true, 1954, 
 "Copyright {\\copyright} 1954 (Renewed)", true, "fmttmoon.pdf", 
-"\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~65.}}");
+"\\vbox{\\hbox{{\\bf The Big Book of '50s and '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~65.}}",
+"flymoon1.eps;flymoon2.eps;");
 
-update Songs set eps_filenames = "flymoon1.eps;flymoon2.eps;" where title = "Fly Me to the Moon (In Other Words)";
 
 /* ** *************************************************** */
 
@@ -2696,7 +2697,8 @@ delete from Songs where title = "Strangers in Paradise";
 
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
-("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
+("Strangers in Paradise", true, "Polowetzer T@{a}nze", 
+true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
 
 
 

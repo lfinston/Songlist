@@ -1624,6 +1624,118 @@ Production::show(string s)
    return;
 }
 
+/* ** (2) */
+
+int
+write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, string r_or_s)
+{
+    if (iter->is_cross_reference)
+    {
+       *toc_file_ptr << "\\vskip.5\\baselineskip\\vbox{" << r_or_s << " " << iter->title;
+
+       if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+       *toc_file_ptr << endl
+                       << "\\nobreak" << endl << r_or_s << " (see  ``" << iter->target << "''";
+
+       if (iter->production != "")
+          *toc_file_ptr << "\\nobreak" << endl << r_or_s << " under ``" << iter->production;
+
+       if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+       *toc_file_ptr << "''";
+
+       *toc_file_ptr << ")}" << endl << endl;
+    }
+    else if (!iter->is_production)
+    {
+      *toc_file_ptr << "\\N " << iter->title;
+
+      if (iter->subtitle.length() > 0)
+         *toc_file_ptr << " " << iter->subtitle;
+
+      *toc_file_ptr << endl;
+    }
+    
+    if (iter->musical.length() > 0 && iter->sort_by_production)
+    {
+      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->musical;
+
+      if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+
+      *toc_file_ptr << "'')" << endl;
+    }
+    else if (iter->opera.length() > 0 && iter->sort_by_production)
+    {
+      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->opera;
+
+      if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+      *toc_file_ptr << "'')" << endl;
+    }
+    else if (iter->operetta.length() > 0 && iter->sort_by_production)
+    {
+      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->operetta;
+
+      if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+      *toc_file_ptr << "'')" << endl;
+    }
+    else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
+    {
+      if (iter->song_cycle.length() > 20)
+      {
+         *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under" << endl 
+                     << r_or_s << " ``" << iter->song_cycle;
+
+         if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+         *toc_file_ptr << "'')" << endl;
+      }
+      else
+      {
+         *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->song_cycle;
+           
+         if (iter->production_subtitle.length() > 0)
+           *toc_file_ptr << " " << iter->production_subtitle;
+        
+         *toc_file_ptr << "'')" << endl;
+      }
+
+    }  
+    else if (iter->revue.length() > 0 && iter->sort_by_production)
+    {
+      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->revue;
+
+      if (iter->production_subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->production_subtitle;
+       
+      *toc_file_ptr << "'')" << endl;
+    }
+    else if (iter->film.length() > 0 && iter->sort_by_production)
+    {
+      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->film;
+
+      if (iter->production_subtitle.length() > 0)
+         *toc_file_ptr << " " << iter->production_subtitle;
+       
+      *toc_file_ptr << "'')" << endl;
+    }
+    
+    *toc_file_ptr << endl;
+
+    return 0;
+
+}  /* End of |write_to_toc_sub_file| definition.  */
+
+
+
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
 /*   	 indirect buffer is visited, so it's necessary to evaluate the       */
