@@ -3048,9 +3048,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+scanned, scanned_filename, eps_filenames)
 values
-("Stardust", "Mitchell Parish", "Parish, Mitchell", "Hoagy Carmichael", "Carmichael, Hoagy", true);
+("Stardust", "Mitchell Parish", "Parish, Mitchell", "Hoagy Carmichael", "Carmichael, Hoagy", true,
+1928, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;");
 
 /* recording?  */
 
@@ -3105,11 +3107,11 @@ select "!!! T";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-musical, year)
+musical, year, scanned, scanned_filename, eps_filenames)
 values
 ("Taking a Chance on Love", "John La Touche and Ted Fetter", "La Touche, John and Fetter, Ted",
 "Vernon Duke", "Duke, Vernon", true,
-"Cabin in the Sky", 1940);
+"Cabin in the Sky", 1940, true, "takechnc.pdf", "takechnc1.eps;takechnc2.ps;");
 
 /* ** *************************************************** */
 
