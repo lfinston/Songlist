@@ -2390,120 +2390,15 @@ process_tocs_and_npt(void)
 
          } /* |if|  */
 
-cerr << "Here I am." << endl
-<< "Type <RETURN> to continue: ";
-getchar(); 
+/* *** (3) */
 
+/* **** (4) */
 
-         if (iter->is_cross_reference)
-         {
-            toc_ls_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title;
+         toc_file_ptr = &toc_ls_file;
 
-            if (iter->subtitle.length() > 0)
-               toc_ls_file << " " << iter->subtitle;
+         write_to_toc_sub_file(toc_file_ptr, iter, "\\S");
 
-            toc_ls_file << endl
-                        << "\\nobreak" << endl << "\\S (see  ``" << iter->target << "''";
-
-            if (iter->production != "")
-            {
-               toc_ls_file << "\\nobreak" << endl << "\\S under ``" << iter->production;
-
-               if (iter->production_subtitle.length() > 0)
-                    toc_ls_file << " " << iter->production_subtitle;
-
-               toc_ls_file << "''";
-            }
-
-            toc_ls_file << ")}" << endl << endl;
-         }
-         else if (!iter->is_production)
-         {
-            toc_ls_file << "\\N " << iter->title;
- 
-            if (iter->subtitle.length() > 0)
-               toc_ls_file << " " << iter->subtitle;
-
-            toc_ls_file << endl;
-         }
-         if (iter->musical.length() > 0 && iter->sort_by_production)
-         {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical;
-
-           if (iter->production_subtitle.length() > 0)
-              toc_ls_file << " " << iter->production_subtitle;
-   
-           toc_ls_file << "'')" << endl;
-         }
-         else if (iter->opera.length() > 0 && iter->sort_by_production)
-         {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera;
-
-           if (iter->production_subtitle.length() > 0)
-              toc_ls_file << " " << iter->production_subtitle;
-           
-           toc_ls_file  << "'')" << endl;
-         }
-         else if (iter->operetta.length() > 0 && iter->sort_by_production)
-         {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta;
-
-           if (iter->production_subtitle.length() > 0)
-              toc_ls_file << " " << iter->production_subtitle;
-
-           toc_ls_file << "'')" << endl;
-         }
-         else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
-         {
-           if (iter->song_cycle.length() > 20)
-           {
-              toc_ls_file << "\\nobreak" << endl << "\\S (see under" << endl 
-                          << "\\S ``" << iter->song_cycle;
-
-              if (iter->production_subtitle.length() > 0)
-                 toc_ls_file << " " << iter->production_subtitle;
-
-              toc_ls_file << "'')" << endl;
-           }
-           else
-           {
-              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle;
-
-              if (iter->production_subtitle.length() > 0)
-                 toc_ls_file << " " << iter->production_subtitle;
-
-              toc_ls_file << "'')" << endl;
-           }
-
-         }
-         else if (iter->revue.length() > 0 && iter->sort_by_production)
-         {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue;
-
-           if (iter->production_subtitle.length() > 0)
-              toc_ls_file << " " << iter->production_subtitle;
-
-           toc_ls_file << "'')" << endl;
-         }
-         else if (iter->film.length() > 0 && iter->sort_by_production)
-         {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film;
-
-           if (iter->production_subtitle.length() > 0)
-              toc_ls_file << " " << iter->production_subtitle;
-
-           toc_ls_file << "'')" << endl;
-         }
-         
-
-         toc_ls_file << endl;
-
-cerr << "Here I am 1." << endl
-<< "Type <RETURN> to continue: ";
-getchar(); 
-
-
-         string r_or_s;
+/* **** (4) */
 
          if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
              || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
@@ -2514,17 +2409,24 @@ getchar();
              write_to_toc_sub_file(toc_file_ptr, iter, "\\R");
 
          }
+
+/* **** (4) */
+
          else if (temp_char <= 'o')
          {
              toc_file_ptr = &toc_ls_i_o_file;
              write_to_toc_sub_file(toc_file_ptr, iter, "\\S");
          }
+
+/* **** (4) */
+
          else
          {
              toc_file_ptr = &toc_ls_p_z_file;
              write_to_toc_sub_file(toc_file_ptr, iter, "\\S");
          }
 
+/* **** (4) */
          
        }  /* |if (iter->lead_sheet || iter->is_cross_reference || iter->is_production)|  */
 
