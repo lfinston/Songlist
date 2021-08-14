@@ -3042,9 +3042,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, sort_by_production)
 values
-("Standing on the Corner", "Frank Loesser", "Loesser, Frank", true);
+("Standing on the Corner", "Frank Loesser", "Loesser, Frank", true, "Most Happy Fella, The", 1956, true);
 
 /* ** *************************************************** */
 

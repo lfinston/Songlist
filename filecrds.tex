@@ -137,10 +137,15 @@
 \cardwd=105mm
 \advance\cardwd by -\basichskip
 
-\def\C#1#2#3#4#5#6{\Chskip=#2\vskip#1\vskip.25cm
+%% !! START HERE!  LDF 2021.08.14.  Added two arguments to make an erroneous "0" disappear.
+%% Check how this macro works and make sure it works right.
+
+\def\C#1#2#3#4#5#6#7#8{\Chskip=#2\vskip#1\vskip.25cm
 \setbox0=\hbox{#5}\leftline{\hskip#2\hskip\basichskip
 \hbox to \cardwd{{\Largebx #3\hss #4\ifdim\wd0>0pt{\space}#5\fi}\hskip\basichskip}\hss}
 \vskip12pt\global\advance\filecardctr by 1}
+
+
 
 \catcode`\@=\active
 \def@#1{{\"#1}}
