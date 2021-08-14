@@ -55,7 +55,7 @@ class Song
 
     friend int process_tocs_and_npt(void);
 
-    friend int write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, string r_or_s);
+    friend int write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int two_or_three_digits);
 
     int song_ctr;
     string title;

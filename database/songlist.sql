@@ -2695,9 +2695,10 @@ update Songs set eps_filenames = "polow01.eps;polow02.eps;polow03.eps;" where ti
 
 delete from Songs where title = "Strangers in Paradise";
 
+
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
-("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
+("Stranger in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
 
 /* ** *************************************************** */
 

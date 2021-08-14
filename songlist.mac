@@ -99,10 +99,10 @@
 
 \def\M{\leavevmode\hbox to \twozerosperioddimen{\hss\the\songctr\global\advance\songctr by 1 . }}
 
-\def\R{\threezerosfalse\hskip\twozerosperioddimen}
-
 \def\N{\threezerostrue\leavevmode\hbox to \threezerosperioddimen{\hss
 \the\songctr\global\advance\songctr by 1 . }}
+
+\def\R{\threezerosfalse\hskip\twozerosperioddimen}
 
 \def\S{\ifthreezeros\dimen0=\threezerosperioddimen\else\dimen0=\twozerosperioddimen\fi
 \leavevmode\hbox to \dimen0{\hfil}}

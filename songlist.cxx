@@ -1627,11 +1627,11 @@ Production::show(string s)
 /* ** (2) */
 
 int
-write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, string r_or_s)
+write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int two_or_three_digits)
 {
 /* *** (3) */
 
-    bool DEBUG = true; /* |false|  */
+    bool DEBUG = false; /* |true|  */
 
     if (DEBUG)
     { 
@@ -1644,18 +1644,20 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
 
     }  
 
+    // *toc_file_ptr << endl;
+
     if (iter->is_cross_reference)
     {
-       *toc_file_ptr << "\\vskip.5\\baselineskip\\vbox{" << r_or_s << " " << iter->title;
+       *toc_file_ptr << "\\vskip.5\\baselineskip\\vbox{" << "\\T " << iter->title;
 
        if (iter->subtitle.length() > 0)
           *toc_file_ptr << " " << iter->subtitle;
        
        *toc_file_ptr << endl
-                       << "\\nobreak" << endl << r_or_s << " (see  ``" << iter->target << "''";
+                       << "\\nobreak" << endl << "\\T (see  ``" << iter->target << "''";
 
        if (iter->production != "")
-          *toc_file_ptr << "\\nobreak" << endl << r_or_s << " under ``" << iter->production;
+          *toc_file_ptr << "\\nobreak" << endl << "\\T under ``" << iter->production;
 
        if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1676,7 +1678,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     
     if (iter->musical.length() > 0 && iter->sort_by_production)
     {
-      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->musical;
+      *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->musical;
 
       if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1685,7 +1687,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     }
     else if (iter->opera.length() > 0 && iter->sort_by_production)
     {
-      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->opera;
+      *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->opera;
 
       if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1694,7 +1696,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     }
     else if (iter->operetta.length() > 0 && iter->sort_by_production)
     {
-      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->operetta;
+      *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->operetta;
 
       if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1705,8 +1707,8 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     {
       if (iter->song_cycle.length() > 20)
       {
-         *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under" << endl 
-                     << r_or_s << " ``" << iter->song_cycle;
+         *toc_file_ptr << "\\nobreak" << endl << "\\T (see under" << endl 
+                     << "\\T ``" << iter->song_cycle;
 
          if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1715,7 +1717,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
       }
       else
       {
-         *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->song_cycle;
+         *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->song_cycle;
            
          if (iter->production_subtitle.length() > 0)
            *toc_file_ptr << " " << iter->production_subtitle;
@@ -1726,7 +1728,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     }  
     else if (iter->revue.length() > 0 && iter->sort_by_production)
     {
-      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->revue;
+      *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->revue;
 
       if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
@@ -1735,7 +1737,7 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     }
     else if (iter->film.length() > 0 && iter->sort_by_production)
     {
-      *toc_file_ptr << "\\nobreak" << endl << r_or_s << " (see under ``" << iter->film;
+      *toc_file_ptr << "\\nobreak" << endl << "\\T (see under ``" << iter->film;
 
       if (iter->production_subtitle.length() > 0)
          *toc_file_ptr << " " << iter->production_subtitle;
