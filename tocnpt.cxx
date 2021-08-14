@@ -743,11 +743,6 @@ process_tocs_and_npt(void)
        cerr << "`submit_mysql_query' succeeded, returning 0." << endl
             << "`row_ctr'   == " << row_ctr << endl
             << "`field_ctr' == " << field_ctr << endl;
-
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-
-
      }
    
    /*  Process the contents of |result|  */
@@ -2051,6 +2046,8 @@ getchar();
               else if (iter->production_subtitle.length() > 0)
                  toc_ls_file << " " << iter->production_subtitle;
 
+              toc_ls_file << endl;
+
               if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
                   || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                   || temp_char <= 'h')
@@ -2145,8 +2142,6 @@ getchar();
                       {
                           cerr << "iter->title == " << iter->title << endl
                                << "iter->subtitle == " << iter->subtitle << endl;
-                          cerr << "LLL Enter <RETURN> to continue: ";
-                          getchar(); 
                       }
 
                       temp_strm << "\\Chapter{" << temp_str;
@@ -2395,6 +2390,11 @@ getchar();
 
          } /* |if|  */
 
+cerr << "Here I am." << endl
+<< "Type <RETURN> to continue: ";
+getchar(); 
+
+
          if (iter->is_cross_reference)
          {
             toc_ls_file << "\\vskip.5\\baselineskip\\vbox{\\S " << iter->title;
@@ -2426,53 +2426,82 @@ getchar();
 
             toc_ls_file << endl;
          }
-          
-/* !!START HERE:  LDF 2021.08.14.  Add production_subtitle.  
-   Check strangers in paradise:  production_subtitle is printed erroneously.
-
-*/ 
-
          if (iter->musical.length() > 0 && iter->sort_by_production)
          {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical << "'')"
-                       << endl;
+           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->musical;
+
+           if (iter->production_subtitle.length() > 0)
+              toc_ls_file << " " << iter->production_subtitle;
+   
+           toc_ls_file << "'')" << endl;
          }
          else if (iter->opera.length() > 0 && iter->sort_by_production)
          {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera << "'')"
-                       << endl;
+           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->opera;
+
+           if (iter->production_subtitle.length() > 0)
+              toc_ls_file << " " << iter->production_subtitle;
+           
+           toc_ls_file  << "'')" << endl;
          }
          else if (iter->operetta.length() > 0 && iter->sort_by_production)
          {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta << "'')"
-                       << endl;
+           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->operetta;
+
+           if (iter->production_subtitle.length() > 0)
+              toc_ls_file << " " << iter->production_subtitle;
+
+           toc_ls_file << "'')" << endl;
          }
          else if (iter->song_cycle.length() > 0 && iter->sort_by_production)
          {
            if (iter->song_cycle.length() > 20)
            {
               toc_ls_file << "\\nobreak" << endl << "\\S (see under" << endl 
-                          << "\\S ``" << iter->song_cycle << "'')" << endl;
+                          << "\\S ``" << iter->song_cycle;
+
+              if (iter->production_subtitle.length() > 0)
+                 toc_ls_file << " " << iter->production_subtitle;
+
+              toc_ls_file << "'')" << endl;
            }
            else
            {
-              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle << "'')"
-                          << endl;
+              toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->song_cycle;
+
+              if (iter->production_subtitle.length() > 0)
+                 toc_ls_file << " " << iter->production_subtitle;
+
+              toc_ls_file << "'')" << endl;
            }
 
          }
          else if (iter->revue.length() > 0 && iter->sort_by_production)
          {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue << "'')"
-                       << endl;
+           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->revue;
+
+           if (iter->production_subtitle.length() > 0)
+              toc_ls_file << " " << iter->production_subtitle;
+
+           toc_ls_file << "'')" << endl;
          }
          else if (iter->film.length() > 0 && iter->sort_by_production)
          {
-           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film << "'')"
-                       << endl;
+           toc_ls_file << "\\nobreak" << endl << "\\S (see under ``" << iter->film;
+
+           if (iter->production_subtitle.length() > 0)
+              toc_ls_file << " " << iter->production_subtitle;
+
+           toc_ls_file << "'')" << endl;
          }
          
+
          toc_ls_file << endl;
+
+cerr << "Here I am 1." << endl
+<< "Type <RETURN> to continue: ";
+getchar(); 
+
 
          string r_or_s;
 

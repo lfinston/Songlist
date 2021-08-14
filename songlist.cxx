@@ -1640,8 +1640,6 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
        if (iter->production_subtitle.length() > 0)
        {
           cerr << "iter->production_subtitle == " << iter->production_subtitle << endl;
-          cerr << "XXX Enter <RETURN> to continue: ";
-          getchar(); 
        }
 
     }  
@@ -1650,8 +1648,8 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, stri
     {
        *toc_file_ptr << "\\vskip.5\\baselineskip\\vbox{" << r_or_s << " " << iter->title;
 
-       if (iter->production_subtitle.length() > 0)
-          *toc_file_ptr << " " << iter->production_subtitle;
+       if (iter->subtitle.length() > 0)
+          *toc_file_ptr << " " << iter->subtitle;
        
        *toc_file_ptr << endl
                        << "\\nobreak" << endl << r_or_s << " (see  ``" << iter->target << "''";

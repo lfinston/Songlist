@@ -2697,10 +2697,7 @@ delete from Songs where title = "Strangers in Paradise";
 
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
-("Strangers in Paradise", true, "Polowetzer T@{a}nze", 
-true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
-
-
+("Strangers in Paradise", true, "Polowetzer T@{a}nze", true, true, "Prince Igor", "({\\mediumcy kNQZX iGORX})");
 
 /* ** *************************************************** */
 
