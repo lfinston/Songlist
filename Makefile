@@ -265,6 +265,11 @@ fpdpdf:
 lspdf:
 	cd ~/music/Lead_Sheets/tex; $(MAKE) pdf
 
+.PHONY: lsdvi
+
+lsdvi:
+	cd ~/music/Lead_Sheets/tex; $(MAKE) dvi
+
 .PHONY: lsdvic
 
 lsdvic:
