@@ -2852,6 +2852,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
+year, scanned, scanned_filename, eps_filenames, language, source)
+values
+("Sch@{o}ner Gigolo, armer Gigolo", "Julius Brammer", "Brammer, Julius",
+"Leonello Casucci", "Casucci, Leonello", true, 1929, false, "schggolo.pdf",
+"", "german", "{\\bf Golden Evergreens, Band II}, p.~10.");
+
+/* ** *************************************************** */
+
 select title from Songs where title like("Se Todos%");
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language, source, year, scanned, 
@@ -3797,7 +3806,9 @@ replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Two
 
 replace into Composers_Songs (composer, title) values ("Carpenter, Richard", "Top of the World");
 
-replace into Composers_Songs (composer, title) values ("Carr, Michael", "South of the Border");
+replace into Composers_Songs (composer, title) values (y"Carr, Michael", "South of the Border");
+
+replace into Composers_Songs (composer, title) values ("Casucci, Leonello", "Sch@{o}ner Gigolo, armer Gigolo");
 
 replace into Composers_Songs (composer, title) values ("Columbo, Russ", "Prisoner of Love");
 
@@ -4307,6 +4318,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "
 replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Frauen sind keine Engel");
 
 replace into Lyricists_Songs (lyricist, title) values ("Bettis, John", "Top of the World");
+
+replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Sch@{o}ner Gigolo, armer Gigolo");
 
 replace into Lyricists_Songs (lyricist, title) values ("Brammer, Julius", "Zwei M@{a}rchenaugen");
 
