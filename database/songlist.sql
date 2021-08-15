@@ -1937,9 +1937,7 @@ update Songs set eps_filenames = "liedlei1.eps;liedlei2.eps;liedlei3.eps;" where
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
-("Komm, Zigany",
-"Julius Brammer und Alfred Gr@{u}nwald",
-"Brammer, Julius und Gr@{u}nwald, Alfred",
+("Komm, Zigany", "Julius Brammer und Alfred Gr@{u}nwald", "Brammer, Julius und Gr@{u}nwald, Alfred",
 "Emmerich K{\\'a}lm{\\'a}n", "K{\\'a}lm{\\'a}n, Emmerich", true, 1932, "german");
 
 /* Film-Operetta:  Gr@{a}fin Mariza using melodies by K\\'alman.         */
@@ -2853,11 +2851,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
-year, scanned, scanned_filename, eps_filenames, language, source)
+year, language, source)
 values
 ("Sch@{o}ner Gigolo, armer Gigolo", "Julius Brammer", "Brammer, Julius",
-"Leonello Casucci", "Casucci, Leonello", true, 1929, false, "schggolo.pdf",
-"", "german", "{\\bf Golden Evergreens, Band II}, p.~10.");
+"Leonello Casucci", "Casucci, Leonello", true, 1929, 
+"german", "{\\bf Golden Evergreens, Band II}, p.~10.");
 
 /* ** *************************************************** */
 
