@@ -2633,7 +2633,12 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->opera;
+
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
 
              if (iter->opera.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
@@ -2677,7 +2682,13 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->operetta;
+
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
+
              if (iter->operetta.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
              else 
@@ -2724,7 +2735,12 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->song_cycle;
+
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
 
              if (iter->song_cycle.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
@@ -2771,7 +2787,12 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->musical;
+
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
 
              if (iter->musical.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
@@ -2816,8 +2837,12 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->revue;
 
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
 
              if (iter->revue.length() > max_production_str_length)
                productions_file << "}" << endl << "\\hbox{";
@@ -2863,7 +2888,12 @@ process_tocs_and_npt(void)
              if (isupper(curr_char))
                productions_file << "\\mark{" << char(curr_char) << "}\\nobreak" << endl;
 
-             productions_file << "\\vbox{\\hbox{{\\bf " << iter->film << "}";
+             productions_file << "\\vbox{\\hbox{{\\bf " << iter->film;
+
+             if (iter->production_subtitle.length() > 0)
+                productions_file << " " << iter->production_subtitle;
+
+             productions_file << "}";
 
              pos = iter->film.find("(Film)");
              if (pos == string::npos || iter->year > 0)
@@ -2893,7 +2923,12 @@ process_tocs_and_npt(void)
        cerr << "   Title:     " << iter->title << endl;
 #endif 
 
-       productions_file << "\\hbox{\\quad " << iter->title << "}" << endl;
+       productions_file << "\\hbox{\\quad " << iter->title;
+
+       if (iter->subtitle.length() > 0)
+                productions_file << " " << iter->subtitle;
+
+       productions_file << "}" << endl;
 
        prev_prod = curr_prod;
 
