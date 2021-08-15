@@ -1788,29 +1788,58 @@ process_tocs_and_npt(void)
        {
           if (iter->language == "french")
           {
-              french_file << "\\M " << iter->title << endl;
+              french_file << "\\M " << iter->title;
+
+              if (iter->subtitle.length() > 0)
+                 french_file << " " << iter->subtitle;
+
+              french_file << endl;
           }       
           else if (iter->language == "german")
           {
-              german_file << "\\M " << iter->title << endl;
+              german_file << "\\M " << iter->title;
+
+              if (iter->subtitle.length() > 0)
+                 german_file << " " << iter->subtitle;
+
+              german_file << endl;
           }       
           else if (iter->language == "italian")
           {
-              italian_file << "\\M " << iter->title << endl;
+              italian_file << "\\M " << iter->title;
+
+              if (iter->subtitle.length() > 0)
+                 italian_file << " " << iter->subtitle;
+
+              italian_file << endl;
           }       
           if (iter->language == "portugese")
           {
-              portugese_file << "\\M " << iter->title << endl;
+              portugese_file << "\\M " << iter->title;
+
+              if (iter->subtitle.length() > 0)
+                 portugese_file << " " << iter->subtitle;
+
+              portugese_file << endl;
           }       
           if (iter->language == "russian")
           {
-              russian_file << "\\M " << iter->title << endl;
+              russian_file << "\\M " << iter->title;
+
+              if (iter->subtitle.length() > 0)
+                 russian_file << " " << iter->subtitle;
+
+              russian_file << endl;
           }       
           if (iter->language == "spanish")
           {
-              spanish_file << "\\M " << iter->title << endl;
-          }       
+              spanish_file << "\\M " << iter->title;
 
+              if (iter->subtitle.length() > 0)
+                 spanish_file << " " << iter->subtitle;
+
+              spanish_file << endl;
+          }       
        }
 
 /* *** (3)  */

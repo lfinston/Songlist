@@ -2440,9 +2440,11 @@ update Songs set eps_filenames = "nearnss1.eps;nearnss2.eps;" where title = "Nea
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year, source, language)
+-- delete from Songs where title like("Nel blu%");
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, no_page_turns, year, source, language)
 values
-("Nel blu dipinto di blu (Volare)", "Domenico Modugno and Franco Migliacci", "Modugno, Domenico and Migliacci, Franco", 
+("Nel blu dipinto di blu", "(Volare)", "Domenico Modugno and Franco Migliacci", "Modugno, Domenico and Migliacci, Franco", 
 "Domenico Modugno", "Modugno, Domenico", true, 1958, "Single edition.", "italian");
 
 /* ** *************************************************** */
@@ -2615,9 +2617,13 @@ select "!!! End O";
 
 select "!!! P";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, language)
+delete from Songs where title = "Para Vigo me voy (Say ``Si, Si'')";
+
+select eps_filenames from Songs where title = "Para Vigo me voy (Say ``Si, Si'')";
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
-("Para Vigo me voy (Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
+("Para Vigo me voy", "(Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
 true, 1935, "spanish");
 
 #/* ** *************************************************** */
@@ -3253,13 +3259,15 @@ true, "thouswll.pdf");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, film, source, scanned, scanned_filename, language)
+delete from Songs where title like("Ti Guarder%");
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
+year, film, source, scanned, scanned_filename, language, eps_filenames)
 values
-("Ti Guarder{\\`e}ro Nel Cuore (More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
+("Ti Guarder{\\`e}ro Nel Cuore", "(More)", "Marcello Ciorciolini", "Ciorciolini, Marcello",
 "Nino Oliviero and Riz Ortolani", "Oliviero, Nino and Ortolani, Riz", true, 1962, 
 "Mondo Cane", "\\vbox{\\hbox{{\\bf The Big Book of '50s {\\&} '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~136.}}", 
-true, "tgrdnlcr.pdf", "italian");
+true, "tgrdnlcr.pdf", "italian", "tgrdnlc1.eps;tgrdnlc2.eps;");
 
 replace into Songs (title, is_cross_reference, target, lead_sheet)
 values
