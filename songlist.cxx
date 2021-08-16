@@ -807,7 +807,7 @@ main(int argc, char **argv)
           iter != song_vector.end();
           ++iter, ++next)
      {
-         if (iter->public_domain == true)
+         if (!iter->is_production && iter->public_domain == true)
          {
 #if 0 
              cerr << iter->title;
