@@ -3002,6 +3002,17 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+musical, sort_by_production, source, scanned, scanned_filename, eps_filenames)
+values
+("Something's Coming", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard",
+false, 1957, "West Side Story", true, "{\\bf West Side Story.  Die Bekanntesten Melodien}, p.~26.",
+false, "", "");
+
+-- https://en.wikipedia.org/wiki/West_Side_Story
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language, year, source, scanned,
 scanned_filename)
 values
@@ -3765,6 +3776,8 @@ replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Yo
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Can Cook Too");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
+
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Something's Coming");
 
 replace into Composers_Songs (composer, title) values ("Bizet, Georges", "Au fond du temple saint");
 
@@ -4892,6 +4905,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Strange
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Everything's Coming Up Roses");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "I Feel Pretty");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Something's Coming");
 
 replace into Lyricists_Songs (lyricist, title) values ("Springfield, Tom", "Georgy  Girl");
 
