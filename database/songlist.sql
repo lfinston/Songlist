@@ -1310,15 +1310,19 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, 
+scanned, scanned_filename, eps_filenames, year)
 values
-("I Cover the Waterfront", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true, 1);
+("I Cover the Waterfront", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true, 1,
+true, "icvrwtft.pdf", "icvrwtft1.pdf;icvrwtft2.pdf;icvrwtft3.pdf", 1933);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+scanned, scanned_filename, eps_filenames)
 values
-("I Don't Know Why (I Just Do)", "Roy Turk", "Turk, Roy", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1931);
+("I Don't Know Why (I Just Do)", "Roy Turk", "Turk, Roy", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1931,
+true, "idntknwy.pdf", "idntknwy1.pdf;idntknwy2.pdf;");
 
 /* ** *************************************************** */
 
@@ -1644,9 +1648,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+scanned, scanned_filename, eps_filenames, year, film)
 values
-("It Could Happen to You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
+("It Could Happen to You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true,
+true, "itcdhpty.pdf", "itcdhpty1.pdf;itcdhpty2.pdf;itcdhpty3.pdf;", 1944, "And the Angels Sing");
 
 /* ** *************************************************** */
 
@@ -1672,10 +1678,12 @@ update Songs set eps_filenames = "itnvrmnd1.eps;itnvrmnd2.eps;" where title = "I
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename, eps_filenames)
 values
 ("It's a Pity to Say `Goodnight'", "Billy Reid", "Reid, Billy", true, 1946,
-"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~146.}}");
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~146.}}",
+"itsptysg.pdf", "itsptysg1.pdf;itsptysg2.pdf;itsptysg3.pdf;itsptysg4.pdf;");
 
 /* ** *************************************************** */
 
@@ -2134,9 +2142,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename, eps_filenames)
 values
-("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf The Best of Cole Porter}, p.~112.");
+("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf The Best of Cole Porter}, p.~112.",
+true, "lovesale.pdf", "lovesale1.pdf;lovesale2.pdf;lovesale3.pdf;");
 
 /* ** *************************************************** */
 
@@ -3204,10 +3214,12 @@ values
 ("Thanks for the Memory", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true,
 "Big Broadcast of 1938, The", 1938);
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, copyright)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, 
+copyright, scanned, scanned_filename, eps_filenames)
 values
 ("That Old Feeling", "Lew Brown", "Brown, Lew", "Sammy Fain", "Fain, Sammy", true,
-"Vogues of 1938", 1937, "Copyright {\\copyright} 1937, Renewed 1965.");
+"Vogues of 1938", 1937, "Copyright {\\copyright} 1937, Renewed 1965.", 
+true, "ttldflng.pdf", "ttldflng1.pdf;ttldflng2.pdf;");
 
 /* ** *************************************************** */
 
