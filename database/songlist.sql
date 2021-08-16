@@ -303,6 +303,8 @@ values
 "{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
 --
 
+select * from Songs where title  = "Zauberfl@{o}te, Die"\G
+
 select * from Songs where opera = "Zauberfl@{o}te, Die"\G
 
 /* ** *************************************************** */
@@ -2944,19 +2946,24 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Skylark", "Johnny Mercer", "Mercer, Johnny", "Hoagy Carmichael", "Carmichael, Hoagy", true,
-1941, "Copyright {\\copyright} 1941, 1942 George Simon, Inc.  Copyrights Renewed (1969, 1970) "
-"and Assigned to WB Music Corp.~and Frank Music Corp.",
-"{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~93.");
+1941,
+"\\vbox{\\hbox{{\\bf Too Marvelous For Words.}}\\vskip\\sourceskip\\hbox{{\\bf The Magic of Johnny Mercer}, p.~93.}}");
+
+-- "\\vbox{\\hbox{Copyright {\\copyright} 1941, 1942 George Simon, Inc.}"
+-- "\\vskip\\copyrightskip\\hbox{Copyrights Renewed (1969, 1970) "
+-- "and Assigned to WB Music Corp.~and Frank Music Corp.",
 
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values 
-("Sleepwalk", "Santo Farina, John Farina and Ann Farina", "Farina, Santo; Farina, John; and Farina, Ann",
-true, 1959, "{\\bf More of the 1950s.  Hal Leonard Essential Songs, p.~304}");
+("Sleepwalk", "\\vtop{\\hbox{Santo Farina, John Farina}\\vskip\\composerskip\\hbox{and Ann Farina}}",
+"Farina, Santo; Farina, John; and Farina, Ann",
+true, 1959,
+"\\vbox{\\hbox{{\\bf More of the 1950s.}}\\vskip\\sourceskip\\hbox{{\\bf Hal Leonard Essential Songs}, p.~304}}");
 
 /* ** *************************************************** */
 
@@ -2973,10 +2980,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
-source, scanned, scanned_filename, sort_by_production)
+source, scanned, scanned_filename, sort_by_production, eps_filenames)
 values
 ("Some Enchanted Evening", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Richard Rodgers", "Rodgers, Richard", true,
-"South Pacific", 1949, "{\\bf Rodgers and Hammerstein Collection, The}, p.~325.", true, "smenevng.pdf", true);
+"South Pacific", 1949,
+"\\vbox{\\hbox{{\\bf Rodgers and Hammerstein Collection,}}\\vskip\\sourceskip\\hbox{{\\bf The}, p.~325.}}",
+true, "smenevng.pdf", true, "smenevng1.eps;smenevng2.eps;");
 
 /* ** *************************************************** */
 
@@ -3006,7 +3015,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 musical, sort_by_production, source, scanned, scanned_filename, eps_filenames)
 values
 ("Something's Coming", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard",
-false, 1957, "West Side Story", true, "{\\bf West Side Story.  Die Bekanntesten Melodien}, p.~26.",
+false, 1957, "West Side Story", true,
+"\\vbox{\\hbox{{\\bf West Side Story.  Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~26.}}",
 false, "", "");
 
 -- https://en.wikipedia.org/wiki/West_Side_Story
