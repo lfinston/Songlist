@@ -1314,15 +1314,21 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, eps_filenames, year)
 values
 ("I Cover the Waterfront", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true, 1,
-true, "icvrwtft.pdf", "icvrwtft1.pdf;icvrwtft2.pdf;icvrwtft3.pdf", 1933);
+true, "icvrwtft.pdf", "icvrwtft1.eps;icvrwtft2.eps;icvrwtft3.eps;", 1933);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+-- delete from Songs where title =  "I Don't Know Why (I Just Do)";
+
+select * from Songs where title like("I Don't Know Why%")\G
+
+
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year,
 scanned, scanned_filename, eps_filenames)
 values
-("I Don't Know Why (I Just Do)", "Roy Turk", "Turk, Roy", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1931,
-true, "idntknwy.pdf", "idntknwy1.pdf;idntknwy2.pdf;");
+("I Don't Know Why", "(I Just Do)", "Roy Turk", "Turk, Roy", "Fred E.~Ahlert", "Ahlert, Fred E.", true, 1931,
+true, "idntknwy.pdf", "idntknwy1.eps;idntknwy2.eps;");
 
 /* ** *************************************************** */
 
@@ -1652,7 +1658,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, eps_filenames, year, film)
 values
 ("It Could Happen to You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true,
-true, "itcdhpty.pdf", "itcdhpty1.pdf;itcdhpty2.pdf;itcdhpty3.pdf;", 1944, "And the Angels Sing");
+true, "itcdhpty.pdf", "itcdhpty1.eps;itcdhpty2.eps;itcdhpty3.eps;", 1944, "And the Angels Sing");
 
 /* ** *************************************************** */
 
@@ -1683,7 +1689,7 @@ scanned, scanned_filename, eps_filenames)
 values
 ("It's a Pity to Say `Goodnight'", "Billy Reid", "Reid, Billy", true, 1946,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part Two}, p.~146.}}",
-"itsptysg.pdf", "itsptysg1.pdf;itsptysg2.pdf;itsptysg3.pdf;itsptysg4.pdf;");
+true, "itsptysg.pdf", "itsptysg1.eps;itsptysg2.eps;itsptysg3.eps;itsptysg4.eps;");
 
 /* ** *************************************************** */
 
@@ -2143,10 +2149,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
-scanned, scanned_filename, eps_filenames)
+scanned, scanned_filename, eps_filenames, musical)
 values
 ("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf The Best of Cole Porter}, p.~112.",
-true, "lovesale.pdf", "lovesale1.pdf;lovesale2.pdf;lovesale3.pdf;");
+true, "lovesale.pdf", "lovesale1.eps;lovesale2.eps;lovesale3.eps;", "New Yorkers, The");
 
 /* ** *************************************************** */
 
@@ -3219,7 +3225,7 @@ copyright, scanned, scanned_filename, eps_filenames)
 values
 ("That Old Feeling", "Lew Brown", "Brown, Lew", "Sammy Fain", "Fain, Sammy", true,
 "Vogues of 1938", 1937, "Copyright {\\copyright} 1937, Renewed 1965.", 
-true, "ttldflng.pdf", "ttldflng1.pdf;ttldflng2.pdf;");
+true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
 
 /* ** *************************************************** */
 
