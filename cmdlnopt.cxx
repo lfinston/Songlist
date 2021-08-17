@@ -232,7 +232,7 @@ process_command_line_options(int argc, char* argv[])
                     << endl
                     << "Author:  Laurence D. Finston"
                     << endl 
-                    << "Copyright (C) 2018 Laurence D. Finston"
+                    << "Copyright (C) 2021 Laurence D. Finston"
                     << endl;
 
             exit(0);
