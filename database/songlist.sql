@@ -2857,7 +2857,8 @@ true, "Public Domain.",
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 source, scanned, scanned_filename, eps_filenames)
 values
-("'Round Midnight", "Cootie Williams and Thelonius Monk", "Williams, Cootie and Monk, Thelonius", 
+("'Round Midnight", "\\vtop{\\hbox{Cootie Williams and}\\vskip\\composerskip\\hbox{Thelonius Monk}}", 
+"Williams, Cootie and Monk, Thelonius", 
 true, 1944, 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~213.}}",
 false, "", "");
