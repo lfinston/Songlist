@@ -2848,8 +2848,21 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source, language)
 values
 ("Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
-"Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch", true, "Public Domain.",
+"Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch",
+true, "Public Domain.",
 "{\\bf Das Lied der V@{o}lker, Russische Lieder}, p.~26.", "russian");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("'Round Midnight", "Cootie Williams and Thelonius Monk", "Williams, Cootie and Monk, Thelonius", 
+true, 1944, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~213.}}",
+false, "", "");
+
+/* ** *************************************************** */
 
 select "!!! End R";
 
@@ -3129,7 +3142,8 @@ true, 1934, "Banjo chord melody");
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Stella By Starlight", "Ned Washington", "Washington, Ned", "Victor Young", "Young, Victor",
-true, 1946, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Vol. 2}, p.~235.}}");
+true, 1946, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~235.}}");
 
 /* ** *************************************************** */
 
@@ -3771,7 +3785,6 @@ order by words_reverse, music_reverse, words_and_music_reverse\G
 
 /* * (1)  */
 
-
 replace	into Composers_Songs (composer, title) values ("Abreu, Zequinha de", "Tico Tico no Fuba");
 
 replace	into Composers_Songs (composer, title) values ("Ager, Milton", "Ain't She Sweet");
@@ -4287,7 +4300,8 @@ replace into Composers_Songs (composer, title) values
 ("Warlamoff, Alexander Jegorowitsch", 
 "Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})");
 
-replace into Composers_Songs (composer, title) values ("Warren, Harry", "Gold Diggers' Song, The (We're in the Money)");
+replace into Composers_Songs (composer, title) values ("Warren, Harry", 
+   "Gold Diggers' Song, The (We're in the Money)");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "I Only Have Eyes for You");
 
@@ -5341,6 +5355,11 @@ replace into Composers_Songs (composer, title) values ("Weiss, George David", "W
 replace into Lyricists_Songs (lyricist, title) values ("Weiss, George David", "What a Wonderful World");
 replace into Composers_Songs (composer, title) values ("Thiele, Bob", "What a Wonderful World");
 replace into Lyricists_Songs (lyricist, title) values ("Thiele, Bob", "What a Wonderful World");
+
+replace into Composers_Songs (composer, title) values ("Williams, Cootie", "'Round Midnight");
+replace into Lyricists_Songs (lyricist, title) values ("Williams, Cootie", "'Round Midnight");
+replace into Composers_Songs (composer, title) values ("Monk, Thelonius", "'Round Midnight");
+replace into Lyricists_Songs (lyricist, title) values ("Monk, Thelonius", "'Round Midnight");
 
 /* * (1)  Composers and Lyricists */
 
