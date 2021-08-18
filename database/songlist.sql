@@ -2207,9 +2207,21 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+language, scanned, scanned_filename, eps_filenames)
 values
-("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  "Showboat", true, 1927);
+("Mademoiselle de Paris", "Henri Contet", "Contet, Henri", "Paul Durand", "Durand, Paul", 
+false, 1948, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~173.}}",
+"french", false, "", "");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
+sort_by_production, year)
+values
+("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  
+"Showboat", true, 1927);
 
 /* ** *************************************************** */
 
@@ -3852,7 +3864,7 @@ replace into Composers_Songs (composer, title) values ("Carmichael, Hoagy", "Two
 
 replace into Composers_Songs (composer, title) values ("Carpenter, Richard", "Top of the World");
 
-replace into Composers_Songs (composer, title) values (y"Carr, Michael", "South of the Border");
+replace into Composers_Songs (composer, title) values ("Carr, Michael", "South of the Border");
 
 replace into Composers_Songs (composer, title) values ("Casucci, Leonello", "Sch@{o}ner Gigolo, armer Gigolo");
 
@@ -3893,6 +3905,8 @@ replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Like t
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Just Like a Man");
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Taking a Chance on Love");
+
+replace into Composers_Songs (composer, title) values ("Durand, Paul", "Mademoiselle de Paris");
 
 replace into Composers_Songs (composer, title) values ("Edwards, Gus", "By The Light Of The Silvery Moon");
 
@@ -4424,6 +4438,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Party's
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Just in Time");
 
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Party's Over, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Contet, Henri", "Mademoiselle de Paris");
 
 replace into Lyricists_Songs (lyricist, title) values ("Cormon, Eug{\\`e}ne", "Au fond du temple saint");
 
