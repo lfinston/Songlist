@@ -1238,6 +1238,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+scanned, scanned_filename, eps_filenames, source, sort_by_production)
+values
+("Hey There", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1954, "Pajama Game, The", 
+false, "", "", "{\\bf Pajama Game, The, Vocal Selections}, p.~3.", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, film, language)
 values
 ("Homme et une femme, Un", "Pierre Barouh", "Barouh, Pierre", "Francis Lai", "Lai, Francis", 
@@ -5019,6 +5027,15 @@ replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart 
 replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
+
+
+replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Hey There");
+replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Hey There");
+replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Hey There");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Hey There");
+
+
+
 
 replace into Composers_Songs (composer, title) values ("Ballard, Pat", "Mister Sandman");
 replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister Sandman");
