@@ -5272,8 +5272,8 @@ replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Lob de
 replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Rheinlegendchen");
 replace into Composers_Songs (composer, title) values ("Mahler, Gustav", "Wer hat das Liedlein erdacht?");
 
-replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav",
-"Antonius von Padua Fischpredigt, Des");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", 
+                                                       "Antonius von Padua Fischpredigt, Des");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Irdische Leben, Das");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Lob des hohen Verstandes");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Rheinlegendchen");
