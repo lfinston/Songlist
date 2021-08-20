@@ -1242,7 +1242,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, eps_filenames, source, sort_by_production)
 values
 ("Hey There", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1954, "Pajama Game, The", 
-false, "", "", "{\\bf Pajama Game, The, Vocal Selections}, p.~3.", true);
+true, "heythere.pdf", "heythere1.eps;heythere2.eps;", "{\\bf Pajama Game, The, Vocal Selections}, p.~3.", true);
 
 /* ** *************************************************** */
 
@@ -1934,12 +1934,12 @@ update Songs set eps_filenames = "lbvrstn1.eps;lbvrstn2.eps;lbvrstn3.eps;lbvrstn
 /* *** (3) *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
+song_cycle, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language)
 values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "rhnlgndn.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndc.pdf", "rhnlgndc1.eps;rhnlgndc2.eps;rhnlgndc3.eps;",
+true, "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -2869,7 +2869,7 @@ values
 "Williams, Cootie and Monk, Thelonius", 
 true, 1944, 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~213.}}",
-false, "", "");
+true, "rndmdngt.pdf", "rndmdngt1.eps;rndmdngt2.eps;");
 
 /* ** *************************************************** */
 
