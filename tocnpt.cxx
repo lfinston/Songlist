@@ -2472,6 +2472,13 @@ process_tocs_and_npt(void)
          if (iter->subtitle.length() > 0)
             toc_npt_file << " " << iter->subtitle;
 
+/* !!START HERE:  LDF 2021.08.20.  Get printing "source" to work.  */ 
+
+#if 0
+         if (iter->source.length() > 0)
+           toc_npt_file << endl << "\\hskip\\twozerosperioddimen " << iter->source;
+#endif 
+
          toc_npt_file << endl << endl;
        }
 
@@ -2482,7 +2489,15 @@ process_tocs_and_npt(void)
          if (iter->subtitle.length() > 0)
             toc_npt_file << " " << iter->subtitle;
 
-         toc_npt_file << " (WTS)" << endl << endl;
+         toc_npt_file << " (WTS)";
+
+#if 0
+         if (iter->source.length() > 0)
+           toc_npt_file << endl << "\\hskip\\twozerosperioddimen " << iter->source;
+#endif 
+
+         toc_npt_file << endl << endl;
+
        }
        else if (iter->partial_lead_sheet)
        {
@@ -2491,7 +2506,15 @@ process_tocs_and_npt(void)
          if (iter->subtitle.length() > 0)
             toc_npt_file << " " << iter->subtitle;
 
-         toc_npt_file << " (PLS)" << endl << endl;
+         toc_npt_file << " (PLS)";
+
+#if 0 
+         if (iter->source.length() > 0)
+           toc_npt_file << endl << "\\hskip\\twozerosperioddimen " << iter->source;
+#endif 
+
+         toc_npt_file << endl << endl;
+
        }
        
      }  /* |for|  */
