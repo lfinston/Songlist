@@ -3156,10 +3156,10 @@ true, 1946,
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, notes, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, source, year)
 values
 ("Strangers in the Night", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie",
-"Bert Kaempfert", "Kaempfert, Bert", true, "Source: Best of Bert Kaempfert", 1965);
+"Bert Kaempfert", "Kaempfert, Bert", true, "{\\bf Best of Bert Kaempfert}, p.~34.", 1965);
 
 /* ** *************************************************** */
 
