@@ -2873,6 +2873,15 @@ true, "rndmdngt.pdf", "rndmdngt1.eps;rndmdngt2.eps;");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("Ruby My Dear", "None", "None", "Thelonius Monk", "Monk, Thelonius", 
+true, 1945, "{\\bf Library of Jazz Standards, The}, p.~76.}}",
+false, "rubydear.pdf", "");
+
+/* ** *************************************************** */
+
 select "!!! End R";
 
 /* S   */
@@ -4171,6 +4180,8 @@ replace into Composers_Songs (composer, title) values ("Monaco, James", "You Mad
 
 replace into Composers_Songs (composer, title) values ("Monaco, James V.", "I've Got a Pocketful of Dreams");
 
+replace into Composers_Songs (composer, title) values ("Monk, Thelonius", "Ruby My Dear");
+
 replace into Composers_Songs (composer, title) values ("Moret, Neil", "She's Funny That Way");
 
 replace into Composers_Songs (composer, title) values ("Mozart, Wolfgang Amadeus", "Alles f@{u}hlt der Liebe Freuden");
@@ -5378,6 +5389,8 @@ replace into Composers_Songs (composer, title) values ("Williams, Cootie", "'Rou
 replace into Lyricists_Songs (lyricist, title) values ("Williams, Cootie", "'Round Midnight");
 replace into Composers_Songs (composer, title) values ("Monk, Thelonius", "'Round Midnight");
 replace into Lyricists_Songs (lyricist, title) values ("Monk, Thelonius", "'Round Midnight");
+
+
 
 /* * (1)  Composers and Lyricists */
 
