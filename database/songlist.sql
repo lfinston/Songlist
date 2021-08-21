@@ -2877,7 +2877,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, eps_filenames)
 values
 ("Ruby My Dear", "None", "None", "Thelonius Monk", "Monk, Thelonius", 
-true, 1945, "{\\bf Library of Jazz Standards, The}, p.~76.}}",
+true, 1945, "{\\bf Library of Jazz Standards, The}, p.~76.",
 false, "rubydear.pdf", "");
 
 /* ** *************************************************** */

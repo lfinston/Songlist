@@ -97,6 +97,24 @@
 \newif\ifthreezeros
 \threezerosfalse
 
+\newskip\titleskip
+\titleskip=8pt
+
+\newskip\sourceskip
+\sourceskip=8pt
+
+\newskip\posttitleskip
+\posttitleskip=0pt
+
+\newskip\basichskip
+\basichskip=2em
+
+\newskip\copyrightskip
+\copyrightskip=6pt
+
+\newskip\composerskip
+\composerskip=4pt
+
 \def\M{\leavevmode\hbox to \twozerosperioddimen{\hss\the\songctr\global\advance\songctr by 1 . }}
 
 \def\N{\threezerostrue\leavevmode\hbox to \threezerosperioddimen{\hss
