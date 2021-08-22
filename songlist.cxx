@@ -771,7 +771,7 @@ main(int argc, char **argv)
                         << "\\advance\\baselineskip by 2pt" << endl
                         << "\\parskip=0pt" << endl
                         << "\\medium" << endl
-                        << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Public Domain Songs}\\fi" << endl
+                        << "\\global\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Public Domain Songs}\\fi" << endl
                         << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                         << "\\hldest{xyz}{}{public domain}" << endl 
                         << "\\centerline{{\\largebx Public Domain Songs}}" << endl
