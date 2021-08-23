@@ -3493,11 +3493,21 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, 
+source, scanned, scanned_filename, eps_filenames)
+values
+("We'll Meet Again", "Ross Parker and Hughie Charles", "Parker, Ross and Charles, Hughie", true,
+1939, "{\\bf Library of Jazz Standards, The}, p.~288.", false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, eps_filenames)
 values
 ("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
-1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", true, "weveonly.pdf");
+1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", true, "weveonly.pdf", "weveonly.eps;");
+
+
 
 /* ** *************************************************** */
 
@@ -5316,6 +5326,11 @@ replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert (Ray
 
 replace into Composers_Songs (composer, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Alone Again (Naturally)");
 replace into Lyricists_Songs (lyricist, title) values ("O'Sullivan, Gilbert (Ray Gilbert)", "Alone Again (Naturally)");
+
+replace into Composers_Songs (composer, title) values ("Parker, Ross", "We'll Meet Again");
+replace into Lyricists_Songs (lyricist, title) values ("Parker, Ross", "We'll Meet Again");
+replace into Composers_Songs (composer, title) values ("Charles, Hughie", "We'll Meet Again"); 
+replace into Lyricists_Songs (lyricist, title) values ("Charles, Hughie", "We'll Meet Again");
 
 replace into Composers_Songs (composer, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
 replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a}maso", "Mambo {\\#}5");
