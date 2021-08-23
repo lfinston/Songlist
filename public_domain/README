@@ -30,6 +30,17 @@ They are divided into multiple files because a single file would be too large to
 in GitHub and also too large for the author to send by email.
 
 It is, however, possible to generate a single file containing all of the public domain lead sheets.
+
+`public_domain_full.pdf' can be generated from `public_domain_full.dvi' with this command:
+
+   dvipdfmx public_domain_full.dvi
+
+The `.eps' (Encapsulated PostScript) files must be in the current directory.  If you've cloned
+the Git repository, they should be.
+
+`dvipdfmx' is included in the TexLive distribution.  If you don't have TexLive, see the following
+website for more information:  http://tug.org/texlive/
+
 See the file Makefile for rules for generating public_domain_full.dvi, public_domain_full.ps and
 public_domain_full.pdf.
 
