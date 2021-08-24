@@ -229,8 +229,8 @@ select "$$$ A";
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year,
 language)
 values
-("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner", true, 1, 1940,
-"german");
+("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner",
+true, 1, 1940, "german");
 
 -- select * from Songs where title = "Abends in der Taverna"\G
 
@@ -344,6 +344,16 @@ update Songs set eps_filenames = "anythin1.eps;anythin2.eps;" where title = "Any
 
 select eps_filenames from Songs where title = "Anything You Can Do";
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+source, scanned, scanned_filename, eps_filenames, revue, year)
+values
+("April in Paris", "E.Y.~``Yip'' Harburg", "Harburg, E.Y.~``Yip''",
+"Vernon Duke", "Duke, Vernon", true, "{\\bf Vernon Duke Songbook, Volume 1, p.~4.}",
+false, "", "", "Walk a Little Faster", 1947);
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings,
@@ -352,7 +362,8 @@ values
 ("April Showers", "Buddy G.~De Sylva", "De Sylva, Buddy G.", "Louis Silvers", "Silvers, Louis",
 true, 1, 1921, true, "aprlshwr.pdf", true);
 
-update Songs set eps_filenames = "aprshw01.eps;aprshw02.eps;aprshw03.eps;aprshw04.eps;" where title = "April Showers";
+update Songs set eps_filenames = "aprshw01.eps;aprshw02.eps;aprshw03.eps;aprshw04.eps;"
+where title = "April Showers";
 
 /* ** *************************************************** */
 
@@ -3946,6 +3957,8 @@ replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My 
 
 replace into Composers_Songs (composer, title) values ("Donizetti, Gaetano", "Furtiva lagrima, Una");
 
+replace into Composers_Songs (composer, title) values ("Duke, Vernon", "April in Paris");
+
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Can't Get Started");
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "I Like the Likes of You");
@@ -4647,6 +4660,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hammerstein II, Oscar", 
 replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke Gets in Your Eyes");
 
 -- delete from Lyricists_Songs where title = "Over the Rainbow";
+
+replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "April in Paris");
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "I Like the Likes of You");
 
