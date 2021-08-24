@@ -33,6 +33,29 @@
 #### $^:  The names of all the prerequisites, with spaces between them.
 #### $*:  The stem with which an implicit rule matches
 
+ACLOCAL_AMFLAGS = -I m4
+
+#SOURCEDIR := src
+#DOCDIR    := doc
+
+#export SOURCEDIR
+# export DOCDIR
+
+# vpath %.web $(SOURCEDIR)
+# vpath %.h $(SOURCEDIR)
+# vpath %.c $(SOURCEDIR)
+# vpath %.o $(SOURCEDIR)
+
+EXTRA_DIST = ChangeLog reconfig.sh
+
+.DELETE_ON_ERROR :
+
+#SUBDIRS = $(SOURCEDIR) #$(DOCDIR) 
+
+
+# TAGS : 
+# 	$(MAKE) TAGS -C $(SOURCEDIR)
+
 ttemp: ttemp.o cmdlnopt.o 
 	g++ -o ttemp ttemp.o cmdlnopt.o -L/usr/lib/mysql -L/usr/lib/mysql/plugin \
             -L/usr/lib/x86_64-linux-gnu -lmysqlclient \
@@ -309,5 +332,11 @@ graphics_1.eps graphics_2.eps graphics_3.eps graphics_4.eps \
 
 dump: ./database/songlist.sql
 	mysqlpump Songs > dump.sql
+.PHONY: query
 
+query:
+	echo "query:"
 
+## Local Variables:
+## mode:Makefile
+## End:
