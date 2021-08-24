@@ -2055,7 +2055,8 @@ replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, l
 source, scanned, scanned_filename, eps_filenames)
 values
 ("Let's Do It", "(Let's Fall in Love)", "Cole Porter", "Porter, Cole", true, "Paris",
-1928, "{\\bf Best of Cole Porter, The}, p.~104.", false, "", "");
+1928, "{\\bf Best of Cole Porter, The}, p.~104.", true,
+"letsdoit.pdf", "letsdoit1.eps;letsdoit2.eps;");
 
 /* ** *************************************************** */
 
@@ -2229,7 +2230,7 @@ values
 ("Mademoiselle de Paris", "Henri Contet", "Contet, Henri", "Paul Durand", "Durand, Paul", 
 false, 1948, 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~173.}}",
-"french", false, "", "");
+"french", true, "madmslle.pdf", "madmslle1.eps;madmslle2.eps;");
 
 /* ** *************************************************** */
 
@@ -2886,7 +2887,7 @@ source, scanned, scanned_filename, eps_filenames)
 values
 ("Ruby My Dear", "None", "None", "Thelonius Monk", "Monk, Thelonius", 
 true, 1945, "{\\bf Library of Jazz Standards, The}, p.~76.",
-false, "rubydear.pdf", "");
+true, "rubydear.pdf", "rubydear1.eps;rubydear2.eps;");
 
 /* ** *************************************************** */
 
@@ -3505,7 +3506,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 source, scanned, scanned_filename, eps_filenames)
 values
 ("We'll Meet Again", "Ross Parker and Hughie Charles", "Parker, Ross and Charles, Hughie", true,
-1939, "{\\bf Library of Jazz Standards, The}, p.~288.", false, "", "");
+1939, "{\\bf Library of Jazz Standards, The}, p.~288.",
+true, "wellmeet.pdf", "wellmeet1.eps;wellmeet2.eps;");
 
 /* ** *************************************************** */
 
