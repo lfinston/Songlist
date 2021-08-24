@@ -53,7 +53,7 @@ clean:
 
 .PHONY: all
 
-all: all-no-sep all-sep
+all: all-no-sep all-sep dump
 
 .PHONY: f-all
 
@@ -307,7 +307,7 @@ graphics_1.eps graphics_2.eps graphics_3.eps graphics_4.eps \
 
 .PHONY: dump
 
-dump:
+dump: ./database/songlist.sql
 	mysqlpump Songs > dump.sql
 
 
