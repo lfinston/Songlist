@@ -53,11 +53,7 @@ use Songs;
 
 create user 'songlist'@'localhost';
 
-create user 'taxonomy'@'localhost';
-
 GRANT ALL ON Songs TO 'songlist'@'localhost';
-
-GRANT ALL ON Taxonomy TO 'laurence'@'localhost';
 
 /* ** (2) Create table `Songs'.  */
 
@@ -2228,7 +2224,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 language, scanned, scanned_filename, eps_filenames)
 values
 ("Mademoiselle de Paris", "Henri Contet", "Contet, Henri", "Paul Durand", "Durand, Paul", 
-false, 1948, 
+true, 1948, 
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~173.}}",
 "french", true, "madmslle.pdf", "madmslle1.eps;madmslle2.eps;");
 
