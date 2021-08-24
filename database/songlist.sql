@@ -3550,7 +3550,8 @@ year, source, scanned, scanned_filename)
 values
 ("When I Fall in Love", "Edward Heyman", "Heyman, Edward", "Victor Young", "Young, Victor",
 true, "One Minute to Zero", 1952, 
-"{\\bf Nat ``King'' Cole, Unforgettable.  Legendary Performers -- Volume 9}, p.~9.", 
+"\\vbox{\\hbox{{\\bf Nat ``King'' Cole, Unforgettable.}}"
+"\\vskip\\sourceskip\\hbox{{\\bf Legendary Performers -- Volume 9}, p.~9.}}", 
 true, "whenlove.pdf");
 
 /* ** *************************************************** */
