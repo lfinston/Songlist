@@ -1154,8 +1154,9 @@ no_page_turns, year, copyright, musical, source)
 values
 ("Guys and Dolls", "Frank Loesser", "Loesser, Frank", false, true, 1950,
 "\\vbox{\\hbox{{\\copyright} Copyright 1950 Frank Music Corporation USA.}"
-"\\hbox{{\\copyright} Copyright renewed 1978 Frank Music Corporation USA.}}",
-"Guys and Dolls", "Guys and Dolls, Vocal Selections, p.~18.");
+"\\vskip\\copyrightskip\\hbox{{\\copyright} Copyright renewed 1978 Frank Music }\\vskip\\copyrightskip"
+"\\hbox{Corporation USA.}}",
+"Guys and Dolls", "{\\bf Guys and Dolls, Vocal Selections}, p.~18.");
 
 /* H   */
 
@@ -3651,7 +3652,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, film, source, notes, scanned, scanned_filename, sort_by_production)
 values
 ("Woman in Love, A", "Frank Loesser", "Loesser, Frank", true, 1955,
-"Guys and Dolls", "{\\bf Guys and Dolls, Vocal Selections}, p.~2.",
+"Guys and Dolls (Film)", "{\\bf Guys and Dolls, Vocal Selections}, p.~2.",
 "In the 1955 film, not in the original Broadway production.", true, "womninlv.pdf", true);
 
 update Songs set eps_filenames = "womninlv1.eps;womninlv2.eps;" where title = "Woman in Love, A";
