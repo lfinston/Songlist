@@ -3648,10 +3648,10 @@ false, "gutencht.pdf", "german", true);
 select * from Songs where title = "Bewitched"\G
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-year, film, production_subtitle, source, notes, scanned, scanned_filename, sort_by_production)
+year, film, source, notes, scanned, scanned_filename, sort_by_production)
 values
 ("Woman in Love, A", "Frank Loesser", "Loesser, Frank", true, 1955,
-"Guys and Dolls", "(Film)", "Guys and Dolls, Vocal Selections, p.~2.",
+"Guys and Dolls", "{\\bf Guys and Dolls, Vocal Selections}, p.~2.",
 "In the 1955 film, not in the original Broadway production.", true, "womninlv.pdf", true);
 
 update Songs set eps_filenames = "womninlv1.eps;womninlv2.eps;" where title = "Woman in Love, A";
