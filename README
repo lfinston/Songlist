@@ -34,6 +34,26 @@ I've decided to make it publicly available at GitHub.
 Please contact the author with any questions.
 See email address above.
 
+The easiest way to set up the database is to use the file `dump.sql' in the
+top-level directory ([...]/Songlist/):
+
+   mysql> source dump.sql
+
+Of course, a MySQL user must be created and permissions must
+be granted to it in order to set up and use the database.
+
+For instructions on using MySQL see the MySQL 8.0 Reference Manual:
+https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/index.html
+
+For specific information on using "mysql — The MySQL Command-Line Client"
+see: 
+https://docs.oracle.com/cd/E17952_01/mysql-8.0-en/mysql.html
+
+The file [...]/Songlist/database/songlist.sql contains the SQL code
+that the author uses to send queries to the database (for adding
+songs, etc.).  It is NOT meant to be "sourced".  Sourcing it will
+almost certainly result in errors.
+
 The directory `/Songlist/public_domain/' contains PDF files containing
 lead sheets for songs that are in the public domain in both the USA and Germany.
 See the file `/Songlist/public_domain/README' for more information.
