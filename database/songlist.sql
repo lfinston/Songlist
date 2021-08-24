@@ -2051,6 +2051,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, musical, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("Let's Do It", "(Let's Fall in Love)", "Cole Porter", "Porter, Cole", true, "Paris",
+1928, "{\\bf Best of Cole Porter, The}, p.~104.", false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, film, source)
 values
 ("Let's Face the Music and Dance", "Irving Berlin", "Berlin, Irving", true, 1936,
@@ -5349,6 +5357,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I've Got
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Just One of Those Things");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Just One of Those Things");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Let's Do It");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Let's Do It");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Love for Sale");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Love for Sale");
