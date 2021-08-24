@@ -313,7 +313,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 source, notes, scanned, scanned_filename)
 values
 ("Alone Again (Naturally)", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
-1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~16.",
+1972, "{\\bf Best of Gilbert O'Sullivan, The}, p.~16.",
 "Authors real name:  Ray Gilbert.", true, "aloneagn.pdf");
 
 update Songs set eps_filenames = "alnagn01.eps;alnagn02.eps;" where title = "Alone Again (Naturally)";
@@ -439,7 +439,7 @@ update Songs set eps_filenames = "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl0
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("Begin the Beguine", "Cole Porter", "Porter, Cole", true, 1935, 
-"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~30.");
+"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf Best of Cole Porter, The}, p.~30.");
 
 /* ** *************************************************** */
 
@@ -678,7 +678,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 source, notes, scanned, scanned_filename)
 values
 ("Claire", "Gilbert O'Sullivan (Ray Gilbert)", "O'Sullivan, Gilbert (Ray Gilbert)", true, 
-1972, "{\\bf The Best of Gilbert O'Sullivan}, p.~5.",
+1972, "{\\bf Best of Gilbert O'Sullivan, The}, p.~5.",
 "Authors real name:  Ray Gilbert.", true, "claire.pdf");
 
 update Songs set eps_filenames = "claire01.eps;claire02.eps;" where title = "Claire";
@@ -1366,7 +1366,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, source)
 values
 ("I Get a Kick Out of You", "Cole Porter", "Porter, Cole", true, "Anything Goes",
-1934, "{\\bf The Best of Cole Porter}, p.~68.");
+1934, "{\\bf Best of Cole Porter, The}, p.~68.");
 
 /* ** *************************************************** */
 
@@ -1704,7 +1704,7 @@ true, "itsptysg.pdf", "itsptysg1.eps;itsptysg2.eps;itsptysg3.eps;itsptysg4.eps;"
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
 ("It's All Right With Me", "Cole Porter", "Porter, Cole", true, 1953,
-"{\\bf The Best of Cole Porter}, p.~90.");
+"{\\bf Best of Cole Porter, The}, p.~90.");
 
 /* ** *************************************************** */
 
@@ -1713,7 +1713,7 @@ year, copyright, source, musical, scanned, scanned_filename)
 values
 ("It's De-Lovely", "Cole Porter", "Porter, Cole", true, 1936, 
 "Copyright {\\copyright} 1936 by Chappell \\& Co. (Renewed).", 
-"{\\bf The Best of Cole Porter}, p.~95", "Red, Hot and Blue", true, "itsdelve.pdf");
+"{\\bf Best of Cole Porter, The}, p.~95", "Red, Hot and Blue", true, "itsdelve.pdf");
 
 update Songs set eps_filenames = "itsdelv1.eps;itsdelv2.eps;" where title = "It's De-Lovely";
 
@@ -1753,7 +1753,7 @@ true, 1932);
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("I've Got You Under My Skin", "Cole Porter", "Porter, Cole", true, 1936, 
-"Copyright {\\copyright} 1936 by Chappell {\\&} Co.~ (Renewed)", "{\\bf The Best of Cole Porter}, p.~86.");
+"Copyright {\\copyright} 1936 by Chappell {\\&} Co.~ (Renewed)", "{\\bf Best of Cole Porter, The}, p.~86.");
 
 /* J   */
 
@@ -1861,7 +1861,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename)
 values
 ("Just One of Those Things", "Cole Porter", "Porter, Cole", false, 1935, 
-"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf The Best of Cole Porter}, p.~100.",
+"Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf Best of Cole Porter, The}, p.~100.",
 true, "jstthngs.pdf");
 
 /* ** *************************************************** */
@@ -2166,7 +2166,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
 scanned, scanned_filename, eps_filenames, musical)
 values
-("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf The Best of Cole Porter}, p.~112.",
+("Love for Sale", "Cole Porter", "Porter, Cole", true, 1930, "{\\bf Best of Cole Porter, The}, p.~112.",
 true, "lovesale.pdf", "lovesale1.eps;lovesale2.eps;lovesale3.eps;", "New Yorkers, The");
 
 /* ** *************************************************** */
@@ -2519,7 +2519,7 @@ update Songs set eps_filenames = "nicewrk1.eps;nicewrk2.eps;" where title = "Nic
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright, year, source)
 values
 ("Night and Day", "Cole Porter", "Porter, Cole", true,
-"Copyright {\\copyright} 1932 Warner Bros.~Inc.~(Renewed)", 1932, "{\\bf The Best of Cole Porter}, p.~120.");
+"Copyright {\\copyright} 1932 Warner Bros.~Inc.~(Renewed)", 1932, "{\\bf Best of Cole Porter, The}, p.~120.");
 
 /* ** *************************************************** */
 
