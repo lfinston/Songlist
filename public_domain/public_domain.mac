@@ -116,7 +116,7 @@
 \noexpand\ifdim\wd3>0pt\noexpand~#3\noexpand\fi\noexpand\leaderfill
 \the\pageno}}\fi}
 
-\def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr}%
+\def\Section#1#2#3{\global\advance\songctr by 1\edef\A{\the\songctr .}%
 \setbox3=\hbox{#3}\ifdim\wd3>0pt\def\B{\space #3}\else\def\B{\empty}\fi
 \writenumberedtocentry{section}{\hlstart{}{bwidth=0}{#1}\Blue{#2}\hlend\setbox3=\hbox{#3}\ifdim\wd3>0pt\ #3\fi}{\A}%
 \write\index{\noexpand\line{\noexpand\setbox0=\hbox{#2 #3}%
