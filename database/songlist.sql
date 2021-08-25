@@ -352,7 +352,7 @@ source, scanned, scanned_filename, eps_filenames, revue, year)
 values
 ("April in Paris", "E.Y.~``Yip'' Harburg", "Harburg, E.Y.~``Yip''",
 "Vernon Duke", "Duke, Vernon", true, "{\\bf Vernon Duke Songbook, Volume 1, p.~4.}",
-false, "", "", "Walk a Little Faster", 1947);
+true, "aprlnprs.pdf", "aprlnprs1.eps;aprlnprs2.eps;", "Walk a Little Faster", 1947);
 
 /* ** *************************************************** */
 
