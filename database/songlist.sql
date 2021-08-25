@@ -2559,15 +2559,15 @@ select "!!! O";
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename, language, film, sort_by_production)
+delete from Songs where title = "O Nosso Amor (Carnival Samba)";
+
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename, eps_filenames, language, film, sort_by_production)
 values
-("O Nosso Amor (Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
+("O Nosso Amor", "(Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "Copyright {\\copyright} 1959, 1964 (Renewed)",
 "{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
-"portugese", "Orfeu Negro", true);
-
-update Songs set eps_filenames = "onssamor1.eps;onssamor2.eps;onssamor3.eps;" where title = "O Nosso Amor (Carnival Samba)";
+"onssamor1.eps;onssamor2.eps;onssamor3.eps;", "portugese", "Orfeu Negro", true);
 
 /* ** *************************************************** */
 
