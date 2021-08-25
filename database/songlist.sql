@@ -332,6 +332,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, source,
+scanned, scanned_filename, eps_filenames)
+values
+("Anything Goes", "Cole Porter", "Porter, Cole", true, "Anything Goes",
+1934, "{\\bf Best of Cole Porter, The}, p.~68.", false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
 year, source, scanned, scanned_filename)
 values
@@ -5360,6 +5368,9 @@ replace into Lyricists_Songs (lyricist, title) values ("P{\\'e}rez Prado, D{\\'a
 
 replace into Composers_Songs (composer, title) values ("Parks, C.~Carson", "Somethin' Stupid");
 replace into Lyricists_Songs (lyricist, title) values ("Parks, C.~Carson", "Somethin' Stupid");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Anything Goes");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Anything Goes");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Begin the Beguine");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Begin the Beguine");
