@@ -336,7 +336,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, eps_filenames)
 values
 ("Anything Goes", "Cole Porter", "Porter, Cole", true, "Anything Goes",
-1934, "{\\bf Best of Cole Porter, The}, p.~68.", false, "", "");
+1934, "{\\bf Best of Cole Porter, The}, p.~68.", true, "anthnggs.pdf", "anthnggs1.eps;anthnggs2.eps;");
 
 /* ** *************************************************** */
 
@@ -3763,7 +3763,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, eps_filenames)
 values
 ("You're the Top", "Cole Porter", "Porter, Cole", true, "Anything Goes",
-1934, "{\\bf Best of Cole Porter, The}, p.~158.", false, "", "");
+1934, "{\\bf Best of Cole Porter, The}, p.~158.", true, "yrthetop.pdf", "yrthetop1.eps;yrthetop2.eps;");
 
 /* ** *************************************************** */
 
