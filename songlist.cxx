@@ -1327,7 +1327,7 @@ compare_productions(const Song& t, const Song& s)
 }  /* |end of compare_productions| definition */
 
 
-/* ** (2) */
+/* ** (2) |remove_formatting_commands|  */
 
 string 
 remove_formatting_commands(string s)
@@ -1508,10 +1508,30 @@ remove_formatting_commands(string s)
 
   char sc[64];
   memset(sc, 0, 64);
-      
+
   do
     {
-      found_s = s.find_first_of("@()\\'`\"{}~-_^");
+      found_s = s.find("\\'");
+      if (found_s != string::npos)	  	  
+	{
+	  found_flag = true;
+	  s.erase(found_s, 2);
+	}
+    } while (found_s != string::npos);
+
+  do
+    {
+      found_s = s.find("'");
+      if (found_s != string::npos)	  	  
+	{
+	  found_flag = true;
+	  s.replace(found_s, 1, " ");
+	}
+    } while (found_s != string::npos);
+
+  do
+    {
+      found_s = s.find_first_of("@()\\`\"{}~-_^");
       if (found_s != string::npos)	  	  
 	{
 	  found_flag = true;
