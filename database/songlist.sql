@@ -1142,7 +1142,8 @@ values
 ("Gold Diggers' Song, The", "(We're in the Money)", 
 "\\vtop{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{(We're in the Money)}}", 
 "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", 
-true, 1933, "Gold Diggers of 1933", "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~36.",
+true, 1933, "Gold Diggers of 1933", 
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~36.}}",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "golddgrs.pdf");
 
@@ -2223,7 +2224,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, source, notes, scanned, scanned_filename)
 values
 ("Lullaby of Broadway", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"Gold Diggers of 1935", 1935, false, "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~39.}"
+"Gold Diggers of 1935", 1935, false,
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~39.}"
 "\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "lullbrdw.pdf");
@@ -3012,8 +3014,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, source)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
-"42nd Street", "(Film)", 1933, true, "{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~58.");
-
+"42nd Street", "(Film)", 1933, true, 
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~58.}}");
 
 /* ** *************************************************** */
 
@@ -3714,7 +3716,7 @@ film, production_subtitle, year, sort_by_production, source)
 values
 ("Young and Healthy", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 
 "42nd Street", "(Film)", 1933, true, 
-"{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~16.");
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~16.}}");
 
 /* ** *************************************************** */
 
@@ -3724,7 +3726,7 @@ values
 ("You're Getting to Be a Habit With Me", "Al Dubin", "Dubin, Al",
 "Harry Warren", "Warren, Harry", true,
 "42nd Street", "(Film)", 1933, true,
-"{\\bf 42nd Street, All the Vocal Selections from 42nd Street}, p.~24.");
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~24.}}");
 
 /* ** *************************************************** */
 
