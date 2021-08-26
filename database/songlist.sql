@@ -3759,6 +3759,14 @@ select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, source,
+scanned, scanned_filename, eps_filenames)
+values
+("You're the Top", "Cole Porter", "Porter, Cole", true, "Anything Goes",
+1934, "{\\bf Best of Cole Porter, The}, p.~158.", false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, year, film, source)
 values
 ("You've Got That Look", "Friedrich Hollaender", "Hollaender, Friedrich", 
@@ -5396,11 +5404,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Every Ti
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "I Get a Kick Out of You");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "I Get a Kick Out of You");
 
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's All Right With Me");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's All Right With Me");
+
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Night and Day");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Night and Day");
 
-replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's All Right With Me");
-replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's All Right With Me");
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "You're the Top");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're the Top");
 
 replace into Composers_Songs (composer, title) values ("Reid, Billy", "I'll Close My Eyes");
 replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "I'll Close My Eyes");
