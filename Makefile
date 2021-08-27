@@ -690,7 +690,7 @@ ttemp.o: ttemp.cxx cmdlnopt.hxx songdefs.hxx
 .PHONY: clean
 
 clean:  
-	rm -f *.o *.dvi *.ps *.pdf *.log toc_ls.tex toc_scores.tex \
+	rm -f *.o *.dvi *.ps *.pdf *.log *.toc toc_ls.tex toc_scores.tex \
               circles.mpx circles.1 circles.2 circles.3 \
               songlist songlist_out.tex ttemp.o ttemp \
               toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
