@@ -2371,6 +2371,8 @@ process_tocs_and_npt(void)
                 getchar(); 
             }
 #endif 
+            /* !!START HERE:  LDF 2021.08.27.  Get rid of \\vtop, etc.  */ 
+ 
             temp_strm << "\\Chapter{" << temp_str_1 << "}{" << iter->title << "}{";
  
             if (iter->subtitle.length() > 0)
