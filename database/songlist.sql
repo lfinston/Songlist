@@ -3578,12 +3578,13 @@ true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79."
 */ 
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
-year, source, scanned, scanned_filename, sort_by_production)
+production_filecard_title, year, source, scanned, scanned_filename, sort_by_production)
 values
 ("What Kind of Fool Am I?",
 "\\vtop{\\hbox{Leslie Bricusse and}\\vskip\\titleskip\\hbox{Anthony Newley}}",
 "Bricusse, Leslie and Newley, Anthony", 
-true, "Stop the World---I Want to Get Off", 1961, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~508.",
+true, "Stop the World---I Want to Get Off", "\\vbox{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}", 
+1961, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~508.",
 true, "whatkind.pdf", true);
 
 /* ** *************************************************** */
