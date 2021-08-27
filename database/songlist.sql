@@ -751,7 +751,8 @@ source, scanned, scanned_filename, language)
 values
 ("Corcovado", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1962,
 "Copyright {\\copyright} 1962, 1964 (Renewed)",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~144.", true, "corcvado.pdf",
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~144.}}",
+true, "corcvado.pdf",
 "portugese");
 
 update Songs set eps_filenames = "crcvdo01.eps;crcvdo02.eps;" where title = "Corcovado";
@@ -938,7 +939,8 @@ source, scanned, scanned_filename, film, language, sort_by_production)
 values
 ("Felicidade, A", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~65.", true, "felcdade.pdf",
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~65.}}",
+true, "felcdade.pdf",
 "Orfeu Negro", "portugese", true);
 
 update Songs set eps_filenames = "felici01.eps;felici02.eps;" where title = "Felicidade, A";
@@ -1094,13 +1096,12 @@ values
 /* G   */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename, language)
+source, scanned, scanned_filename, language, eps_filenames)
 values
 ("Gar{\\^o}ta de Ipanema", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963 (Renewed)",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~84.", true, "garota.pdf", "portugese");
-
-update Songs set eps_filenames = "garota1.eps;garota2.eps;" where title = "Gar{\\\^o}ta de Ipanema";
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~84.}}",
+true, "garota.pdf", "portugese", "garota1.eps;garota2.eps;");
 
 /* ** *************************************************** */
 
@@ -1649,7 +1650,8 @@ source, scanned, scanned_filename, language)
 values
 ("Insensatez", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos", true, 1963, "Copyright {\\copyright} 1963, 1964",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~88.", true, "insenstz.pdf", "portugese");
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~88.}}",
+true, "insenstz.pdf", "portugese");
 
 update Songs set eps_filenames = "insenstz.eps;" where title = "Insensatez";
 
@@ -2576,7 +2578,8 @@ source, scanned, scanned_filename, eps_filenames, language, film, sort_by_produc
 values
 ("O Nosso Amor", "(Carnival Samba)", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1959,
 "Copyright {\\copyright} 1959, 1964 (Renewed)",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~121.", true, "onssamor.pdf",
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~121.}}",
+true, "onssamor.pdf",
 "onssamor1.eps;onssamor2.eps;onssamor3.eps;", "portugese", "Orfeu Negro", true);
 
 /* ** *************************************************** */
@@ -3502,7 +3505,8 @@ source, scanned, scanned_filename)
 values
 ("Wave", "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, 1967,
 "Copyright {\\copyright} 1967, 1968 (Renewed)",
-"{\\bf The Definitive Antonio Carlos Jobim Collection}, p.~206.", true, "wave.pdf");
+"\\vbox{\\hbox{{\\bf Definitive Antonio Carlos Jobim}}\\vskip\\sourceskip\\hbox{{\\bf Collection, The}, p.~206.}}",
+true, "wave.pdf");
 
 /* ** *************************************************** */
 
