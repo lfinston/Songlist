@@ -3231,7 +3231,7 @@ musical, year, scanned, scanned_filename, eps_filenames)
 values
 ("Taking a Chance on Love", "John La Touche and Ted Fetter", "La Touche, John and Fetter, Ted",
 "Vernon Duke", "Duke, Vernon", true,
-"Cabin in the Sky", 1940, true, "takechnc.pdf", "takechnc1.eps;takechnc2.ps;");
+"Cabin in the Sky", 1940, true, "takechnc.pdf", "takechnc1.eps;takechnc2.eps;");
 
 /* ** *************************************************** */
 
@@ -3659,13 +3659,14 @@ false, "gutencht.pdf", "german", true);
 select * from Songs where title = "Bewitched"\G
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
-year, film, source, notes, scanned, scanned_filename, sort_by_production)
+year, film, source, notes, scanned, scanned_filename, eps_filenames, sort_by_production)
 values
 ("Woman in Love, A", "Frank Loesser", "Loesser, Frank", true, 1955,
 "Guys and Dolls (Film)", "{\\bf Guys and Dolls, Vocal Selections}, p.~2.",
-"In the 1955 film, not in the original Broadway production.", true, "womninlv.pdf", true);
+"In the 1955 film, not in the original Broadway production.", true, "womninlv.pdf", "womninlv1.eps;womninlv2.eps;", 
+true);
 
-update Songs set eps_filenames = "womninlv1.eps;womninlv2.eps;" where title = "Woman in Love, A";
+update Songs set eps_filenames =  where title = "Woman in Love, A";
 
 /* ** *************************************************** */
 

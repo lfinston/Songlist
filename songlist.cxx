@@ -1511,27 +1511,7 @@ remove_formatting_commands(string s)
 
   do
     {
-      found_s = s.find("\\'");
-      if (found_s != string::npos)	  	  
-	{
-	  found_flag = true;
-	  s.erase(found_s, 2);
-	}
-    } while (found_s != string::npos);
-
-  do
-    {
-      found_s = s.find("'");
-      if (found_s != string::npos)	  	  
-	{
-	  found_flag = true;
-	  s.replace(found_s, 1, " ");
-	}
-    } while (found_s != string::npos);
-
-  do
-    {
-      found_s = s.find_first_of("@()\\`\"{}~-_^");
+      found_s = s.find_first_of("@()\\'`\"{}~-_^");
       if (found_s != string::npos)	  	  
 	{
 	  found_flag = true;
