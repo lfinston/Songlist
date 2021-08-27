@@ -85,6 +85,7 @@ create table Songs
     sort_by_production boolean not null default false,
     production varchar(64) not null default "",
     production_subtitle varchar(128) not null default "",
+    production_filecard_title varchar(128) not null default "",
     year int default null,
     copyright varchar(256) default null,
     notes varchar(512) default null,
@@ -122,6 +123,7 @@ alter table Songs modify column target varchar(256) not null default "";
 alter table Songs modify column song_cycle varchar(256) default null;
 alter table Songs add column subtitle varchar(128) not null default "" after title;
 alter table Songs add column production_subtitle varchar(128) not null default "" after production;
+alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
 
 show columns from Songs;
 
@@ -359,7 +361,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename, eps_filenames, revue, year)
 values
 ("April in Paris", "E.Y.~``Yip'' Harburg", "Harburg, E.Y.~``Yip''",
-"Vernon Duke", "Duke, Vernon", true, "{\\bf Vernon Duke Songbook, Volume 1, p.~4.}",
+"Vernon Duke", "Duke, Vernon", true,
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~4.}}",
 true, "aprlnprs.pdf", "aprlnprs1.eps;aprlnprs2.eps;", "Walk a Little Faster", 1947);
 
 /* ** *************************************************** */
@@ -395,7 +398,8 @@ false, "aufndsnt.pdf", true, "french");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, revue)
 values
 ("Autumn in New York", "Vernon Duke", "Duke, Vernon", true, 1934,
-"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~8.", "Walk a Little Faster");
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~8.}}",
+"Walk a Little Faster");
 
 select "$$$ End of A";
 
@@ -492,7 +496,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
 lead_sheet, sort_by_production, year)
 values
-("Bill", "P.G.~Wodehouse and Oscar Hammerstein II", "Wodehouse, P.G. and Hammerstein, Oscar II", 
+("Bill", "\\vtop{\\hbox{P.G.~Wodehouse and}\\vskip\\composerskip\\hbox{Oscar Hammerstein II}}", "Wodehouse, P.G. and Hammerstein, Oscar II", 
 "Jerome Kern", "Kern, Jerome", "Showboat", true, true, 1927);
 
 /* ** *************************************************** */
@@ -930,7 +934,8 @@ update Songs set eps_filenames = "evtcuprs1.eps;evtcuprs2.eps;" where title = "E
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, source)
 values
 ("Falling in Love With Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
-true, "Boys from Syracuse, The", 1938, "{\\bf The Boys from Syracuse.  Vocal Selection}, p.~3.");
+true, "Boys from Syracuse, The", 1938, 
+"\\vbox{\\hbox{{\\bf The Boys from Syracuse.}}\\vskip\\sourceskip\\hbox{{\\bf Vocal Selection}, p.~3.}}");
 
 /* ** *************************************************** */
 
@@ -1198,7 +1203,7 @@ year, copyright, source, scanned, scanned_filename)
 values
 ("Heart and Soul", "Frank Loesser", "Loesser, Frank", 
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
-"Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
+"\\vbox{\\hbox{Copyright {\\copyright} 1938 (Renewed 1965)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation.}}",
 "{\\bf The Hoagy Carmichael Songbook}, p.~28.", true, "hrtnsoul.pdf");
 
 update Songs set eps_filenames = "hrtsoul1.eps;hrtsoul2.eps;" where title = "Heart and Soul";
@@ -1235,7 +1240,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, musical, scanned, scanned_filename)
 values
 ("Here's That Rainy Day", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1953,
-"{\\bf Classic Songs of Johnny Burke}, p.~33.", "Carnival in Flanders", true, "hererain.pdf");
+"\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~33.}}",
+"Carnival in Flanders", true, "hererain.pdf");
 
 update Songs set eps_filenames = "hererain.eps;" where title = "Here's That Rainy Day";
 
@@ -1377,7 +1383,7 @@ values
 ("I Feel Pretty", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  
 "West Side Story", true, 
 "\\vbox{\\hbox{{\\bf Bernstein on Broadway}, p.~200.}\\vskip\\sourceskip"
-"\\hbox{{\\bf West Side Story, Die bekanntesten Melodien},}\\vskip\\sourceskip\\hbox{ p.~64 (Vocal Selections).}}");
+"\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~64 (Vocal Selections).}}");
 
 /* ** *************************************************** */
 
@@ -1401,7 +1407,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename)
 values 
 ("I Like the Likes of You", "E.Y.~Harburg", "Harburg, E.Y.", "Vernon Duke", "Duke, Vernon",
-true, 1934, "Ziegfeld Follies of 1934", "{\\bf Vernon Duke Songbook, The, Volume 1}, p.~28.",
+true, 1934, "Ziegfeld Follies of 1934",
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~28.}}",
 true, "lksofyou.pdf");
 
 update Songs set eps_filenames = "lksofyou1.eps;lksofyou2.eps;" where title = "I Like the Likes of You";
@@ -1466,8 +1473,8 @@ opera, year, scanned, scanned_filename, public_domain, source, sort_by_productio
 values
 ("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
 "Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
-"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}"
-"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~51.}}",
+"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
+"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{{\\bf d'Hoffmann) Klavierauszug}, p.~51.}}",
 true, "french");
 
 -- select title from Songs where music = "Jacques Offenbach";
@@ -1623,7 +1630,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, scanned, scanned_filename)
 values
 ("Imagination", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1939,
-"{\\bf Classic Songs of Johnny Burke}, p.~44.", true, "imagnntn.pdf");
+"\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~44.}}",
+true, "imagnntn.pdf");
 
 update Songs set eps_filenames = "imagin01.eps;imagin02.eps;" where title = "Imagination";
 
@@ -1758,7 +1766,7 @@ update Songs set eps_filenames = "ivgtflng1.eps;ivgtflng2.eps;" where title = "I
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("I've Got a Pocketful of Dreams", "Johnny Burke", "Burke, Johnny", "James V.~Monaco", "Monaco, James V.", true, 1938,
-"Classic Songs of Johnny Burke, Hollywood's Songwriter, p.~41");
+"\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~41.}}");
 
 /* ** *************************************************** */
 
@@ -1861,7 +1869,7 @@ update Songs set eps_filenames = "justtim1.eps;justtim2.eps;" where title = "Jus
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", false, 1946,
-"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~32.");
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~32.}}");
 
 /* ** *************************************************** */
 
@@ -2315,7 +2323,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename, language)
 values
 ("Mas Que Nada", "Jorge Ben", "Ben, Jorge", true, 1963,
-"{\\bf The Bossa Nova Songbook}, p.~114 and {\\bf Big Book of Latin American Songs, 2nd Edition}, p.~163.",
+"\\vbox{\\hbox{{\\bf The Bossa Nova Songbook}, p.~114}"
+"\\vskip\\sourceskip\\hbox{{\\bf Big Book of Latin American Songs,}}\\vskip\\sourceskip\\hbox{{\\bf 2nd Edition}, p.~163.}}",
 true, "masquend.pdf", "portugese");
 
 update Songs set eps_filenames = "masque01.eps;masque02.eps;" where title = "Mas Que Nada";
@@ -2379,7 +2388,7 @@ values
 "\\vtop{\\hbox{Copyright {\\copyright} 1961}\\vskip\\copyrightskip"
 "\\hbox{(Renewed 1989) by Famous Music Corporation,}\\vskip\\copyrightskip\\hbox{New York, N.Y.}}",
 "Breakfast at Tiffany's", 
-"{\\bf Too Marvelous For Words.  The Magic of Johnny Mercer}, p.~180.");
+"\\vbox{\\hbox{{\\bf Too Marvelous For Words.}}\\vskip\\sourceskip\\hbox{{\\bf The Magic of Johnny Mercer}, p.~180.}}");
 
 /* ** *************************************************** */
 
@@ -2480,7 +2489,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, year, copyright, source, film)
 values
 ("My Old Flame", "Sam Coslow", "Coslow, Sam", "Arthur Johnston", "Johnston, Arthur", 
-true, true, "myoldflm.pdf", 1934, "Copyright {\\copyright} 1934 (Renewed 1961) by Famous Music Corporation",
+true, true, "myoldflm.pdf", 1934,
+"\\vbox{\\hbox{Copyright {\\copyright} 1934 (Renewed 1961)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation}}",
 "{\\bf Big Book of Standards}, p.~212.", "Belle of the Nineties");
 
 update Songs set eps_filenames = "myoldfl1.eps;myoldfl2.eps;" where title = "My Old Flame";
@@ -2588,7 +2598,7 @@ true, "onssamor.pdf",
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
 values
 ("Oh! You Crazy Moon", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1939,
-"Classic Songs of Johnny Burke, Hollywood's Songwriter, p.~59");
+"\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~59.}}");
 
 /* ** *************************************************** */
 
@@ -2597,7 +2607,8 @@ opera, year, scanned, scanned_filename, public_domain, source, sort_by_productio
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
-"{\\bf Hoffmanns Erz@{a}hlungen (Les Contes d'Hoffmann), Klavierauszug}, p.~120.",
+"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
+"\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{{\\bf d'Hoffmann) Klavierauszug}, p.~120.}}",
 true, "french");
 
 update Songs set eps_filenames = "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;" where title = "Oiseaux dans les charmille, Les";
@@ -2699,7 +2710,7 @@ true, 1935, "spanish");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
 ("Paris in New York", "Vernon Duke", "Duke, Vernon", true, 1965,
-"{\\bf Vernon Duke Songbook, The, Volume 1}, p.~50.");
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~50.}}");
 
 /* ** *************************************************** */
 
@@ -3212,13 +3223,13 @@ values
 -- select * from Songs where title = "Swinging On A Star"\G
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
-year, source, scanned, scanned_filename)
+year, source, scanned, scanned_filename, eps_filenames)
 values
 ("Swinging On A Star", "Johnny Burke", "Burke, Johnny",
 "Jimmy van Heusen", "Heusen, Jimmy van", true, "Going My Way",
-1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s, Volume 2}, p.~252.}\\vskip\\sourceskip"
-"\\hbox{{\\bf Classic Songs of Johnny Burke, Hollywood's Songwriter}, p.~102.}}",
-true, "swngstar.pdf");
+1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~252.}\\vskip\\sourceskip"
+"\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter}, p.~102.}}",
+true, "swngstar.pdf", "swngstr1.pdf;swngstr2.pdf;");
 
 /* ** *************************************************** */
 
@@ -3411,13 +3422,14 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
-year, source, scanned, scanned_filename, public_domain)
+year, source, scanned, scanned_filename, eps_filenames, public_domain)
 values
-("Toot Toot Tootsie, Goo'bye", "Gus Kahn, Ernie Erdman, Dan Russo and Ted Fiorito",
+("Toot Toot Tootsie, Goo'bye",
+"\\vtop{\\hbox{Gus Kahn, Ernie Erdman,}\\vskip\\composerskip\\hbox{Dan Russo and Ted Fiorito}}", 
 "\\vbox{\\hbox{Kahn, Gus; Erdman, Ernie;}\\vskip\\composerskip\\hbox{Russo, Dan and Fiorito, Ted}}", 
 true, "Bombo", 
 1922, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~281.}}",
-true, "toottoot.pdf", true);
+true, "toottoot.pdf", "toottoot.eps;", true);
 
 /* ** *************************************************** */
 
@@ -3443,7 +3455,7 @@ year, copyright, film, source, scanned, scanned_filename)
 values
 ("Two Sleepy People", "Frank Loesser", "Loesser, Frank", 
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
-"Copyright {\\copyright} 1938 (Renewed 1965) by Famous Music Corporation",
+"\\vbox{\\hbox{Copyright {\\copyright} 1938 (Renewed 1965)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation.}}",
 "Thanks for the Memory", "{\\bf The Hoagy Carmichael Songbook}, p.~240.", true, "twosleep.pdf");
 
 /* ** *************************************************** */
@@ -3560,6 +3572,10 @@ values
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf", true);
 
 /* ** *************************************************** */
+
+/* !! START HERE:  LDF 2021.08.27.  Fix the way the name of the production appears on the filecard 
+   for the production.  
+*/ 
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
 year, source, scanned, scanned_filename, sort_by_production)
@@ -3779,7 +3795,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("You've Got That Look", "Friedrich Hollaender", "Hollaender, Friedrich", 
 "Frank Loesser", "Loesser, Frank", true, "Too low.  Must transpose!", 1939, "Destry Rides Again",
-"{\\bf Marlene Dietrich Sings Friedrich Hollaender}, p.~46.");
+"\\vbox{\\hbox{{\\bf Marlene Dietrich Sings}}\\vskip\\sourceskip\\hbox{{\\bf Friedrich Hollaender}, p.~46.}}");
 
 /* mark_blue  */
 /* words: Frank Loesser (Check!)  */
