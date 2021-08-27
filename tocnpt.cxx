@@ -119,6 +119,7 @@ process_tocs_and_npt(void)
    string temp_str_1; 
    string temp_str_2; 
    string temp_str_3; 
+   string temp_str_4; 
   
    Song curr_song;
 
@@ -2371,10 +2372,40 @@ process_tocs_and_npt(void)
                 getchar(); 
             }
 #endif 
-            /* !!START HERE:  LDF 2021.08.27.  Get rid of \\vtop, etc.  */ 
+
+            temp_str_4 = "";
+
+            pos = iter->title.find("\\v");
+
+            if (pos != string::npos)
+            {
+#if 0 
+               cerr << "iter->title: " << iter->title << endl;
+#endif 
+
+               temp_str_4 = "\\vtop{\\hbox{I'm Gonna Sit Right Down}";
+               temp_str_4 += "\\vskip-.2\\baselineskip\\hbox{and Write Myself a Letter}";
+               temp_str_4 += "\\vskip.375\\baselineskip}";
+
+               cerr << "temp_str_4 == " << temp_str_4 << endl;
+
+               if (iter->title == temp_str_4)
+               {
+                   temp_str_4 = "I'm Gonna Sit Right Down and Write Myself a Letter";
+#if 0 
+                   cerr << "temp_str_4 == " << temp_str_4 << endl;
+#endif 
+               }
+
+            }
+
+            if (temp_str_4.empty())
+               temp_str_4 = iter->title;
  
-            temp_strm << "\\Chapter{" << temp_str_1 << "}{" << iter->title << "}{";
- 
+            temp_strm << "\\Chapter{" << temp_str_1 << "}{" << temp_str_4 << "}{";
+
+            temp_str_4 = "";
+
             if (iter->subtitle.length() > 0)
                temp_strm << iter->subtitle;
 
