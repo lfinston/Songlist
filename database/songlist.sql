@@ -1923,7 +1923,7 @@ values
 ("Antonius von Padua Fischpredigt, Des", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, false, "antnpdua.pdf", true, 
-"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~32.}}", 
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~32.}}",
 true, "german");
 
 /* *** (3)*************************************************** */
@@ -1933,8 +1933,8 @@ song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_prod
 values
 ("Irdische Leben, Das", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", false,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~25.", 
+"14 Lieder aus Des Knaben Wunderhorn", 1914, false, "irdleben.pdf", true,
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~25.}}",
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1944,8 +1944,8 @@ song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_prod
 values
 ("Lob des hohen Verstandes", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~61.", 
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "lbvrstnd.pdf", true,
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~61.}}",
 true, "german");
 
 update Songs set eps_filenames = "lbvrstn1.eps;lbvrstn2.eps;lbvrstn3.eps;lbvrstn4.eps;" where title = "Lob des hohen Verstandes";
@@ -1958,7 +1958,8 @@ values
 ("Rheinlegendchen", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
 "14 Lieder aus Des Knaben Wunderhorn", 1914, true, "rhnlgndc.pdf", "rhnlgndc1.eps;rhnlgndc2.eps;rhnlgndc3.eps;",
-true, "{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~41.", 
+true,
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~41.}}",
 true, "german");
 
 /* *** (3) *************************************************** */
@@ -1968,8 +1969,8 @@ song_cycle, year, scanned, scanned_filename, public_domain, source, sort_by_prod
 values
 ("Wer hat das Liedlein erdacht?", "Anonymous, Gustav Mahler", "Anonymous;  Mahler, Gustav", 
 "Gustav Mahler", "Mahler, Gustav", true,
-"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true, 
-"{\\bf 14 Lieder aus Des Knaben Wunderhorn f@{u}r tiefe Stimme und Klavier}, p.~20.", 
+"14 Lieder aus Des Knaben Wunderhorn", 1914, true, "liedlein.pdf", true,
+"\\vbox{\\hbox{{\\bf 14 Lieder aus Des Knaben Wunderhorn}}\\vskip\\sourceskip\\hbox{{\\bf f@{u}r tiefe Stimme und Klavier}, p.~20.}}",
 true, "german");
 
 update Songs set eps_filenames = "liedlei1.eps;liedlei2.eps;liedlei3.eps;" where title = "Wer hat das Liedlein erdacht?";
