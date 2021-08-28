@@ -1885,6 +1885,8 @@ process_tocs_and_npt(void)
 
           pos = iter->title.find("Stop the World");
 
+          pos_1 = iter->title.find("My Little Bimbo");
+
           if (pos != string::npos)
           {
              sub_filecards_file << "\\vtop{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}";
@@ -1897,11 +1899,24 @@ process_tocs_and_npt(void)
           {
              sub_filecards_file << iter->filecard_title;
           }
-          else
+          else if (pos_1 == string::npos)
           {
              sub_filecards_file << iter->title;
           }
+ 
+          if (!iter->subtitle.empty() && !(iter->is_production || iter->is_cross_reference))
+          {
+             pos = iter->title.find("My Little Bimbo");
 
+             if (pos != string::npos)
+             {
+                sub_filecards_file << "\\vbox{\\hbox{My Little Bimbo}\\vskip\\titleskip"
+                                   << "\\hbox{(Down on the Bamboo Isle)}}";
+             }
+             else 
+                sub_filecards_file << " " << iter->subtitle;
+          }
+          
           if (iter->is_production && !iter->production_subtitle.empty())
           {
 
