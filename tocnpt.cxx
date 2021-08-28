@@ -1917,8 +1917,6 @@ process_tocs_and_npt(void)
      
           sub_filecards_file << "}";
 
-          /* !!START HERE:  LDF 2021.08.13.  Add code to acct. for production_subtitle.  */ 
-
           if (iter->is_production || iter->is_cross_reference)
           {
              sub_filecards_file << "{";
