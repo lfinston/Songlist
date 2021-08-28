@@ -929,8 +929,6 @@ update Songs set eps_filenames = "evtcuprs1.eps;evtcuprs2.eps;" where title = "E
 
 /* ** *************************************************** */
 
-/* !! START HERE:  LDF 2021.08.10.  Adjusting line breaks on filecards.  */ 
-
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, source)
 values
 ("Falling in Love With Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
