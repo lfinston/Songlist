@@ -1883,7 +1883,13 @@ process_tocs_and_npt(void)
 
           sub_filecards_file << "{"; 
 
-          if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
+          pos = iter->title.find("Stop the World");
+
+          if (pos != string::npos)
+          {
+             sub_filecards_file << "\\vtop{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}";
+          }
+          else if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
           {
              sub_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
           }
