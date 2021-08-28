@@ -2492,10 +2492,25 @@ update Songs set eps_filenames = "myheart01.eps;myheart02.eps;" where title = "M
 /* ** *************************************************** */
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, 
-scanned_filename, eps_filenames, public_domain)
+scanned_filename, eps_filenames, public_domain, source)
 values
 ("My Little Bimbo", "(Down on the Bamboo Isle)", "Grant Clarke", "Clarke, Grant", "Walter Donaldson", "Donaldson, Walter", 
-true, 1920, true, "mlttlbmb.pdf", "mlttlbmb1.eps;mlttlbmb2.eps;mlttlbmb3.eps;", true);
+false, 1920, false, "mlttlbmb.pdf", "mlttlbmb1.eps;mlttlbmb2.eps;mlttlbmb3.eps;", true,
+"\\setbox0=\\hbox{Source:  IMSLP:  }\\copy0\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{"
+"\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
+"\\hbox{\\hskip-\\wd0{\\mediumtt My_Little_Bimbo_(Donaldson%2C_Walter)}}}}}");
+
+
+"\\vbox{\\hbox{\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{\\Blue{abc}}}}");
+
+
+"\\vbox{\\hbox{\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{abc}}}");
+
+
+
+"\\vbox{\\href{}{"
+"\\hbox{Source:  IMSLP:  }"
+"\\vskip\\sourceskip\\hbox{\\Blue{{\\mediumtt My\_Little_Bimbo\_(Donaldson\%2C\_Walter)}}}}}");
 
 /* ** *************************************************** */
 
