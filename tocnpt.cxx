@@ -1902,6 +1902,19 @@ process_tocs_and_npt(void)
              sub_filecards_file << iter->title;
           }
 
+          if (iter->is_production && !iter->production_subtitle.empty())
+          {
+
+             pos = iter->title.find("Prince Igor");
+
+             if (pos != string::npos)
+             {
+                sub_filecards_file << " ({\\Largecybx kNQZX iGORX})";
+             }
+             else 
+               sub_filecards_file << " " << iter->production_subtitle;
+          }
+     
           sub_filecards_file << "}";
 
           /* !!START HERE:  LDF 2021.08.13.  Add code to acct. for production_subtitle.  */ 
@@ -1976,7 +1989,25 @@ process_tocs_and_npt(void)
                    sub_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->opera << "}}}}";
                 else
-                   sub_filecards_file << "{Opera:  {\\largebx " << iter->opera << "}}";
+                {
+                   sub_filecards_file << "{Opera:  {\\largebx " << iter->opera;
+
+                   if (!iter->production_subtitle.empty())
+                   {
+                      pos = iter->opera.find("Prince Igor");
+
+                      if (pos != string::npos)
+                      {
+                         sub_filecards_file << " ({\\largecybx kNQZX iGORX})";
+                      }
+                      else
+                         sub_filecards_file << " " << iter->production_subtitle;
+                   }
+
+                   sub_filecards_file << "}}";
+
+
+                }
              }
              else if (!iter->operetta.empty())
              {
@@ -2251,12 +2282,17 @@ process_tocs_and_npt(void)
 
                 }  /* |if (t_iter->scanned)|  */
 
-                sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title << "}" 
+                sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
+
+                if (!t_iter->subtitle.empty())
+                   sub_filecards_file << " " << t_iter->subtitle;
+
+                sub_filecards_file << "}" 
                                    << endl << "\\vskip12pt" << endl;
 
                 toc_ls_file << "\\S\\S {" << t_iter->title;
  
-                if (t_iter->subtitle.length() > 0)   
+                if (!t_iter->subtitle.empty())   
                    toc_ls_file << " " << t_iter->subtitle;
 
                 toc_ls_file << "}" << endl;
@@ -2393,7 +2429,9 @@ process_tocs_and_npt(void)
                temp_str_4 += "\\vskip-.2\\baselineskip\\hbox{and Write Myself a Letter}";
                temp_str_4 += "\\vskip.375\\baselineskip}";
 
+#if 0 
                cerr << "temp_str_4 == " << temp_str_4 << endl;
+#endif 
 
                if (iter->title == temp_str_4)
                {
