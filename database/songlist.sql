@@ -1117,7 +1117,7 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, copyright)
 values
 ("Georgy  Girl", "Tom Springfield", "Springfield, Tom", "Jim Dale", "Dale, Jim", true,
-"\\hbox{1966 and 1967 Springfield Music Ltd., London.}\\hbox{Chapell \\& Co., Inc., publisher.}");
+"\\vbox{\\hbox{1966 and 1967 Springfield Music Ltd., London.}\\vskip\\copyrightskip\\hbox{Chapell \\& Co., Inc., publisher.}}");
 
 /* ** *************************************************** */
 
@@ -1135,6 +1135,16 @@ true, 1941, "Lady in the Dark", "{\\bf Kurt Weill, Broadway and Hollywood}, p.~4
 true, "girlmmnt.pdf", true);
 
 update Songs set eps_filenames = "girlmmn1.eps;girlmmn2.eps;" where title = "Girl of the Moment";
+
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+values
+("Glitter and Be Gay", "Richard Wilbur", "Wilbur, Richard", 
+"Leonard Bernstein", "Bernstein, Leonard", false, 1957, "Single edition.", 
+"Candide", false, "", "", true);
 
 /* ** *************************************************** */
 
@@ -3912,6 +3922,8 @@ replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Close
 
 replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Your Troubles in Dreams");
 
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Glitter and Be Gay");
+
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Can Cook Too");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
@@ -5086,6 +5098,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Webster, Paul Francis", 
 replace into Lyricists_Songs (lyricist, title) values ("Whiting, George A.", "My Blue Heaven");
 
 replace into Lyricists_Songs (lyricist, title) values ("Whiting, Richard A.", "She's Funny That Way");
+
+replace into Lyricists_Songs (lyricist, title) values ("Wilbur, Richard", "Glitter and Be Gay");
 
 replace into Lyricists_Songs (lyricist, title) values ("Williams, Paul", "Rainy Days and Mondays");
 
