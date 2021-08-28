@@ -2366,6 +2366,14 @@ true, "Day at the Races, A", "Cut from film.");
 
 /* ** *************************************************** */
 
+/* !! START HERE:  LDF 2021.08.28.  */ 
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+values
+("Miss Brown to You", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", false);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, year)
 values
 ("Mister Sandman", "Pat Ballard", "Ballard, Pat", true, 1954);
@@ -2480,6 +2488,14 @@ values
 "Connecticut Yankee, A", 1927, true, "mhrtstst.pdf");
 
 update Songs set eps_filenames = "myheart01.eps;myheart02.eps;" where title = "My Heart Stood Still";
+
+/* ** *************************************************** */
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, 
+scanned_filename, eps_filenames, public_domain)
+values
+("My Little Bimbo", "(Down on the Bamboo Isle)", "Grant Clarke", "Clarke, Grant", "Walter Donaldson", "Donaldson, Walter", 
+true, 1920, true, "mlttlbmb.pdf", "mlttlbmb1.eps;mlttlbmb2.eps;mlttlbmb3.eps;", true);
 
 /* ** *************************************************** */
 
@@ -3582,10 +3598,6 @@ true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79."
 
 /* ** *************************************************** */
 
-/* !! START HERE:  LDF 2021.08.27.  Fix the way the name of the production appears on the filecard 
-   for the production.  
-*/ 
-
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
 production_filecard_title, year, source, scanned, scanned_filename, eps_filenames, sort_by_production)
 values
@@ -4005,6 +4017,9 @@ replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Mak
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Baby Just Cares for Me");
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Blue Heaven");
+
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "My Little Bimbo (Down on the Bamboo Isle)");
 
 -- select * from Composers_Songs where composer = "Donaldson, Walter";
 
@@ -4543,6 +4558,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Cahn, Sammy", "Things We
 replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", "Ti Guarder{\\`e}ro Nel Cuore (More)");
 
 -- delete from Lyricists_Songs where lyricist = "Comden, Betty" limit 1;
+
+replace into Lyricists_Songs (lyricist, title) values ("Clarke, Grant", "My Little Bimbo (Down on the Bamboo Isle)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "I Can Cook Too");
 

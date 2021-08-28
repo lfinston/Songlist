@@ -346,7 +346,12 @@ main(int argc, char **argv)
             else
                ctr++;
 
-            composers_file << iter->title << "}" << endl;
+            composers_file << iter->title;
+ 
+            if (!iter->subtitle.empty())
+               composers_file << " " << iter->subtitle;
+
+            composers_file << "}" << endl;
 
             previous_composer = curr_composer;
 
@@ -557,7 +562,12 @@ main(int argc, char **argv)
             else
                ctr++;
 
-            lyricists_file << iter->title << "}" << endl;
+            lyricists_file << iter->title;
+
+            if (!iter->subtitle.empty())
+               lyricists_file << " " << iter->subtitle;
+
+            lyricists_file << "}" << endl;
 
             previous_lyricist = curr_lyricist;
 
@@ -813,6 +823,9 @@ main(int argc, char **argv)
              cerr << iter->title;
 #endif 
              public_domain_file << "\\M " << "\\hbox to .5\\hsize{" << iter->title;
+
+             if (!iter->subtitle.empty())
+                public_domain_file << " " << iter->subtitle;
 
              if (iter->year > 0 || (iter->scanned && iter->scanned_filename.size() > 0))
                 public_domain_file << "\\leaderfill ";
