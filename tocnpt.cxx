@@ -1914,7 +1914,7 @@ process_tocs_and_npt(void)
                 sub_filecards_file << "\\vbox{\\hbox{My Little Bimbo}\\vskip\\titleskip"
                                    << "\\hbox{(Down on the Bamboo Isle)}}";
              }
-             else 
+             else if (iter->filecard_title.empty())
                 sub_filecards_file << " " << iter->subtitle;
           }
           
