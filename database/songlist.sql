@@ -111,7 +111,9 @@ alter table Songs add column public_domain boolean not null default false after 
 alter table Songs add column song_cycle varchar(64) default null after operetta;
 alter table Songs add column language varchar(32) not null default "english" after public_domain;
 alter table Songs modify column copyright varchar(256) default null;
-alter table Songs modify column source varchar(356) default null after notes;
+
+alter table Songs modify column source varchar(512) default null after notes;
+
 alter table Songs add column is_cross_reference boolean not null default 0 after language;
 alter table Songs add column target varchar(128) not null default "" after is_cross_reference;
 alter table Songs add column production varchar(64) not null default "" after sort_by_production;
@@ -1306,14 +1308,20 @@ values
 /* !! START HERE:  LDF 2021.08.28.  Add link to webpage at IMSLP.  */ 
 
 replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, public_domain, scanned, scanned_filename, eps_filenames, notes)
+year, public_domain, scanned, scanned_filename, eps_filenames, notes, source)
 values
 ("How 'Ya Gonna Keep 'Em Down on the Farm?", 
 "\\vbox{\\hbox{How 'Ya Gonna Keep 'Em}\\vskip\\titleskip\\hbox{Down on the Farm?}}",
 "Sam M.~Lewis and Joe Young", "Lewis, Sam M.~and Young, Joe",
-"Walter Donaldson", "Donaldson, Walter", true, 1919, "IMSLP", 
+"Walter Donaldson", "Donaldson, Walter", true, 1919, 
 true, true, "howkeepm.pdf", "howkeep1.eps;howkeep2.eps;",
-"Subtitle:  (After They've Seen Paree)"); 
+"Subtitle:  (After They've Seen Paree)",
+"\\setbox0=\\hbox{Source:  IMSLP:  }\\copy0\\href{https://imslp.org/wiki/"
+"How_%27Ya_Gonna_Keep_%27Em_Down_on_the_Farm%3F_(Donaldson%2C_Walter)}{"
+"\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
+"\\hbox{\\hskip-\\wd0{\\mediumtt How_%27Ya_Gonna_Keep_%27Em_Down_on_the_Farm}}\\vskip\\sourceskip"
+"\\hbox{\\hskip-\\wd0{\\mediumtt %3F_(Donaldson%2C_Walter)}}}}}"
+); 
 
 update Songs set  =  where title = "How 'Ya Gonna Keep 'Em Down on the Farm?";
 
@@ -2797,13 +2805,13 @@ values
 delete from Songs where title like("Polowetzer%");
 
 replace into Songs (title, subtitle, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
-production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain, eps_filenames)
+production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain, eps_filenames, year)
 values
 ("Polowetzer T@{a}nze", "(``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true,
-"polow01.eps;polow02.eps;polow03.eps;");
+"polow01.eps;polow02.eps;polow03.eps;", 1890);
 
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
