@@ -1303,6 +1303,8 @@ values
 
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
+/* !! START HERE:  LDF 2021.08.28.  Add link to webpage at IMSLP.  */ 
+
 replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet,
 year, source, public_domain, scanned, scanned_filename, eps_filenames, notes)
 values
@@ -2499,18 +2501,6 @@ false, 1920, false, "mlttlbmb.pdf", "mlttlbmb1.eps;mlttlbmb2.eps;mlttlbmb3.eps;"
 "\\setbox0=\\hbox{Source:  IMSLP:  }\\copy0\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{"
 "\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
 "\\hbox{\\hskip-\\wd0{\\mediumtt My_Little_Bimbo_(Donaldson%2C_Walter)}}}}}");
-
-
-"\\vbox{\\hbox{\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{\\Blue{abc}}}}");
-
-
-"\\vbox{\\hbox{\\href{https://imslp.org/wiki/My_Little_Bimbo_(Donaldson%2C_Walter)}{abc}}}");
-
-
-
-"\\vbox{\\href{}{"
-"\\hbox{Source:  IMSLP:  }"
-"\\vskip\\sourceskip\\hbox{\\Blue{{\\mediumtt My\_Little_Bimbo\_(Donaldson\%2C\_Walter)}}}}}");
 
 /* ** *************************************************** */
 
