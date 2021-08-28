@@ -67,6 +67,11 @@
 \font\hugebx=cmbx12 scaled \magstep2
 \font\mediumsy=cmsy10 scaled \magstephalf
 \font\mediumcy=cmcyr10 scaled \magstephalf
+\font\largecy=cmcyr12
+\font\Largecy=cmcyr12 scaled \magstephalf
+\font\mediumcybx=cmcbx10 scaled \magstephalf
+\font\largecybx=cmcbx12
+\font\Largecybx=cmcbx12 scaled \magstephalf
 
 \newdimen\twozerosdimen
 \newdimen\twozerosbolddimen

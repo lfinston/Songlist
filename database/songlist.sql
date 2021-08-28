@@ -2893,9 +2893,10 @@ values
 
 -- delete from Songs where words_and_music = "Alexander Warlamoff";
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source, language)
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, no_page_turns, copyright, source, language)
 values
 ("Rote Sarafan, Der ({\\mediumcy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
+"Rote Sarafan, Der ({\\Largecy kRASN{\\char'131}{\\char'112} sARAFAN{\\char'137}})",
 "Unknown", "Unknown", "Alexander Jegorowitsch Warlamoff", "Warlamoff, Alexander Jegorowitsch",
 true, "Public Domain.",
 "{\\bf Das Lied der V@{o}lker, Russische Lieder}, p.~26.", "russian");
@@ -3576,14 +3577,14 @@ true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79."
 */ 
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
-production_filecard_title, year, source, scanned, scanned_filename, sort_by_production)
+production_filecard_title, year, source, scanned, scanned_filename, eps_filenames, sort_by_production)
 values
 ("What Kind of Fool Am I?",
 "\\vtop{\\hbox{Leslie Bricusse and}\\vskip\\titleskip\\hbox{Anthony Newley}}",
 "Bricusse, Leslie and Newley, Anthony", 
 true, "Stop the World---I Want to Get Off", "\\vbox{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}", 
 1961, "{\\bf 150 of the Most Beautiful Songs Ever}, p.~508.",
-true, "whatkind.pdf", true);
+true, "whatkind.pdf", "whatkind.eps;", true);
 
 /* ** *************************************************** */
 
