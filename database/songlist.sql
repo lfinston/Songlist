@@ -2797,17 +2797,13 @@ values
 delete from Songs where title like("Polowetzer%");
 
 replace into Songs (title, subtitle, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
-production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain)
+production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain, eps_filenames)
 values
 ("Polowetzer T@{a}nze", "(``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
-true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true);
-
-update Songs set eps_filenames = "polow01.eps;polow02.eps;polow03.eps;" where title = "Polowetzer T@{a}nze";
-
-delete from Songs where title = "Strangers in Paradise";
-
+true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true,
+"polow01.eps;polow02.eps;polow03.eps;");
 
 replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, production_subtitle)
 values
