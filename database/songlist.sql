@@ -1732,7 +1732,7 @@ values
 "\\vbox{\\hbox{It Made You Happy}\\vskip\\titleskip\\hbox{When You Made Me Cry}}",
 "Walter Donaldson", "Donaldson, Walter", 
 true, 1926,
-false, "", "", 
+true, "imyhwymm.pdf", "imyhwymm1.eps;imyhwymm2.eps;imyhwymm3.eps;", 
 "\\setbox0=\\hbox{Source:  IMSLP:  }\\copy0\\href{https://imslp.org/wiki/It_Made_You_Happy_When_You_Made_Me_Cry_(Donaldson%2C_Walter)}{"
 "\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
 "\\hbox{\\hskip-\\wd0{\\mediumtt It_Made_You_Happy_When_You_Made_Me_Cry_}}\\vskip\\sourceskip"
@@ -2398,7 +2398,7 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, eps_filenames)
 values
 ("Miss Brown to You", "Leo Robin and Ralph Rainger", "Robin, Leo and Rainger, Ralph", true,
-1935, "Single Edition.", false, "", "");
+1935, "Single Edition.", true, "msbrntoy.pdf", "msbrntoy1.eps;msbrntoy2.eps;");
 
 /* ** *************************************************** */
 
