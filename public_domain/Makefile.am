@@ -37,7 +37,7 @@
 
 all: public_domain_1.pdf public_domain_1.ps public_domain_2.pdf public_domain_2.ps  \
      public_domain_3.pdf public_domain_3.ps public_domain_4.pdf public_domain_4.ps \
-     public_domain_5.pdf public_domain_5.ps \
+     public_domain_5.pdf public_domain_5.ps
 
 replace_control_codes$(EXEEXT): replace_control_codes.o
 	g++ -o replace_control_codes$(EXEEXT) replace_control_codes.o
