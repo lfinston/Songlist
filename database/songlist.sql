@@ -384,6 +384,13 @@ replace into Songs (title, lead_sheet, words_and_music, words_and_music_reverse,
 values
 ("As Time Goes By", true, "Herman Hupfeld", "Hupfeld, Herman", 1931);
 
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("At Seventeen", "Janis Ian", "Ian, Janis", false, 1975, "Single edition.",
+false, "", "");
 
 /* ** *************************************************** */
 
@@ -1380,8 +1387,6 @@ true, "icvrwtft.pdf", "icvrwtft1.eps;icvrwtft2.eps;icvrwtft3.eps;", 1933);
 
 select * from Songs where title like("I Don't Know Why%")\G
 
-
-
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year,
 scanned, scanned_filename, eps_filenames)
 values
@@ -1491,6 +1496,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("If I Should Ever Leave You", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true,
 "Camelot", true, 1960);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("If You Could Read My Mind", "Gordon Lightfoot", "Lightfoot, Gordon", false, 1969, "Single edition.",
+false, "", "");
 
 /* ** *************************************************** */
 
@@ -3274,6 +3287,14 @@ replace into Songs (title, words, words_reverse, music, music_reverse, no_page_t
 values
 ("Strangers in the Night", "Charles Singleton/Eddie Snyder", "Singleton, Charles/Snyder, Eddie",
 "Bert Kaempfert", "Kaempfert, Bert", true, "{\\bf Best of Bert Kaempfert}, p.~34.", 1965);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", false, 1973, "Single edition.",
+false, "", "");
 
 /* ** *************************************************** */
 
@@ -5365,6 +5386,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Emerson, Ida", "Hello! M
 replace into Composers_Songs (composer, title) values ("Hupfeld, Herman", "As Time Goes By");
 replace into Lyricists_Songs (lyricist, title) values ("Hupfeld, Herman", "As Time Goes By");
 
+replace into Composers_Songs (composer, title) values ("Ian, Janis", "At Seventeen");
+replace into Lyricists_Songs (lyricist, title) values ("Ian, Janis", "At Seventeen");
+
 replace into Composers_Songs (composer, title) values ("Jobim, Antonio Carlos", "Corcovado");
 replace into Lyricists_Songs (lyricist, title) values ("Jobim, Antonio Carlos", "Corcovado");
 
@@ -5415,6 +5439,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "Sibo
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "So{\\~n}e que me dejabas");
 replace into Lyricists_Songs (lyricist, title) values ("Lecuona, Ernesto", "So{\\~n}e que me dejabas");
+
+replace into Composers_Songs (composer, title) values ("Lightfoot, Gordon", "If You Could Read My Mind");
+replace into Lyricists_Songs (lyricist, title) values ("Lightfoot, Gordon", "If You Could Read My Mind");
+
+replace into Composers_Songs (composer, title) values ("Lightfoot, Gordon", "Sundown");
+replace into Lyricists_Songs (lyricist, title) values ("Lightfoot, Gordon", "Sundown");
 
 replace into Composers_Songs (composer, title) values ("Loesser, Frank", "Standing on the Corner");
 replace into Lyricists_Songs (lyricist, title) values ("Loesser, Frank", "Standing on the Corner");
