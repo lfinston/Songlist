@@ -105,6 +105,15 @@
 
 \def\ampersand{\char64}
 
+%% KLUDGE:  The \hskips at the end of the \headline position the latter at approx. the same
+%% position as on the following pages.  \hsize is not explicitly redefined when the `toc_ls.tex' is input, but it
+%% is probably changed by the use of \doublecolumns.
+%% It's not really absolutely necessary that the timestamps line up on the Table of Contents pages and the following
+%% pages, but it's nicer and this solution, while not perfect, is adequate.
+%% LDF 2021.08.29.
+
+\headline={\hfil \ifnum\pageno<-1{\mediumbx Table of Contents}\fi\hfil\hbox to 0pt{\hss{\tt \timestamp}\hskip-.5em\hskip1.75pt}}
+
 \pageno=-1
 \begingroup
 \advance\baselineskip by .5\baselineskip
