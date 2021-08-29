@@ -1,4 +1,4 @@
-#### Makefile
+#### Makefile.am
 #### Created by Laurence D. Finston (LDF) Tue 10 Aug 2021 07:44:19 PM CEST
 
 ## * Copyright and License.
