@@ -939,6 +939,14 @@ true, "Boys from Syracuse, The", 1938,
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year, source,
+scanned, scanned_filename, eps_filenames)
+values
+("Farming", "Cole Porter", "Porter, Cole", true, "Let's Face It",
+1941, "Single edition.", true, "farming.pdf", "farming1.eps;farming2.eps;");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
 source, scanned, scanned_filename, film, language, sort_by_production)
 values
@@ -2391,8 +2399,6 @@ values
 true, "Day at the Races, A", "Cut from film.");
 
 /* ** *************************************************** */
-
-/* !! START HERE:  LDF 2021.08.28.  */ 
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, 
 scanned, scanned_filename, eps_filenames)
@@ -5472,6 +5478,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Anything
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Begin the Beguine");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Begin the Beguine");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Farming");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Farming");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's De-Lovely");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's De-Lovely");
