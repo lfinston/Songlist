@@ -1667,10 +1667,11 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int 
           *toc_file_ptr << " " << iter->subtitle;
        
        *toc_file_ptr << endl
-                       << "\\nobreak" << endl << "\\T (see  ``" << iter->target << "''";
+                       << "\\nobreak" << endl << "\\T (see  ``" << iter->target;
 
        if (iter->production != "")
-          *toc_file_ptr << "\\nobreak" << endl << "\\T under ``" << iter->production;
+          *toc_file_ptr << "''\\nobreak" << endl << "\\T under ``" << iter->production;
+   
 
        if (iter->production_subtitle.length() > 0)
           *toc_file_ptr << " " << iter->production_subtitle;
