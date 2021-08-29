@@ -32,6 +32,7 @@ TAGS
 *.log
 *.o
 *#*
+*.bak
 aclocal.m4
 all_no_sep.ps
 all_no_sep.toc
@@ -43,7 +44,6 @@ circles.dvi
 circles.mpx
 circles.ps
 compile
-install-sh
 Makefile
 missing
 pblcdomn.log
