@@ -1,4 +1,4 @@
-#### Makefile
+#### Makefile.am
 #### Created by Laurence D. Finston 10.2017  
 
 ## * Copyright and License.
@@ -78,6 +78,12 @@ clean:
               toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
               lyricists.tex composers.tex
 
+.PHONY: all-n
+
+all-n:
+	rm -f all_no_sep.dvi all_no_sep.ftc all_no_sep.log all_no_sep.pdf all_no_sep.ps all_no_sep.ptc all_no_sep.toc
+	$(MAKE) all_no_sep.pdf
+
 .PHONY: all
 
 all: all-no-sep all-sep dump
@@ -123,7 +129,7 @@ all-no-sep: all_no_sep.ps all_no_sep.pdf
 
 all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex \
                 sub_filecrds.tex filecrds.tex
-	tex all_no_sep.tex & tex all_no_sep.tex
+	tex all_no_sep.tex && tex all_no_sep.tex
 
 all_no_sep.ps: all_no_sep.dvi
 	dvips -q -o $@ $< 2>/dev/null
