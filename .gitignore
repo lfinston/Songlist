@@ -43,9 +43,7 @@ autom4te.cache/
 circles.dvi
 circles.mpx
 circles.ps
-compile
 Makefile
-missing
 pblcdomn.log
 pblcdomn.tex  
 replace_control_codes
