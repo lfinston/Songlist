@@ -2378,9 +2378,11 @@ true, "Day at the Races, A", "Cut from film.");
 
 /* !! START HERE:  LDF 2021.08.28.  */ 
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, 
+scanned, scanned_filename, eps_filenames)
 values
-("Miss Brown to You", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", false);
+("Miss Brown to You", "Leo Robin and Ralph Rainger", "Robin, Leo and Rainger, Ralph", true,
+1935, "Single Edition.", false, "", "");
 
 /* ** *************************************************** */
 
@@ -2561,6 +2563,10 @@ replace into Songs (title, subtitle, words, words_reverse, music, music_reverse,
 values
 ("Nel blu dipinto di blu", "(Volare)", "Domenico Modugno and Franco Migliacci", "Modugno, Domenico and Migliacci, Franco", 
 "Domenico Modugno", "Modugno, Domenico", true, 1958, "Single edition.", "italian");
+
+replace into Songs (title, is_cross_reference, target, lead_sheet)
+values
+("Volare", true, "Nel blu dipinto di blu", true);
 
 /* ** *************************************************** */
 
@@ -5477,6 +5483,11 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Night an
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "You're the Top");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're the Top");
+
+replace into Composers_Songs (composer, title) values ("Robin, Leo", "Miss Brown to You");
+replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Miss Brown to You");
+replace into Composers_Songs (composer, title) values ("Rainger, Ralph", "Miss Brown to You");
+replace into Lyricists_Songs (lyricist, title) values ("Rainger, Ralph", "Miss Brown to You");
 
 replace into Composers_Songs (composer, title) values ("Reid, Billy", "I'll Close My Eyes");
 replace into Lyricists_Songs (lyricist, title) values ("Reid, Billy", "I'll Close My Eyes");
