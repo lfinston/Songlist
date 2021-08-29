@@ -35,11 +35,13 @@
 
 ACLOCAL_AMFLAGS = -I m4
 
+PUBLICDOMAINDIR := public_domain
 #SOURCEDIR := src
 #DOCDIR    := doc
 
+export PUBLICDOMAINDIR
 #export SOURCEDIR
-# export DOCDIR
+#export DOCDIR
 
 # vpath %.web $(SOURCEDIR)
 # vpath %.h $(SOURCEDIR)
@@ -49,6 +51,8 @@ ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = ChangeLog reconfig.sh
 
 .DELETE_ON_ERROR :
+
+SUBDIRS = $(PUBLICDOMAINDIR) 
 
 #SUBDIRS = $(SOURCEDIR) #$(DOCDIR) 
 

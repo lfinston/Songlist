@@ -60,7 +60,7 @@ AC_CHECK_HEADERS([errno.h float.h limits.h stdlib.h unistd.h mysql.h])
 AC_SEARCH_LIBS(trunc, m)
 AC_CHECK_FUNCS([floor sqrt trunc])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile public_domain/Makefile])
 
 # Checks for endianness.
 AC_C_BIGENDIAN
