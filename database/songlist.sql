@@ -1725,6 +1725,18 @@ update Songs set eps_filenames = "ithadbey.eps;" where title = "It Had to be You
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, scanned, 
+scanned_filename, eps_filenames, source)
+values
+("It Made You Happy When You Made Me Cry", "Walter Donaldson", "Donaldson, Walter", 
+true, 1926,
+false, "", "", 
+"\\setbox0=\\hbox{Source:  IMSLP:  }\\copy0\\href{https://imslp.org/wiki/It_Made_You_Happy_When_You_Made_Me_Cry_(Donaldson%2C_Walter)}{"
+"\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
+"\\hbox{\\hskip-\\wd0{\\mediumtt It_Made_You_Happy_When_You_Made_Me_Cry_(Donaldson%2C_Walter)}}}}}");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, 
 lead_sheet, year, source, scanned, scanned_filename, musical)
 values
@@ -5279,6 +5291,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Dom{\\'\\i}nguez Borr{\\
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Little White Lies");
 replace into Lyricists_Songs (lyricist, title) values ("Donaldson, Walter", "Little White Lies");
+
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "It Made You Happy When You Made Me Cry");
+replace into Lyricists_Songs (lyricist, title) values ("Donaldson, Walter", "It Made You Happy When You Made Me Cry");
 
 replace into Composers_Songs (composer, title) values ("Duke, Vernon", "Paris in New York");
 replace into Lyricists_Songs (lyricist, title) values ("Duke, Vernon", "Paris in New York");
