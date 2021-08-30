@@ -2751,6 +2751,20 @@ values
 
 /* ** *************************************************** */
 
+
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, scanned, scanned_filename, eps_filenames, source, public_domain)
+values
+("One I Love Belongs to Somebody Else, The", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true,
+1924, true, "onilbtse.pdf", "onilbtse1.eps;onilbtse2.eps;",
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~212.}}",
+true);
+
+-- update Songs set title = "One I Love Belongs to Somebody Else, The" where title = "One I Love Belongs to Somebody Else"; 
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Out of Nowhere", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true);
@@ -4223,6 +4237,10 @@ replace into Composers_Songs (composer, title) values ("Johnston, Arthur", "Penn
 
 replace into Composers_Songs (composer, title) values ("Jones, Isham", "I'll See You in My Dreams");
 
+-- update Composers_Songs set title = "One I Love Belongs to Somebody Else, The" where title = "One I Love Belongs to Somebody Else"; 
+
+replace into Composers_Songs (composer, title) values ("Jones, Isham", "One I Love Belongs to Somebody Else, The");
+
 replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "All God's Children");
 
 replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "All God's Children");
@@ -4866,27 +4884,31 @@ replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I Can D
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahal, Irving", "I'll Be Seeing You");
 
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Love Me or Leave Me");
-
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Makin' Whoopee!");
-
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Coquette");
-
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "I'll See You in My Dreams");
-
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "My Baby Just Cares for Me");
-
-replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Message From the Man in the Moon, A");
-
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "All God's Children");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Carolina in the Morning");
 
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Coquette");
+
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Dream a Little Dream of Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "I'll See You in My Dreams");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Love Me or Leave Me");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Makin' Whoopee!");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Message From the Man in the Moon, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "My Baby Just Cares for Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Nobody's Sweetheart");
 
 replace into Lyricists_Songs (lyricist, title) values ("Erdman, Ernest", "Nobody's Sweetheart");
+
+-- update Lyricists_Songs set title = "One I Love Belongs to Somebody Else, The" where title = "One I Love Belongs to Somebody Else"; 
+
+replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "One I Love Belongs to Somebody Else, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kalmar, Bert", "Nevertheless (I'm In Love With You)");
 
