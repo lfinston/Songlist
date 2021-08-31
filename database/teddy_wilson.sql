@@ -1,65 +1,74 @@
 https://www.jpc.de/jpcng/jazz/detail/-/art/Teddy-Wilson-1912-1986-Teddy-Wilson/hnum/7213579
 
-1
-Somebody loves me
-2
-Sweet and simple
-3
-Liza
-4
-Rosetta
-5
-I wished on the moon what a little moonlight can do
-6
-Miss Brown to you
-7
-A sunbonnet blue
-8
-What a night, what a moon, what a girl
-9
-I'm painting the town red
-10
-It's too hot for words
-11
-Sweet Lorraine
-12
-Every now and then
-13
-It never dawned on me
-14
-Liza
-15
-Rosetta
-16
-Twenty-four hours a day
-17
-Yankee doodle never went to town
-18
-Eny meeny miny mo
-19
-If you were mine
-20
+use Songs;
 
+create table Teddy_Wilson
+(
+   title varchar(128) unique not null,
+   cd_number int not null,
+   track_number int not null
+);		 
+
+
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 1, 
+Somebody loves me
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 2, 
+Sweet and simple
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 3, 
+Liza
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 4, 
+Rosetta
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 5, 
+I wished on the moon what a little moonlight can do
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 6, 
+Miss Brown to you
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 7, 
+A sunbonnet blue
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 8, 
+What a night, what a moon, what a girl
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 9, 
+I'm painting the town red
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 10, 
+It's too hot for words
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 11, 
+Sweet Lorraine
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 12, 
+Every now and then
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 13, 
+It never dawned on me
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 14, 
+Liza
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 15, 
+Rosetta
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 16, 
+Twenty-four hours a day
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 17, 
+Yankee doodle never went to town
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 18, 
+Eny meeny miny mo
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 19, 
+If you were mine
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 20, 
 I found a dream
-21
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 21, 
 On treasure island
-22
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 22, 
 These "N" that "N" those
-23
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 23, 
 Sugar plum
-24
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 24, 
 You let me down
-25
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 25, 
 Spreading rhythm around
-26
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 26, 
 I feel like a feather in the breeze
-27
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 27, 
 Breaking in a pair of shoes
-28
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 28, 
 Life begins when you're in love
-29
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 29, 
 (If I had) rhythm
-30
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 30, 
 In my nursery rhymes
 31
 Christopher Columbus
