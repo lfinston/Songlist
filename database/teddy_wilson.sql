@@ -10,8 +10,11 @@ create table Teddy_Wilson
 );		 
 
 
-replace into Teddy_Wilson (cd_number, track_number, title) values (1, 1, 
-Somebody loves me
+replace into Teddy_Wilson (cd_number, track_number, title) values (1, 1, "Somebody loves me");
+
+/* !! START HERE:  LDF 2021.08.31.  There are too many tracks listed for CD 1.  Check CD box!  */ 
+
+
 replace into Teddy_Wilson (cd_number, track_number, title) values (1, 2, 
 Sweet and simple
 replace into Teddy_Wilson (cd_number, track_number, title) values (1, 3, 
