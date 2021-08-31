@@ -386,11 +386,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, eps_filenames)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
-("At Seventeen", "Janis Ian", "Ian, Janis", false, 1975, "Single edition.",
-false, "", "");
+("At Seventeen", "Janis Ian", "Ian, Janis", true, 1975, "Single edition.");
 
 /* ** *************************************************** */
 
@@ -1801,6 +1799,15 @@ update Songs set eps_filenames = "itsdelv1.eps;itsdelv2.eps;" where title = "It'
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+values
+("It's Love", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
+"Leonard Bernstein", "Bernstein, Leonard",
+true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("It's Not For Me to Say", "Al Stillman", "Stillman, Al", "Robert Allen", "Allen, Robert", true);
@@ -2212,6 +2219,15 @@ true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+values
+("Little Bit in Love, A", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
+"Leonard Bernstein", "Bernstein, Leonard",
+true, 1953, "{\\bf Bernstein on Broadway}, p.~92.", "Wonderful Town", false, "", "", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
 musical, scanned, scanned_filename, sort_by_production)
 values
 ("Little Tin Box", "Sheldon Harnick", "Harnick, Sheldon", "Jerry Bock", "Bock, Jerry",
@@ -2278,11 +2294,20 @@ operetta, year, copyright, source, scanned, scanned_filename)
 values
 ("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
-"Copyright {\\copyright} 1928 Warner Bros.~Inc. Copyright Renewed",
+"\\vbox{\\hbox{Copyright {\\copyright} 1928 Warner Bros.~Inc.}\\vskip\\copyrightskip\\hbox{Copyright Renewed}}",
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~152.}}",
 true, "lvrcbtme.pdf");
 
 update Songs set eps_filenames = "lvrcmbk1.eps;lvrcmbk2.eps;" where title = "Lover Come Back to Me";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
+musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+values
+("Lucky to Be Me", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
+"Leonard Bernstein", "Bernstein, Leonard",
+true, 1944, "{\\bf Bernstein on Broadway}, p.~48.", "On the Town", false, "", "", true);
 
 /* ** *************************************************** */
 
@@ -2292,7 +2317,7 @@ values
 ("Lullaby of Broadway", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "Gold Diggers of 1935", 1935, false,
 "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~39.}"
-"\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}}}",
+"\\vskip\\sourceskip\\hbox{{\\bf 100 Years of Popular Music, 1930s, Volume 2}.}}",
 "Included in the Broadway musical version of ``42nd Street'' but was {\\it not\/} in the original 1933 film.",
 true, "lullbrdw.pdf");
 
@@ -3304,11 +3329,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, eps_filenames)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
-("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", false, 1973, "Single edition.",
-false, "", "");
+("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", true, 1973, "Single edition.");
 
 /* ** *************************************************** */
 
@@ -4013,6 +4036,12 @@ replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I 
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Feel Pretty");
 
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "It's Love");
+
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Little Bit in Love, A");
+
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Lucky to Be Me");
+
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Something's Coming");
 
 replace into Composers_Songs (composer, title) values ("Bizet, Georges", "Au fond du temple saint");
@@ -4639,15 +4668,21 @@ replace into Lyricists_Songs (lyricist, title) values ("Ciorciolini, Marcello", 
 replace into Lyricists_Songs (lyricist, title) values ("Clarke, Grant", "My Little Bimbo (Down on the Bamboo Isle)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "I Can Cook Too");
-
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "I Can Cook Too");
 
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "It's Love");
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf",  "It's Love");
+
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Just in Time");
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf",  "Just in Time");
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Little Bit in Love, A");
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf",  "Little Bit in Love, A");
+
+replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Lucky to Be Me");
+replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf",  "Lucky to Be Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Comden, Betty", "Party's Over, The");
-
-replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Just in Time");
-
 replace into Lyricists_Songs (lyricist, title) values ("Green, Adolf", "Party's Over, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Contet, Henri", "Mademoiselle de Paris");
