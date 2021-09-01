@@ -259,6 +259,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+scanned, scanned_filename, eps_filenames, public_domain)
+values
+("Alice Blue Gown", "Joe McCarthy", "McCarthy, Joe", "Harry Tierney", "Tierney, Harry", 
+true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s--}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
+false, "", "", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
 recordings, arrangement_solo_guitar, film, year, scanned, scanned_filename)
 values
@@ -422,8 +431,10 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 source, scanned, scanned_filename)
 values
 ("Baby Face", "Benny Davis", "Davis, Benny", "Harry Akst", "Akst, Harry", 
-true, 1926, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
-"\\hbox{{\\bf Volume 2}, p.~24.}}", true, "babyface.pdf");
+true, 1926,
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
+"\\hbox{{\\bf Volume 2}, p.~24.}}",
+true, "babyface.pdf");
 
 update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Baby Face";
 
@@ -4506,6 +4517,8 @@ replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We
 
 replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
 
+replace into Composers_Songs (composer, title) values ("Tierney, Harry", "Alice Blue Gown");
+
 replace into Composers_Songs (composer, title) values ("Waller, Thomas ``Fats''", "Ain't Misbehavin'");
 
 replace into Composers_Songs (composer, title) values ("Brooks, Harry", "Ain't Misbehavin'");
@@ -5076,6 +5089,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Maria, Ant{\\^o}nio", "S
 
 replace into Lyricists_Songs (lyricist, title) 
 values ("Marvell, Holt (Maschwitz, Eric)", "These Foolish Things");
+
+replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "Alice Blue Gown");
 
 replace into Lyricists_Songs (lyricist, title) values ("McCarthy, Joe", "You Made Me Love You");
 
