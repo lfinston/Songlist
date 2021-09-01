@@ -264,13 +264,10 @@ scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Alice Blue Gown", "Joe McCarthy", "McCarthy, Joe", "Harry Tierney", "Tierney, Harry", 
 true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s--}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
-false, "", "", true);
+true, "alcblgwn.pdf", "alcblgwn1.eps;alcblgwn2.eps;", true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-recordings, arrangement_solo_guitar, film, year, scanned, scanned_filename)
-values
 ("All God's Children", /* '  */
 "Gus Kahn", "Kahn, Gus",
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
@@ -2318,7 +2315,8 @@ musical, scanned, scanned_filename, eps_filenames, sort_by_production)
 values
 ("Lucky to Be Me", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
 "Leonard Bernstein", "Bernstein, Leonard",
-true, 1944, "{\\bf Bernstein on Broadway}, p.~48.", "On the Town", false, "", "", true);
+true, 1944, "{\\bf Bernstein on Broadway}, p.~48.", "On the Town",
+true, "lckytbme.pdf", "lckytbme1.eps;lckytbme2.eps;", true);
 
 /* ** *************************************************** */
 
