@@ -3368,7 +3368,7 @@ values
 "Jimmy van Heusen", "Heusen, Jimmy van", true, "Going My Way",
 1944, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~252.}\\vskip\\sourceskip"
 "\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter}, p.~102.}}",
-true, "swngstar.pdf", "swngstr1.pdf;swngstr2.pdf;");
+true, "swngstar.pdf", "swngstr1.eps;swngstr2.eps;");
 
 /* ** *************************************************** */
 
