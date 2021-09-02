@@ -96,8 +96,8 @@ create table Songs
     do_filecard boolean not null default true,
     filecard_title varchar(128) not null default "",
     number_filecards boolean not null default false,
-    eps_filenames varchar(512) not null default ""
-    
+    eps_filenames varchar(512) not null default "",
+    entry_date date default null
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -126,6 +126,8 @@ alter table Songs modify column song_cycle varchar(256) default null;
 alter table Songs add column subtitle varchar(128) not null default "" after title;
 alter table Songs add column production_subtitle varchar(128) not null default "" after production;
 alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
+
+alter table Songs add column entry_date date default null after eps_filenames;
 
 show columns from Songs;
 
@@ -1808,11 +1810,12 @@ update Songs set eps_filenames = "itsdelv1.eps;itsdelv2.eps;" where title = "It'
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
-musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+musical, scanned, scanned_filename, eps_filenames, sort_by_production, entry_date)
 values
 ("It's Love", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
 "Leonard Bernstein", "Bernstein, Leonard",
-true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true);
+true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true,
+"2021.09.02.");
 
 /* ** *************************************************** */
 
