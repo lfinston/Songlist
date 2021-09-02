@@ -2335,7 +2335,7 @@ process_tocs_and_npt(void)
                 sub_filecards_file << "}" 
                                    << endl << "\\vskip12pt" << endl;
 
-                toc_ls_file << "\\S\\S {" << t_iter->title;
+                toc_ls_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
  
                 if (!t_iter->subtitle.empty())   
                    toc_ls_file << " " << t_iter->subtitle;
@@ -2355,7 +2355,7 @@ process_tocs_and_npt(void)
                 }
                 else if (temp_char <= 'o')
                 {
-                  toc_ls_i_o_file << "\\S\\S {" << t_iter->title;
+                  toc_ls_i_o_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
                  
                   if (t_iter->subtitle.length() > 0)
                      toc_ls_i_o_file << " " << t_iter->subtitle;
@@ -2364,7 +2364,7 @@ process_tocs_and_npt(void)
                 }
                 else 
                 {
-                  toc_ls_p_z_file << "\\S\\S {" << t_iter->title;
+                  toc_ls_p_z_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
 
                   if (t_iter->subtitle.length() > 0)
                      toc_ls_p_z_file << " " << t_iter->subtitle;
