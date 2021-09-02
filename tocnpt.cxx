@@ -1753,10 +1753,6 @@ process_tocs_and_npt(void)
           { 
               cerr << iter->title << " is newer than the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
-
-cerr << "XXX Enter <RETURN> to continue: ";
-//getchar(); 
-
           }        
 
           do_new_filecard = true;
@@ -1954,35 +1950,85 @@ cerr << "YYY Enter <RETURN> to continue: ";
           if (curr_char != prev_char)
           {
              sub_filecards_file << "\\FilecardSection{" << curr_char << "}" << endl;
+
+             if (do_new_filecard)
+                new_filecards_file << "\\FilecardSection{" << curr_char << "}" << endl;
+
           }
 
           if (filecard_ctr == 0)
           {  
              sub_filecards_file << "\\A" << endl;
+
+             if (do_new_filecard)
+                new_filecards_file << "\\A" << endl;
+
           }
           if (iter->is_production || iter->is_cross_reference)
+          {
              sub_filecards_file << "\\vbox to 0pt{\\C";
+             if (do_new_filecard)
+                new_filecards_file << "\\vbox to 0pt{\\C";
+          }
           else 
+          {
              sub_filecards_file << "\\B";
-
+             if (do_new_filecard)
+                new_filecards_file << "\\B";
+          }
           if (filecard_ctr == 0)
+          {
              sub_filecards_file << "{0pt}{0pt}";
+             if (do_new_filecard)
+                new_filecards_file << "{0pt}{0pt}";
+          }
           else if (filecard_ctr == 1)
+          {
              sub_filecards_file << "{0pt}{.5\\hsize}";
+             if (do_new_filecard)
+                new_filecards_file << "{0pt}{.5\\hsize}";
+          }
           else if (filecard_ctr == 2)
+          {
              sub_filecards_file << "{.25\\vsize}{0pt}";
+             if (do_new_filecard)
+                new_filecards_file << "{.25\\vsize}{0pt}";
+          }
           else if (filecard_ctr == 3)
+          {
              sub_filecards_file << "{.25\\vsize}{.5\\hsize}";
+             if (do_new_filecard)
+                new_filecards_file << "{.25\\vsize}{.5\\hsize}";
+          }
           else if (filecard_ctr == 4)
+          {
              sub_filecards_file << "{.5\\vsize}{0pt}";
+             if (do_new_filecard)
+                new_filecards_file << "{.5\\vsize}{0pt}";
+          }
           else if (filecard_ctr == 5)
+          {
              sub_filecards_file << "{.5\\vsize}{.5\\hsize}";
+             if (do_new_filecard)
+                new_filecards_file << "{.5\\vsize}{.5\\hsize}";
+          }
           else if (filecard_ctr == 6)
+          {
              sub_filecards_file << "{.75\\vsize}{0pt}";
+             if (do_new_filecard)
+                new_filecards_file << "{.75\\vsize}{0pt}";
+          }
           else if (filecard_ctr == 7)
+          {
              sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
+             if (do_new_filecard)
+                new_filecards_file << "{.75\\vsize}{.5\\hsize}";
+          }
 
           sub_filecards_file << "{"; 
+ 
+          if (do_new_filecard)
+             new_filecards_file << "{"; 
 
           pos = iter->title.find("Stop the World");
 
@@ -1991,18 +2037,27 @@ cerr << "YYY Enter <RETURN> to continue: ";
           if (pos != string::npos)
           {
              sub_filecards_file << "\\vtop{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}";
+
+             if (do_new_filecard)
+                new_filecards_file << "\\vtop{\\hbox{Stop the World---}\\vskip\\titleskip\\hbox{I Want to Get Off}}";
           }
           else if (iter->title == "14 Lieder aus Des Knaben Wunderhorn")
           {
              sub_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
+             if (do_new_filecard)
+                new_filecards_file << "\\vtop{\\hbox{14 Lieder aus}\\vskip\\titleskip\\hbox{Des Knaben Wunderhorn}}";
           }
           else if (!iter->filecard_title.empty())
           {
              sub_filecards_file << iter->filecard_title;
+             if (do_new_filecard)
+                new_filecards_file << iter->filecard_title;
           }
           else if (pos_1 == string::npos)
           {
              sub_filecards_file << iter->title;
+             if (do_new_filecard)
+                new_filecards_file << iter->title;
           }
  
           if (!iter->subtitle.empty() && !(iter->is_production || iter->is_cross_reference))
@@ -2013,9 +2068,18 @@ cerr << "YYY Enter <RETURN> to continue: ";
              {
                 sub_filecards_file << "\\vbox{\\hbox{My Little Bimbo}\\vskip\\titleskip"
                                    << "\\hbox{(Down on the Bamboo Isle)}}";
+               
+                if (do_new_filecard)
+                   new_filecards_file << "\\vbox{\\hbox{My Little Bimbo}\\vskip\\titleskip"
+                                      << "\\hbox{(Down on the Bamboo Isle)}}";
+
              }
              else if (iter->filecard_title.empty())
+             {
                 sub_filecards_file << " " << iter->subtitle;
+                if (do_new_filecard)
+                   new_filecards_file << " " << iter->subtitle;
+             }
           }
           
           if (iter->is_production && !iter->production_subtitle.empty())
@@ -2026,38 +2090,59 @@ cerr << "YYY Enter <RETURN> to continue: ";
              if (pos != string::npos)
              {
                 sub_filecards_file << " ({\\Largecybx kNQZX iGORX})";
+                if (do_new_filecard)
+                   new_filecards_file << " ({\\Largecybx kNQZX iGORX})";
              }
              else 
-               sub_filecards_file << " " << iter->production_subtitle;
+             {
+                sub_filecards_file << " " << iter->production_subtitle;
+                if (do_new_filecard)
+                   new_filecards_file << " " << iter->production_subtitle;
+             }
           }
      
           sub_filecards_file << "}";
 
+/* !!START HERE:  LDF 2021.09.02.  Adding code for writing to new_filecards_file.  */ 
+
           if (iter->is_production || iter->is_cross_reference)
           {
              sub_filecards_file << "{";
+             if (do_new_filecard)
+                new_filecards_file << "{";
 
              if (iter->is_production)
              {
                 if (!iter->opera.empty())
+                {
                    sub_filecards_file << "Opera";
+                }                 
                 else if (!iter->operetta.empty())
+                {
                    sub_filecards_file << "Operetta";
+                }
                 else if (!iter->song_cycle.empty())
+                {
                    sub_filecards_file << "Song Cycle";
+                }
                 else if (!iter->musical.empty())
+                {
                    sub_filecards_file << "Musical";
+                }
                 else if (!iter->film.empty())
                 {
                    pos = iter->film.find("Film");
 
                    if (pos == string::npos)
+                   {
                        sub_filecards_file << "Film";
+                   }
                 }
                 else if (!iter->revue.empty())
+                {
                    sub_filecards_file << "Revue";
+                }  
              }
-
              sub_filecards_file << "}";
           }
           if (iter->is_production)
