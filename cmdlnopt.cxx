@@ -71,7 +71,7 @@ int
 process_command_line_options(int argc, char* argv[])
 {
 
-   bool DEBUG = true;  /* |false|  */
+   bool DEBUG = false;  /* |true|  */
 
    int status = 0;
 
