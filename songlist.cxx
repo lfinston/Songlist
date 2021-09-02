@@ -72,6 +72,10 @@ long affected_rows = 0;
 string datestamp_short;
 string datestamp;
 
+int filecard_day   = 0;
+int filecard_month = 0;
+int filecard_year  = 0;
+
 /* Function declarations  */
 
 int
@@ -160,20 +164,6 @@ main(int argc, char **argv)
    year_str = buffer;
    year_str.erase(4);
 
-   cerr << "day_str == " << day_str << endl;
-   cerr << "month_str == " << month_str << endl;
-   cerr << "year_str == " << year_str << endl;
-
-   day   = atoi(day_str.c_str());
-   month = atoi(month_str.c_str());
-   year  = atoi(year_str.c_str());
-
-   cerr << "day == " << day << endl;
-   cerr << "month == " << month << endl;
-   cerr << "year == " << year << endl;
-
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
 
 /* ***** (5) Process command-line options.  */
 
@@ -198,6 +188,27 @@ getchar();
             << endl;
 
    }
+
+#if 0 
+   cerr << "day_str == " << day_str << endl;
+   cerr << "month_str == " << month_str << endl;
+   cerr << "year_str == " << year_str << endl;
+#endif 
+
+   day   = atoi(day_str.c_str());
+   month = atoi(month_str.c_str());
+   year  = atoi(year_str.c_str());
+
+   
+   cerr << "day == " << day << endl
+        << "month == " << month << endl
+        << "year == " << year << endl
+        << "filecard_day   == " << filecard_day << endl
+        << "filecard_month == " << filecard_month << endl
+        << "filecard_year  == " << filecard_year << endl;
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
  
 /* ** (2) Initialize  |mysql|  */
 
