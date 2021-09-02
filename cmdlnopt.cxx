@@ -146,11 +146,9 @@ process_command_line_options(int argc, char* argv[])
 
           cerr << "optarg == " << optarg << endl;
 
-
         }  /* |if (optarg)|  */
 
     }  /* |if (DEBUG)|  */
-
 
 /*  **** (4)  */
 
@@ -173,7 +171,6 @@ process_command_line_options(int argc, char* argv[])
     {
 
 /*  ***** (5)  */
-
 
       if (DEBUG)
         {
@@ -214,14 +211,12 @@ process_command_line_options(int argc, char* argv[])
 
         } /* |else if (option_index == HELP_INDEX)|  */
 
-
 /*  ***** (5) version.   */
 
         else if (option_index == VERSION_INDEX)        
         {
 
 /*  ****** (6)  */
-
 
             if (DEBUG) 
             {
@@ -231,8 +226,6 @@ process_command_line_options(int argc, char* argv[])
                     << endl;
 
             }
-
-
 
             cout << "songlist 1.0"
                     << endl
@@ -252,7 +245,6 @@ process_command_line_options(int argc, char* argv[])
 
 /*  ****** (6)  */
 
-
             if (DEBUG) 
             {
 
@@ -265,16 +257,13 @@ process_command_line_options(int argc, char* argv[])
 
             }
 
-
             output_filename = optarg;
 
             output_file_strm.open(output_filename.c_str());
 
-
 /*  ****** (6)  */
 
         } /* |else if (option_index == OUTPUT_FILENAME_INDEX)|  */
-
 
 /*  ***** (5) log-filename.   */
 
@@ -283,7 +272,6 @@ process_command_line_options(int argc, char* argv[])
 
 /*  ****** (6)  */
 
-
             if (DEBUG) 
             {
 
@@ -291,9 +279,7 @@ process_command_line_options(int argc, char* argv[])
                     << "== `LOG_FILENAME_INDEX'." 
                     << endl;
 
-
             } /* |if (DEBUG)|  */
-
 
             log_filename = optarg;
 
@@ -301,14 +287,12 @@ process_command_line_options(int argc, char* argv[])
 
         } /* |else if (option_index == LOG_FILENAME_INDEX)|  */
 
-
 /*  ***** (5) trace.   */
 
         else if (option_index == TRACE_INDEX)        
         {
 
 /*  ****** (6)  */
-
 
             if (DEBUG) 
             {
@@ -348,12 +332,10 @@ process_command_line_options(int argc, char* argv[])
 
             }  /* |if|  */
 
-
             if (optarg && !invalid_arg)
             {
                 errno = 0;
                 trace_value = strtol(optarg, 0, 10);
-
 
             }
 
@@ -366,7 +348,6 @@ process_command_line_options(int argc, char* argv[])
                      << "Invalid argument to `trace' option:  " << optarg
                      << endl;
 
-
                 if (errno != 0)
                 {
                     cerr << "errno == " << errno << endl;
@@ -376,27 +357,21 @@ process_command_line_options(int argc, char* argv[])
                 cerr << "Setting `trace_value' to 0 and continuing."
                      << endl;
 
-
                 trace_value = 0;
             
             }  /* |if|  */
 
-
             if (!optarg)
                 trace_value = 1;
 
-
             if (DEBUG)
             {
-
                 cerr << "trace_value == " << trace_value << endl;
-
 
             }  /* |if (DEBUG)|  */ 
 
                
         }  /* |else if (option_index == TRACE_INDEX)|  */
-
 
 /*  ***** (5) filecard-date.   */
 
