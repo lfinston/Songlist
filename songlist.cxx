@@ -126,6 +126,55 @@ main(int argc, char **argv)
    if (DEBUG)
      cerr << "Entering `main'." << endl;
 
+   char buffer[16];
+   memset(buffer, '\0', 16); 
+
+   FILE *fp = 0;
+
+   fp = popen("date +'%Y.%m.%d'", "r");
+   
+   status = fread(buffer, 1, 16, fp);
+
+   // 2021.09.02
+
+   cerr << "buffer == " << buffer << endl;
+
+   pclose(fp);
+   fp = 0;
+
+   string day_str;
+   string month_str;  
+   string year_str;
+
+   int day;
+   int month;
+   int year;
+   
+   day_str = buffer;   
+   day_str.erase(0, 8);
+
+   month_str = buffer;
+   month_str.erase(7);
+   month_str.erase(0, 5);
+
+   year_str = buffer;
+   year_str.erase(4);
+
+   cerr << "day_str == " << day_str << endl;
+   cerr << "month_str == " << month_str << endl;
+   cerr << "year_str == " << year_str << endl;
+
+   day   = atoi(day_str.c_str());
+   month = atoi(month_str.c_str());
+   year  = atoi(year_str.c_str());
+
+   cerr << "day == " << day << endl;
+   cerr << "month == " << month << endl;
+   cerr << "year == " << year << endl;
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+
 /* ***** (5) Process command-line options.  */
 
    errno = 0;

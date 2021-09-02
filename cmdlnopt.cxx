@@ -67,7 +67,7 @@ int
 process_command_line_options(int argc, char* argv[])
 {
 
-   bool DEBUG = false;  /* |true|  */
+   bool DEBUG = true;  /* |false|  */
 
    int status = 0;
 
@@ -97,6 +97,7 @@ process_command_line_options(int argc, char* argv[])
   const unsigned short TOC_LEAD_SHEETS_INDEX                =  5;
   const unsigned short TOC_SCORES_INDEX                     =  6;
   const unsigned short TOC_GUITAR_SOLO_ARRANGEMENTS_INDEX   =  7;
+  const unsigned short FILECARD_DATE_INDEX                  =  8;
 							       
 /*  **** (4)  */
 
@@ -111,6 +112,7 @@ process_command_line_options(int argc, char* argv[])
     {"toc-lead-sheets", 2, 0, 0},
     {"toc-scores", 2, 0, 0},
     {"toc-guitar-solo-arrangements", 2, 0, 0},
+    {"filecard-date", 2, 0, 0},
     {0, 0, 0, 0}
   };
 
@@ -391,6 +393,207 @@ process_command_line_options(int argc, char* argv[])
                
         }  /* |else if (option_index == TRACE_INDEX)|  */
 
+
+/*  ***** (5) filecard-date.   */
+
+        else if (option_index == FILECARD_DATE_INDEX)        
+        {
+
+/*  ****** (6)  */
+
+            string date_str;
+            FILE *fp = 0;
+            char buffer[16];
+            memset(buffer, '\0', 16);
+
+            if (DEBUG) 
+            {
+
+               cerr << "`option_index' == `FILECARD_DATE_INDEX'" 
+                    << endl;
+
+               if(optarg)
+                  cerr << "optarg == " << optarg << endl;
+               else
+                  cerr << "No argument." << endl;
+
+            }
+
+/* ****** (6) */
+
+            if (optarg)
+            {
+                date_str = optarg;
+
+                /* Replace periods with dashes.  `date' doesn't recognize */
+                /* date strings with periods.  LDF 2021.09.02.            */
+
+                do  
+                {
+                    pos = date_str.find(".");
+
+                    if (pos != string::npos)
+                      date_str.replace(pos, 1, "-");
+                }
+                while (pos != string::npos);
+
+            }
+
+/* ****** (6) */
+
+            else  /* Use default (1 week)  */
+            {
+                date_str = "-1 week";
+            }
+
+/* ****** (6) */
+
+            date_str.insert(0, "date --date='");
+
+            date_str.append("' +'%Y-%m-%d' 2>/dev/null; echo $?");
+
+            cerr << "date_str == " << date_str << endl;
+
+            errno = 0;
+            fp = popen(date_str.c_str(), "r");
+
+            if (fp != 0 && errno == 0)
+            {
+               status = fread(buffer, 1, 16, fp);
+
+               cerr << "AAA buffer == " << buffer << endl;
+
+            }
+
+/* ****** (6) */
+
+            if (fp == 0 || errno != 0 || buffer[0] == '1')
+            {
+
+/* ******* (7) */
+
+                if (fp == 0 || errno != 0)
+                {
+                    cerr << "`popen' failed";
+
+                    if (fp == 0)
+                      cerr << " returning NULL";
+ 
+                    cerr << "." << endl;
+
+                    if (errno != 0)
+                      cerr << "Error:  " << strerror(errno) << endl;
+                }
+                else if (buffer[0] == '1')
+                   cerr << "`date' failed, returning 1." << endl;
+  
+                pclose(fp);
+                fp = 0;
+           
+/* ******* (7) */
+
+                if (date_str != "date --date='-1 week' +'%Y-%m-%d' 2>/dev/null; echo $?")
+                {
+/* ******** (8) */
+                   cerr << "Will try again with default." << endl;
+
+                   date_str = "date --date='-1 week' +'%Y-%m-%d' 2>/dev/null; echo $?";
+
+                   cerr << "date_str == " << date_str << endl;
+
+                   memset(buffer, '\0', 16);
+                   errno = 0;
+                   fp = popen(date_str.c_str(), "r");
+
+
+                   if (fp != 0 && errno == 0)
+                   {
+                       status = fread(buffer, 1, 16, fp);
+
+                       cerr << "buffer == " << buffer << endl;
+
+                   }
+
+                   if (fp == 0 || errno != 0 || buffer[0] == '1')
+                   {
+/* ********* (9) */
+
+                      if (fp == 0 || errno != 0)
+                      {
+                         cerr << "`popen' failed" << endl;
+
+                         if (fp == 0)
+                            cerr << " returning NULL";
+ 
+                         cerr << "." << endl;
+
+                         if (errno != 0)
+                            cerr << "Error:  " << strerror(errno) << endl;
+                      }
+                      else if (buffer[0] == '1')
+                         cerr << "`date' failed, returning 1." << endl;
+  
+                      
+/* ********* (9) */
+
+                   }
+
+/* ******** (8) */
+
+                }  /* |if (date_str != "date --date='-1 week' +'%Y-%m-%d'")|  */
+
+/* ******* (7) */
+
+            }  /* |if (fp == 0 || errno != 0 || buffer[0] == '1')|  */
+
+/* ****** (6) */
+
+            if (fp == 0 || errno != 0 || buffer[0] == '1')
+            {
+
+                cerr << "ERROR!  In `process_command_line_options':" << endl;
+
+                if (fp == 0 || errno != 0)
+                {
+                   cerr << "`popen' failed";
+
+                   if (fp == 0)
+                       cerr << " returning NULL";
+ 
+                   cerr << "." << endl;
+
+                   if (errno != 0)
+                      cerr << "Error:  " << strerror(errno) << endl;
+                }
+
+                if (buffer[0] == '1')
+                   cerr << "`date' failed, returning 1." << endl;
+
+                cerr << "Not writing new filecards to file."
+                     << endl 
+                     << "Will continue."  << endl;
+
+            }  /* |if (fp == 0 || errno != 0 || buffer[0] == '1')|  */
+
+/* ****** (6) */
+
+            else if (DEBUG)
+            { 
+                cerr << "BBB `popen' and `date' succeeded.  `buffer' == " << buffer << endl;
+
+            }        
+
+            pclose(fp);
+            fp = 0;
+
+cerr << "YYY Enter <RETURN> to continue: ";
+getchar(); 
+
+
+
+        }  /* |else if (option_index == FILECARD_DATE_INDEX)|  */
+
+
 /*  ***** (5) Invalid option_index value. */
 
         else 
@@ -549,16 +752,25 @@ process_command_line_options(int argc, char* argv[])
 
 }  /* End of |process_command_line_options| definition  */
 
-/*  *** (3)  */
+/* ** (2) */
 
-/*  * (1) Local variables for Emacs  */
+/* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
+/*       GNU Emacs editor.  The local variable list is not evaluated when an */
+/*   	 indirect buffer is visited, so it's necessary to evaluate the       */
+/*   	 following s-expression in order to use the facilities normally      */
+/*   	 accessed via the local variables list.                              */
+/*   	 \initials{LDF 2004.02.12}.                                          */
+/*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
 
-/*  Local Variables:  */
-/*  mode:Text  */
-/*  eval:(display-time)  */
-/*  abbrev-mode:t  */
-/*  eval:(read-abbrev-file)  */
-/*  indent-tabs-mode:nil  */
-/*  eval:(outline-minor-mode)  */
-/*  fill-column:80  */
-/*  End:  */
+/* (setq outline-regexp "/\\* \\*+") */
+
+/* * Local variables for Emacs.*/
+/* Local Variables: */
+/* mode:CWEB */
+/* eval:(display-time) */
+/* eval:(read-abbrev-file) */
+/* indent-tabs-mode:nil */
+/* eval:(outline-minor-mode) */
+/* fill-column:80 */
+/* End: */
+

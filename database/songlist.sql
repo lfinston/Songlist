@@ -1817,6 +1817,8 @@ values
 true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true,
 "2021.09.02.");
 
+select title, entry_date from Songs where title = "It's Love";
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
