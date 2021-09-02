@@ -57,6 +57,10 @@
 
 using namespace std;
 
+extern int filecard_day;
+extern int filecard_month;
+extern int filecard_year;
+
 // #include "glblvars.hxx"
 
 /*  * (0) Command-Line Options Processing.   */
@@ -452,7 +456,8 @@ process_command_line_options(int argc, char* argv[])
 
             date_str.append("' +'%Y-%m-%d' 2>/dev/null; echo $?");
 
-            cerr << "date_str == " << date_str << endl;
+            if (DEBUG)
+               cerr << "date_str == " << date_str << endl;
 
             errno = 0;
             fp = popen(date_str.c_str(), "r");
@@ -461,7 +466,8 @@ process_command_line_options(int argc, char* argv[])
             {
                status = fread(buffer, 1, 16, fp);
 
-               cerr << "AAA buffer == " << buffer << endl;
+               if (DEBUG)
+                  cerr << "`buffer' == " << buffer << endl;
 
             }
 
@@ -474,7 +480,8 @@ process_command_line_options(int argc, char* argv[])
 
                 if (fp == 0 || errno != 0)
                 {
-                    cerr << "`popen' failed";
+                    cerr << "ERROR!  In `process_command_line_options':" << endl 
+                         << "`popen' failed";
 
                     if (fp == 0)
                       cerr << " returning NULL";
@@ -498,8 +505,9 @@ process_command_line_options(int argc, char* argv[])
                    cerr << "Will try again with default." << endl;
 
                    date_str = "date --date='-1 week' +'%Y-%m-%d' 2>/dev/null; echo $?";
-
-                   cerr << "date_str == " << date_str << endl;
+ 
+                   if (DEBUG)
+                      cerr << "date_str == " << date_str << endl;
 
                    memset(buffer, '\0', 16);
                    errno = 0;
@@ -510,7 +518,8 @@ process_command_line_options(int argc, char* argv[])
                    {
                        status = fread(buffer, 1, 16, fp);
 
-                       cerr << "buffer == " << buffer << endl;
+                       if (DEBUG)
+                          cerr << "buffer == " << buffer << endl;
 
                    }
 
@@ -520,7 +529,9 @@ process_command_line_options(int argc, char* argv[])
 
                       if (fp == 0 || errno != 0)
                       {
-                         cerr << "`popen' failed" << endl;
+                         cerr << "ERROR!  In `process_command_line_options':"
+                              << endl 
+                              << "`popen' failed" << endl;
 
                          if (fp == 0)
                             cerr << " returning NULL";
@@ -531,12 +542,14 @@ process_command_line_options(int argc, char* argv[])
                             cerr << "Error:  " << strerror(errno) << endl;
                       }
                       else if (buffer[0] == '1')
-                         cerr << "`date' failed, returning 1." << endl;
+                         cerr << "ERROR!  In `process_command_line_options':"
+                              << endl 
+                              << "`date' failed, returning 1." << endl;
   
                       
 /* ********* (9) */
 
-                   }
+                   }  /* |if|  */
 
 /* ******** (8) */
 
@@ -565,8 +578,7 @@ process_command_line_options(int argc, char* argv[])
                    if (errno != 0)
                       cerr << "Error:  " << strerror(errno) << endl;
                 }
-
-                if (buffer[0] == '1')
+                else 
                    cerr << "`date' failed, returning 1." << endl;
 
                 cerr << "Not writing new filecards to file."
@@ -577,19 +589,48 @@ process_command_line_options(int argc, char* argv[])
 
 /* ****** (6) */
 
-            else if (DEBUG)
+            else 
             { 
-                cerr << "BBB `popen' and `date' succeeded.  `buffer' == " << buffer << endl;
+/* ******* (7) */
+                if (DEBUG)
+                   cerr << "`popen' and `date' succeeded.  `buffer' == " << buffer << endl;
+                
+                string day_str   = buffer;
+                string month_str = buffer;  
+                string year_str  = buffer;
 
-            }        
+                day_str.erase(0, 8);
+                day_str.erase(2);
+                month_str.erase(7);
+                month_str.erase(0, 5);
+                year_str.erase(4);
+
+                if (DEBUG)
+                   cerr << "day_str   == " << day_str << endl
+                        << "month_str == " << month_str << endl
+                        << "year_str  == " << year_str << endl;
+
+                filecard_day = atoi(day_str.c_str());
+                filecard_month = atoi(month_str.c_str());
+                filecard_year = atoi(year_str.c_str());
+
+                if (DEBUG)
+                { 
+                   cerr << "filecard_day == " << filecard_day << endl
+                        << "filecard_month == " << filecard_month << endl
+                        << "filecard_year == " << filecard_year << endl;
+                }
+
+/* ******* (7) */
+
+            }  /* |else |  */        
+
+/* ****** (6) */
 
             pclose(fp);
             fp = 0;
 
-cerr << "YYY Enter <RETURN> to continue: ";
-getchar(); 
-
-
+/* ****** (6) */
 
         }  /* |else if (option_index == FILECARD_DATE_INDEX)|  */
 
