@@ -1759,7 +1759,11 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int 
     }
     else if (!iter->is_production)
     {
-      *toc_file_ptr << "\\N " << iter->title;
+
+      if (iter->sort_by_production)
+         *toc_file_ptr << "\\P " << iter->title;
+      else 
+         *toc_file_ptr << "\\N " << iter->title;
 
       if (iter->subtitle.length() > 0)
          *toc_file_ptr << " " << iter->subtitle;
