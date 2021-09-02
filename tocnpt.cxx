@@ -92,6 +92,7 @@ ofstream russian_file;
 ofstream spanish_file;   
 ofstream productions_file;
 ofstream sub_filecards_file;
+ofstream new_filecards_file;
 ofstream songs_a_e_file;
 ofstream songs_f_l_file;
 ofstream songs_m_n_file;
@@ -135,6 +136,8 @@ process_tocs_and_npt(void)
    
    bool public_domain_flag;
    public_domain_flag = false;
+
+   bool new_filecards_first_time = true;
 
    errno = 0;
 
@@ -181,7 +184,8 @@ process_tocs_and_npt(void)
              <<        "number_filecards, "                 // 34
              <<        "eps_filenames, "                    // 35
              <<        "subtitle, "                         // 36
-             <<        "production_subtitle "               // 37
+             <<        "production_subtitle, "              // 37
+             <<        "entry_date "                        // 38
              <<        "from Songs where music != \"\" or words_and_music != \"\" or is_cross_reference = 1 "
              <<        "order by title asc;";
 
@@ -392,23 +396,23 @@ process_tocs_and_npt(void)
        if (curr_row[16])
        {
          if (DEBUG)
-           cerr << "`song_cycle'                          == " << curr_row[16] << endl;
+         cerr << "`song_cycle'                         == " << curr_row[16] << endl;
          curr_song.song_cycle.assign(curr_row[16]);         
        }
        else
        {   if (DEBUG)
-           cerr << "`song_cycle'                          == NULL" << endl;
+           cerr << "`song_cycle'                       == NULL" << endl;
        }  
 
        if (curr_row[17])
        {
          if (DEBUG)
-           cerr << "AAA `musical'                          == " << curr_row[17] << endl;
+           cerr << "`musical'                          == " << curr_row[17] << endl;
          curr_song.musical.assign(curr_row[17]);         
        }
        else
        {   if (DEBUG)
-           cerr << "AAA `musical'                          == NULL" << endl;
+              cerr << "`musical'                       == NULL" << endl;
        }  
        if (curr_row[18])
        {
@@ -435,7 +439,7 @@ process_tocs_and_npt(void)
        }
 
        if (DEBUG)
-         cerr << "`sort_by_production'               == " << curr_row[20] << endl;
+           cerr << "`sort_by_production'               == " << curr_row[20] << endl;
        curr_song.sort_by_production = atoi(curr_row[20]);
 
        status = atoi(curr_row[20]);
@@ -551,6 +555,25 @@ process_tocs_and_npt(void)
          if (DEBUG)
            cerr << "`production_subtitle'                   == " << curr_row[37] << endl;
 
+       curr_song.entry_date = curr_row[38];
+       {
+            string temp_str;
+ 
+            if (DEBUG)
+              cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
+ 
+            temp_str = curr_song.entry_date;
+
+            curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+            curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
+            curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+            cerr << "curr_song.title       == " << curr_song.title << endl
+                 << "curr_song.entry_year  == " << curr_song.entry_year << endl
+                 << "curr_song.entry_month == " << curr_song.entry_month << endl
+                 << "curr_song.entry_day   == " << curr_song.entry_day << endl;
+       }
+
        if (DEBUG)
          curr_song.show("curr_song:");
 
@@ -613,7 +636,8 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct musical, year, public_domain, production_subtitle from Songs "
+   temp_strm << "select distinct musical, year, public_domain, production_subtitle, "
+             << "entry_date from Songs "
              << "where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
 
@@ -696,6 +720,7 @@ process_tocs_and_npt(void)
               curr_production.year = atoi(curr_row[1]);
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
+           curr_production.entry_date = curr_row[4];
 
            production_vector.push_back(curr_production);
 
@@ -715,7 +740,7 @@ process_tocs_and_npt(void)
 
    temp_strm.str("");
 
-   temp_strm << "select distinct opera, year, public_domain, production_subtitle "
+   temp_strm << "select distinct opera, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and opera is not null "
              << "and sort_by_production is true order by opera;";
 
@@ -798,6 +823,7 @@ process_tocs_and_npt(void)
             curr_production.year = atoi(curr_row[1]);
          curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
          curr_production.production_subtitle = curr_row[3];
+         curr_production.entry_date = curr_row[4];
 
          production_vector.push_back(curr_production);
 
@@ -818,7 +844,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
 
-   temp_strm << "select distinct operetta, year, public_domain, production_subtitle "
+   temp_strm << "select distinct operetta, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and operetta is not null "
              << "and sort_by_production is true order by operetta;";
 
@@ -901,6 +927,7 @@ process_tocs_and_npt(void)
               curr_production.year = atoi(curr_row[1]);
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
+           curr_production.entry_date = curr_row[4];
 
            production_vector.push_back(curr_production);
 
@@ -920,7 +947,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct song_cycle, year, public_domain, production_subtitle "
+   temp_strm << "select distinct song_cycle, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
@@ -1003,6 +1030,7 @@ process_tocs_and_npt(void)
               curr_production.year = atoi(curr_row[1]);
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
+           curr_production.entry_date = curr_row[4];
 
            production_vector.push_back(curr_production);
 
@@ -1022,7 +1050,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct revue, year, public_domain, production_subtitle "
+   temp_strm << "select distinct revue, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and revue is not null "
              << "and sort_by_production is true order by revue";
 
@@ -1105,6 +1133,7 @@ process_tocs_and_npt(void)
               curr_production.year = atoi(curr_row[1]);
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
+           curr_production.entry_date = curr_row[4];
 
            production_vector.push_back(curr_production);
 
@@ -1125,7 +1154,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct film, year, public_domain, production_subtitle "
+   temp_strm << "select distinct film, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and film is not null "
              << "and sort_by_production is true order by film;";
 
@@ -1208,6 +1237,7 @@ process_tocs_and_npt(void)
               curr_production.year = atoi(curr_row[1]);
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
+           curr_production.entry_date = curr_row[4];
 
            production_vector.push_back(curr_production);
 
@@ -1254,7 +1284,7 @@ process_tocs_and_npt(void)
        temp_strm.str("");
 
        temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, "
-                 << "song_cycle, revue, film, public_domain, subtitle, production_subtitle "
+                 << "song_cycle, revue, film, public_domain, subtitle, production_subtitle, entry_date "
                  << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
@@ -1402,6 +1432,7 @@ process_tocs_and_npt(void)
                curr_song.public_domain = static_cast<bool>(atoi(curr_row[9]));
                curr_song.subtitle.assign(curr_row[10]);
                curr_song.production_subtitle.assign(curr_row[11]);
+               curr_song.entry_date = curr_row[12];
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -2563,8 +2594,6 @@ process_tocs_and_npt(void)
          if (iter->subtitle.length() > 0)
             toc_npt_file << " " << iter->subtitle;
 
-/* !!START HERE:  LDF 2021.08.20.  Get printing "source" to work.  */ 
-
 #if 0
          if (iter->source.length() > 0)
            toc_npt_file << endl << "\\hskip\\twozerosperioddimen " << iter->source;
@@ -2664,6 +2693,11 @@ process_tocs_and_npt(void)
    songs_o_s_file.close();
    songs_t_z_file.close();
 
+   if (!new_filecards_first_time)
+   {
+      new_filecards_file << endl << "\\endinput" << endl;
+      new_filecards_file.close();
+   }
 
    toc_npt_file << "\\vskip2cm" << endl << endl
                 << "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
