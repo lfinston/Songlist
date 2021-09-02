@@ -2240,7 +2240,11 @@ true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 
 -- delete from Songs where title = "Little Bit in Love, A";
 
--- Put this back in when I've scanned it.  LDF 2021.09.02.
+-- Put this song back in the database when I've scanned it.  With `scanned' being `false' and
+-- `scanned_filename' and `eps_filenames' empty, this caused an error in `~/music/Lead_Sheets/tex/lead_sheets.tex':
+-- "It's Love" from the same show occured in `~/Songlist/public_domain/songs_t_z.tex' twice.
+-- This file is included in `lead_sheets.tex'.
+-- LDF 2021.09.02.
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
 musical, scanned, scanned_filename, eps_filenames, sort_by_production)
