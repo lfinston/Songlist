@@ -215,9 +215,11 @@ main(int argc, char **argv)
         << "filecard_month == " << filecard_month << endl
         << "filecard_year  == " << filecard_year << endl;
 
+#if 0 
 cerr << "XXX Enter <RETURN> to continue: ";
 getchar(); 
- 
+#endif 
+
 /* ** (2) Initialize  |mysql|  */
 
    mysql = mysql_init(0);

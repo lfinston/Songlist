@@ -1818,7 +1818,8 @@ musical, scanned, scanned_filename, eps_filenames, sort_by_production, entry_dat
 values
 ("It's Love", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
 "Leonard Bernstein", "Bernstein, Leonard",
-true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true,
+true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town",
+true, "itslove.pdf", "itslove1.eps;itslove2.eps;itslove3.eps;itslove4.eps;", true,
 "2021.09.02.");
 
 -- select title, entry_date from Songs where title = "It's Love";
