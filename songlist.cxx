@@ -199,7 +199,15 @@ main(int argc, char **argv)
    month = atoi(month_str.c_str());
    year  = atoi(year_str.c_str());
 
-   
+   /* !!START HERE:  LDF 2021.09.02.  */ 
+
+   if (filecard_day == 0)
+      filecard_day = day;
+   if (filecard_month == 0)
+      filecard_month = month;
+   if (filecard_year == 0)
+      filecard_year = year;
+
    cerr << "day == " << day << endl
         << "month == " << month << endl
         << "year == " << year << endl
@@ -987,8 +995,11 @@ Song::show(string s)
        << "filecard_title:                   " << filecard_title << endl
        << "number_filecards:                 " << number_filecards << endl
        << "source:                           " << source << endl
-       << "eps_filenames:                    " << eps_filenames << endl;
-
+       << "eps_filenames:                    " << eps_filenames << endl
+       << "entry_date:                       " << entry_date << endl
+       << "entry_day:                        " << entry_day << endl
+       << "entry_month:                      " << entry_month << endl
+       << "entry_year:                       " << entry_year << endl;
  
   if (production_song_vector.size() > 0)
      cerr << "production_song_vector is not empty." << endl;
@@ -1047,6 +1058,11 @@ Song::clear(void)
     number_filecards = false;
     source = "";
     eps_filenames = "";
+    entry_date = "";
+    entry_day = 0;
+    entry_month = 0;
+    entry_year = 0;
+
     production_song_vector.clear();
     
     return;

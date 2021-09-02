@@ -97,7 +97,7 @@ create table Songs
     filecard_title varchar(128) not null default "",
     number_filecards boolean not null default false,
     eps_filenames varchar(512) not null default "",
-    entry_date date default null
+    entry_date date not null default "2020-01-01"
 );
 
 alter table Songs add column operetta varchar(64) default null after opera;
@@ -126,14 +126,18 @@ alter table Songs modify column song_cycle varchar(256) default null;
 alter table Songs add column subtitle varchar(128) not null default "" after title;
 alter table Songs add column production_subtitle varchar(128) not null default "" after production;
 alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
+alter table Songs add column entry_date date not null default "2020-01-01" after eps_filenames;
 
-alter table Songs add column entry_date date default null after eps_filenames;
+-- select title, entry_date from Songs where title like("I%");
+
+alter table Songs drop column entry_date;
+
 
 show columns from Songs;
 
 delete from Songs;
 
-select distinct subtitle from Songs where subtitle <> "";
+       select distinct subtitle from Songs where subtitle <> "";
 
 
 /* ** (2) Composers */
@@ -1817,7 +1821,7 @@ values
 true, 1953, "{\\bf Bernstein on Broadway}, p.~103.", "Wonderful Town", false, "", "", true,
 "2021.09.02.");
 
-select title, entry_date from Songs where title = "It's Love";
+-- select title, entry_date from Songs where title = "It's Love";
 
 /* ** *************************************************** */
 

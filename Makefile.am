@@ -105,8 +105,8 @@ all-sep: all_sep.pdf
 
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex \
              sub_filecrds.tex filecrds.tex
-	tex all_sep.tex
-	tex all_sep.tex
+	rm -f newfilecards.tex
+	tex all_sep.tex && tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi #sep_all.sh
 	dvipdfmx $<
@@ -129,6 +129,7 @@ all-no-sep: all_no_sep.ps all_no_sep.pdf
 
 all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex \
                 sub_filecrds.tex filecrds.tex
+	rm -f newfilecards.tex 
 	tex all_no_sep.tex && tex all_no_sep.tex
 
 all_no_sep.ps: all_no_sep.dvi
@@ -157,7 +158,7 @@ cmdlnopt.o: cmdlnopt.cxx
 # ./songlist
 
 run: ./songlist$(EXEEXT) 
-	./songlist$(EXEEXT) 
+	./songlist$(EXEEXT) --filecard-date 
 
 songlist_out.pdf: songlist_out.ps
 	ps2pdf songlist_out.ps

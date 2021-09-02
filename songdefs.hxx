@@ -98,6 +98,10 @@ class Song
     bool number_filecards;
     string source;
     string eps_filenames;
+    string entry_date;
+    int entry_day;
+    int entry_month;
+    int entry_year;
 
     vector<Song> production_song_vector;
     
@@ -146,6 +150,11 @@ class Song
          number_filecards = false;
          source = "";
          eps_filenames = "";
+         entry_date = "";
+         entry_day = 0;
+         entry_month = 0;
+         entry_year = 0;
+
          return;
     }
 
@@ -193,6 +202,10 @@ class Song
       number_filecards = s.number_filecards;
       source = s.source;
       eps_filenames = s.eps_filenames;
+      entry_date = s.entry_date;
+      entry_day = s.entry_day;
+      entry_month = s.entry_month;
+      entry_year = s.entry_year;
 
       return;
     }

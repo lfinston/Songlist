@@ -194,6 +194,8 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \def\SEP#1{\relax}
 \fi
 
+
+
 \Chapter{lead sheets}{Lead Sheets---All}
 
 \input toc_ls.tex
@@ -341,6 +343,13 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \begingroup
 \input filecrds.tex
 \vfil\eject
+\openin\newfilecards=newfilecards.tex
+\ifeof\newfilecards
+\errmessage{newfilecards.tex doesn't exist}
+\else
+\errmessage{newfilecards.tex exists}
+\fi
+\closein\newfilecards
 \endgroup
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
