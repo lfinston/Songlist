@@ -1824,6 +1824,8 @@ true, "itslove.pdf", "itslove1.eps;itslove2.eps;itslove3.eps;itslove4.eps;", tru
 
 -- select title, entry_date from Songs where title = "It's Love";
 
+select title, musical, sort_by_production from Songs where music like ("Leonard%")\G
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
@@ -2235,6 +2237,10 @@ true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 
 
 /* ** *************************************************** */
+
+-- delete from Songs where title = "Little Bit in Love, A";
+
+-- Put this back in when I've scanned it.  LDF 2021.09.02.
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
 musical, scanned, scanned_filename, eps_filenames, sort_by_production)
