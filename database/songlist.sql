@@ -462,7 +462,7 @@ values
 select title, subtitle, eps_filenames from Songs where music = "Jacques Offenbach";
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language, entry_date)
+opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language)
 values
 ("Barcarole", "(Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
@@ -470,7 +470,7 @@ values
 true, "\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"
 "\\hbox{2.  {\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip"
 "\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
-true, "french", "2021.09.03");
+true, "french");
 
 /* ** *************************************************** */
 
@@ -1419,10 +1419,10 @@ update Songs set eps_filenames = "idwtswnf1.eps;idwtswnf2.eps;" where title = "I
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, sort_by_production, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, sort_by_production, source)
 values
 ("I Feel Pretty", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  
-"West Side Story", true, 
+"West Side Story", 1957, true, 
 "\\vbox{\\hbox{{\\bf Bernstein on Broadway}, p.~200.}\\vskip\\sourceskip"
 "\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~64 (Vocal Selections).}}");
 
@@ -2746,13 +2746,13 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language, entry_date)
+opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language)
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
 "Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;", 
 true, "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
 "\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{{\\bf d'Hoffmann) Klavierauszug}, p.~120.}}",
-true, "french", "2021.09.03");
+true, "french");
 
 select eps_filenames from Songs where title = "Oiseaux dans les charmille, Les";
 
@@ -2928,7 +2928,7 @@ delete from Songs where title like("Polowetzer%");
 replace into Songs (title, subtitle, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
 production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain, eps_filenames, year)
 values
-("Polowetzer T@{a}nze", "(``Stranger in Paradise'')",
+("Polowetzer T@{a}nze", "\\hbox to 0pt{(``Stranger in Paradise'')\\hss}",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true,

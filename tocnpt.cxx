@@ -2739,7 +2739,7 @@ process_tocs_and_npt(void)
                     || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                     || temp_char <= 'h')
                 {
-                  toc_ls_a_h_file << "\\R\\R {" << t_iter->title;
+                  toc_ls_a_h_file << "\\R\\R {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
 
                   if (t_iter->subtitle.length() > 0)
                      toc_ls_a_h_file << " " << t_iter->subtitle;
