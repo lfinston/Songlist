@@ -3734,10 +3734,10 @@ true, "whatkind.pdf", "whatkind.eps;", true);
 /* ** *************************************************** */
 
 replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
-scanned, scanned_filename, eps_filenames, source, sort_by_production)
+scanned, scanned_filename, eps_filenames, source, sort_by_production, entry_date)
 values
 ("Whatever Lola Wants", "(Lola Gets)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
-true, "wtvrllws.pdf", "wtvrllws.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~5.", true);
+true, "wtvrllws.pdf", "wtvrllws.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~5.", true, "2021.09.03");
 
 /* ** *************************************************** */
 
