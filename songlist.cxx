@@ -143,9 +143,9 @@ main(int argc, char **argv)
    
    status = fread(buffer, 1, 16, fp);
 
-   // 2021.09.02
-
+#if 0
    cerr << "buffer == " << buffer << endl;
+#endif 
 
    pclose(fp);
    fp = 0;
@@ -200,8 +200,6 @@ main(int argc, char **argv)
    month = atoi(month_str.c_str());
    year  = atoi(year_str.c_str());
 
-   /* !!START HERE:  LDF 2021.09.02.  */ 
-
    if (filecard_day == 0)
       filecard_day = day;
    if (filecard_month == 0)
@@ -209,16 +207,13 @@ main(int argc, char **argv)
    if (filecard_year == 0)
       filecard_year = year;
 
+#if 0 
    cerr << "day == " << day << endl
         << "month == " << month << endl
         << "year == " << year << endl
         << "filecard_day   == " << filecard_day << endl
         << "filecard_month == " << filecard_month << endl
         << "filecard_year  == " << filecard_year << endl;
-
-#if 0 
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
 #endif 
 
 /* ** (2) Initialize  |mysql|  */

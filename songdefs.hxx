@@ -213,6 +213,9 @@ class Song
     void show(string s = "");
 
     void clear(void);
+
+    bool operator==(const Song &s) {return (title == s.title);}
+
     
 };  /* End of |class Song| definition  */
 

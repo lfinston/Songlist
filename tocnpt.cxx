@@ -574,10 +574,12 @@ process_tocs_and_npt(void)
             curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
             curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
+#if 0 
             cerr << "curr_song.title       == " << curr_song.title << endl
                  << "curr_song.entry_year  == " << curr_song.entry_year << endl
                  << "curr_song.entry_month == " << curr_song.entry_month << endl
                  << "curr_song.entry_day   == " << curr_song.entry_day << endl;
+#endif 
        }
 
        if (DEBUG)
@@ -641,6 +643,8 @@ process_tocs_and_npt(void)
    /* Musicals  */
    
    temp_strm.str("");
+
+/* !!START HERE:  LDF 2021.09.03.  distinct isn't working the way I want.  */ 
 
    temp_strm << "select distinct musical, year, public_domain, production_subtitle, "
              << "entry_date from Songs "
@@ -1475,6 +1479,36 @@ process_tocs_and_npt(void)
 
    if (DEBUG)
    {
+
+       cerr << "Before culling." << endl
+            << "production_vector.size() == " << production_vector.size() << endl;        
+
+       if (production_vector.size() > 0)
+         cerr << "production_vector:" << endl;
+       else
+         cerr << "production_vector is empty." << endl;
+
+       for (vector<Production_Song>::iterator iter = production_vector.begin();
+            iter != production_vector.end();
+            ++iter)
+       {       
+           iter->show("Production_Song:");
+       }
+
+   }  /* |if (DEBUG)| */
+
+   vector<Production_Song>::iterator temp_iter;
+
+   temp_iter = unique(production_vector.begin(), production_vector.end());
+
+   production_vector.erase(temp_iter, production_vector.end());
+
+   if (DEBUG)
+   {
+
+       cerr << "After culling:" << endl
+            << "production_vector.size() == " << production_vector.size() << endl;        
+
        if (production_vector.size() > 0)
          cerr << "production_vector:" << endl;
        else
@@ -1486,7 +1520,8 @@ process_tocs_and_npt(void)
        {       
            iter->show("Production_Song:");
        }
-   } 
+
+   }  /* |if (DEBUG)| */
 
    song_vector.insert(song_vector.begin(), production_vector.begin(), production_vector.end());
 
@@ -1741,6 +1776,7 @@ process_tocs_and_npt(void)
 
        do_new_filecard = false;
 
+#if 0 
        cerr << "iter->title       == " << iter->title << endl 
             << "iter->entry_year  == " << iter->entry_year << endl
             << "iter->entry_month == " << iter->entry_month << endl
@@ -1748,6 +1784,7 @@ process_tocs_and_npt(void)
             << "filecard_year     == " << filecard_year << endl   
             << "filecard_month    == " << filecard_month << endl 
             << "filecard_day      == " << filecard_day << endl;
+#endif 
 
 
        if (   iter->entry_year > filecard_year
@@ -1755,7 +1792,7 @@ process_tocs_and_npt(void)
            || (   iter->entry_year == filecard_year && iter->entry_month == filecard_month 
                && iter->entry_day > filecard_day))
        {
-          if (true || DEBUG)
+          if (DEBUG)
           { 
               cerr << iter->title << " is newer than the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
@@ -1766,7 +1803,7 @@ process_tocs_and_npt(void)
           if (new_filecards_first_time == true)
           {
              
-              if (true || DEBUG)
+              if (DEBUG)
               { 
                   cerr << "`new_filecards_first_time' is `true'.  Setting up `newfilecareds.tex'." 
                        << endl;
@@ -1787,13 +1824,6 @@ process_tocs_and_npt(void)
        }  /* |if|  */
 
 /* **** (4) */
-
-       if (iter->title == "It's Love")
-       {
-cerr << "YYY Enter <RETURN> to continue: ";
-// getchar(); 
-
-       }
 
        if (iter->public_domain)
           public_domain_flag = true;
@@ -2146,8 +2176,6 @@ cerr << "YYY Enter <RETURN> to continue: ";
           if (do_new_filecard)
              new_filecards_file << "}";
 
-
-/* !!START HERE:  LDF 2021.09.02.  Adding code for writing to new_filecards_file.  */ 
 
           if (iter->is_production || iter->is_cross_reference)
           {
@@ -2606,7 +2634,7 @@ cerr << "YYY Enter <RETURN> to continue: ";
                    {
                       if (!t_iter->public_domain)
                       {
-                          temp_strm << "\\ifnotpublicdomainonly" << endl;
+                          temp_strm << "\\ifnotpublicdomainonly %% BBB" << endl;
                       }
 
 
@@ -2682,6 +2710,8 @@ cerr << "YYY Enter <RETURN> to continue: ";
                    temp_strm.str("");
 
                 }  /* |if (t_iter->scanned)|  */
+
+                temp_strm.str("");
 
                 sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
                 if (do_new_filecard)
@@ -2829,7 +2859,7 @@ cerr << "YYY Enter <RETURN> to continue: ";
 
 
             if (!iter->public_domain)
-               temp_strm << "\\ifnotpublicdomainonly" << endl;
+               temp_strm << "\\ifnotpublicdomainonly %% AAA" << endl;
 #if 0
             if (iter->subtitle.length() > 0)
             {

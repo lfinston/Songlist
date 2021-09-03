@@ -462,17 +462,15 @@ values
 select title, subtitle, eps_filenames from Songs where music = "Jacques Offenbach";
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
+opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language, entry_date)
 values
 ("Barcarole", "(Belle nuit, {\\^o} nuit d'amour)", "Jules Barbier", "Barbier, Jules", 
 "Jacques Offenbach", "Offenbach, Jacques", true,
-"Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", true, 
-"\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"
+"Contes d'Hoffmann, Les", 1881, true, "barkrole.pdf", "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl04.eps;", 
+true, "\\setbox0=\\hbox{0.  }\\vbox{\\hbox{1.  Einzelausgabe}\\vskip\\sourceskip"
 "\\hbox{2.  {\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip"
 "\\hbox{\\hskip\\wd0{\\bf d'Hoffmann)}, Klavierauszug, p.~246.}}", 
-true, "french");
-
-update Songs set eps_filenames = "barkrl01.eps;barkrl02.eps;barkrl03.eps;barkrl04.eps;" where title = "Barcarole";
+true, "french", "2021.09.03");
 
 /* ** *************************************************** */
 
@@ -1221,15 +1219,17 @@ values
 
 /* ** *************************************************** */
 
--- delete from Songs where title = "Heart (You've Gotta Have Heart)";
+-- 
+
+-- delete from Songs where title = "Heart";
 
 replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
-scanned, scanned_filename, source, sort_by_production)
+scanned, scanned_filename, eps_filenames, source, sort_by_production)
 values
 ("Heart", "(You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
-true, "heart.pdf", "{\\bf Damn Yankees, Vocal Selections}, p.~2.", true);
+true, "heart.pdf", "heart1.eps;heart2.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~2.", true);
 
-update Songs set eps_filenames = "heart1.eps;heart2.eps;" where title = "Heart";
+select eps_filenames from Songs where title = "Heart";
 
 /* ** *************************************************** */
 
@@ -1518,13 +1518,14 @@ false, "", "");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
+opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language, entry_date)
 values
-("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", false,
-"Contes d'Hoffmann, Les", 1881, false, "iletaifs.pdf", true,
+("Il {\\'e}tait une fois", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
+"Contes d'Hoffmann, Les", 1881,
+true, "iletaifs.pdf", "iletaifs1.eps;iletaifs2.eps;iletaifs3.eps;iletaifs4.eps;iletaifs5.eps;", true,
 "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
 "\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{{\\bf d'Hoffmann) Klavierauszug}, p.~51.}}",
-true, "french");
+true, "french", "2021.09.03");
 
 -- select title from Songs where music = "Jacques Offenbach";
 
@@ -1667,6 +1668,8 @@ true, true, "imwldahr.pdf",
 update Songs set eps_filenames = "imwldah1.eps;imwldah2.eps;" where title = "I'm Just Wild About Harry";
 
 /* ** *************************************************** */
+
+delete from Songs where title = "I'm Not At All In Love";
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
 scanned, scanned_filename, eps_filenames, source, sort_by_production, entry_date)
@@ -1974,11 +1977,11 @@ update Songs set eps_filenames = "jstonmc1.eps;jstonmc2.eps;" where title = "Jus
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
-scanned, scanned_filename)
+scanned, scanned_filename, eps_filenames, entry_date)
 values
-("Just One of Those Things", "Cole Porter", "Porter, Cole", false, 1935, 
+("Just One of Those Things", "Cole Porter", "Porter, Cole", true, 1935, 
 "Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf Best of Cole Porter, The}, p.~100.",
-true, "jstthngs.pdf");
+true, "jstthngs.pdf", "jstthngs1.eps;jstthngs2.eps;jstthngs3.eps;", "2021.09.03");
 
 /* ** *************************************************** */
 
@@ -2743,15 +2746,17 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-opera, year, scanned, scanned_filename, public_domain, source, sort_by_production, language)
+opera, year, scanned, scanned_filename, eps_filenames, public_domain, source, sort_by_production, language, entry_date)
 values
 ("Oiseaux dans les charmille, Les", "Jules Barbier", "Barbier, Jules", "Jacques Offenbach", "Offenbach, Jacques", true,
-"Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", true,
-"\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
+"Contes d'Hoffmann, Les", 1881, true, "oiseaux.pdf", "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;", 
+true, "\\vbox{\\hbox{{\\bf Opern-Arien, Tenor}, p.~182.}\\vskip\\sourceskip"
 "\\hbox{{\\bf Hoffmanns Erz@{a}hlungen (Les Contes}}\\vskip\\sourceskip\\hbox{{\\bf d'Hoffmann) Klavierauszug}, p.~120.}}",
-true, "french");
+true, "french", "2021.09.03");
 
-update Songs set eps_filenames = "oiseaux1.eps;oiseaux2.eps;oiseaux3.eps;" where title = "Oiseaux dans les charmille, Les";
+select eps_filenames from Songs where title = "Oiseaux dans les charmille, Les";
+
+
 
 /* ** *************************************************** */
 
@@ -3263,12 +3268,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-musical, sort_by_production, source, scanned, scanned_filename, eps_filenames)
+musical, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Something's Coming", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard",
-false, 1957, "West Side Story", true,
+true, 1957, "West Side Story", true,
 "\\vbox{\\hbox{{\\bf West Side Story.  Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~26.}}",
-false, "", "");
+true, "smthngcm.pdf", "smthngcm1.eps;smthngcm2.eps;smthngcm3.eps;smthngcm4.eps;", "2021.09.03");
 
 -- https://en.wikipedia.org/wiki/West_Side_Story
 
@@ -3747,6 +3752,12 @@ scanned, scanned_filename, eps_filenames, source, sort_by_production, entry_date
 values
 ("Whatever Lola Wants", "(Lola Gets)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
 true, "wtvrllws.pdf", "wtvrllws.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~5.", true, "2021.09.03");
+
+delete from Songs where title = "Whatever Lola Wants"\G
+
+select * from Songs where title = "Heart"\G
+
+select * from Songs where title = "Whatever Lola Wants"\G
 
 /* ** *************************************************** */
 
