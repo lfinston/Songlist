@@ -1668,6 +1668,15 @@ update Songs set eps_filenames = "imwldah1.eps;imwldah2.eps;" where title = "I'm
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+scanned, scanned_filename, eps_filenames, source, sort_by_production, entry_date)
+values
+("I'm Not At All In Love", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1954, "Pajama Game, The", 
+true, "imntatll.pdf", "imntatll1.eps;imntatll2.eps;imntatll3.eps;",
+"{\\bf Pajama Game, The, Vocal Selections}, p.~17.", true, "2021.09.03");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
 ("I'm Shooting High", "Ted Koehler and Charles Wilmott", "Koehler, Ted and Wilmott, Charles",
@@ -5297,6 +5306,11 @@ replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart 
 replace	into Composers_Songs (composer, title) values ("Ross, Jerry",    "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry",    "Heart (You've Gotta Have Heart)");
+
+replace into Composers_Songs (composer, title) values ("Adler, Richard", "I'm Not At All In Love");
+replace into Composers_Songs (composer, title) values ("Ross, Jerry",    "I'm Not At All In Love");
+replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "I'm Not At All In Love");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry",    "I'm Not At All In Love");
 
 replace into Composers_Songs (composer, title) values ("Adler, Richard", "Whatever Lola Wants (Lola Gets)");
 replace into Composers_Songs (composer, title) values ("Ross, Jerry",    "Whatever Lola Wants (Lola Gets)");
