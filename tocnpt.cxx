@@ -2102,6 +2102,9 @@ cerr << "YYY Enter <RETURN> to continue: ";
           }
      
           sub_filecards_file << "}";
+          if (do_new_filecard)
+             new_filecards_file << "}";
+
 
 /* !!START HERE:  LDF 2021.09.02.  Adding code for writing to new_filecards_file.  */ 
 
@@ -2116,18 +2119,26 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 if (!iter->opera.empty())
                 {
                    sub_filecards_file << "Opera";
+                   if (do_new_filecard)
+                      new_filecards_file << "Opera";
                 }                 
                 else if (!iter->operetta.empty())
                 {
                    sub_filecards_file << "Operetta";
+                   if (do_new_filecard)
+                      new_filecards_file << "Operetta";
                 }
                 else if (!iter->song_cycle.empty())
                 {
                    sub_filecards_file << "Song Cycle";
+                   if (do_new_filecard)
+                      new_filecards_file << "Song Cycle";
                 }
                 else if (!iter->musical.empty())
                 {
                    sub_filecards_file << "Musical";
+                   if (do_new_filecard)
+                      sub_filecards_file << "Musical";
                 }
                 else if (!iter->film.empty())
                 {
@@ -2136,14 +2147,22 @@ cerr << "YYY Enter <RETURN> to continue: ";
                    if (pos == string::npos)
                    {
                        sub_filecards_file << "Film";
+                       if (do_new_filecard)
+                          new_filecards_file << "Film";
+
                    }
                 }
                 else if (!iter->revue.empty())
                 {
                    sub_filecards_file << "Revue";
+                   if (do_new_filecard)
+                      new_filecards_file << "Revue";
                 }  
              }
              sub_filecards_file << "}";
+             if (do_new_filecard)
+                new_filecards_file << "}";
+
           }
           if (iter->is_production)
           {
@@ -2153,43 +2172,97 @@ cerr << "YYY Enter <RETURN> to continue: ";
 #endif 
  
              if (iter->year > 0)
+             {
                 sub_filecards_file << "{" << iter->year << "}";
+                if (do_new_filecard)
+                   new_filecards_file << "{" << iter->year << "}";
+             }
              else 
+             {
                 sub_filecards_file << "{}";
+                if (do_new_filecard)
+                   new_filecards_file << "{}";
+             }
           }
 
           if (!iter->is_production) 
           {
              if (!iter->words_and_music.empty())
+             {
                 sub_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";
+                if (do_new_filecard)
+                   new_filecards_file << "{Words and Music:  " << iter->words_and_music << "}{}";
+             }
              else if (!(iter->words.empty() && iter->music.empty()))
              {
                 if (!iter->words.empty())
+                {
                    sub_filecards_file << "{\\hbox to\\wmdimen{Words:  \\hss}" << iter->words << ".}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\hbox to\\wmdimen{Words:  \\hss}" << iter->words << ".}";
+                }
                 else 
+                {
                    sub_filecards_file << "{}" << endl;
+                   if (do_new_filecard)
+                      new_filecards_file << "{}" << endl;
+                }
                 if (!iter->music.empty())
+                {
                    sub_filecards_file << "{\\hbox to\\wmdimen{Music:  \\hss}" << iter->music << ".}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\hbox to\\wmdimen{Music:  \\hss}" << iter->music << ".}";
+                }
                 else 
+                {
                    sub_filecards_file << "{}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{}";
+                }
              }
-             if (!iter->copyright.empty())
+             if (!iter->copyright.empty()) 
+             {
                 sub_filecards_file << "{" << iter->copyright << "}";
+                if (do_new_filecard)
+                   new_filecards_file << "{" << iter->copyright << "}";
+             }
              else if (iter->year >= 1900)
+             {
                 sub_filecards_file << "{Copyright {\\copyright} " << iter->year << "}";
+                if (do_new_filecard)
+                   new_filecards_file << "{Copyright {\\copyright} " << iter->year << "}";
+             }
              else if (iter->year > 0)
+             {
                 sub_filecards_file << "{Year:  " << iter->year << "}";
+                if (do_new_filecard)
+                   new_filecards_file << "{Year:  " << iter->year << "}";
+             }
              else
+             {
                 sub_filecards_file << "{}";
+                if (do_new_filecard)
+                   new_filecards_file << "{}";
+             }
 
              if (!iter->opera.empty())
              {
+
                 if (iter->opera.length() > max_production_str_length)
+                {
                    sub_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->opera << "}}}}";
+ 
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\vtop{\\hbox{Opera:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->opera << "}}}}";
+
+                }
                 else
                 {
                    sub_filecards_file << "{Opera:  {\\largebx " << iter->opera;
+                   if (do_new_filecard)
+                      new_filecards_file << "{Opera:  {\\largebx " << iter->opera;
 
                    if (!iter->production_subtitle.empty())
                    {
@@ -2198,12 +2271,20 @@ cerr << "YYY Enter <RETURN> to continue: ";
                       if (pos != string::npos)
                       {
                          sub_filecards_file << " ({\\largecybx kNQZX iGORX})";
+                         if (do_new_filecard)
+                            new_filecards_file << " ({\\largecybx kNQZX iGORX})";
                       }
                       else
+                      {
                          sub_filecards_file << " " << iter->production_subtitle;
+                         if (do_new_filecard)
+                            new_filecards_file << " " << iter->production_subtitle;
+                      }
                    }
 
                    sub_filecards_file << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "}}";
 
 
                 }
@@ -2211,26 +2292,38 @@ cerr << "YYY Enter <RETURN> to continue: ";
              else if (!iter->operetta.empty())
              {
                 if (iter->operetta.length() > max_production_str_length)
+                {
                    sub_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->operetta << "}}}}";
+                }
                 else
+                {
                    sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+                }
              }
              else if (!iter->song_cycle.empty())
              {
                 if (iter->song_cycle.length() > max_production_str_length)
+                {
                    sub_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->song_cycle << "}}}}";
+                }
                 else
+                {
                    sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
+                }
              }
              else if (!iter->musical.empty())
              {
                 if (iter->musical.length() > max_production_str_length)
+                {
                    sub_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->musical << "}}}}";
+                }
                 else
+                {
                    sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
+                }
              }
 
              else if (!iter->film.empty())
@@ -2240,10 +2333,14 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 if (pos == string::npos) 
                 {
                    if (iter->film.length() > max_production_str_length)
+                   {
                       sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                          << iter->film << "}}}}";
+                   }
                    else
+                   {
                       sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
+                   }
                 }
                 else
                    sub_filecards_file << "{{\\largebx " << iter->film << "}}";
