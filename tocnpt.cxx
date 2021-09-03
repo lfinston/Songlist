@@ -1959,11 +1959,12 @@ cerr << "YYY Enter <RETURN> to continue: ";
           if (filecard_ctr == 0)
           {  
              sub_filecards_file << "\\A" << endl;
-
-             if (do_new_filecard)
-                new_filecards_file << "\\A" << endl;
-
           }
+          if (do_new_filecard && new_filecard_ctr == 0)
+          {
+              new_filecards_file << "\\A" << endl;
+          }
+
           if (iter->is_production || iter->is_cross_reference)
           {
              sub_filecards_file << "\\vbox to 0pt{\\C";
@@ -1976,54 +1977,83 @@ cerr << "YYY Enter <RETURN> to continue: ";
              if (do_new_filecard)
                 new_filecards_file << "\\B";
           }
+
+/* *** (3) */
+
           if (filecard_ctr == 0)
           {
              sub_filecards_file << "{0pt}{0pt}";
-             if (do_new_filecard)
-                new_filecards_file << "{0pt}{0pt}";
           }
           else if (filecard_ctr == 1)
           {
              sub_filecards_file << "{0pt}{.5\\hsize}";
-             if (do_new_filecard)
-                new_filecards_file << "{0pt}{.5\\hsize}";
           }
           else if (filecard_ctr == 2)
           {
              sub_filecards_file << "{.25\\vsize}{0pt}";
-             if (do_new_filecard)
-                new_filecards_file << "{.25\\vsize}{0pt}";
           }
           else if (filecard_ctr == 3)
           {
              sub_filecards_file << "{.25\\vsize}{.5\\hsize}";
-             if (do_new_filecard)
-                new_filecards_file << "{.25\\vsize}{.5\\hsize}";
           }
           else if (filecard_ctr == 4)
           {
              sub_filecards_file << "{.5\\vsize}{0pt}";
-             if (do_new_filecard)
-                new_filecards_file << "{.5\\vsize}{0pt}";
           }
           else if (filecard_ctr == 5)
           {
              sub_filecards_file << "{.5\\vsize}{.5\\hsize}";
-             if (do_new_filecard)
-                new_filecards_file << "{.5\\vsize}{.5\\hsize}";
           }
           else if (filecard_ctr == 6)
           {
              sub_filecards_file << "{.75\\vsize}{0pt}";
-             if (do_new_filecard)
-                new_filecards_file << "{.75\\vsize}{0pt}";
+
           }
           else if (filecard_ctr == 7)
           {
              sub_filecards_file << "{.75\\vsize}{.5\\hsize}";
-             if (do_new_filecard)
-                new_filecards_file << "{.75\\vsize}{.5\\hsize}";
           }
+
+/* *** (3) */
+
+          if (do_new_filecard)
+          {
+              if (new_filecard_ctr == 0)
+              {
+                 new_filecards_file << "{0pt}{0pt}";
+              }
+              else if (new_filecard_ctr == 1)
+              {
+                 new_filecards_file << "{0pt}{.5\\hsize}";
+              }
+              else if (new_filecard_ctr == 2)
+              {
+                 new_filecards_file << "{.25\\vsize}{0pt}";
+              }
+              else if (new_filecard_ctr == 3)
+              {
+                 new_filecards_file << "{.25\\vsize}{.5\\hsize}";
+              }
+              else if (new_filecard_ctr == 4)
+              {
+                 new_filecards_file << "{.5\\vsize}{0pt}";
+              }
+              else if (new_filecard_ctr == 5)
+              {
+                 new_filecards_file << "{.5\\vsize}{.5\\hsize}";
+              }
+              else if (new_filecard_ctr == 6)
+              {
+                 new_filecards_file << "{.75\\vsize}{0pt}";
+              }
+              else if (new_filecard_ctr == 7)
+              {
+                 new_filecards_file << "{.75\\vsize}{.5\\hsize}";
+              }
+
+          }  /* |if (do_new_filecard)|  */
+
+/* *** (3) */
 
           sub_filecards_file << "{"; 
  
@@ -2138,7 +2168,7 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 {
                    sub_filecards_file << "Musical";
                    if (do_new_filecard)
-                      sub_filecards_file << "Musical";
+                      new_filecards_file << "Musical";
                 }
                 else if (!iter->film.empty())
                 {
@@ -2295,10 +2325,18 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 {
                    sub_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->operetta << "}}}}";
+
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\vtop{\\hbox{Operetta:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->operetta << "}}}}";
+
                 }
                 else
                 {
                    sub_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{Operetta:  {\\largebx " << iter->operetta << "}}";
+ 
                 }
              }
              else if (!iter->song_cycle.empty())
@@ -2307,10 +2345,17 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 {
                    sub_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->song_cycle << "}}}}";
+
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\vtop{\\hbox{Song Cycle:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->song_cycle << "}}}}";
+
                 }
                 else
                 {
                    sub_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{Song Cycle:  {\\largebx " << iter->song_cycle << "}}";
                 }
              }
              else if (!iter->musical.empty())
@@ -2319,10 +2364,15 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 {
                    sub_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->musical << "}}}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\vtop{\\hbox{Musical:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->musical << "}}}}";
                 }
                 else
                 {
                    sub_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{Musical:  {\\largebx " << iter->musical << "}}";
                 }
              }
 
@@ -2336,30 +2386,61 @@ cerr << "YYY Enter <RETURN> to continue: ";
                    {
                       sub_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
                                          << iter->film << "}}}}";
+
+                      if (do_new_filecard)
+                         new_filecards_file << "{\\vtop{\\hbox{Film:}\\vskip\\titleskip\\hbox{{\\largebx " 
+                                            << iter->film << "}}}}";
                    }
                    else
                    {
                       sub_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
+                      if (do_new_filecard)
+                         new_filecards_file << "{Film:  {\\largebx " << iter->film << "}}";
                    }
                 }
                 else
+                {
                    sub_filecards_file << "{{\\largebx " << iter->film << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{{\\largebx " << iter->film << "}}";
+                } 
              }
              else if (!iter->revue.empty())
              {
                 if (iter->revue.length() > max_production_str_length)
+                {
                    sub_filecards_file << "{\\vtop{\\hbox{Revue:  }\\vskip\\titleskip\\hbox{{\\largebx " 
                                       << iter->revue << "}}}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{\\vtop{\\hbox{Revue:  }\\vskip\\titleskip\\hbox{{\\largebx " 
+                                         << iter->revue << "}}}}";
+                }
                 else
+                {
                    sub_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
+                   if (do_new_filecard)
+                      new_filecards_file << "{Revue:  {\\largebx " << iter->revue << "}}";
+                }
              }
              else
+             { 
                 sub_filecards_file << "{}";
+                if (do_new_filecard)
+                   new_filecards_file << "{}";
+             }
 
              if (!iter->source.empty())
+             {
                 sub_filecards_file << "{" << iter->source << "}";
+                if (do_new_filecard)
+                   new_filecards_file << "{" << iter->source << "}";
+             }
              else
+             {
                 sub_filecards_file << "{}";
+                if (do_new_filecard)
+                   new_filecards_file << "{}";
+             }
 
           }  /* |if (!iter->is_production)|  */
 
@@ -2367,14 +2448,27 @@ cerr << "YYY Enter <RETURN> to continue: ";
 
 #if 1 
           if (iter->number_filecards)
+          {
              sub_filecards_file << "{1}";
+             if (do_new_filecard)
+                new_filecards_file << "{1}";
+          }
           else 
+          {
              sub_filecards_file << "{0}";
+             if (do_new_filecard)
+                new_filecards_file << "{0}";
+          }
 #endif 
 
           sub_filecards_file << endl;
+          if (do_new_filecard)
+             new_filecards_file << endl;
 
           ++filecard_ctr;
+
+          if (do_new_filecard)
+             ++new_filecard_ctr;
      
           if (isupper(curr_char))           
              prev_char = curr_char;
@@ -2579,12 +2673,19 @@ cerr << "YYY Enter <RETURN> to continue: ";
                 }  /* |if (t_iter->scanned)|  */
 
                 sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
+                if (do_new_filecard)
+                   new_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
 
                 if (!t_iter->subtitle.empty())
+                {
                    sub_filecards_file << " " << t_iter->subtitle;
+                   if (do_new_filecard)
+                      new_filecards_file << " " << t_iter->subtitle;
+                }
 
-                sub_filecards_file << "}" 
-                                   << endl << "\\vskip12pt" << endl;
+                sub_filecards_file << "}" << endl << "\\vskip12pt" << endl;
+                if (do_new_filecard)
+                   new_filecards_file << "}" << endl << "\\vskip12pt" << endl;
 
                 toc_ls_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
  
@@ -2669,16 +2770,32 @@ cerr << "YYY Enter <RETURN> to continue: ";
        {
           sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip "
                              << "{\\large See {\\largebx " << iter->target << "}}}" << endl;
+
+          if (do_new_filecard)
+             new_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip "
+                                << "{\\large See {\\largebx " << iter->target << "}}}" << endl;
+
+
           if (iter->sort_by_production)
+          {
              sub_filecards_file << "\\vskip\\titleskip\\leftline{\\hskip\\Chskip\\hskip\\basichskip{\\large  "
                                 << "under {\\largebx " << iter->production << "}}}" << endl;
+
+             if (do_new_filecard)
+                new_filecards_file << "\\vskip\\titleskip\\leftline{\\hskip\\Chskip\\hskip\\basichskip{\\large  "
+                                   << "under {\\largebx " << iter->production << "}}}" << endl;
+          }
        }
 
 
 /* *** (3) */
 
        if (iter->is_production || iter->is_cross_reference)
+       {
           sub_filecards_file << "\\vss}" << endl;          
+          if (do_new_filecard)
+             new_filecards_file << "\\vss}" << endl;          
+       }
 
        if (iter->lead_sheet || iter->is_cross_reference || iter->is_production)
        {
@@ -2944,12 +3061,6 @@ cerr << "YYY Enter <RETURN> to continue: ";
    songs_o_s_file.close();
    songs_t_z_file.close();
 
-   if (!new_filecards_first_time)
-   {
-      new_filecards_file << endl << "\\endinput" << endl;
-      new_filecards_file.close();
-   }
-
    toc_npt_file << "\\vskip2cm" << endl << endl
                 << "PLS:  Partial lead sheet\\quad WTS:  No page turns with two songbooks"
                 << "\\vfil\\eject" << endl
@@ -2994,13 +3105,17 @@ cerr << "YYY Enter <RETURN> to continue: ";
 
    sub_filecards_file << endl << "\\endgroup" << endl << "\\endinput" << endl << endl;
 
+   if (!new_filecards_first_time)
+      new_filecards_file << endl << "\\endgroup" << endl << "\\endinput" << endl << endl;
+
    french_file.close();    
    german_file.close();    
    italian_file.close();   
    portugese_file.close(); 
    russian_file.close();   
    spanish_file.close();   
-   sub_filecards_file.close();    
+   sub_filecards_file.close();
+   new_filecards_file.close();    
 
 /* *** (3)  */
 

@@ -325,7 +325,6 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \centerline{{\largebx File Cards for Songs and Productions}}
 \vskip.5\baselineskip
 \centerline{(File cards begin on following page.)}
-
 \vskip\baselineskip
 \Section{TOC File Cards}{Table of Contents---File Cards}
 \hldest{xyz}{}{TOC File Cards}
@@ -343,14 +342,9 @@ Lead sheets for songs in the public domain in the USA and Germany are available 
 \begingroup
 \input filecrds.tex
 \vfil\eject
-\openin\newfilecards=newfilecards.tex
-\ifeof\newfilecards
-\message{newfilecards.tex doesn't exist}
-\else
-\message{newfilecards.tex exists}
-\fi
-\closein\newfilecards
 \endgroup
+
+
 
 %% \immediate must be used here, otherwise an extra, unwanted page is produced.
 %% It also has the wrong headline, because the headline in `pblcdomn.tex' is

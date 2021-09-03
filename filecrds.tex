@@ -138,6 +138,17 @@
 \large
 \input sub_filecrds.tex
 
+\openin\newfilecards=newfilecards.tex
+\ifeof\newfilecards
+\message{newfilecards.tex doesn't exist}
+\else
+\message{newfilecards.tex exists}
+\vfil\eject
+\input newfilecards.tex
+\vfil\eject
+\fi
+\closein\newfilecards
+
 \eject
 
 \endinput
