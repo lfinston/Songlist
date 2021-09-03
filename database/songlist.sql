@@ -1221,9 +1221,7 @@ values
 
 /* ** *************************************************** */
 
---
-
-delete from Songs where title = "Heart (You've Gotta Have Heart)";
+-- delete from Songs where title = "Heart (You've Gotta Have Heart)";
 
 replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
 scanned, scanned_filename, source, sort_by_production)
@@ -3735,6 +3733,14 @@ true, "whatkind.pdf", "whatkind.eps;", true);
 
 /* ** *************************************************** */
 
+replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+scanned, scanned_filename, eps_filenames, source, sort_by_production)
+values
+("Whatever Lola Wants", "(Lola Gets)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
+true, "wtvrllws.pdf", "wtvrllws.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~5.", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
 year, source, scanned, scanned_filename)
 values
@@ -5288,10 +5294,14 @@ replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "I'm Gonna 
 select "$$$ Composers_Songs and Lyricists_Songs";
 
 replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
-replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
+replace	into Composers_Songs (composer, title) values ("Ross, Jerry",    "Heart (You've Gotta Have Heart)");
 replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Heart (You've Gotta Have Heart)");
-replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Heart (You've Gotta Have Heart)");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry",    "Heart (You've Gotta Have Heart)");
 
+replace into Composers_Songs (composer, title) values ("Adler, Richard", "Whatever Lola Wants (Lola Gets)");
+replace into Composers_Songs (composer, title) values ("Ross, Jerry",    "Whatever Lola Wants (Lola Gets)");
+replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Whatever Lola Wants (Lola Gets)");
+replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry",    "Whatever Lola Wants (Lola Gets)");
 
 replace	into Composers_Songs (composer, title) values ("Adler, Richard", "Hey There");
 replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Hey There");
