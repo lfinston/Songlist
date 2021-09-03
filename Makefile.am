@@ -95,7 +95,8 @@ f-all:
 	$(MAKE) all
 
 sub_filecrds.tex: database/songlist.sql songlist$(EXEEXT)
-	songlist$(EXEEXT)
+	rm -f newfilecards.tex 
+	songlist$(EXEEXT) --filecard-date
 
 .PHONY: all-sep
 
@@ -105,7 +106,6 @@ all-sep: all_sep.pdf
 
 all_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_sep.tex \
              sub_filecrds.tex filecrds.tex
-	rm -f newfilecards.tex
 	tex all_sep.tex && tex all_sep.tex
 
 all_sep.pdf: all_sep.dvi #sep_all.sh
@@ -129,7 +129,6 @@ all-no-sep: all_no_sep.ps all_no_sep.pdf
 
 all_no_sep.dvi: songlist$(EXEEXT) Makefile songlist.mac ./database/songlist.sql toc_ls.tex all.tex all_no_sep.tex \
                 sub_filecrds.tex filecrds.tex
-	rm -f newfilecards.tex 
 	tex all_no_sep.tex && tex all_no_sep.tex
 
 all_no_sep.ps: all_no_sep.dvi
@@ -347,6 +346,11 @@ dump: ./database/songlist.sql
 
 query:
 	echo "query:"
+
+.PHONY: purge
+
+purge:
+	rm -f all_no_sep.ftc all_no_sep.log all_no_sep.ptc all_no_sep.toc all_sep.ftc all_sep.log all_sep.ptc all_sep.toc 
 
 ## Local Variables:
 ## mode:Makefile

@@ -76,6 +76,10 @@ int filecard_day   = 0;
 int filecard_month = 0;
 int filecard_year  = 0;
 
+int day;
+int month;
+int year;
+
 /* Function declarations  */
 
 int
@@ -150,9 +154,6 @@ main(int argc, char **argv)
    string month_str;  
    string year_str;
 
-   int day;
-   int month;
-   int year;
    
    day_str = buffer;   
    day_str.erase(0, 8);
