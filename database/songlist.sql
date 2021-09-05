@@ -1676,7 +1676,7 @@ scanned, scanned_filename, eps_filenames, source, sort_by_production, entry_date
 values
 ("I'm Not At All In Love", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1954, "Pajama Game, The", 
 true, "imntatll.pdf", "imntatll1.eps;imntatll2.eps;imntatll3.eps;",
-"{\\bf Pajama Game, The, Vocal Selections}, p.~17.", true, "2021.09.03");
+"{\\bf Pajama Game, The, Vocal Selections}, p.~17.", true, "2021.09.05");
 
 /* ** *************************************************** */
 
