@@ -2260,8 +2260,9 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 musical, scanned, scanned_filename, eps_filenames, sort_by_production)
 values
 ("Little Bit in Love, A", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
-"Leonard Bernstein", "Bernstein, Leonard",
-true, 1953, "{\\bf Bernstein on Broadway}, p.~92.", "Wonderful Town", false, "", "", true);
+"Leonard Bernstein", "Bernstein, Leonard", true, 1953,
+"{\\bf Bernstein on Broadway}, p.~92.", "Wonderful Town",
+true, "lttlbtlv.pdf", "lttlbtl1.eps;lttlbtl2.eps;lttlbtl3.eps;", true);
 
 /* ** *************************************************** */
 
