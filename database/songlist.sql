@@ -2257,12 +2257,12 @@ true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 -- LDF 2021.09.02.
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source, 
-musical, scanned, scanned_filename, eps_filenames, sort_by_production)
+musical, scanned, scanned_filename, eps_filenames, sort_by_production, entry_date)
 values
 ("Little Bit in Love, A", "Betty Comden and Adolf Green", "Comden, Betty and Green, Adolf", 
 "Leonard Bernstein", "Bernstein, Leonard", true, 1953,
 "{\\bf Bernstein on Broadway}, p.~92.", "Wonderful Town",
-true, "lttlbtlv.pdf", "lttlbtl1.eps;lttlbtl2.eps;lttlbtl3.eps;", true);
+true, "lttlbtlv.pdf", "lttlbtl1.eps;lttlbtl2.eps;lttlbtl3.eps;", true, "2021.09.07");
 
 /* ** *************************************************** */
 
@@ -3280,6 +3280,15 @@ true, "smthngcm.pdf", "smthngcm1.eps;smthngcm2.eps;smthngcm3.eps;smthngcm4.eps;"
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+musical, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Somewhere", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard",
+true, 1957, "West Side Story", true, "{\\bf Bernstein on Broadway},  p.~210.",
+true, "somewhre.pdf", "somewhr1.eps;", "2021.09.07");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, language, year, source, scanned,
 scanned_filename)
 values
@@ -4099,6 +4108,8 @@ replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Li
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Lucky to Be Me");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Something's Coming");
+
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Somewhere");
 
 replace into Composers_Songs (composer, title) values ("Bizet, Georges", "Au fond du temple saint");
 
@@ -5262,6 +5273,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Eve
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "I Feel Pretty");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Something's Coming");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Somewhere");
 
 replace into Lyricists_Songs (lyricist, title) values ("Springfield, Tom", "Georgy  Girl");
 
