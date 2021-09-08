@@ -763,12 +763,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, 
-sort_by_production, source, scanned, scanned_filename, eps_filenames)
+sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Cool", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  
 "West Side Story", 1957, true, 
 "\\vbox{\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~56 (Vocal Selections).}}",
-true, "cool.pdf", "cool1.eps;cool2.eps;");
+true, "cool.pdf", "cool1.eps;cool2.eps;", "2021.09.08");
 
 /* ** *************************************************** */
 
