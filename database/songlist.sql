@@ -762,6 +762,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, 
+sort_by_production, source, scanned, scanned_filename, eps_filenames)
+values
+("Cool", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,  
+"West Side Story", 1957, true, 
+"\\vbox{\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~56 (Vocal Selections).}}",
+true, "cool.pdf", "cool1.eps;cool2.eps;");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Coquette", "Gus Kahn", "Kahn, Gus", "John W.~Green and Carmen Lombardo",
@@ -4095,6 +4105,8 @@ replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Close
 
 replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Your Troubles in Dreams");
 
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Cool");
+
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Glitter and Be Gay");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I Can Cook Too");
@@ -5267,6 +5279,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Spanish
 replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "Strangers in the Night");
 
 replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Strangers in the Night");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Cool");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Everything's Coming Up Roses");
 
