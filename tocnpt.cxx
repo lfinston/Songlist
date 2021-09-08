@@ -731,6 +731,25 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
+           {
+              string temp_str;
+ 
+               if (DEBUG)
+                 cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+               temp_str = curr_production.entry_date;
+
+               curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+               curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+               curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+               cerr << "curr_production.title       == " << curr_production.title << endl
+                    << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                    << "curr_production.entry_month == " << curr_production.entry_month << endl
+                    << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif 
+           }
 
            production_vector.push_back(curr_production);
 
@@ -834,6 +853,25 @@ process_tocs_and_npt(void)
          curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
          curr_production.production_subtitle = curr_row[3];
          curr_production.entry_date = curr_row[4];
+         {
+            string temp_str;
+ 
+             if (DEBUG)
+               cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+             temp_str = curr_production.entry_date;
+
+             curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+             curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+             curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+             cerr << "curr_production.title       == " << curr_production.title << endl
+                  << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                  << "curr_production.entry_month == " << curr_production.entry_month << endl
+                  << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif 
+         }
 
          production_vector.push_back(curr_production);
 
@@ -938,6 +976,25 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
+           {
+              string temp_str;
+ 
+              if (DEBUG)
+                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+              temp_str = curr_production.entry_date;
+
+              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+              cerr << "curr_production.title       == " << curr_production.title << endl
+                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                   << "curr_production.entry_month == " << curr_production.entry_month << endl
+                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif 
+           }
 
            production_vector.push_back(curr_production);
 
@@ -1041,8 +1098,27 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
+           {
+              string temp_str;
+ 
+              if (DEBUG)
+                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+              temp_str = curr_production.entry_date;
 
-           production_vector.push_back(curr_production);
+              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+              cerr << "curr_production.title       == " << curr_production.title << endl
+                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                    << "curr_production.entry_month == " << curr_production.entry_month << endl
+                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif  
+          }
+
+          production_vector.push_back(curr_production);
 
          } while (curr_row != 0);
 
@@ -1144,6 +1220,25 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
+           {
+              string temp_str;
+ 
+              if (DEBUG)
+                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+              temp_str = curr_production.entry_date;
+
+              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+              cerr << "curr_production.title       == " << curr_production.title << endl
+                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                    << "curr_production.entry_month == " << curr_production.entry_month << endl
+                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif  
+          }
 
            production_vector.push_back(curr_production);
 
@@ -1248,8 +1343,27 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
+           {
+              string temp_str;
+ 
+              if (DEBUG)
+                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+              temp_str = curr_production.entry_date;
 
-           production_vector.push_back(curr_production);
+              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+              cerr << "curr_production.title       == " << curr_production.title << endl
+                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                    << "curr_production.entry_month == " << curr_production.entry_month << endl
+                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+#endif  
+          }
+
+          production_vector.push_back(curr_production);
 
          } while (curr_row != 0);
 
@@ -1443,6 +1557,25 @@ process_tocs_and_npt(void)
                curr_song.subtitle.assign(curr_row[10]);
                curr_song.production_subtitle.assign(curr_row[11]);
                curr_song.entry_date = curr_row[12];
+               {
+                  string temp_str;
+ 
+                  if (DEBUG)
+                   cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
+ 
+                  temp_str = curr_song.entry_date;
+
+                  curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+                  curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
+                  curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+
+#if 0 
+                  cerr << "curr_song.title       == " << curr_song.title << endl
+                       << "curr_song.entry_year  == " << curr_song.entry_year << endl
+                        << "curr_song.entry_month == " << curr_song.entry_month << endl
+                       << "curr_song.entry_day   == " << curr_song.entry_day << endl;
+#endif  
+               }
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -1488,16 +1621,79 @@ process_tocs_and_npt(void)
        else
          cerr << "production_vector is empty." << endl;
 
-       for (vector<Production_Song>::iterator iter = production_vector.begin();
-            iter != production_vector.end();
-            ++iter)
-       {       
-           iter->show("Production_Song:");
-       }
-
    }  /* |if (DEBUG)| */
 
-   vector<Production_Song>::iterator temp_iter;
+   vector<Production_Song>::iterator next_iter = production_vector.begin();
+   ++next_iter;
+
+
+   for (vector<Production_Song>::iterator iter = production_vector.begin();
+        iter != production_vector.end();
+        ++iter)
+   {       
+
+       // iter->show("Production_Song:");
+
+#if 0 
+       cerr << "title:          " << iter->title << endl 
+            << "production:     " << iter->production << endl;
+#endif 
+
+       if (next_iter != production_vector.end() && iter->title == next_iter->title
+           && (   next_iter->entry_year > iter->entry_year
+               || (   next_iter->entry_year ==  iter->entry_year
+                   && next_iter->entry_month > iter->entry_month)
+               || (   next_iter->entry_year ==  iter->entry_year
+                   && next_iter->entry_month == iter->entry_month
+                   && next_iter->entry_day > iter->entry_day)))
+       {
+
+#if 0 
+          cerr << "next_iter->entry_date is newer." << endl
+               << "Setting iter->entry_date to next_iter->entry_date" << endl;
+#endif 
+ 
+          iter->entry_date = next_iter->entry_date;
+          iter->entry_year = next_iter->entry_year;
+          iter->entry_month = next_iter->entry_month;
+          iter->entry_day = next_iter->entry_day;
+
+
+       }
+       else if (next_iter != production_vector.end() && next_iter->title == iter->title
+           && (   iter->entry_year > next_iter->entry_year
+               || (   iter->entry_year ==  next_iter->entry_year
+                   && iter->entry_month > next_iter->entry_month)
+               || (   iter->entry_year ==  next_iter->entry_year
+                   && iter->entry_month == next_iter->entry_month
+                   && iter->entry_day > next_iter->entry_day)))
+       {
+#if 0 
+          cerr << "iter->entry_date is newer." << endl
+               << "Setting next_iter->entry_date to iter->entry_date" << endl;
+#endif 
+
+          next_iter->entry_date = iter->entry_date;
+          next_iter->entry_year = iter->entry_year;
+          next_iter->entry_month = iter->entry_month;
+          next_iter->entry_day = iter->entry_day;
+
+       }
+
+#if 0        
+       cerr << "entry_date:     " << iter->entry_date << endl
+            << "entry_day:      " << iter->entry_day << endl
+            << "entry_month:    " << iter->entry_month << endl
+            << "entry_year:     " << iter->entry_year << endl
+            << "filecard_day:   " << filecard_day << endl
+            << "filecard_month: " << filecard_month << endl
+            << "filecard_year:  " << filecard_year << endl;
+#endif 
+
+       ++next_iter;
+   }  /* |for|  */
+
+   vector<Production_Song>::iterator temp_iter;   
 
    temp_iter = unique(production_vector.begin(), production_vector.end());
 
