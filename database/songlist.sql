@@ -1929,6 +1929,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year, 
+sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Jet Song", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", false,
+"West Side Story", 1957, true, 
+"\\vbox{\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~21 (Vocal Selections).}}",
+false, "", "", "2021.09.09");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
 values
@@ -4115,6 +4125,8 @@ replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "I 
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "It's Love");
 
+replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Jet Song");
+
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Little Bit in Love, A");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Lucky to Be Me");
@@ -5285,6 +5297,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Coo
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Everything's Coming Up Roses");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "I Feel Pretty");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Jet Song");
 
 replace into Lyricists_Songs (lyricist, title) values ("Sondheim, Stephen", "Something's Coming");
 

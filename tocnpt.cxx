@@ -644,8 +644,6 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-/* !!START HERE:  LDF 2021.09.03.  distinct isn't working the way I want.  */ 
-
    temp_strm << "select distinct musical, year, public_domain, production_subtitle, "
              << "entry_date from Songs "
              << "where lead_sheet is true and musical is not null "
@@ -1408,7 +1406,7 @@ process_tocs_and_npt(void)
        temp_strm.str("");
 
        temp_strm << "select title, scanned, eps_filenames, musical, opera, operetta, "
-                 << "song_cycle, revue, film, public_domain, subtitle, production_subtitle, entry_date "
+                 << "song_cycle, revue, film, public_domain, subtitle, production_subtitle, entry_date, lead_sheet "
                  << "from Songs where sort_by_production is true and ";
 
        if (iter->musical.length() > 0)
@@ -1576,6 +1574,7 @@ process_tocs_and_npt(void)
                        << "curr_song.entry_day   == " << curr_song.entry_day << endl;
 #endif  
                }
+               curr_song.lead_sheet = static_cast<bool>(atoi(curr_row[13]));
 
                iter->production_song_vector.push_back(curr_song);
 
@@ -1691,6 +1690,7 @@ process_tocs_and_npt(void)
 #endif 
 
        ++next_iter;
+
    }  /* |for|  */
 
    vector<Production_Song>::iterator temp_iter;   
@@ -2792,6 +2792,8 @@ process_tocs_and_npt(void)
                    ++t_iter)
               {
 
+/* ****** (6) */
+
                 temp_str_2 = remove_formatting_commands(t_iter->title);
 
                 if (DEBUG)
@@ -2821,6 +2823,7 @@ process_tocs_and_npt(void)
 
                 }
                
+/* ****** (6) */
 
                 if (t_iter->scanned)
                 {
@@ -2907,9 +2910,12 @@ process_tocs_and_npt(void)
 
                 }  /* |if (t_iter->scanned)|  */
 
+/* ****** (6) */
+
                 temp_strm.str("");
 
                 sub_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
+
                 if (do_new_filecard)
                    new_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
 
@@ -2921,46 +2927,60 @@ process_tocs_and_npt(void)
                 }
 
                 sub_filecards_file << "}" << endl << "\\vskip12pt" << endl;
+
                 if (do_new_filecard)
                    new_filecards_file << "}" << endl << "\\vskip12pt" << endl;
 
-                toc_ls_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
+
+/* ****** (6) */
+
+                if (t_iter->lead_sheet == true)
+                {
+/* ******* (7) */
+
+                   toc_ls_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
  
-                if (!t_iter->subtitle.empty())   
-                   toc_ls_file << " " << t_iter->subtitle;
+                   if (!t_iter->subtitle.empty())   
+                      toc_ls_file << " " << t_iter->subtitle;
 
-                toc_ls_file << "}" << endl;
+                   toc_ls_file << "}" << endl;
 
-                if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)") 
-                    || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
-                    || temp_char <= 'h')
-                {
-                  toc_ls_a_h_file << "\\R\\R {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
+                   if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)") 
+                       || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
+                       || temp_char <= 'h')
+                   {
+                     toc_ls_a_h_file << "\\R\\R {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
 
-                  if (t_iter->subtitle.length() > 0)
-                     toc_ls_a_h_file << " " << t_iter->subtitle;
-                   
-                  toc_ls_a_h_file << "}" << endl;
-                }
-                else if (temp_char <= 'o')
-                {
-                  toc_ls_i_o_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
-                 
-                  if (t_iter->subtitle.length() > 0)
-                     toc_ls_i_o_file << " " << t_iter->subtitle;
+                     if (t_iter->subtitle.length() > 0)
+                        toc_ls_a_h_file << " " << t_iter->subtitle;
+                      
+                     toc_ls_a_h_file << "}" << endl;
+                   }
+                   else if (temp_char <= 'o')
+                   {
+                     toc_ls_i_o_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
+                    
+                     if (t_iter->subtitle.length() > 0)
+                        toc_ls_i_o_file << " " << t_iter->subtitle;
 
-                  toc_ls_i_o_file << "}" << endl;
-                }
-                else 
-                {
-                  toc_ls_p_z_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
+                     toc_ls_i_o_file << "}" << endl;
+                   }
+                   else 
+                   {
+                     toc_ls_p_z_file << "\\S\\S {\\the\\songctr\\global\\advance\\songctr by 1 . " << t_iter->title;
 
-                  if (t_iter->subtitle.length() > 0)
-                     toc_ls_p_z_file << " " << t_iter->subtitle;
-                  
-                  toc_ls_p_z_file << "}" << endl;
+                     if (t_iter->subtitle.length() > 0)
+                        toc_ls_p_z_file << " " << t_iter->subtitle;
+                     
+                     toc_ls_p_z_file << "}" << endl;
 
-                }
+                   }
+
+/* ******* (7) */
+
+                }  /* |if (t_iter->lead_sheet == true)|  */  
+
+/* ****** (6) */
 
             }    /* |for| (production_song_vector)  */
 
