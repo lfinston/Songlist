@@ -761,8 +761,14 @@ all_no_sep.pdf: all_no_sep.dvi
 tocnpt.o: tocnpt.cxx
 	g++ -c -g -I/usr/include/mysql -o tocnpt.o tocnpt.cxx
 
+tocnpt.cxx: tocnpt.web
+	$(CTANGLE) tocnpt.web - tocnpt.cxx
+
 songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx 
 	g++ -c -g -I/usr/include/mysql -o songlist.o songlist.cxx
+
+songlist.cxx: songlist.web
+	$(CTANGLE) songlist.web - songlist.cxx
 
 songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
 	g++ -o songlist songlist.o cmdlnopt.o tocnpt.o -L/usr/lib/mysql -L/usr/lib/mysql/plugin \
@@ -772,6 +778,9 @@ songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
 
 cmdlnopt.o: cmdlnopt.cxx
 	g++ -c -g -o cmdlnopt.o cmdlnopt.cxx
+
+cmdlnopt.cxx cmdlnopt.hxx: cmdlnopt.web
+	$(CTANGLE) cmdlnopt.web - cmdlnopt.cxx
 
 .PHONY: run
 
@@ -963,6 +972,7 @@ dump: ./database/songlist.sql
 
 query:
 	echo "query:"
+	echo "CTANGLE == $(CTANGLE)"
 
 .PHONY: purge
 

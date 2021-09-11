@@ -1,26 +1,30 @@
-/* tocnpt.cxx  */
-/* Created by Laurence D. Finston Fri 12 Mar 2021 11:34:14 PM CET  */
+@q tocnpt.web  @>
+@q Created by Laurence D. Finston Fri 12 Mar 2021 11:34:14 PM CET  @>
 
-/* * Copyright and License.*/
+@q * Copyright and License.@>
 
-/* This file is part of Songlist, a package for keeping track of songs. */
-/* Copyright (C) 2021 Laurence D. Finston */
+@q This file is part of Songlist, a package for keeping track of songs. @>
+@q Copyright (C) 2021 Laurence D. Finston @>
 
-/* songlist is free software; you can redistribute it and/or modify */
-/* it under the terms of the GNU General Public License as published by */
-/* the Free Software Foundation; either version 3 of the License, or */
-/* (at your option) any later version. */
+@q songlist is free software; you can redistribute it and/or modify @>
+@q it under the terms of the GNU General Public License as published by @>
+@q the Free Software Foundation; either version 3 of the License, or @>
+@q (at your option) any later version. @>
 
-/* songlist is distributed in the hope that it will be useful, */
-/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
-/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
-/* GNU General Public License for more details. */
+@q songlist is distributed in the hope that it will be useful, @>
+@q but WITHOUT ANY WARRANTY; without even the implied warranty of @>
+@q MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the @>
+@q GNU General Public License for more details. @>
 
-/* You should have received a copy of the GNU General Public License */
-/* along with songlist; if not, write to the Free Software */
-/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+@q You should have received a copy of the GNU General Public License @>
+@q along with songlist; if not, write to the Free Software @>
+@q Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA @>
 
-/* Please send bug reports to Laurence.Finston@gmx.de */
+@q Please send bug reports to Laurence.Finston@gmx.de @>
+
+@q * (1) @>
+@
+@<Include files@>=
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -55,16 +59,24 @@
 #include "songdefs.hxx"
 #include "cmdlnopt.hxx"
 
+
+@
+@<|extern| declarations@>=
+
 extern MYSQL_RES *result;
 extern MYSQL_ROW curr_row;
 extern MYSQL *mysql;
-  
 extern unsigned int row_ctr; 
 extern unsigned int field_ctr;
 extern long affected_rows;
-
 extern string datestamp_short;
 extern string datestamp;
+extern int filecard_year;
+extern int filecard_month;
+extern int filecard_day;
+extern int day;
+extern int month;
+extern int year;
 
 int get_datestamp(string &datestamp, string &datestamp_short);
 
@@ -75,6 +87,9 @@ string remove_formatting_commands(string s);
 bool compare_productions(const Song& t, const Song& s);
 
 int write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int two_or_three_digits);
+
+@
+@<Global variables@>=
 
 vector<Song> song_vector;
 
@@ -101,23 +116,18 @@ ofstream songs_t_z_file;
 
 ofstream *curr_songs_file = 0;
 
-extern int filecard_year;
-extern int filecard_month;
-extern int filecard_day;
 
-extern int day;
-extern int month;
-extern int year;
 
-/* * (1) */
+@q * (1) @>
 
-/* ``tocs'' stands for ``table(s) of contents''.  */
-/* ``npt'' stands for ``no page turns''.          */
+@ ``tocs'' stands for ``table(s) of contents''.  
+``npt'' stands for ``no page turns''.
 
+@<|process_tocs_and_npt| definition@>=
 int
 process_tocs_and_npt(void)
 {
-/* ** (2) */
+@q ** (2) @>
 
    bool DEBUG = false; /* |true|  */
 
@@ -606,7 +616,7 @@ process_tocs_and_npt(void)
          result = 0;
        }
 
-/* ** (2)  */
+@q ** (2)  @>
 
    if (song_vector.size() == 0)
    {
@@ -640,7 +650,7 @@ process_tocs_and_npt(void)
          }
      }
 
-   /* Query database for productions (i.e., musicals, operas, $\ldots$.  */
+   /* Query database for productions (i.e., musicals, operas, $\ldots$.)  */
 
    /* Musicals  */
    
@@ -3759,27 +3769,35 @@ getchar();
    
 }  /* End of |process_tocs_and_npt| definition  */
 
-/* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
-/*       GNU Emacs editor.  The local variable list is not evaluated when an */
-/*       indirect buffer is visited, so it's necessary to evaluate the       */
-/*       following s-expression in order to use the facilities normally      */
-/*       accessed via the local variables list.                              */
-/*       \initials{LDF 2004.02.12}.                                          */
-/*       (progn (cweb-mode) (outline-minor-mode t))                          */
+@
+@c
+@<Include files@>@;
+using namespace std;
+@<|extern| declarations@>@;
+@<Global variables@>@;
+@<|process_tocs_and_npt| definition@>@;
 
-/* eval:(setq outline-regexp "/\\* \\*+") */
+@q * (1) Emacs-Lisp code for use in indirect buffers when using the          @>
+@q       GNU Emacs editor.  The local variable list is not evaluated when an @>
+@q       indirect buffer is visited, so it's necessary to evaluate the       @>
+@q       following s-expression in order to use the facilities normally      @>
+@q       accessed via the local variables list.                              @>
+@q       \initials{LDF 2004.02.12}.                                          @>
+@q       (progn (cweb-mode) (outline-minor-mode t))                          @>
+
+@q eval:(setq outline-regexp "/\\* \\*+") @>
 
 
-/* * Local variables for Emacs.*/
+@q * Local variables for Emacs.@>
 
-/* Local Variables: */
-/* mode:CWEB */
-/* eval:(display-time) */
-/* eval:(read-abbrev-file) */
-/* indent-tabs-mode:nil */
-/* outline-minor-mode:t */
-/* eval:(set (make-local-variable 'outline-regexp) "/\\* \\*+") */
-/* fill-column:80 */
-/* End: */
+@q Local Variables: @>
+@q mode:CWEB @>
+@q eval:(display-time) @>
+@q eval:(read-abbrev-file) @>
+@q indent-tabs-mode:nil @>
+@q outline-minor-mode:t @>
+@q eval:(set (make-local-variable 'outline-regexp) "/\\* \\*+") @>
+@q fill-column:80 @>
+@q End: @>
 
 

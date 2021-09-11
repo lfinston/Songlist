@@ -159,6 +159,9 @@ songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
 cmdlnopt.o: cmdlnopt.cxx
 	g++ -c -g -o cmdlnopt.o cmdlnopt.cxx
 
+cmdlnopt.cxx cmdlnopt.hxx: cmdlnopt.web
+	$(CTANGLE) cmdlnopt.web - cmdlnopt.cxx
+
 .PHONY: run
 
 # ./songlist
@@ -353,6 +356,7 @@ dump: ./database/songlist.sql
 
 query:
 	echo "query:"
+	echo "CTANGLE == $(CTANGLE)"
 
 .PHONY: purge
 

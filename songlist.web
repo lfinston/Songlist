@@ -1,26 +1,30 @@
-/* songlist.cxx  */
-/* Created by Laurence D. Finston 10.2017  */
+@q songlist.web  @>
+@q Created by Laurence D. Finston 10.2017  @>
 
-/* * Copyright and License.*/
+@q * Copyright and License.@>
 
-/* This file is part of Songlist, a package for keeping track of songs. */
-/* Copyright (C) 2021 Laurence D. Finston */
+@q This file is part of Songlist, a package for keeping track of songs. @>
+@q Copyright (C) 2021 Laurence D. Finston @>
 
-/* songlist is free software; you can redistribute it and/or modify */
-/* it under the terms of the GNU General Public License as published by */
-/* the Free Software Foundation; either version 3 of the License, or */
-/* (at your option) any later version. */
+@q songlist is free software; you can redistribute it and/or modify @>
+@q it under the terms of the GNU General Public License as published by @>
+@q the Free Software Foundation; either version 3 of the License, or @>
+@q (at your option) any later version. @>
 
-/* songlist is distributed in the hope that it will be useful, */
-/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
-/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
-/* GNU General Public License for more details. */
+@q songlist is distributed in the hope that it will be useful, @>
+@q but WITHOUT ANY WARRANTY; without even the implied warranty of @>
+@q MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the @>
+@q GNU General Public License for more details. @>
 
-/* You should have received a copy of the GNU General Public License */
-/* along with songlist; if not, write to the Free Software */
-/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+@q You should have received a copy of the GNU General Public License @>
+@q along with songlist; if not, write to the Free Software @>
+@q Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA @>
 
-/* Please send bug reports to Laurence.Finston@gmx.de */
+@q Please send bug reports to Laurence.Finston@gmx.de @>
+
+
+@
+@<Include files@>=
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -61,6 +65,10 @@
 // #include "glblvars.hxx"
 #include "cmdlnopt.hxx"
 
+
+@q * (1) @>
+@
+@<Global variables@>=
 MYSQL_RES *result = 0;
 MYSQL_ROW curr_row = 0;
 MYSQL *mysql;
@@ -80,14 +88,20 @@ int day;
 int month;
 int year;
 
-/* Function declarations  */
-
+@ Function declarations.
+@<Function declarations@>=
 int
 get_datestamp(string &datestamp, string &datestamp_short);
 
 int
 submit_mysql_query(string query_str);
 
+string
+remove_formatting_commands(string s);
+
+@q ** (2) @>
+@
+@<Function definitions@>=
 bool
 pair_int_greater_than(pair<int, string> a, pair<int, string> b)
 {
@@ -100,12 +114,10 @@ pair_string_less_than(pair<int, string> a, pair<int, string> b)
    return compare_strings(a.second, b.second);
 }
 
-string
-remove_formatting_commands(string s);
-
 /* main definition */
 
-/* ** (2) |main| definition  */
+@ |main| definition.
+@<|main| definition@>=
 int
 main(int argc, char **argv)
 {
@@ -946,7 +958,8 @@ main(int argc, char **argv)
 }  /* End of |main| definition  */
 
 /* |Song::show| definition */ 
-
+@
+@<|Song::show| definition@>=
 void 
 Song::show(string s)
 {
@@ -1010,8 +1023,11 @@ Song::show(string s)
 
 }  /* End of |Show::show| definition.  */
 
-/* |Song::clear| definition */ 
+@q ** (2) @>
 
+@ |Song::clear| definition.
+
+@<|Song::clear| definition@>=
 void 
 Song::clear(void)
 {
@@ -1069,6 +1085,9 @@ Song::clear(void)
 
 /* |get_datestamp| definition  */
 
+@q ** (2) @>
+@
+@<|get_datestamp| definition@>=
 int
 get_datestamp(string &datestamp, string &datestamp_short)
 {
@@ -1134,6 +1153,9 @@ get_datestamp(string &datestamp, string &datestamp_short)
 
 }  /* End of |get_datestamp| definition  */
 
+@q ** (2) @>
+@
+@<|submit_mysql_query| definition@>=
 int
 submit_mysql_query(string query_str)
 {
@@ -1210,7 +1232,9 @@ submit_mysql_query(string query_str)
 }  /* |submit_mysql_query| definition */
 
 /* |compare_titles| definition */
-
+@q ** (2) @>
+@
+@<|compare_titles| definition@>=
 bool
 compare_titles(const Song& t, const Song& s)
 {
@@ -1224,7 +1248,9 @@ compare_titles(const Song& t, const Song& s)
 }  /* |end of compare_titles| definition */
 
 /* * (1) |compare_composers| definition */
-
+@q ** (2) @>
+@
+@<|compare_composers| definition@>=
 bool
 compare_composers(const Song& s, const Song& t)
 {
@@ -1247,6 +1273,9 @@ compare_composers(const Song& s, const Song& t)
 
 /* * (1) |compare_lyricists| definition */
 
+@q ** (2) @>
+@
+@<|compare_lyricists| definition@>=
 bool
 compare_lyricists(const Song& s, const Song& t)
 {
@@ -1268,7 +1297,9 @@ compare_lyricists(const Song& s, const Song& t)
 }  /* |end of compare_lyricists| definition */
 
 /* * (1) |compare_strings| definition */
-
+@q ** (2) @>
+@
+@<|compare_strings| definition@>=
 bool
 compare_strings(string t, string s)
 {
@@ -1371,7 +1402,9 @@ compare_strings(string t, string s)
   return b;
   
 }  /* End of |compare_strings| definition  */
-
+@q ** (2) @>
+@
+@<|compare_productions| definition@>=
 bool
 compare_productions(const Song& t, const Song& s)
 {
@@ -1411,10 +1444,12 @@ compare_productions(const Song& t, const Song& s)
    return compare_strings(tt, ss);
 
 
-}  /* |end of compare_productions| definition */
+}   /* |end of compare_productions| definition */
 
 
 /* ** (2) |remove_formatting_commands|  */
+
+/* !!START HERE:  LDF 2021.09.11.  */ 
 
 string 
 remove_formatting_commands(string s)
@@ -1852,6 +1887,26 @@ write_to_toc_sub_file(ofstream *toc_file_ptr, vector<Song>::iterator &iter, int 
 }  /* End of |write_to_toc_sub_file| definition.  */
 
 /* ** (2) */
+
+
+@q * (1) @>
+@
+@c
+@<Include files@>@;
+@<Global variables@>@;
+@<Function declarations@>@;
+@<Function definitions@>@;
+@<|main| definition@>@;
+@<|Song::show| definition@>@;
+@<|Song::clear| definition@>;
+@<|get_datestamp| definition@>@;
+@<|submit_mysql_query| definition@>@;
+@<|compare_titles| definition@>@;
+@<|compare_composers| definition@>@;
+@<|compare_lyricists| definition@>@;
+@<|compare_strings| definition@>@;
+@<|compare_productions| definition@>@;
+
 
 /* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
 /*       GNU Emacs editor.  The local variable list is not evaluated when an */
