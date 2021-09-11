@@ -2655,6 +2655,15 @@ true, true, "myoldflm.pdf", 1934,
 
 update Songs set eps_filenames = "myoldfl1.eps;myoldfl2.eps;" where title = "My Old Flame";
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, source, scanned, scanned_filename, eps_filenames)
+values
+("My Very Good Friend the Milkman", "Johnny Burke", "Burke, Johnny", "Harold Spina", "Spina, Harold", false, 1935,
+"Single edition", false, "", "");
+
 /* N   */
 
 /* ** *************************************************** */
@@ -4587,6 +4596,8 @@ replace into Composers_Songs (composer, title) values ("Schwarz, Jean", "Rock-a-
 
 replace into Composers_Songs (composer, title) values ("Silvers, Louis", "April Showers");
 
+replace into Composers_Songs (composer, title) values ("Spina, Harold", "My Very Good Friend the Milkman");
+
 replace into Composers_Songs (composer, title) values ("Spoliansky, Mischa", "Heute Nacht oder nie");
 
 replace into Composers_Songs (composer, title) values ("Stolz, Robert", "Du sollst der Kaiser meiner Seele sein");
@@ -4745,6 +4756,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Go
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Misty");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Moonlight Becomes You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "My Very Good Friend the Milkman");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Oh! You Crazy Moon");
 
