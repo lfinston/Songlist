@@ -3135,6 +3135,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, source, scanned, scanned_filename, eps_filenames)
+values
+("Scatter-Brain", "Johnny Burke", "Burke, Johnny", "Keene-Bean and Frankie Masters", "Keene-Bean and Masters, Frankie", 
+true, 1939, "\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~84.}}",
+true, "scttrbrn.pdf", "scttrbrn.eps;");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns,
 year, language, source)
 values
@@ -3305,7 +3314,7 @@ musical, sort_by_production, source, scanned, scanned_filename, eps_filenames, e
 values
 ("Somewhere", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard",
 true, 1957, "West Side Story", true, "{\\bf Bernstein on Broadway},  p.~210.",
-true, "somewhre.pdf", "somewhr1.eps;", "2021.09.07");
+true, "somewhre.pdf", "somewhre.eps;", "2021.09.07");
 
 /* ** *************************************************** */
 
@@ -4385,6 +4394,9 @@ replace into Composers_Songs (composer, title) values ("Kander, John", "Cabaret"
 
 replace into Composers_Songs (composer, title) values ("Kander, John", "Willkommen");
 
+replace into Composers_Songs (composer, title) values ("Keene-Bean", "Scatter-Brain");
+replace into Composers_Songs (composer, title) values ("Masters, Frankie", "Scatter-Brain");
+
 replace into Composers_Songs (composer, title) values ("Kaper, Bronislau", "On Green Dolphin Street");
 
 replace into Composers_Songs (composer, title) values ("Kern, Jerome", "All the Things You Are");
@@ -4724,6 +4736,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Gr@{u}nwald, Alfred", "K
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Here's That Rainy Day");
 
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagination");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "It Could Happen to You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Got a Pocketful of Dreams");
+
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Misty");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Moonlight Becomes You");
@@ -4732,11 +4750,7 @@ replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Oh! You
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Pennies from Heaven");
 
-replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "It Could Happen to You");
-
-replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "I've Got a Pocketful of Dreams");
-
-replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Imagination");
+replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Scatter-Brain");
 
 replace into Lyricists_Songs (lyricist, title) values ("Burke, Johnny", "Swinging On A Star");
 
