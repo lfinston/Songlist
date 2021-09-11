@@ -2659,10 +2659,10 @@ update Songs set eps_filenames = "myoldfl1.eps;myoldfl2.eps;" where title = "My 
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, source, scanned, scanned_filename, eps_filenames)
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("My Very Good Friend the Milkman", "Johnny Burke", "Burke, Johnny", "Harold Spina", "Spina, Harold", false, 1935,
-"Single edition", false, "", "");
+("My Very Good Friend the Milkman", "Johnny Burke", "Burke, Johnny", "Harold Spina", "Spina, Harold", true, 1935,
+"Single edition", false, "", "", "2021.09.11");
 
 /* N   */
 
@@ -3145,11 +3145,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, source, scanned, scanned_filename, eps_filenames)
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Scatter-Brain", "Johnny Burke", "Burke, Johnny", "Keene-Bean and Frankie Masters", "Keene-Bean and Masters, Frankie", 
 true, 1939, "\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~84.}}",
-true, "scttrbrn.pdf", "scttrbrn.eps;");
+true, "scttrbrn.pdf", "scttrbrn.eps;", "2021.09.11.");
 
 /* ** *************************************************** */
 
