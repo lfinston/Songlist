@@ -565,7 +565,9 @@ process_tocs_and_npt(void)
        {
             string temp_str;
  
-            if (DEBUG)
+/* !!START HERE:  LDF 2021.09.11.  Get new filecards to be printed for non-production songs.  */ 
+
+            if (true || DEBUG)
               cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
  
             temp_str = curr_song.entry_date;
@@ -574,7 +576,7 @@ process_tocs_and_npt(void)
             curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
             curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
-#if 0 
+#if 1 
             cerr << "curr_song.title       == " << curr_song.title << endl
                  << "curr_song.entry_year  == " << curr_song.entry_year << endl
                  << "curr_song.entry_month == " << curr_song.entry_month << endl
@@ -1988,10 +1990,14 @@ process_tocs_and_npt(void)
            || (   iter->entry_year == filecard_year && iter->entry_month == filecard_month 
                && iter->entry_day > filecard_day))
        {
-          if (DEBUG)
+          if (true || DEBUG)
           { 
               cerr << iter->title << " is newer than the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
+#if 0 
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
+#endif 
           }
 
           do_new_filecard = true;
@@ -2485,6 +2491,7 @@ process_tocs_and_npt(void)
                       new_filecards_file << "{}";
                 }
              }
+           
              if (!iter->copyright.empty()) 
              {
                 sub_filecards_file << "{" << iter->copyright << "}";
