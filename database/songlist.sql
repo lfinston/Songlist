@@ -3877,6 +3877,15 @@ values
 ("Willkommen", "Fred Ebb", "Ebb, Fred", "John Kander", "Kander, John", true, 1966,
 "{\\bf Vocal Selections from Cabaret}, p.~2.", "Cabaret");
 
+/* ** *************************************************** */
+ 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Windmills of Your Mind, The", "Alan and Marilyn Bergman", "Bergman, Alan and Marilyn",
+"Michel Legrand", "Legrand, Michel", true, "Thomas Crown Affair, The", 1968, 
+"{\\bf Michel Legrand Songbook, The}, p.~175.", false, "", "", "2021.09.12.");
+
 /* ** (2) *************************************************** */
 
 /* Winterreise, Die.  Franz Schubert and Wilhelm Müller.
@@ -4442,6 +4451,8 @@ replace into Composers_Songs (composer, title) values ("Lane, Burton", "On a Cle
 
 replace into Composers_Songs (composer, title) values ("Lecuona, Ernesto", "Para Vigo me voy (Say ``Si, Si'')");
 
+replace into Composers_Songs (composer, title) values ("Legrand, Michel", "Windmills of Your Mind, The");
+
 replace into Composers_Songs (composer, title) values ("Leh{\\'a}r  Franz", "Lied vom dummen Reiter, Das");
 
 replace into Composers_Songs (composer, title) values ("Leh{\\'a}r  Franz", "Lippen schweigen");
@@ -4730,6 +4741,12 @@ replace into Lyricists_Songs (lyricist, title) values ("Norworth, Jack", "Shine 
 replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Bel Ami");
 
 replace into Lyricists_Songs (lyricist, title) values ("Beckmann, Hans Fritz", "Frauen sind keine Engel");
+
+replace into Lyricists_Songs (lyricist, title) values ("Bergman, Alan", "Windmills of Your Mind, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Bergman, Marilyn", "Windmills of Your Mind, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Bergman, Alan and Marilyn", "Windmills of Your Mind, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Bettis, John", "Top of the World");
 
