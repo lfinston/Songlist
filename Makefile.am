@@ -363,8 +363,8 @@ query:
 .PHONY: purge
 
 purge:
-	rm -f all_no_sep.ftc all_no_sep.log all_no_sep.ptc all_no_sep.toc all_sep.ftc all_sep.log all_sep.ptc all_sep.toc 
-
+	rm -f all_no_sep.ftc all_no_sep.log all_no_sep.ptc all_no_sep.toc \
+           all_sep.ftc all_sep.log all_sep.ptc all_sep.toc starinfo_*.tex
 
 .PHONY: clean
 
@@ -378,7 +378,7 @@ clean:
 	   songlist.cxx songlist.o songs_a_e.tex songs_f_l.tex songs_m_n.tex \
 	   songs_o_s.tex songs_t_z.tex spanish.tex sub_filecrds.tex \
 	   toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
-	   whitecircle.eps XXX.sh
+	   whitecircle.eps XXX.sh starinfo_*.tex
 
 
 ## Local Variables:
