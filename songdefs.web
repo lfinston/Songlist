@@ -1,41 +1,31 @@
-/* songdefs.hxx  */
-/* Created by Laurence D. Finston 20.10.2017  */
+@q songdefs.web  @>
+@q Created by Laurence D. Finston 20.10.2017  @>
 
-/* * Copyright and License.*/
+@q * Copyright and License.@>
 
-/* This file is part of Songlist, a package for keeping track of songs. */
-/* Copyright (C) 2021 Laurence D. Finston */
+@q This file is part of Songlist, a package for keeping track of songs. @>
+@q Copyright (C) 2021 Laurence D. Finston @>
 
-/* songlist is free software; you can redistribute it and/or modify */
-/* it under the terms of the GNU General Public License as published by */
-/* the Free Software Foundation; either version 3 of the License, or */
-/* (at your option) any later version. */
+@q songlist is free software; you can redistribute it and/or modify @>
+@q it under the terms of the GNU General Public License as published by @>
+@q the Free Software Foundation; either version 3 of the License, or @>
+@q (at your option) any later version. @>
 
-/* songlist is distributed in the hope that it will be useful, */
-/* but WITHOUT ANY WARRANTY; without even the implied warranty of */
-/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the */
-/* GNU General Public License for more details. */
+@q songlist is distributed in the hope that it will be useful, @>
+@q but WITHOUT ANY WARRANTY; without even the implied warranty of @>
+@q MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the @>
+@q GNU General Public License for more details. @>
 
-/* You should have received a copy of the GNU General Public License */
-/* along with songlist; if not, write to the Free Software */
-/* Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA */
+@q You should have received a copy of the GNU General Public License @>
+@q along with songlist; if not, write to the Free Software @>
+@q Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA @>
 
-/* Please send bug reports to Laurence.Finston@gmx.de */
+@q Please send bug reports to Laurence.Finston@gmx.de @>
 
-using namespace std;
 
-class Song;
-
-bool compare_titles(const Song&, const Song&);
-
-bool compare_lyricists(const Song&, const Song&);
-
-bool compare_composers(const Song&, const Song&);
-
-bool compare_strings(string, string);
-
-int process_tocs_and_npt(void);
-
+@q * (1) @>
+@
+@<|class Song| declaration@>=
 
 /* !!START HERE:  LDF 2021.08.13.  Add production_subtitle.  */ 
 
@@ -215,13 +205,15 @@ class Song
     void clear(void);
 
     bool operator==(const Song &s) {return (title == s.title);}
-
-    
+   
 };  /* End of |class Song| definition  */
 
 
-/* ** (2) class Production */
+@q * (1) @>
 
+@ |class Production|.
+
+@<|class Production| declaration@>=
 class Production
 {
     private:
@@ -252,28 +244,43 @@ class Production
 };  /* End of |class Production| definition  */
 
 
-typedef Song Production_Song;
 
+@q * (1) @>
+@
+@c
+/* Empty  */
+
+@
+@(songdefs.hxx@>=
+class Song;
+bool compare_titles(const Song&, const Song&);
+bool compare_lyricists(const Song&, const Song&);
+bool compare_composers(const Song&, const Song&);
+bool compare_strings(string, string);
+int process_tocs_and_npt(void);
+@<|class Song| declaration@>@;
+@<|class Production| declaration@>@;
+typedef Song Production_Song;
 extern vector<Song> song_vector;
 
 
-/* * (1) Emacs-Lisp code for use in indirect buffers when using the          */
-/*       GNU Emacs editor.  The local variable list is not evaluated when an */
-/*   	 indirect buffer is visited, so it's necessary to evaluate the       */
-/*   	 following s-expression in order to use the facilities normally      */
-/*   	 accessed via the local variables list.                              */
-/*   	 \initials{LDF 2004.02.12}.                                          */
-/*   	 (progn (cweb-mode) (outline-minor-mode t))                          */
+@q * (1) Emacs-Lisp code for use in indirect buffers when using the          @>
+@q       GNU Emacs editor.  The local variable list is not evaluated when an @>
+@q   	 indirect buffer is visited, so it's necessary to evaluate the       @>
+@q   	 following s-expression in order to use the facilities normally      @>
+@q   	 accessed via the local variables list.                              @>
+@q   	 \initials{LDF 2004.02.12}.                                          @>
+@q   	 (progn (cweb-mode) (outline-minor-mode t))                          @>
 
-/* * Local variables for Emacs.*/
-/* Local Variables: */
-/* mode:CWEB */
-/* eval:(display-time) */
-/* eval:(read-abbrev-file) */
-/* indent-tabs-mode:nil */
-/* eval:(outline-minor-mode) */
-/* fill-column:80 */
-/* End: */
+@q * Local variables for Emacs.@>
+@q Local Variables: @>
+@q mode:CWEB @>
+@q eval:(display-time) @>
+@q eval:(read-abbrev-file) @>
+@q indent-tabs-mode:nil @>
+@q eval:(outline-minor-mode) @>
+@q fill-column:80 @>
+@q End: @>
 
 
 
