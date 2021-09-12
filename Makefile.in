@@ -770,6 +770,9 @@ songlist.o: songlist.cxx songdefs.hxx cmdlnopt.hxx
 songlist.cxx: songlist.web
 	$(CTANGLE) songlist.web - songlist.cxx
 
+songdefs.hxx songdefs.cxx: songdefs.web
+	$(CTANGLE) songdefs.web - songdefs.cxx
+
 songlist$(EXEEXT): songlist.o cmdlnopt.o tocnpt.o
 	g++ -o songlist songlist.o cmdlnopt.o tocnpt.o -L/usr/lib/mysql -L/usr/lib/mysql/plugin \
             -L/usr/lib/x86_64-linux-gnu -lmysqlclient \
@@ -978,6 +981,20 @@ query:
 
 purge:
 	rm -f all_no_sep.ftc all_no_sep.log all_no_sep.ptc all_no_sep.toc all_sep.ftc all_sep.log all_sep.ptc all_sep.toc 
+
+.PHONY: clean
+
+clean:
+	rm -f all_no_sep.dvi all_no_sep.ftc all_no_sep.log \
+	   all_no_sep.pdf all_no_sep.ps all_no_sep.ptc all_no_sep.toc all_sep.dvi \
+	   all_sep.log all_sep.pdf all_sep.ptc cmdlnopt.cxx cmdlnopt.hxx \
+	   cmdlnopt.o composers.tex dump.sql french.tex german.tex italian.tex \
+	   lyricists.tex newfilecards.tex pblcdomn.tex portugese.tex \
+	   productions.tex russian.tex scanned.tex songdefs.hxx songlist \
+	   songlist.cxx songlist.o songs_a_e.tex songs_f_l.tex songs_m_n.tex \
+	   songs_o_s.tex songs_t_z.tex spanish.tex sub_filecrds.tex \
+	   toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+	   whitecircle.eps XXX.sh
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

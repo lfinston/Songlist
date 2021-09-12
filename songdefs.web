@@ -252,6 +252,7 @@ class Production
 
 @
 @(songdefs.hxx@>=
+using namespace std;
 class Song;
 bool compare_titles(const Song&, const Song&);
 bool compare_lyricists(const Song&, const Song&);
