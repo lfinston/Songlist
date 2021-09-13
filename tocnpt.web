@@ -575,7 +575,7 @@ process_tocs_and_npt(void)
 
        temp_str = "";
  
-       if (true || DEBUG)
+       if (DEBUG)
          cerr << "`curr_song.title' == " << curr_song.title << endl 
               << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
  
@@ -585,7 +585,7 @@ process_tocs_and_npt(void)
        curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
        curr_song.entry_day   = atoi(temp_str.substr(8, 2).c_str());
 
-#if 1 /* 0  */
+#if 0 /* 1  */
 
        cerr << "curr_song.title       == " << curr_song.title << endl
             << "curr_song.entry_year  == " << curr_song.entry_year << endl
@@ -1671,7 +1671,7 @@ process_tocs_and_npt(void)
 
        // iter->show("Production_Song:");
 
-#if 1 // 0 
+#if 0 // 1 
        cerr << "title:          " << iter->title << endl 
             << "production:     " << iter->production << endl;
 #endif 
@@ -1685,13 +1685,9 @@ process_tocs_and_npt(void)
                    && next_iter->entry_day > iter->entry_day)))
        {
 
-#if 1 // 0
+#if 0 // 1
           cerr << "next_iter->entry_date is newer." << endl
                << "Setting iter->entry_date to next_iter->entry_date" << endl;
-
-cerr << "YYY Enter <RETURN> to continue: ";
-getchar(); 
-
 #endif 
  
           iter->entry_date  = next_iter->entry_date;
@@ -1710,12 +1706,9 @@ getchar();
                         && iter->entry_month == next_iter->entry_month
                         && iter->entry_day > next_iter->entry_day)))
        {
-#if 1 // 0 
+#if 0 // 1 
           cerr << "iter->entry_date is newer." << endl
                << "Setting next_iter->entry_date to iter->entry_date" << endl;
-
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
 #endif 
 
           next_iter->entry_date = iter->entry_date;
@@ -1725,7 +1718,7 @@ getchar();
 
        }
 
-#if 11 // 0        
+#if 0 // 1        
        cerr << "entry_date:     " << iter->entry_date << endl
             << "entry_day:      " << iter->entry_day << endl
             << "entry_month:    " << iter->entry_month << endl
@@ -2057,7 +2050,7 @@ getchar();
 
        do_new_filecard = false;
 
-#if 1 
+#if 0 // 1
        cerr << "iter->title       == " << iter->title << endl 
             << "iter->entry_year  == " << iter->entry_year << endl
             << "iter->entry_month == " << iter->entry_month << endl
@@ -2072,7 +2065,7 @@ getchar();
            || (   iter->entry_year == filecard_year && iter->entry_month == filecard_month 
                && iter->entry_day > filecard_day))
        {
-          if (true || DEBUG)
+          if (DEBUG)
           { 
               cerr << iter->title << " is newer than 2020" << endl // "the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
@@ -2745,7 +2738,6 @@ getchar();
 
           /* number_filecards, Arg. #9 to \B.  */
 
-#if 1 
           if (iter->number_filecards)
           {
              sub_filecards_file << "{1}";
@@ -2758,7 +2750,6 @@ getchar();
              if (do_new_filecard)
                 new_filecards_file << "{0}";
           }
-#endif 
 
           sub_filecards_file << endl;
           if (do_new_filecard)
