@@ -1935,7 +1935,7 @@ values
 ("Jet Song", "Stephen Sondheim", "Sondheim, Stephen", "Leonard Bernstein", "Bernstein, Leonard", true,
 "West Side Story", 1957, true, 
 "\\vbox{\\hbox{{\\bf West Side Story, Die bekanntesten}}\\vskip\\sourceskip\\hbox{{\\bf Melodien}, p.~21 (Vocal Selections).}}",
-false, "", "", "2021.09.09");
+true, "jetsong.pdf", "jetsong2.eps;jetsong3.eps;", "2021.09.09");
 
 /* ** *************************************************** */
 
@@ -2662,7 +2662,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("My Very Good Friend the Milkman", "Johnny Burke", "Burke, Johnny", "Harold Spina", "Spina, Harold", true, 1935,
-"Single edition", false, "", "", "2021.09.11");
+"Single edition", true, "verygood.pdf", "verygood1.eps;verygood2.eps;", "2021.09.11");
 
 /* N   */
 
@@ -3275,11 +3275,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
-year, source, scanned, scanned_filename, eps_filenames)
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("So in Love", "Cole Porter", "Porter, Cole", true, "Kiss Me Kate", true, 
 1948, "{\\bf Best of Cole Porter, The}, p.~109.",
-true, "soinlove.pdf", "soinlove1.eps;soinlove2.eps;");
+true, "soinlove.pdf", "soinlove1.eps;soinlove2.eps;", "2021.09.13.");
 
 /* ** *************************************************** */
 
@@ -3893,7 +3893,8 @@ year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Windmills of Your Mind, The", "Alan and Marilyn Bergman", "Bergman, Alan and Marilyn",
 "Michel Legrand", "Legrand, Michel", true, "Thomas Crown Affair, The", 1968, 
-"{\\bf Michel Legrand Songbook, The}, p.~175.", false, "", "", "2021.09.12.");
+"{\\bf Michel Legrand Songbook, The}, p.~175.", true, "windmlls.pdf", "windmlls1.eps;windmlls2.eps;",
+"2021.09.12.");
 
 /* ** (2) *************************************************** */
 

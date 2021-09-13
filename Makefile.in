@@ -981,7 +981,7 @@ query:
 
 purge:
 	rm -f all_no_sep.ftc all_no_sep.log all_no_sep.ptc all_no_sep.toc \
-           all_sep.ftc all_sep.log all_sep.ptc all_sep.toc starinfo_*.tex
+           all_sep.ftc all_sep.log all_sep.ptc all_sep.toc
 
 .PHONY: clean
 
