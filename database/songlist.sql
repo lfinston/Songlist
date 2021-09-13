@@ -3274,6 +3274,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, source, scanned, scanned_filename, eps_filenames)
+values
+("So in Love", "Cole Porter", "Porter, Cole", true, "Kiss Me Kate", true, 
+1948, "{\\bf Best of Cole Porter, The}, p.~109.",
+true, "soinlove.pdf", "soinlove1.eps;soinlove2.eps;");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
 source, scanned, scanned_filename, sort_by_production, eps_filenames)
 values
@@ -5749,6 +5758,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's All
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Night and Day");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Night and Day");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "So in Love");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "So in Love");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "You're the Top");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're the Top");
