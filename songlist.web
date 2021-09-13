@@ -742,8 +742,6 @@ main(int argc, char **argv)
 
 /* *** (3)  Print out scanned files.  */
 
-/* !!START HERE Laurence D. Finston (LDF) Wed 26 May 2021 08:32:13 PM CEST */ 
-
      scanned_file.open("scanned.tex");
 
      scanned_file << "%% scanned.tex" << endl                                              
