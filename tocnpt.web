@@ -235,7 +235,7 @@ process_tocs_and_npt(void)
    curr_row = 0;
 
    do
-     {
+   {
 
        curr_song.clear();
 
@@ -572,27 +572,28 @@ process_tocs_and_npt(void)
            cerr << "`production_subtitle'                   == " << curr_row[37] << endl;
 
        curr_song.entry_date = curr_row[38];
-       {
-            string temp_str;
+
+       temp_str = "";
  
-/* !!START HERE:  LDF 2021.09.11.  Get new filecards to be printed for non-production songs.  */ 
-
-            if (true || DEBUG)
-              cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
+       if (true || DEBUG)
+         cerr << "`curr_song.title' == " << curr_song.title << endl 
+              << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
  
-            temp_str = curr_song.entry_date;
+       temp_str = curr_song.entry_date;
 
-            curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-            curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
-            curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+       curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+       curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
+       curr_song.entry_day   = atoi(temp_str.substr(8, 2).c_str());
 
-#if 1 
-            cerr << "curr_song.title       == " << curr_song.title << endl
-                 << "curr_song.entry_year  == " << curr_song.entry_year << endl
-                 << "curr_song.entry_month == " << curr_song.entry_month << endl
-                 << "curr_song.entry_day   == " << curr_song.entry_day << endl;
+#if 1 /* 0  */
+
+       cerr << "curr_song.title       == " << curr_song.title << endl
+            << "curr_song.entry_year  == " << curr_song.entry_year << endl
+            << "curr_song.entry_month == " << curr_song.entry_month << endl
+            << "curr_song.entry_day   == " << curr_song.entry_day << endl;
 #endif 
-       }
+
+       temp_str = "";
 
        if (DEBUG)
          curr_song.show("curr_song:");
@@ -608,13 +609,13 @@ process_tocs_and_npt(void)
 
    } while (curr_row != 0);
 
-     /* Free |result|  */
-     
-     if (result)
-       {
-         mysql_free_result(result);
-         result = 0;
-       }
+   /* Free |result|  */
+   
+   if (result)
+   {
+       mysql_free_result(result);
+       result = 0;
+   }
 
 @q ** (2)  @>
 
@@ -656,7 +657,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct musical, year, public_domain, production_subtitle, "
+   temp_strm << "select musical, year, public_domain, production_subtitle, "
              << "entry_date from Songs "
              << "where lead_sheet is true and musical is not null "
              << "and sort_by_production is true order by musical;";
@@ -741,26 +742,27 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
-           {
-              string temp_str;
- 
-               if (DEBUG)
-                 cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
- 
-               temp_str = curr_production.entry_date;
 
-               curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-               curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-               curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+           temp_str = "";
+ 
+           if (DEBUG)
+             cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+           temp_str = curr_production.entry_date;
+
+           curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+           curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+           curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-               cerr << "curr_production.title       == " << curr_production.title << endl
-                    << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                    << "curr_production.entry_month == " << curr_production.entry_month << endl
-                    << "curr_production.entry_day   == " << curr_production.entry_day << endl;
-#endif 
-           }
+           cerr << "curr_production.title       == " << curr_production.title << endl
+                << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                << "curr_production.entry_month == " << curr_production.entry_month << endl
+                << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 
+#endif 
+           temp_str = "";
+  
            production_vector.push_back(curr_production);
 
          } while (curr_row != 0);
@@ -779,7 +781,7 @@ process_tocs_and_npt(void)
 
    temp_strm.str("");
 
-   temp_strm << "select distinct opera, year, public_domain, production_subtitle, entry_date "
+   temp_strm << "select opera, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and opera is not null "
              << "and sort_by_production is true order by opera;";
 
@@ -863,27 +865,28 @@ process_tocs_and_npt(void)
          curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
          curr_production.production_subtitle = curr_row[3];
          curr_production.entry_date = curr_row[4];
-         {
-            string temp_str;
- 
-             if (DEBUG)
-               cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
- 
-             temp_str = curr_production.entry_date;
 
-             curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-             curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-             curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+         temp_str = "";
+ 
+         if (DEBUG)
+           cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+         temp_str = curr_production.entry_date;
+
+         curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+         curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+         curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-             cerr << "curr_production.title       == " << curr_production.title << endl
-                  << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                  << "curr_production.entry_month == " << curr_production.entry_month << endl
-                  << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+         cerr << "curr_production.title       == " << curr_production.title << endl
+              << "curr_production.entry_year  == " << curr_production.entry_year << endl
+              << "curr_production.entry_month == " << curr_production.entry_month << endl
+              << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 #endif 
-         }
 
          production_vector.push_back(curr_production);
+
+         temp_str = "";
 
        } while (curr_row != 0);
 
@@ -902,7 +905,7 @@ process_tocs_and_npt(void)
    temp_strm.str("");
    
 
-   temp_strm << "select distinct operetta, year, public_domain, production_subtitle, entry_date "
+   temp_strm << "select operetta, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and operetta is not null "
              << "and sort_by_production is true order by operetta;";
 
@@ -986,25 +989,25 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
-           {
-              string temp_str;
+           
+           temp_str = "";
  
-              if (DEBUG)
-                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+           if (DEBUG)
+             cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
  
-              temp_str = curr_production.entry_date;
+           temp_str = curr_production.entry_date;
 
-              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+           curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+           curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+           curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-              cerr << "curr_production.title       == " << curr_production.title << endl
-                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                   << "curr_production.entry_month == " << curr_production.entry_month << endl
-                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+           cerr << "curr_production.title       == " << curr_production.title << endl
+                << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                << "curr_production.entry_month == " << curr_production.entry_month << endl
+                << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 #endif 
-           }
+           temp_str = "";
 
            production_vector.push_back(curr_production);
 
@@ -1024,7 +1027,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct song_cycle, year, public_domain, production_subtitle, entry_date "
+   temp_strm << "select song_cycle, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and song_cycle is not null "
              << "and sort_by_production is true order by song_cycle;";
 
@@ -1108,26 +1111,26 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
-           {
-              string temp_str;
+  
+           temp_str = "";
  
-              if (DEBUG)
-                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+           if (DEBUG)
+             cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
  
-              temp_str = curr_production.entry_date;
+           temp_str = curr_production.entry_date;
 
-              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+           curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+           curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+           curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-              cerr << "curr_production.title       == " << curr_production.title << endl
-                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                    << "curr_production.entry_month == " << curr_production.entry_month << endl
-                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+           cerr << "curr_production.title       == " << curr_production.title << endl
+                << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                 << "curr_production.entry_month == " << curr_production.entry_month << endl
+                << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 #endif  
-          }
 
+          temp_str = "";
           production_vector.push_back(curr_production);
 
          } while (curr_row != 0);
@@ -1146,7 +1149,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
 
-   temp_strm << "select distinct revue, year, public_domain, production_subtitle, entry_date "
+   temp_strm << "select revue, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and revue is not null "
              << "and sort_by_production is true order by revue";
 
@@ -1230,26 +1233,25 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
-           {
-              string temp_str;
  
-              if (DEBUG)
-                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+           temp_str = "";
  
-              temp_str = curr_production.entry_date;
+           if (DEBUG)
+             cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+           temp_str = curr_production.entry_date;
 
-              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+           curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+           curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+           curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-              cerr << "curr_production.title       == " << curr_production.title << endl
-                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                    << "curr_production.entry_month == " << curr_production.entry_month << endl
-                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+           cerr << "curr_production.title       == " << curr_production.title << endl
+                << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                 << "curr_production.entry_month == " << curr_production.entry_month << endl
+                << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 #endif  
-          }
-
+           temp_str = "";
            production_vector.push_back(curr_production);
 
          } while (curr_row != 0);
@@ -1269,7 +1271,7 @@ process_tocs_and_npt(void)
    
    temp_strm.str("");
    
-   temp_strm << "select distinct film, year, public_domain, production_subtitle, entry_date "
+   temp_strm << "select film, year, public_domain, production_subtitle, entry_date "
              << "from Songs where lead_sheet is true and film is not null "
              << "and sort_by_production is true order by film;";
 
@@ -1353,25 +1355,24 @@ process_tocs_and_npt(void)
            curr_production.public_domain = static_cast<bool>(atoi(curr_row[2]));
            curr_production.production_subtitle = curr_row[3];
            curr_production.entry_date = curr_row[4];
-           {
-              string temp_str;
- 
-              if (DEBUG)
-                cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
- 
-              temp_str = curr_production.entry_date;
 
-              curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-              curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
-              curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+           temp_str = ""; 
+           if (DEBUG)
+             cerr << "`curr_production.entry_date' == " << curr_production.entry_date << endl;
+ 
+           temp_str = curr_production.entry_date;
+
+           curr_production.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+           curr_production.entry_month = atoi(temp_str.substr(6, 2).c_str());
+           curr_production.entry_day   = atoi(temp_str.substr(9, 2).c_str());
 
 #if 0 
-              cerr << "curr_production.title       == " << curr_production.title << endl
-                   << "curr_production.entry_year  == " << curr_production.entry_year << endl
-                    << "curr_production.entry_month == " << curr_production.entry_month << endl
-                   << "curr_production.entry_day   == " << curr_production.entry_day << endl;
+           cerr << "curr_production.title       == " << curr_production.title << endl
+                << "curr_production.entry_year  == " << curr_production.entry_year << endl
+                 << "curr_production.entry_month == " << curr_production.entry_month << endl
+                << "curr_production.entry_day   == " << curr_production.entry_day << endl;
 #endif  
-          }
+          temp_str = "";
 
           production_vector.push_back(curr_production);
 
@@ -1388,6 +1389,10 @@ process_tocs_and_npt(void)
      }
 
    /*  */
+
+@q ** (2) @>
+@
+@<|process_tocs_and_npt| definition@>=
 
    sort(production_vector.begin(), production_vector.end(), compare_titles);
    
@@ -1406,14 +1411,21 @@ process_tocs_and_npt(void)
          }
    }
 
+@q ** (2) First |production_vector| loop.  @>
+
+@ |production_vector| loop.
+
+@<|process_tocs_and_npt| definition@>=
+
    for (vector<Production_Song>::iterator iter = production_vector.begin();
         iter != production_vector.end();
         ++iter)
    {
+@q *** (3) @>
        if (DEBUG)
-         {
+       {
            iter->show("Production_Song:");
-         }
+       }
 
        temp_strm.str("");
 
@@ -1440,6 +1452,8 @@ process_tocs_and_npt(void)
       
        pos = 0;
 
+@q *** (3) @>
+
        /* Replace |'\'| with |"\\"|.  Two loops are required.                             */
 
        /* |'%'| is used as a ``dummy'' character here.  Otherwise, replacing |'\'| with   */
@@ -1447,6 +1461,9 @@ process_tocs_and_npt(void)
        /* It's simpler to just use two loops.                                             */
        /* |'%'| is guaranteed to not occur in a title, because it's the comment character */
        /* in TeX.  LDF 2021.08.07.                                                        */
+
+
+@q *** (3) @>
 
        do
        {
@@ -1567,25 +1584,39 @@ process_tocs_and_npt(void)
                curr_song.subtitle.assign(curr_row[10]);
                curr_song.production_subtitle.assign(curr_row[11]);
                curr_song.entry_date = curr_row[12];
-               {
-                  string temp_str;
- 
-                  if (DEBUG)
-                   cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
- 
-                  temp_str = curr_song.entry_date;
 
-                  curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-                  curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
-                  curr_song.entry_day   = atoi(temp_str.substr(9, 2).c_str());
+               temp_str = "";
+ 
+               if (DEBUG)
+                cerr << "`curr_song.entry_date' == " << curr_song.entry_date << endl;
+ 
+               temp_str = curr_song.entry_date;
+
+               curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
+               curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
+               curr_song.entry_day   = atoi(temp_str.substr(8, 2).c_str());
+
+               if (   iter->entry_year < curr_song.entry_year
+                   || (   iter->entry_year  == curr_song.entry_year
+                       && iter->entry_month  < curr_song.entry_month)
+                   || (   iter->entry_year  == curr_song.entry_year
+                       && iter->entry_month == curr_song.entry_month
+                       && iter->entry_day    < curr_song.entry_day))
+               {
+                   iter->entry_year  = curr_song.entry_year;
+                   iter->entry_month = curr_song.entry_month;
+                   iter->entry_day   = curr_song.entry_day;
+               }
 
 #if 0 
-                  cerr << "curr_song.title       == " << curr_song.title << endl
-                       << "curr_song.entry_year  == " << curr_song.entry_year << endl
-                        << "curr_song.entry_month == " << curr_song.entry_month << endl
-                       << "curr_song.entry_day   == " << curr_song.entry_day << endl;
+               cerr << "curr_song.title       == " << curr_song.title << endl
+                    << "curr_song.entry_year  == " << curr_song.entry_year << endl
+                     << "curr_song.entry_month == " << curr_song.entry_month << endl
+                    << "curr_song.entry_day   == " << curr_song.entry_day << endl;
 #endif  
-               }
+
+               temp_str = "";
+
                curr_song.lead_sheet = static_cast<bool>(atoi(curr_row[13]));
 
                iter->production_song_vector.push_back(curr_song);
@@ -1619,33 +1650,28 @@ process_tocs_and_npt(void)
           }
        } 
 
-   }  /* |for|  */
+@q *** (3) @>
 
-   if (DEBUG)
-   {
+   }  /* |for|  End of first |production_vector| loop.  */
 
-       cerr << "Before culling." << endl
-            << "production_vector.size() == " << production_vector.size() << endl;        
+@q ** (2) Second |production_vector| loop:  Set entry date to the most recent of the songs in the production.  @>
 
-       if (production_vector.size() > 0)
-         cerr << "production_vector:" << endl;
-       else
-         cerr << "production_vector is empty." << endl;
+@ Second |production_vector| loop:  Set entry date to the most recent of the songs in the production.  
 
-   }  /* |if (DEBUG)| */
+@<|process_tocs_and_npt| definition@>=
 
    vector<Production_Song>::iterator next_iter = production_vector.begin();
    ++next_iter;
-
 
    for (vector<Production_Song>::iterator iter = production_vector.begin();
         iter != production_vector.end();
         ++iter)
    {       
+@q *** (3) @>
 
        // iter->show("Production_Song:");
 
-#if 0 
+#if 1 // 0 
        cerr << "title:          " << iter->title << endl 
             << "production:     " << iter->production << endl;
 #endif 
@@ -1659,29 +1685,37 @@ process_tocs_and_npt(void)
                    && next_iter->entry_day > iter->entry_day)))
        {
 
-#if 0 
+#if 1 // 0
           cerr << "next_iter->entry_date is newer." << endl
                << "Setting iter->entry_date to next_iter->entry_date" << endl;
+
+cerr << "YYY Enter <RETURN> to continue: ";
+getchar(); 
+
 #endif 
  
-          iter->entry_date = next_iter->entry_date;
-          iter->entry_year = next_iter->entry_year;
+          iter->entry_date  = next_iter->entry_date;
+          iter->entry_year  = next_iter->entry_year;
           iter->entry_month = next_iter->entry_month;
-          iter->entry_day = next_iter->entry_day;
+          iter->entry_day   = next_iter->entry_day;
 
 
        }
-       else if (next_iter != production_vector.end() && next_iter->title == iter->title
-           && (   iter->entry_year > next_iter->entry_year
-               || (   iter->entry_year ==  next_iter->entry_year
-                   && iter->entry_month > next_iter->entry_month)
-               || (   iter->entry_year ==  next_iter->entry_year
-                   && iter->entry_month == next_iter->entry_month
-                   && iter->entry_day > next_iter->entry_day)))
+       else if (   next_iter != production_vector.end() 
+                && next_iter->title == iter->title
+                && (   iter->entry_year > next_iter->entry_year
+                    || (   iter->entry_year ==  next_iter->entry_year
+                        && iter->entry_month > next_iter->entry_month)
+                    || (   iter->entry_year ==  next_iter->entry_year
+                        && iter->entry_month == next_iter->entry_month
+                        && iter->entry_day > next_iter->entry_day)))
        {
-#if 0 
+#if 1 // 0 
           cerr << "iter->entry_date is newer." << endl
                << "Setting next_iter->entry_date to iter->entry_date" << endl;
+
+cerr << "XXX Enter <RETURN> to continue: ";
+getchar(); 
 #endif 
 
           next_iter->entry_date = iter->entry_date;
@@ -1691,7 +1725,7 @@ process_tocs_and_npt(void)
 
        }
 
-#if 0        
+#if 11 // 0        
        cerr << "entry_date:     " << iter->entry_date << endl
             << "entry_day:      " << iter->entry_day << endl
             << "entry_month:    " << iter->entry_month << endl
@@ -1703,7 +1737,27 @@ process_tocs_and_npt(void)
 
        ++next_iter;
 
-   }  /* |for|  */
+@q *** (3) @>
+
+   }  /* |for|  End of second |production_vector| loop.  */
+
+
+@q ** (2) @>
+@
+@<|process_tocs_and_npt| definition@>=
+
+   if (DEBUG)
+   {
+
+       cerr << "Before culling." << endl
+            << "production_vector.size() == " << production_vector.size() << endl;        
+
+       if (production_vector.size() > 0)
+         cerr << "production_vector:" << endl;
+       else
+         cerr << "production_vector is empty." << endl;
+
+   }  /* |if (DEBUG)| */
 
    vector<Production_Song>::iterator temp_iter;   
 
@@ -1731,6 +1785,10 @@ process_tocs_and_npt(void)
 
    }  /* |if (DEBUG)| */
 
+@q ** (2) @>
+@
+@<|process_tocs_and_npt| definition@>=
+
    song_vector.insert(song_vector.begin(), production_vector.begin(), production_vector.end());
 
    sort(song_vector.begin(), song_vector.end(), compare_titles);
@@ -1750,11 +1808,16 @@ process_tocs_and_npt(void)
    spanish_file.open("spanish.tex");
    productions_file.open("productions.tex");
    sub_filecards_file.open("sub_filecrds.tex");
+   new_filecards_file.open("newfilecards.tex");
    songs_a_e_file.open("./public_domain/songs_a_e.tex");
    songs_f_l_file.open("./public_domain/songs_f_l.tex");
    songs_m_n_file.open("./public_domain/songs_m_n.tex");
    songs_o_s_file.open("./public_domain/songs_o_s.tex");
    songs_t_z_file.open("./public_domain/songs_t_z.tex"); 
+
+@q ** (2) @>
+@
+@<|process_tocs_and_npt| definition@>=
 
    status = get_datestamp(datestamp, datestamp_short);
 
@@ -1938,6 +2001,13 @@ process_tocs_and_npt(void)
                       << "%% Generated by `songlist' " << datestamp << endl << endl
                       << "\\begingroup" << endl << "\\catcode`\\%=\\other" << endl << endl;
 
+   new_filecards_file << "%% newfilecards.tex" << endl
+                      << "%% Generated by `songlist' " << datestamp 
+                      << endl << endl
+                      << "\\FilecardSection{Songs and productions added since " 
+                      << filecard_year << "." << filecard_month 
+                      << "." << filecard_day << ".}" << endl;
+
    songs_a_e_file << "%% songs_a_e_file.tex" << endl 
                   << "%% Generated by `songlist' " << datestamp << endl << endl;
 
@@ -1974,17 +2044,20 @@ process_tocs_and_npt(void)
    public_domain_flag = false;
 
    bool do_new_filecard = false;
-   bool new_filecards_first_time = true;
+
+@q ** (2) Main loop.  @>
+@ Main loop.  
+@<|process_tocs_and_npt| definition@>=
 
    for (vector<Song>::iterator iter = song_vector.begin();
         iter != song_vector.end();
         ++iter)
    {
-/* **** (4) */
+@q *** (3) @>
 
        do_new_filecard = false;
 
-#if 0 
+#if 1 
        cerr << "iter->title       == " << iter->title << endl 
             << "iter->entry_year  == " << iter->entry_year << endl
             << "iter->entry_month == " << iter->entry_month << endl
@@ -1994,7 +2067,6 @@ process_tocs_and_npt(void)
             << "filecard_day      == " << filecard_day << endl;
 #endif 
 
-
        if (   iter->entry_year > filecard_year
            || (iter->entry_year == filecard_year && iter->entry_month > filecard_month)
            || (   iter->entry_year == filecard_year && iter->entry_month == filecard_month 
@@ -2002,36 +2074,11 @@ process_tocs_and_npt(void)
        {
           if (true || DEBUG)
           { 
-              cerr << iter->title << " is newer than the filecard cut-off date." << endl
+              cerr << iter->title << " is newer than 2020" << endl // "the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
-#if 0 
-cerr << "XXX Enter <RETURN> to continue: ";
-getchar(); 
-#endif 
           }
 
           do_new_filecard = true;
-
-          if (new_filecards_first_time == true)
-          {
-             
-              if (DEBUG)
-              { 
-                  cerr << "`new_filecards_first_time' is `true'.  Setting up `newfilecareds.tex'." 
-                       << endl;
-              }           
-
-              new_filecards_first_time = false;
-
-              new_filecards_file.open("newfilecards.tex");
-
-              new_filecards_file << "%% newfilecards.tex" << endl
-                                 << "%% Generated by `songlist' " << datestamp 
-                                 << endl << endl
-                                 << "\\FilecardSection{Songs and productions added since " 
-                                 << filecard_year << "." << filecard_month 
-                                 << "." << filecard_day << ".}" << endl;
-          }  /* |if|  */
 
        }  /* |if|  */
 
@@ -2749,7 +2796,6 @@ getchar();
                       << "iter->title         == " << iter->title << endl 
                       << "temp_str            == " << temp_str << endl;
 
-                 cerr << "YYY" << endl;
               }
 
               toc_ls_file << "\\vskip.5\\baselineskip\\vbox{{\\S}" << iter->title;
@@ -3097,8 +3143,6 @@ getchar();
             if (iter->subtitle.length() > 0)
             {
                 cerr << "iter->subtitle == " << iter->subtitle << endl;
-                cerr << "YYY Enter <RETURN> to continue: ";
-                getchar(); 
             }
 #endif 
 
@@ -3279,11 +3323,13 @@ getchar();
 
        }
       
-/* **** (4) */
+@q *** (3) @>
  
-     }  /* |for|  */
+     }  /* |for|  End of main loop.  */
 
-/* *** (3)  */
+@q ** (2) @>
+@
+@<|process_tocs_and_npt| definition@>=
 
    toc_ls_file << "\\singlecolumn" << endl 
                << "\\vfil\\eject" << endl
@@ -3380,9 +3426,7 @@ getchar();
 
 
    sub_filecards_file << endl << "\\endgroup" << endl << "\\endinput" << endl << endl;
-
-   if (!new_filecards_first_time)
-      new_filecards_file << endl << endl << "\\endinput" << endl << endl;
+   new_filecards_file << endl << endl << "\\endinput" << endl << endl;
 
    french_file.close();    
    german_file.close();    
