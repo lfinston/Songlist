@@ -3742,6 +3742,16 @@ true, "wave.pdf");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright,
+source, scanned, scanned_filename, eps_filenames)
+values
+("Wandrer, Der", "Traditional", "Traditional",  true, "Copyright status unknown",
+"\\vbox{\\hbox{{\\bf Lied der V@olker, Das.  Griechische,}}\\vskip\\sourceskip"
+"\\hbox{{\\bf Albanische und Rum@anische}}\\vskip\\sourceskip\\hbox{{\\bf Volkslieder}, p.~6.}}",
+false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
 values
 ("Way You Look Tonight, The", "Dorothy Fields", "Fields, Dorothy", "Jerome Kern", "Kern, Jerome", true,
@@ -5785,6 +5795,10 @@ replace into Composers_Songs (composer, title) values ("Benjamin, Bennie", "I Do
 replace into Lyricists_Songs (lyricist, title) values ("Benjamin, Bennie", "I Don't Want to Set the World on Fire");
 replace into Composers_Songs (composer, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
 replace into Lyricists_Songs (lyricist, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
+
+
+replace into Composers_Songs (composer, title) values ("Traditional", "Wandrer, Der");
+replace into Lyricists_Songs (lyricist, title) values ("Traditional", "Wandrer, Der");
 
 replace into Composers_Songs (composer, title) values ("Wayne, Bernie", "Blue Velvet");
 replace into Lyricists_Songs (lyricist, title) values ("Wayne, Bernie", "Blue Velvet");
