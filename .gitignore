@@ -43,7 +43,13 @@ autom4te.cache/
 circles.dvi
 circles.mpx
 circles.ps
+cmdlnopt.cxx
+cmdlnopt.hxx
+lyricists.dvi
+lyricists.pdf
+lyricists.ps
 Makefile
+newfilecards.tex
 pblcdomn.log
 pblcdomn.tex  
 replace_control_codes
@@ -51,9 +57,13 @@ scanned.*
 sep_flag.tex
 songctr_a_h.out
 songctr_i_o.out
+songdefs.cxx
+songdefs.hxx
+songlist.cxx
 stamp-h1
 testfont.*
 texput*
+tocnpt.cxx
 ttemp*
 XXX.sh
 
