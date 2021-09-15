@@ -3745,7 +3745,7 @@ true, "wave.pdf");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright,
 source, scanned, scanned_filename, eps_filenames, language, public_domain)
 values
-("Wandrer, Der", "Traditional", "Traditional",  true, "Copyright status unknown",
+("Wandrer, Der", "Traditional", "Traditional",  true, "Public Domain",
 "\\vbox{\\hbox{{\\bf Lied der V@olker, Das.  Griechische,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Albanische und Rum@anische}}\\vskip\\sourceskip\\hbox{{\\bf Volkslieder}, p.~6.}}",
 true, "wandrer.pdf", "wandrer1.eps;wandrer2.eps;", "greek", true);
