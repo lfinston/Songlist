@@ -3277,7 +3277,7 @@ values
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("So in Love", "Cole Porter", "Porter, Cole", true, "Kiss Me Kate", true, 
+("So in Love", "Cole Porter", "Porter, Cole", true, "Kiss Me, Kate", true, 
 1948, "{\\bf Best of Cole Porter, The}, p.~109.",
 true, "soinlove.pdf", "soinlove1.eps;soinlove2.eps;", "2021.09.13.");
 
@@ -3743,12 +3743,12 @@ true, "wave.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename, eps_filenames, language)
 values
 ("Wandrer, Der", "Traditional", "Traditional",  true, "Copyright status unknown",
 "\\vbox{\\hbox{{\\bf Lied der V@olker, Das.  Griechische,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Albanische und Rum@anische}}\\vskip\\sourceskip\\hbox{{\\bf Volkslieder}, p.~6.}}",
-false, "", "");
+false, "", "", "greek");
 
 /* ** *************************************************** */
 
@@ -3763,6 +3763,15 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur", "Nacio Herb Brown", "Brown, Nacio Herb", true,
 "Broadway Melody, The", 1929);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("We Open in Venice", "Cole Porter", "Porter, Cole", true, "Kiss Me, Kate", true, 
+1948, "Copyright {\\copyright} 1949", "{\\bf Kiss Me, Kate, Vocal Score}, p.~56.",
+false, "", "", "2021.09.15.");
 
 /* ** *************************************************** */
 
@@ -5775,6 +5784,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "So in Lo
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "You're the Top");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're the Top");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "We Open in Venice");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "We Open in Venice");
 
 replace into Composers_Songs (composer, title) values ("Robin, Leo", "Miss Brown to You");
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Miss Brown to You");
