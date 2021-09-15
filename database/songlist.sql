@@ -3743,12 +3743,12 @@ true, "wave.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, copyright,
-source, scanned, scanned_filename, eps_filenames, language)
+source, scanned, scanned_filename, eps_filenames, language, public_domain)
 values
 ("Wandrer, Der", "Traditional", "Traditional",  true, "Copyright status unknown",
 "\\vbox{\\hbox{{\\bf Lied der V@olker, Das.  Griechische,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Albanische und Rum@anische}}\\vskip\\sourceskip\\hbox{{\\bf Volkslieder}, p.~6.}}",
-false, "", "", "greek");
+true, "wandrer.pdf", "wandrer1.eps;wandrer2.eps;", "greek", true);
 
 /* ** *************************************************** */
 
@@ -3771,7 +3771,7 @@ year, copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("We Open in Venice", "Cole Porter", "Porter, Cole", true, "Kiss Me, Kate", true, 
 1948, "Copyright {\\copyright} 1949", "{\\bf Kiss Me, Kate, Vocal Score}, p.~56.",
-false, "", "", "2021.09.15.");
+true, "weopnvnc.pdf", "weopnvnc1.eps;weopnvnc2.eps;", "2021.09.15.");
 
 /* ** *************************************************** */
 
