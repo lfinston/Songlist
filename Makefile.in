@@ -989,7 +989,7 @@ clean:
 	rm -f all_no_sep.dvi all_no_sep.ftc all_no_sep.log \
 	   all_no_sep.pdf all_no_sep.ps all_no_sep.ptc all_no_sep.toc all_sep.dvi \
 	   all_sep.log all_sep.pdf all_sep.ptc cmdlnopt.cxx cmdlnopt.hxx \
-	   cmdlnopt.o composers.tex dump.sql french.tex german.tex italian.tex \
+	   cmdlnopt.o composers.tex dump.sql french.tex german.tex greek.tex italian.tex \
 	   lyricists.tex newfilecards.tex pblcdomn.tex portugese.tex \
 	   productions.tex russian.tex scanned.tex songdefs.hxx songlist \
 	   songlist.cxx songlist.o songs_a_e.tex songs_f_l.tex songs_m_n.tex \
