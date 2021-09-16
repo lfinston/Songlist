@@ -2,10 +2,10 @@
 %% Created by Laurence D. Finston (LDF) Wed 15 Sep 2021 10:30:31 PM CEST
 
 \input eplain
-
 \input epsf
-
 \input colordvi
+\enablehyperlinks[dvipdfm]
+
 
 %% Uncomment for A4 portrait
 
@@ -27,9 +27,14 @@
 
 \def\epsfsize#1#2{#1}
 
-https://github.com/lfinston/Songlist/blob/main/lead_sheets/alcblgwn.pdf
-https://github.com/lfinston/Songlist/blob/main/lead_sheets/aprlshwr.pdf
+\begingroup
+\obeylines
+\href{https://github.com/lfinston/Songlist/blob/main/lead_sheets/alcblgwn.pdf}{\Blue{Alice Blue Gown}}
+\href{https://github.com/lfinston/Songlist/blob/main/lead_sheets/aprlshwr.pdf}{\Blue{April Showers}}
+\endgroup
 
+
+\bye
 
 
 alcblgwn.pdf
