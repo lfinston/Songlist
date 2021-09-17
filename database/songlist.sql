@@ -1116,7 +1116,6 @@ values
 
 /* ** *************************************************** */
 
-
 replace into Songs (title, words_and_music, words_and_music_reverse, language)
 values
 ("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "spanish");
