@@ -1708,6 +1708,15 @@ update Songs set eps_filenames = "imagin01.eps;imagin02.eps;" where title = "Ima
 
 /* ** *************************************************** */
 
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
+musical, year, sort_by_production, source, scanned, scanned_filename, eps_filenames)
+values
+("Impossible Dream, The", "The Quest", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
+true, "Man of La Mancha", 1965, true, "{\\bf Man of La Mancha, Vocal Selections}, p.~2.", 
+false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Duke Ellington", "Ellington, Duke", true);
@@ -4488,6 +4497,8 @@ replace into Composers_Songs (composer, title) values ("Leh{\\'a}r  Franz", "Lip
 
 replace into Composers_Songs (composer, title) values ("Leh{\\'a}r, Franz", "Da geh ich zu Maxim");
 
+replace into Composers_Songs (composer, title) values ("Leigh, Mitch", "Impossible Dream, The (The Quest)");
+
 replace into Composers_Songs (composer, title) values ("Leux, Leo", "Es leuchten die Sterne");
 
 replace into Composers_Songs (composer, title) values ("Livingston, Jay", "Tammy");
@@ -4866,6 +4877,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Coslow, Sam", "My Old Fl
 replace into Lyricists_Songs (lyricist, title) values ("Cour, Pierre", "Amour est bleu, L'");
 
 replace into Lyricists_Songs (lyricist, title) values ("Da Ponte, Lorenzo", "L{\\`a} ci darem la mano");
+
+replace into Lyricists_Songs (lyricist, title) values ("Darion, Joe", "Impossible Dream, The (The Quest)");
 
 replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "Close to You");
 
