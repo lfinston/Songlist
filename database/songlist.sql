@@ -1108,6 +1108,15 @@ true, 1, 1944, "german");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("From This Moment On", "Cole Porter", "Porter, Cole", true, 1950, s
+"{\\bf Best of Cole Porter, The}, p.~54.", false, "", "", "2021.09.17.");
+
+/* ** *************************************************** */
+
+
 replace into Songs (title, words_and_music, words_and_music_reverse, language)
 values
 ("Frenesi", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", "Dom{\\'\\i}nguez Borr{\\'a}s, Alberto", "spanish");
@@ -3641,6 +3650,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
+year, copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Tom, Dick or Harry", "Cole Porter", "Porter, Cole", true, "Kiss Me, Kate", true, 
+1948, "Copyright {\\copyright} 1949", {\\bf Kiss Me, Kate, Vocal Score}, p.~62.",
+false, "", "", "2021.09.17.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename, language)
 values
@@ -5765,6 +5783,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Begin th
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "Farming");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Farming");
 
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "From This Moment On");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "From This Moment On");
+
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "It's De-Lovely");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "It's De-Lovely");
 
@@ -5794,6 +5815,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Night an
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "So in Love");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "So in Love");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "Tom, Dick or Harry");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "Tom, Dick or Harry");
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "You're the Top");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're the Top");
