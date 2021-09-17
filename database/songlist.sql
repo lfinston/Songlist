@@ -1709,11 +1709,11 @@ update Songs set eps_filenames = "imagin01.eps;imagin02.eps;" where title = "Ima
 /* ** *************************************************** */
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
-musical, year, sort_by_production, source, scanned, scanned_filename, eps_filenames)
+musical, year, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("Impossible Dream, The", "The Quest", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
+("Impossible Dream, The", "(The Quest)", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
 true, "Man of La Mancha", 1965, true, "{\\bf Man of La Mancha, Vocal Selections}, p.~2.", 
-false, "", "");
+false, "", "", "2021.09.17.");
 
 /* ** *************************************************** */
 
