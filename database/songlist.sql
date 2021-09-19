@@ -912,6 +912,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, year, source,
+scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Easy to Love", "Cole Porter", "Porter, Cole", true, "Born to Dance",
+1936, "{\\bf Best of Cole Porter, The}, p.~41.", false, "", "", "2021.09.19.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
 values
 ("Embraceable You", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true);
@@ -1721,7 +1729,7 @@ musical, year, sort_by_production, source, scanned, scanned_filename, eps_filena
 values
 ("Impossible Dream, The", "(The Quest)", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
 true, "Man of La Mancha", 1965, true, "{\\bf Man of La Mancha, Vocal Selections}, p.~2.", 
-false, "", "", "2021.09.17.");
+true, "impsbdrm.pdf", "impsbdrm1.eps;impsbdrm2.eps;", "2021.09.17.");
 
 /* ** *************************************************** */
 
