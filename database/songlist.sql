@@ -916,7 +916,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Easy to Love", "Cole Porter", "Porter, Cole", true, "Born to Dance",
-1936, "{\\bf Best of Cole Porter, The}, p.~41.", false, "", "", "2021.09.19.");
+1936, "{\\bf Best of Cole Porter, The}, p.~41.", true, "easytolv.pdf", "easytolv1.eps;easytolv2.eps;", 
+"2021.09.19.");
 
 /* ** *************************************************** */
 
@@ -3661,8 +3662,9 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Tom, Dick or Harry", "Cole Porter", "Porter, Cole", true, "Kiss Me, Kate", true, 
-1948, "Copyright {\\copyright} 1949", {\\bf Kiss Me, Kate, Vocal Score}, p.~62.",
-false, "", "", "2021.09.17.");
+1948, "Copyright {\\copyright} 1949", "{\\bf Kiss Me, Kate, Vocal Score}, p.~62.",
+true, "tmdckhry.pdf", "tmdckhry1.eps;tmdckhry2.eps;tmdckhry3.eps;tmdckhry4.eps;",
+"2021.09.17.");
 
 /* ** *************************************************** */
 
