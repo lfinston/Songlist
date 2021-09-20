@@ -1120,7 +1120,7 @@ true, 1, 1944, "german");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("From This Moment On", "Cole Porter", "Porter, Cole", true, 1950, s
+("From This Moment On", "Cole Porter", "Porter, Cole", true, 1950, 
 "{\\bf Best of Cole Porter, The}, p.~54.", false, "", "", "2021.09.17.");
 
 /* ** *************************************************** */
@@ -2291,6 +2291,15 @@ values
 true, 1936, "Johnny Johnson", "{\\bf Kurt Weill, From Berlin to Broadway}, p.~48.",
 true, "listsong.pdf", true, "listsong1.eps;listsong2.eps;");
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+musical, year, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Little Bird, Little Bird", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
+true, "Man of La Mancha", 1965, true, "{\\bf Man of La Mancha, Vocal Selections}, p.~12.", 
+false, "", ";", "2021.09.20.");
 
 /* ** *************************************************** */
 
@@ -4526,6 +4535,8 @@ replace into Composers_Songs (composer, title) values ("Leh{\\'a}r, Franz", "Da 
 
 replace into Composers_Songs (composer, title) values ("Leigh, Mitch", "Impossible Dream, The (The Quest)");
 
+replace into Composers_Songs (composer, title) values ("Leigh, Mitch", "Little Bird, Little Bird");
+
 replace into Composers_Songs (composer, title) values ("Leux, Leo", "Es leuchten die Sterne");
 
 replace into Composers_Songs (composer, title) values ("Livingston, Jay", "Tammy");
@@ -4906,6 +4917,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Cour, Pierre", "Amour es
 replace into Lyricists_Songs (lyricist, title) values ("Da Ponte, Lorenzo", "L{\\`a} ci darem la mano");
 
 replace into Lyricists_Songs (lyricist, title) values ("Darion, Joe", "Impossible Dream, The (The Quest)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Darion, Joe", "Little Bird, Little Bird");
 
 replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "Close to You");
 
