@@ -1121,7 +1121,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("From This Moment On", "Cole Porter", "Porter, Cole", true, 1950, 
-"{\\bf Best of Cole Porter, The}, p.~54.", false, "", "", "2021.09.17.");
+"{\\bf Best of Cole Porter, The}, p.~54.", true, "frmthsmm.pdf", "frmthsmm1.eps;frmthsmm2.eps;", 
+"2021.09.17.");
 
 /* ** *************************************************** */
 
