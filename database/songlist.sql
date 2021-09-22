@@ -1538,10 +1538,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("If You Could Read My Mind", "Gordon Lightfoot", "Lightfoot, Gordon", false, 1969, "Single edition.",
-false, "", "");
+("If You Could Read My Mind", "Gordon Lightfoot", "Lightfoot, Gordon", true, 1969,
+"Single edition.", true, "ifycdrmm.pdf", "ifycdrmm1.eps;ifycdrmm2.eps;ifycdrmm3.eps;", "2021.09.22.");
 
 /* ** *************************************************** */
 
