@@ -3855,6 +3855,16 @@ values
 ("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf", true);
 
+
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+scanned, scanned_filename, eps_filenames, revue, entry_date)
+values
+("What Is This Thing Called Love?", "Cole Porter", "Porter, Cole", true, 1929,
+"{\\bf Best of Cole Porter, The}, p.~142.", false, "", "", "Wake Up and Dream", "2021.09.22.");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical,
@@ -5847,6 +5857,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "You're t
 
 replace into Composers_Songs (composer, title) values ("Porter, Cole", "We Open in Venice");
 replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "We Open in Venice");
+
+replace into Composers_Songs (composer, title) values ("Porter, Cole", "What Is This Thing Called Love?");
+replace into Lyricists_Songs (lyricist, title) values ("Porter, Cole", "What Is This Thing Called Love?");
 
 replace into Composers_Songs (composer, title) values ("Robin, Leo", "Miss Brown to You");
 replace into Lyricists_Songs (lyricist, title) values ("Robin, Leo", "Miss Brown to You");
