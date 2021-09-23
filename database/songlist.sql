@@ -2300,7 +2300,7 @@ musical, year, sort_by_production, source, scanned, scanned_filename, eps_filena
 values
 ("Little Bird, Little Bird", "Joe Darion", "Darion, Joe", "Mitch Leigh", "Leigh, Mitch", 
 true, "Man of La Mancha", 1965, true, "{\\bf Man of La Mancha, Vocal Selections}, p.~12.", 
-false, "", ";", "2021.09.20.");
+true, "lttlbird.pdf", "lttlbird1.eps;lttlbird2.eps;", "2021.09.20.");
 
 /* ** *************************************************** */
 
@@ -3836,8 +3836,6 @@ values
 ("We've Only Just Begun", "Paul Williams", "Williams, Paul", "Roger Nichols", "Nichols, Roger", true,
 1970, "{\\bf Carpenters, Greatest Hits}, p.~5.", true, "weveonly.pdf", "weveonly.eps;");
 
-
-
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
@@ -3855,15 +3853,14 @@ values
 ("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf", true);
 
-
-
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
 scanned, scanned_filename, eps_filenames, revue, entry_date)
 values
 ("What Is This Thing Called Love?", "Cole Porter", "Porter, Cole", true, 1929,
-"{\\bf Best of Cole Porter, The}, p.~142.", false, "", "", "Wake Up and Dream", "2021.09.22.");
+"{\\bf Best of Cole Porter, The}, p.~142.", true, "whatlove.pdf", "whatlove1.eps;whatlove2.eps;",
+"Wake Up and Dream", "2021.09.22.");
 
 /* ** *************************************************** */
 
