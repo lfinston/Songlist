@@ -1247,6 +1247,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, 
+year, source, film, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Have Yourself a Merry Little Christmas", "Hugh Martin and Ralph Blane", "Martin, Hugh and Blane, Ralph", 
+true, 1943, "Single edition", "Meet Me in St.~Louis", false, "", "", "2021.09.24.");
+
+/* ** *************************************************** */
+
 -- 
 
 -- delete from Songs where title = "Heart";
@@ -1254,8 +1262,9 @@ values
 replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
 scanned, scanned_filename, eps_filenames, source, sort_by_production)
 values
-("Heart", "(You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
-true, "heart.pdf", "heart1.eps;heart2.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~2.", true);
+("Heart", "(You've Gotta Have Heart)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true,
+1955, "Damn Yankees", true, "heart.pdf", "heart1.eps;heart2.eps;",
+"{\\bf Damn Yankees, Vocal Selections}, p.~2.", true);
 
 select eps_filenames from Songs where title = "Heart";
 
@@ -1266,7 +1275,8 @@ year, copyright, source, scanned, scanned_filename)
 values
 ("Heart and Soul", "Frank Loesser", "Loesser, Frank", 
 "Hoagy Carmichael", "Carmichael, Hoagy", true, 1938, 
-"\\vbox{\\hbox{Copyright {\\copyright} 1938 (Renewed 1965)}\\vskip\\copyrightskip\\hbox{by Famous Music Corporation.}}",
+"\\vbox{\\hbox{Copyright {\\copyright} 1938 (Renewed 1965)}"
+"\\vskip\\copyrightskip\\hbox{by Famous Music Corporation.}}",
 "{\\bf The Hoagy Carmichael Songbook}, p.~28.", true, "hrtnsoul.pdf");
 
 update Songs set eps_filenames = "hrtsoul1.eps;hrtsoul2.eps;" where title = "Heart and Soul";
@@ -5764,7 +5774,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gust
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Irdische Leben, Das");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Lob des hohen Verstandes");
 replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Rheinlegendchen");
-replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", "Wer hat das Liedlein erdacht?");
+replace into Lyricists_Songs (lyricist, title) values ("Anonymous;  Mahler, Gustav", 
+                                                       "Wer hat das Liedlein erdacht?");
+
+replace into Composers_Songs (composer, title) values ("Martin, Hugh", "Have Yourself a Merry Little Christmas");
+replace into Lyricists_Songs (lyricist, title) values ("Martin, Hugh", "Have Yourself a Merry Little Christmas");
+replace into Composers_Songs (composer, title) values ("Blane, Ralph", "Have Yourself a Merry Little Christmas");
+replace into Lyricists_Songs (lyricist, title) values ("Blane, Ralph", "Have Yourself a Merry Little Christmas");
 
 replace into Composers_Songs (composer, title) values ("Morgan, Russ", "You're Nobody 'Til Somebody Loves You");
 replace into Composers_Songs (composer, title) values ("Stock, Larry", "You're Nobody 'Til Somebody Loves You");
