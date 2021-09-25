@@ -1251,7 +1251,8 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, source, film, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Have Yourself a Merry Little Christmas", "Hugh Martin and Ralph Blane", "Martin, Hugh and Blane, Ralph", 
-true, 1943, "Single edition", "Meet Me in St.~Louis", false, "", "", "2021.09.24.");
+true, 1943, "Single edition", "Meet Me in St.~Louis", true, "hvyrslfm.pdf", "hvyrslfm1.eps;hvyrslfm1.eps;", 
+"2021.09.24.");
 
 /* ** *************************************************** */
 
@@ -1531,6 +1532,18 @@ values
 true, "iwndrwho.pdf", true);
 
 update Songs set eps_filenames = "iwonder01.eps;iwonder02.eps;" where title = "I Wonder Who's Kissing Her Now";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+musical, sort_by_production, year, copyright, source, scanned, scanned_filename,
+eps_filenames, entry_date)
+values
+("I'd Do Anything", "Lionel Bart", "Bart, Lionel", true,
+"Oliver!", true, 1959, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
+"\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~58.", false, "", "", "2021.09.25.");
 
 /* ** *************************************************** */
 
@@ -5519,9 +5532,6 @@ replace	into Composers_Songs (composer, title) values ("Ross, Jerry", "Hey There
 replace into Lyricists_Songs (lyricist, title) values ("Adler, Richard", "Hey There");
 replace into Lyricists_Songs (lyricist, title) values ("Ross, Jerry", "Hey There");
 
-
-
-
 replace into Composers_Songs (composer, title) values ("Ballard, Pat", "Mister Sandman");
 replace into Lyricists_Songs (lyricist, title) values ("Ballard, Pat", "Mister Sandman");
 
@@ -5530,6 +5540,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Consider
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Food, Glorious Food");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Food, Glorious Food");
+
+replace into Composers_Songs (composer, title) values ("Bart, Lionel", "I'd Do Anything");
+replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "I'd Do Anything");
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Who Will Buy?");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Who Will Buy?");
