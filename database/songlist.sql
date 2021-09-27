@@ -1543,7 +1543,8 @@ values
 "Oliver!", true, 1959, 
 "\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
 "\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
-"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~58.", false, "", "", "2021.09.25.");
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~58.",
+true, "iddnthng.pdf", "iddnthng1.eps;iddnthng2.eps;iddnthng3.eps;", "2021.09.25.");
 
 /* ** *************************************************** */
 
@@ -3942,6 +3943,17 @@ values
 "Carl Sigman", "Sigman, Carl", "Francis Lai", "Lai, Francis",
 true, 1970, "Single edition.");
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+musical, sort_by_production, year, copyright, source, scanned, scanned_filename, eps_filenames, 
+entry_date)
+values
+("Where is Love?", "Lionel Bart", "Bart, Lionel", true,
+"Oliver!", true, 1959, 
+"\\vtop{\\hbox{Copyright {\\copyright} 1959 by}"
+"\\vskip\\copyrightskip\\hbox{Lakeview Music Publishing Company Limited.}}",
+"{\\bf Lionel Bart's Oliver, Vocal Selections}, p.~25.",
+true, "whrislve.pdf", "whrislve1.eps;whrislve2.eps;", "2021.09.27.");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
@@ -5543,6 +5555,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Food, Gl
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "I'd Do Anything");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "I'd Do Anything");
+
+replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Where is Love?");
+replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Where is Love?");
 
 replace into Composers_Songs (composer, title) values ("Bart, Lionel", "Who Will Buy?");
 replace into Lyricists_Songs (lyricist, title) values ("Bart, Lionel", "Who Will Buy?");
