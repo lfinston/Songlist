@@ -274,12 +274,14 @@ true, "alcblgwn.pdf", "alcblgwn1.eps;alcblgwn2.eps;", true);
 
 /* ** *************************************************** */
 
-("All God's Children", /* '  */
-"Gus Kahn", "Kahn, Gus",
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+recordings, arrangement_solo_guitar, scanned, scanned_filename, eps_filenames,
+film, year)
+values
+("All God's Children", "Gus Kahn", "Kahn, Gus", 
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
-true, 1, true, "Day at the Races, A", 1937, true, "allgdsch.pdf");
-
-update Songs set eps_filenames = "allgdsch1.eps;allgdsch2.eps;allgdsch3.eps;" where title = "All God's Children";
+true, 1, 1, true, "allgdsch.pdf", "allgdsch1.eps;allgdsch2.eps;allgdsch3.eps;", "Day at the Races, A", 
+1937);
 
 /* ** *************************************************** */
 
@@ -2531,6 +2533,16 @@ update Songs set eps_filenames = "masque01.eps;masque02.eps;" where title = "Mas
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+year, source, film, scanned, scanned_filename, eps_filenames, language)
+values
+("Mein Gorilla hat 'ne Villa im Zoo", "Peter Kuckuck", "Kuckuck, Peter",
+"Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
+true, 1933, "{\\bf Walter Jurmann.  Alle Welt singt seine Lieder}, p.~43",
+"Heut kommt's drauf an", false, "", "", "german");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, partial_lead_sheet, operetta, year, language)
 values
 ("Mein Herr Marquis", "Karl Haffner, Richard Gen{\\'e}e", "Haffner, Karl und Gen{\\'e}e, Richard", 
@@ -4513,6 +4525,9 @@ replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "Cosi 
 
 replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Cosi Cosa");
 
+replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "Mein Gorilla hat 'ne Villa im Zoo");
+replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Mein Gorilla hat 'ne Villa im Zoo");
+
 replace into Composers_Songs (composer, title) values ("Jurmann, Walter", "Message From the Man in the Moon, A");
 
 replace into Composers_Songs (composer, title) values ("Kaper, Bronislaw", "Message From the Man in the Moon, A");
@@ -5238,6 +5253,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Moll, Billy", "Wrap Your
 replace into Lyricists_Songs (lyricist, title) values ("Koehler, Ted", "I'm Shooting High");
 
 replace into Lyricists_Songs (lyricist, title) values ("Wilmott, Charles", "I'm Shooting High");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kuckuck, Peter", "Mein Gorilla hat 'ne Villa im Zoo");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kurtz, Manny", "In a Sentimental Mood");
 
