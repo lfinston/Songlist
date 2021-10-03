@@ -2534,12 +2534,16 @@ update Songs set eps_filenames = "masque01.eps;masque02.eps;" where title = "Mas
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, film, scanned, scanned_filename, eps_filenames, language)
+year, source, film, scanned, scanned_filename, eps_filenames, language, entry_date)
 values
 ("Mein Gorilla hat 'ne Villa im Zoo", "Peter Kuckuck", "Kuckuck, Peter",
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
-true, 1933, "{\\bf Walter Jurmann.  Alle Welt singt seine Lieder}, p.~43",
-"Heut kommt's drauf an", false, "", "", "german");
+true, 1933, 
+"\\vbox{\\hbox{{\\bf Walter Jurmann.}}\\vskip\\sourceskip\\hbox{{\\bf Alle Welt singt seine Lieder}, p.~43.}}",
+"Heut kommt's drauf an", false, "", "", "german", "2021.10.03.");
+
+-- "meingrll.pdf"
+-- "meinngrll1.eps;meinngrll2.eps;"
 
 /* ** *************************************************** */
 
