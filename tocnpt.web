@@ -583,7 +583,7 @@ process_tocs_and_npt(void)
        temp_str = curr_song.entry_date;
 
        curr_song.entry_year  = atoi(temp_str.substr(0, 4).c_str());
-       curr_song.entry_month = atoi(temp_str.substr(6, 2).c_str());
+       curr_song.entry_month = atoi(temp_str.substr(5, 2).c_str());
        curr_song.entry_day   = atoi(temp_str.substr(8, 2).c_str());
 
 #if 0 /* 1  */
@@ -2082,7 +2082,7 @@ process_tocs_and_npt(void)
        {
           if (DEBUG)
           { 
-              cerr << iter->title << " is newer than 2020" << endl // "the filecard cut-off date." << endl
+              cerr << iter->title << " is newer than the filecard cut-off date." << endl
                    << "Will make new filecard." << endl;
           }
 
