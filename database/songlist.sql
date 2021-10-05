@@ -2540,10 +2540,7 @@ values
 "Walter Jurmann and Bronislaw Kaper", "Jurmann, Walter and Kaper, Bronislaw",
 true, 1933, 
 "\\vbox{\\hbox{{\\bf Walter Jurmann.}}\\vskip\\sourceskip\\hbox{{\\bf Alle Welt singt seine Lieder}, p.~43.}}",
-"Heut kommt's drauf an", false, "", "", "german", "2021.10.03.");
-
--- "meingrll.pdf"
--- "meinngrll1.eps;meinngrll2.eps;"
+"Heut kommt's drauf an", true, "meingrll.pdf", "meingrll1.eps;meingrll2.eps;", "german", "2021.10.03.");
 
 /* ** *************************************************** */
 
