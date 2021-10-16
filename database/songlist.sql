@@ -3133,6 +3133,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("Remember Me", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1937, 
+"Single edition", true, "remmbrme.pdf", "remmbrme1.eps;remmbrme2.eps;");
+
+/* ** *************************************************** */
+
 delete from Songs where title like("Rock-a-Bye%");
 
 replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -4803,6 +4811,8 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lullaby
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Lulu's Back in Town");
 
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "Remember Me");
+
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Shuffle Off to Buffalo");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "September in the Rain");
@@ -5009,11 +5019,13 @@ replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lullaby of 
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Lulu's Back in Town");
 
-replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Tiptoe Through the Tulips With Me");
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Remember Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "September in the Rain");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Shuffle Off to Buffalo");
+
+replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Tiptoe Through the Tulips With Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dubin, Al", "Young and Healthy");
 
