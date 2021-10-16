@@ -3134,10 +3134,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Remember Me", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1937, 
-"Single edition", true, "remmbrme.pdf", "remmbrme1.eps;remmbrme2.eps;");
+"Single edition", true, "remmbrme.pdf", "remmbrme1.eps;remmbrme2.eps;", "2021.10.16.");
 
 /* ** *************************************************** */
 
