@@ -2448,11 +2448,12 @@ update Songs set eps_filenames = "lullbrd1.eps;lullbrd2.eps;" where title = "Lul
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
-copyright, source, scanned, scanned_filename, eps_filenames)
+copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Lydia, the Tattooed Lady", "E.Y.~Harburg", "Harburg, E.Y.", "Harold Arlen", "Arlen, Harold", 
 true, "At the Circus", 1939, "Copyright {\\copyright} 1939 (Renewed)",
-"Single edition", true, "lydia.pdf", "lydia1.eps;lydia2.eps;lydia3.eps;lydia4.eps;");
+"Single edition", true, "lydia.pdf", "lydia1.eps;lydia2.eps;lydia3.eps;lydia4.eps;", 
+"2021.10.18.");
 
 
 /* ** *************************************************** */
