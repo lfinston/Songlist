@@ -2447,6 +2447,16 @@ update Songs set eps_filenames = "lullbrd1.eps;lullbrd2.eps;" where title = "Lul
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
+copyright, source, scanned, scanned_filename, eps_filenames)
+values
+("Lydia, the Tattooed Lady", "E.Y.~Harburg", "Harburg, E.Y.", "Harold Arlen", "Arlen, Harold", 
+true, "At the Circus", 1939, "Copyright {\\copyright} 1939 (Renewed)",
+"Single edition", true, "lydia.pdf", "lydia1.eps;lydia2.eps;lydia3.eps;lydia4.eps;");
+
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
 values
 ("Lulu's Back in Town", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1);
@@ -4260,9 +4270,11 @@ replace into Composers_Songs (composer, title) values ("Schwandt, Wilbur", "Drea
 
 replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Between the Devil and the Deep Blue Sea");
 
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "I've Got the World on a String");
+
 replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Let's Fall in Love");
 
-replace into Composers_Songs (composer, title) values ("Arlen, Harold", "I've Got the World on a String");
+replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Lydia, the Tattooed Lady");
 
 replace into Composers_Songs (composer, title) values ("Arlen, Harold", "Over the Rainbow");
 
@@ -5136,6 +5148,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Harbach, Otto", "Smoke G
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "April in Paris");
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "I Like the Likes of You");
+
+replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Lydia, the Tattooed Lady");
 
 replace into Lyricists_Songs (lyricist, title) values ("Harburg, E.Y.", "Over the Rainbow");
 
