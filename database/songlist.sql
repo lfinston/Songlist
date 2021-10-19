@@ -985,6 +985,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, 
+scanned_filename, public_domain, eps_filenames, entry_date)
+values
+("Feeling the Way I Do", "Bud de Sylva", "Sylva, Bud de", "Walter Donaldson", "Donaldson, Walter", 
+true, 1923, true, "flwayido.pdf", true, "flwayido1.eps;flwayido2.eps;flwayido3.eps;", "2021.10.19.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
 source, scanned, scanned_filename, film, language, sort_by_production)
 values
@@ -4379,6 +4387,8 @@ replace into Composers_Songs (composer, title) values ("DeRose, Peter", "Deep Pu
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Carolina in the Morning");
 
+replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Feeling the Way I Do");
+
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Little White Lies");
 
 replace into Composers_Songs (composer, title) values ("Donaldson, Walter", "Love Me or Leave Me");
@@ -5012,7 +5022,9 @@ replace into Lyricists_Songs (lyricist, title) values ("David, Hal", "I Say a Li
 
 replace into Lyricists_Songs (lyricist, title) values ("Davis, Benny", "Baby Face");
 
-replace into Lyricists_Songs (lyricist, title) values ("De Sylva, Buddy G.", "April Showers");
+replace into Lyricists_Songs (lyricist, title) values ("Sylva, Buddy G.~de", "April Showers");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sylva, Bud De", "Feeling the Way I Do");
 
 replace into Lyricists_Songs (lyricist, title) values ("Dehmel, Willy", "Ja und Nein");
 
