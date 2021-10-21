@@ -2904,6 +2904,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, operetta,
+sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("On a Tree By a Willow", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "treewllw.pdf", "", "2021.10.21.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year,
 source, scanned, scanned_filename)
 values
@@ -4831,6 +4839,8 @@ replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's O
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We Did Last Summer, The");
 
+replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "On a Tree By a Willow");
+
 replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "Sun Whose Rays, The");
 
 replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "Three Little Maids from School");
@@ -5161,6 +5171,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Th
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Can't Take That Away From Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "On a Tree By a Willow");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Sun Whose Rays, The");
 
