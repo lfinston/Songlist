@@ -3537,9 +3537,18 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, operetta,
+sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Sun Whose Rays, The", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "snwsrays.pdf", "", "2021.10.21.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
 ("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", true, 1973, "Single edition.");
+
 
 /* ** *************************************************** */
 
@@ -4807,6 +4816,8 @@ replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's O
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We Did Last Summer, The");
 
+replace into Composers_Songs (composer, title) values ("Sullivan, Arthur","Sun Whose Rays, The");
+
 replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
 
 replace into Composers_Songs (composer, title) values ("Tierney, Harry", "Alice Blue Gown");
@@ -5131,6 +5142,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Th
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Can't Take That Away From Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Sun Whose Rays, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gillespie, Haven", "You Go to My Head");
 
