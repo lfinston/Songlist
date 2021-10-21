@@ -2480,7 +2480,7 @@ values
 ("Mad About the Boy", "No@{e}l Coward", "Coward, No@{e}l",  true, 1932, 
 "{\\copyright} 1932, 1935 (Renewed).",
 "{\\bf Sir No@{e}l Coward, His Words and Music}, p.~50.", true, "mdabttby.pdf",
-"", "Words and Music", "2021.10.21.");
+"mdabttby1.eps;mdabttby2.eps;", "Words and Music", "2021.10.21.");
 
 /* ** *************************************************** */
 
