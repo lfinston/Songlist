@@ -3549,7 +3549,6 @@ replace into Songs (title, words_and_music, words_and_music_reverse, no_page_tur
 values
 ("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", true, 1973, "Single edition.");
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
@@ -3721,6 +3720,14 @@ true, "thouswll.pdf");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, operetta,
+sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Three Little Maids from School", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "thrmaids.pdf", "", "2021.10.21.");
+
+/* ** *************************************************** */
+
 delete from Songs where title like("Ti Guarder%");
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -3858,6 +3865,14 @@ select "!!! End V";
 /*  W  */
 
 select "!!! W";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, operetta,
+sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Wand'ring Minstrel I, A", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "wndrmnst.pdf", "", "2021.10.21.");
 
 /* ** *************************************************** */
 
@@ -4816,7 +4831,11 @@ replace into Composers_Songs (composer, title) values ("Styne, Jule", "Party's O
 
 replace into Composers_Songs (composer, title) values ("Styne, Jule", "Things We Did Last Summer, The");
 
-replace into Composers_Songs (composer, title) values ("Sullivan, Arthur","Sun Whose Rays, The");
+replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "Sun Whose Rays, The");
+
+replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "Three Little Maids from School");
+
+replace into Composers_Songs (composer, title) values ("Sullivan, Arthur", "Wand'ring Minstrel I, A");
 
 replace into Composers_Songs (composer, title) values ("Swift, Kay", "Fine and Dandy");
 
@@ -5144,6 +5163,10 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Ca
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Sun Whose Rays, The");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Three Little Maids from School");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Wand'ring Minstrel I, A");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gillespie, Haven", "You Go to My Head");
 
