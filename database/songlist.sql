@@ -2474,6 +2474,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source,
+scanned, scanned_filename, eps_filenames, revue, entry_date)
+values
+("Mad About the Boy", "No@{e}l Coward", "Coward, No@{e}l",  true, 1932, 
+"{\\copyright} 1932, 1935 (Renewed).",
+"{\\bf Sir No@{e}l Coward, His Words and Music}, p.~50.", true, "mdabttby.pdf",
+"", "Words and Music", "2021.10.21.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
 language, scanned, scanned_filename, eps_filenames)
 values
@@ -5688,6 +5698,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "If Lo
 
 replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "I'll See You Again");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "I'll See You Again");
+
+replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "Mad About the Boy");
+replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "Mad About the Boy");
 
 replace into Composers_Songs (composer, title) values ("Coward, No@{e}l", "Parisian Pierrot");
 replace into Lyricists_Songs (lyricist, title) values ("Coward, No@{e}l", "Parisian Pierrot");
