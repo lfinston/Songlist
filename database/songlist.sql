@@ -6088,11 +6088,6 @@ replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand 
 replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
 replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
 
-
-
-
-
-
 /* * (1)  Composers and Lyricists */
 
 -- !!! START HERE:  The following code contains errors.  It hasn't (all) been evaluated.
