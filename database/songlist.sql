@@ -2039,10 +2039,12 @@ update Songs set eps_filenames = "justtim1.eps;justtim2.eps;" where title = "Jus
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
+musical, scanned, scanned_filename, eps_filenames)
 values
-("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", false, 1946,
-"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~32.}}");
+("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", true, 1946,
+"\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~32.}}",
+"Sweet Bye and Bye", true, "jstlkman.pdf", "");
 
 /* ** *************************************************** */
 
