@@ -476,7 +476,7 @@ true, "french");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, year, musical,
 sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Baubles, Bangles and Beads", "Robert Wright and George Forrest", "Wright, Robert and Forrest, George",
