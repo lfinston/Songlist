@@ -479,7 +479,9 @@ true, "french");
 replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, year, musical,
 sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("Baubles, Bangles and Beads", "Robert Wright and George Forrest", "Wright, Robert and Forrest, George",
+("Baubles, Bangles and Beads",
+"\\vtop{\\hbox{Robert Wright and}\\vskip\\composerskip\\hbox{George Forrest}}",
+"Wright, Robert and Forrest, George",
 true, 1953, "Kismet", true,
 "{\\bf Kismet, Vocal Selections}, p.~13.", true, "bblsbngl.pdf", "", "2021.10.23.");
 
@@ -526,7 +528,8 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
 lead_sheet, sort_by_production, year)
 values
-("Bill", "\\vtop{\\hbox{P.G.~Wodehouse and}\\vskip\\composerskip\\hbox{Oscar Hammerstein II}}", "Wodehouse, P.G. and Hammerstein, Oscar II", 
+("Bill", "\\vtop{\\hbox{P.G.~Wodehouse and}\\vskip\\composerskip\\hbox{Oscar Hammerstein II}}",
+"Wodehouse, P.G. and Hammerstein, Oscar II", 
 "Jerome Kern", "Kern, Jerome", "Showboat", true, true, 1927);
 
 /* ** *************************************************** */
