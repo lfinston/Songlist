@@ -476,6 +476,15 @@ true, "french");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, musical,
+sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Baubles, Bangles and Beads", "Robert Wright and George Forrest", "Wright, Robert and Forrest, George",
+true, 1953, "Kismet", true,
+"{\\bf Kismet, Vocal Selections}, p.~13.", true, "bblsbngl.pdf", "", "2021.10.23.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, source)
 values
 ("Begin the Beguine", "Cole Porter", "Porter, Cole", true, 1935, 
@@ -2040,11 +2049,11 @@ update Songs set eps_filenames = "justtim1.eps;justtim2.eps;" where title = "Jus
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
-musical, scanned, scanned_filename, eps_filenames)
+musical, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", true, 1946,
 "\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~32.}}",
-"Sweet Bye and Bye", true, "jstlkman.pdf", "");
+"Sweet Bye and Bye", true, "jstlkman.pdf", "", "2021.10.23.");
 
 /* ** *************************************************** */
 
@@ -6055,12 +6064,6 @@ replace into Lyricists_Songs (lyricist, title) values ("Morris, Lee", "Blue Velv
 replace into Composers_Songs (composer, title) values ("Williams, Hank", "Hey, Good Lookin'");
 replace into Lyricists_Songs (lyricist, title) values ("Williams, Hank", "Hey, Good Lookin'");
 
-replace into Composers_Songs (composer, title) values ("Wynette, Tammy", "Stand By Your Man");
-replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand By Your Man");
-
-replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
-replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
-
 replace into Composers_Songs (composer, title) values ("Weiss, George David", "What a Wonderful World");
 replace into Lyricists_Songs (lyricist, title) values ("Weiss, George David", "What a Wonderful World");
 replace into Composers_Songs (composer, title) values ("Thiele, Bob", "What a Wonderful World");
@@ -6070,6 +6073,23 @@ replace into Composers_Songs (composer, title) values ("Williams, Cootie", "'Rou
 replace into Lyricists_Songs (lyricist, title) values ("Williams, Cootie", "'Round Midnight");
 replace into Composers_Songs (composer, title) values ("Monk, Thelonius", "'Round Midnight");
 replace into Lyricists_Songs (lyricist, title) values ("Monk, Thelonius", "'Round Midnight");
+
+replace into Composers_Songs (composer, title) values ("Wright, Robert", "Baubles, Bangles and Beads");
+
+replace into Lyricists_Songs (lyricist, title) values ("Wright, Robert","Baubles, Bangles and Beads");
+
+replace into Composers_Songs (composer, title) values ("Forrest, George","Baubles, Bangles and Beads");
+
+replace into Lyricists_Songs (lyricist, title) values ("Forrest, George","Baubles, Bangles and Beads");
+
+replace into Composers_Songs (composer, title) values ("Wynette, Tammy", "Stand By Your Man");
+replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand By Your Man");
+
+replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
+replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
+
+
+
 
 
 
