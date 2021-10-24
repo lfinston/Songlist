@@ -1497,11 +1497,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production, source)
+opera, sort_by_production, source, entry_date)
 values
 ("I Got Plenty o' Nuttin'", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
 "George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
-"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~17.}}");
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~17.}}",
+"2021.10.24.");
 
 /* ** *************************************************** */
 
@@ -4135,11 +4136,12 @@ update Songs set eps_filenames =  where title = "Woman in Love, A";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production, source)
+opera, sort_by_production, source, entry_date)
 values
 ("Woman is a Sometime Thing, A", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
 "George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
-"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~48.}}");
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~48.}}",
+"2021.10.24.");
 
 /* ** *************************************************** */
 
