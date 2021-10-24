@@ -4134,6 +4134,15 @@ update Songs set eps_filenames =  where title = "Woman in Love, A";
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+opera, sort_by_production, source)
+values
+("Woman is a Sometime Thing, A", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
+"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~48.}}");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, musical, sort_by_production, year)
 values
 ("Wouldn't It Be Loverly?", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, 
@@ -4526,6 +4535,8 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "Some
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "They Can't Take That Away From Me");
+
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "Woman is a Sometime Thing, A");
 
 replace into Composers_Songs (composer, title) values ("Gifford, H.~Eugene", "Smoke Rings");
 
@@ -5184,6 +5195,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Th
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Can't Take That Away From Me");
 
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Woman is a Sometime Thing, A");
+
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "Liza (All the Clouds'll Roll Away)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "On a Tree By a Willow");
@@ -5275,6 +5288,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Heyman, Edward", "When I
 -- delete from Lyricists_Songs where title = "I Wonder Who's Kissing Her Now";
 
 replace into Lyricists_Songs (lyricist, title) values ("Heyward, DuBose", "I Got Plenty o' Nuttin'"); 
+
+replace into Lyricists_Songs (lyricist, title) values ("Heyward, DuBose", "Woman is a Sometime Thing, A");
 
 -- select * from Lyricists_Songs where lyricist = "Heyward, DuBose";
 
