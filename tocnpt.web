@@ -2824,7 +2824,7 @@ process_tocs_and_npt(void)
 
               toc_ls_file << endl;
 
-              if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
+              if (   (iter->title == "42nd Street" && iter->production_subtitle == "(Film)")
                   || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                   || temp_char <= 'h')
               {
@@ -3025,7 +3025,7 @@ process_tocs_and_npt(void)
 
                    toc_ls_file << "}" << endl;
 
-                   if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)") 
+                   if (   (iter->title == "42nd Street" && iter->production_subtitle == "(Film)") 
                        || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                        || temp_char <= 'h')
                    {
@@ -3081,7 +3081,7 @@ process_tocs_and_npt(void)
 
             toc_ls_file << "}" << endl;
 
-            if ((iter->title == "42nd Street" && iter->subtitle == "(Film)")
+            if ((iter->title == "42nd Street" && iter->production_subtitle == "(Film)")
                 || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
                 || temp_char <= 'h')
               toc_ls_a_h_file << "}" << endl;
@@ -3258,7 +3258,7 @@ process_tocs_and_npt(void)
 
 /* **** (4) */
 
-         if (   (iter->title == "42nd Street" && iter->subtitle == "(Film)")
+         if (   (iter->title == "42nd Street" && iter->production_subtitle == "(Film)")
              || iter->title == "14 Lieder aus Des Knaben Wunderhorn" 
              || temp_char <= 'h')
          {
