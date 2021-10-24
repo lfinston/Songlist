@@ -2057,7 +2057,7 @@ musical, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Just Like a Man", "Ogden Nash", "Nash, Ogden", "Vernon Duke", "Duke, Vernon", true, 1946,
 "\\vbox{\\hbox{{\\bf Vernon Duke Songbook,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~32.}}",
-"Sweet Bye and Bye", true, "jstlkman.pdf", "", "2021.10.23.");
+"Sweet Bye and Bye", true, "jstlkman.pdf", "jstlkman1.eps;jstlkman2.eps;", "2021.10.23.");
 
 /* ** *************************************************** */
 
