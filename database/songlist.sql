@@ -4100,6 +4100,16 @@ values
 "{\\bf Michel Legrand Songbook, The}, p.~175.", true, "windmlls.pdf", "windmlls1.eps;windmlls2.eps;",
 "2021.09.12.");
 
+/* ** *************************************************** */
+ 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Winter Wonderland", "Richard B.~Smith", "Smith, Richard B.",
+"Felix Bernard", "Bernard, Felix", true, 1934,
+"{\\bf 100 Years of Popular Music, 1930s, Part Two}, p.~354.", true, "wntrwnld.pdf",
+"wntrwnld1.eps;wntrwnld2.eps;", "2021.10.29.");
+
 /* ** (2) *************************************************** */
 
 /* Winterreise, Die.  Franz Schubert and Wilhelm Müller.
@@ -4136,12 +4146,12 @@ update Songs set eps_filenames =  where title = "Woman in Love, A";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production, source, entry_date)
+opera, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Woman is a Sometime Thing, A", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
-"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+"George Gershwin", "Gershwin, George", true, 1935, "Porgy and Bess", true,
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~48.}}",
-"2021.10.24.");
+true, "womnsmtm.pdf", "womnsmtm1.eps;womnsmtm2.eps;", "2021.10.24.");
 
 /* ** *************************************************** */
 
@@ -4367,6 +4377,8 @@ replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Do Yo
 replace into Composers_Songs (composer, title) values ("Bacharach, Burt", "Close to You");
 
 replace into Composers_Songs (composer, title) values ("Barris, Harry", "Wrap Your Troubles in Dreams");
+
+replace into Composers_Songs (composer, title) values ("Bernard, Felix", "Winter Wonderland");
 
 replace into Composers_Songs (composer, title) values ("Bernstein, Leonard", "Cool");
 
@@ -5604,6 +5616,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Sissle, Noble", "I'm Jus
 replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Spanish Eyes (Moon Over Naples)");
 
 replace into Lyricists_Songs (lyricist, title) values ("Singleton, Charles", "Strangers in the Night");
+
+replace into Lyricists_Songs (lyricist, title) values ("Smith, Richard B.", "Winter Wonderland");
 
 replace into Lyricists_Songs (lyricist, title) values ("Snyder, Eddie", "Strangers in the Night");
 
