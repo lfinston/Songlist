@@ -4053,6 +4053,18 @@ true, "whrislve.pdf", "whrislve1.eps;whrislve2.eps;", "2021.09.27.");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, 
+year, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("White Christmas", "Irving Berlin", "Berlin, Irving", false, "Holiday Inn", 
+1942,
+"\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~112.}}",
+false, "", "", "2021.10.30.");
+
+-- whtchrst.pdf
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 musical, sort_by_production, year, copyright, source, scanned, scanned_filename)
 values
@@ -4107,8 +4119,8 @@ year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Winter Wonderland", "Richard B.~Smith", "Smith, Richard B.",
 "Felix Bernard", "Bernard, Felix", true, 1934,
-"{\\bf 100 Years of Popular Music, 1930s, Part Two}, p.~354.", true, "wntrwnld.pdf",
-"wntrwnld1.eps;wntrwnld2.eps;", "2021.10.29.");
+"\\vtop{\\hbox{\\bf 100 Years of Popular Music, 1930s,}\\vskip\\sourceskip\\hbox{{\\bf Part Two}, p.~354.}}",
+true, "wntrwnld.pdf", "wntrwnld1.eps;wntrwnld2.eps;", "2021.10.29.");
 
 /* ** (2) *************************************************** */
 
@@ -5766,6 +5778,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "They S
 
 replace into Composers_Songs (composer, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
 replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "Top Hat, White Tie and Tails");
+
+replace into Composers_Songs (composer, title) values ("Berlin, Irving", "White Christmas");
+replace into Lyricists_Songs (lyricist, title) values ("Berlin, Irving", "White Christmas");
 
 replace into Composers_Songs (composer, title) values ("Borodin, Alexander", "Polowetzer T@{a}nze (``Stranger in Paradise'')");
 replace into Lyricists_Songs (lyricist, title) values ("Borodin, Alexander", "Polowetzer T@{a}nze (``Stranger in Paradise'')");
