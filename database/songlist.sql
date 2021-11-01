@@ -3751,6 +3751,16 @@ true, 1885, "Mikado, The", true, true, "IMSLP", true, "thrmaids.pdf", "", "2021.
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Three Little Words", "Bert Kalmar", "Kalmar, Bert", "Harry Ruby", "Ruby, Harry",
+true, 1930,
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1930s, Volume 1}, p.~284.}}", 
+true, "thrltlwd.pdf", "thrltlwd1.eps;thrltlwd2.eps;", "2021.11.01.");
+
+/* ** *************************************************** */
+
 delete from Songs where title like("Ti Guarder%");
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, 
@@ -4858,6 +4868,8 @@ replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Soft
 
 replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Nevertheless (I'm In Love With You)");
 
+replace into Composers_Songs (composer, title) values ("Ruby, Harry", "Three Little Words");
+
 replace into Composers_Songs (composer, title) values ("Schertzinger, Victor", "Tangerine");
 
 replace into Composers_Songs (composer, title) values ("Schubert, Franz", "Gute Nacht");
@@ -5376,6 +5388,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Erdman, Ernest", "Nobody
 replace into Lyricists_Songs (lyricist, title) values ("Kahn, Gus", "One I Love Belongs to Somebody Else, The");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kalmar, Bert", "Nevertheless (I'm In Love With You)");
+
+replace into Lyricists_Songs (lyricist, title) values ("Kalmar, Bert", "Three Little Words");
 
 replace into Lyricists_Songs (lyricist, title) values ("Kennedy, Jimmy", "Harbour Lights");
 
