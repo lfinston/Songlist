@@ -635,6 +635,7 @@ values
 update Songs set eps_filenames = "cabaret1.eps;cabaret2.eps;" where title = "Cabaret";
 
 /* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, copyright, 
 source, scanned, scanned_filename)
 values
@@ -813,6 +814,15 @@ values
 "Jurmann, Walter and Kaper, Bronislaw",
 true, 1935,
 "Night at the Opera, A", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Crazy", "Willie Nelson", "Nelson, Willie", true, 1961, 
+"{\\bf Patsy Cline}, p.~30.", true, "crazy.pdf", "crazy1.eps;crazy2.eps;", 
+"2021.11.04.");
 
 /* ** *************************************************** */
 
@@ -2822,7 +2832,6 @@ values
 1931,
 "Copyright {\\copyright} 1931 DeSylva, Brown and Henderson");
 
-
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -4066,10 +4075,10 @@ true, "whrislve.pdf", "whrislve1.eps;whrislve2.eps;", "2021.09.27.");
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, 
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("White Christmas", "Irving Berlin", "Berlin, Irving", false, "Holiday Inn", 
+("White Christmas", "Irving Berlin", "Berlin, Irving", true, "Holiday Inn", 
 1942,
 "\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The.}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~112.}}",
-false, "", "", "2021.10.30.");
+true, "whtchrst.pdf", "whtchrst1.eps;whtchrst2.eps;", "2021.10.30.");
 
 -- whtchrst.pdf
 
@@ -6009,6 +6018,9 @@ replace into Composers_Songs (composer, title) values ("Cavanaugh, James", "You'
 replace into Lyricists_Songs (lyricist, title) values ("Morgan, Russ", "You're Nobody 'Til Somebody Loves You");
 replace into Lyricists_Songs (lyricist, title) values ("Stock, Larry", "You're Nobody 'Til Somebody Loves You");
 replace into Lyricists_Songs (lyricist, title) values ("Cavanaugh, James", "You're Nobody 'Til Somebody Loves You");
+
+replace into Composers_Songs (composer, title) values ("Nelson, Willie", "Crazy");
+replace into Lyricists_Songs (lyricist, title) values ("Nelson, Willie", "Crazy");
 
 replace into Composers_Songs (composer, title) values ("Noble, Ray", "Very Thought of You, The");
 replace into Lyricists_Songs (lyricist, title) values ("Noble, Ray", "Very Thought of You, The");
