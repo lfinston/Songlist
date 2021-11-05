@@ -3683,6 +3683,16 @@ true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+opera, sort_by_production, source, entry_date)
+values
+("There's a Boat That's Leavin' Soon for New York", "Ira Gershwin", "Gershwin, Ira",
+"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+"\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~44.}}",
+"2021.11.05.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
 year, source)
 values
@@ -4579,6 +4589,8 @@ replace into Composers_Songs (composer, title) values ("Gershwin, George", "Some
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Someone to Watch Over Me");
 
+replace into Composers_Songs (composer, title) values ("Gershwin, George", "There's a Boat That's Leavin' Soon for New York");
+
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "They Can't Take That Away From Me");
 
 replace into Composers_Songs (composer, title) values ("Gershwin, George", "Woman is a Sometime Thing, A");
@@ -5239,6 +5251,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Nice Wo
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Someone to Watch Over Me");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "Sure Thing");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "There's a Boat That's Leavin' Soon for New York");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gershwin, Ira", "They Can't Take That Away From Me");
 
