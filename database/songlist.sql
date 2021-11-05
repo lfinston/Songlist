@@ -1510,7 +1510,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 opera, sort_by_production, source, entry_date)
 values
 ("I Got Plenty o' Nuttin'", "Ira Gershwin and DuBose Heyward", "Gershwin, Ira and Heyward, DuBose",
-"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", true,
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~17.}}",
 "2021.10.24.");
 
@@ -2932,7 +2932,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("On a Tree By a Willow", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", true, "treewllw.pdf", "", "2021.10.21.");
+true, 1885, "Mikado, The", true, true, "IMSLP", false, "treewllw.pdf", "", "2021.10.21.");
 
 /* ** *************************************************** */
 
@@ -3573,7 +3573,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Sun Whose Rays, The", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", true, "snwsrays.pdf", "", "2021.10.21.");
+true, 1885, "Mikado, The", true, true, "IMSLP", false, "snwsrays.pdf", "", "2021.10.21.");
 
 /* ** *************************************************** */
 
@@ -3683,11 +3683,13 @@ true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year,
 opera, sort_by_production, source, entry_date)
 values
-("There's a Boat That's Leavin' Soon for New York", "Ira Gershwin", "Gershwin, Ira",
-"George Gershwin", "Gershwin, George", false, 1935, "Porgy and Bess", false,
+("\\vtop{\\hbox{There's a Boat That's Leavin'}\\vskip-.2\\baselineskip\\hbox{Soon for New York}\\vskip.375\\baselineskip}",
+"\\vbox{\\hbox{There's a Boat That's Leavin'}\\vskip\\titleskip\\hbox{Soon for New York}}",
+"Ira Gershwin", "Gershwin, Ira",
+"George Gershwin", "Gershwin, George", true, 1935, "Porgy and Bess", true,
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~44.}}",
 "2021.11.05.");
 
@@ -3766,7 +3768,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Three Little Maids from School", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", true, "thrmaids.pdf", "", "2021.10.21.");
+true, 1885, "Mikado, The", true, true, "IMSLP", false, "thrmaids.pdf", "", "2021.10.21.");
 
 /* ** *************************************************** */
 
@@ -3924,7 +3926,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Wand'ring Minstrel I, A", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", true, "wndrmnst.pdf", "", "2021.10.21.");
+true, 1885, "Mikado, The", true, true, "IMSLP", false, "wndrmnst.pdf", "", "2021.10.21.");
 
 /* ** *************************************************** */
 
