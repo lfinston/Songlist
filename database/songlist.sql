@@ -3023,12 +3023,22 @@ delete from Songs where title = "Para Vigo me voy (Say ``Si, Si'')";
 
 select eps_filenames from Songs where title = "Para Vigo me voy (Say ``Si, Si'')";
 
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, 
+year, copyright, notes, source, scanned, scanned_filename, eps_filenames, entry_date, public_domain)
+values
+("Paloma, La", "Sebastian Yradier", "Yradier, Sebastian", true, 1860, 1879, "1860 approximate year of composition.",
+"Single edition, Schott.", false, "", "", "2021.11.08.", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Para Vigo me voy", "(Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
 true, 1935, "spanish");
 
-#/* ** *************************************************** */
+/* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
 values
@@ -6178,6 +6188,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Wynette, Tammy", "Stand 
 
 replace into Composers_Songs (composer, title) values ("Sherrill, Billy", "Stand By Your Man");
 replace into Lyricists_Songs (lyricist, title) values ("Sherrill, Billy", "Stand By Your Man");
+
+replace into Composers_Songs (composer, title) values ("Yradier, Sebastian", "Paloma, La");
+replace into Lyricists_Songs (lyricist, title) values ("Yradier, Sebastian", "Paloma, La");
 
 /* * (1)  Composers and Lyricists */
 
