@@ -3026,10 +3026,12 @@ select eps_filenames from Songs where title = "Para Vigo me voy (Say ``Si, Si'')
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, partial_lead_sheet, 
-year, copyright, notes, source, scanned, scanned_filename, eps_filenames, entry_date, public_domain)
+year, copyright, notes, source, scanned, scanned_filename, eps_filenames, entry_date, public_domain, 
+language)
 values
-("Paloma, La", "Sebastian Yradier", "Yradier, Sebastian", true, 1860, 1879, "1860 approximate year of composition.",
-"Single edition, Schott.", false, "", "", "2021.11.08.", true);
+("Paloma, La", "Sebastian Yradier", "Yradier, Sebastian", true, 1860, "Copyright {\\copyright} 1879", 
+"1860 approximate year of composition.",
+"Single edition, Schott.", false, "", "", "2021.11.08.", true, "spanish");
 
 /* ** *************************************************** */
 
