@@ -3375,11 +3375,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, production_subtitle, year,
-sort_by_production, source)
+sort_by_production, source, scanned, scanned_filename)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "42nd Street", "(Film)", 1933, true, 
-"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~58.}}");
+"\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~58.}}",
+true, "shflbffl.pdf");
 
 /* ** *************************************************** */
 
