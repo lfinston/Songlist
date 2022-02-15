@@ -2246,14 +2246,14 @@ update Songs set eps_filenames = "ldysinlv1.eps;ldysinlv2.eps;" where title = "L
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, arrangement_solo_guitar, notes,
-copyright, film, year)
+copyright, film, year, scanned, scanned_filename, entry_date)
 values
 ("Laura", "Johnny Mercer", "Mercer, Johnny", "David Raksin", "Raksin, David", true, true,
 "Arrangement Andantino.",
 "\\vtop{\\hbox{{\\copyright} 1945 EMI Catalogue Partnership}\\vskip\\copyrightskip\\hbox{and EMI Robbins Catalog Inc., USA.}"
 "\\vskip\\copyrightskip\\hbox{Worldwide print rights controlled by}"
 "\\vskip\\copyrightskip\\hbox{Warner Bros. Publications Inc./IMP Ltd.}}",
-"Laura", 1944);
+"Laura", 1944, true, "laura.pdf", "2022.02.15.");
 
 /* ** *************************************************** */
 
