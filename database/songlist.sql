@@ -617,6 +617,16 @@ values
 
 update Songs set eps_filenames = "bltslvm1.eps;bltslvm2.eps;" where title = "By the Light of the Silvery Moon";
 
+/* ** *************************************************** */
+
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, source)
+values
+("By the Sleepy Lagoon", "Eric Coates", "Coates, Eric", "None", "None", true, 1930,
+"{\\bf Eric Coates, 100th Anniversary}, p.~6.");
+
+
+/* ** *************************************************** */
+
 select "$$$ End of B";
 
 /* C   */
