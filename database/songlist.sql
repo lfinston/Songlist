@@ -834,6 +834,17 @@ values
 "{\\bf Patsy Cline}, p.~30.", true, "crazy.pdf", "crazy1.eps;crazy2.eps;", 
 "2021.11.04.");
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
+copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Cuban Pete", "Jos{\\'e} Norman", "Norman, Jos{\\'e}", true, 1936,
+"Copyright {\\copyright} 1936 and 1964",
+"{\\bf Big Book of Latin American Songs}, p.~60.", false, "", "", 
+"2022.04.28.");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
@@ -3537,7 +3548,8 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
-("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", true, "One Touch of Venus", 1943);
+("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", false,
+"One Touch of Venus", 1943);
 
 /* ** *************************************************** */
 
