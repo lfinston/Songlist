@@ -712,7 +712,7 @@ all: all-no-sep all-sep dump
 .PHONY: f-all
 
 f-all:
-	songlist$(EXEEXT)
+	songlist$(EXEEXT) --filecard-date
 	$(MAKE) all
 
 sub_filecrds.tex: database/songlist.sql songlist$(EXEEXT)

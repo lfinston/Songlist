@@ -619,10 +619,10 @@ update Songs set eps_filenames = "bltslvm1.eps;bltslvm2.eps;" where title = "By 
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, source)
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, source, entry_date)
 values
 ("By the Sleepy Lagoon", "Eric Coates", "Coates, Eric", "None", "None", true, 1930,
-"{\\bf Eric Coates, 100th Anniversary}, p.~6.");
+"{\\bf Eric Coates, 100th Anniversary}, p.~6.", "2022.04.29");
 
 
 /* ** *************************************************** */
@@ -3396,12 +3396,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, production_subtitle, year,
-sort_by_production, source, scanned, scanned_filename, entry_date)
+sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Shuffle Off to Buffalo", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true,
 "42nd Street", "(Film)", 1933, true, 
 "\\vbox{\\hbox{{\\bf 42nd Street, All the Vocal Selections}}\\vskip\\sourceskip\\hbox{{\\bf from 42nd Street}, p.~58.}}",
-true, "shflbffl.pdf", "2022.02.14.");
+true, "shflbffl.pdf", ";", "2022.02.14.");
 
 /* ** *************************************************** */
 
