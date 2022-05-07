@@ -619,10 +619,13 @@ update Songs set eps_filenames = "bltslvm1.eps;bltslvm2.eps;" where title = "By 
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, source, entry_date)
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, source,
+scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("By the Sleepy Lagoon", "Eric Coates", "Coates, Eric", "None", "None", true, 1930,
-"{\\bf Eric Coates, 100th Anniversary}, p.~6.", "2022.04.29");
+"{\\bf Eric Coates, 100th Anniversary}, p.~6.", true, "byslplag.pdf",
+"byslplg1.eps;byslplg2.eps;byslplg3.eps;byslplg4.eps;", "2022.04.29");
+
 
 
 /* ** *************************************************** */
@@ -842,8 +845,10 @@ copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Cuban Pete", "Jos{\\'e} Norman", "Norman, Jos{\\'e}", true, 1936,
 "Copyright {\\copyright} 1936 and 1964",
-"{\\bf Big Book of Latin American Songs}, p.~60.", false, "", "", 
-"2022.04.28.");
+"{\\bf Big Book of Latin American Songs}, p.~60.", true, 
+"cubnpete.pdf", "cubnpet0.eps;cubnpet1.eps;", "2022.04.28.");
+
+
 
 /* ** *************************************************** */
 
@@ -3608,7 +3613,10 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Sun Whose Rays, The", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", false, "snwsrays.pdf", "", "2021.10.21.");
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "snwhsrys.pdf", "snwhsry1.eps;snwhsry2.eps;snwhsry3.eps;",
+"2021.10.21.");
+
+select * from Songs where title = "Sun Whose Rays, The"\G
 
 /* ** *************************************************** */
 
@@ -3719,14 +3727,19 @@ true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
 /* ** *************************************************** */
 
 replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year,
-opera, sort_by_production, source, entry_date)
+opera, sort_by_production, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("\\vtop{\\hbox{There's a Boat That's Leavin'}\\vskip-.2\\baselineskip\\hbox{Soon for New York}\\vskip.375\\baselineskip}",
 "\\vbox{\\hbox{There's a Boat That's Leavin'}\\vskip\\titleskip\\hbox{Soon for New York}}",
 "Ira Gershwin", "Gershwin, Ira",
 "George Gershwin", "Gershwin, George", true, 1935, "Porgy and Bess", true,
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~44.}}",
-"2021.11.05.");
+true, "thrsboat.pdf", "thrsabt1.eps;thrsabt2.eps;", "2021.11.05.");
+
+select * from Songs where music = "George Gershwin"\G
+
+/* scanned, scanned_filename, eps_filenames */
+
 
 /* ** *************************************************** */
 
