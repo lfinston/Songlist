@@ -696,7 +696,7 @@ clean:
 	rm -f *.o *.dvi *.ps *.pdf *.log *.toc toc_ls.tex toc_scores.tex \
               circles.mpx circles.1 circles.2 circles.3 \
               songlist songlist_out.tex ttemp.o ttemp \
-              toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+              toc_ls_a_h.tex toc_ls_i_m.tex toc_ls_n_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
               lyricists.tex composers.tex
 
 .PHONY: all-n
@@ -739,7 +739,7 @@ all_sep.ps: all_sep.dvi
 #	cat XXX.sh | tr "|" "\\" > sep_all.sh 2>/dev/null
 
 # composers.pdf lyricists.pdf pblcdomn.pdf scanned.pdf toc_ls_a_h.pdf \
-#    toc_ls_i_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
+#    toc_ls_i_m.pdf toc_ls_n_o.pdf toc_ls.pdf toc_ls_p_z.pdf toc_npt.pdf toc_p_z_ls.pdf: all_sep.pdf sep_all.sh
 # 	./sep_all.sh
 
 .PHONY: all-no-sep
@@ -834,20 +834,20 @@ explanations.pdf: explanations.dvi
 
 .PHONY: dvi
 
-dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_o.dvi toc_ls_p_z.dvi toc_npt.dvi composers.dvi lyricists.dvi \
+dvi:  toc_ls.dvi toc_ls_a_h.dvi toc_ls_i_m.dvi toc_ls_n_o.dvi toc_ls_p_z.dvi toc_npt.dvi composers.dvi lyricists.dvi \
          scanned.dvi pblcdomn.dvi
 
 .PHONY: ps
 
-ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_o.ps toc_ls_p_z.ps toc_npt.ps composers.ps lyricists.ps \
+ps:  toc_ls.ps toc_ls_a_h.ps toc_ls_i_m.ps toc_ls_n_o.ps toc_ls_p_z.ps toc_npt.ps composers.ps lyricists.ps \
          scanned.ps pblcdomn.ps
 
 .PHONY: pdf
 
-pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_o.pdf toc_ls_p_z.pdf toc_npt.pdf composers.pdf lyricists.pdf \
+pdf:  toc_ls.pdf toc_ls_a_h.pdf toc_ls_i_m.pdf toc_ls_n_o.pdf toc_ls_p_z.pdf toc_npt.pdf composers.pdf lyricists.pdf \
          scanned.pdf pblcdomn.pdf
 
-toc_ls.tex toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_npt.tex composers.tex \
+toc_ls.tex toc_ls_a_h.tex toc_ls_i_m.tex toc_ls_n_o.tex toc_ls_p_z.tex toc_npt.tex composers.tex \
    lyricists.tex scanned.tex pblcdomn.tex : songlist$(EXEEXT) database/songlist.sql
 	make run
 
@@ -862,6 +862,7 @@ toc_scores.dvi: toc_scores.tex songlist$(EXEEXT) Makefile
 
 toc_scores.tex: songlist
 	make run
+
 .PHONY: run-c
 
 run-c: circles.ps
@@ -994,7 +995,7 @@ clean:
 	   productions.tex russian.tex scanned.tex songdefs.hxx songlist \
 	   songlist.cxx songlist.o songs_a_e.tex songs_f_l.tex songs_m_n.tex \
 	   songs_o_s.tex songs_t_z.tex spanish.tex sub_filecrds.tex \
-	   toc_ls_a_h.tex toc_ls_i_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
+	   toc_ls_a_h.tex toc_ls_i_m.tex toc_ls_n_o.tex toc_ls_p_z.tex toc_ls.tex toc_npt.tex \
 	   whitecircle.eps XXX.sh starinfo_*.tex
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

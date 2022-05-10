@@ -24,12 +24,12 @@ all_sep-06.pdf \
 all_sep-07.pdf \
 all_sep-08.pdf toc_ls_a_h.pdf
 
-echo "Creating toc_ls_i_o.pdf with pdfunite"
+echo "Creating toc_ls_i_m.pdf with pdfunite"
 
 pdfunite \
 all_sep-09.pdf \
 all_sep-10.pdf \
-all_sep-11.pdf toc_ls_i_o.pdf
+all_sep-11.pdf toc_ls_i_m.pdf
 
 echo "Creating toc_ls_p_z.pdf with pdfunite"
 

@@ -16,7 +16,7 @@ all_sep-06.pdf toc_ls_a_h.pdf
 
 pdfunite \
 all_sep-07.pdf \
-all_sep-08.pdf toc_ls_i_o.pdf
+all_sep-08.pdf toc_ls_i_m.pdf
 
 pdfunite \
 all_sep-09.pdf \
