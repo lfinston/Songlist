@@ -3539,11 +3539,11 @@ true, 1933);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned,
 scanned_filename, eps_filenames, copyright, language, entry_date, source)
 values
-("Sous le ciel de Paris", "Jean Drejac", "Drejac, Jean", "Hubert Guiraud", "Guiraud, Hubert", 
+("Sous le ciel de Paris", "Jean Drejac", "Drejac, Jean", "Hubert Giraud", "Giraud, Hubert", 
 true, 1951, true, "sousleciel.pdf", "sousleciel1.eps;sousleciel2.eps;sousleciel3.eps;", 
-"Copyright {\\copyright} 1951 {\&} 1953", "french", "2022.05.25.", "Sheet Music Direct");
+"Copyright {\\copyright} 1951 {\\&} 1953", "french", "2022.05.25.", "Sheet Music Direct");
 
-select * from Songs where music = "Hubert Guiraud"\G
+select * from Songs where music = "Hubert Giraud"\G
 
 /* ** *************************************************** */
 
