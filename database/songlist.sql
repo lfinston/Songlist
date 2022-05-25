@@ -71,7 +71,7 @@ create table Songs
     no_page_turns boolean not null default false,
     no_page_turns_with_two_songbooks boolean not null default false,
     scanned boolean not null default false,
-    scanned_filename varchar(12) default null,
+    scanned_filename varchar(16) default null,
     arrangement_orchestra boolean not null default false,
     arrangement_solo_guitar boolean not null default false,
     recordings tinyint not null default 0,
@@ -111,6 +111,8 @@ alter table Songs add column public_domain boolean not null default false after 
 alter table Songs add column song_cycle varchar(64) default null after operetta;
 alter table Songs add column language varchar(32) not null default "english" after public_domain;
 alter table Songs modify column copyright varchar(256) default null;
+
+alter table Songs modify column scanned_filename varchar(16) default null;
 
 alter table Songs modify column source varchar(512) default null after notes;
 
@@ -3531,6 +3533,17 @@ values
 "Parish, Mitchell and Mills, Irving", 
 "Duke Ellington", "Ellington, Duke",
 true, 1933);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, scanned,
+scanned_filename, eps_filenames, copyright, language, entry_date, source)
+values
+("Sous le ciel de Paris", "Jean Drejac", "Drejac, Jean", "Hubert Guiraud", "Guiraud, Hubert", 
+true, 1951, true, "sousleciel.pdf", "sousleciel1.eps;sousleciel2.eps;sousleciel3.eps;", 
+"Copyright {\\copyright} 1951 {\&} 1953", "french", "2022.05.25.", "Sheet Music Direct");
+
+select * from Songs where music = "Hubert Guiraud"\G
 
 /* ** *************************************************** */
 
