@@ -3829,7 +3829,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Three Little Maids from School", "W.S.~Gilbert", "Gilbert, W.S.", "Arthur Sullivan", "Sullivan, Arthur",
-true, 1885, "Mikado, The", true, true, "IMSLP", false, "thrltlmds.pdf",
+true, 1885, "Mikado, The", true, true, "IMSLP", true, "thrltlmds.pdf",
 "thrltlmds1.eps;thrltlmds2.eps;thrltlmds3.eps;thrltlmds4.eps;thrltlmds5.eps;thrltlmds6.eps;",
 "2022.05.31.");
 
