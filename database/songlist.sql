@@ -1891,7 +1891,7 @@ update Songs set eps_filenames = "ithadbey.eps;" where title = "It Had to be You
 /* ** *************************************************** */
 
 replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, year, scanned, 
-scanned_filename, eps_filenames, source, notes)
+scanned_filename, eps_filenames, source, notes, public_domain)
 values
 ("It Made You Happy When You Made Me Cry",
 "\\vbox{\\hbox{It Made You Happy}\\vskip\\titleskip\\hbox{When You Made Me Cry}}",
@@ -1902,7 +1902,7 @@ true, "imyhwymm.pdf", "imyhwymm1.eps;imyhwymm2.eps;imyhwymm3.eps;",
 "\\Blue{\\vtop{\\hbox{{\\mediumtt https://imslp.org/wiki/}}\\vskip\\sourceskip"
 "\\hbox{\\hskip-\\wd0{\\mediumtt It_Made_You_Happy_When_You_Made_Me_Cry_}}\\vskip\\sourceskip"
 "\\hbox{\\hskip-\\wd0{\\mediumtt (Donaldson%2C_Walter)}}}}}",
-"According to IMSLP this song is in the public domain in Europe and Canada.");
+"According to IMSLP this song is in the public domain in Europe and Canada.", true);
 
 /* ** *************************************************** */
 
