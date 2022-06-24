@@ -3104,6 +3104,16 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year,
+copyright, source, entry_date)
+values
+("Perdido", "Juan Tizol", "Tizol, Juan", "Harry Lenk and Ervin Drake",
+"Lenk, Harry and Drake, Ervin", true, 1942, "Copyright {\\copyright} 1942, 1944 (Renewed)", 
+"{\\bf Duke Ellington Anthology}, p.~149.", 
+"2022.06.24.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, language)
 values
 ("Perfidia", "Alberto Dom{\\'\\i}nguez Borr{\\'a}s", 
