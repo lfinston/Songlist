@@ -3105,11 +3105,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year,
-copyright, source, entry_date)
+copyright, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
 ("Perdido", "Juan Tizol", "Tizol, Juan", "Harry Lenk and Ervin Drake",
 "Lenk, Harry and Drake, Ervin", true, 1942, "Copyright {\\copyright} 1942, 1944 (Renewed)", 
-"{\\bf Duke Ellington Anthology}, p.~149.", 
+"{\\bf Duke Ellington Anthology}, p.~149.", true, "perdido.pdf", "perdido1.eps;perdido2.eps;",
 "2022.06.24.");
 
 /* ** *************************************************** */
@@ -3455,19 +3455,14 @@ true, 1959,
 
 /* ** *************************************************** */
 
-replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, copyright, source, entry_date)
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, copyright,
+source, scanned, scanned_filename, eps_filenames, entry_date)
 values 
 ("Sleigh Ride", "Leroy Anderson", "Anderson, Leroy", "Mitchell Parish", "Parish, Mitchell", true, 1948,
 "\\vbox{\\hbox{Copyright {\\copyright} 1948, 1950 (Renewed)}\\vskip\\copyrightskip\\hbox{Woodbury Music Company and}\\vskip\\copyrightskip\\hbox{EMI Mills Music, Inc.}}",
-"Sheet Music Direct", "2022.06.24.");
+"Sheet Music Direct", true, "sleighride.pdf",
+"sleighride1.eps;sleighride2.eps;sleighride3.eps;sleighride4.eps;", "2022.06.24.");
 
-replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, copyright, source, entry_date)
-values 
-("Sleigh Ride", "Leroy Anderson", "Anderson, Leroy", "Mitchell Parish", "Parish, Mitchell", true, 1948,
-concat("\\vbox{\\hbox{Copyright {\\copyright} 1948, 1950 (Renewed)}"
-"\\vskip\\copyrightskip\\hbox{Woodbury Music Company and}"
-"\\vskip\\copyrightskip\\hbox{EMI Mills Music, Inc.}}"),
-"Sheet Music Direct", "2022.06.24.");
 
 select * from Songs where music = "Leroy Anderson"\G
 
