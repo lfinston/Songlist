@@ -1847,7 +1847,7 @@ process_tocs_and_npt(void)
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets A--F}\\fi"
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
                    << "\\songctr=1" << endl
-                   << "\\hldest{xyz}{}{lead sheets a-h}" << endl 
+                   << "\\hldest{xyz}{}{lead sheets a-f}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets A--F}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1864,7 +1864,7 @@ process_tocs_and_npt(void)
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets G--L}\\fi" 
                    << endl
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                   << "\\hldest{xyz}{}{lead sheets i-m}" << endl 
+                   << "\\hldest{xyz}{}{lead sheets g-l}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets G--L}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1881,7 +1881,7 @@ process_tocs_and_npt(void)
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets M--R}\\fi" 
                    << endl
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                   << "\\hldest{xyz}{}{lead sheets n-o}" << endl 
+                   << "\\hldest{xyz}{}{lead sheets m-r}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets M--R}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
@@ -1900,7 +1900,7 @@ process_tocs_and_npt(void)
                    << "\\medium" << endl
                    << "\\headline={\\hfil \\ifnum\\pageno>\\pagecnt{\\mediumbx Lead Sheets S--Z}\\fi" << endl 
                    << "\\hfil\\hbox to 0pt{\\hss{\\tt \\timestamp}\\quad}}" << endl
-                   << "\\hldest{xyz}{}{lead sheets p-z}" << endl 
+                   << "\\hldest{xyz}{}{lead sheets s-z}" << endl 
                    << "\\centerline{{\\largebx Lead Sheets S--Z}}" << endl
                    << "\\vskip.75\\baselineskip" << endl
                    << "\\doublecolumns" << endl
