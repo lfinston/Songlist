@@ -628,8 +628,6 @@ values
 "{\\bf Eric Coates, 100th Anniversary}, p.~6.", true, "byslplag.pdf",
 "byslplg1.eps;byslplg2.eps;byslplg3.eps;byslplg4.eps;", "2022.04.29");
 
-
-
 /* ** *************************************************** */
 
 select "$$$ End of B";
@@ -3329,8 +3327,10 @@ values
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
-("Scatter-Brain", "Johnny Burke", "Burke, Johnny", "Keene-Bean and Frankie Masters", "Keene-Bean and Masters, Frankie", 
-true, 1939, "\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~84.}}",
+("Scatter-Brain", "Johnny Burke", "Burke, Johnny", 
+"Keene-Bean and Frankie Masters", "Keene-Bean and Masters, Frankie", 
+true, 1939, 
+"\\vbox{\\hbox{{\\bf Classic Songs of Johnny Burke,}}\\vskip\\sourceskip\\hbox{{\\bf Hollywood's Songwriter,} p.~84.}}",
 true, "scttrbrn.pdf", "scttrbrn.eps;", "2021.09.11.");
 
 /* ** *************************************************** */
@@ -3346,8 +3346,8 @@ values
 
 select title from Songs where title like("Se Todos%");
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language, source, year, scanned, 
-scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, language,
+source, year, scanned, scanned_filename)
 values
 ("Se Todos Fossem Iguais a Voc{\\^e}", "Vin{\\'\\i}cius de Moraes", "Moraes, Vin{\\'\\i}cius de",  
 "Antonio Carlos Jobim", "Jobim, Antonio Carlos",  true, "portugese", "{\\bf Music of Antonio Carlos Jobim, The}, p.~18.",
@@ -3442,6 +3442,26 @@ values
 "Farina, Santo; Farina, John; and Farina, Ann",
 true, 1959,
 "\\vbox{\\hbox{{\\bf More of the 1950s.}}\\vskip\\sourceskip\\hbox{{\\bf Hal Leonard Essential Songs}, p.~304}}");
+
+/* ** *************************************************** */
+
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, copyright, source, entry_date)
+values 
+("Sleigh Ride", "Leroy Anderson", "Anderson, Leroy", "Mitchell Parish", "Parish, Mitchell", true, 1948,
+"\\vbox{\\hbox{Copyright {\\copyright} 1948, 1950 (Renewed)}\\vskip\\copyrightskip\\hbox{Woodbury Music Company and}\\vskip\\copyrightskip\\hbox{EMI Mills Music, Inc.}}",
+"Sheet Music Direct", "2022.06.24.");
+
+replace into Songs (title, music, music_reverse, words, words_reverse, lead_sheet, year, copyright, source, entry_date)
+values 
+("Sleigh Ride", "Leroy Anderson", "Anderson, Leroy", "Mitchell Parish", "Parish, Mitchell", true, 1948,
+concat("\\vbox{\\hbox{Copyright {\\copyright} 1948, 1950 (Renewed)}"
+"\\vskip\\copyrightskip\\hbox{Woodbury Music Company and}"
+"\\vskip\\copyrightskip\\hbox{EMI Mills Music, Inc.}}"),
+"Sheet Music Direct", "2022.06.24.");
+
+select * from Songs where music = "Leroy Anderson"\G
+
+
 
 /* ** *************************************************** */
 
