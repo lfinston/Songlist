@@ -4365,6 +4365,20 @@ true, "ytkadvnt.pdf");
 
 /* ** *************************************************** */
 
+/* sort_by_production, scanned, scanned_filename, eps_filenames  */
+
+-- delete from Songs where title = "You'll Never Know";
+-- delete from Composers_Songs where title = "You'll Never Know";
+-- delete from Lyricists_Songs where title = "You'll Never Know";
+
+replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, no_page_turns, year, source)
+values
+("You'll Never Know", "(Just How Much I Love You)", "Mack Gordon", "Gordon, Mack", "Harry Warren", "Warren, Harry", true, 1943, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music,}}\\vskip\\sourceskip\\hbox{{\\bf 1940s, Part One}, p.~260.}}" 
+);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
 scanned, scanned_filename, source)
 values
@@ -5064,6 +5078,8 @@ replace into Composers_Songs (composer, title) values ("Warren, Harry", "Shuffle
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "September in the Rain");
 
+replace into Composers_Songs (composer, title) values ("Warren, Harry", "You'll Never Know");
+
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "Young and Healthy");
 
 replace into Composers_Songs (composer, title) values ("Warren, Harry", "You're Getting to Be a Habit With Me");
@@ -5361,6 +5377,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Gilbert, W.S.", "Wand'ri
 replace into Lyricists_Songs (lyricist, title) values ("Gillespie, Haven", "You Go to My Head");
 
 replace into Lyricists_Songs (lyricist, title) values ("Gordon, Irving", "Prelude to a Kiss");
+
+replace into Lyricists_Songs (lyricist, title) values ("Gordon, Mack", "You'll Never Know");
 
 replace into Lyricists_Songs (lyricist, title) values ("Mills, Irving", "Prelude to a Kiss");
 
