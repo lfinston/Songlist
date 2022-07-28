@@ -3033,6 +3033,8 @@ process_tocs_and_npt(void)
                 if (do_new_filecard)
                    new_filecards_file << "\\leftline{\\hskip\\Chskip\\hskip\\basichskip " << t_iter->title;
 
+                /* !!START HERE:  LDF 2022.07.28.  Break line if title + subtitle too long.  {\"o}*/ 
+
                 if (!t_iter->subtitle.empty())
                 {
                    sub_filecards_file << " " << t_iter->subtitle;
