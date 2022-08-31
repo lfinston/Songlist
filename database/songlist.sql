@@ -6822,6 +6822,126 @@ and length(eps_filenames) = 0 order by title\G
 
 select title, subtitle from Songs where length(subtitle) > 0;
 
+/* * (1) */
+
+
+After You've Gone 	Sophie Tucker 	
+	
+	
+Along Comes Mary 	The Association 	
+	
+	
+Annie's Song 	John Denver 	
+	
+	
+At Seventeen 	Janis Ian 	
+	
+	
+Coffee In The Morning (And Kisses In The Night) 	Harry Warren 	
+	
+	
+Cracklin' Rosie 	Neil Diamond 	
+	
+	
+Farming 	Cole Porter 	
+	
+	
+Gentle On My Mind 	Glen Campbell 	
+	
+	
+Glitter And Be Gay 	Leonard Bernstein 	
+	
+	
+Goodbye 	Benny Goodman 	
+	
+	
+Hardrock, Coco and Joe (The Three Little Dwarfs) 	Gene Autry 	
+	
+	
+Have Yourself A Merry Little Christmas 	Frank Sinatra 	
+	
+	
+(I Never Promised You A) Rose Garden 	Lynn Anderson 	
+	
+	
+I Saw Mommy Kissing Santa Claus 	Tommie Connor 	
+	
+	
+If You Could Read My Mind 	Johnny Cash 	
+	
+	
+It's Not Unusual 	Tom Jones 	
+	
+	
+Listen To The Rhythm Of The Range 	Gene Autry 	
+	
+	
+Love Is The Sweetest Thing 	Ray Noble 	
+	
+	
+Lover Man (Oh, Where Can You Be?) 	Billie Holiday 	
+	
+	
+Lydia The Tattooed Lady 	E.Y. "Yip" Harburg 	
+	
+	
+Miss Brown To You 	Billie Holiday 	
+	
+	
+More Than A Feeling 	Boston 	
+	
+	
+My Very Good Friend The Milkman 	Johnny Burke 	
+	
+	
+Never My Love 	The Association 	
+	
+	
+On The Good Ship Lollipop 	Richard A. Whiting 	
+
+
+One 	Harry Nilsson 	
+	
+	
+Pictures Of Matchstick Men 	Status Quo 	
+	
+	
+Remember Me 	Harry Warren 	
+	
+	
+Santa Claus Is Comin' To Town 	Wynonna Judd 	
+	
+	
+Sleigh Ride 	Leroy Anderson 	
+	
+	
+Strange Magic 	Electric Light Orchestra 	
+	
+	
+Stranger On The Shore 	Acker Bilk 	
+	
+	
+Summer Breeze 	Seals & Crofts 	
+	
+	
+Sundown 	Gordon Lightfoot 	
+	
+	
+Suzy Snowflake 	Rosemary Clooney 	
+	
+	
+Under Paris Skies (Sous Le Ciel De Paris) 	Hubert Giraud 	
+	
+	
+What Can I Say After I Say I'm Sorry 	Nat King Cole 	
+	
+	
+Windy 	The Association 	
+	
+	
+
+
+
 
 /* * (1)  */
 
