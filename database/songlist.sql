@@ -3589,10 +3589,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
+musical, year, copyright, source, sort_by_production, entry_date)
 values
-("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", false,
-"One Touch of Venus", 1943);
+("Speak Low", "Ogden Nash", "Nash, Ogden", "Kurt Weill", "Weill, Kurt", true,
+"One Touch of Venus", 1943, "Copyright {\\copyright} 1943, renewed 1971.",
+"{\\bf Kurt Weill, From Berlin to Broadway}, p.~56.", true, "2022.09.01.");
 
 /* ** *************************************************** */
 
