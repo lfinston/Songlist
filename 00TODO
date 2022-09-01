@@ -25,6 +25,12 @@
 
 %% ** (2)
 
+2022.09.01.
+
+Catch the error that `eps_filenames' doesn't end with a semi-colon.  Currently, this causes an endless loop.
+
+%% ** (2)
+
 2021.08.24.
 
 Do something about distinguishing between musicals and films with the same name, and
