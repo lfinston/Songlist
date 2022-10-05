@@ -4216,6 +4216,17 @@ values
 true, 1944, "Copyright {\\copyright} 1981.", "{\\bf Unknown Kurt Weill, The}, p.~23.",
 true, "wlngnoch.pdf", "german");
 
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, 
+year, copyright, source, scanned, scanned_filename, eps_filenames, language, notes)
+values
+("Wien, Wien nur du allein", "Rudolf Sieczynski", "Sieczynski, Rudolf", 
+true, 1916, "Copyright {\\copyright} 1916.", "{\\bf 100 Years of Popular Music, 1900}, p.~381.",
+true, "wienwien.pdf", "wienwien1.eps;wienwien2.eps;wienwien3.eps;wienwien4.eps;", "german",
+"Actual title:  {\\it Wien, du Stadt meiner Träume}");
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, year,
@@ -6251,6 +6262,9 @@ replace into Lyricists_Songs (lyricist, title) values ("Benjamin, Bennie", "I Do
 replace into Composers_Songs (composer, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
 replace into Lyricists_Songs (lyricist, title) values ("Durham, Eddie",    "I Don't Want to Set the World on Fire");
 
+replace into Composers_Songs (composer, title) values ("Sieczynski, Rudolf", "Wien, Wien nur du allein");
+
+replace into Lyricists_Songs (lyricist, title) values ("Sieczynski, Rudolf", "Wien, Wien nur du allein");
 
 replace into Composers_Songs (composer, title) values ("Traditional", "Wandrer, Der");
 replace into Lyricists_Songs (lyricist, title) values ("Traditional", "Wandrer, Der");
