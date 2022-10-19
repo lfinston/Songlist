@@ -6843,20 +6843,19 @@ select title, subtitle from Songs where length(subtitle) > 0;
 
 
 After You've Gone, Sophie Tucker 
-
-
+Words by HENRY CREAMER Music by TURNER LAYTON
+ 
 Along Comes Mary, The Association 
-
+Words and Music by TANDYN ALMER 
 
 Annie's Song, John Denver 
 
-
 At Seventeen, Janis Ian 
 
-
 Big Girls Don't Cry, Frankie Valli & The Four Seasons 
-
-
+Words and Music by BOB CREWE and BOB GAUDIO 
+© 1962, 1963 (Renewed) CLARIDGE MUSIC COMPANY, A Division of MPL Music Publishing, Inc. All Rights Reserved
+ 
 Born To Be Wild, Steppenwolf 
 
 
