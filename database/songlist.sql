@@ -71,7 +71,7 @@ create table Songs
     no_page_turns boolean not null default false,
     no_page_turns_with_two_songbooks boolean not null default false,
     scanned boolean not null default false,
-    scanned_filename varchar(16) default null,
+    scanned_filename varchar(32) default null,
     arrangement_orchestra boolean not null default false,
     arrangement_solo_guitar boolean not null default false,
     recordings tinyint not null default 0,
@@ -112,7 +112,7 @@ alter table Songs add column song_cycle varchar(64) default null after operetta;
 alter table Songs add column language varchar(32) not null default "english" after public_domain;
 alter table Songs modify column copyright varchar(256) default null;
 
-alter table Songs modify column scanned_filename varchar(16) default null;
+alter table Songs modify column scanned_filename varchar(32) default null;
 
 alter table Songs modify column source varchar(512) default null after notes;
 
@@ -4175,6 +4175,17 @@ true, "whrislve.pdf", "whrislve1.eps;whrislve2.eps;", "2021.09.27.");
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+musical, source, scanned, scanned_filename, eps_filenames, entry_date)
+values
+("Where or When", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
+1937, 
+"Babes in Arms", 
+"\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~22.}}",
+true, "where_or_when.pdf", "where_or_when_1.eps;where_or_when_2.eps;", "2022.10.20.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, film, 
 year, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
@@ -5001,6 +5012,8 @@ replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "This
 
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Thou Swell");
 
+replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "Where or When");
+
 replace into Composers_Songs (composer, title) values ("Rodgers, Richard", "You Took Advantage of Me");
 
 replace into Composers_Songs (composer, title) values ("Rota, Nino", "Speak Softly, Love");
@@ -5459,6 +5472,8 @@ replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Ten Cent
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "This Can't be Love");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Thou Swell");
+
+replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "Where or When");
 
 replace into Lyricists_Songs (lyricist, title) values ("Hart, Lorenz", "You Took Advantage of Me");
 
