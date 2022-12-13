@@ -1,0 +1,210 @@
+%% chordcharts.ldf
+%% Created by Laurence D. Finston (LDF) Sat Dec 10 10:48:39 PM CET 2022
+
+input "plainldf.lmc";
+
+verbatim_metapost "prologues := 3;outputtemplate := \"%j%3c.eps\";";
+
+%pickup pensquare scaled (.333mm, .333mm, .333mm);
+
+pickup pensquare scaled (.5mm, .5mm, .5mm);
+
+pen big_pen;
+big_pen := pencircle scaled (.5mm, .5mm, .5mm);
+
+point p[];
+numeric n[];
+path q[];
+
+picture v[];
+
+%% ** (2) Fig. 0.  8-string (or course) chord charts.
+
+beginfig(0);
+
+  p0 := origin;
+  n0 := .6cm;
+
+  p1 := p0 shifted (0, 0, 6n0);
+  p2 := p0 shifted (7n0, 0);
+
+  for i = 0 upto 7:
+    draw (p0 -- p1) shifted (i*n0, 0);
+  endfor;
+
+  for i = 0 upto 6:
+    draw (p0 -- p2) shifted (0, 0, i*n0);
+  endfor;
+  
+  % draw (p0 -- p2) shifted (0, 0, 8*n0);
+
+  p3 := (xpart p2, 0, zpart p1);
+
+  p4 := mediate(p0, p2);
+  p5 := mediate(p1, p3);
+
+  p6 := p4 shifted (0, 0, -2mm);
+  p7 := p5 shifted (0, 0, 2mm);
+
+  p8 := p4 shifted (0, 0, 2mm);
+  p9 := p5 shifted (0, 0, -2mm);
+
+  
+  draw p6 -- p8;
+  draw p7 -- p9;
+
+  
+  % dotlabel.bot("$p_0$", p0);
+  % dotlabel.top("$p_1$", p1);
+  % dotlabel.bot("$p_2$", p2);
+  % dotlabel.top("$p_3$", p3);
+  % dotlabel.bot("$p_4$", p4);
+  % dotlabel.top("$p_5$", p5);
+  
+  
+  draw p0 -- p2;
+
+  v0 := current_picture;
+
+  %output current_picture  with_projection parallel_x_z;
+  clear current_picture;
+ 
+
+  for j = 0 upto 4:
+    v1 := v0;
+    shift v1 (0, 0, -5.5j);
+    for i = 0 upto 2:
+      v2 := v1;
+      shift v2 (6.25i, 0);
+      current_picture += v2;
+    endfor;
+  endfor;
+     
+endfig with_projection parallel_x_z;
+
+%% ** (2) Fig. 1.  6-string (or course) chord charts.
+
+beginfig(1);
+
+  p1 := p0 shifted (0, 0, 6n0);
+  p2 := p0 shifted (5n0, 0);
+
+  for i = 0 upto 5:
+    draw (p0 -- p1) shifted (i*n0, 0);
+  endfor;
+
+  for i = 0 upto 6:
+    draw (p0 -- p2) shifted (0, 0, i*n0);
+  endfor;
+  
+  v0 := current_picture;
+
+  clear current_picture;
+
+  for j = 0 upto 4:
+     v1 := v0;
+     shift v1 (0, 0, -5.5j);
+     for i = 0 upto 3:
+       v2 := v1;
+       shift v2 (4.5i, 0);
+       current_picture += v2;
+     endfor;
+   endfor;
+     
+endfig with_projection parallel_x_z;
+
+%% ** (2) Fig. 2.  4-string (or course) chord charts.
+
+beginfig(2);
+
+  p1 := p0 shifted (0, 0, 6n0);
+  p2 := p0 shifted (3n0, 0);
+
+  for i = 0 upto 3:
+    draw (p0 -- p1) shifted (i*n0, 0);
+  endfor;
+
+  for i = 0 upto 6:
+    draw (p0 -- p2) shifted (0, 0, i*n0);
+  endfor;
+  
+  % % dotlabel.bot("$p_0$", p0);
+  % % dotlabel.top("$p_1$", p1);
+  % % dotlabel.bot("$p_2$", p2);
+  % % dotlabel.top("$p_3$", p3);
+  % % dotlabel.bot("$p_4$", p4);
+  % % dotlabel.top("$p_5$", p5);
+
+  v0 := current_picture;
+
+  clear current_picture;
+ 
+  for j = 0 upto 4:
+    v1 := v0;
+    shift v1 (0, 0, -5.5j);
+    for i = 0 upto 5:
+      v2 := v1;
+      shift v2 (2.95i, 0);
+      current_picture += v2;
+    endfor;
+  endfor;
+     
+endfig with_projection parallel_x_z;
+
+%% ** (2) Fig. 3.  3-string (or course) chord charts.
+
+beginfig(3);
+
+  p1 := p0 shifted (0, 0, 6n0);
+  p2 := p0 shifted (2n0, 0);
+
+  for i = 0 upto 2:
+    draw (p0 -- p1) shifted (i*n0, 0);
+  endfor;
+
+  for i = 0 upto 6:
+    draw (p0 -- p2) shifted (0, 0, i*n0);
+  endfor;
+  
+
+  v0 := current_picture;
+  clear current_picture;
+ 
+
+  for j = 0 upto 4:
+    v1 := v0;
+    shift v1 (0, 0, -5.5j);
+    for i = 0 upto 6:
+      v2 := v1;
+      shift v2 (2.5i, 0);
+      current_picture += v2;
+    endfor;
+  endfor;
+     
+endfig with_projection parallel_x_z;
+
+%% ** (2)
+
+%% * (1)
+
+bye;
+
+%% ** (2) End of 3DLDF code.
+
+%% * (1) Emacs-Lisp code for use in indirect buffers when using the          
+%%   	 GNU Emacs editor.  The local variable list is not evaluated when an 
+%%   	 indirect buffer is visited, so it's necessary to evaluate the       
+%%   	 following s-expression in order to use the facilities normally      
+%%   	 accessed via the local variables list.                              
+%%   	 \initials{LDF 2004.02.12}.                                          
+
+%% (progn (metapost-mode) (outline-minor-mode t) (setq fill-column 80))    
+
+%% * (1) Local variables for Emacs.
+
+%% Local Variables:
+%% mode:metapost
+%% eval:(outline-minor-mode t)
+%% eval:(read-abbrev-file abbrev-file-name)
+%% outline-regexp:"%% [*\f]+"
+%% End:

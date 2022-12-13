@@ -1,0 +1,194 @@
+%%%% chordcharts.tex
+%%%% Created by Laurence D. Finston (LDF) Sat Dec 10 10:47:40 PM CET 2022
+
+%% * (1) Copyright and License.
+
+%%%% This file is part of GNU 3DLDF, a package for three-dimensional drawing. 
+%%%% Copyright (C) 2022 The Free Software Foundation, Inc.
+   
+%%%% GNU 3DLDF is free software; you can redistribute it and/or modify 
+%%%% it under the terms of the GNU General Public License as published by 
+%%%% the Free Software Foundation; either version 3 of the License, or 
+%%%% (at your option) any later version. 
+
+%%%% GNU 3DLDF is distributed in the hope that it will be useful, 
+%%%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%%%% GNU General Public License for more details. 
+
+%%%% You should have received a copy of the GNU General Public License 
+%%%% along with GNU 3DLDF; if not, write to the Free Software 
+%%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+%%%% GNU 3DLDF is a GNU package.  
+%%%% It is part of the GNU Project of the  
+%%%% Free Software Foundation 
+%%%% and is published under the GNU General Public License. 
+%%%% See the website http://www.gnu.org 
+%%%% for more information.   
+%%%% GNU 3DLDF is available for downloading from 
+%%%% http://www.gnu.org/software/3dldf/LDF.html. 
+
+%%%% Please send bug reports to Laurence.Finston@gmx.de.
+%%%% The mailing list help-3dldf@gnu.org is available for people to 
+%%%% ask other users for help.  
+%%%% The mailing list info-3dldf@gnu.org is for the maintainer of 
+%%%% GNU 3DLDF to send announcements to users. 
+%%%% To subscribe to these mailing lists, send an 
+%%%% email with ``subscribe <email-address>'' as the subject.  
+
+%%%% The author can be contacted at: 
+
+%%%% Laurence D. Finston 
+%%%% c/o Free Software Foundation, Inc. 
+%%%% 51 Franklin St, Fifth Floor 
+%%%% Boston, MA  02110-1301  
+%%%% USA
+
+%%%% Laurence.Finston@gmx.de
+
+
+
+%% * (1)
+
+\special{papersize=210mm, 297mm} %% DIN A4 Portrait
+\vsize=297mm
+\hsize=210mm
+
+
+\input epsf
+\input eplain
+\nopagenumbers
+
+%\pageno=-1
+
+\parindent=0pt
+
+\def\epsfsize#1#2{#1}
+
+\font\small=cmr8
+\font\smalltt=cmtt8
+\font\medium=cmr10
+\font\largemed=cmr11
+\font\large=cmr12
+\font\largebx=cmbx12
+\font\Large=cmr17
+\font\huge=cmr17 scaled \magstep1
+
+%% *** (3) 
+
+\headline={\hfil}
+
+\advance\voffset by -1in
+\advance\voffset by 1cm
+
+\advance\hoffset by -1in
+\advance\hoffset by 1.5cm
+
+\begingroup
+\advance\hsize by -1in
+\advance\hsize by -2cm
+\advance\hoffset by .5cm
+\parskip=.5\baselineskip
+\vbox{}
+\vskip1cm
+\centerline{{\largebx Chord Chart Templates}}
+\vskip\baselineskip
+
+\small
+This document is part of GNU 3DLDF, a package for three-dimensional drawing.
+
+Copyright (C) 2022, 2023 The Free Software Foundation
+
+\setbox0=\hbox{Last updated:\quad}
+
+\leavevmode\hbox to \wd0{Created:\hfil}December 12, 2022
+
+\leavevmode\box0 December 12, 2022 %% Updated
+
+GNU 3DLDF is free software; you can redistribute it and/or modify 
+it under the terms of the GNU General Public License as published by 
+the Free Software Foundation; either version 3 of the License, or 
+(at your option) any later version. 
+
+GNU 3DLDF is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+GNU General Public License for more details. 
+
+You should have received a copy of the GNU General Public License 
+along with GNU 3DLDF; if not, write to the Free Software 
+Foundation, Inc.,\hfil\break
+51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+See the GNU Free Documentation License for the copying conditions 
+that apply to this document.
+
+See the GNU General Public License and the GNU Free Documentation License at the end of this
+document.
+
+You should have received a copy of the GNU Free Documentation License 
+along with GNU 3DLDF; if not, write to the Free Software 
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+Please send bug reports to {\smalltt Laurence.Finston@gmx.de} 
+The mailing list {\smalltt help-3dldf@gnu.org} is available for people to 
+ask other users for help.  
+The mailing list {\smalltt info-3dldf@gnu.org} is for sending 
+announcements to users. To subscribe to these mailing lists, send an 
+email with ``subscribe $\langle$email-address$\rangle$'' as the subject.  
+
+The author can be contacted at:
+
+Laurence D. Finston\hfil\break
+c/o Free Software Foundation, Inc.\hfil\break
+51 Franklin St, Fifth Floor \hfil\break
+Boston, MA  02110-1301 USA\hfil\break
+{\smalltt Laurence.Finston@gmx.de}
+\vskip\baselineskip
+\vfil\eject
+\endgroup
+
+%% ** (2) Fig. 0.  8-string (or course) chord charts.
+
+\vbox to \vsize{\vskip1cm
+\hbox to 0pt{\hskip1.25cm\epsffile{chordcharts000.eps}\hss}\vss}
+\vfil\eject
+
+
+%% ** (2) Fig. 1.  6-string (or course) chord charts.
+
+\vbox to \vsize{\vskip1cm
+\hbox to 0pt{\hskip1.25cm\epsffile{chordcharts001.eps}\hss}\vss}
+\vfil\eject
+
+%% ** (2) Fig. 2.  4-string (or course) chord charts.
+
+\vbox to \vsize{\vskip1cm
+\hbox to 0pt{\hskip1.25cm\epsffile{chordcharts002.eps}\hss}\vss}
+\vfil\eject
+
+%% ** (2) Fig. 3.  3-string (or course) chord charts.
+
+\vbox to \vsize{\vskip1cm
+\hbox to 0pt{\hskip1.25cm\epsffile{chordcharts003.eps}\hss}\vss}
+\vfil\eject
+
+
+\bye
+
+%% *** (3) End here
+
+\bye
+
+%% * (1) Local variables for Emacs.
+
+%% Local Variables:
+%% mode:plain-TeX
+%% eval:(local-set-key "\"" 'self-insert-command)
+%% eval:(outline-minor-mode t)
+%% auto-fill-function:nil
+%% outline-regexp:"%% [*\f]+"
+%% End:
+
+
