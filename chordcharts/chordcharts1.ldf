@@ -1,0 +1,214 @@
+%% chordcharts1.ldf
+%% Created by Laurence D. Finston (LDF) Tue Dec 13 07:17:37 PM CET 2022
+
+%% * (1) Copyright and License.
+
+%%%% This file is part of GNU 3DLDF, a package for three-dimensional drawing. 
+%%%% Copyright (C) 2022 The Free Software Foundation, Inc.
+   
+%%%% GNU 3DLDF is free software; you can redistribute it and/or modify 
+%%%% it under the terms of the GNU General Public License as published by 
+%%%% the Free Software Foundation; either version 3 of the License, or 
+%%%% (at your option) any later version. 
+
+%%%% GNU 3DLDF is distributed in the hope that it will be useful, 
+%%%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%%%% GNU General Public License for more details. 
+
+%%%% You should have received a copy of the GNU General Public License 
+%%%% along with GNU 3DLDF; if not, write to the Free Software 
+%%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+%%%% GNU 3DLDF is a GNU package.  
+%%%% It is part of the GNU Project of the  
+%%%% Free Software Foundation 
+%%%% and is published under the GNU General Public License. 
+%%%% See the website http://www.gnu.org 
+%%%% for more information.   
+%%%% GNU 3DLDF is available for downloading from 
+%%%% http://www.gnu.org/software/3dldf/LDF.html. 
+
+%%%% Please send bug reports to Laurence.Finston@gmx.de.
+%%%% The mailing list help-3dldf@gnu.org is available for people to 
+%%%% ask other users for help.  
+%%%% The mailing list info-3dldf@gnu.org is for the maintainer of 
+%%%% GNU 3DLDF to send announcements to users. 
+%%%% To subscribe to these mailing lists, send an 
+%%%% email with ``subscribe <email-address>'' as the subject.  
+
+%%%% The author can be contacted at: 
+
+%%%% Laurence D. Finston 
+%%%% c/o Free Software Foundation, Inc. 
+%%%% 51 Franklin St, Fifth Floor 
+%%%% Boston, MA  02110-1301  
+%%%% USA
+
+%%%% Laurence.Finston@gmx.de
+
+input "plainldf.lmc";
+
+verbatim_metapost "prologues := 3;outputtemplate := \"%j%3c.eps\";";
+verbatim_tex "\font\largebx=cmbx12\font\Largebx=cmbx12 scaled \magstep1";
+
+%pickup pensquare scaled (.333mm, .333mm, .333mm);
+
+pickup pensquare scaled (.5mm, .5mm, .5mm);
+
+pen big_pen;
+big_pen := pencircle scaled (.5mm, .5mm, .5mm);
+
+pen dot_pen;
+pen inside_dot_pen;
+pen barre_pen;
+
+dot_pen   := pencircle scaled (.45cm, .45cm, .45cm);
+barre_pen := pencircle scaled (.4cm, .4cm, .4cm);
+
+inside_dot_pen := pencircle scaled (.333cm, .333cm, .333cm);
+
+rectangle r_fill;
+rectangle r_unfill;
+
+r_fill := unit_rectangle scaled (.45, 0, .45);
+r_unfill := unit_rectangle scaled (.333, 0, .333);
+
+point p[];
+numeric n[];
+path q[];
+
+picture v[];
+
+boolean do_labels;
+
+do_labels := false;
+
+%% ** (2) Fig. 0.  6-string (or course) chord charts.
+
+beginfig(0);
+
+  p0 := origin;
+  n0 := .6cm;
+
+  n1 := n0 / 2;
+  
+  p1 := p0 shifted (0, 0, 6n0);
+  p2 := p0 shifted (5n0, 0);
+
+  p3 := (xpart p2, 0, zpart p1);
+
+  if do_labels:
+    dotlabel.bot("$p_0$", p0);
+    dotlabel.top("$p_1$", p1);
+    dotlabel.bot("$p_2$", p2);
+    dotlabel.top("$p_3$", p3);
+  fi
+
+  p4 := p1 shifted (0, 0, -n1);
+  p5 := p3 shifted (0, 0, -n1);
+
+  draw p4 -- p5 with_pen barre_pen;
+
+  if do_labels:
+    dotlabel.lft("$p_4$", p4) shifted (-2mm, 0);
+    dotlabel.rt("$p_5$", p5) shifted (2mm, 0);
+  fi
+
+  p6 := p1 shifted (0, 0, -(n0 + n1));
+  drawdot p6 with_pen dot_pen;
+
+  if do_labels:
+    dotlabel.lft("$p_6$", p6) shifted (-2mm, 0);
+  fi
+
+  p7 := p6 shifted (n0, 0);
+  drawdot p7 with_pen dot_pen;
+  undrawdot p7 with_pen inside_dot_pen;
+
+  p8 := p6 shifted (0, 0, -n0);
+  fill r_fill shifted by p8;
+
+  if do_labels:
+    dotlabel.lft("$p_8$", p8) shifted (-2mm, 0);
+  fi
+
+  p9 := p8 shifted (0, 0, -n0);
+  fill r_fill shifted by p9;
+  unfill r_unfill shifted by p9;
+
+  p10 := p9 shifted (2n0, 0);
+  p11 := p10 shifted (2n0, 0);
+
+  draw p10 -- p11 with_pen barre_pen;
+
+  if do_labels:
+    label.lft("$p_9$", p9) shifted (-2mm, 0);
+    label.rt("$p_{11}$", p11) shifted (2mm, 0);
+  fi
+
+  p12 := p0 shifted (2n0, 0, 2pt);
+
+  label.bot("\vbox to 12pt{\vss}{\largebx C}", p12);
+
+  p13 := p0 shifted (4n0, 0, 2pt);
+  label.bot("\vbox to 12pt{\vss}{\largebx F}\raise4pt\hbox{$\sharp$}", p13);
+
+  p14 := mediate(p1, p3) shifted (0, 0, 2pt);
+
+  label.top("{\Largebx C maj.}", p14);
+
+  p15 := mediate(p12, p13);
+
+  label.bot("\vbox to 12pt{\vss}{\largebx B}\raise4pt\hbox{$\flat$}", p15);
+  
+  for i = 0 upto 5:
+    draw (p0 -- p1) shifted (i*n0, 0);
+  endfor;
+
+  for i = 0 upto 6:
+    draw (p0 -- p2) shifted (0, 0, i*n0);
+  endfor;
+  
+  v0 := current_picture;
+
+  
+  % clear current_picture;
+
+  % for j = 0 upto 4:
+  %    v1 := v0;
+  %    shift v1 (0, 0, -5.5j);
+  %    for i = 0 upto 3:
+  %      v2 := v1;
+  %      shift v2 (4.5i, 0);
+  %      current_picture += v2;
+  %    endfor;
+  %  endfor;
+     
+endfig with_projection parallel_x_z;
+
+%% ** (2)
+
+%% * (1)
+
+bye;
+
+%% ** (2) End of 3DLDF code.
+
+%% * (1) Emacs-Lisp code for use in indirect buffers when using the          
+%%   	 GNU Emacs editor.  The local variable list is not evaluated when an 
+%%   	 indirect buffer is visited, so it's necessary to evaluate the       
+%%   	 following s-expression in order to use the facilities normally      
+%%   	 accessed via the local variables list.                              
+%%   	 \initials{LDF 2004.02.12}.                                          
+
+%% (progn (metapost-mode) (outline-minor-mode t) (setq fill-column 80))    
+
+%% * (1) Local variables for Emacs.
+
+%% Local Variables:
+%% mode:metapost
+%% eval:(outline-minor-mode t)
+%% eval:(read-abbrev-file abbrev-file-name)
+%% outline-regexp:"%% [*\f]+"
+%% End:
