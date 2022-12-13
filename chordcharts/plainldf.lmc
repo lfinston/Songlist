@@ -1,0 +1,161 @@
+%% plainldf.lmc
+%% Created by Laurence D. Finston (LDF) Mon 04 Apr 2022 07:08:02 PM CEST
+
+%% This file is intended for 3dldf macros that are generally useful.  I
+%% plan to use it as the basis for a preloaded format, analogous to the
+%% `plain' formats of TeX, METAFONT and MetaPost.
+%% LDF 2022.04.04.
+
+%% * (1) Copyright and License.
+
+%%%% This file is part of GNU 3DLDF, a package for three-dimensional drawing.  
+%%%% Copyright (C) 2022 The Free Software Foundation, Inc.
+
+%%%% GNU 3DLDF is free software; you can redistribute it and/or modify 
+%%%% it under the terms of the GNU General Public License as published by 
+%%%% the Free Software Foundation; either version 3 of the License, or 
+%%%% (at your option) any later version.  
+
+%%%% GNU 3DLDF is distributed in the hope that it will be useful, 
+%%%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%%%% GNU General Public License for more details.  
+
+%%%% You should have received a copy of the GNU General Public License 
+%%%% along with GNU 3DLDF; if not, write to the Free Software 
+%%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%%%% GNU 3DLDF is a GNU package.  
+%%%% It is part of the GNU Project of the  
+%%%% Free Software Foundation 
+%%%% and is published under the GNU General Public License. 
+%%%% See the website http://www.gnu.org 
+%%%% for more information.   
+%%%% GNU 3DLDF is available for downloading from 
+%%%% http://www.gnu.org/software/3dldf/LDF.html.
+
+%%%% Please send bug reports to Laurence.Finston@gmx.de
+%%%% The mailing list help-3dldf@gnu.org is available for people to 
+%%%% ask other users for help.  
+%%%% The mailing list info-3dldf@gnu.org is for sending 
+%%%% announcements to users. To subscribe to these mailing lists, send an 
+%%%% email with ``subscribe <email-address>'' as the subject.  
+
+%%%% The author can be contacted at: 
+
+%%%% Laurence D. Finston 
+%%%% c/o Free Software Foundation, Inc. 
+%%%% 51 Franklin St, Fifth Floor 
+%%%% Boston, MA  02110-1301  
+%%%% USA
+
+%%%% Laurence.Finston@gmx.de
+
+
+%% * (1) Top
+
+%% ** (2) end_mp
+
+def end_mp =
+  verbatim_metapost "end;";
+enddef;
+
+%% ** (2) end_mf
+
+def end_mf =
+  verbatim_metafont "end;";
+enddef;
+
+%% ** (2) bye
+
+def bye =
+  verbatim_metapost "end;";
+  verbatim_metafont "end;";
+  endgroup;
+  end;
+enddef;
+
+%% ** (2) Colors.  
+
+%% *** (3) These are built-ins and therefore already defined.  LDF 2022.05.02.
+%% However, as of this date, they are defined as RGB colors.
+%% !! TODO:  Add an option for using RGB or CMYK colors for these colors.
+%% Also, add their names.
+
+% color cyan;
+% cyan := (1, 0, 0, 0);
+
+% color magenta;
+% magenta := (0, 1, 0, 0);
+
+% color yellow;
+% yellow := (0, 0, 1, 0);
+
+% color black;
+% black := (0, 0, 0, 1);
+
+% color red;
+% red := (0, 1, 1, 0);
+
+% color green;
+% green := (1, 0, 1, 0);
+
+% color blue;
+% blue := (1, 1, 0, 0);
+
+% color orange;
+% orange := (0, .5, 1, 0);
+
+% color violet;
+% violet := (.5, 1, 0, 0);
+
+%% *** (3)
+
+color cerulean_blue;
+cerulean_blue := (1, .5, 0, 0);
+set_name cerulean_blue to "cerulean blue";
+%show cerulean_blue;
+
+color teal_blue;
+teal_blue := (1, .5, .5, 0);
+set_name teal_blue to "teal blue";
+%show teal_blue;
+
+color dark_olive_green;
+dark_olive_green := (0, 0, 1, .75);
+set_name dark_olive_green to "dark olive green";
+%show dark_olive_green;
+
+color mauve;
+mauve := (.5, 1, .5, 0);
+set_name mauve to "mauve";
+%show mauve;
+
+color turquoise;
+turquoise := (1, 0, .5, 0);
+set_name turquoise to "turquoise";
+
+
+color rose_madder;
+rose_madder := (0, 1, .5, 0);
+set_name rose_madder to "rose madder";
+
+color lime_green;
+lime_green := (.5, 0, 1, 0);
+set_name lime_green to "lime green";
+
+verbatim_tex   "\font\Small=cmr9\font\small=cmr8\font\Tiny=cmr7\def\Thinspace{\csname thinspace\endcsname}"
+             & "\def\Newline{\hfil\break}";
+
+%% *** (3)
+
+%% ** (2)
+
+endinput;
+
+%% * (1) Local variables for Emacs
+
+%% Local Variables:
+%% mode: MetaPost
+%% End:
+
