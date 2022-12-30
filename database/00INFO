@@ -1,0 +1,17 @@
+%% 00INFO
+%% Created by Laurence D. Finston (LDF) Fri Dec 30 08:10:27 PM CET 2022
+
+select title, year from Songs where year = 1927 order by title;
+
++----------------------+------+
+| title                | year |
++----------------------+------+
+| Ain't She Sweet?     | 1927 |
+| Bill                 | 1927 |
+| Make Believe         | 1927 |
+| My Blue Heaven       | 1927 |
+| My Heart Stood Still | 1927 |
+| Thou Swell           | 1927 |
++----------------------+------+
+6 rows in set (0.00 sec)
+
