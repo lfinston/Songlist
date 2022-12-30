@@ -1,17 +1,276 @@
 %% 00INFO
 %% Created by Laurence D. Finston (LDF) Fri Dec 30 08:10:27 PM CET 2022
 
-select title, year from Songs where year = 1927 order by title;
-
-+----------------------+------+
-| title                | year |
-+----------------------+------+
-| Ain't She Sweet?     | 1927 |
-| Bill                 | 1927 |
-| Make Believe         | 1927 |
-| My Blue Heaven       | 1927 |
-| My Heart Stood Still | 1927 |
-| Thou Swell           | 1927 |
-+----------------------+------+
+mysql> select title, year, music_reverse, words_and_music_reverse, musical, film from Songs where year = 1927 order by title;
++----------------------+------+-------------------+-------------------------+-----------------------+------+
+| title                | year | music_reverse     | words_and_music_reverse | musical               | film |
++----------------------+------+-------------------+-------------------------+-----------------------+------+
+| Ain't She Sweet?     | 1927 | Ager, Milton      | NULL                    | NULL                  | NULL |
+| Bill                 | 1927 | Kern, Jerome      | NULL                    | Showboat              | NULL |
+| Make Believe         | 1927 | Kern, Jerome      | NULL                    | Showboat              | NULL |
+| My Blue Heaven       | 1927 | Donaldson, Walter | NULL                    | NULL                  | NULL |
+| My Heart Stood Still | 1927 | Rodgers, Richard  | NULL                    | Connecticut Yankee, A | NULL |
+| Thou Swell           | 1927 | Rodgers, Richard  | NULL                    | Connecticut Yankee, A | NULL |
++----------------------+------+-------------------+-------------------------+-----------------------+------+
 6 rows in set (0.00 sec)
 
+mysql> select title, year, music_reverse, words_and_music_reverse from Songs where public_domain = true order by year desc, title asc;
+
+*************************** 1. row ***************************
+                  title: It Made You Happy When You Made Me Cry
+                   year: 1926
+          music_reverse: NULL
+words_and_music_reverse: Donaldson, Walter
+*************************** 2. row ***************************
+                  title: Cup of Coffee, a Sandwich and You, A
+                   year: 1925
+          music_reverse: Meyer, Joseph
+words_and_music_reverse: NULL
+*************************** 3. row ***************************
+                  title: Five Foot Two, Eyes Of Blue
+                   year: 1925
+          music_reverse: Henderson, Ray
+words_and_music_reverse: NULL
+*************************** 4. row ***************************
+                  title: Manhattan
+                   year: 1925
+          music_reverse: Rodgers, Richard
+words_and_music_reverse: NULL
+*************************** 5. row ***************************
+                  title: It Had to be You
+                   year: 1924
+          music_reverse: Jones, Isham
+words_and_music_reverse: NULL
+*************************** 6. row ***************************
+                  title: One I Love Belongs to Somebody Else, The
+                   year: 1924
+          music_reverse: Jones, Isham
+words_and_music_reverse: NULL
+*************************** 7. row ***************************
+                  title: Somebody Loves Me
+                   year: 1924
+          music_reverse: Gershwin, George
+words_and_music_reverse: NULL
+*************************** 8. row ***************************
+                  title: Feeling the Way I Do
+                   year: 1923
+          music_reverse: Donaldson, Walter
+words_and_music_reverse: NULL
+*************************** 9. row ***************************
+                  title: Carolina in the Morning
+                   year: 1922
+          music_reverse: Donaldson, Walter
+words_and_music_reverse: NULL
+*************************** 10. row ***************************
+                  title: Chicago
+                   year: 1922
+          music_reverse: NULL
+words_and_music_reverse: Fisher, Fred
+*************************** 11. row ***************************
+                  title: Toot Toot Tootsie, Goo'bye
+                   year: 1922
+          music_reverse: NULL
+words_and_music_reverse: \vbox{\hbox{Kahn, Gus; Erdman, Ernie;}\vskip\composerskip\hbox{Russo, Dan and Fiorito, Ted}}
+*************************** 12. row ***************************
+                  title: April Showers
+                   year: 1921
+          music_reverse: Silvers, Louis
+words_and_music_reverse: NULL
+*************************** 13. row ***************************
+                  title: I'm Just Wild About Harry
+                   year: 1921
+          music_reverse: Blake, Eubie
+words_and_music_reverse: NULL
+*************************** 14. row ***************************
+                  title: My Little Bimbo
+                   year: 1920
+          music_reverse: Donaldson, Walter
+words_and_music_reverse: NULL
+*************************** 15. row ***************************
+                  title: Alice Blue Gown
+                   year: 1919
+          music_reverse: Tierney, Harry
+words_and_music_reverse: NULL
+*************************** 16. row ***************************
+                  title: How 'Ya Gonna Keep 'Em Down on the Farm?
+                   year: 1919
+          music_reverse: Donaldson, Walter
+words_and_music_reverse: NULL
+*************************** 17. row ***************************
+                  title: I'm Forever Blowing Bubbles
+                   year: 1919
+          music_reverse: NULL
+words_and_music_reverse: \vbox{\hbox{Kellette, John; Brockman, James;}\vskip\composerskip\hbox{Vincent, Nat and Kendis, James}}
+*************************** 18. row ***************************
+                  title: Pretty A Girl is Like a Melody, A
+                   year: 1919
+          music_reverse: NULL
+words_and_music_reverse: Berlin, Irving
+*************************** 19. row ***************************
+                  title: Rock-a-Bye Your Baby
+                   year: 1918
+          music_reverse: Schwarz, Jean
+words_and_music_reverse: NULL
+*************************** 20. row ***************************
+                  title: Tico Tico no Fuba
+                   year: 1917
+          music_reverse: Abreu, Zequinha de
+words_and_music_reverse: NULL
+*************************** 21. row ***************************
+                  title: Antonius von Padua Fischpredigt, Des
+                   year: 1914
+          music_reverse: Mahler, Gustav
+words_and_music_reverse: NULL
+*************************** 22. row ***************************
+                  title: Irdische Leben, Das
+                   year: 1914
+          music_reverse: Mahler, Gustav
+words_and_music_reverse: NULL
+*************************** 23. row ***************************
+                  title: Lob des hohen Verstandes
+                   year: 1914
+          music_reverse: Mahler, Gustav
+words_and_music_reverse: NULL
+*************************** 24. row ***************************
+                  title: Rheinlegendchen
+                   year: 1914
+          music_reverse: Mahler, Gustav
+words_and_music_reverse: NULL
+*************************** 25. row ***************************
+                  title: Wer hat das Liedlein erdacht?
+                   year: 1914
+          music_reverse: Mahler, Gustav
+words_and_music_reverse: NULL
+*************************** 26. row ***************************
+                  title: You Made Me Love You
+                   year: 1913
+          music_reverse: Monaco, James
+words_and_music_reverse: NULL
+*************************** 27. row ***************************
+                  title: Moonlight Bay
+                   year: 1912
+          music_reverse: Wenrich, Percy
+words_and_music_reverse: NULL
+*************************** 28. row ***************************
+                  title: My Melancholy Baby
+                   year: 1912
+          music_reverse: Burnett, Ernie
+words_and_music_reverse: NULL
+*************************** 29. row ***************************
+                  title: By The Light Of The Silvery Moon
+                   year: 1909
+          music_reverse: Edwards, Gus
+words_and_music_reverse: NULL
+*************************** 30. row ***************************
+                  title: I Wonder Who's Kissing Her Now
+                   year: 1909
+          music_reverse: Orlob, Harold
+words_and_music_reverse: NULL
+*************************** 31. row ***************************
+                  title: Shine On Harvest Moon
+                   year: 1908
+          music_reverse: Bayes, Nora
+words_and_music_reverse: NULL
+*************************** 32. row ***************************
+                  title: Da geh ich zu Maxim
+                   year: 1905
+          music_reverse: Leh{\'a}r, Franz
+words_and_music_reverse: NULL
+*************************** 33. row ***************************
+                  title: Lied vom dummen Reiter, Das
+                   year: 1905
+          music_reverse: Leh{\'a}r, Franz
+words_and_music_reverse: NULL
+*************************** 34. row ***************************
+                  title: Lippen schweigen
+                   year: 1905
+          music_reverse: Leh{\'a}r, Franz
+words_and_music_reverse: NULL
+*************************** 35. row ***************************
+                  title: Hello! Ma Baby
+                   year: 1899
+          music_reverse: NULL
+words_and_music_reverse: Howard, Joe E.~and Emerson, Ida
+*************************** 36. row ***************************
+                  title: Polowetzer T@{a}nze
+                   year: 1890
+          music_reverse: NULL
+words_and_music_reverse: Borodin, Alexander
+*************************** 37. row ***************************
+                  title: On a Tree By a Willow
+                   year: 1885
+          music_reverse: Sullivan, Arthur
+words_and_music_reverse: NULL
+*************************** 38. row ***************************
+                  title: Sun Whose Rays, The
+                   year: 1885
+          music_reverse: Sullivan, Arthur
+words_and_music_reverse: NULL
+*************************** 39. row ***************************
+                  title: Three Little Maids from School
+                   year: 1885
+          music_reverse: Sullivan, Arthur
+words_and_music_reverse: NULL
+*************************** 40. row ***************************
+                  title: Wand'ring Minstrel I, A
+                   year: 1885
+          music_reverse: Sullivan, Arthur
+words_and_music_reverse: NULL
+*************************** 41. row ***************************
+                  title: Barcarole
+                   year: 1881
+          music_reverse: Offenbach, Jacques
+words_and_music_reverse: NULL
+*************************** 42. row ***************************
+                  title: Il {\'e}tait une fois
+                   year: 1881
+          music_reverse: Offenbach, Jacques
+words_and_music_reverse: NULL
+*************************** 43. row ***************************
+                  title: Oiseaux dans les charmille, Les
+                   year: 1881
+          music_reverse: Offenbach, Jacques
+words_and_music_reverse: NULL
+*************************** 44. row ***************************
+                  title: Au fond du temple saint
+                   year: 1863
+          music_reverse: Bizet, Georges
+words_and_music_reverse: NULL
+*************************** 45. row ***************************
+                  title: Paloma, La
+                   year: 1860
+          music_reverse: NULL
+words_and_music_reverse: Yradier, Sebastian
+*************************** 46. row ***************************
+                  title: Furtiva lagrima, Una
+                   year: 1832
+          music_reverse: Donizetti, Gaetano
+words_and_music_reverse: NULL
+*************************** 47. row ***************************
+                  title: Gute Nacht
+                   year: 1827
+          music_reverse: Schubert, Franz
+words_and_music_reverse: NULL
+*************************** 48. row ***************************
+                  title: Durch die W@{a}lder, durch die Auen
+                   year: 1821
+          music_reverse: Weber, Carl Maria von
+words_and_music_reverse: NULL
+*************************** 49. row ***************************
+                  title: Alles f@{u}hlt der Liebe Freuden
+                   year: 1791
+          music_reverse: Mozart, Wolfgang Amadeus
+words_and_music_reverse: NULL
+*************************** 50. row ***************************
+                  title: L{\`a} ci darem la mano
+                   year: 1787
+          music_reverse: Mozart, Wolfgang Amadeus
+words_and_music_reverse: NULL
+*************************** 51. row ***************************
+                  title: Wandrer, Der
+                   year: NULL
+          music_reverse: NULL
+words_and_music_reverse: Traditional
+51 rows in set (0.00 sec)
+
+mysql> 
