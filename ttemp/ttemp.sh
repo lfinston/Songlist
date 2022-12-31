@@ -3,10 +3,13 @@
 #### ttemp.sh
 #### Created by Laurence D. Finston (LDF) Sat Dec 31 06:18:14 AM CET 2022
 
-epspdf babyface1.pdf babyface1.eps
-epspdf babyface2.pdf babyface2.eps
+epspdf smblvsme1.pdf smblvsme1.eps
+epspdf smblvsme2.pdf smblvsme2.eps
 
 exit 0
+
+epspdf babyface1.pdf babyface1.eps
+epspdf babyface2.pdf babyface2.eps
 
 epspdf aintsswt1.pdf aintsswt1.eps
 epspdf aintsswt2.pdf aintsswt2.eps

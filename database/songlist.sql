@@ -3534,12 +3534,12 @@ true, "smenevng.pdf", true, "smenevng1.eps;smenevng2.eps;");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-year, scanned, scanned_filename, public_domain)
+year, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Somebody Loves Me", "Ballard MacDonald and Buddy DeSylva", 
 "MacDonald, Ballard and DeSylva, Buddy", 
 "George Gershwin", "Gershwin, George",
-true, 1924, true, "smblvsme.pdf", true);
+true, 1924, true, "smblvsme.pdf", "smblvsme1.eps;smblvsme2.eps;", true);
 
 /* ** *************************************************** */
 
