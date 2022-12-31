@@ -132,6 +132,35 @@ alter table Songs add column entry_date date not null default "2020-01-01" after
 
 update Songs set public_domain = true where year = 1927;
 
+update Songs set eps_filenames = "aintsswt1.eps;aintsswt2.eps;" where title = "Ain't She Sweet?";
+
+update Songs set eps_filenames = "mhrtstst1.eps;mhrtstst2.eps;" where title = "My Heart Stood Still";
+
+update Songs set eps_filenames = "thouswll1.eps;thouswll2.eps;" where title = "Thou Swell";
+
+update Songs set eps_filenames = "babyface1.eps;babyface2.eps" where title = "Baby Face";
+
+select title, music_reverse, words_and_music_reverse, musical, film, scanned, scanned_filename, eps_filenames from Songs where
+year = 1927 order by title;
+
+select title from Songs where year < 1927 and public_domain = false;
+
+update Songs set public_domain = true where title = "Baby Face";                              
+update Songs set public_domain = true where title = "Blue Skies";                                                           
+update Songs set public_domain = true where title = "Du sollst der Kaiser meiner Seele sein";                               
+update Songs set public_domain = true where title = "Mein Herr Marquis";                                                    
+update Songs set public_domain = true where title = "Someone to Watch Over Me";                                             
+
+select title, scanned, scanned_filename from Songs where title in ("Blue Skies", "Du sollst der Kaiser meiner Seele sein", "Mein Herr Marquis", "Someone to Watch Over Me");
+
++----------------------------------------+---------+------------------+
+| title                                  | scanned | scanned_filename |
++----------------------------------------+---------+------------------+
+| Blue Skies                             |       0 | NULL             |
+| Du sollst der Kaiser meiner Seele sein |       0 | NULL             |
+| Mein Herr Marquis                      |       0 | NULL             |
+| Someone to Watch Over Me               |       0 | NULL             |
++----------------------------------------+---------+------------------+
 
 -- select title, entry_date from Songs where title like("I%");
 
