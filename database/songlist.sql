@@ -130,7 +130,7 @@ alter table Songs add column production_subtitle varchar(128) not null default "
 alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
 alter table Songs add column entry_date date not null default "2020-01-01" after eps_filenames;
 
-update Songs set public_domain = true where year = 1927;
+update Songs set public_domain = false where year = 1927;
 
 update Songs set eps_filenames = "aintsswt1.eps;aintsswt2.eps;" where title = "Ain't She Sweet?";
 
@@ -3539,7 +3539,7 @@ values
 ("Somebody Loves Me", "Ballard MacDonald and Buddy DeSylva", 
 "MacDonald, Ballard and DeSylva, Buddy", 
 "George Gershwin", "Gershwin, George",
-true, 1924, true, "smblvsme.pdf", "smblvsme1.eps;smblvsme2.eps;", true);
+true, 1924, true, "smblvsme.pdf", "smblvsme1.eps;smblvsme2.eps;", false);
 
 /* ** *************************************************** */
 
