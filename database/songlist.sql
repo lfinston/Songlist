@@ -130,6 +130,9 @@ alter table Songs add column production_subtitle varchar(128) not null default "
 alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
 alter table Songs add column entry_date date not null default "2020-01-01" after eps_filenames;
 
+update Songs set public_domain = true where year = 1927;
+
+
 -- select title, entry_date from Songs where title like("I%");
 
 alter table Songs drop column entry_date;
