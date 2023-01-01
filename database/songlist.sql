@@ -130,7 +130,10 @@ alter table Songs add column production_subtitle varchar(128) not null default "
 alter table Songs add column production_filecard_title varchar(128) not null default "" after production_subtitle;
 alter table Songs add column entry_date date not null default "2020-01-01" after eps_filenames;
 
-update Songs set public_domain = false where year = 1927;
+select title, scanned_filename from Songs where year = 1927 order by title;
+
+
+update Songs set public_domain = true where year = 1927;
 
 update Songs set eps_filenames = "aintsswt1.eps;aintsswt2.eps;" where title = "Ain't She Sweet?";
 
@@ -6962,6 +6965,22 @@ Listen To The Rhythm Of The Range, Gene Autry
 Living In The Past, Jethro Tull   
 
 
+select title, scanned_filename from Songs where year = 1927 order by title;
+
+aintsswt1.eps
+* -rw-rw-r-- 1 laurence laurence  663030 Dec 31 06:20 aintsswt2.eps
+* -rw-rw-r-- 1 laurence laurence  182360 Dec 31 06:20 mhrtstst1.eps
+* -rw-rw-r-- 1 laurence laurence   99401 Dec 31 06:20 mhrtstst2.eps
+* -rw-rw-r-- 1 laurence laurence  191299 Dec 31 09:00 smblvsme1.eps
+* -rw-rw-r-- 1 laurence laurence   74336 Dec 31 09:00 smblvsme2.eps
+* -rw-rw-r-- 1 laurence laurence 1077284 Dec 31 06:31 thouswll1.eps
+* -rw-rw-r-- 1 laurence laurence  889035 Dec 31 06:31 thouswll2.eps
+
+  -rw-rw-r--  1 laurence laurence 1366500 May 14  2021 aintsswt.pdf
+  -rw-rw-r--  1 laurence laurence  213463 May  4  2021 mhrtstst.pdf
+  -rw-rw-r--  1 laurence laurence  198712 Apr 20  2021 smblvsme.pdf
+  -rw-rw-r--  1 laurence laurence 1530186 May  2  2021 thouswll.pdf
+  -rwxrw-r--  1 laurence laurence     465 Dec 31 09:00 ttemp.sh
 
 
 /* * (1)  */
