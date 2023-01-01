@@ -3110,9 +3110,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, revue, year)
 values
-("Parisian Pierrot", "No@{e}l Coward", "Coward, No@{e}l", true);
+("Parisian Pierrot", "No@{e}l Coward", "Coward, No@{e}l", true, "London Calling!", 1923);
 
 /* ** *************************************************** */
 
