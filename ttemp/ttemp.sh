@@ -3,8 +3,15 @@
 #### ttemp.sh
 #### Created by Laurence D. Finston (LDF) Sat Dec 31 06:18:14 AM CET 2022
 
-epspdf smblvsme1.pdf smblvsme1.eps
-epspdf smblvsme2.pdf smblvsme2.eps
+pdfseparate makebelv.pdf makebelv%d.pdf
+
+epspdf bill.pdf bill.eps
+
+epspdf makebelv1.pdf makebelv1.eps
+
+epspdf makebelv2.pdf makebelv2.eps
+
+epspdf mybluhvn.pdf mybluhvn.eps
 
 exit 0
 
