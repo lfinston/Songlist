@@ -563,11 +563,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, musical, 
-lead_sheet, sort_by_production, year)
+lead_sheet, sort_by_production, year, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Bill", "\\vtop{\\hbox{P.G.~Wodehouse and}\\vskip\\composerskip\\hbox{Oscar Hammerstein II}}",
 "Wodehouse, P.G. and Hammerstein, Oscar II", 
-"Jerome Kern", "Kern, Jerome", "Showboat", true, true, 1927);
+"Jerome Kern", "Kern, Jerome", "Showboat", true, true, 1927, true, "bill.pdf", "bill.eps;", true);
 
 /* ** *************************************************** */
 
@@ -2581,10 +2581,10 @@ true, 1948,
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, 
-sort_by_production, year)
+sort_by_production, year, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Make Believe", "Oscar Hammerstein II", "Hammerstein II, Oscar", "Jerome Kern", "Kern, Jerome", true,  
-"Showboat", true, 1927);
+"Showboat", true, 1927, true, "makebelv.pdf", "makebelv1.eps;makebelv2.eps;", true);
 
 /* ** *************************************************** */
 
@@ -2794,10 +2794,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, revue, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, revue, year, 
+scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("My Blue Heaven", "George A.~Whiting", "Whiting, George A.", "Walter Donaldson", "Donaldson, Walter", true,
-"Ziegfeld Follies 1927", 1927);
+"Ziegfeld Follies 1927", 1927, true, "mybluhvn.pdf", "mybluhvn.eps;", true);
 
 /* ** *************************************************** */
 
