@@ -2463,6 +2463,7 @@ values
 ("Liza (All the Clouds'll Roll Away)", "Ira Gershwin and Gus Kahn", "Gershwin, Ira and Kahn, Gus",
 "George Gershwin", "Gershwin, George", true,
 1929);
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
@@ -3341,6 +3342,14 @@ select "!!! End R";
 /* S   */
 
 select "!!! S";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain, scanned,
+scanned_filename, eps_filenames)
+values
+("'S Wonderful", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true,
+1927, true, true, "swndrfl.pdf", "swndrfl1.eps;swndrfl2.eps;");
 
 /* ** *************************************************** */
 
