@@ -2803,6 +2803,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year,
+source, scanned, scanned_filename, eps_filenames)
+values
+("My Heart Belongs to Daddy", "Cole Porter", "Porter, Cole", true, " Leave It to Me!",
+1938, "{\\bf Best of Cole Porter, The}, p.~116.", false, "", "");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 musical, year, scanned, scanned_filename)
 values
