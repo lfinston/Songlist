@@ -1859,6 +1859,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, scanned, scanned_filename, 
+copyright)
+values
+("In Sankt Pauli--bei Altona", "Friedrich Hollaender", "Hollaender, Friedrich", true, 1930, true, 
+"snktpaul.pdf", "Copyright  {\\copyright} 1930 Karl Br@{u}ll");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, scanned, scanned_filename, language)
 values
@@ -2804,10 +2812,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, year,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename)
 values
 ("My Heart Belongs to Daddy", "Cole Porter", "Porter, Cole", true, " Leave It to Me!",
-1938, "{\\bf Best of Cole Porter, The}, p.~116.", false, "", "");
+1938, "{\\bf Best of Cole Porter, The}, p.~116.", true, "myhrtblg.pdf");
 
 /* ** *************************************************** */
 
