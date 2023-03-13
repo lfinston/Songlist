@@ -551,14 +551,13 @@ update Songs set eps_filenames = "bewitchd1.eps;bewitchd2.eps;" where title = "B
 
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title,
-words, words_reverse, music, music_reverse, 
-lead_sheet, year)
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, scanned, scanned_filename)
 values
 ("Between the Devil and the Deep Blue Sea", 
 "\\vbox{\\hbox{Between the Devil and the}\\vskip\\titleskip\\hbox{Deep Blue Sea}}", 
 "Ted Koehler", "Koehler, Ted", 
-"Harold Arlen", "Arlen, Harold", true, 1931);
+"Harold Arlen", "Arlen, Harold", true, 1931, true, "btwndvldpbls.pdf");
 
 /* ** *************************************************** */
 
