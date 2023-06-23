@@ -100,11 +100,17 @@ create table Songs
     entry_date date not null default "2020-01-01"
 );
 
-alter table Songs add column operetta varchar(64) default null after opera;
+/* TODO:  Add these to table definition!  LDF 2023.06.23.  */
+
 alter table Songs add column source varchar(128) default null after notes;
 alter table Songs add column words_reverse varchar(128) default null after words;
 alter table Songs add column music_reverse varchar(128) default null after music;
 alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
+
+/* End of "to add" list  LDF 2023.06.23.  */
+
+
+alter table Songs add column operetta varchar(64) default null after opera;
 alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
 alter table Songs add column scanned_filename varchar(12) default null after scanned;
 alter table Songs add column public_domain boolean not null default false after notes;
@@ -217,7 +223,6 @@ create table Composers_Songs
 (
    composer varchar(128) not null default "",
    title varchar(128) not null default ""
-
 );
 
 show columns from Composers_Songs;
@@ -227,9 +232,7 @@ show columns from Composers_Songs;
 create table Lyricists_Songs
 (
    lyricist varchar(128) not null default "",
-
    title varchar(128) not null default ""
-
 );
 
 show columns from Lyricists_Songs;
@@ -352,11 +355,12 @@ values
 "Wolfgang Amadeus Mozart", "Mozart, Wolfgang Amadeus", true,
 "Zauberfl@{o}te, Die", 1791, false, "allsfhlt.pdf", true,
 "{\\bf Opern-Arien, Tenor}, p.~177.", true, "german");
+
 --
 
-select * from Songs where title  = "Zauberfl@{o}te, Die"\G
+select * from Songs where title  = "Zauberfl@{o}te, Die";
 
-select * from Songs where opera = "Zauberfl@{o}te, Die"\G
+select * from Songs where opera = "Zauberfl@{o}te, Die";
 
 /* ** *************************************************** */
 
