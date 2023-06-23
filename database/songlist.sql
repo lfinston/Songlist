@@ -263,7 +263,7 @@ show columns from Productions;
 
 select distinct opera, operetta, song_cycle, musical, revue, film from Songs where 
 opera is not null or operetta is not null or song_cycle is not null
-or musical is not null or revue is not null or film is not null\G
+or musical is not null or revue is not null or film is not null;
 
 
 
@@ -282,7 +282,7 @@ values
 ("Abends in der Taverna", "Aldo von Pinelli", "Pinelli, Aldo von", "Werner Bochmann", "Bochmann, Werner",
 true, 1, 1940, "german");
 
--- select * from Songs where title = "Abends in der Taverna"\G
+-- select * from Songs where title = "Abends in der Taverna";
 
 /* ** *************************************************** */
 
@@ -327,7 +327,7 @@ true, 1, 1, true, "allgdsch.pdf", "allgdsch1.eps;allgdsch2.eps;allgdsch3.eps;", 
 
 -- delete from Songs where title = "All I Do Is Dream Of You";
 
--- select * from Songs where title = "All I Do Is Dream Of You"\G
+-- select * from Songs where title = "All I Do Is Dream Of You";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
 source, scanned, scanned_filename)
@@ -484,7 +484,7 @@ true, "babyface.pdf");
 
 update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Baby Face";
 
--- select * from Songs where title = "Baby Face"\G
+-- select * from Songs where title = "Baby Face";
 
 /* ** *************************************************** */
 
@@ -774,7 +774,7 @@ values
 
 update Songs set eps_filenames = "chicago1.eps;chicago2.eps;" where title = "Chicago";
 
-select * from Songs where title = "Chicago"\G
+select * from Songs where title = "Chicago";
 
 /* ** *************************************************** */
 
@@ -1149,11 +1149,11 @@ values
 -- ("Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)", 
 -- "{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}}}");
 
--- select * from Songs where music = "Ray Henderson"\G
+-- select * from Songs where music = "Ray Henderson";
 
--- select * from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)"\G
+-- select * from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
--- select * from Songs where title = "Five Foot Two, Eyes Of Blue"\G
+-- select * from Songs where title = "Five Foot Two, Eyes Of Blue";
 
 -- delete from Songs where title = "Five Foot Two, Eyes Of Blue (Has Anybody Seen My Girl?)";
 
@@ -1461,7 +1461,7 @@ values
 
 /* ** *************************************************** */
 
-/* select * from Songs where music = "Walter Donaldson"\G  */
+/* select * from Songs where music = "Walter Donaldson";  */
 
 /* delete from Songs where title = "How You Gonna Keep 'Em Down on the Farm?";  */
 
@@ -1530,7 +1530,7 @@ true, "icvrwtft.pdf", "icvrwtft1.eps;icvrwtft2.eps;icvrwtft3.eps;", 1933);
 
 -- delete from Songs where title =  "I Don't Know Why (I Just Do)";
 
-select * from Songs where title like("I Don't Know Why%")\G
+select * from Songs where title like("I Don't Know Why%");
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year,
 scanned, scanned_filename, eps_filenames)
@@ -1716,7 +1716,7 @@ replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_produ
 values
 ("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!");
 
-select * from Songs where title = "Very Next Man, (I'll Marry) The"\G
+select * from Songs where title = "Very Next Man, (I'll Marry) The";
 
 /* ** *************************************************** */
 
@@ -1778,7 +1778,7 @@ true, 1919, true, true, "imfrvrbb.pdf",
 
 update Songs set eps_filenames = "imfrvrbb.eps;" where title = "I'm Forever Blowing Bubbles";
 
-select * from Songs where title = "I'm Forever Blowing Bubbles"\G
+select * from Songs where title = "I'm Forever Blowing Bubbles";
 
 /* ** *************************************************** */
 
@@ -2000,7 +2000,7 @@ true, "itslove.pdf", "itslove1.eps;itslove2.eps;itslove3.eps;itslove4.eps;", tru
 
 -- select title, entry_date from Songs where title = "It's Love";
 
-select title, musical, sort_by_production from Songs where music like ("Leonard%")\G
+select title, musical, sort_by_production from Songs where music like ("Leonard%");
 
 /* ** *************************************************** */
 
@@ -2191,7 +2191,7 @@ update Songs set eps_filenames = "kpnmsch1.eps;kpnmsch2.eps;" where title = "Kee
 
 /* Knaben Wunderhorn, Des.  Gustav Mahler.
 
-select * from Songs where music = "Gustav Mahler"\G
+select * from Songs where music = "Gustav Mahler";
 
 /* *** (3) *************************************************** */
 
@@ -2746,7 +2746,7 @@ values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
 "Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\\&} Hollywood}, p.~108.", true, "moonfacd.pdf", true);
 
-select * from Songs where musical = "Street Scene"\G
+select * from Songs where musical = "Street Scene";
 
 /* ** *************************************************** */
 
@@ -3528,7 +3528,7 @@ values
 "sleighride1.eps;sleighride2.eps;sleighride3.eps;sleighride4.eps;", "2022.06.24.");
 
 
-select * from Songs where music = "Leroy Anderson"\G
+select * from Songs where music = "Leroy Anderson";
 
 
 
@@ -3632,7 +3632,7 @@ values
 true, 1951, true, "sousleciel.pdf", "sousleciel1.eps;sousleciel2.eps;sousleciel3.eps;", 
 "Copyright {\\copyright} 1951 {\\&} 1953", "french", "2022.05.25.", "Sheet Music Direct");
 
-select * from Songs where music = "Hubert Giraud"\G
+select * from Songs where music = "Hubert Giraud";
 
 /* ** *************************************************** */
 
@@ -3649,7 +3649,7 @@ values
 
 /* delete from Songs where title = ""Spanish Eyes (Moon Over Naples";  */
 
-/* select title from Songs\G  */
+/* select title from Songs;  */
 
 /* ** *************************************************** */
 
@@ -3721,7 +3721,7 @@ values
 true, 1885, "Mikado, The", true, true, "IMSLP", true, "snwhsrys.pdf", "snwhsry1.eps;snwhsry2.eps;snwhsry3.eps;",
 "2021.10.21.");
 
-select * from Songs where title = "Sun Whose Rays, The"\G
+select * from Songs where title = "Sun Whose Rays, The";
 
 /* ** *************************************************** */
 
@@ -3737,7 +3737,7 @@ values
 
 /* ** *************************************************** */
 
--- select * from Songs where title = "Swinging On A Star"\G
+-- select * from Songs where title = "Swinging On A Star";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film,
 year, source, scanned, scanned_filename, eps_filenames)
@@ -3841,7 +3841,7 @@ values
 "\\vbox{\\hbox{{\\bf Summertime, The Greatest Songs}}\\vskip\\sourceskip\\hbox{{\\bf of George Gershwin}, p.~44.}}",
 true, "thrsboat.pdf", "thrsabt1.eps;thrsabt2.eps;", "2021.11.05.");
 
-select * from Songs where music = "George Gershwin"\G
+select * from Songs where music = "George Gershwin";
 
 /* scanned, scanned_filename, eps_filenames */
 
@@ -4189,11 +4189,11 @@ values
 ("Whatever Lola Wants", "(Lola Gets)", "Richard Adler and Jerry Ross", "Adler, Richard and Ross, Jerry", true, 1955, "Damn Yankees", 
 true, "wtvrllws.pdf", "wtvrllws.eps;", "{\\bf Damn Yankees, Vocal Selections}, p.~5.", true, "2021.09.03");
 
-delete from Songs where title = "Whatever Lola Wants"\G
+delete from Songs where title = "Whatever Lola Wants";
 
-select * from Songs where title = "Heart"\G
+select * from Songs where title = "Heart";
 
-select * from Songs where title = "Whatever Lola Wants"\G
+select * from Songs where title = "Whatever Lola Wants";
 
 /* ** *************************************************** */
 
@@ -4351,7 +4351,7 @@ false, "gutencht.pdf", "german", true);
 
 /* ** *************************************************** */
 
-select * from Songs where title = "Bewitched"\G
+select * from Songs where title = "Bewitched";
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, film, source, notes, scanned, scanned_filename, eps_filenames, sort_by_production)
@@ -4477,7 +4477,7 @@ values
 true, 1944, true, "yrnbdytl.pdf",
 "\\vbox{\\hbox{{\\bf The Big Book of '50s {\\&} '60s}}\\vskip\\sourceskip\\hbox{{\\bf Swinging Songs}, p.~241.}}");
 
-select * from Songs where title = "You're Nobody 'Til Somebody Loves You"\G
+select * from Songs where title = "You're Nobody 'Til Somebody Loves You";
 
 /* ** *************************************************** */
 
@@ -4519,32 +4519,32 @@ select "!!! End Z";
 
 /* Select  */
 
-select * from Songs order by title asc\G
+select * from Songs order by title asc;
 
 select music_reverse, words_and_music_reverse, title, words from Songs 
 where music_reverse is not null or words_and_music_reverse is not null
-order by music_reverse, words_and_music_reverse, title\G
+order by music_reverse, words_and_music_reverse, title;
 
 select words_and_music_reverse, title from Songs 
 where words_and_music_reverse = "Porter, Cole"
-order by title\G
+order by title;
 
 select distinct music_reverse, words_and_music_reverse from Songs
 where music_reverse is not null or words_and_music_reverse is not null
-order by music_reverse, words_and_music_reverse\G
+order by music_reverse, words_and_music_reverse;
 
 select title, words, words_reverse, music, music_reverse, words_and_music, words_and_music_reverse, lead_sheet, 
 partial_lead_sheet, no_page_turns, 
 no_page_turns_with_two_songbooks, arrangement_orchestra, 
 arrangement_solo_guitar, recordings, opera, musical, revue, 
-film, sort_by_production, year, copyright from Songs order by title asc\G
+film, sort_by_production, year, copyright from Songs order by title asc;
 
 or opera is not null or operetta is not null or revue is not null
 or film is not null) and sort_by_production is true
-order by title asc\G
+order by title asc;
 
 select title, musical, opera, operetta, revue, film, sort_by_production
-from Songs\G
+from Songs;
 
 select title from Songs where title = "Camelot";
 
@@ -4556,17 +4556,17 @@ select distinct words, words_reverse, music, music_reverse, words_and_music
 from Songs 
 where words is not null or music is not null or words_and_music is not null
 order by
-words, words_reverse, music, music_reverse, words_and_music\G
+words, words_reverse, music, music_reverse, words_and_music;
 
-select * from Songs where words is null and music is null and words_and_music is null\G
+select * from Songs where words is null and music is null and words_and_music is null;
 
-select title from Songs where words = "Langston Hughes"\G
+select title from Songs where words = "Langston Hughes";
 
-select title from Songs where words_and_music = "Irving Berlin"\G
+select title from Songs where words_and_music = "Irving Berlin";
 
 select title, words_reverse, music_reverse, words_and_music_reverse
 from Songs where words_reverse is not null or music_reverse is not null or words_and_music_reverse is not null
-order by words_reverse, music_reverse, words_and_music_reverse\G
+order by words_reverse, music_reverse, words_and_music_reverse;
 
 /* * (1)  */
 
@@ -5699,15 +5699,15 @@ replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "How 'Ya
 
 replace into Lyricists_Songs (lyricist, title) values ("Young, Joe", "How 'Ya Gonna Keep 'Em Down on the Farm?");
 
--- select * from Songs where music = "Ray Henderson"\G
+-- select * from Songs where music = "Ray Henderson";
 
--- select * from Lyricists_Songs where lyricist = "Young, Joe"\G
+-- select * from Lyricists_Songs where lyricist = "Young, Joe";
 
--- delete from Lyricists_Songs where lyricist = "Young, Joe"\G
+-- delete from Lyricists_Songs where lyricist = "Young, Joe";
 
--- select * from Lyricists_Songs where lyricist = "Lewis, Sam M."\G
+-- select * from Lyricists_Songs where lyricist = "Lewis, Sam M.";
 
--- delete from Lyricists_Songs where lyricist = "Lewis, Sam M."\G
+-- delete from Lyricists_Songs where lyricist = "Lewis, Sam M.";
 
 replace into Lyricists_Songs (lyricist, title) values ("Lewis, Sam M.", "Five Foot Two, Eyes Of Blue");
 
@@ -6647,10 +6647,10 @@ values ("Joseph McCarthy", "McCarthy, Joseph",  '1885-09-27', '1943-12-18');
 /* * (1)  */
 
 select name_reverse, name, alternative_name, birth_date, death_date, notes
-from Composers order by name_reverse\G
+from Composers order by name_reverse;
 
 select name_reverse, name, alternative_name, alternative_name_reverse,
-birth_date, death_date, notes from Lyricists order by name_reverse\G
+birth_date, death_date, notes from Lyricists order by name_reverse;
 
 /* * (1)  */
 
@@ -6668,7 +6668,7 @@ select distinct lyricist from Lyricists_Songs order by lyricist;
 select title, lead_sheet, year, copyright from Songs where year <= 1924 order by title;
 
 select title, musical, film, revue, opera, operetta, year from Songs where musical is not null or film is not null 
-or opera is not null or operetta is not null or revue is not null order by title\G
+or opera is not null or operetta is not null or revue is not null order by title;
 
 select musical, title, music, words, words_and_music, year from Songs where musical is not null 
 and music = "Kurt Weill" order by year;
@@ -6911,10 +6911,10 @@ update Songs set do_filecard = true where is_cross_reference = false;
 
 update Songs set do_filecard = true where is_cross_reference = true;
 
-select * from Productions order by title\G
+select * from Productions order by title;
 
 select title, scanned, scanned_filename, eps_filenames from Songs where (scanned is true or length(scanned_filename) > 0) 
-and length(eps_filenames) = 0 order by title\G
+and length(eps_filenames) = 0 order by title;
 
 select title, subtitle from Songs where length(subtitle) > 0;
 
