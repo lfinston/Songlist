@@ -64,8 +64,11 @@ create table Songs
     title varchar(128) unique not null,
     subtitle varchar(128) not null default "",
     words varchar(128) default null,
+    words_reverse varchar(128) default null,
     music varchar(128) default null,
+    music_reverse varchar(128) default null,
     words_and_music varchar(128) default null,
+    words_and_music_reverse varchar(128) default null,
     lead_sheet boolean not null default false,
     partial_lead_sheet boolean not null default false,
     no_page_turns boolean not null default false,
@@ -89,6 +92,7 @@ create table Songs
     year int default null,
     copyright varchar(256) default null,
     notes varchar(512) default null,
+    source varchar(128) default null,
     public_domain boolean not null default false,
     language varchar(32) not null default "english",
     is_cross_reference boolean not null default false,
@@ -99,16 +103,6 @@ create table Songs
     eps_filenames varchar(512) not null default "",
     entry_date date not null default "2020-01-01"
 );
-
-/* TODO:  Add these to table definition!  LDF 2023.06.23.  */
-
-alter table Songs add column source varchar(128) default null after notes;
-alter table Songs add column words_reverse varchar(128) default null after words;
-alter table Songs add column music_reverse varchar(128) default null after music;
-alter table Songs add column words_and_music_reverse varchar(128) default null after words_and_music;
-
-/* End of "to add" list  LDF 2023.06.23.  */
-
 
 alter table Songs add column operetta varchar(64) default null after opera;
 alter table Songs add column scanned boolean not null default false after no_page_turns_with_two_songbooks;
