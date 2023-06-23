@@ -2740,6 +2740,8 @@ values
 ("Moon-Faced, Starry-Eyed", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt", true,
 "Street Scene", 1946, "{\\bf Kurt Weill, Broadway {\\&} Hollywood}, p.~108.", true, "moonfacd.pdf", true);
 
+update Songs set eps_filenames = "moonfac1.eps;moonfac2.eps;" where title = "Moon-Faced, Starry-Eyed";
+
 select * from Songs where musical = "Street Scene";
 
 /* ** *************************************************** */
@@ -2817,10 +2819,10 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-musical, year, scanned, scanned_filename)
+musical, year, scanned, scanned_filename, public_domain)
 values
 ("My Heart Stood Still", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 
-"Connecticut Yankee, A", 1927, true, "mhrtstst.pdf");
+"Connecticut Yankee, A", 1927, true, "mhrtstst.pdf", true);
 
 update Songs set eps_filenames = "myheart01.eps;myheart02.eps;" where title = "My Heart Stood Still";
 
@@ -3046,6 +3048,8 @@ values
 ("Once in Love with Amy", "Frank Loesser", "Loesser, Frank", true, 1948,
 "Copyright {\\copyright} 1948 (Renewed) Frank Music Corp.",
 "Where's Charlie?", "Frank Loesser Songbook, The, p.~175", true, "onclvamy.pdf", true);
+
+update Songs set eps_filenames = "onlvam01.eps;onlvam02.eps;" where title = "Once in Love with Amy";
 
 /* ** *************************************************** */
 
@@ -3999,6 +4003,10 @@ values
 "\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~102.}}",
 true, "tphtwttl.pdf", true);
 
+
+update Songs set eps_filenames = "tphtwtt1.eps;tphtwtt2.eps;" where title = "Top Hat, White Tie and Tails";
+
+
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source)
@@ -4153,6 +4161,8 @@ year, source, scanned, scanned_filename, sort_by_production)
 values
 ("What Good Would the Moon Be?", "Langston Hughes", "Hughes, Langston", "Kurt Weill", "Weill, Kurt",
 true, "Street Scene", 1946, "{\\bf Kurt Weill, From Berlin to Broadway}, p.~79.", true, "whatgood.pdf", true);
+
+update Songs set eps_filenames = "whtgood1.eps;whtgood2.eps;" where title = "What Good Would the Moon Be?";
 
 /* ** *************************************************** */
 
