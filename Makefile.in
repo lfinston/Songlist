@@ -970,7 +970,7 @@ graphics_1.eps graphics_2.eps graphics_3.eps graphics_4.eps \
 .PHONY: dump
 
 dump: ./database/songlist.sql
-	mysqlpump Songs > dump.sql
+	sudo mysqldump Songs > ./database/Songs_dump.sql
 .PHONY: query
 
 query:
