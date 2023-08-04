@@ -1,0 +1,181 @@
+%% pedal_steel_chart.tex
+%% pedal_steel_chart.txt
+
+%% Created by Laurence D. Finston (LDF) Sa 29. Jul 23:19:59 CEST 2023
+
+%% * (1) Copyright and License.
+
+%%%% Copyright (C) 2023 Laurence Finston
+
+%%%% This file is free software; you can redistribute it and/or modify 
+%%%% it under the terms of the GNU General Public License as published by 
+%%%% the Free Software Foundation; either version 3 of the License, or 
+%%%% (at your option) any later version.  
+
+%%%% This file is distributed in the hope that it will be useful, 
+%%%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%%%% GNU General Public License for more details.  
+
+%%%% You should have received a copy of the GNU General Public License 
+%%%% along with this file; if not, write to the Free Software 
+%%%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%%%% Please send bug reports to Laurence.Finston@gmx.de
+
+%%%% The author can be contacted at: 
+
+%%%% Laurence Finston 
+%%%% Laurence.Finston@gmx.de
+
+
+\special{papersize=230mm, 297mm}
+\hsize=230mm
+\vsize=297mm
+
+\input epsf
+\input colordvi
+\input eplain
+\nopagenumbers
+
+\pageno=1
+
+%\tracingall
+%\tracingonline=1
+
+\advance\hoffset by -1in
+\advance\voffset by -1in
+
+\advance\hoffset by 3cm
+\advance\voffset by 1.5cm
+
+\advance\hsize by -1.5cm
+\advance\vsize by -1.5cm
+
+
+\topskip=0pt
+\parindent=0pt
+\baselineskip=0pt
+\parskip=0pt
+
+%% * (1)
+
+\headline={\hfil Copyright {\copyright} 2023 Laurence Finston\quad{\tt \timestamp}\hskip3truecm}
+
+\def\epsfsize#1#2{.9#1}
+
+\font\large=cmr17 scaled \magstep1
+\font\largebx=cmbx12 scaled \magstep2
+\font\Largebx=cmbx12 scaled 1750
+
+\setbox0=\hbox{\epsffile{pedal_steel_chart_000.eps}}
+
+\dimen0=.5truecm
+
+%% * (1) Plain charts
+
+%% ** (2) Open strings and fret 1
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Open Strings (and Frets 12 and 24)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\copy0\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 1 (and 13 and 25)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_001.eps}\hss}
+\vfil}
+\eject
+
+%% ** (2) Frets 2 and 3 
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Fret 2 (and 14 and 26)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_002.eps}\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 3 (and 15 and 27)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_003.eps}\hss}
+\vfil}
+\eject
+
+%% ** (2) Frets 4 and 5 
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Fret 4 (and 16 and 28)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_004.eps}\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 5 (and 17 and 29)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_005.eps}\hss}
+\vfil}
+\eject
+
+%% ** (2) Frets 6 and 7
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Fret 6 (and 18 and 30)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_006.eps}\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 7 (and 19)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_007.eps}\hss}
+\vfil}
+\eject
+
+\iftrue % \iffalse % 
+
+%% ** (2) Frets 8 and 9
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Fret 8 (and 20)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_008.eps}\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 9 (and 21)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_009.eps}\hss}
+\vfil}
+\eject
+
+%% ** (2) Frets 10 and 11
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\largebx Fret 10 (and 22)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_010.eps}\hss}
+\vskip.5cm
+\hbox to \wd0{\hss{\largebx Fret 11 (and 23)}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_011.eps}\hss}
+\vfil}
+\eject
+\fi
+
+%\bye
+
+%% * (1) Chords
+
+\def\epsfsize#1#2{.825#1}
+
+\setbox0=\hbox{\epsffile{pedal_steel_chart_012.eps}}
+
+%% ** (2) E maj. and E7 and B maj. and B7 (Open strings)
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss
+{\Largebx E maj., E\raise4pt\hbox{7} and E\raise4pt\hbox{6}}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_012.eps}\hss}\vskip1cm
+\hbox to \wd0{\hss{\Largebx B maj., B\raise4pt\hbox{7} and B\raise4pt\hbox{6}}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_013.eps}\hss}
+\vfil}
+\eject
+
+%% ** (2) A maj., A7 and A6(Open strings) and Cm, Cm7 and Cm6 (Fret 1) 
+
+\vbox to \vsize{\vskip\dimen0
+\hbox to \wd0{\hss{\Largebx A maj., A\raise4pt\hbox{7} and A\raise4pt\hbox{6}}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_014.eps}\hss}\vskip1cm
+\hbox to \wd0{\hss{\Largebx Cm, Cm\raise4pt\hbox{7} and Cm\raise4pt\hbox{6}}\hss}\vskip.5cm
+\hbox to \hsize{\hskip0cm\epsffile{pedal_steel_chart_015.eps}\hss}
+\vfil}
+\eject
+
+
+\bye
+
+%% Local Variables:
+%% mode:plain-TeX
+%% auto-fill-function:nil 
+%% End:
