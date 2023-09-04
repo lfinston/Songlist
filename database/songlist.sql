@@ -2064,12 +2064,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, scanned_filename, year, public_domain,
+eps_filenames)
 values
 ("Japanese Sandman", "Raymond B.~Egan", "Egan, Raymond B.", "Richard A.~Whiting", "Whiting, Richard A.", 
-true, true, "jpnsndmn.pdf");
+true, true, "jpnsndmn.pdf", 1920, true, "jpnsnd01.eps;jpnsnd02.eps;jpnsnd03.eps;jpnsnd04.eps;jpnsnd05.eps;");
 
-update Songs set eps_filenames = "jpnsnd01.eps;jpnsnd02.eps;jpnsnd03.eps;jpnsnd04.eps;jpnsnd05.eps;" where title = "Japanese Sandman, The";
 
 /* ** *************************************************** */
 
