@@ -579,10 +579,10 @@ update Songs set eps_filenames = "blumoon1.eps;blumoon2.eps;" where title = "Blu
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
-values
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source,
+public_domain) values
 ("Blue Skies", "Irving Berlin", "Berlin, Irving", true, 1926,
-"{\\bf Irving Berlin Songs}, p.~16.");
+"{\\bf Irving Berlin Songs}, p.~16.", true);
 
 /* ** *************************************************** */
 
@@ -3780,10 +3780,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, 
-lead_sheet, scanned, scanned_filename)
+lead_sheet, scanned, scanned_filename, year, public_domain, copyright, eps_filenames)
 values
 ("Tea for Two", "Irving Caesar", "Caesar, Irving", "Vincent Youmans", "Youmans, Vincent", 
-true, true, "teafrtwo.pdf");
+true, true, "teafrtwo.pdf", 1924, true, "Copyright {\\copyright} 1924 Harms, Inc.",
+"teatwo01.eps; teatwo02.eps; teatwo03.eps; teatwo04.eps; teatwo05.eps;");
 
 /* ** *************************************************** */
 
