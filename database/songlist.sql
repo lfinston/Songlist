@@ -295,7 +295,7 @@ source, scanned, scanned_filename, eps_filenames)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "\\vbox{\\hbox{Copyright {\\copyright} 1927 (Renewed)}\\vskip\\copyrightskip\\hbox{WB Music Corp.~and Edwin H. Morris \\& Co.}}",
-"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf", "aintswt1.eps;aintswt2.eps;");
+"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf", "aintsswt1.eps;aintsswt2.eps;");
 
 /* ** *************************************************** */
 
@@ -2819,12 +2819,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
-musical, year, scanned, scanned_filename, public_domain)
+musical, year, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("My Heart Stood Still", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 
-"Connecticut Yankee, A", 1927, true, "mhrtstst.pdf", true);
+"Connecticut Yankee, A", 1927, true, "mhrtstst.pdf", "mhrtstst1.eps;mhrtstst2.eps;", true);
 
-update Songs set eps_filenames = "myheart01.eps;myheart02.eps;" where title = "My Heart Stood Still";
+
 
 /* ** *************************************************** */
 
