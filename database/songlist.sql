@@ -2949,11 +2949,12 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, scanned_filename)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, scanned_filename,
+public_domain)
 values
 ("Nobody's Sweetheart", "Gus Kahn and Ernest Erdman", "Kahn, Gus and Erdman, Ernest", 
 "Billy Meyers and Elmer Schoebel", "Meyers, Billy and Schoebel, Elmer", 
-true, true, "nbswthrt.pdf");
+true, true, "nbswthrt.pdf", true);
 
 update Songs set eps_filenames = "nbdswt01.eps;nbdswt02.eps;nbdswt03.eps;" where title = "Nobody's Sweetheart";
 
