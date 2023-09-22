@@ -2611,6 +2611,14 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
+public_domain, source)
+values
+("Man I Love, The", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George",
+false, 1924, true, "{\\bf Best of George Gershwin, The}, p.~74.");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, film, year, 
 language, sort_by_production)
 values
@@ -3784,7 +3792,7 @@ lead_sheet, scanned, scanned_filename, year, public_domain, copyright, eps_filen
 values
 ("Tea for Two", "Irving Caesar", "Caesar, Irving", "Vincent Youmans", "Youmans, Vincent", 
 true, true, "teafrtwo.pdf", 1924, true, "Copyright {\\copyright} 1924 Harms, Inc.",
-"teatwo01.eps; teatwo02.eps; teatwo03.eps; teatwo04.eps; teatwo05.eps;");
+"teatwo01.eps;teatwo02.eps;teatwo03.eps;teatwo04.eps;teatwo05.eps;");
 
 /* ** *************************************************** */
 
