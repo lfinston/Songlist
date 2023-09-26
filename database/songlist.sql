@@ -2832,8 +2832,6 @@ values
 ("My Heart Stood Still", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true, 
 "Connecticut Yankee, A", 1927, true, "mhrtstst.pdf", "mhrtstst1.eps;mhrtstst2.eps;", true);
 
-
-
 /* ** *************************************************** */
 
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, scanned, 
