@@ -2804,9 +2804,9 @@ update Songs set eps_filenames = "mscgsrnd.eps;" where title = "Music Goes 'Roun
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("My Baby Just Cares for Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true);
+("My Baby Just Cares for Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1930);
 
 /* ** *************************************************** */
 
@@ -2950,13 +2950,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, scanned, scanned_filename,
-public_domain)
+public_domain, year)
 values
 ("Nobody's Sweetheart", "Gus Kahn and Ernest Erdman", "Kahn, Gus and Erdman, Ernest", 
 "Billy Meyers and Elmer Schoebel", "Meyers, Billy and Schoebel, Elmer", 
-true, true, "nbswthrt.pdf", true);
+true, true, "nbswthrt.pdf", true, 1924);
 
-update Songs set eps_filenames = "nbdswt01.eps;nbdswt02.eps;nbdswt03.eps;" where title = "Nobody's Sweetheart";
 
 select "!!! N";
 
