@@ -1,6 +1,26 @@
 %% 00INFO
 %% Created by Laurence D. Finston (LDF) Fri Dec 30 08:10:27 PM CET 2022
 
+%% * (1) Top
+
+%% ** (2) 2024.  Songs due to go into the public domain (US 1928).
+
+
+select title from Songs where year = 1928;
+
+Button Up Your Overcoat
+Let's Do It
+Love Me or Leave Me
+Lover Come Back to Me
+Makin' Whoopee!
+She's Funny That Way
+Stardust
+When You're Smiling
+You Took Advantage of Me
+
+
+%% ** (2)
+
 2022.12.31.
 Move PDF files to Songlist/lead_sheets and EPS files to Songlist/public_domain from Songlist/ttemp/.
 
