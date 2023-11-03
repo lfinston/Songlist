@@ -2612,10 +2612,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-public_domain, source)
+public_domain, source, scanned, scanned_filename, eps_filenames)
 values
 ("Man I Love, The", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George",
-false, 1924, true, "{\\bf Best of George Gershwin, The}, p.~74.");
+true, 1924, true, "{\\bf Best of George Gershwin, The}, p.~74.", true, "manilove.pdf",
+"manilove1.eps;manilove2.eps;");
 
 /* ** *************************************************** */
 
@@ -3690,7 +3691,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, eps_filenames)
 values
 ("Stardust", "Mitchell Parish", "Parish, Mitchell", "Hoagy Carmichael", "Carmichael, Hoagy", true,
-1928, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;");
+1929, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;");
 
 /* recording?  */
 
