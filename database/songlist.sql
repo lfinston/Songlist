@@ -1740,9 +1740,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
-("I'll See You in My Dreams", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham", true);
+("I'll See You in My Dreams", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham",
+true, 1924, true);
 
 /* ** *************************************************** */
 
