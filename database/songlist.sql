@@ -1740,10 +1740,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain,
+scanned, scanned_filename, eps_filenames)
 values
 ("I'll See You in My Dreams", "Gus Kahn", "Kahn, Gus", "Isham Jones", "Jones, Isham",
-true, 1924, true);
+true, 1924, true, true, "illsyimd.pdf", "illsyimd1.eps;illsyimd2.eps;illsyimd3.eps;");
 
 /* ** *************************************************** */
 
