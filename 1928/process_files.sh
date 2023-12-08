@@ -3,6 +3,15 @@
 #### process_files.sh
 #### Created by Laurence D. Finston (LDF) Do 7. Dez 15:23:44 CET 2023
 
+eps2eps btnpvrct1.pdf btnpvrct1.eps
+eps2eps btnpvrct2.pdf btnpvrct2.eps
+
+exit 0
+
+"btnpvrct1.eps"
+"btnpvrct2.eps"
+"btnpvrct.pdf"
+
 "letsdoit.pdf"
 "letsdoit1.eps;letsdoit2.eps;"
 
