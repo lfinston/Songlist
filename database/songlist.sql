@@ -2459,9 +2459,11 @@ update Songs set eps_filenames = "lttltnbx1.eps;lttltnbx2.eps;" where title = "L
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("Little White Lies", "Walter Donaldson", "Donaldson, Walter", true);
+("Little White Lies", "Walter Donaldson", "Donaldson, Walter", true, 1930);
+
+-- https://en.wikipedia.org/wiki/Little_White_Lies_(1930_song)
 
 /* ** *************************************************** */
 
