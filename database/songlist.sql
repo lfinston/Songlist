@@ -3975,6 +3975,8 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 values
 ("Tiptoe Through the Tulips With Me", "Al Dubin", "Dubin, Al", "Joe Burke", "Burke, Joe", true, 1929);
 
+-- Gold Diggers of Broadway (Film)
+
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, musical, sort_by_production,
