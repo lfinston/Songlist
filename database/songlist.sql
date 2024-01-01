@@ -626,14 +626,12 @@ true, 1957, "{\\bf 40 franz@{o}sische Chansons}, p.~99.", "french");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
-scanned, scanned_filename)
+scanned, scanned_filename, public_domain, eps_filenames)
 values
 ("Button Up Your Overcoat", "\\vtop{\\hbox{B.G.~DeSylva, Lew Brown}\\vskip\\composerskip\\hbox{and Ray Henderson}}", 
 "DeSylva, B.G.; Brown, Lew and Henderson, Ray",
 true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~44.}}", 
-true, "btnpvrct.pdf");
-
-update Songs set eps_filenames = "btnpvrc1.eps;btnpvrc2.eps;" where title = "Button Up Your Overcoat";
+true, "btnpvrct.pdf", true, "btnpvrct1.eps;btnpvrct2.eps;")
 
 /* ** *************************************************** */
 
@@ -2346,11 +2344,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, subtitle, words_and_music, words_and_music_reverse, lead_sheet, musical, year,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Let's Do It", "(Let's Fall in Love)", "Cole Porter", "Porter, Cole", true, "Paris",
 1928, "{\\bf Best of Cole Porter, The}, p.~104.", true,
-"letsdoit.pdf", "letsdoit1.eps;letsdoit2.eps;");
+"letsdoit.pdf", "letsdoit1.eps;letsdoit2.eps;", true);
 
 /* ** *************************************************** */
 
@@ -2508,9 +2506,11 @@ update Songs set eps_filenames = "lvltrsn1.eps;lvltrsn2.eps;" where title = "Lov
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+public_domain, scanned, scanned_filename, eps_filenames)
 values
-("Love Me or Leave Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928);
+("Love Me or Leave Me", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928, true,
+true, "lvmrlvme.pdf", "lvmrlvme1.eps;lvmrlvme2.eps;");
 
 /* ** *************************************************** */
 
@@ -2599,13 +2599,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, public_domain, eps_filenames)
 values
 ("Makin' Whoopee!", "Gus Kahn", "Kahn, Gus", "Walter Donaldson", "Donaldson, Walter", true, 1928,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~160}}", 
-true, "makwhoop.pdf");
+true, "makwhoop.pdf", true, "makwhoop1.eps;makwhoop2.eps;");
 
-update Songs set eps_filenames = "mkwhoop1.eps;mkwhoop2.eps;" where title = "Makin' Whoopee!";
 
 /* ** *************************************************** */
 
@@ -3467,12 +3466,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
-scanned, scanned_filename)
+scanned, scanned_filename, public_domain, eps_filenames)
 values
 ("She's Funny That Way", "Richard A.~Whiting", "Whiting, Richard A.", "Neil Moret", "Moret, Neil", 
 true, 1928,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~222.}}",
-true, "shfnttwy.pdf");
+true, "shfnttwy.pdf", true, "shfnttwy1.eps;shfnttwy2.eps;");
 
 /* ** *************************************************** */
 
@@ -4227,12 +4226,12 @@ true, "whenlove.pdf");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, public_domain, eps_filenames)
 values
 ("When You're Smiling", "\\vtop{\\hbox{Mark Fisher, Joe Goodwin}\\vskip\\composerskip\\hbox{and Larry Shay}}", 
 "Fisher, Mark; Goodwin, Joe and Shay, Larry", 
 true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 2}, p.~299.}}", 
-true, "whensmil.pdf");
+true, "whensmil.pdf", true, "whensmil1.eps;whensmil2.eps;");
 
 /* ** *************************************************** */
 
@@ -4463,12 +4462,13 @@ true, true, "youmadem.pdf", true, "{\\bf 100 Years of Popular Music, 1900}, p.~4
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse,
-lead_sheet, arrangement_solo_guitar, year, musical, source, scanned, scanned_filename)
+lead_sheet, arrangement_solo_guitar, year, musical, source, scanned, scanned_filename, 
+public_domain, eps_filenames)
 values
 ("You Took Advantage of Me", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard",
 true, true, 1928, "Present Arms",
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~248.}}",
-true, "ytkadvnt.pdf");
+true, "ytkadvnt.pdf", true, "ytkadvnt1.eps;ytkadvnt2.eps;ytkadvnt3.eps;");
 
 /* ** *************************************************** */
 
