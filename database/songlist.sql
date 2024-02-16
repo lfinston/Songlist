@@ -335,6 +335,10 @@ update Songs set eps_filenames = "alliddrm.eps;" where title = "All I Do Is Drea
 
 /* ** *************************************************** */
 
+/* All of Me 1931 Gerald Marks and Seymour Simons  */
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
 ("All the Things You Are", "Oscar Hammerstein II", "Hammerstein II, Oscar",
@@ -366,6 +370,10 @@ values
 "Authors real name:  Ray Gilbert.", true, "aloneagn.pdf");
 
 update Songs set eps_filenames = "alnagn01.eps;alnagn02.eps;" where title = "Alone Again (Naturally)";
+
+/* ** *************************************************** */
+
+/* Am I Blue? 1929 song copyrighted by Harry Akst (music) and Grant Clarke (lyrics) */
 
 /* ** *************************************************** */
 
