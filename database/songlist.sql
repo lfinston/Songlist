@@ -838,10 +838,15 @@ true, "cool.pdf", "cool1.eps;cool2.eps;", "2021.09.08");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+public_domain)
 values
 ("Coquette", "Gus Kahn", "Kahn, Gus", "John W.~Green and Carmen Lombardo",
-"Green, John W.~and Lombardo, Carmen", true);
+"Green, John W.~and Lombardo, Carmen", true, 1928, true);
+
+-- , scanned, scanned_filename, eps_filenames
+
+select * from Songs where title = "Coquette";
 
 /* ** *************************************************** */
 
