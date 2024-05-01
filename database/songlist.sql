@@ -1840,6 +1840,10 @@ values
 
 /* ** *************************************************** */
 
+/* I'm Thru with Love  1931 */
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, 
 year, source, scanned, scanned_filename)
 values
@@ -2164,6 +2168,10 @@ values
 ("Just One of Those Things", "Cole Porter", "Porter, Cole", true, 1935, 
 "Copyright {\\copyright} 1935 (Renewed) Warner Bros.~Inc.", "{\\bf Best of Cole Porter, The}, p.~100.",
 true, "jstthngs.pdf", "jstthngs1.eps;jstthngs2.eps;jstthngs3.eps;", "2021.09.03");
+
+/* ** *************************************************** */
+
+/* Just You, Just Me 1929 */
 
 /* ** *************************************************** */
 
