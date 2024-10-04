@@ -5,7 +5,27 @@
 
 %% ** (2) In database
 
-Little White Lies
+mysql> select title from Songs where year = 1930 order by title;
+
+Body and Soul.  Green/Heymann.
+
+By the Sleepy Lagoon.  England.  Probably not in public domain. 
+
+Fine and Dandy
+
+In Sankt Pauli--bei Altona.  Germany.  Probably not in public domain.
+
+Little White Lies.  Donaldson/Kahn.
+
+Love for Sale.  Porter.
+
+Memories of You.  Blake.
+
+My Baby Just Cares for Me.  Donaldson.
+
+Ten Cents a Dance.  Rodgers and Hart.
+
+Three Little Words.  Kalmar/Ruby
 
 %% ** (2) Not in database
 
