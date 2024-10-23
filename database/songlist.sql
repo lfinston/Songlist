@@ -3173,9 +3173,10 @@ update Songs set eps_filenames = "prtyovr1.eps;prtyovr2.eps;" where title = "Par
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Pennies from Heaven", "Johnny Burke", "Burke, Johnny", "Arthur Johnston", "Johnston, Arthur", true);
+("Pennies from Heaven", "Johnny Burke", "Burke, Johnny", "Arthur Johnston", "Johnston, Arthur", true, 
+1936);
 
 /* ** *************************************************** */
 
