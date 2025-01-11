@@ -1840,7 +1840,8 @@ values
 
 /* ** *************************************************** */
 
-/* I'm Thru with Love  1931 (For searching:  I'm Through with Love) */
+/* I'm Thru with Love  1931 (For searching:  I'm Through with Love.)   */
+/* Check correct title!  LDF 2025.01.11. */
 
 /* ** *************************************************** */
 
