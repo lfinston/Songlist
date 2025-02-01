@@ -1907,6 +1907,10 @@ update Songs set eps_filenames = "incertz1.eps;incertz2.eps;" where title = "Inc
 
 /* ** *************************************************** */
 
+/* Indian Love Call  */
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
 source, scanned, scanned_filename, language)
 values
@@ -3779,6 +3783,10 @@ values
 
 /* ** *************************************************** */
 
+/* Sugar Foot Stomp  */
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, operetta,
 sort_by_production, public_domain, source, scanned, scanned_filename, eps_filenames, entry_date)
 values
@@ -3808,6 +3816,10 @@ false, true, 1);
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Sure Thing", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", true, "Cover Girl", 1944);
+
+/* ** *************************************************** */
+
+/* Sweetheart of Sigma Chi  */
 
 /* ** *************************************************** */
 
@@ -3903,6 +3915,10 @@ values
 ("That Old Feeling", "Lew Brown", "Brown, Lew", "Sammy Fain", "Fain, Sammy", true,
 "Vogues of 1938", 1937, "Copyright {\\copyright} 1937, Renewed 1965.", 
 true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
+
+/* ** *************************************************** */
+
+/* There'll Be Some Changes Made  */
 
 /* ** *************************************************** */
 
