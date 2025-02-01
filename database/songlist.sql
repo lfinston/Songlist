@@ -3770,12 +3770,6 @@ false, true, 1);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
-values
-(, "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true, 1926, true);
-
-/* ** *************************************************** */
-
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Sure Thing", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", true, "Cover Girl", 1944);
