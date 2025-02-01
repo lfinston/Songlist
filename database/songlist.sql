@@ -758,7 +758,7 @@ values
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
-("Charleston", "Cecil Mack", "Mack, Cecil", "James P.~Johnson", "Johnson, James P.",
+("Charleston, The", "Cecil Mack", "Mack, Cecil", "James P.~Johnson", "Johnson, James P.",
 true, 1923, true);
 
 /* ** *************************************************** */
