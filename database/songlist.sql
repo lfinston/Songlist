@@ -27,7 +27,7 @@
 
 /* !! PLEASE NOTE:  It is not intended that this file be loaded using the  */
 /* mysql `source' command (`\.')!                                          */
-/* The MySQL statements in this file should be executed individually or    */
+/* The MySQL statements in this file should be individually or    */
 /* in groups.  The author uses Emacs and the various Emacs commands        */
 /* in "SQL mode".  Of course, `mysql' could be used directly from the      */
 /* command line, but this would be much more inconvenient.  There are      */
@@ -277,6 +277,13 @@ values
 true, 1, 1940, "german");
 
 -- select * from Songs where title = "Abends in der Taverna";
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
+values
+("After You've Gone", "Henry Creamer", "Creamer, Henry", "Turner Layton", "Layton, Turner",
+true, 1918, true);
 
 /* ** *************************************************** */
 
@@ -745,6 +752,14 @@ replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 values
 ("Change Partners", "Irving Berlin", "Berlin, Irving", true, 1938, "Carefree",
 "\\vbox{\\hbox{{\\bf Songs of Irving Berlin, The,}}\\vskip\\sourceskip\\hbox{{\\bf Movie Songs}, p.~18.}}");
+
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
+values
+("Charleston", "Cecil Mack", "Mack, Cecil", "James P.~Johnson", "Johnson, James P.",
+true, 1923, true);
 
 /* ** *************************************************** */
 
@@ -1333,6 +1348,9 @@ values
 "\\vskip\\copyrightskip\\hbox{{\\copyright} Copyright renewed 1978 Frank Music }\\vskip\\copyrightskip"
 "\\hbox{Corporation USA.}}",
 "Guys and Dolls", "{\\bf Guys and Dolls, Vocal Selections}, p.~18.");
+
+
+
 
 /* H   */
 
@@ -2203,6 +2221,15 @@ update Songs set eps_filenames = "kpnmsch1.eps;kpnmsch2.eps;" where title = "Kee
 
 /* ** (2) *************************************************** */
 
+replace into Songs (title, music, music_reverse, lead_sheet, year, public_domain)
+values
+("King Porter Stomp", "Ferdinand ``Jelly Roll'' Morton", "Morton, Ferdinand ``Jelly Roll''",
+false, 1924, true);
+
+/* year is date of copyright.  Song is supposed to be older.  */
+
+/* ** (2) *************************************************** */
+
 /* Knaben Wunderhorn, Des.  Gustav Mahler.
 
 select * from Songs where music = "Gustav Mahler";
@@ -2839,6 +2866,14 @@ scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("My Blue Heaven", "George A.~Whiting", "Whiting, George A.", "Walter Donaldson", "Donaldson, Walter", true,
 "Ziegfeld Follies 1927", 1927, true, "mybluhvn.pdf", "mybluhvn.eps;", true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
+year, public_domain)
+values
+("My Grandfather's Clock", "Henry Clay Work", "Work, Henry Clay", /* ' */
+false, 1876, true);
 
 /* ** *************************************************** */
 
