@@ -476,13 +476,13 @@ select "$$$ B";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename, public_domain)
+source, scanned, scanned_filename, public_domain, recordings)
 values
 ("Baby Face", "Benny Davis", "Davis, Benny", "Harry Akst", "Akst, Harry", 
 true, 1926,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Volume 2}, p.~24.}}",
-true, "babyface.pdf", true);
+true, "babyface.pdf", true, 1);
 
 update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Baby Face";
 
@@ -634,12 +634,12 @@ true, 1957, "{\\bf 40 franz@{o}sische Chansons}, p.~99.", "french");
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
-scanned, scanned_filename, public_domain, eps_filenames)
+scanned, scanned_filename, public_domain, eps_filenames, recordings)
 values
 ("Button Up Your Overcoat", "\\vtop{\\hbox{B.G.~DeSylva, Lew Brown}\\vskip\\composerskip\\hbox{and Ray Henderson}}", 
 "DeSylva, B.G.; Brown, Lew and Henderson, Ray",
 true, 1928, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~44.}}", 
-true, "btnpvrct.pdf", true, "btnpvrct1.eps;btnpvrct2.eps;")
+true, "btnpvrct.pdf", true, "btnpvrct1.eps;btnpvrct2.eps;", 1)
 
 /* ** *************************************************** */
 
@@ -3713,13 +3713,12 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-scanned, scanned_filename, eps_filenames, public_domain)
+scanned, scanned_filename, eps_filenames, public_domain, recordings)
 values
 ("Stardust", "Mitchell Parish", "Parish, Mitchell", "Hoagy Carmichael", "Carmichael, Hoagy", true,
 1929, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;",
-true);
+true, 1);
 
-/* recording?  */
 
 /* ** *************************************************** */
 
@@ -3759,6 +3758,21 @@ select * from Songs where title = "Sun Whose Rays, The";
 replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
 values
 ("Sundown", "Gordon Lightfoot", "Lightfoot, Gordon", true, 1973, "Single edition.");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, 
+scanned, public_domain, recordings)
+values
+("Sunny Side Up", "\\vtop{\\hbox{B.G.~DeSylva, Lew Brown}\\vskip\\composerskip\\hbox{and Ray Henderson}}", 
+"DeSylva, B.G.; Brown, Lew and Henderson, Ray", true, 1929,  
+false, true, 1);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
+values
+(, "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true, 1926, true);
 
 /* ** *************************************************** */
 
