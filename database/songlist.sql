@@ -280,11 +280,11 @@ true, 1, 1940, "german");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
 ("Ain't Misbehavin'", "Andy Razaf", "Razaf, Andy",
 "Thomas ``Fats'' Waller and Harry Brooks", "Waller, Thomas ``Fats'' and Brooks, Harry",
-true, 1929);
+true, 1929, true);
 
 /* ** *************************************************** */
 
@@ -2020,13 +2020,14 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-scanned, scanned_filename, source)
+scanned, scanned_filename, source, public_domain)
 values
 ("I've Got a Feeling I'm Falling", "Billy Rose", "Rose, Billy",
 "Thomas ``Fats'' Waller and Harry Link", "Waller, Thomas ``Fats'' and Link, Harry",
-true, 1929, true, "ivgtflng.pdf", "{\\bf Ain't Misbehavin', Vocal Selections}, p.~42.");
+true, 1929, true, "ivgtflng.pdf", "{\\bf Ain't Misbehavin', Vocal Selections}, p.~42.", true);
 
-update Songs set eps_filenames = "ivgtflng1.eps;ivgtflng2.eps;" where title = "I've Got a Feeling I'm Falling";
+update Songs set eps_filenames = "ivgtflng1.eps;ivgtflng2.eps;" 
+where title = "I've Got a Feeling I'm Falling";
 
 /* ** *************************************************** */
 
@@ -2484,11 +2485,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
 ("Liza (All the Clouds'll Roll Away)", "Ira Gershwin and Gus Kahn", "Gershwin, Ira and Kahn, Gus",
 "George Gershwin", "Gershwin, George", true,
-1929);
+1929, true);
 
 /* ** *************************************************** */
 
@@ -2534,13 +2535,13 @@ true, "lvmrlvme.pdf", "lvmrlvme1.eps;lvmrlvme2.eps;");
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-operetta, year, copyright, source, scanned, scanned_filename)
+operetta, year, copyright, source, scanned, scanned_filename, public_domain)
 values
 ("Lover Come Back to Me", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Sigmund Romberg", "Romberg, Sigmund", true, "New Moon, The", 1928,
 "\\vbox{\\hbox{Copyright {\\copyright} 1928 Warner Bros.~Inc.}\\vskip\\copyrightskip\\hbox{Copyright Renewed}}",
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~152.}}",
-true, "lvrcbtme.pdf");
+true, "lvrcbtme.pdf", true);
 
 update Songs set eps_filenames = "lvrcmbk1.eps;lvrcmbk2.eps;" where title = "Lover Come Back to Me";
 
@@ -3277,10 +3278,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source)
+replace into Songs (title, words_and_music, words_and_music_reverse, no_page_turns, year, source,
+public_domain)
 values
 ("Puttin' On the Ritz", "Irving Berlin", "Berlin, Irving", true, 1929,
-"{\\bf Irving Berlin Songs}, p.~22.");
+"{\\bf Irving Berlin Songs}, p.~22.", true);
 
 select title, lead_sheet from Songs where words_and_music = "Irving Berlin";
 
@@ -3711,10 +3713,11 @@ values
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
-scanned, scanned_filename, eps_filenames)
+scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Stardust", "Mitchell Parish", "Parish, Mitchell", "Hoagy Carmichael", "Carmichael, Hoagy", true,
-1929, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;");
+1929, true, "stardust.pdf", "stardust1.eps;stardust2.eps;stardust3.eps;stardust4.eps;stardust5.eps;",
+true);
 
 /* recording?  */
 
@@ -3990,9 +3993,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
-("Tiptoe Through the Tulips With Me", "Al Dubin", "Dubin, Al", "Joe Burke", "Burke, Joe", true, 1929);
+("Tiptoe Through the Tulips With Me", "Al Dubin", "Dubin, Al", "Joe Burke", "Burke, Joe", true, 1929
+, true);
 
 -- Gold Diggers of Broadway (Film)
 
@@ -4147,10 +4151,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year, public_domain)
 values
-("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur", "Nacio Herb Brown", "Brown, Nacio Herb", true,
-"Broadway Melody, The", 1929);
+("Wedding of the Painted Doll, The", "Arthur Freed", "Freed, Arthur",
+"Nacio Herb Brown", "Brown, Nacio Herb", true, "Broadway Melody, The", 1929, true);
 
 /* ** *************************************************** */
 
@@ -4200,11 +4204,13 @@ update Songs set eps_filenames = "whtgood1.eps;whtgood2.eps;" where title = "Wha
 /* ** *************************************************** */
 
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
-scanned, scanned_filename, eps_filenames, revue, entry_date)
+scanned, scanned_filename, eps_filenames, revue, entry_date, public_domain)
 values
 ("What Is This Thing Called Love?", "Cole Porter", "Porter, Cole", true, 1929,
 "{\\bf Best of Cole Porter, The}, p.~142.", true, "whatlove.pdf", "whatlove1.eps;whatlove2.eps;",
-"Wake Up and Dream", "2021.09.22.");
+"Wake Up and Dream", "2021.09.22.", true);
+
+select * from Songs where title = "What Is This Thing Called Love?";
 
 /* ** *************************************************** */
 
@@ -4313,11 +4319,11 @@ update Songs set eps_filenames = "whwllbuy.eps;" where title = "Who Will Buy?";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year,
-scanned, scanned_filename, source)
+scanned, scanned_filename, source, public_domain)
 values
 ("Why Was I Born?", "Oscar Hammerstein II", "Hammerstein II, Oscar",
 "Jerome Kern", "Kern, Jerome", true, "Sweet Adeline", 1929, true, "whwsibrn.pdf",
-"{\\bf Jerome Kern Collection}, p.~97.");
+"{\\bf Jerome Kern Collection}, p.~97.", true);
 
 /* ** *************************************************** */
 
