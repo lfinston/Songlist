@@ -291,11 +291,11 @@ true, 1929, true);
 -- delete from Songs where title = "Ain't She Sweet";
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, copyright,
-source, scanned, scanned_filename, eps_filenames)
+source, scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Ain't She Sweet?", "Jack Yellen", "Yellen, Jack", "Milton Ager", "Ager, Milton", true,
 1927, "\\vbox{\\hbox{Copyright {\\copyright} 1927 (Renewed)}\\vskip\\copyrightskip\\hbox{WB Music Corp.~and Edwin H. Morris \\& Co.}}",
-"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf", "aintsswt1.eps;aintsswt2.eps;");
+"{\\bf The Looney Tunes Songbook}, p.~57.", true, "aintsswt.pdf", "aintsswt1.eps;aintsswt2.eps;", true);
 
 /* ** *************************************************** */
 
@@ -476,13 +476,13 @@ select "$$$ B";
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year,
-source, scanned, scanned_filename)
+source, scanned, scanned_filename, public_domain)
 values
 ("Baby Face", "Benny Davis", "Davis, Benny", "Harry Akst", "Akst, Harry", 
 true, 1926,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip"
 "\\hbox{{\\bf Volume 2}, p.~24.}}",
-true, "babyface.pdf");
+true, "babyface.pdf", true);
 
 update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Baby Face";
 
@@ -3601,13 +3601,13 @@ values
 ("Somebody Loves Me", "Ballard MacDonald and Buddy DeSylva", 
 "MacDonald, Ballard and DeSylva, Buddy", 
 "George Gershwin", "Gershwin, George",
-true, 1924, true, "smblvsme.pdf", "smblvsme1.eps;smblvsme2.eps;", false);
+true, 1924, true, "smblvsme.pdf", "smblvsme1.eps;smblvsme2.eps;", true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
-("Someone to Watch Over Me", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true, 1926);
+("Someone to Watch Over Me", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true, 1926, true);
 
 /* ** *************************************************** */
 
