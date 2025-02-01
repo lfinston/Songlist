@@ -3064,10 +3064,10 @@ true, 1956);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
 ("On the Sunny Side of the Street", "Dorothy Fields", "Fields, Dorothy",
-"Jimmy McHugh", "McHugh, Jimmy", true, 1);
+"Jimmy McHugh", "McHugh, Jimmy", true, 1, 1930);
 
 /* ** *************************************************** */
 
