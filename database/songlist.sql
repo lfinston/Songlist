@@ -2195,7 +2195,11 @@ true, "jstthngs.pdf", "jstthngs1.eps;jstthngs2.eps;jstthngs3.eps;", "2021.09.03"
 
 /* ** *************************************************** */
 
-/* Just You, Just Me 1929 */
+replace into Songs (title, words, words_reverse, 
+music, music_reverse, film, lead_sheet, year, public_domain)
+values
+("Just You, Just Me", "Raymond Klages", "Klages, Raymond", "Jesse Greer", "Greer, Jesse",
+"Marianne", false, 1929, true);
 
 /* ** *************************************************** */
 
@@ -2225,10 +2229,12 @@ update Songs set eps_filenames = "kpnmsch1.eps;kpnmsch2.eps;" where title = "Kee
 
 /* ** (2) *************************************************** */
 
-replace into Songs (title, music, music_reverse, lead_sheet, year, public_domain)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, public_domain)
 values
-("King Porter Stomp", "Ferdinand ``Jelly Roll'' Morton", "Morton, Ferdinand ``Jelly Roll''",
+("King Porter Stomp", "None", "None", "Ferdinand ``Jelly Roll'' Morton", "Morton, Ferdinand ``Jelly Roll''",
 false, 1924, true);
+
+select * from Songs where title = "King Porter Stomp";
 
 /* year is date of copyright.  Song is supposed to be older.  */
 
