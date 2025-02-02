@@ -1907,7 +1907,24 @@ update Songs set eps_filenames = "incertz1.eps;incertz2.eps;" where title = "Inc
 
 /* ** *************************************************** */
 
-/* Indian Love Call  */
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, 
+music, music_reverse, operetta, lead_sheet, year, public_domain)
+values
+("Indian Love Call", "Otto Harbach and Oscar Hammerstein II",
+"Harbach, Otto and Hammerstein, Oscar II",
+"Rudolf Friml and Herbert Stothart", "Friml, Rudolf and Stothart, Herbert", 
+"Rose-Marie", false, 1924, true);
+
+/* ** *************************************************** */
+
+replace into Songs (title, words, words_reverse, 
+music, music_reverse, lead_sheet, year, public_domain)
+values
+("Indiana Back Home Again in)", "Ballard MacDonald", "MacDonald, Ballard",
+"James F.~Hanley", "Hanley, James F.", 
+false, 1917, true);
 
 /* ** *************************************************** */
 
@@ -3789,7 +3806,14 @@ values
 
 /* ** *************************************************** */
 
-/* Sugar Foot Stomp  */
+replace into Songs (title, music, music_reverse, words, words_reverse, 
+lead_sheet, year, public_domain, notes)
+values
+("Sugar Foot Stomp",
+"Joseph Nathan ``King'' Oliver",
+"Oliver, Joseph Nathan '`King''", 
+"None", "None", 
+false, 1923, true, "Original title:  Dippermouth Blues.");
 
 /* ** *************************************************** */
 
@@ -3825,7 +3849,13 @@ values
 
 /* ** *************************************************** */
 
-/* Sweetheart of Sigma Chi  */
+replace into Songs (title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, public_domain)
+values
+("The Sweetheart of Sigma Chi",
+"Byron D.~Stokes", "Stokes, Byron D.", 
+"F.~Dudleigh Vernor", "Vernor, F.~Dudleigh",
+false, 1911, true);
 
 /* ** *************************************************** */
 
@@ -3924,7 +3954,13 @@ true, "ttldflng.pdf", "ttldflng1.eps;ttldflng2.eps;");
 
 /* ** *************************************************** */
 
-/* There'll Be Some Changes Made  */
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, 
+public_domain)
+values
+("There'll Be Some Changes Made",
+"Billy Higgins", "Higgins, Billy", 
+"Benton Overstreet", "Overstreet, Benton",
+false, 1921, true);
 
 /* ** *************************************************** */
 
