@@ -2896,6 +2896,15 @@ values
 
 /* ** *************************************************** */
 
+/* Stept was a composer.  Tobias was a lyricist and possibly a composer.  
+   LDF 2025.05.27.  */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, year)
+values
+("My First Impression Of You", "Sam H.~Stept and Charles Tobias", "Stept, Sam H.~and Tobias, Charles", 1937);
+
+/* ** *************************************************** */
+
 replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet,
 year, public_domain)
 values
