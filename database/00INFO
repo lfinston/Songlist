@@ -3,6 +3,12 @@
 
 %% * (1) Top
 
+%% ** (2) User and Database
+
+create user 'songlist'@'localhost';
+use Songs;
+
+
 %% ** (2) 2024.  Songs due to go into the public domain (US 1928).
 
 
