@@ -3216,6 +3216,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, 
+year, source, entry_date, public_domain)
+values
+("Paper Doll", "Johnny S.~Black", "Black, Johnny S.", true, 1915, 
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music 1940s,}}\\vskip\\sourceskip\\hbox{{\\bf Part One}, p.~178.}}",
+"2025.09.21.", true);
+
+/* ** *************************************************** */
+
 replace into Songs (title, subtitle, words, words_reverse, music, music_reverse, lead_sheet, year, language)
 values
 ("Para Vigo me voy", "(Say ``Si, Si'')", "Francia Luban", "Luban, Francia", "Ernesto Lecuona", "Lecuona, Ernesto",
