@@ -1276,9 +1276,9 @@ true, "garota.pdf", "portugese", "garota1.eps;garota2.eps;");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Georgia on my Mind", "Stuart Gorrell", "Gorrell, Stuart", "Hoagy Carmichael", "Carmichael, Hoagy", true, 1);
+("Georgia on my Mind", "Stuart Gorrell", "Gorrell, Stuart", "Hoagy Carmichael", "Carmichael, Hoagy", true, 1, 1930);
 
 /* ** *************************************************** */
 
