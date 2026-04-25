@@ -2849,9 +2849,10 @@ update Songs set eps_filenames = "mnltbay1.eps;mnltbay2.eps;" where title = "Moo
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
-("Moonlight Becomes You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true);
+("Moonlight Becomes You", "Johnny Burke", "Burke, Johnny", "Jimmy van Heusen", "Heusen, Jimmy van", true,
+"Road to Morocco", 1942);
 
 /* ** *************************************************** */
 
