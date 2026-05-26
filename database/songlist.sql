@@ -2222,6 +2222,8 @@ values
 
 /* K   */
 
+// Keep a Twinkle in Your Eye, words: Johnny Mercer. Music:  Rube Bloom. 1936.
+
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
 scanned, scanned_filename, film)
 values
