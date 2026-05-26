@@ -2223,6 +2223,11 @@ values
 /* K   */
 
 // Keep a Twinkle in Your Eye, words: Johnny Mercer. Music:  Rube Bloom. 1936.
+// Blackbirds of 1936.
+
+// Not the same song as the one sung by Kukla, Fran and Ollie.
+// That song was written by Richard Ellis in 1948.  
+
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, source,
 scanned, scanned_filename, film)
