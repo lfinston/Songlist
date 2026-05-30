@@ -156,6 +156,7 @@ update Songs set public_domain = true where title = "Someone to Watch Over Me";
 
 select title, scanned, scanned_filename from Songs where title in ("Blue Skies", "Du sollst der Kaiser meiner Seele sein", "Mein Herr Marquis", "Someone to Watch Over Me");
 
+
 +----------------------------------------+---------+------------------+
 | title                                  | scanned | scanned_filename |
 +----------------------------------------+---------+------------------+
@@ -166,6 +167,114 @@ select title, scanned, scanned_filename from Songs where title in ("Blue Skies",
 +----------------------------------------+---------+------------------+
 
 -- select title, entry_date from Songs where title like("I%");
+
+select title from Songs where year is NULL order by title;
+
+
+*************************** 1. row ***************************
+title: {\'U}ltima Noche, La
+*************************** 2. row ***************************
+title: Baby, It's Cold Outside
+*************************** 3. row ***************************
+title: Caravan
+*************************** 4. row ***************************
+title: Chances Are
+*************************** 5. row ***************************
+title: Chega de Saudade
+*************************** 6. row ***************************
+title: Close to You
+*************************** 7. row ***************************
+title: Embraceable You
+*************************** 8. row ***************************
+title: Es leuchten die Sterne
+*************************** 9. row ***************************
+title: Every Time We Say Goodbye
+*************************** 10. row ***************************
+title: Fine Romance, A
+*************************** 11. row ***************************
+title: Fools Rush In (Where Angels Fear to Tread)
+*************************** 12. row ***************************
+title: Frenesi
+*************************** 13. row ***************************
+title: Georgy  Girl
+*************************** 14. row ***************************
+title: Gigi
+*************************** 15. row ***************************
+title: Harbour Lights
+*************************** 16. row ***************************
+title: Hey, Good Lookin'
+*************************** 17. row ***************************
+title: Hooray For Hollywood
+*************************** 18. row ***************************
+title: How About You?
+*************************** 19. row ***************************
+title: I Can't Get Started
+*************************** 20. row ***************************
+title: I Could Have Danced All Night
+*************************** 21. row ***************************
+title: I Married an Angel
+*************************** 22. row ***************************
+title: I Only Have Eyes for You
+*************************** 23. row ***************************
+title: I Say a Little Prayer
+*************************** 24. row ***************************
+title: I'll Never Fall in Love Again
+*************************** 25. row ***************************
+title: In a Sentimental Mood
+*************************** 26. row ***************************
+title: It's Not For Me to Say
+*************************** 27. row ***************************
+title: Jeepers Creepers
+*************************** 28. row ***************************
+title: June in Janury
+*************************** 29. row ***************************
+title: Let's Call the Whole Thing Off
+*************************** 30. row ***************************
+title: Long Ago (and Far Away)
+*************************** 31. row ***************************
+title: Lulu's Back in Town
+*************************** 32. row ***************************
+title: Message From the Man in the Moon, A
+*************************** 33. row ***************************
+title: Misty
+*************************** 34. row ***************************
+title: Moonlight Serenade
+*************************** 35. row ***************************
+title: More
+*************************** 36. row ***************************
+title: Nancy with the Laughing Face
+*************************** 37. row ***************************
+title: On a Clear Day
+*************************** 38. row ***************************
+title: On a Slow Boat to China
+*************************** 39. row ***************************
+title: Out of Nowhere
+*************************** 40. row ***************************
+title: Room With a View, A
+*************************** 41. row ***************************
+title: Rote Sarafan, Der ({\mediumcy kRASN{\char'131}{\char'112} sARAFAN{\char'137}})
+*************************** 42. row ***************************
+title: Siboney
+*************************** 43. row ***************************
+title: Siempre en mi Coraz{\'o}n
+*************************** 44. row ***************************
+title: Smoke Rings
+*************************** 45. row ***************************
+title: Stranger in Paradise
+*************************** 46. row ***************************
+title: This Can't be Love
+*************************** 47. row ***************************
+title: Very Next Man, (I'll Marry) The
+*************************** 48. row ***************************
+title: Volare
+*************************** 49. row ***************************
+title: Way You Look Tonight, The
+*************************** 50. row ***************************
+title: We're in the Money
+50 rows in set (0,00 sec)
+
+
+
 
 alter table Songs drop column entry_date;
 
