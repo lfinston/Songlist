@@ -55,6 +55,10 @@ create user 'songlist'@'localhost';
 
 GRANT ALL ON Songs TO 'songlist'@'localhost';
 
+/* ** (2)   */
+
+update Songs set year = 1936 where title = "Caravan";
+
 /* ** (2) Create table `Songs'.  */
 
 // drop table Songs;
