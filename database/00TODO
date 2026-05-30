@@ -39,9 +39,7 @@ title: {\'U}ltima Noche, La
 *************************** 2. row ***************************
 title: Baby, It's Cold Outside
 *************************** 3. row ***************************
-title: Caravan
 
-1936
 
 *************************** 4. row ***************************
 title: Chances Are
@@ -57,6 +55,8 @@ Published 1930 by Harms Inc.
 public domain
 musical Girl Crazy
 
+update Songs set year = 1930, musical = "Girl Crazy" where title = "Embraceable You";
+
 *************************** 8. row ***************************
 title: Es leuchten die Sterne
 *************************** 9. row ***************************
@@ -66,6 +66,8 @@ title: Fine Romance, A
 
 Film:  Swing Time
 1936
+
+update Songs set year = 
 
 *************************** 11. row ***************************
 title: Fools Rush In (Where Angels Fear to Tread)
@@ -85,6 +87,7 @@ Composer	Hugh Williams
 with music by Hugh Williams (the pseudonym of exiled Austrian composer Will Grosz).
 https://en.wikipedia.org/wiki/Harbour_Lights_(song)
 
+update Songs set year = 
 
 *************************** 16. row ***************************
 title: Hey, Good Lookin'
@@ -110,7 +113,7 @@ title: In a Sentimental Mood
 
 https://en.wikipedia.org/wiki/In_a_Sentimental_Mood
 
-1935.
+update Songs set year = 1935
 
 
 *************************** 26. row ***************************
@@ -122,12 +125,16 @@ title: Jeepers Creepers
 
 https://en.wikipedia.org/wiki/Jeepers_Creepers_(song)
 
+update Songs set year = 
+
 *************************** 28. row ***************************
 title: June in Janury
 *************************** 29. row ***************************
 title: Let's Call the Whole Thing Off
 
 1937 film Shall We Dance
+
+update Songs set year = 
 
 ***** 28. row ***************************
 title: June in Janury
@@ -138,12 +145,16 @@ title: Let's Call the Whole Thing Off
 
 https://en.wikipedia.org/wiki/Let%27s_Call_the_Whole_Thing_Off
 
+update Songs set year = 
+
 *************************** 30. row ***************************
 title: Long Ago (and Far Away)
 
 https://en.wikipedia.org/wiki/Long_Ago_(and_Far_Away)
 1944
 film musical Cover Girl
+
+update Songs set year = 
 
 *************************** 31. row ***************************
 title: Lulu's Back in Town
@@ -155,6 +166,8 @@ title: Misty
 title: Moonlight Serenade
 
 1939
+
+update Songs set year = 
 
 *************************** 35. row ***************************
 title: More
@@ -184,11 +197,15 @@ title: This Can't be Love
 1938 Rodgers and Hart musical The Boys from Syracuse
 https://en.wikipedia.org/wiki/This_Can%27t_Be_Love_(song)
 
+update Songs set year = 
+
 *************************** 47. row ***************************
 title: Very Next Man, (I'll Marry) The
 
 Fiorello
 1959
+
+update Songs set year = 
 
 *************************** 48. row ***************************
 title: Volare
@@ -198,6 +215,7 @@ title: Way You Look Tonight, The
 Film:  Swing Time
 1936
 
+update Songs set year = 
 
 *************************** 50. row ***************************
 title: We're in the Money
@@ -211,6 +229,7 @@ Gold Diggers of 1933
 
 https://en.wikipedia.org/wiki/The_Gold_Diggers%27_Song_(We%27re_in_the_Money)
 
+update Songs set year =
 
 %% ** (2)
 
