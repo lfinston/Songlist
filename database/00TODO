@@ -1,0 +1,217 @@
+%% 00TODO
+%% Created by Laurence D. Finston (LDF) Sa 30. Mai 06:23:43 CEST 2026
+
+%% * (0) Copyright and License.
+
+%% This file is part of Songlist, a package for keeping track of songs.
+%% Copyright (C) 2026 Laurence Finston
+
+%% Songlist is free software; you can redistribute it and/or modify 
+%% it under the terms of the GNU General Public License as published by 
+%% the Free Software Foundation; either version 3 of the License, or 
+%% (at your option) any later version. 
+
+%% Songlist is distributed in the hope that it will be useful, 
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of 
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+%% GNU General Public License for more details. 
+
+%% You should have received a copy of the GNU General Public License 
+%% along with Songlist; if not, write to the Free Software 
+%% Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+
+%% ("@@" stands for a single at-sign in the following line.) 
+
+%% Please send bug reports to Laurence.Finston@@gmx.de 
+
+
+%% * (1) Top
+
+
+%% * (1) Songs with year not set.
+
+2026.05.30.
+
+select title from Songs where year is NULL order by title;
+
+*************************** 1. row ***************************
+title: {\'U}ltima Noche, La
+*************************** 2. row ***************************
+title: Baby, It's Cold Outside
+*************************** 3. row ***************************
+title: Caravan
+
+1936
+
+*************************** 4. row ***************************
+title: Chances Are
+*************************** 5. row ***************************
+title: Chega de Saudade
+*************************** 6. row ***************************
+title: Close to You
+*************************** 7. row ***************************
+title: Embraceable You
+
+Written	1928
+Published 1930 by Harms Inc.
+public domain
+musical Girl Crazy
+
+*************************** 8. row ***************************
+title: Es leuchten die Sterne
+*************************** 9. row ***************************
+title: Every Time We Say Goodbye
+*************************** 10. row ***************************
+title: Fine Romance, A
+
+Film:  Swing Time
+1936
+
+*************************** 11. row ***************************
+title: Fools Rush In (Where Angels Fear to Tread)
+*************************** 12. row ***************************
+title: Frenesi
+*************************** 13. row ***************************
+title: Georgy  Girl
+*************************** 14. row ***************************
+title: Gigi
+*************************** 15. row ***************************
+title: Harbour Lights
+
+Published	1937
+Songwriter	Jimmy Kennedy
+Composer	Hugh Williams
+
+with music by Hugh Williams (the pseudonym of exiled Austrian composer Will Grosz).
+https://en.wikipedia.org/wiki/Harbour_Lights_(song)
+
+
+*************************** 16. row ***************************
+title: Hey, Good Lookin'
+*************************** 17. row ***************************
+title: Hooray For Hollywood
+*************************** 18. row ***************************
+title: How About You?
+*************************** 19. row ***************************
+title: I Can't Get Started
+*************************** 20. row ***************************
+title: I Could Have Danced All Night
+*************************** 21. row ***************************
+title: I Married an Angel
+*************************** 22. row ***************************
+title: I Only Have Eyes for You
+*************************** 23. row ***************************
+title: I Say a Little Prayer
+*************************** 24. row ***************************
+title: I'll Never Fall in Love Again
+*************************** 25. row ***************************
+
+title: In a Sentimental Mood
+
+https://en.wikipedia.org/wiki/In_a_Sentimental_Mood
+
+1935.
+
+
+*************************** 26. row ***************************
+title: It's Not For Me to Say
+*************************** 27. row ***************************
+title: Jeepers Creepers
+
+1938 movie Going Places
+
+https://en.wikipedia.org/wiki/Jeepers_Creepers_(song)
+
+*************************** 28. row ***************************
+title: June in Janury
+*************************** 29. row ***************************
+title: Let's Call the Whole Thing Off
+
+1937 film Shall We Dance
+
+***** 28. row ***************************
+title: June in Janury
+*************************** 29. row ***************************
+title: Let's Call the Whole Thing Off
+
+1937 film Shall We Dance
+
+https://en.wikipedia.org/wiki/Let%27s_Call_the_Whole_Thing_Off
+
+*************************** 30. row ***************************
+title: Long Ago (and Far Away)
+
+https://en.wikipedia.org/wiki/Long_Ago_(and_Far_Away)
+1944
+film musical Cover Girl
+
+*************************** 31. row ***************************
+title: Lulu's Back in Town
+*************************** 32. row ***************************
+title: Message From the Man in the Moon, A
+*************************** 33. row ***************************
+title: Misty
+*************************** 34. row ***************************
+title: Moonlight Serenade
+
+1939
+
+*************************** 35. row ***************************
+title: More
+*************************** 36. row ***************************
+title: Nancy with the Laughing Face
+*************************** 37. row ***************************
+title: On a Clear Day
+*************************** 38. row ***************************
+title: On a Slow Boat to China
+*************************** 39. row ***************************
+title: Out of Nowhere
+*************************** 40. row ***************************
+title: Room With a View, A
+*************************** 41. row ***************************
+title: Rote Sarafan, Der ({\mediumcy kRASN{\char'131}{\char'112} sARAFAN{\char'137}})
+*************************** 42. row ***************************
+title: Siboney
+*************************** 43. row ***************************
+title: Siempre en mi Coraz{\'o}n
+*************************** 44. row ***************************
+title: Smoke Rings
+*************************** 45. row ***************************
+title: Stranger in Paradise
+*************************** 46. row ***************************
+title: This Can't be Love
+
+1938 Rodgers and Hart musical The Boys from Syracuse
+https://en.wikipedia.org/wiki/This_Can%27t_Be_Love_(song)
+
+*************************** 47. row ***************************
+title: Very Next Man, (I'll Marry) The
+
+Fiorello
+1959
+
+*************************** 48. row ***************************
+title: Volare
+*************************** 49. row ***************************
+title: Way You Look Tonight, The
+
+Film:  Swing Time
+1936
+
+
+*************************** 50. row ***************************
+title: We're in the Money
+
+Change title and add reference.
+
+The Gold Diggers' Song (We're in the Money)
+
+1933
+Gold Diggers of 1933
+
+https://en.wikipedia.org/wiki/The_Gold_Diggers%27_Song_(We%27re_in_the_Money)
+
+
+%% ** (2)
+
+50 rows in set (0,00 sec)
