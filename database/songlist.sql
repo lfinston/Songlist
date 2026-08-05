@@ -3322,10 +3322,15 @@ values
 
 delete from Songs where title like("Polowetzer%");
 
-replace into Songs (title, subtitle, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
+/* !! TODO:  Put "Stranger in Paradise" into subtitle.  Using a box with 0pt width
+   didn't work for the list of public domain songs.  The program must be 
+   changed to account for this.
+   LDF 2026.08.05.  */
+
+replace into Songs (title, filecard_title, words_and_music, words_and_music_reverse, lead_sheet, opera,
 production_subtitle, scanned, scanned_filename, language, sort_by_production, public_domain, eps_filenames, year)
 values
-("Polowetzer T@{a}nze", "\\hbox to 0pt{(``Stranger in Paradise'')\\hss}",
+("Polowetzer T@{a}nze (``Stranger in Paradise'')",
 "\\vbox{\\hbox{Polowetzer T@{a}nze}\\vskip\\titleskip\\hbox{(``Stranger in Paradise'')}}",
 "Alexander Borodin", "Borodin, Alexander", 
 true, "Prince Igor", "({\\mediumcy kNQZX iGORX})", true, "polowtnz.pdf", "russian", true, true,
