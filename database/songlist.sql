@@ -3887,13 +3887,14 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, public_domain)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, public_domain,
+scanned, scanned_filename)
 values
 ("Sweet Georgia Brown", "Ben Bernie, Kenneth Casey and Maceo Pinkard",
 "Bernie, Ben; Casey, Kenneth; and Pinkard, Maceo",
 true, 1925,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~246.}}",
-true);
+true, true, "sweet_georgia_brown.pdf");
 
 /* ** *************************************************** */
 
@@ -4442,10 +4443,12 @@ true, "where_or_when.pdf", "where_or_when_1.eps;where_or_when_2.eps;", "2022.10.
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source, public_domain)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source,
+public_domain, scanned, scanned_filename)
 values
 ("Whispering", "John Schonberger, Richard Coburn and Vincent Rose",
-"Schonberger John; Coburn, Richard and Vincent Rose", true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~294.}}", true);
+"Schonberger John; Coburn, Richard and Vincent Rose", true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~294.}}", true,
+true, "whispering.pdf");
 
 /* ** *************************************************** */
 

@@ -864,7 +864,7 @@ main(int argc, char **argv)
                         << "\\vskip.75\\baselineskip" << endl
                         << "\\setbox0=\\hbox{{\\medium 0000}}" << endl
                         << "\\dimen0=\\wd0" << endl
-                        << "\\setbox0=\\hbox{{\\mediumtt xxxxxxxx.xxx}}" << endl
+                        << "\\setbox0=\\hbox{{\\mediumtt sweet_georgia_brown.pdf}}" << endl
                         << "\\dimen1=\\wd0" << endl
                         << "\\advance\\dimen1 by 5em" << endl
                         << "\\songctr=1" << endl
