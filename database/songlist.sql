@@ -322,7 +322,7 @@ replace into Songs (title, words, words_reverse, music, music_reverse, lead_shee
 scanned, scanned_filename, eps_filenames, public_domain)
 values
 ("Alice Blue Gown", "Joe McCarthy", "McCarthy, Joe", "Harry Tierney", "Tierney, Harry", 
-true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 20s--}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
+true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~9.}}",
 true, "alcblgwn.pdf", "alcblgwn1.eps;alcblgwn2.eps;", true);
 
 /* ** *************************************************** */
@@ -3887,6 +3887,15 @@ values
 
 /* ** *************************************************** */
 
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+values
+("Sweet Georgia Brown", "Ben Bernie, Kenneth Casey and Maceo Pinkard",
+"Bernie, Ben; Casey, Kenneth; and Pinkard, Maceo",
+true, 1925,
+"\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~246.}}");
+
+/* ** *************************************************** */
+
 replace into Songs (title, words, words_reverse, music, music_reverse, 
 lead_sheet, year, public_domain)
 values
@@ -4429,6 +4438,13 @@ values
 "Babes in Arms", 
 "\\vbox{\\hbox{{\\bf Rodgers and Hart,}}\\vskip\\sourceskip\\hbox{{\\bf A Musical Anthology}, p.~22.}}",
 true, "where_or_when.pdf", "where_or_when_1.eps;where_or_when_2.eps;", "2022.10.20.");
+
+/* ** *************************************************** */
+
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, source)
+values
+("Whispering", "John Schonberger, Richard Coburn and Vincent Rose",
+"Schonberger John; Coburn, Richard and Vincent Rose", true, 1919, "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 1920s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~294.}}");
 
 /* ** *************************************************** */
 
