@@ -59,6 +59,10 @@ GRANT ALL ON Songs TO 'songlist'@'localhost';
 
 update Songs set year = 1936 where title = "Caravan";
 
+select title from Songs where year = 1931 order by title;
+
+select title from Songs where year is NULL order by title;
+
 /* ** (2) Create table `Songs'.  */
 
 // drop table Songs;
@@ -509,9 +513,11 @@ update Songs set eps_filenames = "babyfac1.eps;babyfac2.eps;" where title = "Bab
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, recordings)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, recordings, year,
+notes)
 values
-("Baby, It's Cold Outside", "Frank Loesser", "Loesser, Frank", true, 1);
+("Baby, It's Cold Outside", "Frank Loesser", "Loesser, Frank", true, 1, 1949, 
+"Written 1944.  Published 1949.");
 
 /* ** *************************************************** */
 
@@ -731,9 +737,9 @@ true, 1, 1943, "german");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("Caravan", "Irving Mills", "Mills, Irving", "Duke Ellington and Juan Tizol", "Ellington, Duke and Tizol, Juan", true);
+("Caravan", "Irving Mills", "Mills, Irving", "Duke Ellington and Juan Tizol", "Ellington, Duke and Tizol, Juan", true, 1936, "Released 1936.  TODO:  Check publication date.");
 
 /* ** *************************************************** */
 
@@ -1038,9 +1044,11 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes,
+public_domain)
 values
-("Embraceable You", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true);
+("Embraceable You", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true, 1930,
+"Written 1928, published 1930.", true);
 
 /* ** *************************************************** */
 
@@ -1062,9 +1070,10 @@ update Songs set eps_filenames = "estsolhr1.eps;estsolhr2.eps;" where title = "E
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year, notes)
 values
-("Every Time We Say Goodbye", "Cole Porter", "Porter, Cole", true);
+("Every Time We Say Goodbye", "Cole Porter", "Porter, Cole", true, 1944, 
+"Actual title:  \"Ev'ry Time We Say Goodbye\".");
 
 /* ** *************************************************** */
 
@@ -1135,9 +1144,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Fine Romance, A", "Dorothy Fields", "Fields, Dorothy", "Jerome Kern", "Kern, Jerome", true);
+("Fine Romance, A", "Dorothy Fields", "Fields, Dorothy", "Jerome Kern", "Kern, Jerome", true, 1936);
 
 /* ** *************************************************** */
 
@@ -1215,13 +1224,14 @@ update Songs set eps_filenames = "fdglfd01.eps;fdglfd02.eps;fdglfd03.eps;fdglfd0
 
 /* ** *************************************************** */
 
-replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, copyright)
+replace into Songs (title, filecard_title, words, words_reverse, music, music_reverse, 
+lead_sheet, copyright, year)
 values
 ("Fools Rush In (Where Angels Fear to Tread)", 
 "\\vbox{\\hbox{Fools Rush In}\\vskip\\titleskip\\hbox{(Where Angels Fear to Tread)}}",
 "Johnny Mercer", "Mercer, Johnny",
 "Rube Bloom", "Bloom, Rube", true,
-"{\\copyright} 1940 WB Music Corp.~(Renewed)");
+"{\\copyright} 1940 WB Music Corp.~(Renewed)", 1940);
 
 /* ** *************************************************** */
 
@@ -1301,9 +1311,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, no_page_turns, film, year)
 values
-("Gigi", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Gigi");
+("Gigi", "Alan Jay Lerner", "Lerner, Alan Jay", "Frederick Loewe", "Loewe, Frederick", true, "Gigi",
+1958);
 
 /* ** *************************************************** */
 
@@ -1330,8 +1341,8 @@ values
 
 delete from Songs where title = "Gold Diggers' Song, The (We're in the Money)";
 
-replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, lead_sheet, year, film, source, 
-notes, scanned, scanned_filename)
+replace into Songs (title, subtitle, filecard_title, words, words_reverse, music, music_reverse, 
+lead_sheet, year, film, source, notes, scanned, scanned_filename)
 values
 ("Gold Diggers' Song, The", "(We're in the Money)", 
 "\\vtop{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{(We're in the Money)}}", 
@@ -1343,12 +1354,12 @@ true, "golddgrs.pdf");
 
 update Songs set eps_filenames = "golddig1.eps;golddig2.eps;" where title = "Gold Diggers' Song, The";
 
-replace into Songs (title, is_cross_reference, target, lead_sheet)
+replace into Songs (title, is_cross_reference, target, lead_sheet, year)
 values
 ("We're in the Money", true,
 "\\ifalltex Gold Diggers' Song, The\\hfil\\vskip0pt\\S (We're in the Money)"
 "\\else\\vtop{\\largebx{\\hbox{Gold Diggers' Song, The}\\vskip\\titleskip\\hbox{\\hskip-\\basichskip(We're in the Money)}}}\\fi",
-true);
+true, 1933);
 
 /* ** *************************************************** */
 
@@ -1479,15 +1490,16 @@ true, 1966, "Homme et une femme, Un", "french");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Hooray For Hollywood", "Johnny Mercer", "Mercer, Johnny", "Richard A.~Whiting", "Whiting, Richard A.", true);
+("Hooray For Hollywood", "Johnny Mercer", "Mercer, Johnny", "Richard A.~Whiting",
+"Whiting, Richard A.", true, 1937);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("How About You?", "Ralph Freed", "Freed, Ralph", "Burton Lane", "Lane, Burton", true);
+("How About You?", "Ralph Freed", "Freed, Ralph", "Burton Lane", "Lane, Burton", true, 1941);
 
 /* banjo chords accomp.  */
 
@@ -1540,9 +1552,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("I Can't Get Started", "Ira Gershwin", "Gershwin, Ira", "Vernon Duke", "Duke, Vernon", true);
+("I Can't Get Started", "Ira Gershwin", "Gershwin, Ira", "Vernon Duke", "Duke, Vernon", true, 1936);
 
 /* ** *************************************************** */value
 
@@ -1624,10 +1636,10 @@ update Songs set eps_filenames = "lksofyou1.eps;lksofyou2.eps;" where title = "I
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, musical, year)
 values
 ("I Married an Angel", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", 
-true, "I Married an Angel");
+true, "I Married an Angel", 1938);
 
 /* ** *************************************************** */
 
@@ -1744,9 +1756,9 @@ true, 1959, "{\\bf Fiorello!  Vocal Selections}, p.~8.", "Fiorello!", true, "ver
 
 update Songs set eps_filenames = "verynext1.eps;verynext2.eps;verynext3.eps;" where title = "(I'll Marry) The Very Next Man";
 
-replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production)
+replace into Songs (title, is_cross_reference, target, lead_sheet, sort_by_production, production, year)
 values
-("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!");
+("Very Next Man, (I'll Marry) The", true, "(I'll Marry) The Very Next Man", true, true, "Fiorello!", 1959);
 
 select * from Songs where title = "Very Next Man, (I'll Marry) The";
 
@@ -1895,9 +1907,9 @@ true, "impsbdrm.pdf", "impsbdrm1.eps;impsbdrm2.eps;", "2021.09.17.");
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Duke Ellington", "Ellington, Duke", true);
+("In a Sentimental Mood", "Manny Kurtz, Irving Mills", "Kurtz, Manny and Mills, Irving", "Duke Ellington", "Ellington, Duke", true, 1935);
 
 /* ** *************************************************** */
 
@@ -2140,9 +2152,10 @@ true, true, "jpnsndmn.pdf", 1920, true, "jpnsnd01.eps;jpnsnd02.eps;jpnsnd03.eps;
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Jeepers Creepers", "Johnny Mercer", "Mercer, Johnny", "Harry Warren", "Warren, Harry", true, 1);
+("Jeepers Creepers", "Johnny Mercer", "Mercer, Johnny", "Harry Warren", "Warren, Harry", 
+true, 1, 1938);
 
 /* ** *************************************************** */
 
@@ -2179,9 +2192,9 @@ update Songs set eps_filenames = "jntsjmp1.eps;jntsjmp2.eps;" where title = "Joi
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("June in Janury", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true);
+("June in Janury", "Leo Robin", "Robin, Leo", "Ralph Rainger", "Rainger, Ralph", true, 1934);
 
 /* ** *************************************************** */
 
@@ -2429,10 +2442,10 @@ update Songs set eps_filenames = "lazyrivr1.eps;lazyrivr2.eps;" where title = "L
 
 /*  ?? Question mark in film title?  */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Let's Call the Whole Thing Off", "Ira Gershwin", "Gershwin, Ira", "George Gershwin", "Gershwin, George", true,
-"Shall We Dance");
+"Shall We Dance", 1937);
 
 /* ** *************************************************** */
 
@@ -2566,9 +2579,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
-("Long Ago (and Far Away)", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", true, "Cover Girl");
+("Long Ago (and Far Away)", "Ira Gershwin", "Gershwin, Ira", "Jerome Kern", "Kern, Jerome", 
+true, "Cover Girl", 1944);
 
 /* ** *************************************************** */
 
@@ -2655,9 +2669,9 @@ true, "At the Circus", 1939, "Copyright {\\copyright} 1939 (Renewed)",
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Lulu's Back in Town", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1);
+("Lulu's Back in Town", "Al Dubin", "Dubin, Al", "Harry Warren", "Warren, Harry", true, 1, 1935);
 
 /* M   */
 
@@ -2789,11 +2803,11 @@ update Songs set eps_filenames = "memrsof1.eps;memrsof2.eps;" where title = "Mem
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, notes, year)
 values
 ("Message From the Man in the Moon, A", "Gus Kahn", "Kahn, Gus", "Walter Jurmann and Bronislaw Kaper",
 "Jurmann, Walter and Kaper, Bronislaw",
-true, "Day at the Races, A", "Cut from film.");
+true, "Day at the Races, A", "Cut from film.", 1937);
 
 /* ** *************************************************** */
 
@@ -2875,9 +2889,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Moonlight Serenade", "Mitchell Parish", "Parish, Mitchell", "Glenn Miller", "Miller, Glenn", true);
+("Moonlight Serenade", "Mitchell Parish", "Parish, Mitchell", "Glenn Miller", "Miller, Glenn",
+true, 1939);
 
 /* ** *************************************************** */
 
@@ -2930,6 +2945,8 @@ year, public_domain)
 values
 ("My Grandfather's Clock", "Henry Clay Work", "Work, Henry Clay", /* ' */
 false, 1876, true);
+
+select * from Songs where title like("My Grandfather%");
 
 /* ** *************************************************** */
 
@@ -2994,9 +3011,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, recordings, year)
 values
-("Nancy with the Laughing Face", "Phil Silvers", "Silvers, Phil", "Jimmy van Heusen", "Heusen, Jimmy van", true, 1);
+("Nancy with the Laughing Face", "Phil Silvers", "Silvers, Phil",
+"Jimmy van Heusen", "Heusen, Jimmy van", true, 1, 1942);
 
 /* ** *************************************************** */
 
@@ -3121,9 +3139,9 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet)
+replace into Songs (title, words_and_music, words_and_music_reverse, lead_sheet, year)
 values
-("On a Slow Boat to China", "Frank Loesser", "Loesser, Frank", true);
+("On a Slow Boat to China", "Frank Loesser", "Loesser, Frank", true, 1948);
 
 /* ** *************************************************** */
 
@@ -3196,9 +3214,12 @@ true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+/* !!TODO:  Check publication date.  Could be public domain.  LDF 2026.10.03.
+
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
 values
-("Out of Nowhere", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true);
+("Out of Nowhere", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true, 
+1931, "TODO:  Check publication date.");
 
 /* ** *************************************************** */
 
@@ -3675,9 +3696,10 @@ values
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
-("Smoke Rings", "Ned Washington", "Washington, Ned", "H.~Eugene Gifford", "Gifford, H.~Eugene ", true);
+("Smoke Rings", "Ned Washington", "Washington, Ned", "H.~Eugene Gifford", "Gifford, H.~Eugene ", 
+true, 1932);
 
 /* ** *************************************************** */
 
@@ -4087,10 +4109,10 @@ true, 1946, "{\\bf New Sammy Cahn Songbook, The}, p.~80.", true, "thngswdd.pdf")
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, notes, year)
 values
 ("This Can't be Love", "Lorenz Hart", "Hart, Lorenz", "Richard Rodgers", "Rodgers, Richard", true,
-"\\hbox{}\\hbox{\\hskip-\\noteswd Verse incomplete on lead sheet and score.\\hss}");
+"\\hbox{}\\hbox{\\hskip-\\noteswd Verse incomplete on lead sheet and score.\\hss}", 1938);
 
 /* ** *************************************************** */
 
@@ -4299,10 +4321,10 @@ true, "wandrer.pdf", "wandrer1.eps;wandrer2.eps;", "greek", true);
 
 /* ** *************************************************** */
 
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, film, year)
 values
 ("Way You Look Tonight, The", "Dorothy Fields", "Fields, Dorothy", "Jerome Kern", "Kern, Jerome", true,
-"Swing Time");
+"Swing Time", 1936);
 
 /* ** *************************************************** */
 
