@@ -2602,14 +2602,13 @@ true, "lovesale.pdf", "lovesale1.eps;lovesale2.eps;lovesale3.eps;", "New Yorkers
 /* ** *************************************************** */
 
 replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet,
-year, source, scanned, scanned_filename)
+year, source, scanned, scanned_filename, copyright, eps_filenames)
 values
 ("Love Letters in the Sand", "Nick Kenny and Charles Kenny", "Kenny, Nick and Kenny, Charles",
 "J.~Fred Coots", "Coots, J.~Fred", true, 1931,
 "\\vbox{\\hbox{{\\bf 100 Years of Popular Music, 30s,}}\\vskip\\sourceskip\\hbox{{\\bf Volume 1}, p.~196.}}",
-true, "lvltrsnd.pdf");
-
-update Songs set eps_filenames = "lvltrsn1.eps;lvltrsn2.eps;" where title = "Love Letters in the Sand";
+true, "lvltrsnd.pdf", "1931 Bourne Co., USA.  Francis Day {\\&} Hunter, Ltd., London WC2H 0EA",
+"lvltrsn1.eps;lvltrsn2.eps;");
 
 /* ** *************************************************** */
 
