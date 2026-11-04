@@ -3213,12 +3213,10 @@ true);
 
 /* ** *************************************************** */
 
-/* !!TODO:  Check publication date.  Could be public domain.  LDF 2026.10.03.
-
-replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year, notes)
+replace into Songs (title, words, words_reverse, music, music_reverse, lead_sheet, year)
 values
 ("Out of Nowhere", "Edward Heyman", "Heyman, Edward", "John W.~Green", "Green, John W.", true, 
-1931, "TODO:  Check publication date.");
+1931);
 
 /* ** *************************************************** */
 
